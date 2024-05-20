@@ -1,0 +1,145 @@
+# You should enable this to get bug fixes and receive support
+auto-update: true
+
+# Whether to enable the debug logs
+debug: false
+
+# The default language of the plugin
+# SlimefunTranslation is supported.
+lang: en
+
+# Balance options
+balance:
+  # The cost multiplier for singularity crafting
+  singularity-cost-multiplier: 1.0
+
+  # Can Gear Transformer transform slimefun gear's material.
+  # Diamond tools can already be upgraded to netherite,
+  # but some addon developers do not want their gear to be transformable, so change this at your own risk.
+  allow-sf-item-transform: false
+
+  # Whether to enable researches
+  enable-researches: false
+
+# Mob simulation options
+mob-simulation:
+
+  # The mob simulation runs every X ticks
+  # Unit: slimefun tick
+  tick-rate: 20
+
+  # The experience multiplier for mob simulation
+  exp-multiplier: 1.0
+
+# Quarry options
+quarry:
+
+  # The chance (0 to 1) of an oscillator activating each time a material would be produced
+  oscillators:
+    lapis: .5
+    diamond: .5
+    redstone: .5
+    quartz: .5
+    emerald: .5
+
+  # The quarry produces every X tick
+  # Unit: slimefun tick
+  tick-rate: 10
+
+  # Whether quarries in overworld can produce nether materials
+  nether-materials-in-overworld: false
+
+  # The resources that can be produced by the quarry
+  resources:
+    coal: true
+    iron: true
+    gold: true
+    lapis: true
+    copper: true
+    quartz: true
+    diamond: true
+    emerald: true
+    redstone: true
+    netherite: true
+    netherrack: true
+
+# The maximum possible level of every enchantment in advanced anvil
+# all the keys are the key part of an Enchantment's NamespacedKey
+# Enchantment: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/enchantments/Enchantment.html
+# You can add any enchantments, but cannot remove.
+# If you want to "remove" an enchantment, set its level to 0, it will be read as not set, thus will have its vanilla limit.
+# Enchantments not defined here will have the vanilla level limit.
+#
+# after 1.20.5, bukkit renamed the naming of Enchantment enum, so the name is the same as the key part except case.
+# so, you only need to turn the Enchantment's name into lowercase.
+# e.g. FIRE_ASPECT -> fire_aspect
+advanced-anvil:
+  max-levels:
+    sharpness: 9
+    bane_of_arthropods: 9
+    smite: 9
+    protection: 10
+    fortune: 6
+    efficiency: 7
+    fire_aspect: 6
+    power: 7
+    thorns: 13
+    looting: 6
+    unbreaking: 13
+
+# Defines the enchantment levels of infinity gears.
+#
+# `unbreakable` is a boolean value that determines whether the gear is unbreakable.
+# You can add new enchantments, but cannot remove enchantment fields, the plugin will fill all missing fields.
+# To disable an existing enchantment, set its level to 0.
+#
+# This only affects new gears, not existing ones.
+# protection caps out at 20 levels across all 4 pieces of gear. So 10+10+10+10 is still the same as 5+5+5+5.
+infinity-gear-enchantments:
+  blade:
+    unbreakable: true
+    sharpness: 20
+    looting: 10
+    fire_aspect: 10
+  pickaxe:
+    unbreakable: true
+    efficiency: 40
+    fortune: 20
+  shovel:
+    unbreakable: true
+    efficiency: 40
+    silk_touch: 10
+  axe:
+    unbreakable: true
+    efficiency: 40
+    sharpness: 20
+    fire_aspect: 10
+    looting: 0
+    silk_touch: 0
+  bow:
+    unbreakable: true
+    power: 10
+    flame: 10
+    infinity: 10
+    punch: 0
+  crown:
+    unbreakable: true
+    protection: 20
+    aqua_affinity: 10
+  chestplate:
+    unbreakable: true
+    protection: 20
+    thorns: 10
+  leggings:
+    unbreakable: true
+    protection: 20
+    thorns: 10
+  boots:
+    unbreakable: true
+    protection: 20
+    feather_falling: 0
+    thorns: 0
+  shield:
+    unbreakable: true
+    protection: 20
+    thorns: 10

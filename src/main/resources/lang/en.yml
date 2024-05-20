@@ -1,0 +1,117 @@
+items:
+  # item groups
+  _IG_MAIN:
+    conditions:
+      force-load: true
+    name: "&kl&bInfinity&4Expansion&a&l2&kl" # pay attention to the color codes when you translate this.
+  _IG_MATERIALS:
+    conditions:
+      force-load: true
+    name: "&aIE2 - &7Materials"
+  _IG_BASIC_MACHINES:
+    conditions:
+      force-load: true
+    name: "&aIE2 - &9Basic &7Machines"
+  _IG_ADVANCED_MACHINES:
+    conditions:
+      force-load: true
+    name: "&aIE2 - &cAdvanced &7Machines"
+  _IG_SINGULARITIES:
+    conditions:
+      force-load: true
+    name: "&aIE2 - &aSingularities"
+  _IG_MOB_SIMULATION:
+    conditions:
+      force-load: true
+    name: "&aIE2 - &bMob Simulation"
+  _IG_STORAGE:
+    conditions:
+      force-load: true
+    name: "&aIE2 - &6Storage"
+
+  # recipe types
+  _RECIPE_VOID_HARVESTER:
+    conditions:
+      force-load: true
+    name: "&8Void Harvester"
+    lore:
+      - "&7Harvests resources from the void."
+
+  # items - materials
+  ENDER_ESSENCE:
+    conditions:
+      match-lore: true
+    name: "&5Ender Essence"
+    lore:
+      - "&8&oFrom the depths of the end..."
+  COMPRESSED_COBBLESTONE_1:
+    name: "&7Single Compressed Cobblestone"
+    lore:
+      - "&89 cobblestones combined."
+  COMPRESSED_COBBLESTONE_2:
+    name: "&7Double Compressed Cobblestone"
+    lore:
+      - "&881 cobblestones combined."
+  COMPRESSED_COBBLESTONE_3:
+    name: "&7Triple Compressed Cobblestone"
+    lore:
+      - "&8729 cobblestones combined."
+  COMPRESSED_COBBLESTONE_4:
+    name: "&7Quadruple Compressed Cobblestone"
+    lore:
+      - "&86,561 cobblestones combined."
+  COMPRESSED_COBBLESTONE_5:
+    name: "&7Quintuple Compressed Cobblestone"
+    lore:
+      - "&859,049 cobblestones combined."
+  MAGSTEEL:
+    name: "&4MagSteel"
+  TITANIUM:
+    name: "&7Titanium"
+  MYTHRIL:
+    name: "&bMythril"
+  ADAMANTITE:
+    name: "&dAdamantite"
+  MAGNONIUM:
+    name: "&5Magnonium"
+  VOID_BIT:
+    name: "&8Void Bit"
+    lore:
+      - "&7&oIt feels... empty."
+  VOID_DUST:
+    name: "&8Void Dust"
+    lore:
+      - "&7&oIt is starting to form..."
+  VOID_INGOT:
+    name: "&8Void Ingot"
+    lore:
+      - "&7&oThe emptiness of the cosmos"
+      - "&7&oin the palm of your hand."
+  INFINITY_INGOT:
+    name: "&bInfinity Ingot"
+    lore:
+      - "&7&oThe fury of the cosmos"
+      - "&7&oin the palm of your hand."
+  MAGSTEEL_PLATE:
+    name: "&4MagSteel Plate"
+    lore:
+      - "&7Machine Component"
+  MACHINE_CIRCUIT:
+    name: "&6Machine Circuit"
+    lore:
+      - "&7Machine Component"
+  MACHINE_CORE:
+    name: "&fMachine Core"
+    lore:
+      - "&7Machine Component"
+  MACHINE_PLATE:
+    name: "&fMachine Plate"
+    lore:
+      - "&7Machine Component"
+  ENDER_FLAME:
+    name: "&c&lEnder Flame"
+  VEIN_MINER_RUNE:
+    name: "&bVein Miner Rune"
+    lore:
+      - "&7Throw this rune on a dropped tool."
+      - "&7It will be imbued with the power of the rune."
