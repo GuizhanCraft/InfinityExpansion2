@@ -4,6 +4,7 @@ import io.github.thebusybiscuit.slimefun4.libraries.dough.updater.BlobBuildUpdat
 import net.guizhanss.guizhanlib.slimefun.addon.AbstractAddon
 import net.guizhanss.guizhanlib.updater.GuizhanBuildsUpdater
 import net.guizhanss.infinityexpansion2.core.services.ConfigService
+import net.guizhanss.infinityexpansion2.core.services.IntegrationService
 import net.guizhanss.infinityexpansion2.core.services.ListenerService
 import net.guizhanss.infinityexpansion2.core.services.LocalizationService
 import net.guizhanss.infinityexpansion2.implementation.IEItems
@@ -32,6 +33,8 @@ class InfinityExpansion2 : AbstractAddon {
         lateinit var configService: ConfigService
             private set
         lateinit var localization: LocalizationService
+            private set
+        lateinit var integrationService: IntegrationService
             private set
 
         fun scheduler() = getScheduler()
@@ -82,10 +85,11 @@ class InfinityExpansion2 : AbstractAddon {
             ResearchSetup
         }
 
+        // integrations
+        integrationService = IntegrationService(this)
+
         // listeners
         ListenerService(this)
-
-        // tasks
 
         // Metrics setup
         setupMetrics()

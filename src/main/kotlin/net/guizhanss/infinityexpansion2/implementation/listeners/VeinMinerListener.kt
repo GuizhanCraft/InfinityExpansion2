@@ -1,9 +1,9 @@
 package net.guizhanss.infinityexpansion2.implementation.listeners
 
-import io.github.thebusybiscuit.slimefun4.implementation.Slimefun
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.implementation.IEItems
-import net.guizhanss.infinityexpansion2.implementation.items.materials.VeinMinerRune
+import net.guizhanss.infinityexpansion2.implementation.items.tools.VeinMinerRune
 import net.guizhanss.infinityexpansion2.utils.VeinMinerUtils
 import org.bukkit.Sound
 import org.bukkit.entity.Item
@@ -34,9 +34,12 @@ class VeinMinerListener(plugin: InfinityExpansion2) : Listener {
         // TODO: implement vein miner break
     }
 
-    private fun isRune(p: Player, item: ItemStack) =
-        VeinMinerUtils.isRune(item)
+    private fun isRune(p: Player, item: ItemStack): Boolean {
+        val rune = SlimefunItem.getByItem(item)
+        return rune is VeinMinerRune
+            && !rune.isDisabledIn(p.world)
             && !IEItems.VEIN_MINER_RUNE.item!!.isDisabledIn(p.world)
+    }
 
     private fun useRune(p: Player, rune: Item) {
         if (!rune.isValid) return

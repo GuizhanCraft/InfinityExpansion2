@@ -7,27 +7,43 @@ items:
   _IG_MATERIALS:
     conditions:
       force-load: true
-    name: "&aIE2 - &7Materials"
-  _IG_BASIC_MACHINES:
+    name: "&kl&bInfinity&4Expansion&a&l2&kl &a- &7Materials"
+  _IG_TOOLS:
     conditions:
       force-load: true
-    name: "&aIE2 - &9Basic &7Machines"
-  _IG_ADVANCED_MACHINES:
+    name: "&kl&bInfinity&4Expansion&a&l2&kl &a- - &6Tools"
+  _IG_MACHINES:
     conditions:
       force-load: true
-    name: "&aIE2 - &cAdvanced &7Machines"
+    name: "&kl&bInfinity&4Expansion&a&l2&kl &a- - &9Machines"
+  _IG_GENERATORS:
+    conditions:
+      force-load: true
+    name: "&kl&bInfinity&4Expansion&a&l2&kl &a- - &cGenerators"
   _IG_SINGULARITIES:
     conditions:
       force-load: true
-    name: "&aIE2 - &aSingularities"
+    name: "&kl&bInfinity&4Expansion&a&l2&kl &a- - &aSingularities"
   _IG_MOB_SIMULATION:
     conditions:
       force-load: true
-    name: "&aIE2 - &bMob Simulation"
+    name: "&kl&bInfinity&4Expansion&a&l2&kl &a- - &bMob Simulation"
   _IG_STORAGE:
     conditions:
       force-load: true
-    name: "&aIE2 - &6Storage"
+    name: "&kl&bInfinity&4Expansion&a&l2&kl &a- - &6Storage"
+  _IG_WIKI:
+    conditions:
+      force-load: true
+    name: "&kl&bInfinity&4Expansion&a&l2&kl &a- - &eWiki"
+  _IG_INFINITY:
+    conditions:
+      force-load: true
+    name: "&kl&bInfinity&4Expansion&a&l2&kl &a- - &bInfinity &7Recipes"
+  _IG_INFINITY_DISPLAY:
+    conditions:
+      force-load: true
+    name: "&kl&bInfinity&4Expansion&a&l2&kl &a- - &bInfinity &7Recipes &c- INCORRECT RECIPE"
 
   # recipe types
   _RECIPE_VOID_HARVESTER:
@@ -36,6 +52,35 @@ items:
     name: "&8Void Harvester"
     lore:
       - "&7Harvests resources from the void."
+  _RECIPE_INFINITY_WORKBENCH:
+    conditions:
+      force-load: true
+    name: "&6Infinity Workbench"
+    lore:
+      - "&cThe recipe displayed here is incorrect."
+      - "&cCheck the correct recipe in &c&lInfinity Recipes&c."
+
+  # ui items
+  _UI_COLLECTING:
+    conditions:
+      force-load: true
+    name: "&aCollecting..."
+  _UI_PRODUCING:
+    conditions:
+      force-load: true
+    name: "&aProducing..."
+  _UI_NO_SPACE:
+    conditions:
+      force-load: true
+    name: "&cNo space"
+  _UI_INSUFFICIENT_POWER:
+    conditions:
+      force-load: true
+    name: "&cInsufficient power"
+  _UI_NO_STRAINER:
+    conditions:
+      force-load: true
+    name: "&cNo strainer"
 
   # items - materials
   ENDER_ESSENCE:
@@ -87,6 +132,12 @@ items:
     lore:
       - "&7&oThe emptiness of the cosmos"
       - "&7&oin the palm of your hand."
+  VOID_BLOCK:
+    name: "&8Void Block"
+    lore:
+      - "&7&oMore emptiness than you can handle."
+      - ""
+      - "&dWitherproof"
   INFINITY_INGOT:
     name: "&bInfinity Ingot"
     lore:
@@ -108,6 +159,8 @@ items:
     name: "&fMachine Plate"
     lore:
       - "&7Machine Component"
+
+  # items - tools
   ENDER_FLAME:
     name: "&c&lEnder Flame"
   VEIN_MINER_RUNE:
@@ -115,3 +168,48 @@ items:
     lore:
       - "&7Throw this rune on a dropped tool."
       - "&7It will be imbued with the power of the rune."
+  STRAINER_BASE:
+    name: "&dStrainer Base"
+    lore:
+      - "&7Put a strainer in"
+      - "&7and make the base waterlogged"
+      - "&7to start gathering materials from water."
+  POTATO_FISH:
+    conditions:
+      force-load: true
+    name: "&7:&6Potatofish&7:"
+    lore:
+      - "&eLucky"
+  STRAINER_1:
+    name: "&9Basic Strainer"
+    lore:
+      - "&7Collects materials from flowing water."
+      - ""
+      - "&7Unbreaking and Mending enchantment"
+      - "&7can increase the durability of this item."
+      - "&cUnbreakable does not work."
+      - ""
+      - "&7Chance: 30%"
+  STRAINER_2:
+    name: "&cAdvaned Strainer"
+    lore:
+      - "&7Collects materials from flowing water."
+      - ""
+      - "&7Unbreaking and Mending enchantment"
+      - "&7can increase the durability of this item."
+      - "&cUnbreakable does not work."
+      - ""
+      - "&7Chance: 60%"
+  STRAINER_3:
+    name: "&bReinforced Strainer"
+    lore:
+      - "&7Collects materials from flowing water."
+      - ""
+      - "&7Unbreaking and Mending enchantment"
+      - "&7can increase the durability of this item."
+      - "&cUnbreakable does not work."
+      - ""
+      - "&7Chance: 90%"
+lores:
+  collect: "&7Collects:"
+  produce: "&7Produces:"

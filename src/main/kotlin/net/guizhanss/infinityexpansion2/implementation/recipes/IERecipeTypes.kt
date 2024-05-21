@@ -14,4 +14,12 @@ object IERecipeTypes {
             "void_harvester"
         )
     )
+
+    val INFINITY_WORKBENCH = RecipeType(
+        "infinity_workbench".createKey(),
+        InfinityExpansion2.localization.getRecipeTypeItem(
+            MaterialType.Material(Material.SMITHING_TABLE),
+            "infinity_workbench"
+        )
+    )
 }

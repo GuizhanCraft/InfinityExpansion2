@@ -10,6 +10,8 @@ object RecipeUtils {
 
     fun empty() = full(null)
 
+    fun expand(vararg items: ItemStack?) = Array(9) { items.getOrNull(it) }
+
     fun center(item: ItemStack) = arrayOf(
         null, null, null,
         null, item, null,
