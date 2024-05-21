@@ -5,7 +5,7 @@ import org.bukkit.NamespacedKey
 import org.bukkit.entity.Player
 import org.bukkit.inventory.ItemStack
 
-class SubGroup(
+open class SubGroup(
     key: NamespacedKey,
     item: ItemStack
 ) : ItemGroup(key, item) {

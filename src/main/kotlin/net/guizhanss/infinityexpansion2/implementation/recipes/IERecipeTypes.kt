@@ -22,4 +22,12 @@ object IERecipeTypes {
             "infinity_workbench"
         )
     )
+
+    val SINGULARITY_CONSTRUCTOR = RecipeType(
+        "singularity_constructor".createKey(),
+        InfinityExpansion2.localization.getRecipeTypeItem(
+            MaterialType.Material(Material.SMITHING_TABLE),
+            "singularity_constructor"
+        )
+    )
 }

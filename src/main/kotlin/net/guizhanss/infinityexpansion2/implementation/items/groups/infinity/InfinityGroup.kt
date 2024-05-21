@@ -1,6 +1,7 @@
 package net.guizhanss.infinityexpansion2.implementation.items.groups.infinity
 
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem
+import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.core.menu.FlexGroup
 import org.bukkit.NamespacedKey
 import org.bukkit.entity.Player
@@ -27,10 +28,11 @@ class InfinityGroup(
         )
     }
 
-    // TODO: i18n
-    override fun getGuideTitle(p: Player) = getDisplayName(p)
+    private val items: MutableList<SlimefunItem> = mutableListOf()
 
-    fun <T : SlimefunItem> addItem(sfItem: T) {
+    override fun getGuideTitle(p: Player) = InfinityExpansion2.integrationService.getItemGroupName(p, "infinity")
+
+    fun addItem(sfItem: SlimefunItem) {
         // TODO
     }
 }

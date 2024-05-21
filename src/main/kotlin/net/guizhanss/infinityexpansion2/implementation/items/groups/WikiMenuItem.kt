@@ -15,6 +15,8 @@ object WikiMenuItem : MenuItem {
     )
 
     override fun onClick(p: Player, profile: PlayerProfile, mode: SlimefunGuideMode) {
-        // TODO: add wiki
+        p.closeInventory()
+
+        // TODO: show wiki link
     }
 }

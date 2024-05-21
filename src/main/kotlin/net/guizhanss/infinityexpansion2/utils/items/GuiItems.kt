@@ -16,12 +16,24 @@ object GuiItems {
         MaterialType.Material(Material.RED_STAINED_GLASS_PANE),
         "no_space"
     )
-    val INSUFFICIENT_POWER = InfinityExpansion2.localization.getGuiItem(
+    val NO_POWER = InfinityExpansion2.localization.getGuiItem(
         MaterialType.Material(Material.RED_STAINED_GLASS_PANE),
-        "insufficient_power"
+        "no_power"
     )
-    val NO_STRAINER = InfinityExpansion2.localization.getGuiItem(
+    val INVALID_INPUT = InfinityExpansion2.localization.getGuiItem(
         MaterialType.Material(Material.RED_STAINED_GLASS_PANE),
-        "no_strainer"
+        "invalid_input"
+    )
+
+    fun tickRate(tickRate: Int) = InfinityExpansion2.localization.getGuiItem(
+        MaterialType.Material(Material.CLOCK),
+        "tick_rate",
+        "&7${tickRate}"
+    )
+
+    // strainer specific
+    val ANY_STRAINER = InfinityExpansion2.localization.getGuiItem(
+        MaterialType.Material(Material.FISHING_ROD),
+        "any_strainer"
     )
 }

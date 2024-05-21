@@ -4,7 +4,6 @@ import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.implementation.IEItems
 import net.guizhanss.infinityexpansion2.implementation.items.tools.VeinMinerRune
-import net.guizhanss.infinityexpansion2.utils.VeinMinerUtils
 import org.bukkit.Sound
 import org.bukkit.entity.Item
 import org.bukkit.entity.Player

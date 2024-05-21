@@ -17,9 +17,10 @@ import java.io.File
 import java.util.logging.Level
 
 class InfinityExpansion2 : AbstractAddon {
-    constructor(): super(
+    constructor() : super(
         "ybw0014", "InfinityExpansion2", "master", "auto-update"
     )
+
     constructor(loader: JavaPluginLoader, description: PluginDescriptionFile, dataFolder: File, file: File) : super(
         loader, description, dataFolder, file,
         "ybw0014", "InfinityExpansion2", "master", "auto-update"

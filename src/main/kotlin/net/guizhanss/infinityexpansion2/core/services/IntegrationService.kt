@@ -1,11 +1,13 @@
 package net.guizhanss.infinityexpansion2.core.services
 
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
+import net.guizhanss.infinityexpansion2.utils.items.MaterialType
 import net.guizhanss.slimefuntranslation.api.SlimefunTranslationAPI
 import net.guizhanss.slimefuntranslation.api.config.TranslationConfiguration
 import net.guizhanss.slimefuntranslation.api.config.TranslationConfigurationDefaults
 import net.guizhanss.slimefuntranslation.api.config.TranslationConfigurationFields
 import net.guizhanss.slimefuntranslation.utils.FileUtils
+import org.bukkit.Material
 import org.bukkit.configuration.file.YamlConfiguration
 import org.bukkit.entity.Player
 import java.io.File
@@ -39,4 +41,14 @@ class IntegrationService(private val plugin: InfinityExpansion2) {
         } else {
             InfinityExpansion2.localization.getLore(id)
         }
+
+    fun getItemGroupName(p: Player, id: String): String {
+        return if (slimefunTranslationEnabled) {
+            val item = InfinityExpansion2.localization.getItemGroupItem(MaterialType.Material(Material.BARRIER), id)
+            SlimefunTranslationAPI.translateItem(SlimefunTranslationAPI.getUser(p), item)
+            item.displayName!!
+        } else {
+            InfinityExpansion2.localization.getItemGroupName(id)
+        }
+    }
 }

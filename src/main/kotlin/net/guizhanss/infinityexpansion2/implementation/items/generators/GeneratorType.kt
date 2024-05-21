@@ -26,6 +26,7 @@ enum class GeneratorType {
                     if (world.time < 13000 && BlockUtils.hasLightFromSky(block)) def
                     else 0
                 }
+
                 else -> 0
             }
         }
@@ -35,10 +36,12 @@ enum class GeneratorType {
             return when (world.environment) {
                 World.Environment.NETHER,
                 World.Environment.THE_END -> def
+
                 World.Environment.NORMAL -> {
                     if (world.time >= 13000 || !BlockUtils.hasLightFromSky(block)) def
                     else 0
                 }
+
                 else -> 0
             }
         }

@@ -5,8 +5,10 @@ package net.guizhanss.infinityexpansion2.implementation
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems
 import net.guizhanss.infinityexpansion2.implementation.items.groups.IEItemGroups
+import net.guizhanss.infinityexpansion2.implementation.items.machines.MaterialGenerator
 import net.guizhanss.infinityexpansion2.implementation.items.materials.EnderEssence
 import net.guizhanss.infinityexpansion2.implementation.items.materials.SimpleMaterial
+import net.guizhanss.infinityexpansion2.implementation.items.materials.Singularity
 import net.guizhanss.infinityexpansion2.implementation.items.materials.VoidBlock
 import net.guizhanss.infinityexpansion2.implementation.items.tools.Strainer
 import net.guizhanss.infinityexpansion2.implementation.items.tools.StrainerBase
@@ -290,6 +292,340 @@ object IEItems {
             SlimefunItems.REINFORCED_ALLOY_INGOT, ItemStack(Material.STRING), SlimefunItems.REINFORCED_ALLOY_INGOT,
             ItemStack(Material.STRING), STRAINER_2, ItemStack(Material.STRING),
             SlimefunItems.REINFORCED_ALLOY_INGOT, ItemStack(Material.STRING), SlimefunItems.REINFORCED_ALLOY_INGOT,
+        )
+    }
+    // </editor-fold>
+
+    // <editor-fold desc="Machines" collapsed="true">
+    val COBBLESTONE_GENERATOR_1 = buildSlimefunItem<MaterialGenerator>(Material.COBBLESTONE, 1, 24) {
+        id = "COBBLESTONE_GENERATOR_1"
+        material = MaterialType.Material(Material.SMOOTH_STONE)
+        itemGroup = IEItemGroups.MACHINES
+        recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
+        recipe = arrayOf(
+            MAGSTEEL, ItemStack(Material.DIAMOND_PICKAXE), MAGSTEEL,
+            ItemStack(Material.WATER_BUCKET), COMPRESSED_COBBLESTONE_2, ItemStack(Material.LAVA_BUCKET),
+            MAGSTEEL, MACHINE_CIRCUIT, MAGSTEEL,
+        )
+    }
+
+    val COBBLESTONE_GENERATOR_2 = buildSlimefunItem<MaterialGenerator>(Material.COBBLESTONE, 4, 120) {
+        id = "COBBLESTONE_GENERATOR_2"
+        material = MaterialType.Material(Material.SMOOTH_STONE)
+        itemGroup = IEItemGroups.MACHINES
+        recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
+        recipe = arrayOf(
+            MAGSTEEL, COBBLESTONE_GENERATOR_1, MAGSTEEL,
+            ItemStack(Material.WATER_BUCKET), COMPRESSED_COBBLESTONE_3, ItemStack(Material.LAVA_BUCKET),
+            MACHINE_CIRCUIT, COBBLESTONE_GENERATOR_1, MACHINE_CIRCUIT,
+        )
+    }
+
+    val COBBLESTONE_GENERATOR_3 = buildSlimefunItem<MaterialGenerator>(Material.COBBLESTONE, 16, 300) {
+        id = "COBBLESTONE_GENERATOR_3"
+        material = MaterialType.Material(Material.SMOOTH_STONE)
+        itemGroup = IEItemGroups.MACHINES
+        recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
+        recipe = arrayOf(
+            VOID_BLOCK, COBBLESTONE_GENERATOR_2, MACHINE_PLATE,
+            ItemStack(Material.WATER_BUCKET), COMPRESSED_COBBLESTONE_4, ItemStack(Material.LAVA_BUCKET),
+            MACHINE_CIRCUIT, COBBLESTONE_GENERATOR_2, VOID_BLOCK,
+        )
+    }
+
+    val COBBLESTONE_GENERATOR_4 = buildSlimefunItem<MaterialGenerator>(Material.COBBLESTONE, 64, 800) {
+        id = "COBBLESTONE_GENERATOR_4"
+        material = MaterialType.Material(Material.SMOOTH_STONE)
+        itemGroup = IEItemGroups.INFINITY_DISPLAY
+        recipeType = IERecipeTypes.INFINITY_WORKBENCH
+        recipe = arrayOf(
+            INFINITY_INGOT, VOID_INGOT, null, null, VOID_INGOT, INFINITY_INGOT,
+            null, VOID_INGOT, COBBLESTONE_GENERATOR_3, COBBLESTONE_GENERATOR_3, VOID_INGOT, null,
+            null, VOID_INGOT, COBBLESTONE_GENERATOR_3, COBBLESTONE_GENERATOR_3, VOID_INGOT, null,
+            null, VOID_INGOT, COBBLESTONE_GENERATOR_3, COBBLESTONE_GENERATOR_3, VOID_INGOT, null,
+            null, VOID_INGOT, COBBLESTONE_GENERATOR_3, COBBLESTONE_GENERATOR_3, VOID_INGOT, null,
+            INFINITY_INGOT, VOID_INGOT, null, null, VOID_INGOT, INFINITY_INGOT,
+        )
+    }
+    // </editor-fold>
+
+    // <editor-fold desc="Generators" collapsed="true">
+    // </editor-fold>
+
+    // <editor-fold desc="Singularities" collapsed="true">
+    val IRON_SINGULARITY = buildSlimefunItem<Singularity>(
+        2000, mapOf(
+            ItemStack(Material.IRON_INGOT) to 1,
+            ItemStack(Material.IRON_BLOCK) to 9,
+        )
+    ) {
+        id = "IRON_SINGULARITY"
+        material = MaterialType.Material(Material.IRON_BLOCK)
+        itemGroup = IEItemGroups.SINGULARITIES
+        recipeType = IERecipeTypes.SINGULARITY_CONSTRUCTOR
+        recipe = RecipeUtils.empty()
+    }
+
+    val GOLD_SINGULARITY = buildSlimefunItem<Singularity>(
+        2000, mapOf(
+            ItemStack(Material.GOLD_INGOT) to 1,
+            ItemStack(Material.GOLD_BLOCK) to 9,
+            SlimefunItems.GOLD_4K to 1,
+            SlimefunItems.GOLD_6K to 2,
+            SlimefunItems.GOLD_8K to 3,
+            SlimefunItems.GOLD_10K to 4,
+            SlimefunItems.GOLD_12K to 5,
+            SlimefunItems.GOLD_14K to 6,
+            SlimefunItems.GOLD_16K to 7,
+            SlimefunItems.GOLD_18K to 8,
+            SlimefunItems.GOLD_20K to 9,
+            SlimefunItems.GOLD_22K to 10,
+            SlimefunItems.GOLD_24K to 11,
+            SlimefunItems.GOLD_24K_BLOCK to 99,
+        )
+    ) {
+        id = "GOLD_SINGULARITY"
+        material = MaterialType.Material(Material.GOLD_BLOCK)
+        itemGroup = IEItemGroups.SINGULARITIES
+        recipeType = IERecipeTypes.SINGULARITY_CONSTRUCTOR
+        recipe = RecipeUtils.empty()
+    }
+
+    val LAPIS_SINGULARITY = buildSlimefunItem<Singularity>(
+        1500, mapOf(
+            ItemStack(Material.LAPIS_LAZULI) to 1,
+            ItemStack(Material.LAPIS_BLOCK) to 9,
+        )
+    ) {
+        id = "LAPIS_SINGULARITY"
+        material = MaterialType.Material(Material.LAPIS_BLOCK)
+        itemGroup = IEItemGroups.SINGULARITIES
+        recipeType = IERecipeTypes.SINGULARITY_CONSTRUCTOR
+        recipe = RecipeUtils.empty()
+    }
+
+    val REDSTONE_SINGULARITY = buildSlimefunItem<Singularity>(
+        3000, mapOf(
+            ItemStack(Material.REDSTONE) to 1,
+            ItemStack(Material.REDSTONE_BLOCK) to 9,
+        )
+    ) {
+        id = "REDSTONE_SINGULARITY"
+        material = MaterialType.Material(Material.REDSTONE_BLOCK)
+        itemGroup = IEItemGroups.SINGULARITIES
+        recipeType = IERecipeTypes.SINGULARITY_CONSTRUCTOR
+        recipe = RecipeUtils.empty()
+    }
+
+    val QUARTZ_SINGULARITY = buildSlimefunItem<Singularity>(
+        3000, mapOf(
+            ItemStack(Material.QUARTZ) to 1,
+            ItemStack(Material.QUARTZ_BLOCK) to 4,
+        )
+    ) {
+        id = "QUARTZ_SINGULARITY"
+        material = MaterialType.Material(Material.QUARTZ_BLOCK)
+        itemGroup = IEItemGroups.SINGULARITIES
+        recipeType = IERecipeTypes.SINGULARITY_CONSTRUCTOR
+        recipe = RecipeUtils.empty()
+    }
+
+    val COPPER_SINGULARITY = buildSlimefunItem<Singularity>(
+        3000, mapOf(
+            ItemStack(Material.COPPER_INGOT) to 1,
+            ItemStack(Material.COPPER_BLOCK) to 9,
+            SlimefunItems.COPPER_INGOT to 1,
+        )
+    ) {
+        id = "COPPER_SINGULARITY"
+        material = MaterialType.Material(Material.COPPER_BLOCK)
+        itemGroup = IEItemGroups.SINGULARITIES
+        recipeType = IERecipeTypes.SINGULARITY_CONSTRUCTOR
+        recipe = RecipeUtils.empty()
+    }
+
+    val TIN_SINGULARITY = buildSlimefunItem<Singularity>(
+        3000, mapOf(
+            SlimefunItems.TIN_INGOT to 1,
+        )
+    ) {
+        id = "TIN_SINGULARITY"
+        material = MaterialType.Material(Material.IRON_BLOCK)
+        itemGroup = IEItemGroups.SINGULARITIES
+        recipeType = IERecipeTypes.SINGULARITY_CONSTRUCTOR
+        recipe = RecipeUtils.empty()
+    }
+
+    val LEAD_SINGULARITY = buildSlimefunItem<Singularity>(
+        3000, mapOf(
+            SlimefunItems.LEAD_INGOT to 1,
+        )
+    ) {
+        id = "LEAD_SINGULARITY"
+        material = MaterialType.Material(Material.IRON_BLOCK)
+        itemGroup = IEItemGroups.SINGULARITIES
+        recipeType = IERecipeTypes.SINGULARITY_CONSTRUCTOR
+        recipe = RecipeUtils.empty()
+    }
+
+    val SILVER_SINGULARITY = buildSlimefunItem<Singularity>(
+        3000, mapOf(
+            SlimefunItems.SILVER_INGOT to 1,
+        )
+    ) {
+        id = "SILVER_SINGULARITY"
+        material = MaterialType.Material(Material.IRON_BLOCK)
+        itemGroup = IEItemGroups.SINGULARITIES
+        recipeType = IERecipeTypes.SINGULARITY_CONSTRUCTOR
+        recipe = RecipeUtils.empty()
+    }
+
+    val ZINC_SINGULARITY = buildSlimefunItem<Singularity>(
+        3000, mapOf(
+            SlimefunItems.ZINC_INGOT to 1,
+        )
+    ) {
+        id = "ZINC_SINGULARITY"
+        material = MaterialType.Material(Material.IRON_BLOCK)
+        itemGroup = IEItemGroups.SINGULARITIES
+        recipeType = IERecipeTypes.SINGULARITY_CONSTRUCTOR
+        recipe = RecipeUtils.empty()
+    }
+
+    val ALUMINUM_SINGULARITY = buildSlimefunItem<Singularity>(
+        3000, mapOf(
+            SlimefunItems.ALUMINUM_INGOT to 1,
+        )
+    ) {
+        id = "ALUMINUM_SINGULARITY"
+        material = MaterialType.Material(Material.IRON_BLOCK)
+        itemGroup = IEItemGroups.SINGULARITIES
+        recipeType = IERecipeTypes.SINGULARITY_CONSTRUCTOR
+        recipe = RecipeUtils.empty()
+    }
+
+    val MAGNESIUM_SINGULARITY = buildSlimefunItem<Singularity>(
+        3000, mapOf(
+            SlimefunItems.MAGNESIUM_INGOT to 1,
+        )
+    ) {
+        id = "MAGNESIUM_SINGULARITY"
+        material = MaterialType.Material(Material.IRON_BLOCK)
+        itemGroup = IEItemGroups.SINGULARITIES
+        recipeType = IERecipeTypes.SINGULARITY_CONSTRUCTOR
+        recipe = RecipeUtils.empty()
+    }
+
+    val DIAMOND_SINGULARITY = buildSlimefunItem<Singularity>(
+        500, mapOf(
+            ItemStack(Material.DIAMOND) to 1,
+            ItemStack(Material.DIAMOND_BLOCK) to 9,
+            SlimefunItems.SYNTHETIC_DIAMOND to 1,
+        )
+    ) {
+        id = "DIAMOND_SINGULARITY"
+        material = MaterialType.Material(Material.DIAMOND_BLOCK)
+        itemGroup = IEItemGroups.SINGULARITIES
+        recipeType = IERecipeTypes.SINGULARITY_CONSTRUCTOR
+        recipe = RecipeUtils.empty()
+    }
+
+    val EMERALD_SINGULARITY = buildSlimefunItem<Singularity>(
+        500, mapOf(
+            ItemStack(Material.EMERALD) to 1,
+            ItemStack(Material.EMERALD_BLOCK) to 9,
+            SlimefunItems.SYNTHETIC_EMERALD to 1,
+        )
+    ) {
+        id = "EMERALD_SINGULARITY"
+        material = MaterialType.Material(Material.EMERALD_BLOCK)
+        itemGroup = IEItemGroups.SINGULARITIES
+        recipeType = IERecipeTypes.SINGULARITY_CONSTRUCTOR
+        recipe = RecipeUtils.empty()
+    }
+
+    val NETHERITE_SINGULARITY = buildSlimefunItem<Singularity>(
+        200, mapOf(
+            ItemStack(Material.NETHERITE_INGOT) to 1,
+            ItemStack(Material.NETHERITE_BLOCK) to 9,
+        )
+    ) {
+        id = "NETHERITE_SINGULARITY"
+        material = MaterialType.Material(Material.NETHERITE_BLOCK)
+        itemGroup = IEItemGroups.SINGULARITIES
+        recipeType = IERecipeTypes.SINGULARITY_CONSTRUCTOR
+        recipe = RecipeUtils.empty()
+    }
+
+    val COAL_SINGULARITY = buildSlimefunItem<Singularity>(
+        1500, mapOf(
+            ItemStack(Material.COAL) to 1,
+            ItemStack(Material.COAL_BLOCK) to 9,
+            SlimefunItems.CARBON to 8,
+            SlimefunItems.COMPRESSED_CARBON to 32,
+            SlimefunItems.CARBON_CHUNK to 256,
+        )
+    ) {
+        id = "COAL_SINGULARITY"
+        material = MaterialType.Material(Material.COAL_BLOCK)
+        itemGroup = IEItemGroups.SINGULARITIES
+        recipeType = IERecipeTypes.SINGULARITY_CONSTRUCTOR
+        recipe = RecipeUtils.empty()
+    }
+
+    val INFINITY_SINGULARITY = buildSlimefunItem<Singularity>(
+        100, mapOf(
+            INFINITY_INGOT to 1,
+        )
+    ) {
+        id = "INFINITY_SINGULARITY"
+        material = MaterialType.Material(Material.SMOOTH_QUARTZ)
+        itemGroup = IEItemGroups.SINGULARITIES
+        recipeType = IERecipeTypes.INFINITY_WORKBENCH
+        recipe = RecipeUtils.empty()
+    }
+
+    val FORTUNE_SINGULARITY = buildSlimefunItem<SimpleMaterial> {
+        id = "FORTUNE_SINGULARITY"
+        material = MaterialType.Material(Material.NETHER_STAR)
+        itemGroup = IEItemGroups.SINGULARITIES
+        recipeType = RecipeType.SMELTERY
+        recipe = arrayOf(
+            GOLD_SINGULARITY, DIAMOND_SINGULARITY, EMERALD_SINGULARITY,
+            NETHERITE_SINGULARITY, ADAMANTITE,
+        )
+    }
+
+    val MAGIC_SINGULARITY = buildSlimefunItem<SimpleMaterial> {
+        id = "MAGIC_SINGULARITY"
+        material = MaterialType.Material(Material.NETHER_STAR)
+        itemGroup = IEItemGroups.SINGULARITIES
+        recipeType = RecipeType.SMELTERY
+        recipe = arrayOf(
+            REDSTONE_SINGULARITY, LAPIS_SINGULARITY, QUARTZ_SINGULARITY,
+            MAGNESIUM_SINGULARITY, MAGNONIUM,
+        )
+    }
+
+    val EARTH_SINGULARITY = buildSlimefunItem<SimpleMaterial> {
+        id = "EARTH_SINGULARITY"
+        material = MaterialType.Material(Material.NETHER_STAR)
+        itemGroup = IEItemGroups.SINGULARITIES
+        recipeType = RecipeType.SMELTERY
+        recipe = arrayOf(
+            COMPRESSED_COBBLESTONE_4, COAL_SINGULARITY, IRON_SINGULARITY,
+            COPPER_SINGULARITY, LEAD_SINGULARITY,
+        )
+    }
+
+    val METAL_SINGULARITY = buildSlimefunItem<SimpleMaterial> {
+        id = "METAL_SINGULARITY"
+        material = MaterialType.Material(Material.NETHER_STAR)
+        itemGroup = IEItemGroups.SINGULARITIES
+        recipeType = RecipeType.SMELTERY
+        recipe = arrayOf(
+            SILVER_SINGULARITY, ALUMINUM_SINGULARITY, TIN_SINGULARITY,
+            ZINC_SINGULARITY, TITANIUM,
         )
     }
     // </editor-fold>

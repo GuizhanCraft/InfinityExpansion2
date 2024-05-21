@@ -18,6 +18,7 @@ class VeinMinerRune(
         const val RANGE = 1.5
 
         private val blocks = mutableSetOf<Material>()
+
         init {
             blocks.addAll(SlimefunTag.ORES.values)
             blocks.addAll(SlimefunTag.LOGS.values)

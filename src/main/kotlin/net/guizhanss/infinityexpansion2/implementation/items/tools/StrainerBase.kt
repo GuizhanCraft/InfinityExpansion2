@@ -10,13 +10,13 @@ import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
 import io.github.thebusybiscuit.slimefun4.core.attributes.RecipeDisplayItem
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems
 import io.github.thebusybiscuit.slimefun4.libraries.dough.inventory.InvUtils
-import io.github.thebusybiscuit.slimefun4.utils.ChestMenuUtils
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenuPreset
 import me.mrCookieSlime.Slimefun.api.inventory.DirtyChestMenu
 import net.guizhanss.guizhanlib.slimefun.machines.TickingMenuBlock
 import net.guizhanss.guizhanlib.utils.RandomUtil
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
+import net.guizhanss.infinityexpansion2.core.menu.MenuLayout
 import net.guizhanss.infinityexpansion2.utils.BlockUtils
 import net.guizhanss.infinityexpansion2.utils.items.GuiItems
 import org.bukkit.Material
@@ -34,19 +34,7 @@ class StrainerBase(
     recipe: Array<out ItemStack?>
 ) : TickingMenuBlock(itemGroup, itemStack, recipeType, recipe), RecipeDisplayItem {
     companion object {
-        private val INPUT_BORDER = intArrayOf(0, 2)
-        private const val INPUT_SLOT = 1
-        private val BACKGROUND = intArrayOf(3, 5, 6, 7, 8)
-        private const val STATUS_SLOT = 4
-        private val OUTPUT_BORDER = intArrayOf(
-            9, 10, 11, 12, 13, 14, 15, 16, 17,
-            45, 46, 47, 48, 49, 50, 51, 52, 53
-        )
-        private val OUTPUT_SLOTS = intArrayOf(
-            18, 19, 20, 21, 22, 23, 24, 25, 26,
-            27, 28, 29, 30, 31, 32, 33, 34, 35,
-            36, 37, 38, 39, 40, 41, 42, 43, 44,
-        )
+        private val LAYOUT = MenuLayout.SINGLE_INPUT
 
         private val OUTPUTS = listOf(
             ItemStack(Material.STICK),
@@ -81,13 +69,10 @@ class StrainerBase(
 
     override fun getRecipeSectionLabel(p: Player) = InfinityExpansion2.integrationService.getLore(p, "collect")
 
-    override fun getDisplayRecipes() = OUTPUTS
+    override fun getDisplayRecipes() = OUTPUTS.flatMap { listOf(GuiItems.ANY_STRAINER, it) }
 
     override fun setup(preset: BlockMenuPreset) {
-        preset.drawBackground(BACKGROUND)
-        preset.drawBackground(ChestMenuUtils.getInputSlotTexture(), INPUT_BORDER)
-        preset.drawBackground(ChestMenuUtils.getOutputSlotTexture(), OUTPUT_BORDER)
-        preset.addItem(STATUS_SLOT, ChestMenuUtils.getBackground(), ChestMenuUtils.getEmptyClickHandler())
+        LAYOUT.setupPreset(preset)
     }
 
     override fun getInputSlots(menu: DirtyChestMenu, item: ItemStack): IntArray {
@@ -95,40 +80,40 @@ class StrainerBase(
         else intArrayOf()
     }
 
-    override fun getInputSlots() = intArrayOf(INPUT_SLOT)
+    override fun getInputSlots() = LAYOUT.inputSlots
 
-    override fun getOutputSlots() = OUTPUT_SLOTS
+    override fun getOutputSlots() = LAYOUT.outputSlots
 
     override fun tick(b: Block, menu: BlockMenu) {
         if (isDisabledIn(b.world)) return
         if (!BlockUtils.isWaterLogged(b)) return
         if (InfinityExpansion2.sfTickCount() % tickRateSetting.value != 0) return
 
-        val strainerItem = menu.getItemInSlot(INPUT_SLOT)
+        val strainerItem = menu.getItemInSlot(inputSlots[0])
         val strainer = SlimefunItem.getByItem(strainerItem) as? Strainer
         if (strainer == null || strainer.isDisabledIn(b.world)) {
             if (menu.hasViewer()) {
-                menu.replaceExistingItem(STATUS_SLOT, GuiItems.NO_STRAINER)
+                menu.replaceExistingItem(LAYOUT.statusSlot, GuiItems.INVALID_INPUT)
             }
             return
         }
 
         if (menu.hasViewer()) {
-            menu.replaceExistingItem(STATUS_SLOT, GuiItems.COLLECTING)
+            menu.replaceExistingItem(LAYOUT.statusSlot, GuiItems.COLLECTING)
         }
         if (!RandomUtil.testChance(strainer.chance, 100)) return
 
         if (RandomUtil.testChance(1, 10_000)) {
-            menu.pushItem(POTATO_FISH, *OUTPUT_SLOTS)
+            menu.pushItem(POTATO_FISH, *outputSlots)
         }
 
         val output = OUTPUTS.random()
-        if (!InvUtils.fits(menu.toInventory(), output, *OUTPUT_SLOTS)) {
-            menu.replaceExistingItem(STATUS_SLOT, GuiItems.NO_SPACE)
+        if (!InvUtils.fits(menu.toInventory(), output, *outputSlots)) {
+            menu.replaceExistingItem(LAYOUT.statusSlot, GuiItems.NO_SPACE)
             return
         }
 
-        menu.pushItem(output.clone(), *OUTPUT_SLOTS)
+        menu.pushItem(output.clone(), *outputSlots)
 
         // strainer reduce durability
         val bound = strainerItem.getEnchantmentLevel(Enchantment.getByName("unbreaking")!!) +
@@ -139,11 +124,11 @@ class StrainerBase(
             val newDamage = meta.damage + 1
 
             if (newDamage >= Material.FISHING_ROD.maxDurability.toInt()) {
-                menu.consumeItem(INPUT_SLOT)
+                menu.consumeItem(inputSlots[0])
             } else {
                 meta.damage = newDamage
                 strainerItem.itemMeta = meta
-                menu.replaceExistingItem(INPUT_SLOT, strainerItem)
+                menu.replaceExistingItem(inputSlots[0], strainerItem)
             }
         }
     }

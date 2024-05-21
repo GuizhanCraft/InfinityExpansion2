@@ -5,9 +5,9 @@ package net.guizhanss.infinityexpansion2.core.services
 import net.guizhanss.guizhanlib.minecraft.utils.ChatUtil
 import net.guizhanss.guizhanlib.minecraft.utils.ItemUtil
 import net.guizhanss.guizhanlib.slimefun.addon.SlimefunLocalization
-import net.guizhanss.guizhanlib.utils.StringUtil
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.utils.FileUtils
+import net.guizhanss.infinityexpansion2.utils.StringUtils.toId
 import net.guizhanss.infinityexpansion2.utils.items.MaterialType
 import net.md_5.bungee.api.ChatMessageType
 import net.md_5.bungee.api.chat.TextComponent
@@ -44,8 +44,6 @@ class LocalizationService(
             plugin.saveResource(filePath, true)
         }
     }
-
-    private fun String.toId() = StringUtil.dehumanize(this).uppercase()
 
     fun getString(key: String, vararg args: Any?): String = MessageFormat.format(getString(key), *args)
 

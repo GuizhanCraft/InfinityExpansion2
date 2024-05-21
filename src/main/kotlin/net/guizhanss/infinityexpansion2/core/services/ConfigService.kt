@@ -14,16 +14,22 @@ class ConfigService(private val plugin: InfinityExpansion2) {
         private set
     var lang = "en"
         private set
+
+    // balance options
     var singularityCostMultiplier = 1.0
         private set
     var allowSfItemTransform = false
         private set
     var enableResearches = false
         private set
+
+    // mob simulation options
     var mobSimTickRate = 20
         private set
     var mobSimExpMultiplier = 1.0
         private set
+
+    // quarry options
     var quarryOcsillators: Map<String, Double> = mapOf()
         private set
     var quarryTickRate = 10
@@ -32,11 +38,14 @@ class ConfigService(private val plugin: InfinityExpansion2) {
         private set
     var quarryResources: Map<String, Boolean> = mapOf()
         private set
+
+    // advanced anvil options
     var advancedAnvilMaxLevels: Map<String, Int> = mapOf()
         private set
+
+    // infinity gear enchantments
     var infinityGearEnchantLevels: Map<String, ConfigurationSection> = mapOf()
         private set
-
 
     init {
         reload()

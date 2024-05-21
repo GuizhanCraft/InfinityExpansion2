@@ -1,14 +1,15 @@
 package net.guizhanss.infinityexpansion2.implementation.items.groups
 
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
+import net.guizhanss.infinityexpansion2.implementation.items.groups.infinity.InfinityDisplayGroup
 import net.guizhanss.infinityexpansion2.implementation.items.groups.infinity.InfinityGroup
-import net.guizhanss.infinityexpansion2.utils.constant.Keys
+import net.guizhanss.infinityexpansion2.utils.constant.Keys.createKey
 import net.guizhanss.infinityexpansion2.utils.items.MaterialType
 import org.bukkit.Material
 
 object IEItemGroups {
     val MAIN = MainGroup(
-        Keys.GROUP_MAIN,
+        "main".createKey(),
         InfinityExpansion2.localization.getItemGroupItem(
             MaterialType.Material(Material.NETHER_STAR),
             "main"
@@ -16,7 +17,7 @@ object IEItemGroups {
     )
 
     val MATERIALS = SubGroup(
-        Keys.GROUP_MATERIALS,
+        "materials".createKey(),
         InfinityExpansion2.localization.getItemGroupItem(
             MaterialType.Material(Material.NETHER_STAR),
             "materials"
@@ -24,7 +25,7 @@ object IEItemGroups {
     )
 
     val TOOLS = SubGroup(
-        Keys.GROUP_TOOLS,
+        "tools".createKey(),
         InfinityExpansion2.localization.getItemGroupItem(
             MaterialType.Material(Material.DIAMOND_PICKAXE),
             "tools"
@@ -32,7 +33,7 @@ object IEItemGroups {
     )
 
     val MACHINES = SubGroup(
-        Keys.GROUP_MACHINES,
+        "machines".createKey(),
         InfinityExpansion2.localization.getItemGroupItem(
             MaterialType.Material(Material.LOOM),
             "machines"
@@ -40,7 +41,7 @@ object IEItemGroups {
     )
 
     val GENERATORS = SubGroup(
-        Keys.GROUP_GENERATORS,
+        "generators".createKey(),
         InfinityExpansion2.localization.getItemGroupItem(
             MaterialType.Material(Material.BLAST_FURNACE),
             "generators"
@@ -48,7 +49,7 @@ object IEItemGroups {
     )
 
     val SINGULARITIES = SubGroup(
-        Keys.GROUP_SINGULARITIES,
+        "singularities".createKey(),
         InfinityExpansion2.localization.getItemGroupItem(
             MaterialType.Material(Material.NETHERITE_BLOCK),
             "singularities"
@@ -56,7 +57,7 @@ object IEItemGroups {
     )
 
     val MOB_SIMULATION = SubGroup(
-        Keys.GROUP_MOB_SIMULATION,
+        "mob_simulation".createKey(),
         InfinityExpansion2.localization.getItemGroupItem(
             MaterialType.Material(Material.BEACON),
             "mob_simulation"
@@ -64,7 +65,7 @@ object IEItemGroups {
     )
 
     val STORAGE = SubGroup(
-        Keys.GROUP_STORAGE,
+        "storage".createKey(),
         InfinityExpansion2.localization.getItemGroupItem(
             MaterialType.Material(Material.BEEHIVE),
             "storage"
@@ -72,15 +73,15 @@ object IEItemGroups {
     )
 
     val INFINITY = InfinityGroup(
-        Keys.GROUP_INFINITY,
+        "infinity".createKey(),
         InfinityExpansion2.localization.getItemGroupItem(
             MaterialType.Material(Material.RESPAWN_ANCHOR),
             "infinity"
         )
     )
 
-    val INFINITY_DISPLAY = SubGroup(
-        Keys.GROUP_INFINITY_DISPLAY,
+    val INFINITY_DISPLAY = InfinityDisplayGroup(
+        "infinity_display".createKey(),
         InfinityExpansion2.localization.getItemGroupItem(
             MaterialType.Material(Material.RESPAWN_ANCHOR),
             "infinity_display"
