@@ -40,5 +40,5 @@ class EnergyGenerator(
         // TODO: Implement right click info query
     }
 
-    // TODO: display energy information in the guide bookh
+    // TODO: display energy information in the guide book
 }

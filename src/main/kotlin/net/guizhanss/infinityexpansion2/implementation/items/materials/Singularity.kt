@@ -17,7 +17,7 @@ class Singularity(
     itemStack: SlimefunItemStack,
     recipeType: RecipeType,
     recipe: Array<out ItemStack?>,
-    val defaultTotalProgress: Int,
+    private val defaultTotalProgress: Int,
     val ingredients: Map<ItemStack, Int>,
 ) : SimpleMaterial(itemGroup, itemStack, recipeType, recipe), RecipeDisplayItem {
     override fun getRecipeSectionLabel(p: Player) = InfinityExpansion2.integrationService.getLore(p, "info")
@@ -26,27 +26,23 @@ class Singularity(
         val list = mutableListOf<ItemStack?>(null)
         list.add(
             InfinityExpansion2.localization.getGuiItem(
-                MaterialType.Material(Material.NETHER_STAR),
-                "singularity_total",
-                "&7${getTotalProgress()}"
+                MaterialType.Material(Material.NETHER_STAR), "singularity_total", "&7${totalProgress}"
             )
         )
 
         ingredients.forEach { (item, amount) ->
             list.add(item)
-            list.add(
-                InfinityExpansion2.localization.getGuiItem(
-                    MaterialType.Material(Material.PAPER),
-                    "singularity_progress",
-                    "&7${amount}"
-                )
-            )
+            list.add(InfinityExpansion2.localization.getGuiItem(
+                MaterialType.Material(Material.PAPER), "singularity_progress", "&7${amount}"
+            ).apply {
+                this.amount = amount
+            })
         }
         return list
     }
 
-    fun getTotalProgress() =
-        ceil(defaultTotalProgress * InfinityExpansion2.configService.singularityCostMultiplier).toInt()
+    val totalProgress
+        get() = ceil(defaultTotalProgress * InfinityExpansion2.configService.singularityCostMultiplier).toInt()
 
     override fun postRegister() {
         if (!isDisabled) {

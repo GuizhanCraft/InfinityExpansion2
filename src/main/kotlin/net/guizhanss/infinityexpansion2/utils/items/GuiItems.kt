@@ -24,11 +24,27 @@ object GuiItems {
         MaterialType.Material(Material.RED_STAINED_GLASS_PANE),
         "invalid_input"
     )
+    val PRODUCES = InfinityExpansion2.localization.getGuiItem(
+        MaterialType.Material(Material.LIME_STAINED_GLASS_PANE),
+        "produces"
+    )
+    val RECIPES = InfinityExpansion2.localization.getGuiItem(
+        MaterialType.Material(Material.LIME_STAINED_GLASS_PANE),
+        "recipes"
+    )
 
+    // display recipe info
     fun tickRate(tickRate: Int) = InfinityExpansion2.localization.getGuiItem(
         MaterialType.Material(Material.CLOCK),
         "tick_rate",
         "&7${tickRate}"
+    )
+
+    fun energyConsumption(energyPerTick: Int) = InfinityExpansion2.localization.getGuiItem(
+        MaterialType.Material(Material.REDSTONE),
+        "energy_consumption",
+        LoreUtils.powerPerTick(energyPerTick),
+        LoreUtils.powerPerSecond(energyPerTick)
     )
 
     // strainer specific

@@ -25,11 +25,13 @@ class MaterialGenerator(
     energyPerTick: Int,
 ) : AbstractMachine(itemGroup, itemStack, recipeType, recipe, MenuLayout.OUTPUT_ONLY_ONE_ROW), RecipeDisplayItem {
     private val tickRateSetting = IntRangeSetting(this, "tick-rate", 1, 1, 120)
+    private val energyPerTickSetting = IntRangeSetting(this, "energy-per-tick", 1, energyPerTick, 1_000_000_000)
 
     init {
-        setEnergyPerTick(energyPerTick)
-        addItemSetting(tickRateSetting)
+        addItemSetting(tickRateSetting, energyPerTickSetting)
     }
+
+    override fun getEnergyConsumptionPerTick() = energyPerTickSetting.value
 
     override fun process(b: Block, menu: BlockMenu): Boolean {
         if (InfinityExpansion2.sfTickCount() % tickRateSetting.value != 0) return false
@@ -37,7 +39,7 @@ class MaterialGenerator(
         val output = ItemStack(material, speed)
         if (!InvUtils.fits(menu.toInventory(), output, *outputSlots)) {
             if (menu.hasViewer()) {
-                menu.replaceExistingItem(statusSlot, GuiItems.NO_SPACE)
+                menu.replaceExistingItem(layout.statusSlot, GuiItems.NO_SPACE)
             }
             return false
         }
@@ -45,16 +47,19 @@ class MaterialGenerator(
         menu.pushItem(output, *outputSlots)
 
         if (menu.hasViewer()) {
-            menu.replaceExistingItem(statusSlot, GuiItems.PRODUCING)
+            menu.replaceExistingItem(layout.statusSlot, GuiItems.PRODUCING)
         }
 
         return true
     }
 
-    override fun getRecipeSectionLabel(p: Player) = InfinityExpansion2.integrationService.getLore(p, "produce")
+    override fun getRecipeSectionLabel(p: Player) = InfinityExpansion2.integrationService.getLore(p, "info")
 
     override fun getDisplayRecipes() = listOf(
         GuiItems.tickRate(tickRateSetting.value),
+        GuiItems.energyConsumption(energyPerTickSetting.value),
+        GuiItems.PRODUCES,
+        GuiItems.PRODUCES,
         ItemStack(material, speed)
     )
 }

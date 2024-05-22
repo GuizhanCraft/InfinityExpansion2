@@ -20,12 +20,14 @@ import kotlin.reflect.full.primaryConstructor
 class SlimefunItemBuilder {
     var id: String by RequiredProperty()
     var material: MaterialType by RequiredProperty()
+    var amount: Int by RequiredProperty(1)
 
     var itemGroup: ItemGroup by RequiredProperty()
     var recipeType: RecipeType by RequiredProperty()
     var recipe: Array<out ItemStack?> by RequiredProperty()
 
     var postCreate: (SlimefunItemStack) -> Unit = {}
+    var preRegister: (SlimefunItem) -> Unit = {}
 
     private val extraLore = mutableListOf<String>()
 
@@ -42,9 +44,12 @@ class SlimefunItemBuilder {
             name,
             *lore.toTypedArray()
         )
+        sfItem.amount = amount
         postCreate(sfItem)
         val constructor = clazz.primaryConstructor ?: error("Primary constructor not found for $clazz")
-        constructor.call(itemGroup, sfItem, recipeType, recipe, *otherArgs).register(InfinityExpansion2.instance)
+        val item = constructor.call(itemGroup, sfItem, recipeType, recipe, *otherArgs)
+        preRegister(item)
+        item.register(InfinityExpansion2.instance)
         return sfItem
     }
 }

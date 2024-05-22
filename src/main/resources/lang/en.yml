@@ -3,47 +3,51 @@ items:
   _IG_MAIN:
     conditions:
       force-load: true
-    name: "&kl&bInfinity&4Expansion&a&l2&kl" # pay attention to the color codes when you translate this.
-  _IG_MATERIALS:
-    conditions:
-      force-load: true
-    name: "&kl&bI&4E&a&l2&kl &a- &7Materials"
-  _IG_TOOLS:
-    conditions:
-      force-load: true
-    name: "&kl&bI&4E&a&l2&kl &a- &6Tools"
-  _IG_MACHINES:
-    conditions:
-      force-load: true
-    name: "&kl&bI&4E&a&l2&kl &a- &9Machines"
-  _IG_GENERATORS:
-    conditions:
-      force-load: true
-    name: "&kl&bI&4E&a&l2&kl &a- &cGenerators"
-  _IG_SINGULARITIES:
-    conditions:
-      force-load: true
-    name: "&kl&bI&4E&a&l2&kl &a- &aSingularities"
-  _IG_MOB_SIMULATION:
-    conditions:
-      force-load: true
-    name: "&kl&bI&4E&a&l2&kl &a- &bMob Simulation"
-  _IG_STORAGE:
-    conditions:
-      force-load: true
-    name: "&kl&bI&4E&a&l2&kl &a- &6Storage"
+    name: "&k-&bInfinity&4Expansion&a&l2&k-" # pay attention to the color codes when you translate this.
   _IG_WIKI:
     conditions:
       force-load: true
-    name: "&kl&bI&4E&a&l2&kl &a- &eWiki"
+    name: "&k-&bI&4E&a&l2&k- &a- &eWiki"
+  _IG_GUIDE:
+    conditions:
+      force-load: true
+    name: "&k-&bI&4E&a&l2&k- &a- &eIn-game Guide"
+  _IG_MATERIALS:
+    conditions:
+      force-load: true
+    name: "&k-&bI&4E&a&l2&k- &a- &7Materials"
+  _IG_TOOLS:
+    conditions:
+      force-load: true
+    name: "&k-&bI&4E&a&l2&k- &a- &6Tools"
+  _IG_MACHINES:
+    conditions:
+      force-load: true
+    name: "&k-&bI&4E&a&l2&k- &a- &9Machines"
+  _IG_GENERATORS:
+    conditions:
+      force-load: true
+    name: "&k-&bI&4E&a&l2&k- &a- &cGenerators"
+  _IG_SINGULARITIES:
+    conditions:
+      force-load: true
+    name: "&k-&bI&4E&a&l2&k- &a- &aSingularities"
+  _IG_MOB_SIMULATION:
+    conditions:
+      force-load: true
+    name: "&k-&bI&4E&a&l2&k- &a- &bMob Simulation"
+  _IG_STORAGE:
+    conditions:
+      force-load: true
+    name: "&k-&bI&4E&a&l2&k- &a- &6Storage"
   _IG_INFINITY:
     conditions:
       force-load: true
-    name: "&kl&bI&4E&a&l2&kl &a- &bInfinity &7Recipes"
+    name: "&k-&bI&4E&a&l2&k- &a- &bInfinity &7Recipes"
   _IG_INFINITY_DISPLAY:
     conditions:
       force-load: true
-    name: "&kl&bI&4E&a&l2&kl &a- &bInfinity &7Recipes &c- INCORRECT RECIPE"
+    name: "&k-&bI&4E&a&l2&k- &a- &bInfinity &7Recipes &c- INCORRECT RECIPE"
 
   # recipe types
   _RECIPE_VOID_HARVESTER:
@@ -64,7 +68,8 @@ items:
       force-load: true
     name: "&bSingularity Constructor"
     lore:
-      - "&7Condenses lots of resources to create singularities."
+      - "&7Condenses lots of resources"
+      - "&7to create singularities."
 
   # ui items
   _UI_COLLECTING:
@@ -87,14 +92,37 @@ items:
     conditions:
       force-load: true
     name: "&cInvalid input"
+  # display recipe info items
   _UI_TICK_RATE:
     conditions:
       force-load: true
     name: "&eTick Rate:"
+  _UI_ENERGY_CONSUMPTION:
+    conditions:
+      force-load: true
+    name: "&eEnergy consumption:"
+  _UI_ENERGY_PRODUCTION:
+    conditions:
+      force-load: true
+    name: "&eEnergy production:"
+  _UI_PRODUCES:
+    conditions:
+      force-load: true
+    name: "&aProduces:"
+    lore:
+      - "&7------>"
+  _UI_RECIPES:
+    conditions:
+      force-load: true
+    name: "&eRecipes:"
+    lore:
+      - "&7------>"
+  # strainer specific
   _UI_ANY_STRAINER:
     conditions:
       force-load: true
     name: "&aAny Strainer"
+  # singularity specific
   _UI_SINGULARITY_TOTAL:
     conditions:
       force-load: true
@@ -103,6 +131,45 @@ items:
     conditions:
       force-load: true
     name: "&eIncrease progress:"
+
+  # items - guide
+  _GUIDE_INTRO:
+    name: "&eIntroduction"
+    lore:
+      - "&7Welcome to Infinity Expansion 2 (IE2)!"
+      - "&7This guide will help you"
+      - "&7get familiar with IE2's guide"
+      - "&7and of course this addon's content."
+      - ""
+      - "&7If you have played Infinity Expansion before,"
+      - "&7you only need to read the \"information\" guide."
+  _GUIDE_INFO:
+    name: "&eInformation"
+    lore:
+      - "&7IE2 is more customizable."
+      - "&7Server owners can change"
+      - "&7a various of attributes of an item,"
+      - "&7including tick rate, energy consumption."
+      - ""
+      - "&7These information will not be displayed"
+      - "&7in the item's lore anymore, but"
+      - "&7in the item's guide menu."
+      - ""
+      - "&7The next guide item shows the fields that"
+      - "&7can be shown in the item's guide menu."
+  _GUIDE_INFO_FIELDS:
+    name: "&eInformation Fields"
+    lore:
+      - "&eTick rate &7(Slimefun tick)"
+      - "&7Determines how often the machine runs."
+      - "&7i.e. The machine runs every N tick(s)."
+      - ""
+      - "&eEnergy consumption"
+      - "&7The amount of energy the machine consumes"
+      - "&7per tick, per second, or per use."
+      - ""
+      - "&eEnergy production"
+      -
 
   # items - materials
   ENDER_ESSENCE:
@@ -181,6 +248,8 @@ items:
     name: "&fMachine Plate"
     lore:
       - "&7Machine Component"
+  VOID_GLASS:
+    name: "&8Void Glass"
 
   # items - tools
   ENDER_FLAME:
@@ -241,7 +310,6 @@ items:
       - "&7Produces cobblestone."
       - ""
       - "&8\u21E8 &e⚡ &7Speed: &b1x"
-      - "&8\u21E8 &e⚡ &724 J/t"
     lore-overrides:
       4: "%sftrlore_Speed_1%"
       5: "%sftrlore_PowerPerTick_24%"
@@ -252,10 +320,8 @@ items:
       - "&7Produces cobblestone."
       - ""
       - "&8\u21E8 &e⚡ &7Speed: &b4x"
-      - "&8\u21E8 &e⚡ &7120 J/t"
     lore-overrides:
       4: "%sftrlore_Speed_4%"
-      5: "%sftrlore_PowerPerTick_120%"
   COBBLESTONE_GENERATOR_3:
     name: "&7Void &8Cobblestone Generator"
     lore:
@@ -263,10 +329,8 @@ items:
       - "&7Produces cobblestone."
       - ""
       - "&8\u21E8 &e⚡ &7Speed: &b16x"
-      - "&8\u21E8 &e⚡ &7300 J/t"
     lore-overrides:
       4: "%sftrlore_Speed_16%"
-      5: "%sftrlore_PowerPerTick_300%"
   COBBLESTONE_GENERATOR_4:
     name: "&bInfinity &8Cobblestone Generator"
     lore:
@@ -274,11 +338,24 @@ items:
       - "&7Produces cobblestone."
       - ""
       - "&8\u21E8 &e⚡ &7Speed: &b64x"
-      - "&8\u21E8 &e⚡ &7800 J/t"
     lore-overrides:
       4: "%sftrlore_Speed_64%"
-      5: "%sftrlore_PowerPerTick_800%"
-
+  VIRTUAL_FARM_1:
+    name: "&9Basic &aVirtual Farm"
+    lore:
+      - "&7Automatically grows, harvests, and replant crops."
+  VIRTUAL_FARM_2:
+    name: "&cAdvanced &aVirtual Farm"
+    lore:
+      - "&7Automatically grows, harvests, and replant crops."
+  VIRTUAL_FARM_3:
+    name: "&7Void &aVirtual Farm"
+    lore:
+      - "&7Automatically grows, harvests, and replant crops."
+  VIRTUAL_FARM_4:
+    name: "&bInfinity &aVirtual Farm"
+    lore:
+      - "&7Automatically grows, harvests, and replant crops."
   # items - generators
 
   # items - singularities

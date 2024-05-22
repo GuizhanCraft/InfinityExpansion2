@@ -3,7 +3,7 @@ package net.guizhanss.infinityexpansion2.utils
 import org.bukkit.inventory.ItemStack
 
 /**
- * Recipe helpers for 3x3 recipes.
+ * Recipe helpers for recipes (3x3).
  */
 object RecipeUtils {
     fun full(item: ItemStack?) = Array(9) { item }
@@ -23,4 +23,6 @@ object RecipeUtils {
         surround, center, surround,
         surround, surround, surround
     )
+
+    fun expand6(vararg items: ItemStack?) = Array(36) { items.getOrNull(it) }
 }

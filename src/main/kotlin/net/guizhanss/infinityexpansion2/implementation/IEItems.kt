@@ -4,12 +4,15 @@ package net.guizhanss.infinityexpansion2.implementation
 
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems
+import io.github.thebusybiscuit.slimefun4.implementation.items.blocks.HardenedGlass
 import net.guizhanss.infinityexpansion2.implementation.items.groups.IEItemGroups
 import net.guizhanss.infinityexpansion2.implementation.items.machines.MaterialGenerator
+import net.guizhanss.infinityexpansion2.implementation.items.machines.VirtualFarm
 import net.guizhanss.infinityexpansion2.implementation.items.materials.EnderEssence
 import net.guizhanss.infinityexpansion2.implementation.items.materials.SimpleMaterial
 import net.guizhanss.infinityexpansion2.implementation.items.materials.Singularity
 import net.guizhanss.infinityexpansion2.implementation.items.materials.VoidBlock
+import net.guizhanss.infinityexpansion2.implementation.items.materials.VoidGlass
 import net.guizhanss.infinityexpansion2.implementation.items.tools.Strainer
 import net.guizhanss.infinityexpansion2.implementation.items.tools.StrainerBase
 import net.guizhanss.infinityexpansion2.implementation.recipes.IERecipeTypes
@@ -21,6 +24,15 @@ import org.bukkit.enchantments.Enchantment
 import org.bukkit.inventory.ItemStack
 
 object IEItems {
+    private val GLASS = ItemStack(Material.GLASS)
+    private val COBBLESTONE = ItemStack(Material.COBBLESTONE)
+    private val STICK = ItemStack(Material.STICK)
+    private val STRING = ItemStack(Material.STRING)
+    private val DIAMOND_PICKAXE = ItemStack(Material.DIAMOND_PICKAXE)
+    private val WATER_BUCKET = ItemStack(Material.WATER_BUCKET)
+    private val LAVA_BUCKET = ItemStack(Material.LAVA_BUCKET)
+    private val GRASS_BLOCK = ItemStack(Material.GRASS_BLOCK)
+
     // <editor-fold desc="Materials" collapsed="true">
     val ENDER_ESSENCE = buildSlimefunItem<EnderEssence> {
         id = "ENDER_ESSENCE"
@@ -35,7 +47,7 @@ object IEItems {
         material = MaterialType.Material(Material.ANDESITE)
         itemGroup = IEItemGroups.MATERIALS
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
-        recipe = RecipeUtils.full(ItemStack(Material.COBBLESTONE))
+        recipe = RecipeUtils.full(COBBLESTONE)
     }
 
     val COMPRESSED_COBBLESTONE_2 = buildSlimefunItem<SimpleMaterial> {
@@ -101,7 +113,7 @@ object IEItems {
         recipeType = RecipeType.SMELTERY
         recipe = arrayOf(
             SlimefunItems.MAGNESIUM_INGOT,
-            // TODO: IRON_SINGULARITY,
+            IRON_SINGULARITY,
             SlimefunItems.MAGNESIUM_DUST,
         )
     }
@@ -113,7 +125,7 @@ object IEItems {
         recipeType = RecipeType.SMELTERY
         recipe = arrayOf(
             SlimefunItems.REDSTONE_ALLOY,
-            // TODO: DIAMOND_SINGULARITY,
+            DIAMOND_SINGULARITY,
             MAGSTEEL,
         )
     }
@@ -125,7 +137,7 @@ object IEItems {
         recipeType = RecipeType.SMELTERY
         recipe = arrayOf(
             MAGSTEEL,
-            // TODO: MAGNESIUM_SINGULARITY,
+            MAGNESIUM_SINGULARITY,
             ENDER_ESSENCE,
         )
     }
@@ -168,12 +180,12 @@ object IEItems {
         itemGroup = IEItemGroups.MATERIALS
         recipeType = RecipeType.SMELTERY
         recipe = arrayOf(
-            // TODO: EARTH_SINGULARITY,
+            EARTH_SINGULARITY,
             MYTHRIL,
-            // TODO: FORTUNE_SINGULARITY,
-            // TODO: MAGIC_SINGULARITY,
+            FORTUNE_SINGULARITY,
+            MAGIC_SINGULARITY,
             VOID_INGOT,
-            // TODO: METAL_SINGULARITY,
+            METAL_SINGULARITY,
         )
     }
 
@@ -220,6 +232,14 @@ object IEItems {
             SlimefunItems.REINFORCED_ALLOY_INGOT, SlimefunItems.REINFORCED_PLATE, SlimefunItems.REINFORCED_ALLOY_INGOT,
         )
     }
+
+    val VOID_GLASS = buildSlimefunItem<VoidGlass>(16) {
+        id = "VOID_GLASS"
+        material = MaterialType.Material(Material.GLASS)
+        itemGroup = IEItemGroups.MATERIALS
+        recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
+        recipe = RecipeUtils.surround(VOID_BLOCK, GLASS)
+    }
     // </editor-fold>
 
     // <editor-fold desc="Tools" collapsed="true">
@@ -253,8 +273,8 @@ object IEItems {
         itemGroup = IEItemGroups.TOOLS
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
         recipe = arrayOf(
-            ItemStack(Material.STICK), ItemStack(Material.STRING), ItemStack(Material.STICK),
-            ItemStack(Material.STICK), ItemStack(Material.STRING), ItemStack(Material.STICK),
+            STICK, STRING, STICK,
+            STICK, STRING, STICK,
             MAGSTEEL, MAGSTEEL, MAGSTEEL,
         )
     }
@@ -265,9 +285,9 @@ object IEItems {
         itemGroup = IEItemGroups.TOOLS
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
         recipe = arrayOf(
-            ItemStack(Material.STICK), ItemStack(Material.STRING), ItemStack(Material.STICK),
-            ItemStack(Material.STRING), ItemStack(Material.STICK), ItemStack(Material.STRING),
-            ItemStack(Material.STICK), ItemStack(Material.STRING), ItemStack(Material.STICK),
+            STICK, STRING, STICK,
+            STRING, STICK, STRING,
+            STICK, STRING, STICK,
         )
     }
 
@@ -277,9 +297,9 @@ object IEItems {
         itemGroup = IEItemGroups.TOOLS
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
         recipe = arrayOf(
-            MAGSTEEL, ItemStack(Material.STRING), MAGSTEEL,
-            ItemStack(Material.STRING), STRAINER_1, ItemStack(Material.STRING),
-            MAGSTEEL, ItemStack(Material.STRING), MAGSTEEL,
+            MAGSTEEL, STRING, MAGSTEEL,
+            STRING, STRAINER_1, STRING,
+            MAGSTEEL, STRING, MAGSTEEL,
         )
     }
 
@@ -289,9 +309,9 @@ object IEItems {
         itemGroup = IEItemGroups.TOOLS
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
         recipe = arrayOf(
-            SlimefunItems.REINFORCED_ALLOY_INGOT, ItemStack(Material.STRING), SlimefunItems.REINFORCED_ALLOY_INGOT,
-            ItemStack(Material.STRING), STRAINER_2, ItemStack(Material.STRING),
-            SlimefunItems.REINFORCED_ALLOY_INGOT, ItemStack(Material.STRING), SlimefunItems.REINFORCED_ALLOY_INGOT,
+            SlimefunItems.REINFORCED_ALLOY_INGOT, STRING, SlimefunItems.REINFORCED_ALLOY_INGOT,
+            STRING, STRAINER_2, STRING,
+            SlimefunItems.REINFORCED_ALLOY_INGOT, STRING, SlimefunItems.REINFORCED_ALLOY_INGOT,
         )
     }
     // </editor-fold>
@@ -303,8 +323,8 @@ object IEItems {
         itemGroup = IEItemGroups.MACHINES
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
         recipe = arrayOf(
-            MAGSTEEL, ItemStack(Material.DIAMOND_PICKAXE), MAGSTEEL,
-            ItemStack(Material.WATER_BUCKET), COMPRESSED_COBBLESTONE_2, ItemStack(Material.LAVA_BUCKET),
+            MAGSTEEL, DIAMOND_PICKAXE, MAGSTEEL,
+            WATER_BUCKET, COMPRESSED_COBBLESTONE_2, LAVA_BUCKET,
             MAGSTEEL, MACHINE_CIRCUIT, MAGSTEEL,
         )
     }
@@ -316,19 +336,19 @@ object IEItems {
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
         recipe = arrayOf(
             MAGSTEEL, COBBLESTONE_GENERATOR_1, MAGSTEEL,
-            ItemStack(Material.WATER_BUCKET), COMPRESSED_COBBLESTONE_3, ItemStack(Material.LAVA_BUCKET),
+            WATER_BUCKET, COMPRESSED_COBBLESTONE_3, LAVA_BUCKET,
             MACHINE_CIRCUIT, COBBLESTONE_GENERATOR_1, MACHINE_CIRCUIT,
         )
     }
 
-    val COBBLESTONE_GENERATOR_3 = buildSlimefunItem<MaterialGenerator>(Material.COBBLESTONE, 16, 300) {
+    val COBBLESTONE_GENERATOR_3 = buildSlimefunItem<MaterialGenerator>(Material.COBBLESTONE, 16, 360) {
         id = "COBBLESTONE_GENERATOR_3"
         material = MaterialType.Material(Material.SMOOTH_STONE)
         itemGroup = IEItemGroups.MACHINES
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
         recipe = arrayOf(
             VOID_BLOCK, COBBLESTONE_GENERATOR_2, MACHINE_PLATE,
-            ItemStack(Material.WATER_BUCKET), COMPRESSED_COBBLESTONE_4, ItemStack(Material.LAVA_BUCKET),
+            WATER_BUCKET, COMPRESSED_COBBLESTONE_4, LAVA_BUCKET,
             MACHINE_CIRCUIT, COBBLESTONE_GENERATOR_2, VOID_BLOCK,
         )
     }
@@ -345,6 +365,57 @@ object IEItems {
             null, VOID_INGOT, COBBLESTONE_GENERATOR_3, COBBLESTONE_GENERATOR_3, VOID_INGOT, null,
             null, VOID_INGOT, COBBLESTONE_GENERATOR_3, COBBLESTONE_GENERATOR_3, VOID_INGOT, null,
             INFINITY_INGOT, VOID_INGOT, null, null, VOID_INGOT, INFINITY_INGOT,
+        )
+    }
+
+    val VIRTUAL_FARM_1 = buildSlimefunItem<VirtualFarm>(300, 18) {
+        id = "VIRTUAL_FARM_1"
+        material = MaterialType.Material(Material.GRASS_BLOCK)
+        itemGroup = IEItemGroups.MACHINES
+        recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
+        recipe = arrayOf(
+            GLASS, GLASS, GLASS,
+            MAGSTEEL, ItemStack(Material.DIAMOND_HOE), MAGSTEEL,
+            MACHINE_CIRCUIT, GRASS_BLOCK, MACHINE_CIRCUIT,
+        )
+    }
+
+    val VIRTUAL_FARM_2 = buildSlimefunItem<VirtualFarm>(60, 90) {
+        id = "VIRTUAL_FARM_2"
+        material = MaterialType.Material(Material.CRIMSON_NYLIUM)
+        itemGroup = IEItemGroups.MACHINES
+        recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
+        recipe = arrayOf(
+            SlimefunItems.HARDENED_GLASS, SlimefunItems.HARDENED_GLASS, SlimefunItems.HARDENED_GLASS,
+            MAGNONIUM, VIRTUAL_FARM_1, MAGNONIUM,
+            MACHINE_CIRCUIT, MACHINE_CORE, MACHINE_CIRCUIT,
+        )
+    }
+
+    val VIRTUAL_FARM_3 = buildSlimefunItem<VirtualFarm>(30, 270) {
+        id = "VIRTUAL_FARM_3"
+        material = MaterialType.Material(Material.WARPED_NYLIUM)
+        itemGroup = IEItemGroups.MACHINES
+        recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
+        recipe = arrayOf(
+            VOID_BLOCK, VIRTUAL_FARM_2, VOID_BLOCK,
+            MACHINE_CORE, VIRTUAL_FARM_2, MACHINE_CORE,
+            VOID_BLOCK, VIRTUAL_FARM_2, VOID_BLOCK,
+        )
+    }
+
+    val VIRTUAL_FARM_4 = buildSlimefunItem<VirtualFarm>(15, 540) {
+        id = "VIRTUAL_FARM_4"
+        material = MaterialType.Material(Material.END_STONE)
+        itemGroup = IEItemGroups.INFINITY_DISPLAY
+        recipeType = IERecipeTypes.INFINITY_WORKBENCH
+        recipe = RecipeUtils.expand6( // TODO: revert to arrayOf
+            GLASS, GLASS, GLASS, GLASS, GLASS, GLASS,
+            GLASS, null, null, null, null, GLASS,
+            GLASS, null, null, null, null, GLASS,
+            GLASS, GRASS_BLOCK, GRASS_BLOCK, GRASS_BLOCK, GRASS_BLOCK, GLASS,
+            MACHINE_PLATE, SlimefunItems.CROP_GROWTH_ACCELERATOR_2, VIRTUAL_FARM_3, VIRTUAL_FARM_3, SlimefunItems.CROP_GROWTH_ACCELERATOR_2, MACHINE_PLATE,
+            // TODO: MACHINE_PLATE, INFINITY_MACHINE_CIRCUIT, INFINITY_MACHINE_CORE, INFINITY_MACHINE_CORE, INFINITY_MACHINE_CIRCUIT, MACHINE_PLATE,
         )
     }
     // </editor-fold>
