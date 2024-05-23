@@ -6,6 +6,9 @@ import io.github.thebusybiscuit.slimefun4.core.guide.SlimefunGuide
 import io.github.thebusybiscuit.slimefun4.core.guide.SlimefunGuideMode
 import org.bukkit.entity.Player
 
+/**
+ * A [MenuItem] that opens an [ItemGroup].
+ */
 class MenuItemGroup(
     private val itemGroup: ItemGroup,
 ) : MenuItem {

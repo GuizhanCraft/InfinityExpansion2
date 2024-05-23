@@ -30,13 +30,13 @@ open class GrowingMachine(
         addItemSetting(tickRateSetting, energyPerTickSetting)
     }
 
-    private val recipes = mutableMapOf<ItemStack, Array<ItemStack>>()
+    private val _recipes = mutableMapOf<ItemStack, Array<ItemStack>>()
 
-    fun getRecipes() = recipes.toMap()
+    val recipes: Map<ItemStack, Array<ItemStack>> get() = _recipes
 
     fun addRecipe(input: ItemStack, output: Array<ItemStack>): GrowingMachine {
         check(state == ItemState.UNREGISTERED) { "Cannot add recipes after the machine has been registered" }
-        recipes[input] = output
+        _recipes[input] = output
         return this
     }
 
@@ -70,6 +70,10 @@ open class GrowingMachine(
         return true
     }
 
+    private fun findRecipe(item: ItemStack): Array<ItemStack>? {
+        return _recipes.entries.find { (input, _) -> SlimefunUtils.isItemSimilar(item, input, false) }?.value
+    }
+
     override fun getRecipeSectionLabel(p: Player) = InfinityExpansion2.integrationService.getLore(p, "info")
 
     override fun getDisplayRecipes(): List<ItemStack> {
@@ -79,7 +83,7 @@ open class GrowingMachine(
             GuiItems.RECIPES,
             GuiItems.RECIPES
         )
-        recipes.forEach { (input, output) ->
+        _recipes.forEach { (input, output) ->
             val size = output.size
             for (i in 0 until size) {
                 result.add(input)
@@ -87,9 +91,5 @@ open class GrowingMachine(
             }
         }
         return result
-    }
-
-    private fun findRecipe(item: ItemStack): Array<ItemStack>? {
-        return recipes.entries.find { (input, _) -> SlimefunUtils.isItemSimilar(item, input, false) }?.value
     }
 }

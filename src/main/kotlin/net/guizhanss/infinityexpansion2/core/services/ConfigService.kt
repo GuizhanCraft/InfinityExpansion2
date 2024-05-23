@@ -2,10 +2,14 @@ package net.guizhanss.infinityexpansion2.core.services
 
 import net.guizhanss.guizhanlib.slimefun.addon.AddonConfig
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
-import net.guizhanss.infinityexpansion2.utils.ConfigUtils
+import net.guizhanss.infinityexpansion2.utils.loadBooleanMap
+import net.guizhanss.infinityexpansion2.utils.loadDoubleMap
+import net.guizhanss.infinityexpansion2.utils.loadEnchantmentKeyMap
+import net.guizhanss.infinityexpansion2.utils.loadSectionMap
 import org.bukkit.configuration.ConfigurationSection
+import org.bukkit.enchantments.Enchantment
 
-class ConfigService(private val plugin: InfinityExpansion2) {
+class ConfigService(plugin: InfinityExpansion2) {
     private var config: AddonConfig = AddonConfig(plugin, "config.yml")
 
     var autoUpdate = true
@@ -40,7 +44,7 @@ class ConfigService(private val plugin: InfinityExpansion2) {
         private set
 
     // advanced anvil options
-    var advancedAnvilMaxLevels: Map<String, Int> = mapOf()
+    var advancedAnvilMaxLevels: Map<Enchantment, Int> = mapOf()
         private set
 
     // infinity gear enchantments
@@ -62,13 +66,12 @@ class ConfigService(private val plugin: InfinityExpansion2) {
         enableResearches = config.getBoolean("balance.enable-researches", false)
         mobSimTickRate = config.getInt("mob-simulation.tick-rate", 20)
         mobSimExpMultiplier = config.getDouble("mob-simulation.exp-multiplier", 1.0)
-        quarryOcsillators = ConfigUtils.loadDoubleMap(config.getConfigurationSection("quarry.ocsillators"))
+        quarryOcsillators = loadDoubleMap(config.getConfigurationSection("quarry.ocsillators"))
         quarryTickRate = config.getInt("quarry.tick-rate", 10)
         quarryAllowNether = config.getBoolean("quarry.nether-materials-in-overworld", false)
-        quarryResources = ConfigUtils.loadBooleanMap(config.getConfigurationSection("quarry.resources"))
-        advancedAnvilMaxLevels = ConfigUtils.loadIntMap(config.getConfigurationSection("advanced-anvil.max-levels"))
-        infinityGearEnchantLevels =
-            ConfigUtils.loadSectionMap(config.getConfigurationSection("infinity-gear-enchantments"))
+        quarryResources = loadBooleanMap(config.getConfigurationSection("quarry.resources"))
+        advancedAnvilMaxLevels = loadEnchantmentKeyMap(config.getConfigurationSection("advanced-anvil.max-levels"))
+        infinityGearEnchantLevels = loadSectionMap(config.getConfigurationSection("infinity-gear-enchantments"))
 
         config.save()
     }

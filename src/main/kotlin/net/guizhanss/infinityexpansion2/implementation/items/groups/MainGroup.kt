@@ -1,5 +1,3 @@
-@file:Suppress("deprecation")
-
 package net.guizhanss.infinityexpansion2.implementation.items.groups
 
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup
@@ -18,6 +16,5 @@ class MainGroup(
         addMenuItem(*groups.map { MenuItemGroup(it) }.toTypedArray())
     }
 
-    // TODO: i18n
-    override fun getGuideTitle(p: Player) = InfinityExpansion2.localization.getItemGroupName("main")
+    override fun getGuideTitle(p: Player) = InfinityExpansion2.integrationService.getItemGroupName(p, "main")
 }

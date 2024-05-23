@@ -6,6 +6,7 @@ import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
 import net.guizhanss.guizhanlib.minecraft.utils.ChatUtil
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
+import net.guizhanss.infinityexpansion2.utils.emptyRecipe
 import net.guizhanss.infinityexpansion2.utils.general.RequiredProperty
 import org.bukkit.Material
 import org.bukkit.inventory.ItemStack
@@ -24,7 +25,7 @@ class SlimefunItemBuilder {
 
     var itemGroup: ItemGroup by RequiredProperty()
     var recipeType: RecipeType by RequiredProperty()
-    var recipe: Array<out ItemStack?> by RequiredProperty()
+    var recipe: Array<out ItemStack?> by RequiredProperty(emptyRecipe())
 
     var postCreate: (SlimefunItemStack) -> Unit = {}
     var preRegister: (SlimefunItem) -> Unit = {}

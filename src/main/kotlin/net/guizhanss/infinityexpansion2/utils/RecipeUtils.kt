@@ -3,26 +3,43 @@ package net.guizhanss.infinityexpansion2.utils
 import org.bukkit.inventory.ItemStack
 
 /**
- * Recipe helpers for recipes (3x3).
+ * Fill the 3x3 recipe with the same [ItemStack].
  */
-object RecipeUtils {
-    fun full(item: ItemStack?) = Array(9) { item }
+fun ItemStack?.fillRecipe() = Array(9) { this }
 
-    fun empty() = full(null)
+/**
+ * Returns a 3x3 recipe with `null` in all slots.
+ */
+fun emptyRecipe() = null.fillRecipe()
 
-    fun expand(vararg items: ItemStack?) = Array(9) { items.getOrNull(it) }
+/**
+ * Returns a 3x3 recipe where the given items are the first few items in the recipe,
+ * and the rest are `null`.
+ */
+fun expandRecipe(vararg items: ItemStack?) = Array(9) { items.getOrNull(it) }
 
-    fun center(item: ItemStack) = arrayOf(
-        null, null, null,
-        null, item, null,
-        null, null, null
-    )
+/**
+ * Returns a 3x3 recipe where the given item is at the center,
+ * and the rest are `null`.
+ */
+fun ItemStack?.centerRecipe() = arrayOf(
+    null, null, null,
+    null, this, null,
+    null, null, null
+)
 
-    fun surround(center: ItemStack?, surround: ItemStack?) = arrayOf(
-        surround, surround, surround,
-        surround, center, surround,
-        surround, surround, surround
-    )
+/**
+ * Returns a 3x3 recipe where the given item is at the center,
+ * and is surrounded by the other item.
+ */
+infix fun ItemStack?.surroundedBy(other: ItemStack) = arrayOf(
+    other, other, other,
+    other, this, other,
+    other, other, other
+)
 
-    fun expand6(vararg items: ItemStack?) = Array(36) { items.getOrNull(it) }
-}
+/**
+ * Returns a 6x6 recipe where the given items are the first few items in the recipe,
+ * and the rest are `null`.
+ */
+fun expandRecipe6(vararg items: ItemStack?) = Array(36) { items.getOrNull(it) }

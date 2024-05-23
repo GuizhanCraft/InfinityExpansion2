@@ -6,9 +6,9 @@ import net.guizhanss.guizhanlib.minecraft.utils.ChatUtil
 import net.guizhanss.guizhanlib.minecraft.utils.ItemUtil
 import net.guizhanss.guizhanlib.slimefun.addon.SlimefunLocalization
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
-import net.guizhanss.infinityexpansion2.utils.FileUtils
-import net.guizhanss.infinityexpansion2.utils.StringUtils.toId
 import net.guizhanss.infinityexpansion2.utils.items.MaterialType
+import net.guizhanss.infinityexpansion2.utils.listYmlFilesInJar
+import net.guizhanss.infinityexpansion2.utils.toId
 import net.md_5.bungee.api.ChatMessageType
 import net.md_5.bungee.api.chat.TextComponent
 import org.bukkit.command.CommandSender
@@ -34,7 +34,7 @@ class LocalizationService(
         if (!translationsFolder.exists()) {
             translationsFolder.mkdirs()
         }
-        val translationFiles = FileUtils.listYmlFilesInJar(jarFile, "${FOLDER_NAME}/")
+        val translationFiles = listYmlFilesInJar(jarFile, "${FOLDER_NAME}/")
         for (translationFile in translationFiles) {
             val filePath = FOLDER_NAME + File.separator + translationFile
             val file = File(plugin.dataFolder, filePath)

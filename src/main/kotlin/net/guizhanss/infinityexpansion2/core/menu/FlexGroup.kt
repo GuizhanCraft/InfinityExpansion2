@@ -16,35 +16,40 @@ import org.bukkit.inventory.ItemStack
 import kotlin.math.ceil
 import kotlin.math.min
 
+/**
+ * A [FlexItemGroup] that displays [MenuItem]s.
+ */
 abstract class FlexGroup(
     key: NamespacedKey,
     item: ItemStack
 ) : FlexItemGroup(key, item) {
-    companion object {
-        private val HEADER = arrayOf(0, 2, 3, 4, 5, 6, 7, 8)
-        private const val GUIDE_BACK = 1
-        private val FOOTER = arrayOf(45, 46, 47, 48, 49, 50, 51, 52, 53)
-        private const val PAGE_SIZE = 36
-        private const val PAGE_PREV = 46
-        private const val PAGE_NEXT = 52
-    }
+    private val _menuItems: MutableList<MenuItem> = mutableListOf()
 
-    private val menuItems: MutableList<MenuItem> = mutableListOf()
+    /**
+     * All the [MenuItem]s in this [FlexGroup].
+     */
+    val menuItems: List<MenuItem> get() = _menuItems
 
+    /**
+     * Adds [MenuItem]s to this [FlexGroup].
+     */
     fun addMenuItem(vararg items: MenuItem) {
-        menuItems.addAll(items)
+        _menuItems.addAll(items)
     }
 
+    /**
+     * The title of this guide.
+     */
     abstract fun getGuideTitle(p: Player): String
 
     override fun isVisible(p: Player, profile: PlayerProfile, mode: SlimefunGuideMode) =
         mode == SlimefunGuideMode.SURVIVAL_MODE
 
     override fun open(p: Player, profile: PlayerProfile, mode: SlimefunGuideMode) {
-        openGuide(p, profile, mode, 1)
+        openGuide(p, profile, mode)
     }
 
-    private fun openGuide(p: Player, profile: PlayerProfile, mode: SlimefunGuideMode, page: Int) {
+    private fun openGuide(p: Player, profile: PlayerProfile, mode: SlimefunGuideMode) {
         val guide = Slimefun.getRegistry().getSlimefunGuide(mode)
 
         profile.guideHistory.add(this, 1)
@@ -73,7 +78,7 @@ abstract class FlexGroup(
             false
         }
 
-        displayPage(p, profile, mode, menu, page)
+        displayPage(p, profile, mode, menu, 1)
 
         menu.open(p)
     }
@@ -85,10 +90,10 @@ abstract class FlexGroup(
         menu: ChestMenu,
         page: Int
     ) {
+        val pages = ceil(_menuItems.size / PAGE_SIZE.toDouble()).toInt()
         val startIdx = (page - 1) * PAGE_SIZE
-        val endIdx = min(startIdx + PAGE_SIZE, menuItems.size)
-        val subList = menuItems.subList(startIdx, endIdx)
-        val pages = ceil(menuItems.size / PAGE_SIZE.toDouble()).toInt()
+        val endIdx = min(startIdx + PAGE_SIZE, _menuItems.size)
+        val subList = _menuItems.subList(startIdx, endIdx)
 
         for (i in 0 until PAGE_SIZE) {
             val slot = i + 9
@@ -129,5 +134,14 @@ abstract class FlexGroup(
             menu.replaceExistingItem(PAGE_NEXT, ChestMenuUtils.getBackground())
             menu.addMenuClickHandler(PAGE_NEXT, ChestMenuUtils.getEmptyClickHandler())
         }
+    }
+
+    companion object {
+        private val HEADER = arrayOf(0, 2, 3, 4, 5, 6, 7, 8)
+        private const val GUIDE_BACK = 1
+        private val FOOTER = arrayOf(45, 46, 47, 48, 49, 50, 51, 52, 53)
+        private const val PAGE_SIZE = 36
+        private const val PAGE_PREV = 46
+        private const val PAGE_NEXT = 52
     }
 }

@@ -3,7 +3,7 @@ package net.guizhanss.infinityexpansion2.implementation.items.groups
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.implementation.items.groups.infinity.InfinityDisplayGroup
 import net.guizhanss.infinityexpansion2.implementation.items.groups.infinity.InfinityGroup
-import net.guizhanss.infinityexpansion2.utils.constant.Keys.createKey
+import net.guizhanss.infinityexpansion2.utils.createKey
 import net.guizhanss.infinityexpansion2.utils.items.MaterialType
 import org.bukkit.Material
 

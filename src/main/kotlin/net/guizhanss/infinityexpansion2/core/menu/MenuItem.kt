@@ -5,6 +5,9 @@ import io.github.thebusybiscuit.slimefun4.core.guide.SlimefunGuideMode
 import org.bukkit.entity.Player
 import org.bukkit.inventory.ItemStack
 
+/**
+ * A [MenuItem] can can have any custom click action.
+ */
 interface MenuItem {
     fun getItem(p: Player): ItemStack
 

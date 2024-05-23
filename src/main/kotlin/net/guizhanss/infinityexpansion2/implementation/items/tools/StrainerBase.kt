@@ -9,7 +9,6 @@ import io.github.thebusybiscuit.slimefun4.api.items.settings.IntRangeSetting
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
 import io.github.thebusybiscuit.slimefun4.core.attributes.RecipeDisplayItem
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems
-import io.github.thebusybiscuit.slimefun4.libraries.dough.inventory.InvUtils
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenuPreset
 import me.mrCookieSlime.Slimefun.api.inventory.DirtyChestMenu
@@ -17,7 +16,7 @@ import net.guizhanss.guizhanlib.slimefun.machines.TickingMenuBlock
 import net.guizhanss.guizhanlib.utils.RandomUtil
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.core.menu.MenuLayout
-import net.guizhanss.infinityexpansion2.utils.BlockUtils
+import net.guizhanss.infinityexpansion2.utils.isWaterLogged
 import net.guizhanss.infinityexpansion2.utils.items.GuiItems
 import org.bukkit.Material
 import org.bukkit.block.Block
@@ -86,7 +85,7 @@ class StrainerBase(
 
     override fun tick(b: Block, menu: BlockMenu) {
         if (isDisabledIn(b.world)) return
-        if (!BlockUtils.isWaterLogged(b)) return
+        if (!b.isWaterLogged()) return
         if (InfinityExpansion2.sfTickCount() % tickRateSetting.value != 0) return
 
         val strainerItem = menu.getItemInSlot(inputSlots[0])
@@ -108,7 +107,7 @@ class StrainerBase(
         }
 
         val output = OUTPUTS.random()
-        if (!InvUtils.fits(menu.toInventory(), output, *outputSlots)) {
+        if (!menu.fits(output, *outputSlots)) {
             menu.replaceExistingItem(LAYOUT.statusSlot, GuiItems.NO_SPACE)
             return
         }

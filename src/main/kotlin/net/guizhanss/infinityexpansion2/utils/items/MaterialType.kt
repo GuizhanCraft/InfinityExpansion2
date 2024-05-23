@@ -19,3 +19,7 @@ sealed interface MaterialType {
         override fun convert() = SlimefunUtils.getCustomHead(texture)
     }
 }
+
+fun BukkitMaterial.convert() = MaterialType.Material(this)
+fun BukkitItemStack.convert() = MaterialType.ItemStack(this)
+fun String.convertHead() = MaterialType.Head(this)

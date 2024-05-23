@@ -11,6 +11,16 @@ class InfinityGroup(
     key: NamespacedKey,
     item: ItemStack
 ) : FlexGroup(key, item) {
+    private val _sfItems: MutableList<SlimefunItem> = mutableListOf()
+
+    val sfItems: List<SlimefunItem> get() = _sfItems
+
+    fun addItem(sfItem: SlimefunItem) {
+        _sfItems.add(sfItem)
+    }
+
+    override fun getGuideTitle(p: Player) = InfinityExpansion2.integrationService.getItemGroupName(p, "infinity")
+
     companion object {
         private const val GUIDE_BACK = 0
         private val BACKGROUND = arrayOf(9, 18, 27, 36, 45, 52, 53)
@@ -26,13 +36,5 @@ class InfinityGroup(
             37, 38, 39, 40, 41, 42,
             46, 47, 48, 49, 50, 51
         )
-    }
-
-    private val items: MutableList<SlimefunItem> = mutableListOf()
-
-    override fun getGuideTitle(p: Player) = InfinityExpansion2.integrationService.getItemGroupName(p, "infinity")
-
-    fun addItem(sfItem: SlimefunItem) {
-        // TODO
     }
 }

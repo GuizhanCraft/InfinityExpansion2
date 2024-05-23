@@ -1,6 +1,7 @@
 package net.guizhanss.infinityexpansion2.core.services
 
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
+import net.guizhanss.infinityexpansion2.implementation.listeners.TranslationsLoadListener
 import net.guizhanss.infinityexpansion2.utils.items.MaterialType
 import net.guizhanss.slimefuntranslation.api.SlimefunTranslationAPI
 import net.guizhanss.slimefuntranslation.api.config.TranslationConfiguration
@@ -13,15 +14,14 @@ import org.bukkit.entity.Player
 import java.io.File
 
 class IntegrationService(private val plugin: InfinityExpansion2) {
-    var slimefunTranslationEnabled = false
+    var slimefunTranslationEnabled = isPluginEnabled("SlimefunTranslation")
         private set
-
-    init {
-        slimefunTranslationEnabled = isPluginEnabled("SlimefunTranslation")
-    }
 
     private fun isPluginEnabled(pluginName: String) = plugin.server.pluginManager.isPluginEnabled(pluginName)
 
+    /**
+     * This function should be called by [TranslationsLoadListener] to load translations.
+     */
     fun loadTranslations() {
         val fields = TranslationConfigurationFields.builder().items("items").lore("lores").build()
         val defaults = TranslationConfigurationDefaults.builder().name("InfinityExpansion2").build()
@@ -35,6 +35,9 @@ class IntegrationService(private val plugin: InfinityExpansion2) {
         }
     }
 
+    /**
+     * Get the translated lore line for [Player].
+     */
     fun getLore(p: Player, id: String) =
         if (slimefunTranslationEnabled) {
             SlimefunTranslationAPI.getLore(SlimefunTranslationAPI.getUser(p), id, true)
@@ -42,6 +45,9 @@ class IntegrationService(private val plugin: InfinityExpansion2) {
             InfinityExpansion2.localization.getLore(id)
         }
 
+    /**
+     * Get the translated item group name for [Player].
+     */
     fun getItemGroupName(p: Player, id: String): String {
         return if (slimefunTranslationEnabled) {
             val item = InfinityExpansion2.localization.getItemGroupItem(MaterialType.Material(Material.BARRIER), id)

@@ -80,10 +80,10 @@ items:
     conditions:
       force-load: true
     name: "&aProducing..."
-  _UI_NO_SPACE:
+  _UI_NO_ROOM:
     conditions:
       force-load: true
-    name: "&cNo space"
+    name: "&cNot enough room"
   _UI_NO_POWER:
     conditions:
       force-load: true
@@ -92,6 +92,11 @@ items:
     conditions:
       force-load: true
     name: "&cInvalid input"
+  _UI_PROGRESS:
+    conditions:
+      force-load: true
+    name: "&eProgress:"
+
   # display recipe info items
   _UI_TICK_RATE:
     conditions:
@@ -117,20 +122,46 @@ items:
     name: "&eRecipes:"
     lore:
       - "&7------>"
+  _UI_PROGRESS_TOTAL:
+    conditions:
+      force-load: true
+    name: "&eTotal progress required:"
+  _UI_PROGRESS_INCREASE:
+    conditions:
+      force-load: true
+    name: "&eIncrease progress:"
+
   # strainer specific
   _UI_ANY_STRAINER:
     conditions:
       force-load: true
     name: "&aAny Strainer"
-  # singularity specific
-  _UI_SINGULARITY_TOTAL:
+
+  # stoneworks factory specific
+  _UI_SW_CHANGE:
     conditions:
       force-load: true
-    name: "&eTotal Progress:"
-  _UI_SINGULARITY_PROGRESS:
+    name: "&eClick the item below to change action"
+  _UI_SW_NONE:
     conditions:
       force-load: true
-    name: "&eIncrease progress:"
+    name: "&cNo action"
+  _UI_SW_FURNACE:
+    conditions:
+      force-load: true
+    name: "&eSmelting"
+  _UI_SW_CRUSH:
+    conditions:
+      force-load: true
+    name: "&eCrushing"
+  _UI_SW_COMPACT:
+    conditions:
+      force-load: true
+    name: "&eCompacting"
+  _UI_SW_TRANSFORM:
+    conditions:
+      force-load: true
+    name: "&eTransforming"
 
   # items - guide
   _GUIDE_INTRO:
@@ -240,8 +271,16 @@ items:
     name: "&6Machine Circuit"
     lore:
       - "&7Machine Component"
+  INFINITY_MACHINE_CIRCUIT:
+    name: "&bInfinity &7Machine Circuit"
+    lore:
+      - "&7Machine Component"
   MACHINE_CORE:
     name: "&fMachine Core"
+    lore:
+      - "&7Machine Component"
+  INFINITY_MACHINE_CORE:
+    name: "&bInfinity &fMachine Core"
     lore:
       - "&7Machine Component"
   MACHINE_PLATE:
@@ -343,19 +382,118 @@ items:
   VIRTUAL_FARM_1:
     name: "&9Basic &aVirtual Farm"
     lore:
-      - "&7Automatically grows, harvests, and replant crops."
+      - ""
+      - "&7Automatically grows, harvests,"
+      - "&7and replant crops."
   VIRTUAL_FARM_2:
     name: "&cAdvanced &aVirtual Farm"
     lore:
-      - "&7Automatically grows, harvests, and replant crops."
+      - ""
+      - "&7Automatically grows, harvests,"
+      - "&7and replant crops."
   VIRTUAL_FARM_3:
     name: "&7Void &aVirtual Farm"
     lore:
-      - "&7Automatically grows, harvests, and replant crops."
+      - ""
+      - "&7Automatically grows, harvests,"
+      - "&7and replant crops."
   VIRTUAL_FARM_4:
     name: "&bInfinity &aVirtual Farm"
     lore:
-      - "&7Automatically grows, harvests, and replant crops."
+      - ""
+      - "&7Automatically grows, harvests,"
+      - "&7and replant crops."
+  TREE_GROWER_1:
+    name: "&9Basic &2Tree Grower"
+    lore:
+      - ""
+      - "&7Automatically grows, harvests,"
+      - "&7and replant trees."
+  TREE_GROWER_2:
+    name: "&cAdvanced &2Tree Grower"
+    lore:
+      - ""
+      - "&7Automatically grows, harvests,"
+      - "&7and replant trees."
+  TREE_GROWER_3:
+    name: "&7Void &2Tree Grower"
+    lore:
+      - ""
+      - "&7Automatically grows, harvests,"
+      - "&7and replant trees."
+  TREE_GROWER_4:
+    name: "&bInfinity &2Tree Grower"
+    lore:
+      - ""
+      - "&7Automatically grows, harvests,"
+      - "&7and replant trees."
+  VOID_HARVESTER_1:
+    name: "&8Void Harvester"
+    lore:
+      - ""
+      - "&7Harvests resources from the void."
+      - ""
+      - "&8\u21E8 &e⚡ &7Speed: &b1x"
+    lore-overrides:
+      4: "%sftrlore_Speed_1%"
+  VOID_HARVESTER_2:
+    name: "&cAdvanced &8Void Harvester"
+    lore:
+      - ""
+      - "&7Harvests resources from the void."
+      - ""
+      - "&8\u21E8 &e⚡ &7Speed: &b16x"
+    lore-overrides:
+      4: "%sftrlore_Speed_16%"
+  VOID_HARVESTER_3:
+    name: "&bInfinity &8Void Harvester"
+    lore:
+      - ""
+      - "&7Harvests resources from the void."
+      - ""
+      - "&8\u21E8 &e⚡ &7Speed: &b64x"
+    lore-overrides:
+      4: "%sftrlore_Speed_64%"
+  STONEWORKS_FACTORY_1:
+    name: "&8Stoneworks Factory"
+    lore:
+      - ""
+      - "&7Generates cobblestone and"
+      - "&7processes it into various materials."
+      - ""
+      - "&8\u21E8 &e⚡ &7Speed: &b1x"
+    lore-overrides:
+      5: "%sftrlore_Speed_1%"
+  STONEWORKS_FACTORY_2:
+    name: "&cAdvanced &8Stoneworks Factory"
+    lore:
+      - ""
+      - "&7Generates cobblestone and"
+      - "&7processes it into various materials."
+      - ""
+      - "&8\u21E8 &e⚡ &7Speed: &b4x"
+    lore-overrides:
+      5: "%sftrlore_Speed_4%"
+  STONEWORKS_FACTORY_3:
+    name: "&7Void &8Stoneworks Factory"
+    lore:
+      - ""
+      - "&7Generates cobblestone and"
+      - "&7processes it into various materials."
+      - ""
+      - "&8\u21E8 &e⚡ &7Speed: &b16x"
+    lore-overrides:
+      5: "%sftrlore_Speed_16%"
+  STONEWORKS_FACTORY_4:
+    name: "&bInfinity &8Stoneworks Factory"
+    lore:
+      - ""
+      - "&7Generates cobblestone and"
+      - "&7processes it into various materials."
+      - ""
+      - "&8\u21E8 &e⚡ &7Speed: &b64x"
+    lore-overrides:
+      5: "%sftrlore_Speed_64%"
   # items - generators
 
   # items - singularities
