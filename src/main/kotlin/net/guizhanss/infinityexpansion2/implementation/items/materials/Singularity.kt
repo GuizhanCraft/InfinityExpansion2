@@ -2,6 +2,7 @@ package net.guizhanss.infinityexpansion2.implementation.items.materials
 
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
+import io.github.thebusybiscuit.slimefun4.api.items.settings.IntRangeSetting
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
 import io.github.thebusybiscuit.slimefun4.core.attributes.RecipeDisplayItem
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
@@ -16,11 +17,17 @@ class Singularity(
     itemStack: SlimefunItemStack,
     recipeType: RecipeType,
     recipe: Array<out ItemStack?>,
-    private val defaultTotalProgress: Int,
+    defaultTotalProgress: Int,
     val ingredients: Map<ItemStack, Int>,
 ) : SimpleMaterial(itemGroup, itemStack, recipeType, recipe), RecipeDisplayItem {
+    private val defaultProgressSetting = IntRangeSetting(this, "default-progress", 1, defaultTotalProgress, 1_000_000)
+
+    init {
+        addItemSetting(defaultProgressSetting)
+    }
+
     val totalProgress
-        get() = ceil(defaultTotalProgress * InfinityExpansion2.configService.singularityCostMultiplier).toInt()
+        get() = ceil(defaultProgressSetting.value * InfinityExpansion2.configService.singularityCostMultiplier).toInt()
 
     override fun postRegister() {
         if (!isDisabled) {
