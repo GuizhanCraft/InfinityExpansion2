@@ -3,7 +3,6 @@ package net.guizhanss.infinityexpansion2.implementation.items.machines
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup
 import io.github.thebusybiscuit.slimefun4.api.items.ItemState
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
-import io.github.thebusybiscuit.slimefun4.api.items.settings.IntRangeSetting
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
 import io.github.thebusybiscuit.slimefun4.core.attributes.RecipeDisplayItem
 import io.github.thebusybiscuit.slimefun4.utils.SlimefunUtils
@@ -22,13 +21,8 @@ open class GrowingMachine(
     recipe: Array<out ItemStack?>,
     tickRate: Int,
     energyPerTick: Int,
-) : AbstractMachine(itemGroup, itemStack, recipeType, recipe, MenuLayout.SINGLE_INPUT), RecipeDisplayItem {
-    private val tickRateSetting = IntRangeSetting(this, "tick-rate", 1, tickRate, 3600)
-    private val energyPerTickSetting = IntRangeSetting(this, "energy-per-tick", 1, energyPerTick, 1_000_000_000)
-
-    init {
-        addItemSetting(tickRateSetting, energyPerTickSetting)
-    }
+) : AbstractMachine(itemGroup, itemStack, recipeType, recipe, MenuLayout.SINGLE_INPUT, energyPerTick, tickRate),
+    RecipeDisplayItem {
 
     private val _recipes = mutableMapOf<ItemStack, Array<ItemStack>>()
 
@@ -40,29 +34,22 @@ open class GrowingMachine(
         return this
     }
 
-    override fun getEnergyConsumptionPerTick() = energyPerTickSetting.value
 
     override fun process(b: Block, menu: BlockMenu): Boolean {
         val input = menu.getItemInSlot(inputSlots[0])
         if (input == null) {
-            if (menu.hasViewer()) {
-                menu.replaceExistingItem(layout.statusSlot, GuiItems.INVALID_INPUT)
-            }
+            menu.setStatus(GuiItems.INVALID_INPUT)
             return false
         }
 
         val output = findRecipe(input)
         if (output == null) {
-            if (menu.hasViewer()) {
-                menu.replaceExistingItem(layout.statusSlot, GuiItems.INVALID_INPUT)
-            }
+            menu.setStatus(GuiItems.INVALID_INPUT)
             return false
         }
 
-        if (menu.hasViewer()) {
-            menu.replaceExistingItem(layout.statusSlot, GuiItems.PRODUCING)
-        }
-        if (InfinityExpansion2.sfTickCount() % tickRateSetting.value == 0) {
+        menu.setStatus(GuiItems.PRODUCING)
+        if (shouldRun()) {
             for (item in output) {
                 menu.pushItem(item.clone(), *outputSlots)
             }
@@ -78,8 +65,8 @@ open class GrowingMachine(
 
     override fun getDisplayRecipes(): List<ItemStack> {
         val result = mutableListOf(
-            GuiItems.tickRate(tickRateSetting.value),
-            GuiItems.energyConsumption(energyPerTickSetting.value),
+            GuiItems.tickRate(getCustomTickRate()),
+            GuiItems.energyConsumptionPerTick(getEnergyConsumptionPerTick()),
             GuiItems.RECIPES,
             GuiItems.RECIPES
         )

@@ -494,6 +494,22 @@ items:
       - "&8\u21E8 &e⚡ &7Speed: &b64x"
     lore-overrides:
       5: "%sftrlore_Speed_64%"
+  SINGULARITY_CONSTRUCTOR_1:
+    name: "&bSingularity Constructor"
+    lore:
+      - ""
+      - "&7Condenses lots of resources"
+      - "&7to create singularities."
+      - ""
+      - "&8\u21E8 &e⚡ &7Speed: &b1x"
+    lore-overrides:
+      5: "%sftrlore_Speed_1%"
+
+  INFINITY_WORKBENCH:
+    name: "&6Infinity Workbench"
+    lore:
+      - ""
+      - "&7Used to craft infinity items."
   # items - generators
 
   # items - singularities

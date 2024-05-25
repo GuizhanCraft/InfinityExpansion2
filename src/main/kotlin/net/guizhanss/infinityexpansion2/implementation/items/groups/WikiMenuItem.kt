@@ -9,7 +9,7 @@ import org.bukkit.Material
 import org.bukkit.entity.Player
 
 object WikiMenuItem : MenuItem {
-    override fun getItem(p: Player) = InfinityExpansion2.localization.getItemGroupItem(
+    override fun getItem(p: Player, profile: PlayerProfile) = InfinityExpansion2.localization.getItemGroupItem(
         MaterialType.Material(Material.BOOK),
         "wiki"
     )

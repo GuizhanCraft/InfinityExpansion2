@@ -65,5 +65,5 @@ bukkit {
     authors = listOf("ybw0014")
     description = "More Slimefun content"
     depend = listOf("Slimefun")
-    softDepend = listOf("GuizhanLibPlugin", "SlimefunTranslation", "LiteXpansion")
+    softDepend = listOf("GuizhanLibPlugin", "SlimefunTranslation", "InfinityExpansion")
 }

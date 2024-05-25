@@ -5,7 +5,9 @@ package net.guizhanss.infinityexpansion2.implementation
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems
 import net.guizhanss.infinityexpansion2.implementation.items.groups.IEItemGroups
+import net.guizhanss.infinityexpansion2.implementation.items.machines.InfinityWorkbench
 import net.guizhanss.infinityexpansion2.implementation.items.machines.MaterialGenerator
+import net.guizhanss.infinityexpansion2.implementation.items.machines.SingularityConstructor
 import net.guizhanss.infinityexpansion2.implementation.items.machines.StoneworksFactory
 import net.guizhanss.infinityexpansion2.implementation.items.machines.TreeGrower
 import net.guizhanss.infinityexpansion2.implementation.items.machines.VirtualFarm
@@ -19,7 +21,6 @@ import net.guizhanss.infinityexpansion2.implementation.items.tools.Strainer
 import net.guizhanss.infinityexpansion2.implementation.items.tools.StrainerBase
 import net.guizhanss.infinityexpansion2.implementation.recipes.IERecipeTypes
 import net.guizhanss.infinityexpansion2.utils.fillRecipe
-import net.guizhanss.infinityexpansion2.utils.items.MaterialType
 import net.guizhanss.infinityexpansion2.utils.items.buildSlimefunItem
 import net.guizhanss.infinityexpansion2.utils.items.convert
 import net.guizhanss.infinityexpansion2.utils.surroundedBy
@@ -474,18 +475,6 @@ object IEItems {
         )
     }
 
-    val MACHINE_CORE = buildSlimefunItem<SimpleMaterial> {
-        id = "MACHINE_CORE"
-        material = Material.IRON_BLOCK.convert()
-        itemGroup = IEItemGroups.MATERIALS
-        recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
-        recipe = arrayOf(
-            TITANIUM, MACHINE_CIRCUIT, TITANIUM,
-            MACHINE_CIRCUIT, MACHINE_PLATE, MACHINE_CIRCUIT,
-            TITANIUM, MACHINE_CIRCUIT, TITANIUM,
-        )
-    }
-
     val MACHINE_PLATE = buildSlimefunItem<SimpleMaterial> {
         id = "MACHINE_PLATE"
         material = Material.PAPER.convert()
@@ -495,6 +484,18 @@ object IEItems {
             SlimefunItems.REINFORCED_ALLOY_INGOT, SlimefunItems.REINFORCED_PLATE, SlimefunItems.REINFORCED_ALLOY_INGOT,
             MAGSTEEL_PLATE, TITANIUM, MAGSTEEL_PLATE,
             SlimefunItems.REINFORCED_ALLOY_INGOT, SlimefunItems.REINFORCED_PLATE, SlimefunItems.REINFORCED_ALLOY_INGOT,
+        )
+    }
+
+    val MACHINE_CORE = buildSlimefunItem<SimpleMaterial> {
+        id = "MACHINE_CORE"
+        material = Material.IRON_BLOCK.convert()
+        itemGroup = IEItemGroups.MATERIALS
+        recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
+        recipe = arrayOf(
+            TITANIUM, MACHINE_CIRCUIT, TITANIUM,
+            MACHINE_CIRCUIT, MACHINE_PLATE, MACHINE_CIRCUIT,
+            TITANIUM, MACHINE_CIRCUIT, TITANIUM,
         )
     }
 
@@ -841,6 +842,40 @@ object IEItems {
             MACHINE_PLATE, COBBLESTONE_GENERATOR_3, VOID_BLOCK,
             SlimefunItems.ELECTRIC_FURNACE_3, STONEWORKS_FACTORY_2, SlimefunItems.ELECTRIC_ORE_GRINDER_3,
             VOID_BLOCK, SlimefunItems.ELECTRIC_PRESS_2, MACHINE_CIRCUIT,
+        )
+    }
+
+    val STONEWORKS_FACTORY_4 = buildSlimefunItem<StoneworksFactory>(64, 4800) {
+        id = "STONEWORKS_FACTORY_4"
+        material = Material.BLAST_FURNACE.convert()
+        itemGroup = IEItemGroups.INFINITY_DISPLAY
+        recipeType = IERecipeTypes.INFINITY_WORKBENCH
+        recipe = arrayOf(
+            // TODO: fill recipe here
+        )
+    }
+
+    val SINGULARITY_CONSTRUCTOR_1 = buildSlimefunItem<SingularityConstructor>(1, 120) {
+        id = "SINGULARITY_CONSTRUCTOR_1"
+        material = Material.QUARTZ_BRICKS.convert()
+        itemGroup = IEItemGroups.MACHINES
+        recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
+        recipe = arrayOf(
+            MAGSTEEL, MAGSTEEL, MAGSTEEL,
+            MACHINE_PLATE, SlimefunItems.CARBON_PRESS_3, MACHINE_PLATE,
+            MACHINE_CIRCUIT, MACHINE_CORE, MACHINE_CIRCUIT,
+        )
+    }
+
+    val INFINITY_WORKBENCH = buildSlimefunItem<InfinityWorkbench>(10_000_000) {
+        id = "INFINITY_WORKBENCH"
+        material = Material.SMITHING_TABLE.convert()
+        itemGroup = IEItemGroups.MACHINES
+        recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
+        recipe = arrayOf(
+            VOID_BLOCK, MACHINE_PLATE, VOID_BLOCK,
+            SlimefunItems.ENERGIZED_CAPACITOR, ItemStack(Material.CRAFTING_TABLE), SlimefunItems.ENERGIZED_CAPACITOR,
+            VOID_BLOCK, MACHINE_PLATE, VOID_BLOCK,
         )
     }
     // </editor-fold>

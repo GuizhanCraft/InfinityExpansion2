@@ -25,6 +25,9 @@ class Singularity(
     override fun postRegister() {
         if (!isDisabled) {
             IERegistry.singularities.add(this)
+            ingredients.entries.forEach { (ingredient, _) ->
+                IERegistry.singularityIngredientMap[ingredient] = this
+            }
         }
     }
 

@@ -24,7 +24,8 @@ class IntegrationService(private val plugin: InfinityExpansion2) {
      */
     fun loadTranslations() {
         val fields = TranslationConfigurationFields.builder().items("items").lore("lores").build()
-        val defaults = TranslationConfigurationDefaults.builder().name("InfinityExpansion2").build()
+        val defaults = TranslationConfigurationDefaults.builder().name("InfinityExpansion2")
+            .prefix(InfinityExpansion2.localization.idPrefix).build()
         val languages = FileUtils.listYamlFiles(File(plugin.dataFolder, "lang"))
         for (langFile in languages) {
             val file = File(plugin.dataFolder, "lang" + File.separator + langFile)
@@ -55,6 +56,14 @@ class IntegrationService(private val plugin: InfinityExpansion2) {
             item.displayName!!
         } else {
             InfinityExpansion2.localization.getItemGroupName(id)
+        }
+    }
+
+    fun getItemName(p: Player, id: String, vararg extraLore: String): String {
+        return if (slimefunTranslationEnabled) {
+            SlimefunTranslationAPI.getItemName(SlimefunTranslationAPI.getUser(p), id)
+        } else {
+            InfinityExpansion2.localization.getItemName(id, *extraLore)
         }
     }
 }

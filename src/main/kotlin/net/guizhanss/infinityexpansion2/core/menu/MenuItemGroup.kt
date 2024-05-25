@@ -12,7 +12,7 @@ import org.bukkit.entity.Player
 class MenuItemGroup(
     private val itemGroup: ItemGroup,
 ) : MenuItem {
-    override fun getItem(p: Player) = itemGroup.getItem(p)
+    override fun getItem(p: Player, profile: PlayerProfile) = itemGroup.getItem(p)
 
     override fun onClick(p: Player, profile: PlayerProfile, mode: SlimefunGuideMode) {
         SlimefunGuide.openItemGroup(profile, itemGroup, mode, 1)

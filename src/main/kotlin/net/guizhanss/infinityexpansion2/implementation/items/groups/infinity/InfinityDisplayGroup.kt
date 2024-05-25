@@ -7,6 +7,9 @@ import net.guizhanss.infinityexpansion2.implementation.recipes.IERecipeTypes
 import org.bukkit.NamespacedKey
 import org.bukkit.inventory.ItemStack
 
+/**
+ * The actual item group that stores infinity recipe items, and only visible in cheat mode.
+ */
 class InfinityDisplayGroup(
     key: NamespacedKey,
     item: ItemStack

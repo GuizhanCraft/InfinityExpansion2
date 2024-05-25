@@ -1,4 +1,4 @@
-package net.guizhanss.infinityexpansion2.api.items.interfaces
+package net.guizhanss.infinityexpansion2.core.attributes
 
 import io.github.thebusybiscuit.slimefun4.core.attributes.EnergyNetComponent
 

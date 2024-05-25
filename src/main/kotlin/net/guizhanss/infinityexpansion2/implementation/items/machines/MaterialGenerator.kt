@@ -2,7 +2,6 @@ package net.guizhanss.infinityexpansion2.implementation.items.machines
 
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
-import io.github.thebusybiscuit.slimefun4.api.items.settings.IntRangeSetting
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
 import io.github.thebusybiscuit.slimefun4.core.attributes.RecipeDisplayItem
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu
@@ -22,30 +21,17 @@ class MaterialGenerator(
     val material: Material,
     val speed: Int,
     energyPerTick: Int,
-) : AbstractMachine(itemGroup, itemStack, recipeType, recipe, MenuLayout.OUTPUT_ONLY_ONE_ROW), RecipeDisplayItem {
-    private val tickRateSetting = IntRangeSetting(this, "tick-rate", 1, 1, 120)
-    private val energyPerTickSetting = IntRangeSetting(this, "energy-per-tick", 1, energyPerTick, 1_000_000_000)
-
-    init {
-        addItemSetting(tickRateSetting, energyPerTickSetting)
-    }
-
-    override fun getEnergyConsumptionPerTick() = energyPerTickSetting.value
-
+) : AbstractMachine(itemGroup, itemStack, recipeType, recipe, MenuLayout.OUTPUT_ONLY_ONE_ROW, energyPerTick),
+    RecipeDisplayItem {
     override fun process(b: Block, menu: BlockMenu): Boolean {
         val output = ItemStack(material, speed)
         if (menu.fits(output, *outputSlots)) {
-            if (menu.hasViewer()) {
-                menu.replaceExistingItem(layout.statusSlot, GuiItems.NO_SPACE)
-            }
+            menu.setStatus(GuiItems.NO_SPACE)
             return false
         }
 
-        if (menu.hasViewer()) {
-            menu.replaceExistingItem(layout.statusSlot, GuiItems.PRODUCING)
-        }
-
-        if (InfinityExpansion2.sfTickCount() % tickRateSetting.value == 0) {
+        menu.setStatus(GuiItems.PRODUCING)
+        if (shouldRun()) {
             menu.pushItem(output, *outputSlots)
         }
         return true
@@ -54,8 +40,8 @@ class MaterialGenerator(
     override fun getRecipeSectionLabel(p: Player) = InfinityExpansion2.integrationService.getLore(p, "info")
 
     override fun getDisplayRecipes() = listOf(
-        GuiItems.tickRate(tickRateSetting.value),
-        GuiItems.energyConsumption(energyPerTickSetting.value),
+        GuiItems.tickRate(getCustomTickRate()),
+        GuiItems.energyConsumptionPerTick(getEnergyConsumptionPerTick()),
         GuiItems.PRODUCES,
         GuiItems.PRODUCES,
         ItemStack(material, speed)

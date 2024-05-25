@@ -4,7 +4,6 @@ package net.guizhanss.infinityexpansion2.implementation.items.machines
 
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
-import io.github.thebusybiscuit.slimefun4.api.items.settings.IntRangeSetting
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
 import io.github.thebusybiscuit.slimefun4.core.attributes.RecipeDisplayItem
 import io.github.thebusybiscuit.slimefun4.utils.SlimefunUtils
@@ -13,11 +12,11 @@ import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenuPreset
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.core.menu.MenuLayout
-import net.guizhanss.infinityexpansion2.utils.getData
+import net.guizhanss.infinityexpansion2.utils.getString
 import net.guizhanss.infinityexpansion2.utils.hasData
 import net.guizhanss.infinityexpansion2.utils.items.GuiItems
 import net.guizhanss.infinityexpansion2.utils.items.MaterialType
-import net.guizhanss.infinityexpansion2.utils.setData
+import net.guizhanss.infinityexpansion2.utils.setString
 import net.guizhanss.infinityexpansion2.utils.valueOfOrNull
 import org.bukkit.Material
 import org.bukkit.block.Block
@@ -31,16 +30,7 @@ class StoneworksFactory(
     recipe: Array<out ItemStack?>,
     val speed: Int,
     energyPerTick: Int,
-) : AbstractMachine(itemGroup, itemStack, recipeType, recipe, MenuLayout.STONEWORKS_FACTORY), RecipeDisplayItem {
-    private val tickRateSetting = IntRangeSetting(this, "tick-rate", 1, 1, 120)
-    private val energyPerTickSetting = IntRangeSetting(this, "energy-per-tick", 1, energyPerTick, 1_000_000_000)
-
-    init {
-        addItemSetting(tickRateSetting, energyPerTickSetting)
-    }
-
-    override fun getEnergyConsumptionPerTick() = energyPerTickSetting.value
-
+) : AbstractMachine(itemGroup, itemStack, recipeType, recipe, MenuLayout.STONEWORKS_FACTORY, energyPerTick), RecipeDisplayItem {
     override fun setup(preset: BlockMenuPreset) {
         super.setup(preset)
         preset.drawBackground(GuiItems.SW_CHANGE, CHOICE_INFO_SLOTS)
@@ -73,13 +63,13 @@ class StoneworksFactory(
     }
 
     override fun process(b: Block, menu: BlockMenu): Boolean {
-        if (InfinityExpansion2.sfTickCount() % tickRateSetting.value != 0) return true
+        if (!shouldRun()) return true
 
         if (menu.hasViewer()) {
             menu.replaceExistingItem(layout.statusSlot, GuiItems.PRODUCING)
         }
 
-        val tick = InfinityExpansion2.sfTickCount() / tickRateSetting.value % (CHOICE_SLOTS.size + 1)
+        val tick = InfinityExpansion2.sfTickCount() / getCustomTickRate() % (CHOICE_SLOTS.size + 1)
         if (tick == CHOICE_SLOTS.size) {
             menu.pushItem(ItemStack(Material.COBBLESTONE, speed), ITEM_SLOTS[0])
         } else {
@@ -90,11 +80,11 @@ class StoneworksFactory(
     }
 
     private fun BlockMenu.getChoice(index: Int) =
-        location.getData("choice$index", Choice.NONE.name)
+        location.getString("choice$index", Choice.NONE.name)
             .let { valueOfOrNull<Choice>(it) ?: Choice.NONE }
 
     private fun BlockMenu.setChoice(index: Int, choice: Choice) {
-        location.setData("choice$index", choice.name)
+        location.setString("choice$index", choice.name)
     }
 
     private fun ClickAction.choiceOffset() = if (isRightClicked) -1 else 1
@@ -136,8 +126,8 @@ class StoneworksFactory(
 
     override fun getDisplayRecipes(): List<ItemStack?> {
         val result = mutableListOf<ItemStack?>(
-            GuiItems.tickRate(tickRateSetting.value),
-            GuiItems.energyConsumption(energyPerTickSetting.value),
+            GuiItems.tickRate(getCustomTickRate()),
+            GuiItems.energyConsumptionPerTick(getEnergyConsumptionPerTick()),
             GuiItems.RECIPES,
             GuiItems.RECIPES,
         )

@@ -61,6 +61,15 @@ class InfinityExpansion2 : AbstractAddon {
     override fun enable() {
         instance = this
 
+        // conflict check
+        // TODO: enable this when releasing
+//        if (server.pluginManager.isPluginEnabled("InfinityExpansion")) {
+//            log(Level.SEVERE, "InfinityExpansion2 is not compatible with InfinityExpansion.")
+//            log(Level.SEVERE, "Please remove InfinityExpansion before enabling InfinityExpansion2.")
+//            server.pluginManager.disablePlugin(this)
+//            return
+//        }
+
         // config
         configService = ConfigService(this)
 

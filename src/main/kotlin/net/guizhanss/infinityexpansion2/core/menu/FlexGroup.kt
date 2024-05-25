@@ -46,10 +46,6 @@ abstract class FlexGroup(
         mode == SlimefunGuideMode.SURVIVAL_MODE
 
     override fun open(p: Player, profile: PlayerProfile, mode: SlimefunGuideMode) {
-        openGuide(p, profile, mode)
-    }
-
-    private fun openGuide(p: Player, profile: PlayerProfile, mode: SlimefunGuideMode) {
         val guide = Slimefun.getRegistry().getSlimefunGuide(mode)
 
         profile.guideHistory.add(this, 1)
@@ -59,11 +55,11 @@ abstract class FlexGroup(
         menu.setEmptySlotsClickable(false)
         menu.addMenuOpeningHandler { pl -> SoundEffect.GUIDE_BUTTON_CLICK_SOUND.playFor(pl) }
 
-        for (i in HEADER) {
-            menu.addItem(i, ChestMenuUtils.getBackground(), ChestMenuUtils.getEmptyClickHandler())
+        HEADER.forEach {
+            menu.addItem(it, ChestMenuUtils.getBackground(), ChestMenuUtils.getEmptyClickHandler())
         }
-        for (i in FOOTER) {
-            menu.addItem(i, ChestMenuUtils.getBackground(), ChestMenuUtils.getEmptyClickHandler())
+        FOOTER.forEach {
+            menu.addItem(it, ChestMenuUtils.getBackground(), ChestMenuUtils.getEmptyClickHandler())
         }
 
         menu.addItem(
@@ -100,7 +96,7 @@ abstract class FlexGroup(
             val item = subList.getOrNull(i)
 
             if (item != null) {
-                menu.replaceExistingItem(slot, item.getItem(p))
+                menu.replaceExistingItem(slot, item.getItem(p, profile))
                 menu.addMenuClickHandler(slot) { _, _, _, _ ->
                     item.onClick(p, profile, mode)
                     false

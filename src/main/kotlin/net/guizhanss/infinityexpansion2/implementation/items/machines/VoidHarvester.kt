@@ -23,21 +23,16 @@ class VoidHarvester(
     recipe: Array<out ItemStack?>,
     val speed: Int,
     energyPerTick: Int,
-) : AbstractMachine(itemGroup, itemStack, recipeType, recipe, MenuLayout.OUTPUT_ONLY_ONE_ROW), RecipeDisplayItem {
-    private val tickRateSetting = IntRangeSetting(this, "tick-rate", 1, 1, 120)
-    private val energyPerTickSetting = IntRangeSetting(this, "energy-per-tick", 1, energyPerTick, 1_000_000_000)
+) : AbstractMachine(itemGroup, itemStack, recipeType, recipe, MenuLayout.OUTPUT_ONLY_ONE_ROW, energyPerTick), RecipeDisplayItem {
     private val totalProgressSetting = IntRangeSetting(this, "total-progress", 1, 1024, 1_000_000_000)
 
     init {
-        addItemSetting(tickRateSetting, energyPerTickSetting, totalProgressSetting)
+        addItemSetting(totalProgressSetting)
     }
-
-    override fun getEnergyConsumptionPerTick() = energyPerTickSetting.value
 
     val totalProgress: Int get() = totalProgressSetting.value
 
     override fun process(b: Block, menu: BlockMenu): Boolean {
-        val shouldRun = InfinityExpansion2.sfTickCount() % tickRateSetting.value == 0
         val progress = b.getInt("progress")
 
         // has reached the total progress
@@ -51,12 +46,12 @@ class VoidHarvester(
                 return false
             }
 
-            if (shouldRun) {
+            if (shouldRun()) {
                 menu.pushItem(output.clone(), *layout.outputSlots)
 
                 menu.setProgress(speed + progress - totalProgress)
             }
-        } else if (shouldRun) {
+        } else if (shouldRun()) {
             menu.setProgress(progress + speed)
         }
         return true
@@ -72,8 +67,8 @@ class VoidHarvester(
     override fun getRecipeSectionLabel(p: Player) = InfinityExpansion2.integrationService.getLore(p, "info")
 
     override fun getDisplayRecipes() = listOf(
-        GuiItems.tickRate(tickRateSetting.value),
-        GuiItems.energyConsumption(energyPerTickSetting.value),
+        GuiItems.tickRate(getCustomTickRate()),
+        GuiItems.energyConsumptionPerTick(getEnergyConsumptionPerTick()),
         GuiItems.increaseProgress(speed),
         GuiItems.totalProgress(totalProgress),
         GuiItems.PRODUCES,

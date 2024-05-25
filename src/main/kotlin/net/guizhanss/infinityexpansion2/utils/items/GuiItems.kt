@@ -1,8 +1,11 @@
 package net.guizhanss.infinityexpansion2.utils.items
 
+import io.github.thebusybiscuit.slimefun4.libraries.dough.data.persistent.PersistentDataAPI
 import io.github.thebusybiscuit.slimefun4.utils.ChestMenuUtils
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
+import net.guizhanss.infinityexpansion2.utils.createKey
 import org.bukkit.Material
+import org.bukkit.inventory.ItemStack
 
 object GuiItems {
     val COLLECTING = InfinityExpansion2.localization.getGuiItem(
@@ -48,11 +51,17 @@ object GuiItems {
         "&7${tickRate}"
     )
 
-    fun energyConsumption(energyPerTick: Int, tickRate: Int = 1) = InfinityExpansion2.localization.getGuiItem(
+    fun energyConsumptionPerTick(energyPerTick: Int, tickRate: Int = 1) = InfinityExpansion2.localization.getGuiItem(
         MaterialType.Material(Material.REDSTONE),
         "energy_consumption",
         MachineLore.powerPerTick(energyPerTick),
         MachineLore.powerPerSecond(energyPerTick / tickRate)
+    )
+
+    fun energyConsumptionPerUse(energyPerUse: Int) = InfinityExpansion2.localization.getGuiItem(
+        MaterialType.Material(Material.REDSTONE),
+        "energy_consumption",
+        MachineLore.powerPerUse(energyPerUse)
     )
 
     fun totalProgress(total: Int) = InfinityExpansion2.localization.getGuiItem(
@@ -78,4 +87,12 @@ object GuiItems {
         MaterialType.Material(Material.YELLOW_STAINED_GLASS_PANE),
         "sw_change"
     )
+}
+
+internal fun ItemStack.toDisplayItem(): ItemStack {
+    val item = clone()
+    val meta = item.itemMeta
+    PersistentDataAPI.setBoolean(meta!!, "display_item".createKey(), true)
+    item.itemMeta = meta
+    return item
 }
