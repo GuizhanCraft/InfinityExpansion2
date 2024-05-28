@@ -10,7 +10,7 @@ import org.bukkit.configuration.ConfigurationSection
 import org.bukkit.enchantments.Enchantment
 
 class ConfigService(plugin: InfinityExpansion2) {
-    private var config: AddonConfig = AddonConfig(plugin, "config.yml")
+    private val config = AddonConfig(plugin, "config.yml")
 
     var autoUpdate = true
         private set
@@ -25,6 +25,10 @@ class ConfigService(plugin: InfinityExpansion2) {
     var allowSfItemTransform = false
         private set
     var enableResearches = false
+        private set
+
+    // resource synthesizer options
+    var resourceSynthesizerRecipes: List<String> = listOf()
         private set
 
     // mob simulation options
@@ -64,6 +68,7 @@ class ConfigService(plugin: InfinityExpansion2) {
         singularityCostMultiplier = config.getDouble("balance.singularity-cost-multiplier", 1.0)
         allowSfItemTransform = config.getBoolean("balance.allow-sf-item-transform", false)
         enableResearches = config.getBoolean("balance.enable-researches", false)
+        resourceSynthesizerRecipes = config.getStringList("resource-synthesizer.recipes")
         mobSimTickRate = config.getInt("mob-simulation.tick-rate", 20)
         mobSimExpMultiplier = config.getDouble("mob-simulation.exp-multiplier", 1.0)
         quarryOcsillators = loadDoubleMap(config.getConfigurationSection("quarry.ocsillators"))

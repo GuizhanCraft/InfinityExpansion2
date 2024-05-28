@@ -7,6 +7,7 @@ import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems
 import net.guizhanss.infinityexpansion2.implementation.items.groups.IEItemGroups
 import net.guizhanss.infinityexpansion2.implementation.items.machines.InfinityWorkbench
 import net.guizhanss.infinityexpansion2.implementation.items.machines.MaterialGenerator
+import net.guizhanss.infinityexpansion2.implementation.items.machines.ResourceSynthesizer
 import net.guizhanss.infinityexpansion2.implementation.items.machines.SingularityConstructor
 import net.guizhanss.infinityexpansion2.implementation.items.machines.StoneworksFactory
 import net.guizhanss.infinityexpansion2.implementation.items.machines.TreeGrower
@@ -821,7 +822,7 @@ object IEItems {
         )
     }
 
-    val STONEWORKS_FACTORY_2 = buildSlimefunItem<StoneworksFactory>(4, 800) {
+    val STONEWORKS_FACTORY_2 = buildSlimefunItem<StoneworksFactory>(4, 600) {
         id = "STONEWORKS_FACTORY_2"
         material = Material.BLAST_FURNACE.convert()
         itemGroup = IEItemGroups.MACHINES
@@ -833,7 +834,7 @@ object IEItems {
         )
     }
 
-    val STONEWORKS_FACTORY_3 = buildSlimefunItem<StoneworksFactory>(16, 2400) {
+    val STONEWORKS_FACTORY_3 = buildSlimefunItem<StoneworksFactory>(16, 1800) {
         id = "STONEWORKS_FACTORY_3"
         material = Material.BLAST_FURNACE.convert()
         itemGroup = IEItemGroups.MACHINES
@@ -845,13 +846,20 @@ object IEItems {
         )
     }
 
-    val STONEWORKS_FACTORY_4 = buildSlimefunItem<StoneworksFactory>(64, 4800) {
+    val STONEWORKS_FACTORY_4 = buildSlimefunItem<StoneworksFactory>(64, 5400) {
         id = "STONEWORKS_FACTORY_4"
         material = Material.BLAST_FURNACE.convert()
         itemGroup = IEItemGroups.INFINITY_DISPLAY
         recipeType = IERecipeTypes.INFINITY_WORKBENCH
         recipe = arrayOf(
-            // TODO: fill recipe here
+            // @formatter:off
+            INFINITY_INGOT, VOID_INGOT, null, null, VOID_INGOT, INFINITY_INGOT,
+            null, SlimefunItems.ELECTRIC_FURNACE_3, STONEWORKS_FACTORY_3, STONEWORKS_FACTORY_3, SlimefunItems.ELECTRIC_FURNACE_3, null,
+            SlimefunItems.ELECTRIC_ORE_GRINDER_3, VOID_INGOT, COBBLESTONE_GENERATOR_4, COBBLESTONE_GENERATOR_4, VOID_INGOT, SlimefunItems.ELECTRIC_ORE_GRINDER_3,
+            SlimefunItems.ELECTRIC_PRESS_2, VOID_INGOT, MACHINE_CIRCUIT, MACHINE_CIRCUIT, VOID_INGOT, SlimefunItems.ELECTRIC_PRESS_2,
+            MACHINE_PLATE, MACHINE_CIRCUIT, MACHINE_CIRCUIT, MACHINE_CIRCUIT, MACHINE_CIRCUIT, MACHINE_PLATE,
+            INFINITY_INGOT, VOID_INGOT, null, null, VOID_INGOT, INFINITY_INGOT,
+            // @formatter:on
         )
     }
 
@@ -864,6 +872,20 @@ object IEItems {
             MAGSTEEL, MAGSTEEL, MAGSTEEL,
             MACHINE_PLATE, SlimefunItems.CARBON_PRESS_3, MACHINE_PLATE,
             MACHINE_CIRCUIT, MACHINE_CORE, MACHINE_CIRCUIT,
+        )
+    }
+
+    // TODO: more tiers of singularity constructor
+
+    val RESOURCE_SYNTHESIZER = buildSlimefunItem<ResourceSynthesizer>(1_000_000) {
+        id = "RESOURCE_SYNTHESIZER"
+        material = Material.LODESTONE.convert()
+        itemGroup = IEItemGroups.MACHINES
+        recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
+        recipe = arrayOf(
+            ADAMANTITE, ADAMANTITE, ADAMANTITE,
+            MACHINE_PLATE, SlimefunItems.REINFORCED_FURNACE, MACHINE_PLATE,
+            MACHINE_PLATE, MACHINE_CORE, MACHINE_PLATE
         )
     }
 

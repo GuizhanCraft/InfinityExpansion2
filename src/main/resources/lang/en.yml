@@ -504,6 +504,12 @@ items:
       - "&8\u21E8 &e⚡ &7Speed: &b1x"
     lore-overrides:
       5: "%sftrlore_Speed_1%"
+  RESOURCE_SYNTHESIZER:
+    name: "&6Resource Synthesizer"
+    lore:
+      - ""
+      - "&7Combines 2 singularities"
+      - "&7to create resources."
 
   INFINITY_WORKBENCH:
     name: "&6Infinity Workbench"

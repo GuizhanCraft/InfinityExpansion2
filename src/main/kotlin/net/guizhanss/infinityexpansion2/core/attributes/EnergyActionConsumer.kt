@@ -7,6 +7,6 @@ import io.github.thebusybiscuit.slimefun4.core.attributes.EnergyNetComponent
  *
  * Should be implemented by an [EnergyNetComponent] that consumes energy when an action is performed.
  */
-interface EnergyOneTimeConsumer {
+interface EnergyActionConsumer {
     fun getEnergyConsumptionPerAction(): Int
 }

@@ -55,7 +55,7 @@ data class MenuLayout(
         val OUTPUT_ONLY_ONE_ROW = MenuLayout(
             outputBorder = intArrayOf(1, 8),
             outputSlots = intArrayOf(2, 3, 4, 5, 6, 7),
-            statusSlot = 0
+            statusSlot = 0,
         )
 
         // single item input, 3 rows of output
@@ -72,7 +72,7 @@ data class MenuLayout(
                 27, 28, 29, 30, 31, 32, 33, 34, 35,
                 36, 37, 38, 39, 40, 41, 42, 43, 44,
             ),
-            statusSlot = 4
+            statusSlot = 4,
         )
 
         // single input, single output
@@ -82,10 +82,10 @@ data class MenuLayout(
             inputSlots = intArrayOf(1),
             outputBorder = intArrayOf(6, 8),
             outputSlots = intArrayOf(7),
-            statusSlot = 4
+            statusSlot = 4,
         )
 
-        // special layout
+        // special layouts
         val STONEWORKS_FACTORY = MenuLayout(
             background = intArrayOf(
                 0, 1, 2, 3, 4, 5,
@@ -94,7 +94,44 @@ data class MenuLayout(
             ),
             outputBorder = intArrayOf(6, 7, 8, 17, 24, 25, 26),
             outputSlots = intArrayOf(16),
-            statusSlot = 9
+            statusSlot = 9,
+        )
+
+        val RESOURCE_SYNTHESIZER = MenuLayout(
+            background = intArrayOf(
+                3, 4, 5,
+                12, 13, 14,
+                21, 22, 23,
+                27, 29, 33, 35,
+                36, 44,
+                45, 46, 47, 51, 52, 53,
+            ),
+            inputBorder = intArrayOf(
+                0, 1, 2, 6, 7, 8,
+                9, 11, 15, 17,
+                18, 19, 20, 24, 25, 26,
+            ),
+            inputSlots = intArrayOf(10, 16),
+            outputBorder = intArrayOf(
+                28, 34, 37, 38, 42, 43,
+                30, 31, 32,
+                39, 41,
+                48, 49, 50,
+            ),
+            outputSlots = intArrayOf(40),
+            statusSlot = 13,
+        )
+
+        val INFINITY_WORKBENCH = MenuLayout(
+            background = intArrayOf(
+                6, 8,
+                15, 16, 17,
+                24, 26,
+                33, 35,
+            ),
+            outputBorder = intArrayOf(42, 43, 44, 51, 53),
+            outputSlots = intArrayOf(52),
+            statusSlot = 34,
         )
     }
 }

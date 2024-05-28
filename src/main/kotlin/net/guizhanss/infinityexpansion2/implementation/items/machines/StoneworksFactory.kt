@@ -5,13 +5,14 @@ package net.guizhanss.infinityexpansion2.implementation.items.machines
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
-import io.github.thebusybiscuit.slimefun4.core.attributes.RecipeDisplayItem
 import io.github.thebusybiscuit.slimefun4.utils.SlimefunUtils
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ClickAction
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenuPreset
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
+import net.guizhanss.infinityexpansion2.core.attributes.InformationalRecipeDisplayItem
 import net.guizhanss.infinityexpansion2.core.menu.MenuLayout
+import net.guizhanss.infinityexpansion2.implementation.items.machines.abstracts.AbstractTickingMachine
 import net.guizhanss.infinityexpansion2.utils.getString
 import net.guizhanss.infinityexpansion2.utils.hasData
 import net.guizhanss.infinityexpansion2.utils.items.GuiItems
@@ -20,7 +21,6 @@ import net.guizhanss.infinityexpansion2.utils.setString
 import net.guizhanss.infinityexpansion2.utils.valueOfOrNull
 import org.bukkit.Material
 import org.bukkit.block.Block
-import org.bukkit.entity.Player
 import org.bukkit.inventory.ItemStack
 
 class StoneworksFactory(
@@ -30,7 +30,8 @@ class StoneworksFactory(
     recipe: Array<out ItemStack?>,
     val speed: Int,
     energyPerTick: Int,
-) : AbstractMachine(itemGroup, itemStack, recipeType, recipe, MenuLayout.STONEWORKS_FACTORY, energyPerTick), RecipeDisplayItem {
+) : AbstractTickingMachine(itemGroup, itemStack, recipeType, recipe, MenuLayout.STONEWORKS_FACTORY, energyPerTick),
+    InformationalRecipeDisplayItem {
     override fun setup(preset: BlockMenuPreset) {
         super.setup(preset)
         preset.drawBackground(GuiItems.SW_CHANGE, CHOICE_INFO_SLOTS)
@@ -122,15 +123,8 @@ class StoneworksFactory(
         }
     }
 
-    override fun getRecipeSectionLabel(p: Player) = InfinityExpansion2.integrationService.getLore(p, "info")
-
-    override fun getDisplayRecipes(): List<ItemStack?> {
-        val result = mutableListOf<ItemStack?>(
-            GuiItems.tickRate(getCustomTickRate()),
-            GuiItems.energyConsumptionPerTick(getEnergyConsumptionPerTick()),
-            GuiItems.RECIPES,
-            GuiItems.RECIPES,
-        )
+    override fun getDefaultDisplayRecipes(): List<ItemStack?> {
+        val result = mutableListOf<ItemStack?>()
         Choice.entries.forEach {
             if (it == Choice.NONE) return@forEach
             result.addAll(listOf(it.item, null))
@@ -148,6 +142,13 @@ class StoneworksFactory(
         }
         return result
     }
+
+    override fun getInformationalItems() = listOf(
+        GuiItems.tickRate(getCustomTickRate()),
+        GuiItems.energyConsumptionPerTick(getEnergyConsumptionPerTick()),
+        GuiItems.RECIPES,
+        GuiItems.RECIPES,
+    )
 
     companion object {
         private val CHOICE_INFO_SLOTS = intArrayOf(2, 4, 6)

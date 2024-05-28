@@ -12,8 +12,8 @@ import io.github.thebusybiscuit.slimefun4.implementation.Slimefun
 import io.github.thebusybiscuit.slimefun4.utils.ChestMenuUtils
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ChestMenu
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
-import net.guizhanss.infinityexpansion2.core.attributes.CustomTickRate
-import net.guizhanss.infinityexpansion2.core.attributes.EnergyOneTimeConsumer
+import net.guizhanss.infinityexpansion2.core.attributes.CustomTickRateMachine
+import net.guizhanss.infinityexpansion2.core.attributes.EnergyActionConsumer
 import net.guizhanss.infinityexpansion2.core.attributes.EnergyTickingConsumer
 import net.guizhanss.infinityexpansion2.implementation.IEItems
 import net.guizhanss.infinityexpansion2.utils.createKey
@@ -87,13 +87,13 @@ class InfinityRecipeGroup(private val sfItem: SlimefunItem) :
 
         // extra info
         var infoIdx = 0
-        if (sfItem is CustomTickRate) {
+        if (sfItem is CustomTickRateMachine) {
             menu.addItem(INFO_SLOTS[infoIdx++], GuiItems.tickRate(sfItem.getCustomTickRate()))
         }
         if (sfItem is EnergyTickingConsumer) {
             menu.addItem(INFO_SLOTS[infoIdx++], GuiItems.energyConsumptionPerTick(sfItem.getEnergyConsumptionPerTick()))
         }
-        if (sfItem is EnergyOneTimeConsumer) {
+        if (sfItem is EnergyActionConsumer) {
             menu.addItem(
                 INFO_SLOTS[infoIdx++],
                 GuiItems.energyConsumptionPerUse(sfItem.getEnergyConsumptionPerAction())
@@ -104,10 +104,10 @@ class InfinityRecipeGroup(private val sfItem: SlimefunItem) :
     }
 
     companion object {
-        private const val GUIDE_BACK = 0
-        private const val RECIPE_TYPE_SLOT = 1
-        private val BACKGROUND = arrayOf(9, 36, 37, 38, 45, 46, 47)
-        private val INPUT_BORDER = arrayOf(2, 10, 11)
+        private const val GUIDE_BACK = 1
+        private const val RECIPE_TYPE_SLOT = 10
+        private val BACKGROUND = arrayOf(0, 2, 36, 37, 38, 45, 46, 47)
+        private val INPUT_BORDER = arrayOf(9, 11)
         private val OUTPUT_BORDER = arrayOf(18, 20, 27, 28, 29)
         private const val OUTPUT_SLOT = 19
         private val RECIPE_AREA = arrayOf(

@@ -4,14 +4,13 @@ import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup
 import io.github.thebusybiscuit.slimefun4.api.items.ItemState
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
-import io.github.thebusybiscuit.slimefun4.core.attributes.RecipeDisplayItem
 import io.github.thebusybiscuit.slimefun4.utils.SlimefunUtils
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu
-import net.guizhanss.infinityexpansion2.InfinityExpansion2
+import net.guizhanss.infinityexpansion2.core.attributes.InformationalRecipeDisplayItem
 import net.guizhanss.infinityexpansion2.core.menu.MenuLayout
+import net.guizhanss.infinityexpansion2.implementation.items.machines.abstracts.AbstractTickingMachine
 import net.guizhanss.infinityexpansion2.utils.items.GuiItems
 import org.bukkit.block.Block
-import org.bukkit.entity.Player
 import org.bukkit.inventory.ItemStack
 
 open class GrowingMachine(
@@ -21,8 +20,8 @@ open class GrowingMachine(
     recipe: Array<out ItemStack?>,
     tickRate: Int,
     energyPerTick: Int,
-) : AbstractMachine(itemGroup, itemStack, recipeType, recipe, MenuLayout.SINGLE_INPUT, energyPerTick, tickRate),
-    RecipeDisplayItem {
+) : AbstractTickingMachine(itemGroup, itemStack, recipeType, recipe, MenuLayout.SINGLE_INPUT, energyPerTick, tickRate),
+    InformationalRecipeDisplayItem {
 
     private val _recipes = mutableMapOf<ItemStack, Array<ItemStack>>()
 
@@ -33,7 +32,6 @@ open class GrowingMachine(
         _recipes[input] = output
         return this
     }
-
 
     override fun process(b: Block, menu: BlockMenu): Boolean {
         val input = menu.getItemInSlot(inputSlots[0])
@@ -61,15 +59,8 @@ open class GrowingMachine(
         return _recipes.entries.find { (input, _) -> SlimefunUtils.isItemSimilar(item, input, false) }?.value
     }
 
-    override fun getRecipeSectionLabel(p: Player) = InfinityExpansion2.integrationService.getLore(p, "info")
-
-    override fun getDisplayRecipes(): List<ItemStack> {
-        val result = mutableListOf(
-            GuiItems.tickRate(getCustomTickRate()),
-            GuiItems.energyConsumptionPerTick(getEnergyConsumptionPerTick()),
-            GuiItems.RECIPES,
-            GuiItems.RECIPES
-        )
+    override fun getDefaultDisplayRecipes(): List<ItemStack> {
+        val result = mutableListOf<ItemStack>()
         _recipes.forEach { (input, output) ->
             val size = output.size
             for (i in 0 until size) {
@@ -79,4 +70,11 @@ open class GrowingMachine(
         }
         return result
     }
+
+    override fun getInformationalItems() = listOf(
+        GuiItems.tickRate(getCustomTickRate()),
+        GuiItems.energyConsumptionPerTick(getEnergyConsumptionPerTick()),
+        GuiItems.RECIPES,
+        GuiItems.RECIPES,
+    )
 }

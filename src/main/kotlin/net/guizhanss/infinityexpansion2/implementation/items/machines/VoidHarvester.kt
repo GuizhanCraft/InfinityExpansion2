@@ -4,11 +4,12 @@ import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
 import io.github.thebusybiscuit.slimefun4.api.items.settings.IntRangeSetting
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
-import io.github.thebusybiscuit.slimefun4.core.attributes.RecipeDisplayItem
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
+import net.guizhanss.infinityexpansion2.core.attributes.InformationalRecipeDisplayItem
 import net.guizhanss.infinityexpansion2.core.menu.MenuLayout
 import net.guizhanss.infinityexpansion2.implementation.IEItems
+import net.guizhanss.infinityexpansion2.implementation.items.machines.abstracts.AbstractTickingMachine
 import net.guizhanss.infinityexpansion2.utils.getInt
 import net.guizhanss.infinityexpansion2.utils.items.GuiItems
 import net.guizhanss.infinityexpansion2.utils.setInt
@@ -23,7 +24,8 @@ class VoidHarvester(
     recipe: Array<out ItemStack?>,
     val speed: Int,
     energyPerTick: Int,
-) : AbstractMachine(itemGroup, itemStack, recipeType, recipe, MenuLayout.OUTPUT_ONLY_ONE_ROW, energyPerTick), RecipeDisplayItem {
+) : AbstractTickingMachine(itemGroup, itemStack, recipeType, recipe, MenuLayout.OUTPUT_ONLY_ONE_ROW, energyPerTick),
+    InformationalRecipeDisplayItem {
     private val totalProgressSetting = IntRangeSetting(this, "total-progress", 1, 1024, 1_000_000_000)
 
     init {
@@ -66,7 +68,7 @@ class VoidHarvester(
 
     override fun getRecipeSectionLabel(p: Player) = InfinityExpansion2.integrationService.getLore(p, "info")
 
-    override fun getDisplayRecipes() = listOf(
+    override fun getDefaultDisplayRecipes() = listOf(
         GuiItems.tickRate(getCustomTickRate()),
         GuiItems.energyConsumptionPerTick(getEnergyConsumptionPerTick()),
         GuiItems.increaseProgress(speed),

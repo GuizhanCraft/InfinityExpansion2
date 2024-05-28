@@ -21,6 +21,23 @@ balance:
   # Whether to enable researches
   enable-researches: false
 
+# Resource synthesizer options
+resource-synthesizer:
+  # There are 2 input items and 1 output item.
+  # Each line represents a recipe. Each recipe has 3 Slimefun item IDs separated by a comma.
+  # The 4th argument can be the amount of output item, default is 1.
+  #
+  # The input item must be a singularity that can be constructed from a singularity constructor.
+  # (meaning fortune, magic, earth, and metal singularity cannot be used as ingredient)
+  # The common ID prefix is not needed.
+  # If the recipe output is not a Slimefun item, the recipe will be ignored.
+  recipes:
+    - 'IRON_SINGULARITY,COAL_SINGULARITY,REINFORCED_ALLOY_INGOT,32'
+    - 'DIAMOND_SINGULARITY,COAL_SINGULARITY,CARBONADO,16'
+    - 'GOLD_SINGULARITY,EMERALD_SINGULARITY,BLISTERING_INGOT_3,16'
+    - 'COPPER_SINGULARITY,ZINC_SINGULARITY,ELECTRO_MAGNET,64'
+    - 'IRON_SINGULARITY,QUARTZ_SINGULARITY,SOLAR_PANEL,64'
+
 # Mob simulation options
 mob-simulation:
 

@@ -3,12 +3,12 @@ package net.guizhanss.infinityexpansion2.implementation.items.machines
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
-import io.github.thebusybiscuit.slimefun4.core.attributes.RecipeDisplayItem
 import io.github.thebusybiscuit.slimefun4.utils.ChestMenuUtils
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu
-import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.core.IERegistry
+import net.guizhanss.infinityexpansion2.core.attributes.InformationalRecipeDisplayItem
 import net.guizhanss.infinityexpansion2.core.menu.MenuLayout
+import net.guizhanss.infinityexpansion2.implementation.items.machines.abstracts.AbstractTickingMachine
 import net.guizhanss.infinityexpansion2.implementation.items.materials.Singularity
 import net.guizhanss.infinityexpansion2.utils.getInt
 import net.guizhanss.infinityexpansion2.utils.getString
@@ -17,7 +17,6 @@ import net.guizhanss.infinityexpansion2.utils.items.toDisplayItem
 import net.guizhanss.infinityexpansion2.utils.setInt
 import net.guizhanss.infinityexpansion2.utils.setString
 import org.bukkit.block.Block
-import org.bukkit.entity.Player
 import org.bukkit.event.block.BlockBreakEvent
 import org.bukkit.inventory.ItemStack
 
@@ -28,8 +27,8 @@ class SingularityConstructor(
     recipe: Array<out ItemStack?>,
     val speed: Int,
     energyPerTick: Int,
-) : AbstractMachine(itemGroup, itemStack, recipeType, recipe, MenuLayout.SINGLE_INPUT_OUTPUT, energyPerTick),
-    RecipeDisplayItem {
+) : AbstractTickingMachine(itemGroup, itemStack, recipeType, recipe, MenuLayout.SINGLE_INPUT_OUTPUT, energyPerTick),
+    InformationalRecipeDisplayItem {
     override fun onBreak(e: BlockBreakEvent, menu: BlockMenu) {
         super.onBreak(e, menu)
         // TODO: drop the ingredient items on the ground. the first ingredient that has 1 progress
@@ -134,9 +133,7 @@ class SingularityConstructor(
         return IERegistry.singularities.find { it.id == id }
     }
 
-    override fun getRecipeSectionLabel(p: Player) = InfinityExpansion2.integrationService.getLore(p, "info")
-
-    override fun getDisplayRecipes() = listOf(
+    override fun getInformationalItems() = listOf(
         GuiItems.tickRate(getCustomTickRate()),
         GuiItems.energyConsumptionPerTick(getEnergyConsumptionPerTick()),
     )
