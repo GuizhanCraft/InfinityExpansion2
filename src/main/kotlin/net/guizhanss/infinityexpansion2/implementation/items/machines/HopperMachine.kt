@@ -4,6 +4,7 @@ import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup
 import io.github.thebusybiscuit.slimefun4.api.items.ItemState
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
+import io.github.thebusybiscuit.slimefun4.libraries.dough.inventory.InvUtils
 import io.github.thebusybiscuit.slimefun4.utils.SlimefunUtils
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu
 import net.guizhanss.infinityexpansion2.core.attributes.InformationalRecipeDisplayItem
@@ -18,50 +19,58 @@ import net.guizhanss.infinityexpansion2.utils.toDisplayRecipe
 import org.bukkit.block.Block
 import org.bukkit.inventory.ItemStack
 
-open class GrowingMachine(
+/**
+ * A hopper like GUI machine that has 7 input slots and output slots.
+ */
+open class HopperMachine(
     itemGroup: ItemGroup,
     itemStack: SlimefunItemStack,
     recipeType: RecipeType,
     recipe: Array<out ItemStack?>,
     energyPerTick: Int,
-    tickRate: Int,
-) : AbstractTickingMachine(itemGroup, itemStack, recipeType, recipe, MenuLayout.SINGLE_INPUT, energyPerTick, tickRate),
+    tickRate: Int = 1,
+    recipes: Recipes = mapOf(),
+) : AbstractTickingMachine(itemGroup, itemStack, recipeType, recipe, MenuLayout.HOPPER, energyPerTick, tickRate),
     InformationalRecipeDisplayItem {
 
     private val _recipes: MutableRecipes = mutableMapOf()
 
+    init {
+        _recipes.putAll(recipes)
+    }
+
     val recipes: Recipes get() = _recipes
 
-    fun addRecipe(input: RecipeInput, output: RecipeOutput): GrowingMachine {
+    fun addRecipe(input: RecipeInput, output: RecipeOutput): HopperMachine {
         check(state == ItemState.UNREGISTERED) { "Cannot add recipes after the machine has been registered" }
         _recipes[input] = output
         return this
     }
 
     override fun process(b: Block, menu: BlockMenu): Boolean {
-        val input = menu.getItemInSlot(inputSlots[0])
-        if (input == null) {
-            menu.setStatus(GuiItems.INVALID_INPUT)
-            return false
-        }
+        if (!shouldRun()) return true
 
-        val output = findRecipe(input)
-        if (output == null) {
-            menu.setStatus(GuiItems.INVALID_INPUT)
-            return false
-        }
+        for (slot in inputSlots) {
+            val input = menu.getItemInSlot(slot) ?: continue
+            _recipes.forEach { (recipeInput, recipeOutput) ->
+                if (SlimefunUtils.isItemSimilar(input, recipeInput, false, false)
+                    && input.amount >= recipeInput.amount
+                ) {
+                    if (!InvUtils.fitAll(menu.toInventory(), recipeOutput, *outputSlots)) {
+                        menu.setStatus(GuiItems.NO_ROOM)
+                        return false
+                    }
 
-        menu.setStatus(GuiItems.PRODUCING)
-        if (shouldRun()) {
-            for (item in output) {
-                menu.pushItem(item.clone(), *outputSlots)
+                    recipeOutput.forEach { menu.pushItem(it.clone(), *outputSlots) }
+                    menu.consumeItem(slot, recipeInput.amount)
+                    menu.setStatus(GuiItems.PRODUCING)
+                    return true
+                }
             }
         }
-        return true
-    }
 
-    private fun findRecipe(item: RecipeInput): RecipeOutput? {
-        return _recipes.entries.find { (input, _) -> SlimefunUtils.isItemSimilar(item, input, false) }?.value
+        menu.setStatus(GuiItems.INVALID_INPUT)
+        return false
     }
 
     override fun getDefaultDisplayRecipes() = _recipes.flatMap { it.toPair().toDisplayRecipe() }

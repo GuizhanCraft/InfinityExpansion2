@@ -16,9 +16,9 @@ object GuiItems {
         MaterialType.Material(Material.GREEN_STAINED_GLASS_PANE),
         "producing"
     )
-    val NO_SPACE = InfinityExpansion2.localization.getGuiItem(
+    val NO_ROOM = InfinityExpansion2.localization.getGuiItem(
         MaterialType.Material(Material.RED_STAINED_GLASS_PANE),
-        "no_space"
+        "no_room"
     )
     val NO_POWER = InfinityExpansion2.localization.getGuiItem(
         MaterialType.Material(Material.RED_STAINED_GLASS_PANE),

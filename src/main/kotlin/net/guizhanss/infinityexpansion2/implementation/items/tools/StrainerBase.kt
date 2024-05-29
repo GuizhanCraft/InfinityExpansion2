@@ -7,7 +7,6 @@ import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
 import io.github.thebusybiscuit.slimefun4.api.items.settings.IntRangeSetting
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
-import io.github.thebusybiscuit.slimefun4.core.attributes.RecipeDisplayItem
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenuPreset
@@ -15,13 +14,13 @@ import me.mrCookieSlime.Slimefun.api.inventory.DirtyChestMenu
 import net.guizhanss.guizhanlib.slimefun.machines.TickingMenuBlock
 import net.guizhanss.guizhanlib.utils.RandomUtil
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
+import net.guizhanss.infinityexpansion2.core.attributes.InformationalRecipeDisplayItem
 import net.guizhanss.infinityexpansion2.core.menu.MenuLayout
 import net.guizhanss.infinityexpansion2.utils.isWaterLogged
 import net.guizhanss.infinityexpansion2.utils.items.GuiItems
 import org.bukkit.Material
 import org.bukkit.block.Block
 import org.bukkit.enchantments.Enchantment
-import org.bukkit.entity.Player
 import org.bukkit.inventory.ItemStack
 import org.bukkit.inventory.meta.Damageable
 import kotlin.random.Random
@@ -31,44 +30,12 @@ class StrainerBase(
     itemStack: SlimefunItemStack,
     recipeType: RecipeType,
     recipe: Array<out ItemStack?>
-) : TickingMenuBlock(itemGroup, itemStack, recipeType, recipe), RecipeDisplayItem {
-    companion object {
-        private val LAYOUT = MenuLayout.SINGLE_INPUT
-
-        private val OUTPUTS = listOf(
-            ItemStack(Material.STICK),
-            ItemStack(Material.SAND),
-            ItemStack(Material.GRAVEL),
-            ItemStack(Material.QUARTZ),
-            ItemStack(Material.REDSTONE),
-            ItemStack(Material.EMERALD),
-            SlimefunItemStack(SlimefunItems.MAGNESIUM_DUST, 1),
-            SlimefunItemStack(SlimefunItems.COPPER_DUST, 1),
-            SlimefunItemStack(SlimefunItems.COPPER_DUST, 1),
-            SlimefunItemStack(SlimefunItems.SILVER_DUST, 1),
-            SlimefunItemStack(SlimefunItems.ALUMINUM_DUST, 1),
-            SlimefunItemStack(SlimefunItems.LEAD_DUST, 1),
-            SlimefunItemStack(SlimefunItems.IRON_DUST, 1),
-            SlimefunItemStack(SlimefunItems.GOLD_DUST, 1),
-            SlimefunItemStack(SlimefunItems.TIN_DUST, 1),
-            SlimefunItemStack(SlimefunItems.ZINC_DUST, 1),
-        )
-
-        private val POTATO_FISH = InfinityExpansion2.localization.getItem(
-            "POTATO_FISH",
-            Material.POTATO
-        )
-    }
-
+) : TickingMenuBlock(itemGroup, itemStack, recipeType, recipe), InformationalRecipeDisplayItem {
     private val tickRateSetting = IntRangeSetting(this, "tick-rate", 1, 10, 120)
 
     init {
         addItemSetting(tickRateSetting)
     }
-
-    override fun getRecipeSectionLabel(p: Player) = InfinityExpansion2.integrationService.getLore(p, "collect")
-
-    override fun getDisplayRecipes() = OUTPUTS.flatMap { listOf(GuiItems.ANY_STRAINER, it) }
 
     override fun setup(preset: BlockMenuPreset) {
         LAYOUT.setupPreset(preset)
@@ -108,7 +75,7 @@ class StrainerBase(
 
         val output = OUTPUTS.random()
         if (!menu.fits(output, *outputSlots)) {
-            menu.replaceExistingItem(LAYOUT.statusSlot, GuiItems.NO_SPACE)
+            menu.replaceExistingItem(LAYOUT.statusSlot, GuiItems.NO_ROOM)
             return
         }
 
@@ -130,5 +97,37 @@ class StrainerBase(
                 menu.replaceExistingItem(inputSlots[0], strainerItem)
             }
         }
+    }
+
+    override fun getInformationalItems() = listOf(GuiItems.tickRate(tickRateSetting.value))
+
+    override fun getDefaultDisplayRecipes() = OUTPUTS.flatMap { listOf(GuiItems.ANY_STRAINER, it) }
+
+    companion object {
+        private val LAYOUT = MenuLayout.SINGLE_INPUT
+
+        private val OUTPUTS = listOf(
+            ItemStack(Material.STICK),
+            ItemStack(Material.SAND),
+            ItemStack(Material.GRAVEL),
+            ItemStack(Material.QUARTZ),
+            ItemStack(Material.REDSTONE),
+            ItemStack(Material.EMERALD),
+            SlimefunItemStack(SlimefunItems.MAGNESIUM_DUST, 1),
+            SlimefunItemStack(SlimefunItems.COPPER_DUST, 1),
+            SlimefunItemStack(SlimefunItems.COPPER_DUST, 1),
+            SlimefunItemStack(SlimefunItems.SILVER_DUST, 1),
+            SlimefunItemStack(SlimefunItems.ALUMINUM_DUST, 1),
+            SlimefunItemStack(SlimefunItems.LEAD_DUST, 1),
+            SlimefunItemStack(SlimefunItems.IRON_DUST, 1),
+            SlimefunItemStack(SlimefunItems.GOLD_DUST, 1),
+            SlimefunItemStack(SlimefunItems.TIN_DUST, 1),
+            SlimefunItemStack(SlimefunItems.ZINC_DUST, 1),
+        )
+
+        private val POTATO_FISH = InfinityExpansion2.localization.getItem(
+            "POTATO_FISH",
+            Material.POTATO
+        )
     }
 }

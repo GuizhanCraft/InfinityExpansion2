@@ -11,9 +11,9 @@ class VirtualFarm(
     itemStack: SlimefunItemStack,
     recipeType: RecipeType,
     recipe: Array<out ItemStack?>,
-    tickRate: Int,
     energyPerTick: Int,
-) : GrowingMachine(itemGroup, itemStack, recipeType, recipe, tickRate, energyPerTick) {
+    tickRate: Int,
+) : GrowingMachine(itemGroup, itemStack, recipeType, recipe, energyPerTick, tickRate) {
     init {
         addRecipe(ItemStack(Material.WHEAT_SEEDS), arrayOf(ItemStack(Material.WHEAT, 2)))
         addRecipe(ItemStack(Material.CARROT), arrayOf(ItemStack(Material.CARROT, 2)))

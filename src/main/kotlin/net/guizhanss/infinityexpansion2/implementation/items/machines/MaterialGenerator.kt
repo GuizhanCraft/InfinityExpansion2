@@ -24,8 +24,8 @@ class MaterialGenerator(
     InformationalRecipeDisplayItem {
     override fun process(b: Block, menu: BlockMenu): Boolean {
         val output = ItemStack(material, speed)
-        if (menu.fits(output, *outputSlots)) {
-            menu.setStatus(GuiItems.NO_SPACE)
+        if (!menu.fits(output, *outputSlots)) {
+            menu.setStatus(GuiItems.NO_ROOM)
             return false
         }
 

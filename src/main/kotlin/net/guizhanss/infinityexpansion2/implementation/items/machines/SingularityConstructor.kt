@@ -70,7 +70,7 @@ class SingularityConstructor(
         if (progress >= singularity.totalProgress) {
             // finish
             if (!menu.fits(singularity.item, *outputSlots)) {
-                menu.setStatus(GuiItems.NO_SPACE)
+                menu.setStatus(GuiItems.NO_ROOM)
                 return false
             }
 

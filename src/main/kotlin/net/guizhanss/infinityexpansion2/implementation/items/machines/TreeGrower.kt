@@ -13,9 +13,9 @@ class TreeGrower(
     itemStack: SlimefunItemStack,
     recipeType: RecipeType,
     recipe: Array<out ItemStack?>,
-    tickRate: Int,
     energyPerTick: Int,
-) : GrowingMachine(itemGroup, itemStack, recipeType, recipe, tickRate, energyPerTick) {
+    tickRate: Int,
+) : GrowingMachine(itemGroup, itemStack, recipeType, recipe, energyPerTick, tickRate) {
     init {
         addRecipe(
             ItemStack(Material.OAK_SAPLING), arrayOf(

@@ -1,6 +1,7 @@
 package net.guizhanss.infinityexpansion2.implementation.items.machines
 
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup
+import io.github.thebusybiscuit.slimefun4.api.items.ItemState
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
@@ -42,6 +43,7 @@ class ResourceSynthesizer(
     }
 
     private fun loadRecipes() {
+        check(state == ItemState.UNREGISTERED) { "Cannot add recipes after the machine has been registered" }
         InfinityExpansion2.configService.resourceSynthesizerRecipes.forEach {
             val args = it.split(',')
 
@@ -79,7 +81,7 @@ class ResourceSynthesizer(
         // process
         val output = recipe.value.clone()
         if (menu.fits(output, *outputSlots)) {
-            menu.setStatus(GuiItems.NO_SPACE)
+            menu.setStatus(GuiItems.NO_ROOM)
             return false
         }
 

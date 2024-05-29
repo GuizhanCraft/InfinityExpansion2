@@ -43,7 +43,7 @@ class VoidHarvester(
 
             if (!menu.fits(output, *layout.outputSlots)) {
                 if (menu.hasViewer()) {
-                    menu.replaceExistingItem(layout.statusSlot, GuiItems.NO_SPACE)
+                    menu.replaceExistingItem(layout.statusSlot, GuiItems.NO_ROOM)
                 }
                 return false
             }

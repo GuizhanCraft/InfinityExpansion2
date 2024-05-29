@@ -75,6 +75,15 @@ data class MenuLayout(
             statusSlot = 4,
         )
 
+        val HOPPER = MenuLayout(
+            background = intArrayOf(18, 19, 20, 21, 23, 24, 25, 26,),
+            inputBorder = intArrayOf(0, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17),
+            inputSlots = intArrayOf(1, 2, 3, 4, 5, 6, 7),
+            outputBorder = intArrayOf(27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 44),
+            outputSlots = intArrayOf(37, 38, 39, 40, 41, 42, 43),
+            statusSlot = 22,
+        )
+
         // single input, single output
         val SINGLE_INPUT_OUTPUT = MenuLayout(
             background = intArrayOf(3, 5),

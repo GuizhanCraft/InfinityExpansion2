@@ -321,7 +321,7 @@ items:
       - ""
       - "&7Chance: 30%"
   STRAINER_2:
-    name: "&cAdvaned Strainer"
+    name: "&cAdvanced Strainer"
     lore:
       - "&7Collects materials from flowing water."
       - ""
@@ -342,8 +342,8 @@ items:
       - "&7Chance: 90%"
 
   # machines
-  COBBLESTONE_GENERATOR_1:
-    name: "&9Basic &8Cobblestone Generator"
+  COBBLESTONE_GENERATOR:
+    name: "&8Cobblestone Generator"
     lore:
       - ""
       - "&7Produces cobblestone."
@@ -379,8 +379,8 @@ items:
       - "&8\u21E8 &e⚡ &7Speed: &b64x"
     lore-overrides:
       4: "%sftrlore_Speed_64%"
-  VIRTUAL_FARM_1:
-    name: "&9Basic &aVirtual Farm"
+  VIRTUAL_FARM:
+    name: "&aVirtual Farm"
     lore:
       - ""
       - "&7Automatically grows, harvests,"
@@ -403,8 +403,8 @@ items:
       - ""
       - "&7Automatically grows, harvests,"
       - "&7and replant crops."
-  TREE_GROWER_1:
-    name: "&9Basic &2Tree Grower"
+  TREE_GROWER:
+    name: "&2Tree Grower"
     lore:
       - ""
       - "&7Automatically grows, harvests,"
@@ -427,7 +427,7 @@ items:
       - ""
       - "&7Automatically grows, harvests,"
       - "&7and replant trees."
-  VOID_HARVESTER_1:
+  VOID_HARVESTER:
     name: "&8Void Harvester"
     lore:
       - ""
@@ -454,7 +454,7 @@ items:
       - "&8\u21E8 &e⚡ &7Speed: &b64x"
     lore-overrides:
       4: "%sftrlore_Speed_64%"
-  STONEWORKS_FACTORY_1:
+  STONEWORKS_FACTORY:
     name: "&8Stoneworks Factory"
     lore:
       - ""
@@ -494,7 +494,7 @@ items:
       - "&8\u21E8 &e⚡ &7Speed: &b64x"
     lore-overrides:
       5: "%sftrlore_Speed_64%"
-  SINGULARITY_CONSTRUCTOR_1:
+  SINGULARITY_CONSTRUCTOR:
     name: "&bSingularity Constructor"
     lore:
       - ""
@@ -510,6 +510,24 @@ items:
       - ""
       - "&7Combines 2 singularities"
       - "&7to create resources."
+  OBSIDIAN_GENERATOR:
+    name: "&8Obsidian Generator"
+    lore:
+      - ""
+      - "&7Produces obsidian."
+      - ""
+      - "&8\u21E8 &e⚡ &7Speed: &b1x"
+    lore-overrides:
+      4: "%sftrlore_Speed_1%"
+  EXTREME_FREEZER:
+    name: "&bExtreme Freezer"
+    lore:
+      - ""
+      - "&7Used to make coolants."
+      - ""
+      - "&8\u21E8 &e⚡ &7Speed: &b1x"
+    lore-overrides:
+      4: "%sftrlore_Speed_1%"
 
   INFINITY_WORKBENCH:
     name: "&6Infinity Workbench"

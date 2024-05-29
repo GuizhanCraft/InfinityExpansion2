@@ -5,6 +5,7 @@ package net.guizhanss.infinityexpansion2.implementation
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems
 import net.guizhanss.infinityexpansion2.implementation.items.groups.IEItemGroups
+import net.guizhanss.infinityexpansion2.implementation.items.machines.ExtremeFreezer
 import net.guizhanss.infinityexpansion2.implementation.items.machines.InfinityWorkbench
 import net.guizhanss.infinityexpansion2.implementation.items.machines.MaterialGenerator
 import net.guizhanss.infinityexpansion2.implementation.items.machines.ResourceSynthesizer
@@ -614,8 +615,8 @@ object IEItems {
     // </editor-fold>
 
     // <editor-fold desc="Machines" collapsed="true">
-    val COBBLESTONE_GENERATOR_1 = buildSlimefunItem<MaterialGenerator>(Material.COBBLESTONE, 1, 24) {
-        id = "COBBLESTONE_GENERATOR_1"
+    val COBBLESTONE_GENERATOR = buildSlimefunItem<MaterialGenerator>(Material.COBBLESTONE, 1, 24) {
+        id = "COBBLESTONE_GENERATOR"
         material = Material.SMOOTH_STONE.convert()
         itemGroup = IEItemGroups.MACHINES
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
@@ -632,9 +633,9 @@ object IEItems {
         itemGroup = IEItemGroups.MACHINES
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
         recipe = arrayOf(
-            MAGSTEEL, COBBLESTONE_GENERATOR_1, MAGSTEEL,
+            MAGSTEEL, COBBLESTONE_GENERATOR, MAGSTEEL,
             WATER_BUCKET, COMPRESSED_COBBLESTONE_3, LAVA_BUCKET,
-            MACHINE_CIRCUIT, COBBLESTONE_GENERATOR_1, MACHINE_CIRCUIT,
+            MACHINE_CIRCUIT, COBBLESTONE_GENERATOR, MACHINE_CIRCUIT,
         )
     }
 
@@ -665,8 +666,8 @@ object IEItems {
         )
     }
 
-    val VIRTUAL_FARM_1 = buildSlimefunItem<VirtualFarm>(300, 18) {
-        id = "VIRTUAL_FARM_1"
+    val VIRTUAL_FARM = buildSlimefunItem<VirtualFarm>(18, 300) {
+        id = "VIRTUAL_FARM"
         material = Material.GRASS_BLOCK.convert()
         itemGroup = IEItemGroups.MACHINES
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
@@ -677,19 +678,19 @@ object IEItems {
         )
     }
 
-    val VIRTUAL_FARM_2 = buildSlimefunItem<VirtualFarm>(60, 90) {
+    val VIRTUAL_FARM_2 = buildSlimefunItem<VirtualFarm>(90, 60) {
         id = "VIRTUAL_FARM_2"
         material = Material.CRIMSON_NYLIUM.convert()
         itemGroup = IEItemGroups.MACHINES
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
         recipe = arrayOf(
             SlimefunItems.HARDENED_GLASS, SlimefunItems.HARDENED_GLASS, SlimefunItems.HARDENED_GLASS,
-            MAGNONIUM, VIRTUAL_FARM_1, MAGNONIUM,
+            MAGNONIUM, VIRTUAL_FARM, MAGNONIUM,
             MACHINE_CIRCUIT, MACHINE_CORE, MACHINE_CIRCUIT,
         )
     }
 
-    val VIRTUAL_FARM_3 = buildSlimefunItem<VirtualFarm>(30, 270) {
+    val VIRTUAL_FARM_3 = buildSlimefunItem<VirtualFarm>(270, 30) {
         id = "VIRTUAL_FARM_3"
         material = Material.WARPED_NYLIUM.convert()
         itemGroup = IEItemGroups.MACHINES
@@ -701,7 +702,7 @@ object IEItems {
         )
     }
 
-    val VIRTUAL_FARM_4 = buildSlimefunItem<VirtualFarm>(10, 1000) {
+    val VIRTUAL_FARM_4 = buildSlimefunItem<VirtualFarm>(1000, 10) {
         id = "VIRTUAL_FARM_4"
         material = Material.END_STONE.convert()
         itemGroup = IEItemGroups.INFINITY_DISPLAY
@@ -718,31 +719,31 @@ object IEItems {
         )
     }
 
-    val TREE_GROWER_1 = buildSlimefunItem<TreeGrower>(600, 36) {
-        id = "TREE_GROWER_1"
+    val TREE_GROWER = buildSlimefunItem<TreeGrower>(36, 600) {
+        id = "TREE_GROWER"
         material = Material.STRIPPED_OAK_WOOD.convert()
         itemGroup = IEItemGroups.MACHINES
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
         recipe = arrayOf(
             GLASS, GLASS, GLASS,
             MAGSTEEL, PODZOL, MAGSTEEL,
-            MACHINE_CIRCUIT, VIRTUAL_FARM_1, MACHINE_CIRCUIT,
+            MACHINE_CIRCUIT, VIRTUAL_FARM, MACHINE_CIRCUIT,
         )
     }
 
-    val TREE_GROWER_2 = buildSlimefunItem<TreeGrower>(120, 180) {
+    val TREE_GROWER_2 = buildSlimefunItem<TreeGrower>(180, 120) {
         id = "TREE_GROWER_2"
         material = Material.STRIPPED_ACACIA_WOOD.convert()
         itemGroup = IEItemGroups.MACHINES
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
         recipe = arrayOf(
             SlimefunItems.HARDENED_GLASS, SlimefunItems.HARDENED_GLASS, SlimefunItems.HARDENED_GLASS,
-            MAGNONIUM, TREE_GROWER_1, MAGNONIUM,
+            MAGNONIUM, TREE_GROWER, MAGNONIUM,
             MACHINE_CIRCUIT, MACHINE_CORE, MACHINE_CIRCUIT,
         )
     }
 
-    val TREE_GROWER_3 = buildSlimefunItem<TreeGrower>(60, 540) {
+    val TREE_GROWER_3 = buildSlimefunItem<TreeGrower>(540, 60) {
         id = "TREE_GROWER_3"
         material = Material.STRIPPED_CRIMSON_HYPHAE.convert()
         itemGroup = IEItemGroups.MACHINES
@@ -754,7 +755,7 @@ object IEItems {
         )
     }
 
-    val TREE_GROWER_4 = buildSlimefunItem<TreeGrower>(12, 2000) {
+    val TREE_GROWER_4 = buildSlimefunItem<TreeGrower>(2000, 12) {
         id = "TREE_GROWER_4"
         material = Material.STRIPPED_WARPED_HYPHAE.convert()
         itemGroup = IEItemGroups.INFINITY_DISPLAY
@@ -771,8 +772,8 @@ object IEItems {
         )
     }
 
-    val VOID_HARVESTER_1 = buildSlimefunItem<VoidHarvester>(1, 120) {
-        id = "VOID_HARVESTER_1"
+    val VOID_HARVESTER = buildSlimefunItem<VoidHarvester>(1, 120) {
+        id = "VOID_HARVESTER"
         material = Material.OBSIDIAN.convert()
         itemGroup = IEItemGroups.MACHINES
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
@@ -790,7 +791,7 @@ object IEItems {
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
         recipe = arrayOf(
             SlimefunItems.REINFORCED_PLATE, SlimefunItems.REINFORCED_PLATE, SlimefunItems.REINFORCED_PLATE,
-            MAGSTEEL_PLATE, VOID_HARVESTER_1, MAGSTEEL_PLATE,
+            MAGSTEEL_PLATE, VOID_HARVESTER, MAGSTEEL_PLATE,
             MACHINE_CIRCUIT, MACHINE_CORE, MACHINE_CIRCUIT,
         )
     }
@@ -810,13 +811,13 @@ object IEItems {
         )
     }
 
-    val STONEWORKS_FACTORY_1 = buildSlimefunItem<StoneworksFactory>(1, 200) {
-        id = "STONEWORKS_FACTORY_1"
+    val STONEWORKS_FACTORY = buildSlimefunItem<StoneworksFactory>(1, 200) {
+        id = "STONEWORKS_FACTORY"
         material = Material.BLAST_FURNACE.convert()
         itemGroup = IEItemGroups.MACHINES
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
         recipe = arrayOf(
-            MAGSTEEL_PLATE, COBBLESTONE_GENERATOR_1, MAGSTEEL_PLATE,
+            MAGSTEEL_PLATE, COBBLESTONE_GENERATOR, MAGSTEEL_PLATE,
             SlimefunItems.ELECTRIC_FURNACE, MACHINE_CIRCUIT, SlimefunItems.ELECTRIC_ORE_GRINDER,
             MAGSTEEL_PLATE, SlimefunItems.ELECTRIC_PRESS, MAGSTEEL_PLATE,
         )
@@ -829,7 +830,7 @@ object IEItems {
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
         recipe = arrayOf(
             MAGSTEEL_PLATE, COBBLESTONE_GENERATOR_2, MAGSTEEL_PLATE,
-            SlimefunItems.ELECTRIC_FURNACE_2, STONEWORKS_FACTORY_1, SlimefunItems.ELECTRIC_ORE_GRINDER_2,
+            SlimefunItems.ELECTRIC_FURNACE_2, STONEWORKS_FACTORY, SlimefunItems.ELECTRIC_ORE_GRINDER_2,
             MACHINE_CIRCUIT, SlimefunItems.ELECTRIC_PRESS_2, MACHINE_CIRCUIT,
         )
     }
@@ -863,8 +864,8 @@ object IEItems {
         )
     }
 
-    val SINGULARITY_CONSTRUCTOR_1 = buildSlimefunItem<SingularityConstructor>(1, 120) {
-        id = "SINGULARITY_CONSTRUCTOR_1"
+    val SINGULARITY_CONSTRUCTOR = buildSlimefunItem<SingularityConstructor>(1, 120) {
+        id = "SINGULARITY_CONSTRUCTOR"
         material = Material.QUARTZ_BRICKS.convert()
         itemGroup = IEItemGroups.MACHINES
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
@@ -888,6 +889,34 @@ object IEItems {
             MACHINE_PLATE, MACHINE_CORE, MACHINE_PLATE
         )
     }
+
+    val OBSIDIAN_GENERATOR = buildSlimefunItem<MaterialGenerator>(Material.OBSIDIAN, 1, 240) {
+        id = "OBSIDIAN_GENERATOR"
+        material = Material.SMOOTH_STONE.convert()
+        itemGroup = IEItemGroups.MACHINES
+        recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
+        recipe = arrayOf(
+            SlimefunItems.FLUID_PUMP, SlimefunItems.PROGRAMMABLE_ANDROID_MINER, SlimefunItems.FLUID_PUMP,
+            ItemStack(Material.DISPENSER), VOID_INGOT, ItemStack(Material.DISPENSER),
+            MACHINE_CIRCUIT, COBBLESTONE_GENERATOR_2, MACHINE_CIRCUIT,
+        )
+    }
+
+    // TODO: more tiers of obsidian generator?
+
+    val EXTREME_FREEZER = buildSlimefunItem<ExtremeFreezer>(90) {
+        id = "EXTREME_FREEZER"
+        material = Material.LIGHT_BLUE_CONCRETE.convert()
+        itemGroup = IEItemGroups.MACHINES
+        recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
+        recipe = arrayOf(
+            SlimefunItems.FREEZER_2, SlimefunItems.FREEZER_2, SlimefunItems.FREEZER_2,
+            WATER_BUCKET, SlimefunItems.FLUID_PUMP, WATER_BUCKET,
+            MACHINE_CIRCUIT, MACHINE_CORE, MACHINE_CIRCUIT,
+        )
+    }
+
+
 
     val INFINITY_WORKBENCH = buildSlimefunItem<InfinityWorkbench>(10_000_000) {
         id = "INFINITY_WORKBENCH"
