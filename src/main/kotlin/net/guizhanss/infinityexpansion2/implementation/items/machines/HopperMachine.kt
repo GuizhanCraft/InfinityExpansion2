@@ -42,6 +42,7 @@ open class HopperMachine(
     val recipes: Recipes get() = _recipes
 
     fun addRecipe(input: RecipeInput, output: RecipeOutput): HopperMachine {
+        require(output.isNotEmpty()) { "Recipe output cannot be empty" }
         check(state == ItemState.UNREGISTERED) { "Cannot add recipes after the machine has been registered" }
         _recipes[input] = output
         return this
@@ -52,7 +53,7 @@ open class HopperMachine(
 
         for (slot in inputSlots) {
             val input = menu.getItemInSlot(slot) ?: continue
-            _recipes.forEach { (recipeInput, recipeOutput) ->
+            recipes.forEach { (recipeInput, recipeOutput) ->
                 if (SlimefunUtils.isItemSimilar(input, recipeInput, false, false)
                     && input.amount >= recipeInput.amount
                 ) {

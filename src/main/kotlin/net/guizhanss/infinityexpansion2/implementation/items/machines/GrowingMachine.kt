@@ -33,6 +33,7 @@ open class GrowingMachine(
     val recipes: Recipes get() = _recipes
 
     fun addRecipe(input: RecipeInput, output: RecipeOutput): GrowingMachine {
+        require(output.isNotEmpty()) { "Recipe output cannot be empty" }
         check(state == ItemState.UNREGISTERED) { "Cannot add recipes after the machine has been registered" }
         _recipes[input] = output
         return this

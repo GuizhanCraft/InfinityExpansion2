@@ -37,10 +37,6 @@ class LocalizationService(
         val translationFiles = listYmlFilesInJar(jarFile, "${FOLDER_NAME}/")
         for (translationFile in translationFiles) {
             val filePath = FOLDER_NAME + File.separator + translationFile
-            val file = File(plugin.dataFolder, filePath)
-            if (file.exists()) {
-                continue
-            }
             plugin.saveResource(filePath, true)
         }
     }

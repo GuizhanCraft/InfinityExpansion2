@@ -16,10 +16,18 @@ items:
     conditions:
       force-load: true
     name: "&k-&bI&4E&a&l2&k- &a- &7Materials"
+  _IG_SINGULARITIES:
+    conditions:
+      force-load: true
+    name: "&k-&bI&4E&a&l2&k- &a- &aSingularities"
   _IG_TOOLS:
     conditions:
       force-load: true
     name: "&k-&bI&4E&a&l2&k- &a- &6Tools"
+  _IG_GEARS:
+    conditions:
+      force-load: true
+    name: "&k-&bI&4E&a&l2&k- &a- &2Gears"
   _IG_MACHINES:
     conditions:
       force-load: true
@@ -28,10 +36,6 @@ items:
     conditions:
       force-load: true
     name: "&k-&bI&4E&a&l2&k- &a- &cGenerators"
-  _IG_SINGULARITIES:
-    conditions:
-      force-load: true
-    name: "&k-&bI&4E&a&l2&k- &a- &aSingularities"
   _IG_MOB_SIMULATION:
     conditions:
       force-load: true
@@ -40,6 +44,10 @@ items:
     conditions:
       force-load: true
     name: "&k-&bI&4E&a&l2&k- &a- &6Storage"
+  _IG_SLIMEFUN_EXPANSION:
+    conditions:
+      force-load: true
+    name: "&k-&bI&4E&a&l2&k- &a- &dSlimefun Expansion"
   _IG_INFINITY:
     conditions:
       force-load: true
@@ -200,7 +208,51 @@ items:
       - "&7per tick, per second, or per use."
       - ""
       - "&eEnergy production"
-      -
+
+
+  # items - singularities
+  IRON_SINGULARITY:
+    name: "&7Iron Singularity"
+  GOLD_SINGULARITY:
+    name: "&6Gold Singularity"
+  LAPIS_SINGULARITY:
+    name: "&9Lapis Singularity"
+  REDSTONE_SINGULARITY:
+    name: "&cRedstone Singularity"
+  QUARTZ_SINGULARITY:
+    name: "&fQuartz Singularity"
+  COPPER_SINGULARITY:
+    name: "&6Copper Singularity"
+  TIN_SINGULARITY:
+    name: "&7Tin Singularity"
+  LEAD_SINGULARITY:
+    name: "&8Lead Singularity"
+  SILVER_SINGULARITY:
+    name: "&7Silver Singularity"
+  ZINC_SINGULARITY:
+    name: "&7Zinc Singularity"
+  ALUMINUM_SINGULARITY:
+    name: "&7Aluminum Singularity"
+  MAGNESIUM_SINGULARITY:
+    name: "&dMagnesium Singularity"
+  DIAMOND_SINGULARITY:
+    name: "&bDiamond Singularity"
+  EMERALD_SINGULARITY:
+    name: "&aEmerald Singularity"
+  NETHERITE_SINGULARITY:
+    name: "&4Netherite Singularity"
+  COAL_SINGULARITY:
+    name: "&8Coal Singularity"
+  INFINITY_SINGULARITY:
+    name: "&bInfinity Singularity"
+  FORTUNE_SINGULARITY:
+    name: "&6Fortune Singularity"
+  MAGIC_SINGULARITY:
+    name: "&5Magic Singularity"
+  EARTH_SINGULARITY:
+    name: "&aEarth Singularity"
+  METAL_SINGULARITY:
+    name: "&8Metal Singularity"
 
   # items - materials
   ENDER_ESSENCE:
@@ -528,6 +580,106 @@ items:
       - "&8\u21E8 &e⚡ &7Speed: &b1x"
     lore-overrides:
       4: "%sftrlore_Speed_1%"
+  DUST_EXTRACTOR:
+    name: "&7Dust Extractor"
+    lore:
+      - ""
+      - "&7Extracts dust from stone variants."
+      - ""
+      - "&8\u21E8 &e⚡ &7Speed: &b1x"
+    lore-overrides:
+      4: "%sftrlore_Speed_1%"
+  DUST_EXTRACTOR_2:
+    name: "&cAdvanced &7Dust Extractor"
+    lore:
+      - ""
+      - "&7Extracts dust from stone variants."
+      - ""
+      - "&8\u21E8 &e⚡ &7Speed: &b2x"
+    lore-overrides:
+      4: "%sftrlore_Speed_2%"
+  DUST_EXTRACTOR_3:
+    name: "&8Void &7Dust Extractor"
+    lore:
+      - ""
+      - "&7Extracts dust from stone variants."
+      - ""
+      - "&8\u21E8 &e⚡ &7Speed: &b8x"
+    lore-overrides:
+      4: "%sftrlore_Speed_8%"
+  DUST_EXTRACTOR_4:
+    name: "&bInfinity &7Dust Extractor"
+    lore:
+      - ""
+      - "&7Extracts dust from stone variants."
+      - ""
+      - "&8\u21E8 &e⚡ &7Speed: &b16x"
+    lore-overrides:
+      4: "%sftrlore_Speed_16%"
+  INGOT_FORMER:
+    name: "&7Ingot Former"
+    lore:
+      - ""
+      - "&7Forms ingots from dust."
+      - ""
+      - "&8\u21E8 &e⚡ &7Speed: &b1x"
+    lore-overrides:
+      4: "%sftrlore_Speed_1%"
+  INGOT_FORMER_2:
+    name: "&cAdvanced &7Ingot Former"
+    lore:
+      - ""
+      - "&7Forms ingots from dust."
+      - ""
+      - "&8\u21E8 &e⚡ &7Speed: &b2x"
+    lore-overrides:
+      4: "%sftrlore_Speed_2%"
+  INGOT_FORMER_3:
+    name: "&8Void &7Ingot Former"
+    lore:
+      - ""
+      - "&7Forms ingots from dust."
+      - ""
+      - "&8\u21E8 &e⚡ &7Speed: &b8x"
+    lore-overrides:
+      4: "%sftrlore_Speed_8%"
+  INGOT_FORMER_4:
+    name: "&bInfinity &7Ingot Former"
+    lore:
+      - ""
+      - "&7Forms ingots from dust."
+      - ""
+      - "&8\u21E8 &e⚡ &7Speed: &b16x"
+    lore-overrides:
+      4: "%sftrlore_Speed_16%"
+  URANIUM_EXTRACTOR:
+    name: "&2Uranium Extractor"
+    lore:
+      - ""
+      - "&7Extracts uranium from stone variants."
+      - ""
+      - "&8\u21E8 &e⚡ &7Speed: &b1x"
+    lore-overrides:
+      4: "%sftrlore_Speed_1%"
+  COBBLE_PRESS:
+    name: "&8Cobble Press"
+    lore:
+      - ""
+      - "&7Compresses cobblestones"
+      - "&7more frequently."
+      - ""
+      - "&8\u21E8 &e⚡ &7Speed: &b1x"
+    lore-overrides:
+      5: "%sftrlore_Speed_1%"
+  DECOMPRESSOR:
+    name: "&7Decompressor"
+    lore:
+      - ""
+      - "&7Decompresses materials."
+      - ""
+      - "&8\u21E8 &e⚡ &7Speed: &b1x"
+    lore-overrides:
+      4: "%sftrlore_Speed_1%"
 
   INFINITY_WORKBENCH:
     name: "&6Infinity Workbench"
@@ -535,51 +687,6 @@ items:
       - ""
       - "&7Used to craft infinity items."
   # items - generators
-
-  # items - singularities
-  IRON_SINGULARITY:
-    name: "&7Iron Singularity"
-  GOLD_SINGULARITY:
-    name: "&6Gold Singularity"
-  LAPIS_SINGULARITY:
-    name: "&9Lapis Singularity"
-  REDSTONE_SINGULARITY:
-    name: "&cRedstone Singularity"
-  QUARTZ_SINGULARITY:
-    name: "&fQuartz Singularity"
-  COPPER_SINGULARITY:
-    name: "&6Copper Singularity"
-  TIN_SINGULARITY:
-    name: "&7Tin Singularity"
-  LEAD_SINGULARITY:
-    name: "&8Lead Singularity"
-  SILVER_SINGULARITY:
-    name: "&7Silver Singularity"
-  ZINC_SINGULARITY:
-    name: "&7Zinc Singularity"
-  ALUMINUM_SINGULARITY:
-    name: "&7Aluminum Singularity"
-  MAGNESIUM_SINGULARITY:
-    name: "&dMagnesium Singularity"
-  DIAMOND_SINGULARITY:
-    name: "&bDiamond Singularity"
-  EMERALD_SINGULARITY:
-    name: "&aEmerald Singularity"
-  NETHERITE_SINGULARITY:
-    name: "&4Netherite Singularity"
-  COAL_SINGULARITY:
-    name: "&8Coal Singularity"
-  INFINITY_SINGULARITY:
-    name: "&bInfinity Singularity"
-  FORTUNE_SINGULARITY:
-    name: "&6Fortune Singularity"
-  MAGIC_SINGULARITY:
-    name: "&5Magic Singularity"
-  EARTH_SINGULARITY:
-    name: "&aEarth Singularity"
-  METAL_SINGULARITY:
-    name: "&8Metal Singularity"
-
 lores:
   collect: "&7Collects:"
   produce: "&7Produces:"

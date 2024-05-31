@@ -5,13 +5,18 @@ package net.guizhanss.infinityexpansion2.implementation
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems
 import net.guizhanss.infinityexpansion2.implementation.items.groups.IEItemGroups
+import net.guizhanss.infinityexpansion2.implementation.items.machines.CobblePress
+import net.guizhanss.infinityexpansion2.implementation.items.machines.Decompressor
+import net.guizhanss.infinityexpansion2.implementation.items.machines.DustExtractor
 import net.guizhanss.infinityexpansion2.implementation.items.machines.ExtremeFreezer
 import net.guizhanss.infinityexpansion2.implementation.items.machines.InfinityWorkbench
+import net.guizhanss.infinityexpansion2.implementation.items.machines.IngotFormer
 import net.guizhanss.infinityexpansion2.implementation.items.machines.MaterialGenerator
 import net.guizhanss.infinityexpansion2.implementation.items.machines.ResourceSynthesizer
 import net.guizhanss.infinityexpansion2.implementation.items.machines.SingularityConstructor
 import net.guizhanss.infinityexpansion2.implementation.items.machines.StoneworksFactory
 import net.guizhanss.infinityexpansion2.implementation.items.machines.TreeGrower
+import net.guizhanss.infinityexpansion2.implementation.items.machines.UraniumExtractor
 import net.guizhanss.infinityexpansion2.implementation.items.machines.VirtualFarm
 import net.guizhanss.infinityexpansion2.implementation.items.machines.VoidHarvester
 import net.guizhanss.infinityexpansion2.implementation.items.materials.EnderEssence
@@ -916,7 +921,161 @@ object IEItems {
         )
     }
 
+    val DUST_EXTRACTOR = buildSlimefunItem<DustExtractor>(200, 4, 2) {
+        id = "DUST_EXTRACTOR"
+        material = Material.FURNACE.convert()
+        itemGroup = IEItemGroups.MACHINES
+        recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
+        recipe = arrayOf(
+            // @formatter:off
+            SlimefunItems.ELECTRIC_ORE_GRINDER_2, SlimefunItems.ELECTRIC_GOLD_PAN_3, SlimefunItems.ELECTRIC_DUST_WASHER_3,
+            SlimefunItems.ELECTRIC_ORE_GRINDER_2, SlimefunItems.ELECTRIC_GOLD_PAN_3, SlimefunItems.ELECTRIC_DUST_WASHER_3,
+            MACHINE_CIRCUIT, MACHINE_CORE, MACHINE_CIRCUIT,
+            // @formatter:on
+        )
+    }
 
+    val DUST_EXTRACTOR_2 = buildSlimefunItem<DustExtractor>(800, 8, 4) {
+        id = "DUST_EXTRACTOR_2"
+        material = Material.FURNACE.convert()
+        itemGroup = IEItemGroups.MACHINES
+        recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
+        recipe = arrayOf(
+            // @formatter:off
+            MAGSTEEL_PLATE, DUST_EXTRACTOR, MAGSTEEL_PLATE,
+            MAGSTEEL_PLATE, DUST_EXTRACTOR, MAGSTEEL_PLATE,
+            MACHINE_CIRCUIT, MACHINE_CORE, MACHINE_CIRCUIT,
+            // @formatter:on
+        )
+    }
+
+    val DUST_EXTRACTOR_3 = buildSlimefunItem<DustExtractor>(2400, 32, 32) {
+        id = "DUST_EXTRACTOR_3"
+        material = Material.FURNACE.convert()
+        itemGroup = IEItemGroups.MACHINES
+        recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
+        recipe = arrayOf(
+            // @formatter:off
+            VOID_BLOCK, DUST_EXTRACTOR_2, VOID_BLOCK,
+            MACHINE_PLATE, DUST_EXTRACTOR_2, MACHINE_PLATE,
+            MACHINE_PLATE, MACHINE_CORE, MACHINE_PLATE,
+            // @formatter:on
+        )
+    }
+
+    val DUST_EXTRACTOR_4 = buildSlimefunItem<DustExtractor>(7200, 64, 64) {
+        id = "DUST_EXTRACTOR_4"
+        material = Material.FURNACE.convert()
+        itemGroup = IEItemGroups.INFINITY_DISPLAY
+        recipeType = IERecipeTypes.INFINITY_WORKBENCH
+        recipe = arrayOf(
+            // @formatter:off
+            VOID_BLOCK, null, null, null, null, VOID_BLOCK,
+            VOID_INGOT, INFINITY_INGOT, INFINITY_MACHINE_CIRCUIT, INFINITY_MACHINE_CIRCUIT, INFINITY_INGOT, VOID_INGOT,
+            VOID_INGOT, INFINITY_INGOT, null, null, INFINITY_INGOT, VOID_INGOT,
+            VOID_INGOT, INFINITY_INGOT, DUST_EXTRACTOR_3, DUST_EXTRACTOR_3, INFINITY_INGOT, VOID_INGOT,
+            VOID_INGOT, INFINITY_INGOT, null, null, INFINITY_INGOT, VOID_INGOT,
+            VOID_BLOCK, null, null, null, null, VOID_BLOCK,
+            // @formatter:on
+        )
+    }
+
+    val INGOT_FORMER = buildSlimefunItem<IngotFormer>(200, 8, 4) {
+        id = "INGOT_FORMER"
+        material = Material.BLAST_FURNACE.convert()
+        itemGroup = IEItemGroups.MACHINES
+        recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
+        recipe = arrayOf(
+            // @formatter:off
+            SlimefunItems.ELECTRIC_INGOT_FACTORY_2, SlimefunItems.ELECTRIC_INGOT_FACTORY_2, SlimefunItems.ELECTRIC_INGOT_FACTORY_2,
+            SlimefunItems.ELECTRIC_INGOT_FACTORY_2, SlimefunItems.ELECTRIC_INGOT_FACTORY_2, SlimefunItems.ELECTRIC_INGOT_FACTORY_2,
+            MACHINE_CIRCUIT, MACHINE_CORE, MACHINE_CIRCUIT,
+            // @formatter:on
+        )
+    }
+
+    val INGOT_FORMER_2 = buildSlimefunItem<IngotFormer>(800, 16, 8) {
+        id = "INGOT_FORMER_2"
+        material = Material.BLAST_FURNACE.convert()
+        itemGroup = IEItemGroups.MACHINES
+        recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
+        recipe = arrayOf(
+            // @formatter:off
+            MAGSTEEL_PLATE, INGOT_FORMER, MAGSTEEL_PLATE,
+            MAGSTEEL_PLATE, INGOT_FORMER, MAGSTEEL_PLATE,
+            MACHINE_CIRCUIT, MACHINE_CORE, MACHINE_CIRCUIT,
+            // @formatter:on
+        )
+    }
+
+    val INGOT_FORMER_3 = buildSlimefunItem<IngotFormer>(2400, 32, 16) {
+        id = "INGOT_FORMER_3"
+        material = Material.BLAST_FURNACE.convert()
+        itemGroup = IEItemGroups.MACHINES
+        recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
+        recipe = arrayOf(
+            // @formatter:off
+            VOID_BLOCK, INGOT_FORMER_2, VOID_BLOCK,
+            MACHINE_PLATE, INGOT_FORMER_2, MACHINE_PLATE,
+            MACHINE_PLATE, MACHINE_CORE, MACHINE_PLATE,
+            // @formatter:on
+        )
+    }
+
+    val INGOT_FORMER_4 = buildSlimefunItem<IngotFormer>(7200, 64, 32) {
+        id = "INGOT_FORMER_4"
+        material = Material.BLAST_FURNACE.convert()
+        itemGroup = IEItemGroups.INFINITY_DISPLAY
+        recipeType = IERecipeTypes.INFINITY_WORKBENCH
+        recipe = arrayOf(
+            // @formatter:off
+            VOID_BLOCK, null, null, null, null, VOID_BLOCK,
+            VOID_INGOT, INFINITY_INGOT, INFINITY_MACHINE_CIRCUIT, INFINITY_MACHINE_CIRCUIT, INFINITY_INGOT, VOID_INGOT,
+            VOID_INGOT, INFINITY_INGOT, null, null, INFINITY_INGOT, VOID_INGOT,
+            VOID_INGOT, INFINITY_INGOT, INGOT_FORMER_3, INGOT_FORMER_3, INFINITY_INGOT, VOID_INGOT,
+            VOID_INGOT, INFINITY_INGOT, null, null, INFINITY_INGOT, VOID_INGOT,
+            VOID_BLOCK, null, null, null, null, VOID_BLOCK,
+            // @formatter:on
+        )
+    }
+
+    val URANIUM_EXTRACTOR = buildSlimefunItem<UraniumExtractor>(200, 4, 1) {
+        id = "URANIUM_EXTRACTOR"
+        material = Material.LIME_CONCRETE.convert()
+        itemGroup = IEItemGroups.MACHINES
+        recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
+        recipe = arrayOf(
+            // @formatter:off
+            SlimefunItems.ELECTRIC_ORE_GRINDER_2, SlimefunItems.ELECTRIC_ORE_GRINDER_2, SlimefunItems.ELECTRIC_ORE_GRINDER_2,
+            SlimefunItems.ELECTRIC_GOLD_PAN_3, SlimefunItems.ELECTRIC_DUST_WASHER_3, SlimefunItems.ENHANCED_AUTO_CRAFTER,
+            MACHINE_CIRCUIT, MACHINE_CORE, MACHINE_CIRCUIT,
+            // @formatter:on
+        )
+    }
+
+    val COBBLE_PRESS = buildSlimefunItem<CobblePress>(200) {
+        id = "COBBLE_PRESS"
+        material = Material.STONE_PRESSURE_PLATE.convert()
+        itemGroup = IEItemGroups.MACHINES
+        recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
+        recipe = arrayOf(
+            MACHINE_PLATE, COMPRESSED_COBBLESTONE_3, MACHINE_PLATE,
+            SlimefunItems.ELECTRIC_PRESS_2, SlimefunItems.ELECTRIC_PRESS_2, SlimefunItems.ELECTRIC_PRESS_2,
+            MACHINE_PLATE, COMPRESSED_COBBLESTONE_3, MACHINE_PLATE
+        )
+    }
+
+    val DECOMPRESSOR = buildSlimefunItem<Decompressor>(60) {
+        id = "DECOMPRESSOR"
+        material = Material.PISTON.convert()
+        itemGroup = IEItemGroups.MACHINES
+        recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
+        recipe = arrayOf(
+            MAGSTEEL_PLATE, MAGSTEEL_PLATE, MAGSTEEL_PLATE,
+            ItemStack(Material.STICKY_PISTON), SlimefunItems.ELECTRIC_PRESS_2, ItemStack(Material.STICKY_PISTON),
+            MACHINE_CIRCUIT, MACHINE_CORE, MACHINE_CIRCUIT,
+        )
+    }
 
     val INFINITY_WORKBENCH = buildSlimefunItem<InfinityWorkbench>(10_000_000) {
         id = "INFINITY_WORKBENCH"

@@ -1,11 +1,15 @@
 package net.guizhanss.infinityexpansion2.implementation.items.groups
 
+import io.github.thebusybiscuit.slimefun4.api.player.PlayerProfile
+import io.github.thebusybiscuit.slimefun4.core.guide.SlimefunGuideMode
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
+import net.guizhanss.infinityexpansion2.core.menu.MenuItem
 import net.guizhanss.infinityexpansion2.implementation.items.groups.infinity.InfinityDisplayGroup
 import net.guizhanss.infinityexpansion2.implementation.items.groups.infinity.InfinityGroup
 import net.guizhanss.infinityexpansion2.utils.createKey
 import net.guizhanss.infinityexpansion2.utils.items.MaterialType
 import org.bukkit.Material
+import org.bukkit.entity.Player
 
 object IEItemGroups {
     val MAIN = MainGroup(
@@ -89,7 +93,19 @@ object IEItemGroups {
     )
 
     init {
-        MAIN.addMenuItem(WikiMenuItem)
+        // wiki
+        MAIN.addMenuItem(object : MenuItem {
+            override fun getItem(p: Player, profile: PlayerProfile) = InfinityExpansion2.localization.getItemGroupItem(
+                MaterialType.Material(Material.BOOK),
+                "wiki"
+            )
+
+            override fun onClick(p: Player, profile: PlayerProfile, mode: SlimefunGuideMode) {
+                p.closeInventory()
+
+                // TODO: show wiki link
+            }
+        })
         MAIN.addSubGroups(MATERIALS, TOOLS, MACHINES, GENERATORS, SINGULARITIES, MOB_SIMULATION, STORAGE, INFINITY)
         MOB_SIMULATION.isCrossAddonItemGroup = true
         MAIN.register(InfinityExpansion2.instance)
