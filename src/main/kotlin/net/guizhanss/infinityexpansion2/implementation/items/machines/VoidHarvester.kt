@@ -42,18 +42,13 @@ class VoidHarvester(
             val output = IEItems.VOID_BIT
 
             if (!menu.fits(output, *layout.outputSlots)) {
-                if (menu.hasViewer()) {
-                    menu.replaceExistingItem(layout.statusSlot, GuiItems.NO_ROOM)
-                }
+                menu.setStatus(GuiItems.NO_ROOM)
                 return false
             }
 
-            if (shouldRun()) {
-                menu.pushItem(output.clone(), *layout.outputSlots)
-
-                menu.setProgress(speed + progress - totalProgress)
-            }
-        } else if (shouldRun()) {
+            menu.pushItem(output.clone(), *layout.outputSlots)
+            menu.setProgress(speed + progress - totalProgress)
+        } else {
             menu.setProgress(progress + speed)
         }
         return true
@@ -61,9 +56,7 @@ class VoidHarvester(
 
     private fun BlockMenu.setProgress(progress: Int) {
         location.setInt("progress", progress)
-        if (hasViewer()) {
-            replaceExistingItem(layout.statusSlot, GuiItems.progressBar(progress, totalProgress))
-        }
+        setStatus(GuiItems.progressBar(progress, totalProgress))
     }
 
     override fun getRecipeSectionLabel(p: Player) = InfinityExpansion2.integrationService.getLore(p, "info")

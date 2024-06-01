@@ -53,11 +53,7 @@ open class GrowingMachine(
         }
 
         menu.setStatus(GuiItems.PRODUCING)
-        if (shouldRun()) {
-            for (item in output) {
-                menu.pushItem(item.clone(), *outputSlots)
-            }
-        }
+        output.forEach { menu.pushItem(it.clone(), *outputSlots) }
         return true
     }
 

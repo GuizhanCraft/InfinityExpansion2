@@ -49,8 +49,6 @@ open class HopperMachine(
     }
 
     override fun process(b: Block, menu: BlockMenu): Boolean {
-        if (!shouldRun()) return true
-
         for (slot in inputSlots) {
             val input = menu.getItemInSlot(slot) ?: continue
             recipes.forEach { (recipeInput, recipeOutput) ->

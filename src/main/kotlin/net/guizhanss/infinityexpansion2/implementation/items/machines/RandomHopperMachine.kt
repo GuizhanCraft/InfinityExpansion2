@@ -23,8 +23,6 @@ open class RandomHopperMachine(
     recipes: Recipes = mapOf(),
 ) : HopperMachine(itemGroup, itemStack, recipeType, recipe, energyPerTick, tickRate, recipes) {
     override fun process(b: Block, menu: BlockMenu): Boolean {
-        if (!shouldRun()) return true
-
         for (slot in inputSlots) {
             val input = menu.getItemInSlot(slot) ?: continue
             recipes.forEach { (recipeInput, recipeOutput) ->

@@ -30,9 +30,7 @@ class MaterialGenerator(
         }
 
         menu.setStatus(GuiItems.PRODUCING)
-        if (shouldRun()) {
-            menu.pushItem(output, *outputSlots)
-        }
+        menu.pushItem(output, *outputSlots)
         return true
     }
 

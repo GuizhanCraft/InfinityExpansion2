@@ -64,11 +64,7 @@ class StoneworksFactory(
     }
 
     override fun process(b: Block, menu: BlockMenu): Boolean {
-        if (!shouldRun()) return true
-
-        if (menu.hasViewer()) {
-            menu.replaceExistingItem(layout.statusSlot, GuiItems.PRODUCING)
-        }
+        menu.setStatus(GuiItems.PRODUCING)
 
         val tick = InfinityExpansion2.sfTickCount() / getCustomTickRate() % (CHOICE_SLOTS.size + 1)
         if (tick == CHOICE_SLOTS.size) {

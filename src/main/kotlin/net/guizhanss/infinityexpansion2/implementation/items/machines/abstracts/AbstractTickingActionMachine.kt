@@ -57,7 +57,7 @@ abstract class AbstractTickingActionMachine(
         if (!shouldRun()) return
         if (getCharge(menu.location) < getEnergyConsumptionPerAction()) {
             menu.setStatus(GuiItems.NO_POWER)
-        } else if (process(b, menu)) {
+        } else if (shouldRun() && process(b, menu)) {
             removeCharge(menu.location, getEnergyConsumptionPerAction())
         }
     }

@@ -28,6 +28,22 @@ object IEItemGroups {
         )
     )
 
+    val SINGULARITIES = SubGroup(
+        "singularities".createKey(),
+        InfinityExpansion2.localization.getItemGroupItem(
+            MaterialType.Material(Material.NETHERITE_BLOCK),
+            "singularities"
+        )
+    )
+
+    val SLIMEFUN_EXPANSION = SubGroup(
+        "slimefun_expansion".createKey(),
+        InfinityExpansion2.localization.getItemGroupItem(
+            MaterialType.Material(Material.SLIME_BLOCK),
+            "slimefun_expansion"
+        )
+    )
+
     val TOOLS = SubGroup(
         "tools".createKey(),
         InfinityExpansion2.localization.getItemGroupItem(
@@ -52,11 +68,11 @@ object IEItemGroups {
         )
     )
 
-    val SINGULARITIES = SubGroup(
-        "singularities".createKey(),
+    val GEARS = SubGroup(
+        "gears".createKey(),
         InfinityExpansion2.localization.getItemGroupItem(
-            MaterialType.Material(Material.NETHERITE_BLOCK),
-            "singularities"
+            MaterialType.Material(Material.DIAMOND_CHESTPLATE),
+            "gears"
         )
     )
 
@@ -106,7 +122,19 @@ object IEItemGroups {
                 // TODO: show wiki link
             }
         })
-        MAIN.addSubGroups(MATERIALS, TOOLS, MACHINES, GENERATORS, SINGULARITIES, MOB_SIMULATION, STORAGE, INFINITY)
+        // TODO: Guide group
+        MAIN.addSubGroups(
+            MATERIALS,
+            SINGULARITIES,
+            SLIMEFUN_EXPANSION,
+            TOOLS,
+            MACHINES,
+            GENERATORS,
+            GEARS,
+            MOB_SIMULATION,
+            STORAGE,
+            INFINITY
+        )
         MOB_SIMULATION.isCrossAddonItemGroup = true
         MAIN.register(InfinityExpansion2.instance)
     }

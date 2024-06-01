@@ -47,8 +47,6 @@ class SingularityConstructor(
     }
 
     override fun process(b: Block, menu: BlockMenu): Boolean {
-        if (!shouldRun()) return false
-
         val input = menu.getItemInSlot(inputSlots[0])
         val inputTemplate = input?.clone()?.apply { amount = 1 }
         val target = menu.getTarget()

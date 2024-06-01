@@ -4,6 +4,7 @@ package net.guizhanss.infinityexpansion2.implementation
 
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems
+import io.github.thebusybiscuit.slimefun4.utils.HeadTexture
 import net.guizhanss.infinityexpansion2.implementation.items.groups.IEItemGroups
 import net.guizhanss.infinityexpansion2.implementation.items.machines.CobblePress
 import net.guizhanss.infinityexpansion2.implementation.items.machines.Decompressor
@@ -24,6 +25,7 @@ import net.guizhanss.infinityexpansion2.implementation.items.materials.SimpleMat
 import net.guizhanss.infinityexpansion2.implementation.items.materials.Singularity
 import net.guizhanss.infinityexpansion2.implementation.items.materials.VoidBlock
 import net.guizhanss.infinityexpansion2.implementation.items.materials.VoidGlass
+import net.guizhanss.infinityexpansion2.implementation.items.sfextension.Capacitor
 import net.guizhanss.infinityexpansion2.implementation.items.tools.Strainer
 import net.guizhanss.infinityexpansion2.implementation.items.tools.StrainerBase
 import net.guizhanss.infinityexpansion2.implementation.recipes.IERecipeTypes
@@ -541,6 +543,37 @@ object IEItems {
             INFINITY_INGOT, MACHINE_CIRCUIT, INFINITY_INGOT, INFINITY_INGOT, MACHINE_CIRCUIT, INFINITY_INGOT,
             MACHINE_CORE, MACHINE_PLATE, MACHINE_CIRCUIT, MACHINE_CIRCUIT, MACHINE_PLATE, MACHINE_CORE,
             MACHINE_PLATE, MACHINE_CORE, INFINITY_INGOT, INFINITY_INGOT, MACHINE_CORE, MACHINE_PLATE,
+        )
+    }
+    // </editor-fold>
+
+    // <editor-fold desc="Slimefun Expansion" collapsed="true">
+    val VOID_CAPACITOR = buildSlimefunItem<Capacitor>(16_000_000) {
+        id = "VOID_CAPACITOR"
+        material = HeadTexture.CAPACITOR_25.convert()
+        itemGroup = IEItemGroups.SLIMEFUN_EXPANSION
+        recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
+        recipe = arrayOf(
+            VOID_INGOT, REDSTONE_SINGULARITY, VOID_INGOT,
+            VOID_INGOT, SlimefunItems.ENERGIZED_CAPACITOR, VOID_INGOT,
+            VOID_INGOT, REDSTONE_SINGULARITY, VOID_INGOT
+        )
+    }
+
+    val INFINITY_CAPACITOR = buildSlimefunItem<Capacitor>(64_000_000) {
+        id = "INFINITY_CAPACITOR"
+        material = HeadTexture.CAPACITOR_25.convert()
+        itemGroup = IEItemGroups.SLIMEFUN_EXPANSION
+        recipeType = IERecipeTypes.INFINITY_WORKBENCH
+        recipe = arrayOf(
+            // @formatter:off
+            null, INFINITY_INGOT, VOID_INGOT, VOID_INGOT, INFINITY_INGOT, null,
+            null, INFINITY_INGOT, INFINITY_MACHINE_CIRCUIT, INFINITY_MACHINE_CIRCUIT, INFINITY_INGOT, null,
+            null, INFINITY_INGOT, SlimefunItems.ENERGIZED_CAPACITOR, SlimefunItems.ENERGIZED_CAPACITOR, INFINITY_INGOT, null,
+            null, INFINITY_INGOT, SlimefunItems.ENERGIZED_CAPACITOR, SlimefunItems.ENERGIZED_CAPACITOR, INFINITY_INGOT, null,
+            null, INFINITY_INGOT, INFINITY_MACHINE_CIRCUIT, INFINITY_MACHINE_CIRCUIT, INFINITY_INGOT, null,
+            null, INFINITY_INGOT, VOID_INGOT, VOID_INGOT, INFINITY_INGOT, null
+            // @formatter:on
         )
     }
     // </editor-fold>
