@@ -1,8 +1,8 @@
-package net.guizhanss.infinityexpansion2.implementation.items.groups.infinity
+package net.guizhanss.infinityexpansion2.implementation.groups.infinity
 
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem
-import net.guizhanss.infinityexpansion2.implementation.items.groups.IEItemGroups
-import net.guizhanss.infinityexpansion2.implementation.items.groups.SubGroup
+import net.guizhanss.infinityexpansion2.implementation.groups.IEItemGroups
+import net.guizhanss.infinityexpansion2.implementation.groups.SubGroup
 import net.guizhanss.infinityexpansion2.implementation.recipes.IERecipeTypes
 import org.bukkit.NamespacedKey
 import org.bukkit.inventory.ItemStack

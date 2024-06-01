@@ -1,11 +1,11 @@
-package net.guizhanss.infinityexpansion2.implementation.items.groups
+package net.guizhanss.infinityexpansion2.implementation.groups
 
 import io.github.thebusybiscuit.slimefun4.api.player.PlayerProfile
 import io.github.thebusybiscuit.slimefun4.core.guide.SlimefunGuideMode
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.core.menu.MenuItem
-import net.guizhanss.infinityexpansion2.implementation.items.groups.infinity.InfinityDisplayGroup
-import net.guizhanss.infinityexpansion2.implementation.items.groups.infinity.InfinityGroup
+import net.guizhanss.infinityexpansion2.implementation.groups.infinity.InfinityDisplayGroup
+import net.guizhanss.infinityexpansion2.implementation.groups.infinity.InfinityGroup
 import net.guizhanss.infinityexpansion2.utils.createKey
 import net.guizhanss.infinityexpansion2.utils.items.MaterialType
 import org.bukkit.Material

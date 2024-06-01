@@ -8,7 +8,7 @@ import net.guizhanss.infinityexpansion2.core.services.IntegrationService
 import net.guizhanss.infinityexpansion2.core.services.ListenerService
 import net.guizhanss.infinityexpansion2.core.services.LocalizationService
 import net.guizhanss.infinityexpansion2.implementation.IEItems
-import net.guizhanss.infinityexpansion2.implementation.items.groups.IEItemGroups
+import net.guizhanss.infinityexpansion2.implementation.groups.IEItemGroups
 import net.guizhanss.infinityexpansion2.implementation.setup.ResearchSetup
 import org.bukkit.plugin.Plugin
 import org.bukkit.plugin.PluginDescriptionFile

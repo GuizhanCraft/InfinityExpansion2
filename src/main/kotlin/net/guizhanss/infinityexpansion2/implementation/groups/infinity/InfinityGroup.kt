@@ -1,4 +1,4 @@
-package net.guizhanss.infinityexpansion2.implementation.items.groups.infinity
+package net.guizhanss.infinityexpansion2.implementation.groups.infinity
 
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem
 import io.github.thebusybiscuit.slimefun4.api.player.PlayerProfile
