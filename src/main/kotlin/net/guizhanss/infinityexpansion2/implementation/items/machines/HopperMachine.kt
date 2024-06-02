@@ -28,9 +28,8 @@ open class HopperMachine(
     recipeType: RecipeType,
     recipe: Array<out ItemStack?>,
     energyPerTick: Int,
-    tickRate: Int = 1,
     recipes: Recipes = mapOf(),
-) : AbstractTickingMachine(itemGroup, itemStack, recipeType, recipe, MenuLayout.HOPPER, energyPerTick, tickRate),
+) : AbstractTickingMachine(itemGroup, itemStack, recipeType, recipe, MenuLayout.HOPPER, energyPerTick),
     InformationalRecipeDisplayItem {
 
     private val _recipes: MutableRecipes = mutableMapOf()

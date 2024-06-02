@@ -120,8 +120,6 @@ class SingularityConstructor(
 
     private fun BlockMenu.setProgress(progress: Int) = location.setInt(PROGRESS, progress)
 
-    private fun BlockMenu.addProgress(progress: Int) = setProgress(getProgress() + progress)
-
     private fun getSingularity(item: ItemStack?): Singularity? {
         if (item == null) return null
         return IERegistry.singularityIngredientMap[item]

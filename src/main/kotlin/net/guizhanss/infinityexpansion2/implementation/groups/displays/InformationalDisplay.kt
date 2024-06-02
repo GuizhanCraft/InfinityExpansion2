@@ -50,11 +50,8 @@ open class InformationalDisplay(sfItem: SlimefunItem) : ItemDisplay(sfItem) {
 
         // back
         menu.addItem(
-            guideBackSlot,
-            ChestMenuUtils.getBackButton(
-                p,
-                "",
-                ChatColor.GRAY.toString() + Slimefun.getLocalization().getMessage(p, "guide.back.guide")
+            guideBackSlot, ChestMenuUtils.getBackButton(
+                p, "", ChatColor.GRAY.toString() + Slimefun.getLocalization().getMessage(p, "guide.back.guide")
             )
         ) { _, _, _, _ ->
             profile.guideHistory.goBack(guide)
@@ -85,18 +82,13 @@ open class InformationalDisplay(sfItem: SlimefunItem) : ItemDisplay(sfItem) {
 
             // display recipe displays
             if (sfItem.getDefaultDisplayRecipes().isNotEmpty()) {
-                menu.addItem(DISPLAY_RECIPE_SLOTS.last(), null)
                 displayRecipes(p, profile, mode, menu)
             }
         }
     }
 
     protected open fun displayRecipes(
-        p: Player,
-        profile: PlayerProfile,
-        mode: SlimefunGuideMode,
-        menu: ChestMenu,
-        page: Int = 1
+        p: Player, profile: PlayerProfile, mode: SlimefunGuideMode, menu: ChestMenu, page: Int = 1
     ) {
         val sfi = sfItem as InformationalRecipeDisplayItem
         val startIndex = (page - 1) * DISPLAY_RECIPE_SLOTS.size
@@ -104,6 +96,8 @@ open class InformationalDisplay(sfItem: SlimefunItem) : ItemDisplay(sfItem) {
         val totalPages = ceil(sfi.getDefaultDisplayRecipes().size * 1.0 / DISPLAY_RECIPE_SLOTS.size).toInt()
 
         SoundEffect.GUIDE_BUTTON_CLICK_SOUND.playFor(p)
+
+        menu.addItem(DISPLAY_RECIPE_SLOTS.last(), null)
 
         DISPLAY_RECIPE_SLOTS.forEach {
             menu.replaceExistingItem(it, null)

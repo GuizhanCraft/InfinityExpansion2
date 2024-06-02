@@ -2,6 +2,7 @@ package net.guizhanss.infinityexpansion2.core.services
 
 import net.guizhanss.guizhanlib.slimefun.addon.AddonConfig
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
+import net.guizhanss.infinityexpansion2.utils.clamp
 import net.guizhanss.infinityexpansion2.utils.loadBooleanMap
 import net.guizhanss.infinityexpansion2.utils.loadDoubleMap
 import net.guizhanss.infinityexpansion2.utils.loadEnchantmentKeyMap
@@ -32,7 +33,7 @@ class ConfigService(plugin: InfinityExpansion2) {
         private set
 
     // mob simulation options
-    var mobSimTickRate = 20
+    var mobSimInterval = 20
         private set
     var mobSimExpMultiplier = 1.0
         private set
@@ -40,7 +41,7 @@ class ConfigService(plugin: InfinityExpansion2) {
     // quarry options
     var quarryOcsillators: Map<String, Double> = mapOf()
         private set
-    var quarryTickRate = 10
+    var quarryInterval = 10
         private set
     var quarryAllowNether = false
         private set
@@ -65,14 +66,14 @@ class ConfigService(plugin: InfinityExpansion2) {
         autoUpdate = config.getBoolean("auto-update", true)
         debug = config.getBoolean("debug", false)
         lang = config.getString("lang", "en")!!
-        singularityCostMultiplier = config.getDouble("balance.singularity-cost-multiplier", 1.0)
+        singularityCostMultiplier = config.getDouble("balance.singularity-cost-multiplier", 1.0).clamp(0.0, 1000.0)
         allowSfItemTransform = config.getBoolean("balance.allow-sf-item-transform", false)
         enableResearches = config.getBoolean("balance.enable-researches", false)
         resourceSynthesizerRecipes = config.getStringList("resource-synthesizer.recipes")
-        mobSimTickRate = config.getInt("mob-simulation.tick-rate", 20)
-        mobSimExpMultiplier = config.getDouble("mob-simulation.exp-multiplier", 1.0)
+        mobSimInterval = config.getInt("mob-simulation.output-interval", 20).clamp(1, 120)
+        mobSimExpMultiplier = config.getDouble("mob-simulation.exp-multiplier", 1.0).clamp(0.0, 1000.0)
         quarryOcsillators = loadDoubleMap(config.getConfigurationSection("quarry.ocsillators"))
-        quarryTickRate = config.getInt("quarry.tick-rate", 10)
+        quarryInterval = config.getInt("quarry.output-interval", 10).clamp(1, 120)
         quarryAllowNether = config.getBoolean("quarry.nether-materials-in-overworld", false)
         quarryResources = loadBooleanMap(config.getConfigurationSection("quarry.resources"))
         advancedAnvilMaxLevels = loadEnchantmentKeyMap(config.getConfigurationSection("advanced-anvil.max-levels"))

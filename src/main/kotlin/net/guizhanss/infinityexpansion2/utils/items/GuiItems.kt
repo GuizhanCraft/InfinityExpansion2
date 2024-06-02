@@ -72,6 +72,12 @@ object GuiItems {
         MachineLore.powerPerUse(energyPerUse)
     )
 
+    fun outputInterval(interval: Int) = InfinityExpansion2.localization.getGuiItem(
+        MaterialType.Material(Material.COMPASS),
+        "output_interval",
+        "&7${interval}"
+    )
+
     fun totalProgress(total: Int) = InfinityExpansion2.localization.getGuiItem(
         MaterialType.Material(Material.GOLD_INGOT),
         "progress_total",

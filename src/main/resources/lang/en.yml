@@ -114,7 +114,7 @@ items:
   _UI_TICK_RATE:
     conditions:
       force-load: true
-    name: "&eTick Rate:"
+    name: "&eTick rate:"
   _UI_ENERGY_CONSUMPTION:
     conditions:
       force-load: true
@@ -123,6 +123,10 @@ items:
     conditions:
       force-load: true
     name: "&eEnergy production:"
+  _UI_OUTPUT_INTERVAL:
+    conditions:
+      force-load: true
+    name: "&eOutput interval:"
   _UI_PRODUCES:
     conditions:
       force-load: true
@@ -350,14 +354,14 @@ items:
       - ""
       - "&8\u21E8 &e⚡ 16,000,000 &7J Capacity"
     lore-overrides:
-      2: "%sftrlore_EnergyCapacity_16000000%"
+      2: "%sftrlore_PowerCapacity_16000000%"
   INFINITY_CAPACITOR:
     name: "&bInfinity Capacitor"
     lore:
       - ""
       - "&8\u21E8 &e⚡ 2,000,000,000 &7J Capacity"
     lore-overrides:
-      2: "%sftrlore_EnergyCapacity_2000000000%"
+      2: "%sftrlore_PowerCapacity_2000000000%"
   ADVANCED_ENCHANTER:
     name: "&cAdvanced Enchanter"
     lore:

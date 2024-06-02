@@ -11,6 +11,7 @@ lang: en
 # Balance options
 balance:
   # The cost multiplier for singularity crafting
+  # Range: 0.0 to 1000.0
   singularity-cost-multiplier: 1.0
 
   # Can Gear Transformer transform slimefun gear's material.
@@ -44,11 +45,12 @@ resource-synthesizer:
 # Mob simulation options
 mob-simulation:
 
-  # The mob simulation runs every X ticks
-  # Unit: slimefun tick
-  tick-rate: 20
+  # The amount of runs required to output once (affected by tick rate)
+  # Range: 1 to 120
+  output-interval: 20
 
   # The experience multiplier for mob simulation
+  # Range: 0.0 to 1000.0
   exp-multiplier: 1.0
 
 # Quarry options
@@ -62,9 +64,9 @@ quarry:
     quartz: .5
     emerald: .5
 
-  # The quarry produces every X tick
-  # Unit: slimefun tick
-  tick-rate: 10
+  # The amount of runs required to output once (affected by tick rate)
+  # Range: 1 to 120
+  output-interval: 10
 
   # Whether quarries in overworld can produce nether materials
   nether-materials-in-overworld: false

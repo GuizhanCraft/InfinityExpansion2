@@ -3,9 +3,11 @@ package net.guizhanss.infinityexpansion2.implementation.items.machines
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup
 import io.github.thebusybiscuit.slimefun4.api.items.ItemState
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
+import io.github.thebusybiscuit.slimefun4.api.items.settings.IntRangeSetting
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
 import io.github.thebusybiscuit.slimefun4.utils.SlimefunUtils
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu
+import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.core.attributes.InformationalRecipeDisplayItem
 import net.guizhanss.infinityexpansion2.core.menu.MenuLayout
 import net.guizhanss.infinityexpansion2.implementation.items.machines.abstracts.AbstractTickingMachine
@@ -24,9 +26,14 @@ open class GrowingMachine(
     recipeType: RecipeType,
     recipe: Array<out ItemStack?>,
     energyPerTick: Int,
-    tickRate: Int,
-) : AbstractTickingMachine(itemGroup, itemStack, recipeType, recipe, MenuLayout.SINGLE_INPUT, energyPerTick, tickRate),
+    outputInterval: Int,
+) : AbstractTickingMachine(itemGroup, itemStack, recipeType, recipe, MenuLayout.SINGLE_INPUT, energyPerTick),
     InformationalRecipeDisplayItem {
+    private val outputIntervalSetting = IntRangeSetting(this, "output-interval", 1, outputInterval, 3600)
+
+    init {
+        addItemSetting(outputIntervalSetting)
+    }
 
     private val _recipes: MutableRecipes = mutableMapOf()
 
@@ -53,7 +60,9 @@ open class GrowingMachine(
         }
 
         menu.setStatus(GuiItems.PRODUCING)
-        output.forEach { menu.pushItem(it.clone(), *outputSlots) }
+        if (shouldProduce()) {
+            output.forEach { menu.pushItem(it.clone(), *outputSlots) }
+        }
         return true
     }
 
@@ -61,11 +70,15 @@ open class GrowingMachine(
         return _recipes.entries.find { (input, _) -> SlimefunUtils.isItemSimilar(item, input, false) }?.value
     }
 
+    private fun shouldProduce() =
+        InfinityExpansion2.sfTickCount() % (getCustomTickRate() * outputIntervalSetting.value) == 0
+
     override fun getDefaultDisplayRecipes() = _recipes.flatMap { it.toPair().toDisplayRecipe() }
 
     override fun getInformationalItems() = listOf(
         GuiItems.tickRate(getCustomTickRate()),
         GuiItems.energyConsumptionPerTick(getEnergyConsumptionPerTick()),
+        GuiItems.outputInterval(outputIntervalSetting.value),
     )
 
     override fun getDividerItem() = GuiItems.RECIPES

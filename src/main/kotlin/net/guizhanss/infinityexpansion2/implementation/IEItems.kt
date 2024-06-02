@@ -1228,7 +1228,7 @@ object IEItems {
 
     val DECOMPRESSOR = buildSlimefunItem<Decompressor>(60) {
         id = "DECOMPRESSOR"
-        material = Material.PISTON.convert()
+        material = Material.TARGET.convert()
         itemGroup = IEItemGroups.MACHINES
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
         recipe = arrayOf(
