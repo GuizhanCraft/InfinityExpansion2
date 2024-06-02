@@ -7,43 +7,39 @@ items:
   _IG_MATERIALS:
     conditions:
       force-load: true
-    name: "&k-&bI&4E&a&l2&k- &a- &7Materials"
+    name: "&k.&bI&4E&a&l2&k. &a- &7Materials"
   _IG_SINGULARITIES:
     conditions:
       force-load: true
-    name: "&k-&bI&4E&a&l2&k- &a- &aSingularities"
+    name: "&k.&bI&4E&a&l2&k. &a- &aSingularities"
   _IG_TOOLS:
     conditions:
       force-load: true
-    name: "&k-&bI&4E&a&l2&k- &a- &6Tools"
+    name: "&k.&bI&4E&a&l2&k. &a- &6Tools"
   _IG_GEARS:
     conditions:
       force-load: true
-    name: "&k-&bI&4E&a&l2&k- &a- &2Gears"
+    name: "&k.&bI&4E&a&l2&k. &a- &2Gears"
   _IG_MACHINES:
     conditions:
       force-load: true
-    name: "&k-&bI&4E&a&l2&k- &a- &9Machines"
+    name: "&k.&bI&4E&a&l2&k. &a- &9Machines"
   _IG_GENERATORS:
     conditions:
       force-load: true
-    name: "&k-&bI&4E&a&l2&k- &a- &cGenerators"
+    name: "&k.&bI&4E&a&l2&k. &a- &cGenerators"
   _IG_MOB_SIMULATION:
     conditions:
       force-load: true
-    name: "&k-&bI&4E&a&l2&k- &a- &bMob Simulation"
+    name: "&k.&bI&4E&a&l2&k. &a- &bMob Simulation"
   _IG_STORAGE:
     conditions:
       force-load: true
-    name: "&k-&bI&4E&a&l2&k- &a- &6Storage"
+    name: "&k.&bI&4E&a&l2&k. &a- &6Storage"
   _IG_SLIMEFUN_EXPANSION:
     conditions:
       force-load: true
-    name: "&k-&bI&4E&a&l2&k- &a- &dSlimefun Expansion"
-  _IG_INFINITY:
-    conditions:
-      force-load: true
-    name: "&k-&bI&4E&a&l2&k- &a- &bInfinity &7Recipes"
+    name: "&k.&bI&4E&a&l2&k. &a- &dSlimefun Expansion"
 
   # recipe types
   _RECIPE_VOID_HARVESTER:
