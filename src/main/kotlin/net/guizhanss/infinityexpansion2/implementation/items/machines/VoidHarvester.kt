@@ -61,13 +61,15 @@ class VoidHarvester(
 
     override fun getRecipeSectionLabel(p: Player) = InfinityExpansion2.integrationService.getLore(p, "info")
 
-    override fun getDefaultDisplayRecipes() = listOf(
+
+    override fun getDefaultDisplayRecipes() = listOf(IEItems.VOID_BIT)
+
+    override fun getInformationalItems() = listOf(
         GuiItems.tickRate(getCustomTickRate()),
         GuiItems.energyConsumptionPerTick(getEnergyConsumptionPerTick()),
         GuiItems.increaseProgress(speed),
         GuiItems.totalProgress(totalProgress),
-        GuiItems.PRODUCES,
-        GuiItems.PRODUCES,
-        IEItems.VOID_BIT
     )
+
+    override fun getDividerItem() = GuiItems.PRODUCES
 }

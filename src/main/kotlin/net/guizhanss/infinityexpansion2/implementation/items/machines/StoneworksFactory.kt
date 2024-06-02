@@ -142,9 +142,9 @@ class StoneworksFactory(
     override fun getInformationalItems() = listOf(
         GuiItems.tickRate(getCustomTickRate()),
         GuiItems.energyConsumptionPerTick(getEnergyConsumptionPerTick()),
-        GuiItems.RECIPES,
-        GuiItems.RECIPES,
     )
+
+    override fun getDividerItem() = GuiItems.RECIPES
 
     companion object {
         private val CHOICE_INFO_SLOTS = intArrayOf(2, 4, 6)

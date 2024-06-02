@@ -20,8 +20,7 @@ import kotlin.math.min
  * A [FlexItemGroup] that displays [MenuItem]s.
  */
 abstract class FlexGroup(
-    key: NamespacedKey,
-    item: ItemStack
+    key: NamespacedKey, item: ItemStack
 ) : FlexItemGroup(key, item) {
     private val _menuItems: MutableList<MenuItem> = mutableListOf()
 
@@ -46,14 +45,21 @@ abstract class FlexGroup(
         mode == SlimefunGuideMode.SURVIVAL_MODE
 
     override fun open(p: Player, profile: PlayerProfile, mode: SlimefunGuideMode) {
-        val guide = Slimefun.getRegistry().getSlimefunGuide(mode)
-
         profile.guideHistory.add(this, 1)
 
         val menu = ChestMenu(getGuideTitle(p))
 
         menu.setEmptySlotsClickable(false)
         menu.addMenuOpeningHandler { pl -> SoundEffect.GUIDE_BUTTON_CLICK_SOUND.playFor(pl) }
+
+        setupBorder(p, profile, mode, menu)
+        setupPage(p, profile, mode, menu, 1)
+
+        menu.open(p)
+    }
+
+    open fun setupBorder(p: Player, profile: PlayerProfile, mode: SlimefunGuideMode, menu: ChestMenu) {
+        val guide = Slimefun.getRegistry().getSlimefunGuide(mode)
 
         HEADER.forEach {
             menu.addItem(it, ChestMenuUtils.getBackground(), ChestMenuUtils.getEmptyClickHandler())
@@ -63,28 +69,17 @@ abstract class FlexGroup(
         }
 
         menu.addItem(
-            GUIDE_BACK,
-            ChestMenuUtils.getBackButton(
-                p,
-                "",
-                ChatColor.GRAY.toString() + Slimefun.getLocalization().getMessage(p, "guide.back.guide")
+            GUIDE_BACK, ChestMenuUtils.getBackButton(
+                p, "", ChatColor.GRAY.toString() + Slimefun.getLocalization().getMessage(p, "guide.back.guide")
             )
         ) { _, _, _, _ ->
             profile.guideHistory.goBack(guide)
             false
         }
-
-        displayPage(p, profile, mode, menu, 1)
-
-        menu.open(p)
     }
 
-    private fun displayPage(
-        p: Player,
-        profile: PlayerProfile,
-        mode: SlimefunGuideMode,
-        menu: ChestMenu,
-        page: Int
+    open fun setupPage(
+        p: Player, profile: PlayerProfile, mode: SlimefunGuideMode, menu: ChestMenu, page: Int
     ) {
         val pages = ceil(_menuItems.size / PAGE_SIZE.toDouble()).toInt()
         val startIdx = (page - 1) * PAGE_SIZE
@@ -111,7 +106,7 @@ abstract class FlexGroup(
         if (page > 1) {
             menu.replaceExistingItem(PAGE_PREV, ChestMenuUtils.getPreviousButton(p, page, pages))
             menu.addMenuClickHandler(PAGE_PREV) { _, _, _, _ ->
-                displayPage(p, profile, mode, menu, page - 1)
+                setupPage(p, profile, mode, menu, page - 1)
                 false
             }
         } else {
@@ -123,7 +118,7 @@ abstract class FlexGroup(
         if (page < pages) {
             menu.replaceExistingItem(PAGE_NEXT, ChestMenuUtils.getNextButton(p, page, pages))
             menu.addMenuClickHandler(PAGE_NEXT) { _, _, _, _ ->
-                displayPage(p, profile, mode, menu, page + 1)
+                setupPage(p, profile, mode, menu, page + 1)
                 false
             }
         } else {

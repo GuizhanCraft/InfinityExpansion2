@@ -26,7 +26,7 @@ object IERecipeTypes {
     val SINGULARITY_CONSTRUCTOR = RecipeType(
         "singularity_constructor".createKey(),
         InfinityExpansion2.localization.getRecipeTypeItem(
-            MaterialType.Material(Material.SMITHING_TABLE),
+            MaterialType.Material(Material.QUARTZ_BLOCK),
             "singularity_constructor"
         )
     )

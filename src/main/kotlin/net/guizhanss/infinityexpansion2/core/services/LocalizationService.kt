@@ -21,10 +21,6 @@ class LocalizationService(
     private val plugin: InfinityExpansion2,
     private val jarFile: File
 ) : SlimefunLocalization(plugin) {
-    companion object {
-        private const val FOLDER_NAME = "lang"
-    }
-
     init {
         extractTranslations()
     }
@@ -34,7 +30,7 @@ class LocalizationService(
         if (!translationsFolder.exists()) {
             translationsFolder.mkdirs()
         }
-        val translationFiles = listYmlFilesInJar(jarFile, "${FOLDER_NAME}/")
+        val translationFiles = listYmlFilesInJar(jarFile, FOLDER_NAME)
         for (translationFile in translationFiles) {
             val filePath = FOLDER_NAME + File.separator + translationFile
             plugin.saveResource(filePath, true)
@@ -76,5 +72,9 @@ class LocalizationService(
 
         val components = TextComponent.fromLegacyText(ChatUtil.color(message))
         p.spigot().sendMessage(ChatMessageType.ACTION_BAR, *components)
+    }
+
+    companion object {
+        const val FOLDER_NAME = "lang"
     }
 }

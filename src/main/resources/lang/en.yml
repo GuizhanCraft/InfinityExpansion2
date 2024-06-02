@@ -4,14 +4,6 @@ items:
     conditions:
       force-load: true
     name: "&k-&bInfinity&4Expansion&a&l2&k-" # pay attention to the color codes when you translate this.
-  _IG_WIKI:
-    conditions:
-      force-load: true
-    name: "&k-&bI&4E&a&l2&k- &a- &eWiki"
-  _IG_GUIDE:
-    conditions:
-      force-load: true
-    name: "&k-&bI&4E&a&l2&k- &a- &eIn-game Guide"
   _IG_MATERIALS:
     conditions:
       force-load: true
@@ -52,10 +44,6 @@ items:
     conditions:
       force-load: true
     name: "&k-&bI&4E&a&l2&k- &a- &bInfinity &7Recipes"
-  _IG_INFINITY_DISPLAY:
-    conditions:
-      force-load: true
-    name: "&k-&bI&4E&a&l2&k- &a- &bInfinity &7Recipes &c- INCORRECT RECIPE"
 
   # recipe types
   _RECIPE_VOID_HARVESTER:
@@ -69,8 +57,11 @@ items:
       force-load: true
     name: "&6Infinity Workbench"
     lore:
-      - "&cThe recipe displayed here is incorrect."
-      - "&cCheck the correct recipe in &c&lInfinity Recipes&c."
+      - "&7You are here because you enter this page"
+      - "&7from Slimefun's search result."
+      - ""
+      - "&cThe recipe displayed here is incorrect and incomplete."
+      - "&cCheck the correct recipe from InfinityExpansion 2 guide."
   _RECIPE_SINGULARITY_CONSTRUCTOR:
     conditions:
       force-load: true
@@ -80,6 +71,20 @@ items:
       - "&7to create singularities."
 
   # ui items
+  _UI_GUIDE:
+    conditions:
+      force-load: true
+    name: "&aIn-game Guide"
+    lore:
+      - ""
+      - "&7\u21E8 &aClick to open"
+  _UI_WIKI:
+    conditions:
+      force-load: true
+    name: "&eWiki"
+    lore:
+      - ""
+      - "&7\u21E8 &aClick to open"
   _UI_COLLECTING:
     conditions:
       force-load: true
@@ -122,14 +127,10 @@ items:
     conditions:
       force-load: true
     name: "&aProduces:"
-    lore:
-      - "&7------>"
   _UI_RECIPES:
     conditions:
       force-load: true
     name: "&eRecipes:"
-    lore:
-      - "&7------>"
   _UI_PROGRESS_TOTAL:
     conditions:
       force-load: true
@@ -341,6 +342,112 @@ items:
       - "&7Machine Component"
   VOID_GLASS:
     name: "&8Void Glass"
+
+  # items - slimefun expansion
+  VOID_CAPACITOR:
+    name: "&8Void Capacitor"
+    lore:
+      - ""
+      - "&8\u21E8 &e⚡ 16,000,000 &7J Capacity"
+    lore-overrides:
+      2: "%sftrlore_EnergyCapacity_16000000%"
+  INFINITY_CAPACITOR:
+    name: "&bInfinity Capacitor"
+    lore:
+      - ""
+      - "&8\u21E8 &e⚡ 2,000,000,000 &7J Capacity"
+    lore-overrides:
+      2: "%sftrlore_EnergyCapacity_2000000000%"
+  ADVANCED_ENCHANTER:
+    name: "&cAdvanced Enchanter"
+    lore:
+      - ""
+      - "&8\u21E8 &e⚡ &7Speed: &b5x"
+      - "&8\u21E8 &e⚡ &7180 J/t"
+    lore-overrides:
+      2: "%sftrlore_Speed_5%"
+      3: "%sftrlore_PowerPerTick_180%"
+  INFINITY_ENCHANTER:
+    name: "&bInfinity Enchanter"
+    lore:
+      - ""
+      - "&8\u21E8 &e⚡ &7Speed: &b75x"
+      - "&8\u21E8 &e⚡ &712,000 J/t"
+    lore-overrides:
+      2: "%sftrlore_Speed_10%"
+      3: "%sftrlore_PowerPerTick_12000%"
+  ADVANCED_DISENCHANTER:
+    name: "&cAdvanced Disenchanter"
+    lore:
+      - ""
+      - "&8\u21E8 &e⚡ &7Speed: &b5x"
+      - "&8\u21E8 &e⚡ &7180 J/t"
+    lore-overrides:
+      2: "%sftrlore_Speed_5%"
+      3: "%sftrlore_PowerPerTick_180%"
+  INFINITY_DISENCHANTER:
+    name: "&bInfinity Disenchanter"
+    lore:
+      - ""
+      - "&8\u21E8 &e⚡ &7Speed: &b90x"
+      - "&8\u21E8 &e⚡ &712,000 J/t"
+    lore-overrides:
+      2: "%sftrlore_Speed_90%"
+      3: "%sftrlore_PowerPerTick_12000%"
+  ADVANCED_CHARGER:
+    name: "&cAdvanced Charger"
+    lore:
+      - ""
+      - "&8\u21E8 &e⚡ &7Speed: &b30x"
+      - "&8\u21E8 &e⚡ &7180 J/t"
+    lore-overrides:
+      2: "%sftrlore_Speed_30%"
+      3: "%sftrlore_PowerPerTick_180%"
+  INFINITY_CHARGER:
+    name: "&bInfinity Charger"
+    lore:
+      - ""
+      - "&8\u21E8 &e⚡ &7Speed: &b6000x"
+      - "&8\u21E8 &e⚡ &760,000 J/t"
+    lore-overrides:
+      2: "%sftrlore_Speed_6000%"
+      3: "%sftrlore_PowerPerTick_60000%"
+  ADVANCED_GEO_MINER:
+    name: "&cAdvanced Geo Miner"
+    lore:
+      - ""
+      - "&8\u21E8 &e⚡ &7Speed: &b4x"
+      - "&8\u21E8 &e⚡ &7120 J/t"
+    lore-overrides:
+      2: "%sftrlore_Speed_4%"
+      3: "%sftrlore_PowerPerTick_120%"
+  INFINITY_GEO_MINER:
+    name: "&bInfinity Geo Miner"
+    lore:
+      - ""
+      - "&8\u21E8 &e⚡ &7Speed: &b64x"
+      - "&8\u21E8 &e⚡ &712,000 J/t"
+    lore-overrides:
+      2: "%sftrlore_Speed_64%"
+      3: "%sftrlore_PowerPerTick_12000%"
+  ADVANCED_SMELTERY:
+    name: "&cAdvanced Smeltery"
+    lore:
+      - ""
+      - "&8\u21E8 &e⚡ &7Speed: &b24x"
+      - "&8\u21E8 &e⚡ &7240 J/t"
+    lore-overrides:
+      2: "%sftrlore_Speed_24%"
+      3: "%sftrlore_PowerPerTick_240%"
+  VOID_SMELTERY:
+    name: "&8Void Smeltery"
+    lore:
+      - ""
+      - "&8\u21E8 &e⚡ &7Speed: &b72x"
+      - "&8\u21E8 &e⚡ &71200 J/t"
+    lore-overrides:
+      2: "%sftrlore_Speed_72%"
+      3: "%sftrlore_PowerPerTick_1200%"
 
   # items - tools
   ENDER_FLAME:

@@ -26,38 +26,6 @@ class InfinityExpansion2 : AbstractAddon {
         "ybw0014", "InfinityExpansion2", "master", "auto-update"
     )
 
-    companion object {
-        const val DEFAULT_LANG = "en"
-
-        lateinit var instance: InfinityExpansion2
-            private set
-        lateinit var configService: ConfigService
-            private set
-        lateinit var localization: LocalizationService
-            private set
-        lateinit var integrationService: IntegrationService
-            private set
-
-        fun scheduler() = getScheduler()
-
-        fun sfTickCount() = getSlimefunTickCount()
-
-        fun log(level: Level, message: String) {
-            instance.logger.log(level, message)
-        }
-
-        fun log(level: Level, ex: Throwable, message: String) {
-            instance.logger.log(level, ex) { message }
-        }
-
-        fun debug(message: String) {
-            if (!Companion::configService.isInitialized || !configService.debug) {
-                return
-            }
-            log(Level.INFO, "[DEBUG] $message")
-        }
-    }
-
     override fun enable() {
         instance = this
 
@@ -134,5 +102,37 @@ class InfinityExpansion2 : AbstractAddon {
 
     private fun setupMetrics() {
 //        val metrics = Metrics(this, 14870)
+    }
+
+    companion object {
+        const val DEFAULT_LANG = "en"
+
+        lateinit var instance: InfinityExpansion2
+            private set
+        lateinit var configService: ConfigService
+            private set
+        lateinit var localization: LocalizationService
+            private set
+        lateinit var integrationService: IntegrationService
+            private set
+
+        fun scheduler() = getScheduler()
+
+        fun sfTickCount() = getSlimefunTickCount()
+
+        fun log(level: Level, message: String) {
+            instance.logger.log(level, message)
+        }
+
+        fun log(level: Level, ex: Throwable, message: String) {
+            instance.logger.log(level, ex) { message }
+        }
+
+        fun debug(message: String) {
+            if (!Companion::configService.isInitialized || !configService.debug) {
+                return
+            }
+            log(Level.INFO, "[DEBUG] $message")
+        }
     }
 }

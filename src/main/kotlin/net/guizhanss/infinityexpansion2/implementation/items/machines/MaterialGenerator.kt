@@ -41,7 +41,7 @@ class MaterialGenerator(
     override fun getInformationalItems() = listOf(
         GuiItems.tickRate(getCustomTickRate()),
         GuiItems.energyConsumptionPerTick(getEnergyConsumptionPerTick()),
-        GuiItems.PRODUCES,
-        GuiItems.PRODUCES,
     )
+
+    override fun getDividerItem() = GuiItems.PRODUCES
 }

@@ -8,6 +8,14 @@ import org.bukkit.Material
 import org.bukkit.inventory.ItemStack
 
 object GuiItems {
+    val GUIDE = InfinityExpansion2.localization.getGuiItem(
+        MaterialType.Material(Material.ENCHANTED_BOOK),
+        "guide"
+    )
+    val WIKI = InfinityExpansion2.localization.getGuiItem(
+        MaterialType.Material(Material.KNOWLEDGE_BOOK),
+        "wiki"
+    )
     val COLLECTING = InfinityExpansion2.localization.getGuiItem(
         MaterialType.Material(Material.GREEN_STAINED_GLASS_PANE),
         "collecting"
@@ -93,6 +101,14 @@ internal fun ItemStack.toDisplayItem(): ItemStack {
     val item = clone()
     val meta = item.itemMeta
     PersistentDataAPI.setBoolean(meta!!, "display_item".createKey(), true)
+    item.itemMeta = meta
+    return item
+}
+
+internal fun ItemStack.removeDisplayItem(): ItemStack {
+    val item = clone()
+    val meta = item.itemMeta
+    PersistentDataAPI.remove(meta!!, "display_item".createKey())
     item.itemMeta = meta
     return item
 }

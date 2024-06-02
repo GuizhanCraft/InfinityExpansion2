@@ -77,7 +77,7 @@ open class HopperMachine(
     override fun getInformationalItems() = listOf(
         GuiItems.tickRate(getCustomTickRate()),
         GuiItems.energyConsumptionPerTick(getEnergyConsumptionPerTick()),
-        GuiItems.RECIPES,
-        GuiItems.RECIPES,
     )
+
+    override fun getDividerItem() = GuiItems.RECIPES
 }

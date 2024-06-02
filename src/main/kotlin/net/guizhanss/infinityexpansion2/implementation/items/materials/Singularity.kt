@@ -4,9 +4,9 @@ import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
 import io.github.thebusybiscuit.slimefun4.api.items.settings.IntRangeSetting
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
-import io.github.thebusybiscuit.slimefun4.core.attributes.RecipeDisplayItem
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.core.IERegistry
+import net.guizhanss.infinityexpansion2.core.attributes.InformationalRecipeDisplayItem
 import net.guizhanss.infinityexpansion2.utils.items.GuiItems
 import org.bukkit.entity.Player
 import org.bukkit.inventory.ItemStack
@@ -19,7 +19,7 @@ class Singularity(
     recipe: Array<out ItemStack?>,
     defaultTotalProgress: Int,
     val ingredients: Map<ItemStack, Int>,
-) : SimpleMaterial(itemGroup, itemStack, recipeType, recipe), RecipeDisplayItem {
+) : SimpleMaterial(itemGroup, itemStack, recipeType, recipe), InformationalRecipeDisplayItem {
     private val defaultProgressSetting = IntRangeSetting(this, "default-progress", 1, defaultTotalProgress, 1_000_000)
 
     init {
@@ -40,13 +40,13 @@ class Singularity(
 
     override fun getRecipeSectionLabel(p: Player) = InfinityExpansion2.integrationService.getLore(p, "info")
 
-    override fun getDisplayRecipes(): List<ItemStack?> {
-        val list = mutableListOf<ItemStack?>(null)
-        list.add(GuiItems.totalProgress(totalProgress))
+    override fun getInformationalItems() = listOf(null, GuiItems.totalProgress(totalProgress))
 
-        ingredients.forEach { (item, amount) ->
-            list.add(item)
-            list.add(GuiItems.increaseProgress(amount).apply { this.amount = amount })
+    override fun getDefaultDisplayRecipes(): List<ItemStack?> {
+        val list = mutableListOf<ItemStack?>()
+
+        ingredients.flatMap { (item, amount) ->
+            listOf(item, GuiItems.increaseProgress(amount).apply { this.amount = amount })
         }
         return list
     }

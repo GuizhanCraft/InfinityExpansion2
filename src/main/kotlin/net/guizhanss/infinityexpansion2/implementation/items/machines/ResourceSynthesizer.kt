@@ -108,21 +108,7 @@ class ResourceSynthesizer(
     override fun getInformationalItems() = listOf(
         GuiItems.tickRate(getCustomTickRate()),
         GuiItems.energyConsumptionPerUse(getEnergyConsumptionPerAction()),
-        GuiItems.RECIPES,
-        GuiItems.RECIPES,
     )
 
-    companion object {
-        private const val RECIPE_BOOK_SLOT = 7
-        private val RECIPE_AREA = arrayOf(
-            // @formatter:off
-            0, 1, 2, 3, 4, 5,
-            9, 10, 11, 12, 13, 14,
-            18, 19, 20, 21, 22, 23,
-            27, 28, 29, 30, 31, 32,
-            36, 37, 38, 39, 40, 41,
-            45, 46, 47, 48, 49, 50
-            // @formatter:on
-        )
-    }
+    override fun getDividerItem() = GuiItems.RECIPES
 }

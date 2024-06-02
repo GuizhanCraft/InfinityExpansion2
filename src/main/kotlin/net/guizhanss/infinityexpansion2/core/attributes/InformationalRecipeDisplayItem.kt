@@ -15,6 +15,11 @@ interface InformationalRecipeDisplayItem : RecipeDisplayItem {
     fun getDefaultDisplayRecipes(): List<ItemStack?> = listOf()
 
     /**
+     * The divider item that is used between informational items and the default display recipes.
+     */
+    fun getDividerItem(): ItemStack? = null
+
+    /**
      * This list contains all the informational items, which should not be displayed when a custom guide layout is used.
      */
     fun getInformationalItems(): List<ItemStack?> = listOf()
@@ -25,6 +30,10 @@ interface InformationalRecipeDisplayItem : RecipeDisplayItem {
         val result = ArrayList(getInformationalItems())
         if (result.size % 2 != 0) {
             result.add(null)
+        }
+        val divider = getDividerItem()
+        if (divider != null) {
+            result.addAll(arrayOf(divider))
         }
         result.addAll(getDefaultDisplayRecipes())
         return result
