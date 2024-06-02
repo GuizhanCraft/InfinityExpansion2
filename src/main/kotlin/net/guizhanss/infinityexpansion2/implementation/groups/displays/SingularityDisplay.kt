@@ -72,7 +72,10 @@ open class SingularityDisplay(private val singularity: Singularity) : ItemDispla
 
         SoundEffect.GUIDE_BUTTON_CLICK_SOUND.playFor(p)
 
-        RECIPE_DISPLAY_SLOTS.forEach { menu.replaceExistingItem(it, null) }
+        RECIPE_DISPLAY_SLOTS.forEach {
+            menu.replaceExistingItem(it, null)
+            menu.addMenuClickHandler(it, ChestMenuUtils.getEmptyClickHandler())
+        }
 
         ingredients.forEachIndexed { index, (item, progress) ->
             menu.replaceExistingItem(RECIPE_DISPLAY_SLOTS[index * 2], item)

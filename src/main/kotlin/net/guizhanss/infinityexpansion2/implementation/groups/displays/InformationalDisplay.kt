@@ -105,6 +105,11 @@ open class InformationalDisplay(sfItem: SlimefunItem) : ItemDisplay(sfItem) {
 
         SoundEffect.GUIDE_BUTTON_CLICK_SOUND.playFor(p)
 
+        DISPLAY_RECIPE_SLOTS.forEach {
+            menu.replaceExistingItem(it, null)
+            menu.addMenuClickHandler(it, ChestMenuUtils.getEmptyClickHandler())
+        }
+
         val displayRecipes = sfi.getDefaultDisplayRecipes().subList(startIndex, endIndex)
 
         displayRecipes.forEachIndexed { index, item ->
