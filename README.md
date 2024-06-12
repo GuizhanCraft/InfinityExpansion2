@@ -39,9 +39,6 @@ For example, if a machine has a tick rate of 10 and an output interval of 20, th
 
 ## Credits
 
-Thanks to Mooy1 for creating the original InfinityExpansion plugin.
-
-Thanks to everyone who helped me with the programming issues I had.  
-Thanks to everyone who provided suggestions, ideas and feedbacks (including those who submitted PRs to InfinityExpansion).
-Thanks to everyone who tested the plugin during development.
-
+- Mooy1: Original author of InfinityExpansion.
+- JustAHuman & Idra: The config structure of Quarries.
+- Anyone else who provided feedback and suggestions during development.

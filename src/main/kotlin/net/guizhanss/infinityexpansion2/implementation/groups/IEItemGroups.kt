@@ -46,6 +46,14 @@ object IEItemGroups {
         )
     )
 
+    val GEAR = SubGroup(
+        "gear".createKey(),
+        InfinityExpansion2.localization.getItemGroupItem(
+            MaterialType.Material(Material.DIAMOND_CHESTPLATE),
+            "gear"
+        )
+    )
+
     val MACHINES = SubGroup(
         "machines".createKey(),
         InfinityExpansion2.localization.getItemGroupItem(
@@ -59,14 +67,6 @@ object IEItemGroups {
         InfinityExpansion2.localization.getItemGroupItem(
             MaterialType.Material(Material.BLAST_FURNACE),
             "generators"
-        )
-    )
-
-    val GEARS = SubGroup(
-        "gears".createKey(),
-        InfinityExpansion2.localization.getItemGroupItem(
-            MaterialType.Material(Material.DIAMOND_CHESTPLATE),
-            "gears"
         )
     )
 
@@ -93,9 +93,9 @@ object IEItemGroups {
             SINGULARITIES,
             SLIMEFUN_EXPANSION,
             TOOLS,
+            GEAR,
             MACHINES,
             GENERATORS,
-            GEARS,
             MOB_SIMULATION,
             STORAGE,
         )

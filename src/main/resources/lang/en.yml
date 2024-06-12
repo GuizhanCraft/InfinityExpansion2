@@ -16,10 +16,10 @@ items:
     conditions:
       force-load: true
     name: "&k.&bI&4E&a&l2&k. &a- &6Tools"
-  _IG_GEARS:
+  _IG_GEAR:
     conditions:
       force-load: true
-    name: "&k.&bI&4E&a&l2&k. &a- &2Gears"
+    name: "&k.&bI&4E&a&l2&k. &a- &2Gear"
   _IG_MACHINES:
     conditions:
       force-load: true
@@ -517,6 +517,104 @@ items:
       - "&cUnbreakable does not work."
       - ""
       - "&7Chance: 90%"
+  INFINITY_PICKAXE:
+    name: "&b&lWorld Breaker"
+    lore:
+      - "&bSoulbound"
+    lore-overrides:
+      1: "%sftrlore_soulbound%"
+  INFINITY_AXE:
+    name: "&b&lNature's Ruin"
+    lore:
+      - "&bSoulbound"
+    lore-overrides:
+      1: "%sftrlore_soulbound%"
+  INFINITY_SHOVEL:
+    name: "&b&lMountain Eater"
+    lore:
+      - "&bSoulbound"
+    lore-overrides:
+      1: "%sftrlore_soulbound%"
+  INFINITY_HOE:
+    name: "&b&lHoe of the Green Earth"
+    lore:
+      - "&bSoulbound"
+    lore-overrides:
+      1: "%sftrlore_soulbound%"
+  INFINITY_MATRIX:
+    name: "&fInfinity Matrix"
+    lore:
+      - "&6Provides creative flight"
+      - ""
+      - "&7Right-Click to enable/disable and claim"
+      - "&7Crouch and Right-Click to remove ownership"
+      - ""
+      - "&bSoulbound"
+    lore-overrides:
+      6: "%sftrlore_soulbound%"
+
+  # items - gears
+  INFINITY_HELMET:
+    name: "&b&lInfinity Crown"
+    lore:
+      - "&7Night Vision I"
+      - "&7Conduit Power I"
+      - "&7Elytra Crash Immunity"
+      - "&bSoulbound"
+    lore-overrides:
+      4: "%sftrlore_soulbound%"
+  INFINITY_CHESTPLATE:
+    name: "&b&lInfinity Chestplate"
+    lore:
+      - "&7Strength II"
+      - "&7Resistance I"
+      - "&7Fire Resistance I"
+      - "&7Bee Sting Immunity"
+      - "&bSoulbound"
+    lore-overrides:
+      5: "%sftrlore_soulbound%"
+  INFINITY_LEGGINGS:
+    name: "&b&lInfinity Leggings"
+    lore:
+      - "&7Haste III"
+      - "&7Regeneration I"
+      - "&7Saturation I"
+      - "&7Radiation Immunity"
+      - "&bSoulbound"
+    lore-overrides:
+      5: "%sftrlore_soulbound%"
+  INFINITY_BOOTS:
+    name: "&b&lInfinity Boots"
+    lore:
+      - "&7Speed III"
+      - "&7Dolphins Grace I"
+      - "&bSoulbound"
+    lore-overrides:
+      3: "%sftrlore_soulbound%"
+  INFINITY_SHIELD:
+    name: "&b&lCosmic Aegis"
+    lore:
+      - "&bSoulbound"
+    lore-overrides:
+      1: "%sftrlore_soulbound%"
+  INFINITY_SWORD:
+    name: "&b&lBlade of the Cosmos"
+    lore:
+      - "&bSoulbound"
+    lore-overrides:
+      1: "%sftrlore_soulbound%"
+  INFINITY_BOW:
+    name: "&b&lSky Piercer"
+    lore:
+      - "&bSoulbound"
+    lore-overrides:
+      1: "%sftrlore_soulbound%"
+  INFINITY_CROSSBOW:
+    name: "&b&lStar Shooter"
+    lore:
+      - "&bSoulbound"
+    lore-overrides:
+      1: "%sftrlore_soulbound%"
 
   # machines
   COBBLESTONE_GENERATOR:
@@ -847,32 +945,8 @@ items:
       - ""
       - "&7Used to craft infinity items."
   # items - generators
-
-  # items - gears
-  INFINITY_HELMET:
-    name: "&b&lInfinity Crown"
-    lore:
-      - "&7Night Vision I"
-      - "&7Conduit Power I"
-      - "&7Elytra Crash Immunity"
-      - "&bSoulbound"
-  INFINITY_CHESTPLATE:
-    name: "&b&lInfinity Chestplate"
-    lore:
-      - "&7Strength II"
-      - "&7Resistance I"
-      - "&7Fire Resistance I"
-      - "&7Bee Sting Immunity"
-      - "&bSoulbound"
-  INFINITY_LEGGINGS:
-    name: "&b&lInfinity Leggings"
-    lore:
-      - "&7Haste III"
-      - "&7Regeneration I"
-      - "&7Saturation I"
-      - "&7Radiation Immunity"
-      - "&bSoulbound"
 lores:
   collect: "&7Collects:"
   produce: "&7Produces:"
   info: "&7Information:"
+  soulbound: "&bSoulbound"

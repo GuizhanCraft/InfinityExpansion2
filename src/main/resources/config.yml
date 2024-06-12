@@ -152,12 +152,24 @@ infinity-gear-enchantments:
     fire_aspect: 10
     looting: 0
     silk_touch: 0
+  hoe:
+    unbreakable: true
+    efficiency: 40
+    fortune: 20
+    silk_touch: 0
   bow:
     unbreakable: true
     power: 10
     flame: 10
     infinity: 10
     punch: 0
+  crossbow:
+    unbreakable: true
+    power: 10
+    punch: 0
+    piercing: 5
+    multishot: 10
+    quick_charge: 5
   helmet:
     unbreakable: true
     protection: 20

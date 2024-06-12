@@ -57,13 +57,20 @@ fun String.toItemStack(): ItemStack = IERegistry.itemMapping.getOrPut(this) {
 }
 
 fun getPotionEffectType(name: String) = PotionEffectType.getByKey(NamespacedKey.minecraft(name))
+
 fun getEnchantment(name: String) = Enchantment.getByKey(NamespacedKey.minecraft(name))
 
 fun buildPotionEffect(name: String, duration: Int, amplifier: Int) = PotionEffect(
     getPotionEffectType(name) ?: throw IllegalArgumentException("Invalid potion effect type: $name"),
     duration,
     amplifier,
+)
+
+fun buildHiddenPotionEffect(name: String, duration: Int, amplifier: Int) = PotionEffect(
+    getPotionEffectType(name) ?: throw IllegalArgumentException("Invalid potion effect type: $name"),
+    duration,
+    amplifier,
     false,
     false,
-    false
+    false,
 )

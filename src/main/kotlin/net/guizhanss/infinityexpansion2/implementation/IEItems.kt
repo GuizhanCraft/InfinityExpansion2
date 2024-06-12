@@ -8,6 +8,7 @@ import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems
 import io.github.thebusybiscuit.slimefun4.utils.HeadTexture
 import net.guizhanss.infinityexpansion2.implementation.groups.IEItemGroups
 import net.guizhanss.infinityexpansion2.implementation.items.gears.InfinityArmor
+import net.guizhanss.infinityexpansion2.implementation.items.gears.InfinityBow
 import net.guizhanss.infinityexpansion2.implementation.items.machines.CobblePress
 import net.guizhanss.infinityexpansion2.implementation.items.machines.Decompressor
 import net.guizhanss.infinityexpansion2.implementation.items.machines.DustExtractor
@@ -34,12 +35,12 @@ import net.guizhanss.infinityexpansion2.implementation.items.sfextension.Capacit
 import net.guizhanss.infinityexpansion2.implementation.items.sfextension.ChargingBench
 import net.guizhanss.infinityexpansion2.implementation.items.sfextension.GeoMiner
 import net.guizhanss.infinityexpansion2.implementation.items.sfextension.Smeltery
+import net.guizhanss.infinityexpansion2.implementation.items.gears.InfinityTool
 import net.guizhanss.infinityexpansion2.implementation.items.tools.Strainer
 import net.guizhanss.infinityexpansion2.implementation.items.tools.StrainerBase
 import net.guizhanss.infinityexpansion2.implementation.recipes.IERecipeTypes
-import net.guizhanss.infinityexpansion2.utils.buildPotionEffect
+import net.guizhanss.infinityexpansion2.utils.buildHiddenPotionEffect
 import net.guizhanss.infinityexpansion2.utils.fillRecipe
-import net.guizhanss.infinityexpansion2.utils.getPotionEffectType
 import net.guizhanss.infinityexpansion2.utils.items.applyInfinityGearEnchantment
 import net.guizhanss.infinityexpansion2.utils.items.buildSlimefunItem
 import net.guizhanss.infinityexpansion2.utils.items.convert
@@ -47,7 +48,6 @@ import net.guizhanss.infinityexpansion2.utils.surroundedBy
 import org.bukkit.Material
 import org.bukkit.enchantments.Enchantment
 import org.bukkit.inventory.ItemStack
-import org.bukkit.potion.PotionEffect
 
 object IEItems {
     private val GLASS = ItemStack(Material.GLASS)
@@ -821,18 +821,99 @@ object IEItems {
             SlimefunItems.REINFORCED_ALLOY_INGOT, STRING, SlimefunItems.REINFORCED_ALLOY_INGOT,
         )
     }
+
+    val INFINITY_PICKAXE = buildSlimefunItem<InfinityTool> {
+        id = "INFINITY_PICKAXE"
+        material = Material.NETHERITE_PICKAXE.convert()
+        itemGroup = IEItemGroups.TOOLS
+        recipeType = IERecipeTypes.INFINITY_WORKBENCH
+        recipe = arrayOf(
+            // @formatter:off
+            null, VOID_INGOT, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT, null,
+            null, null, null, INFINITY_INGOT, VOID_INGOT, INFINITY_INGOT,
+            null, null, null, VOID_INGOT, INFINITY_INGOT, INFINITY_INGOT,
+            null, null, VOID_INGOT, null, null, INFINITY_INGOT,
+            null, VOID_INGOT, null, null, null, VOID_INGOT,
+            VOID_INGOT, null, null, null, null, null,
+            // @formatter:on
+        )
+        postCreate = {
+            applyInfinityGearEnchantment(it)
+        }
+    }
+
+    val INFINITY_AXE = buildSlimefunItem<InfinityTool> {
+        id = "INFINITY_AXE"
+        material = Material.NETHERITE_AXE.convert()
+        itemGroup = IEItemGroups.TOOLS
+        recipeType = IERecipeTypes.INFINITY_WORKBENCH
+        recipe = arrayOf(
+            // @formatter:off
+            null, VOID_INGOT, INFINITY_INGOT, INFINITY_INGOT, null, null,
+            VOID_INGOT, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT, VOID_INGOT, null,
+            null, INFINITY_INGOT, INFINITY_INGOT, VOID_INGOT, INFINITY_INGOT, INFINITY_INGOT,
+            null, null, VOID_INGOT, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT,
+            null, VOID_INGOT, null, INFINITY_INGOT, INFINITY_INGOT, VOID_INGOT,
+            VOID_INGOT, null, null, null, VOID_INGOT, null
+            // @formatter:on
+        )
+        postCreate = {
+            applyInfinityGearEnchantment(it)
+        }
+    }
+
+    val INFINITY_SHOVEL = buildSlimefunItem<InfinityTool> {
+        id = "INFINITY_SHOVEL"
+        material = Material.NETHERITE_SHOVEL.convert()
+        itemGroup = IEItemGroups.TOOLS
+        recipeType = IERecipeTypes.INFINITY_WORKBENCH
+        recipe = arrayOf(
+            // @formatter:off
+            null, null, null, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT,
+            null, null, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT,
+            null, null, INFINITY_INGOT, VOID_INGOT, INFINITY_INGOT, INFINITY_INGOT,
+            null, null, VOID_INGOT, INFINITY_INGOT, INFINITY_INGOT, null,
+            null, VOID_INGOT, null, null, null, null,
+            VOID_INGOT, null, null, null, null, null
+            // @formatter:on
+        )
+        postCreate = {
+            applyInfinityGearEnchantment(it)
+        }
+    }
+
+    val INFINITY_HOE = buildSlimefunItem<InfinityTool> {
+        id = "INFINITY_HOE"
+        material = Material.NETHERITE_HOE.convert()
+        itemGroup = IEItemGroups.TOOLS
+        recipeType = IERecipeTypes.INFINITY_WORKBENCH
+        recipe = arrayOf(
+            // @formatter:off
+            null, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT, VOID_INGOT,
+            null, null, INFINITY_INGOT, INFINITY_INGOT, VOID_INGOT, INFINITY_INGOT,
+            null, null, null, VOID_INGOT, null, null,
+            null, null, VOID_INGOT, null, null, null,
+            null, VOID_INGOT, null, null, null, null,
+            VOID_INGOT, null, null, null, null, null,
+            // @formatter:on
+        )
+        postCreate = {
+            applyInfinityGearEnchantment(it)
+        }
+    }
     // </editor-fold>
 
     // <editor-fold desc="Gears" collapsed="true">
     val INFINITY_HELMET = buildSlimefunItem<InfinityArmor>(
-        arrayOf(ProtectionType.FLYING_INTO_WALL), arrayOf(
-            buildPotionEffect("night_vision", 600, 0),
-            buildPotionEffect("conduit_power", 600, 0),
-        )
+        arrayOf(
+            buildHiddenPotionEffect("night_vision", 600, 0),
+            buildHiddenPotionEffect("conduit_power", 600, 0),
+        ),
+        arrayOf(ProtectionType.FLYING_INTO_WALL),
     ) {
         id = "INFINITY_HELMET"
         material = Material.NETHERITE_HELMET.convert()
-        itemGroup = IEItemGroups.GEARS
+        itemGroup = IEItemGroups.GEAR
         recipeType = IERecipeTypes.INFINITY_WORKBENCH
         recipe = arrayOf(
             // @formatter:off
@@ -850,14 +931,15 @@ object IEItems {
     }
 
     val INFINIYT_CHESTPLATE = buildSlimefunItem<InfinityArmor>(
-        arrayOf(ProtectionType.BEES), arrayOf(
-            buildPotionEffect("night_vision", 600, 0),
-            buildPotionEffect("conduit_power", 600, 0),
-        )
+        arrayOf(
+            buildHiddenPotionEffect("night_vision", 600, 0),
+            buildHiddenPotionEffect("conduit_power", 600, 0),
+        ),
+        arrayOf(ProtectionType.BEES),
     ) {
         id = "INFINITY_CHESTPLATE"
         material = Material.NETHERITE_CHESTPLATE.convert()
-        itemGroup = IEItemGroups.GEARS
+        itemGroup = IEItemGroups.GEAR
         recipeType = IERecipeTypes.INFINITY_WORKBENCH
         recipe = arrayOf(
             // @formatter:off
@@ -867,6 +949,137 @@ object IEItems {
             VOID_INGOT, INFINITY_INGOT, VOID_INGOT, VOID_INGOT, INFINITY_INGOT, VOID_INGOT,
             null, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT, null,
             null, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT, null,
+            // @formatter:on
+        )
+        postCreate = {
+            applyInfinityGearEnchantment(it)
+        }
+    }
+
+    val INFINITY_LEGGINGS = buildSlimefunItem<InfinityArmor>(
+        arrayOf(
+            buildHiddenPotionEffect("haste", 600, 2),
+            buildHiddenPotionEffect("regeneration", 600, 0),
+            buildHiddenPotionEffect("saturation", 600, 0),
+        ),
+        arrayOf(ProtectionType.RADIATION),
+    ) {
+        id = "INFINITY_LEGGINGS"
+        material = Material.NETHERITE_LEGGINGS.convert()
+        itemGroup = IEItemGroups.GEAR
+        recipeType = IERecipeTypes.INFINITY_WORKBENCH
+        recipe = arrayOf(
+            // @formatter:off
+            null, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT, null,
+            INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT,
+            VOID_INGOT, INFINITY_INGOT, null, null, INFINITY_INGOT, VOID_INGOT,
+            VOID_INGOT, INFINITY_INGOT, null, null, INFINITY_INGOT, VOID_INGOT,
+            VOID_INGOT, INFINITY_INGOT, null, null, INFINITY_INGOT, VOID_INGOT,
+            null, INFINITY_INGOT, null, null, INFINITY_INGOT, null,
+        )
+        postCreate = {
+            applyInfinityGearEnchantment(it)
+        }
+    }
+
+    val INFINITY_BOOTS = buildSlimefunItem<InfinityArmor>(
+        arrayOf(
+            buildHiddenPotionEffect("speed", 600, 2),
+            buildHiddenPotionEffect("jump_boost", 600, 2),
+        ),
+        arrayOf<ProtectionType>()
+    ) {
+        id = "INFINITY_BOOTS"
+        material = Material.NETHERITE_BOOTS.convert()
+        itemGroup = IEItemGroups.GEAR
+        recipeType = IERecipeTypes.INFINITY_WORKBENCH
+        recipe = arrayOf(
+            // @formatter:off
+            null, null, null, null, null, null,
+            INFINITY_INGOT, INFINITY_INGOT, null, null, INFINITY_INGOT, INFINITY_INGOT,
+            INFINITY_INGOT, INFINITY_INGOT, null, null, INFINITY_INGOT, INFINITY_INGOT,
+            VOID_INGOT, VOID_INGOT, null, null, VOID_INGOT, VOID_INGOT,
+            INFINITY_INGOT, INFINITY_INGOT, null, null, INFINITY_INGOT, INFINITY_INGOT,
+            INFINITY_INGOT, INFINITY_INGOT, null, null, INFINITY_INGOT, INFINITY_INGOT,
+        )
+        postCreate = {
+            applyInfinityGearEnchantment(it)
+        }
+    }
+
+    val INFINITY_SHIELD = buildSlimefunItem<InfinityTool> {
+        id = "INFINITY_SHIELD"
+        material = Material.SHIELD.convert()
+        itemGroup = IEItemGroups.GEAR
+        recipeType = IERecipeTypes.INFINITY_WORKBENCH
+        recipe = arrayOf(
+            // @formatter:off
+            INFINITY_INGOT, INFINITY_INGOT, null, null, INFINITY_INGOT, INFINITY_INGOT,
+            INFINITY_INGOT, VOID_INGOT, INFINITY_INGOT, INFINITY_INGOT, VOID_INGOT, INFINITY_INGOT,
+            INFINITY_INGOT, VOID_INGOT, INFINITY_INGOT, INFINITY_INGOT, VOID_INGOT, INFINITY_INGOT,
+            INFINITY_INGOT, VOID_INGOT, INFINITY_INGOT, INFINITY_INGOT, VOID_INGOT, INFINITY_INGOT,
+            null, INFINITY_INGOT, VOID_INGOT, VOID_INGOT, INFINITY_INGOT, null,
+            null, INFINITY_INGOT, VOID_INGOT, VOID_INGOT, INFINITY_INGOT, null,
+            // @formatter:on
+        )
+        postCreate = {
+            applyInfinityGearEnchantment(it)
+        }
+    }
+
+    val INFINITY_SWORD = buildSlimefunItem<InfinityTool> {
+        id = "INFINITY_SWORD"
+        material = Material.NETHERITE_SWORD.convert()
+        itemGroup = IEItemGroups.GEAR
+        recipeType = IERecipeTypes.INFINITY_WORKBENCH
+        recipe = arrayOf(
+            // @formatter:off
+            null, null, null, null, INFINITY_INGOT, INFINITY_INGOT,
+            null, null, null, INFINITY_INGOT, VOID_INGOT, INFINITY_INGOT,
+            null, null, INFINITY_INGOT, VOID_INGOT, INFINITY_INGOT, null,
+            INFINITY_INGOT, INFINITY_INGOT, VOID_INGOT, INFINITY_INGOT, null, null,
+            null, VOID_INGOT, INFINITY_INGOT, null, null, null,
+            VOID_INGOT, null, INFINITY_INGOT, null, null, null
+            // @formatter:on
+        )
+        postCreate = {
+            applyInfinityGearEnchantment(it)
+        }
+    }
+
+    val INFINITY_BOW = buildSlimefunItem<InfinityBow> {
+        id = "INFINITY_BOW"
+        material = Material.BOW.convert()
+        itemGroup = IEItemGroups.GEAR
+        recipeType = IERecipeTypes.INFINITY_WORKBENCH
+        recipe = arrayOf(
+            // @formatter:off
+            null, INFINITY_INGOT, INFINITY_INGOT, VOID_INGOT, null, null,
+            INFINITY_INGOT, null, INFINITY_INGOT, INFINITY_INGOT, VOID_INGOT, null,
+            VOID_INGOT, null, null, ENDER_FLAME, INFINITY_INGOT, VOID_INGOT,
+            null, VOID_INGOT, null, null, INFINITY_INGOT, INFINITY_INGOT,
+            null, null, VOID_INGOT, null, null, INFINITY_INGOT,
+            null, null, null, VOID_INGOT, INFINITY_INGOT, null
+            // @formatter:on
+        )
+        postCreate = {
+            applyInfinityGearEnchantment(it)
+        }
+    }
+
+    val INFINITY_CROSSBOW = buildSlimefunItem<InfinityBow> {
+        id = "INFINITY_CROSSBOW"
+        material = Material.CROSSBOW.convert()
+        itemGroup = IEItemGroups.GEAR
+        recipeType = IERecipeTypes.INFINITY_WORKBENCH
+        recipe = arrayOf(
+            // @formatter:off
+            null, VOID_INGOT, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT, null,
+            VOID_INGOT, INFINITY_INGOT, VOID_INGOT, null, null, INFINITY_INGOT,
+            INFINITY_INGOT, VOID_INGOT, INFINITY_INGOT, INFINITY_INGOT, null, VOID_INGOT,
+            INFINITY_INGOT, null, INFINITY_INGOT, INFINITY_INGOT, VOID_INGOT, null,
+            INFINITY_INGOT, null, null, VOID_INGOT, INFINITY_INGOT, INFINITY_INGOT,
+            null, INFINITY_INGOT, VOID_INGOT, null, INFINITY_INGOT, INFINITY_INGOT,
             // @formatter:on
         )
         postCreate = {
@@ -1402,9 +1615,11 @@ object IEItems {
         itemGroup = IEItemGroups.MACHINES
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
         recipe = arrayOf(
+            // @formatter:off
             VOID_BLOCK, MACHINE_PLATE, VOID_BLOCK,
             SlimefunItems.ENERGIZED_CAPACITOR, ItemStack(Material.CRAFTING_TABLE), SlimefunItems.ENERGIZED_CAPACITOR,
             VOID_BLOCK, MACHINE_PLATE, VOID_BLOCK,
+            // @formatter:on
         )
     }
     // </editor-fold>
