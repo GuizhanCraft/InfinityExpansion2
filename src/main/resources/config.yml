@@ -46,7 +46,7 @@ resource-synthesizer:
 mob-simulation:
 
   # The amount of runs required to output once (affected by tick rate)
-  # Range: 1 to 120
+  # Range: 1 to 3600
   output-interval: 20
 
   # The experience multiplier for mob simulation
@@ -55,6 +55,41 @@ mob-simulation:
 
 # Quarry options
 quarry:
+  # The amount of runs required to output once (affected by tick rate)
+  # Range: 1 to 3600
+  output-interval: 10
+
+  # The product pool of all the quarries
+  # There are 3 world environments: normal, nether, the_end
+  # A quarry's products are determined by the environment it is in.
+  # The quarry wiki page has a detailed explanation of how the quarry works, it may help you understand the pool.
+  #
+  # All the item IDs must be a valid Material, or a valid Slimefun item ID.
+  #
+  # Due to how the config file is processed, you cannot remove existing fields.
+  # If you want to "remove" an item from the pool, set its weight to 0.
+  pools:
+    normal:
+      base-product: COBBLESTONE
+      products:
+        COAL: 4
+        COPPER_INGOT: 2
+        IRON_INGOT: 1
+        GOLD_INGOT: 1
+        REDSTONE: 1
+        LAPIS_LAZULI: 1
+        EMERALD: 1
+        DIAMOND: 1
+    nether:
+      base-product: NETHERRACK
+      products:
+        GOLD_INGOT: 3
+        QUARTZ: 1
+        NETHERITE_INGOT: 1
+    the_end:
+      base-product: END_STONE
+      products:
+        OBSIDIAN: 1
 
   # The chance (0 to 1) of an oscillator activating each time a material would be produced
   oscillators:
@@ -63,27 +98,6 @@ quarry:
     redstone: .5
     quartz: .5
     emerald: .5
-
-  # The amount of runs required to output once (affected by tick rate)
-  # Range: 1 to 120
-  output-interval: 10
-
-  # Whether quarries in overworld can produce nether materials
-  nether-materials-in-overworld: false
-
-  # The resources that can be produced by the quarry
-  resources:
-    coal: true
-    iron: true
-    gold: true
-    lapis: true
-    copper: true
-    quartz: true
-    diamond: true
-    emerald: true
-    redstone: true
-    netherite: true
-    netherrack: true
 
 # The maximum possible level of every enchantment in advanced anvil
 # all the keys are the key part of an Enchantment's NamespacedKey
@@ -118,7 +132,7 @@ advanced-anvil:
 # This only affects new gears, not existing ones.
 # protection caps out at 20 levels across all 4 pieces of gear. So 10+10+10+10 is still the same as 5+5+5+5.
 infinity-gear-enchantments:
-  blade:
+  sword:
     unbreakable: true
     sharpness: 20
     looting: 10
@@ -144,7 +158,7 @@ infinity-gear-enchantments:
     flame: 10
     infinity: 10
     punch: 0
-  crown:
+  helmet:
     unbreakable: true
     protection: 20
     aqua_affinity: 10

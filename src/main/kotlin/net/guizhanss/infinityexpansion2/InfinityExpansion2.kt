@@ -11,20 +11,12 @@ import net.guizhanss.infinityexpansion2.implementation.IEItems
 import net.guizhanss.infinityexpansion2.implementation.groups.IEItemGroups
 import net.guizhanss.infinityexpansion2.implementation.setup.ResearchSetup
 import org.bukkit.plugin.Plugin
-import org.bukkit.plugin.PluginDescriptionFile
-import org.bukkit.plugin.java.JavaPluginLoader
 import java.io.File
 import java.util.logging.Level
 
-class InfinityExpansion2 : AbstractAddon {
-    constructor() : super(
-        "ybw0014", "InfinityExpansion2", "master", "auto-update"
-    )
-
-    constructor(loader: JavaPluginLoader, description: PluginDescriptionFile, dataFolder: File, file: File) : super(
-        loader, description, dataFolder, file,
-        "ybw0014", "InfinityExpansion2", "master", "auto-update"
-    )
+class InfinityExpansion2 : AbstractAddon(
+    GITHUB_USER, GITHUB_REPO, GITHUB_BRANCH, AUTO_UPDATE_KEY
+) {
 
     override fun enable() {
         instance = this
@@ -105,6 +97,10 @@ class InfinityExpansion2 : AbstractAddon {
     }
 
     companion object {
+        private const val GITHUB_USER = "ybw0014"
+        private const val GITHUB_REPO = "InfinityExpansion2"
+        private const val GITHUB_BRANCH = "master"
+        private const val AUTO_UPDATE_KEY = "auto-update"
         const val DEFAULT_LANG = "en"
 
         lateinit var instance: InfinityExpansion2

@@ -1,11 +1,13 @@
-@file:Suppress("deprecation")
+@file:Suppress("deprecation", "unused", "MemberVisibilityCanBePrivate")
 
 package net.guizhanss.infinityexpansion2.implementation
 
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
+import io.github.thebusybiscuit.slimefun4.core.attributes.ProtectionType
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems
 import io.github.thebusybiscuit.slimefun4.utils.HeadTexture
 import net.guizhanss.infinityexpansion2.implementation.groups.IEItemGroups
+import net.guizhanss.infinityexpansion2.implementation.items.gears.InfinityArmor
 import net.guizhanss.infinityexpansion2.implementation.items.machines.CobblePress
 import net.guizhanss.infinityexpansion2.implementation.items.machines.Decompressor
 import net.guizhanss.infinityexpansion2.implementation.items.machines.DustExtractor
@@ -13,6 +15,7 @@ import net.guizhanss.infinityexpansion2.implementation.items.machines.ExtremeFre
 import net.guizhanss.infinityexpansion2.implementation.items.machines.InfinityWorkbench
 import net.guizhanss.infinityexpansion2.implementation.items.machines.IngotFormer
 import net.guizhanss.infinityexpansion2.implementation.items.machines.MaterialGenerator
+import net.guizhanss.infinityexpansion2.implementation.items.machines.Quarry
 import net.guizhanss.infinityexpansion2.implementation.items.machines.ResourceSynthesizer
 import net.guizhanss.infinityexpansion2.implementation.items.machines.SingularityConstructor
 import net.guizhanss.infinityexpansion2.implementation.items.machines.StoneworksFactory
@@ -34,13 +37,17 @@ import net.guizhanss.infinityexpansion2.implementation.items.sfextension.Smelter
 import net.guizhanss.infinityexpansion2.implementation.items.tools.Strainer
 import net.guizhanss.infinityexpansion2.implementation.items.tools.StrainerBase
 import net.guizhanss.infinityexpansion2.implementation.recipes.IERecipeTypes
+import net.guizhanss.infinityexpansion2.utils.buildPotionEffect
 import net.guizhanss.infinityexpansion2.utils.fillRecipe
+import net.guizhanss.infinityexpansion2.utils.getPotionEffectType
+import net.guizhanss.infinityexpansion2.utils.items.applyInfinityGearEnchantment
 import net.guizhanss.infinityexpansion2.utils.items.buildSlimefunItem
 import net.guizhanss.infinityexpansion2.utils.items.convert
 import net.guizhanss.infinityexpansion2.utils.surroundedBy
 import org.bukkit.Material
 import org.bukkit.enchantments.Enchantment
 import org.bukkit.inventory.ItemStack
+import org.bukkit.potion.PotionEffect
 
 object IEItems {
     private val GLASS = ItemStack(Material.GLASS)
@@ -559,9 +566,15 @@ object IEItems {
         itemGroup = IEItemGroups.SLIMEFUN_EXPANSION
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
         recipe = arrayOf(
-            VOID_INGOT, REDSTONE_SINGULARITY, VOID_INGOT,
-            VOID_INGOT, SlimefunItems.ENERGIZED_CAPACITOR, VOID_INGOT,
-            VOID_INGOT, REDSTONE_SINGULARITY, VOID_INGOT
+            VOID_INGOT,
+            REDSTONE_SINGULARITY,
+            VOID_INGOT,
+            VOID_INGOT,
+            SlimefunItems.ENERGIZED_CAPACITOR,
+            VOID_INGOT,
+            VOID_INGOT,
+            REDSTONE_SINGULARITY,
+            VOID_INGOT
         )
     }
 
@@ -588,9 +601,15 @@ object IEItems {
         itemGroup = IEItemGroups.SLIMEFUN_EXPANSION
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
         recipe = arrayOf(
-            MAGSTEEL, MAGSTEEL, MAGSTEEL,
-            MAGSTEEL_PLATE, SlimefunItems.AUTO_ENCHANTER, MAGSTEEL_PLATE,
-            MACHINE_CIRCUIT, MACHINE_CORE, MACHINE_CIRCUIT
+            MAGSTEEL,
+            MAGSTEEL,
+            MAGSTEEL,
+            MAGSTEEL_PLATE,
+            SlimefunItems.AUTO_ENCHANTER,
+            MAGSTEEL_PLATE,
+            MACHINE_CIRCUIT,
+            MACHINE_CORE,
+            MACHINE_CIRCUIT
         )
     }
 
@@ -617,9 +636,15 @@ object IEItems {
         itemGroup = IEItemGroups.SLIMEFUN_EXPANSION
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
         recipe = arrayOf(
-            MAGSTEEL, MAGSTEEL, MAGSTEEL,
-            MAGSTEEL_PLATE, SlimefunItems.AUTO_DISENCHANTER, MAGSTEEL_PLATE,
-            MACHINE_CIRCUIT, MACHINE_CORE, MACHINE_CIRCUIT
+            MAGSTEEL,
+            MAGSTEEL,
+            MAGSTEEL,
+            MAGSTEEL_PLATE,
+            SlimefunItems.AUTO_DISENCHANTER,
+            MAGSTEEL_PLATE,
+            MACHINE_CIRCUIT,
+            MACHINE_CORE,
+            MACHINE_CIRCUIT
         )
     }
 
@@ -675,9 +700,15 @@ object IEItems {
         itemGroup = IEItemGroups.SLIMEFUN_EXPANSION
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
         recipe = arrayOf(
-            MAGSTEEL_PLATE, MAGSTEEL_PLATE, MAGSTEEL_PLATE,
-            SlimefunItems.COBALT_PICKAXE, SlimefunItems.GEO_MINER, SlimefunItems.COBALT_PICKAXE,
-            MACHINE_CIRCUIT, MACHINE_CORE, MACHINE_CIRCUIT
+            MAGSTEEL_PLATE,
+            MAGSTEEL_PLATE,
+            MAGSTEEL_PLATE,
+            SlimefunItems.COBALT_PICKAXE,
+            SlimefunItems.GEO_MINER,
+            SlimefunItems.COBALT_PICKAXE,
+            MACHINE_CIRCUIT,
+            MACHINE_CORE,
+            MACHINE_CIRCUIT
         )
     }
 
@@ -687,9 +718,15 @@ object IEItems {
         itemGroup = IEItemGroups.SLIMEFUN_EXPANSION
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
         recipe = arrayOf(
-            SlimefunItems.ELECTRIC_SMELTERY_2, SlimefunItems.ELECTRIC_SMELTERY_2, SlimefunItems.ELECTRIC_SMELTERY_2,
-            SlimefunItems.ELECTRIC_SMELTERY_2, SlimefunItems.ELECTRIC_SMELTERY_2, SlimefunItems.ELECTRIC_SMELTERY_2,
-            MACHINE_CIRCUIT, MACHINE_CORE, MACHINE_CIRCUIT
+            SlimefunItems.ELECTRIC_SMELTERY_2,
+            SlimefunItems.ELECTRIC_SMELTERY_2,
+            SlimefunItems.ELECTRIC_SMELTERY_2,
+            SlimefunItems.ELECTRIC_SMELTERY_2,
+            SlimefunItems.ELECTRIC_SMELTERY_2,
+            SlimefunItems.ELECTRIC_SMELTERY_2,
+            MACHINE_CIRCUIT,
+            MACHINE_CORE,
+            MACHINE_CIRCUIT
         )
     }
 
@@ -699,9 +736,15 @@ object IEItems {
         itemGroup = IEItemGroups.SLIMEFUN_EXPANSION
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
         recipe = arrayOf(
-            VOID_BLOCK, MACHINE_CORE, VOID_BLOCK,
-            MACHINE_CIRCUIT, ADVANCED_SMELTERY, MACHINE_CIRCUIT,
-            VOID_BLOCK, ADVANCED_SMELTERY, VOID_BLOCK
+            VOID_BLOCK,
+            MACHINE_CORE,
+            VOID_BLOCK,
+            MACHINE_CIRCUIT,
+            ADVANCED_SMELTERY,
+            MACHINE_CIRCUIT,
+            VOID_BLOCK,
+            ADVANCED_SMELTERY,
+            VOID_BLOCK
         )
     }
     // </editor-fold>
@@ -777,6 +820,58 @@ object IEItems {
             STRING, STRAINER_2, STRING,
             SlimefunItems.REINFORCED_ALLOY_INGOT, STRING, SlimefunItems.REINFORCED_ALLOY_INGOT,
         )
+    }
+    // </editor-fold>
+
+    // <editor-fold desc="Gears" collapsed="true">
+    val INFINITY_HELMET = buildSlimefunItem<InfinityArmor>(
+        arrayOf(ProtectionType.FLYING_INTO_WALL), arrayOf(
+            buildPotionEffect("night_vision", 600, 0),
+            buildPotionEffect("conduit_power", 600, 0),
+        )
+    ) {
+        id = "INFINITY_HELMET"
+        material = Material.NETHERITE_HELMET.convert()
+        itemGroup = IEItemGroups.GEARS
+        recipeType = IERecipeTypes.INFINITY_WORKBENCH
+        recipe = arrayOf(
+            // @formatter:off
+            null, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT, null,
+            INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT,
+            INFINITY_INGOT, VOID_INGOT, INFINITY_INGOT, INFINITY_INGOT, VOID_INGOT, INFINITY_INGOT,
+            null, INFINITY_INGOT, null, null, INFINITY_INGOT, null,
+            null, null, null, null, null, null,
+            null, null, null, null, null, null,
+            // @formatter:on
+        )
+        postCreate = {
+            applyInfinityGearEnchantment(it)
+        }
+    }
+
+    val INFINIYT_CHESTPLATE = buildSlimefunItem<InfinityArmor>(
+        arrayOf(ProtectionType.BEES), arrayOf(
+            buildPotionEffect("night_vision", 600, 0),
+            buildPotionEffect("conduit_power", 600, 0),
+        )
+    ) {
+        id = "INFINITY_CHESTPLATE"
+        material = Material.NETHERITE_CHESTPLATE.convert()
+        itemGroup = IEItemGroups.GEARS
+        recipeType = IERecipeTypes.INFINITY_WORKBENCH
+        recipe = arrayOf(
+            // @formatter:off
+            null, INFINITY_INGOT, null, null, INFINITY_INGOT, null,
+            INFINITY_INGOT, VOID_INGOT, INFINITY_INGOT, INFINITY_INGOT, VOID_INGOT, INFINITY_INGOT,
+            VOID_INGOT, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT, VOID_INGOT,
+            VOID_INGOT, INFINITY_INGOT, VOID_INGOT, VOID_INGOT, INFINITY_INGOT, VOID_INGOT,
+            null, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT, null,
+            null, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT, null,
+            // @formatter:on
+        )
+        postCreate = {
+            applyInfinityGearEnchantment(it)
+        }
     }
     // </editor-fold>
 
@@ -968,12 +1063,14 @@ object IEItems {
         itemGroup = IEItemGroups.MACHINES
         recipeType = IERecipeTypes.INFINITY_WORKBENCH
         recipe = arrayOf(
+            // @formatter:off
             MACHINE_PLATE, MACHINE_PLATE, MACHINE_PLATE, MACHINE_PLATE, MACHINE_PLATE, MACHINE_PLATE,
             MAGNONIUM, VOID_INGOT, VOID_INGOT, VOID_INGOT, VOID_INGOT, MAGNONIUM,
             MAGNONIUM, VOID_INGOT, INFINITY_MACHINE_CIRCUIT, INFINITY_MACHINE_CIRCUIT, VOID_INGOT, MAGNONIUM,
             MAGNONIUM, VOID_INGOT, VOID_HARVESTER_2, VOID_HARVESTER_2, VOID_INGOT, MAGNONIUM,
             MAGNONIUM, VOID_INGOT, VOID_INGOT, VOID_INGOT, VOID_INGOT, MAGNONIUM,
-            MACHINE_PLATE, MACHINE_PLATE, MACHINE_PLATE, MACHINE_PLATE, MACHINE_PLATE, MACHINE_PLATE
+            MACHINE_PLATE, MACHINE_PLATE, MACHINE_PLATE, MACHINE_PLATE, MACHINE_PLATE, MACHINE_PLATE,
+            // @formatter:on
         )
     }
 
@@ -1050,9 +1147,11 @@ object IEItems {
         itemGroup = IEItemGroups.MACHINES
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
         recipe = arrayOf(
+            // @formatter:off
             ADAMANTITE, ADAMANTITE, ADAMANTITE,
             MACHINE_PLATE, SlimefunItems.REINFORCED_FURNACE, MACHINE_PLATE,
-            MACHINE_PLATE, MACHINE_CORE, MACHINE_PLATE
+            MACHINE_PLATE, MACHINE_CORE, MACHINE_PLATE,
+            // @formatter:on
         )
     }
 
@@ -1220,9 +1319,15 @@ object IEItems {
         itemGroup = IEItemGroups.MACHINES
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
         recipe = arrayOf(
-            MACHINE_PLATE, COMPRESSED_COBBLESTONE_3, MACHINE_PLATE,
-            SlimefunItems.ELECTRIC_PRESS_2, SlimefunItems.ELECTRIC_PRESS_2, SlimefunItems.ELECTRIC_PRESS_2,
-            MACHINE_PLATE, COMPRESSED_COBBLESTONE_3, MACHINE_PLATE
+            MACHINE_PLATE,
+            COMPRESSED_COBBLESTONE_3,
+            MACHINE_PLATE,
+            SlimefunItems.ELECTRIC_PRESS_2,
+            SlimefunItems.ELECTRIC_PRESS_2,
+            SlimefunItems.ELECTRIC_PRESS_2,
+            MACHINE_PLATE,
+            COMPRESSED_COBBLESTONE_3,
+            MACHINE_PLATE
         )
     }
 
@@ -1235,6 +1340,59 @@ object IEItems {
             MAGSTEEL_PLATE, MAGSTEEL_PLATE, MAGSTEEL_PLATE,
             ItemStack(Material.STICKY_PISTON), SlimefunItems.ELECTRIC_PRESS_2, ItemStack(Material.STICKY_PISTON),
             MACHINE_CIRCUIT, MACHINE_CORE, MACHINE_CIRCUIT,
+        )
+    }
+
+    val QUARRY = buildSlimefunItem<Quarry>(300, 1, 0.15) {
+        id = "QUARRY"
+        material = Material.CHISELED_SANDSTONE.convert()
+        itemGroup = IEItemGroups.MACHINES
+        recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
+        recipe = arrayOf(
+            MAGSTEEL_PLATE, SlimefunItems.CARBONADO_EDGED_CAPACITOR, MAGSTEEL_PLATE,
+            ItemStack(Material.IRON_PICKAXE), SlimefunItems.GEO_MINER, ItemStack(Material.IRON_PICKAXE),
+            MACHINE_CIRCUIT, MACHINE_CORE, MACHINE_CIRCUIT,
+        )
+    }
+
+    val QUARRY_2 = buildSlimefunItem<Quarry>(900, 2, 0.25) {
+        id = "QUARRY_2"
+        material = Material.CHISELED_RED_SANDSTONE.convert()
+        itemGroup = IEItemGroups.MACHINES
+        recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
+        recipe = arrayOf(
+            MACHINE_PLATE, SlimefunItems.ENERGIZED_CAPACITOR, MACHINE_PLATE,
+            ItemStack(Material.DIAMOND_PICKAXE), QUARRY, ItemStack(Material.DIAMOND_PICKAXE),
+            MACHINE_CIRCUIT, MACHINE_CORE, MACHINE_CIRCUIT,
+        )
+    }
+
+    val QUARRY_3 = buildSlimefunItem<Quarry>(3600, 4, 0.5) {
+        id = "QUARRY_3"
+        material = Material.CHISELED_NETHER_BRICKS.convert()
+        itemGroup = IEItemGroups.MACHINES
+        recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
+        recipe = arrayOf(
+            VOID_INGOT, VOID_CAPACITOR, VOID_INGOT,
+            ItemStack(Material.NETHERITE_PICKAXE), QUARRY_2, ItemStack(Material.NETHERITE_PICKAXE),
+            MACHINE_CIRCUIT, MACHINE_CORE, MACHINE_CIRCUIT,
+        )
+    }
+
+    val QUARRY_4 = buildSlimefunItem<Quarry>(36000, 64, 1.0) {
+        id = "QUARRY_4"
+        material = Material.CHISELED_POLISHED_BLACKSTONE.convert()
+        itemGroup = IEItemGroups.MACHINES
+        recipeType = IERecipeTypes.INFINITY_WORKBENCH
+        recipe = arrayOf(
+            // @formatter:off
+            null, MACHINE_PLATE, MACHINE_PLATE, MACHINE_PLATE, MACHINE_PLATE, null,
+//            MACHINE_PLATE, INFINITY_PICKAXE, INFINITY_MACHINE_CIRCUIT, INFINITY_MACHINE_CIRCUIT, INFINITY_PICKAXE, MACHINE_PLATE,
+            MACHINE_PLATE, QUARRY_3, INFINITY_MACHINE_CORE, INFINITY_MACHINE_CORE, QUARRY_3, MACHINE_PLATE,
+            VOID_INGOT, null, INFINITY_INGOT, INFINITY_INGOT, null, VOID_INGOT,
+            VOID_INGOT, null, INFINITY_INGOT, INFINITY_INGOT, null, VOID_INGOT,
+            VOID_INGOT, null, INFINITY_INGOT, INFINITY_INGOT, null, VOID_INGOT,
+            // @formatter:on
         )
     }
 

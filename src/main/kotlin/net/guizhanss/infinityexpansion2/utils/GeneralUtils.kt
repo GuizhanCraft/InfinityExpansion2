@@ -5,8 +5,7 @@ import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import org.bukkit.NamespacedKey
 import java.util.Locale
 
-inline fun <reified T : Enum<T>> valueOfOrNull(name: String): T? =
-    enumValues<T>().firstOrNull { it.name == name }
+inline fun <reified T : Enum<T>> valueOfOrNull(name: String): T? = enumValues<T>().firstOrNull { it.name == name }
 
 internal fun String.createKey() = NamespacedKey(InfinityExpansion2.instance, this.lowercase(Locale.getDefault()))
 

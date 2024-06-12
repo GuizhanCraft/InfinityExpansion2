@@ -4,37 +4,52 @@ package net.guizhanss.infinityexpansion2.utils
 
 import org.bukkit.configuration.ConfigurationSection
 import org.bukkit.enchantments.Enchantment
+import java.util.Locale
 
-private inline fun <reified V> loadMap(
+inline fun <reified K, reified V> loadMap(
     section: ConfigurationSection?,
-    parser: (Any?) -> V? = { value -> value as? V }
-): Map<String, V> {
+    keyParser: (String) -> K? = { key -> key as? K },
+    valueParser: (Any?) -> V? = { value -> value as? V },
+    valuePredicate: (V) -> Boolean = { true }
+): Map<K, V> {
     if (section == null) {
         return mapOf()
     }
 
-    val result = mutableMapOf<String, V>()
-    for (key in section.getKeys(false)) {
-        val value = parser(section[key])
-        if (value != null) {
-            result[key] = value
-        }
+    val result = mutableMapOf<K, V>()
+    section.getKeys(false).forEach { keyStr ->
+        val key = keyParser(keyStr) ?: return@forEach
+        val value = valueParser(section[keyStr]) ?: return@forEach
+        if (!valuePredicate(value)) return@forEach
+        result[key] = value
     }
-
     return result.toMap()
 }
 
-fun loadIntMap(section: ConfigurationSection?) = loadMap<Int>(section)
-fun loadDoubleMap(section: ConfigurationSection?) = loadMap<Double>(section)
-fun loadBooleanMap(section: ConfigurationSection?) = loadMap<Boolean>(section)
-fun loadStringMap(section: ConfigurationSection?) = loadMap<String>(section) { it.toString() }
-fun loadSectionMap(section: ConfigurationSection?) = loadMap<ConfigurationSection>(section)
+inline fun <reified K : Enum<K>, reified V> loadEnumKeyMap(
+    section: ConfigurationSection?,
+    valueParser: (Any?) -> V? = { value -> value as? V },
+    valuePredicate: (V) -> Boolean = { true }
+): Map<K, V> = loadMap(
+    section,
+    keyParser = { keyStr -> valueOfOrNull<K>(keyStr.uppercase(Locale.getDefault())) },
+    valueParser,
+    valuePredicate
+)
 
-fun loadEnchantmentKeyMap(section: ConfigurationSection?): Map<Enchantment, Int> {
-    val result = mutableMapOf<Enchantment, Int>()
-    loadIntMap(section).entries.forEach { (key, value) ->
-        val enchantment = Enchantment.getByName(key) ?: return@forEach
-        result[enchantment] = if (value > enchantment.maxLevel) value else enchantment.maxLevel
-    }
-    return result
-}
+fun loadIntMap(section: ConfigurationSection?, valuePredicate: (Int) -> Boolean = { true }) =
+    loadMap<String, Int>(section, valuePredicate = valuePredicate)
+
+fun loadDoubleMap(section: ConfigurationSection?, valuePredicate: (Double) -> Boolean = { true }) =
+    loadMap<String, Double>(section, valuePredicate = valuePredicate)
+
+fun loadBooleanMap(section: ConfigurationSection?) = loadMap<String, Boolean>(section)
+
+fun loadStringMap(section: ConfigurationSection?, valuePredicate: (String) -> Boolean = { true }) =
+    loadMap<String, String>(section, valueParser = { it.toString() }, valuePredicate = valuePredicate)
+
+fun loadSectionMap(section: ConfigurationSection?) = loadMap<String, ConfigurationSection>(section)
+
+fun loadEnchantmentKeyMap(section: ConfigurationSection?) =
+    loadMap<Enchantment, Int>(section, { key -> Enchantment.getByName(key) }, valuePredicate = { it >= 1 })
+

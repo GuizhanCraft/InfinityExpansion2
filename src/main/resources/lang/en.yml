@@ -105,8 +105,28 @@ items:
     conditions:
       force-load: true
     name: "&eProgress:"
+  _UI_WORLD_NORMAL:
+    conditions:
+      force-load: true
+    name: "&2Normal world"
+  _UI_WORLD_NETHER:
+    conditions:
+      force-load: true
+    name: "&4Nether"
+  _UI_WORLD_THE_END:
+    conditions:
+      force-load: true
+    name: "&5The End"
 
   # display recipe info items
+  _UI_PRODUCES:
+    conditions:
+      force-load: true
+    name: "&aProduces:"
+  _UI_RECIPES:
+    conditions:
+      force-load: true
+    name: "&eRecipes:"
   _UI_TICK_RATE:
     conditions:
       force-load: true
@@ -123,14 +143,6 @@ items:
     conditions:
       force-load: true
     name: "&eOutput interval:"
-  _UI_PRODUCES:
-    conditions:
-      force-load: true
-    name: "&aProduces:"
-  _UI_RECIPES:
-    conditions:
-      force-load: true
-    name: "&eRecipes:"
   _UI_PROGRESS_TOTAL:
     conditions:
       force-load: true
@@ -139,6 +151,10 @@ items:
     conditions:
       force-load: true
     name: "&eIncrease progress:"
+  _UI_CHANCE:
+    conditions:
+      force-load: true
+    name: "&eChance:"
 
   # strainer specific
   _UI_ANY_STRAINER:
@@ -342,6 +358,8 @@ items:
       - "&7Machine Component"
   VOID_GLASS:
     name: "&8Void Glass"
+    lore:
+      - "&dWitherproof"
 
   # items - slimefun expansion
   VOID_CAPACITOR:
@@ -787,13 +805,73 @@ items:
       - "&8\u21E8 &e⚡ &7Speed: &b1x"
     lore-overrides:
       4: "%sftrlore_Speed_1%"
-
+  QUARRY:
+    name: "&9Basic Quarry"
+    lore:
+      - ""
+      - "&7Automatically mines resources."
+      - ""
+      - "&8\u21E8 &e⚡ &7Speed: &b1x"
+    lore-overrides:
+      4: "%sftrlore_Speed_1%"
+  QUARRY_2:
+    name: "&cAdvanced &9Quarry"
+    lore:
+      - ""
+      - "&7Automatically mines resources."
+      - ""
+      - "&8\u21E8 &e⚡ &7Speed: &b2x"
+    lore-overrides:
+      4: "%sftrlore_Speed_2%"
+  QUARRY_3:
+    name: "&8Void &9Quarry"
+    lore:
+      - ""
+      - "&7Automatically mines resources."
+      - ""
+      - "&8\u21E8 &e⚡ &7Speed: &b4x"
+    lore-overrides:
+      4: "%sftrlore_Speed_4%"
+  QUARRY_4:
+    name: "&bInfinity &9Quarry"
+    lore:
+      - ""
+      - "&7Automatically mines resources."
+      - ""
+      - "&8\u21E8 &e⚡ &7Speed: &b64x"
+    lore-overrides:
+      4: "%sftrlore_Speed_64%"
   INFINITY_WORKBENCH:
     name: "&6Infinity Workbench"
     lore:
       - ""
       - "&7Used to craft infinity items."
   # items - generators
+
+  # items - gears
+  INFINITY_HELMET:
+    name: "&b&lInfinity Crown"
+    lore:
+      - "&7Night Vision I"
+      - "&7Conduit Power I"
+      - "&7Elytra Crash Immunity"
+      - "&bSoulbound"
+  INFINITY_CHESTPLATE:
+    name: "&b&lInfinity Chestplate"
+    lore:
+      - "&7Strength II"
+      - "&7Resistance I"
+      - "&7Fire Resistance I"
+      - "&7Bee Sting Immunity"
+      - "&bSoulbound"
+  INFINITY_LEGGINGS:
+    name: "&b&lInfinity Leggings"
+    lore:
+      - "&7Haste III"
+      - "&7Regeneration I"
+      - "&7Saturation I"
+      - "&7Radiation Immunity"
+      - "&bSoulbound"
 lores:
   collect: "&7Collects:"
   produce: "&7Produces:"

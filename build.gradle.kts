@@ -9,14 +9,13 @@ version = "UNOFFICIAL"
 description = "InfinityExpansion2"
 
 repositories {
-    mavenLocal()
     mavenCentral()
-    maven("https://hub.spigotmc.org/nexus/content/repositories/snapshots/")
+    maven("https://repo.papermc.io/repository/maven-public/")
     maven("https://s01.oss.sonatype.org/content/repositories/snapshots/")
     maven("https://jitpack.io")
 }
 
-val spigotVersion = "1.20.4-R0.1-SNAPSHOT"
+val paperVersion = "1.20.4-R0.1-SNAPSHOT"
 val slimefunVersion = "RC-37"
 val slimefunTranslationVersion = "e03b01a7b7"
 val guizhanLibVersion = "1.7.6"
@@ -25,11 +24,11 @@ val bstatsVersion = "3.0.2"
 dependencies {
     library(kotlin("stdlib"))
     library(kotlin("reflect"))
-    compileOnly("org.spigotmc:spigot-api:${spigotVersion}")
-    compileOnly("com.github.Slimefun:Slimefun4:${slimefunVersion}")
-    compileOnly("net.guizhanss:SlimefunTranslation:${slimefunTranslationVersion}")
-    implementation("net.guizhanss:GuizhanLib-api:${guizhanLibVersion}")
-    implementation("org.bstats:bstats-bukkit:${bstatsVersion}")
+    compileOnly("io.papermc.paper:paper-api:$paperVersion")
+    compileOnly("com.github.Slimefun:Slimefun4:$slimefunVersion")
+    compileOnly("net.guizhanss:SlimefunTranslation:$slimefunTranslationVersion")
+    implementation("net.guizhanss:GuizhanLib-api:$guizhanLibVersion")
+    implementation("org.bstats:bstats-bukkit:$bstatsVersion")
 }
 
 java {
@@ -42,10 +41,6 @@ tasks.compileKotlin {
         javaParameters = true
         jvmTarget = "17"
     }
-}
-
-tasks.compileKotlin {
-    kotlinOptions.javaParameters = true
 }
 
 tasks.shadowJar {

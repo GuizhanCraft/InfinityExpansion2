@@ -6,4 +6,5 @@ import org.bukkit.inventory.ItemStack
 object IERegistry {
     val singularities = mutableListOf<Singularity>()
     val singularityIngredientMap = mutableMapOf<ItemStack, Singularity>()
+    val itemMapping = mutableMapOf<String, ItemStack>()
 }

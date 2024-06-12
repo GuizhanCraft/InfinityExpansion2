@@ -44,6 +44,18 @@ object GuiItems {
         MaterialType.Material(Material.LIME_STAINED_GLASS_PANE),
         "recipes"
     )
+    val WORLD_NORMAL = InfinityExpansion2.localization.getGuiItem(
+        MaterialType.Material(Material.GRASS_BLOCK),
+        "world_normal"
+    )
+    val WORLD_NETHER = InfinityExpansion2.localization.getGuiItem(
+        MaterialType.Material(Material.NETHERRACK),
+        "world_nether"
+    )
+    val WORLD_THE_END = InfinityExpansion2.localization.getGuiItem(
+        MaterialType.Material(Material.END_STONE),
+        "world_the_end"
+    )
 
     fun progressBar(progress: Int, total: Int) = InfinityExpansion2.localization.getGuiItem(
         MaterialType.Material(Material.LIME_STAINED_GLASS_PANE),
@@ -88,6 +100,12 @@ object GuiItems {
         MaterialType.Material(Material.GOLD_NUGGET),
         "progress_increase",
         "&7${increase}"
+    )
+
+    fun chance(chance: Double) = InfinityExpansion2.localization.getGuiItem(
+        MaterialType.Material(Material.WHEAT_SEEDS),
+        "chance",
+        "&7${String.format("%.1f", chance * 100)}%"
     )
 
     // strainer specific

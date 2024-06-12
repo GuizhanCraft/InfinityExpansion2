@@ -12,7 +12,12 @@ features and improvements.
 
 (WIP)
 
-InfinityExpansion2 requires at least Java 17 and Minecraft 1.17.
+### Requirement
+
+- Java 17 or higher
+- Minecraft 1.17 or higher
+- Paper or its forks
+- (Optional) SlimefunTranslation
 
 ## Configuration
 
@@ -31,3 +36,12 @@ Before you start editing the config, you will want to know some terms and the in
 - **Output interval**: The amount of machine runs required to produce output. (Range: 1 ~ 3600)
 
 For example, if a machine has a tick rate of 10 and an output interval of 20, the machine runs and consumes energy every 5 seconds (10 ticks), and produces output every 100 seconds (200 ticks).
+
+## Credits
+
+Thanks to Mooy1 for creating the original InfinityExpansion plugin.
+
+Thanks to everyone who helped me with the programming issues I had.  
+Thanks to everyone who provided suggestions, ideas and feedbacks (including those who submitted PRs to InfinityExpansion).
+Thanks to everyone who tested the plugin during development.
+
