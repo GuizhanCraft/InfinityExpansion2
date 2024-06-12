@@ -4,6 +4,7 @@ package net.guizhanss.infinityexpansion2.core.menu
 
 import io.github.thebusybiscuit.slimefun4.api.items.groups.FlexItemGroup
 import io.github.thebusybiscuit.slimefun4.api.player.PlayerProfile
+import io.github.thebusybiscuit.slimefun4.core.guide.GuideHistory
 import io.github.thebusybiscuit.slimefun4.core.guide.SlimefunGuideMode
 import io.github.thebusybiscuit.slimefun4.core.services.sounds.SoundEffect
 import io.github.thebusybiscuit.slimefun4.implementation.Slimefun
@@ -45,17 +46,40 @@ abstract class FlexGroup(
         mode == SlimefunGuideMode.SURVIVAL_MODE
 
     override fun open(p: Player, profile: PlayerProfile, mode: SlimefunGuideMode) {
-        profile.guideHistory.add(this, 1)
-
         val menu = ChestMenu(getGuideTitle(p))
 
         menu.setEmptySlotsClickable(false)
-        menu.addMenuOpeningHandler { pl -> SoundEffect.GUIDE_BUTTON_CLICK_SOUND.playFor(pl) }
+        menu.addMenuOpeningHandler { SoundEffect.GUIDE_BUTTON_CLICK_SOUND.playFor(it) }
 
         setupBorder(p, profile, mode, menu)
-        setupPage(p, profile, mode, menu, 1)
+        setupPage(p, profile, mode, menu, getLastPage(profile))
 
         menu.open(p)
+    }
+
+    /**
+     * A very hacky way to get the last page from guide history, since flex group does not have a page field.
+     */
+    private fun getLastPage(profile: PlayerProfile): Int {
+        try {
+            val getEntryMethod = GuideHistory::class.java.getDeclaredMethod("getLastEntry", Boolean::class.java)
+            getEntryMethod.isAccessible = true
+            val entry = getEntryMethod.invoke(profile.guideHistory, false) ?: return 1
+
+            val entryClass = Class.forName("io.github.thebusybiscuit.slimefun4.core.guide.GuideEntry")
+            val entryGetObjMethod = entryClass.getDeclaredMethod("getIndexedObject")
+            entryGetObjMethod.isAccessible = true
+            val obj = entryGetObjMethod.invoke(entry)
+
+            if (obj is FlexGroup) {
+                val entryGetPageMethod = entryClass.getDeclaredMethod("getPage")
+                entryGetPageMethod.isAccessible = true
+                return entryGetPageMethod.invoke(entry) as? Int ?: 1
+            }
+        } catch (_: Exception) {
+            // ignored, fallback to 1
+        }
+        return 1
     }
 
     open fun setupBorder(p: Player, profile: PlayerProfile, mode: SlimefunGuideMode, menu: ChestMenu) {
@@ -81,6 +105,8 @@ abstract class FlexGroup(
     open fun setupPage(
         p: Player, profile: PlayerProfile, mode: SlimefunGuideMode, menu: ChestMenu, page: Int
     ) {
+        profile.guideHistory.add(this, page)
+
         val pages = ceil(_menuItems.size / PAGE_SIZE.toDouble()).toInt()
         val startIdx = (page - 1) * PAGE_SIZE
         val endIdx = min(startIdx + PAGE_SIZE, _menuItems.size)
@@ -106,6 +132,7 @@ abstract class FlexGroup(
         if (page > 1) {
             menu.replaceExistingItem(PAGE_PREV, ChestMenuUtils.getPreviousButton(p, page, pages))
             menu.addMenuClickHandler(PAGE_PREV) { _, _, _, _ ->
+                SoundEffect.GUIDE_BUTTON_CLICK_SOUND.playFor(p)
                 setupPage(p, profile, mode, menu, page - 1)
                 false
             }
@@ -118,6 +145,7 @@ abstract class FlexGroup(
         if (page < pages) {
             menu.replaceExistingItem(PAGE_NEXT, ChestMenuUtils.getNextButton(p, page, pages))
             menu.addMenuClickHandler(PAGE_NEXT) { _, _, _, _ ->
+                SoundEffect.GUIDE_BUTTON_CLICK_SOUND.playFor(p)
                 setupPage(p, profile, mode, menu, page + 1)
                 false
             }

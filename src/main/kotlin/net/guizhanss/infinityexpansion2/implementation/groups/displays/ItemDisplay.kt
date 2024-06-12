@@ -12,6 +12,9 @@ import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.utils.createKey
 import org.bukkit.entity.Player
 
+/**
+ * A fake [ItemGroup] that displays a [SlimefunItem].
+ */
 abstract class ItemDisplay(protected val sfItem: SlimefunItem) :
     FlexItemGroup(sfItem.id.createKey(), sfItem.item.clone()) {
     override fun isVisible(p: Player, profile: PlayerProfile, mode: SlimefunGuideMode) = false

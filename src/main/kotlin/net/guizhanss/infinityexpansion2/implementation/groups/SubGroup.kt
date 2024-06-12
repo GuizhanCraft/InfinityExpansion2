@@ -1,3 +1,5 @@
+@file:Suppress("deprecation")
+
 package net.guizhanss.infinityexpansion2.implementation.groups
 
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup
