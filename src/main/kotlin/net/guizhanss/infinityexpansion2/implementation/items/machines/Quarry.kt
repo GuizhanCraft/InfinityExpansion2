@@ -10,6 +10,8 @@ import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.core.items.attributes.InformationalRecipeDisplayItem
 import net.guizhanss.infinityexpansion2.core.menu.MenuLayout
 import net.guizhanss.infinityexpansion2.implementation.items.machines.abstracts.AbstractTickingMachine
+import net.guizhanss.infinityexpansion2.implementation.items.tools.Oscillator
+import net.guizhanss.infinityexpansion2.utils.isAir
 import net.guizhanss.infinityexpansion2.utils.items.GuiItems
 import net.guizhanss.infinityexpansion2.utils.toItemStack
 import org.bukkit.Material
@@ -52,11 +54,25 @@ class Quarry(
     private fun produce(menu: BlockMenu): ItemStack? {
         val env = menu.location.world.environment
         val pool = InfinityExpansion2.configService.quarryPools[env] ?: return null
-        if (Random.nextDouble() <= chanceSetting.value) {
-            val oscillator = menu.getItemInSlot(inputSlots[0])
-            // TODO: oscillator
+        if (Random.nextDouble() <= chanceSetting.value) { // base chance
+            val oscillatorItem = menu.getItemInSlot(inputSlots[0])
+            // check if oscillator doesn't exist, not applicable to current pool, or it doesn't activate
+            return if (oscillatorItem == null || !Oscillator.isOscillator(oscillatorItem)
+                || Oscillator.getTarget(oscillatorItem) !in pool.products.keys
+                || Random.nextDouble() > Oscillator.getChance(oscillatorItem)
+            ) {
+                // normal product from pool
+                CustomItemStack(pool.getRandomProduct().toItemStack(), speed)
+            } else {
+                // oscillator product
+                CustomItemStack(Oscillator.getTarget(oscillatorItem)!!.toItemStack(), speed)
+            }
         }
-        val baseProduct = pool.baseProduct.toItemStack()
+
+        // should product base product
+        val baseProduct = pool.baseProduct.toItemStack().let {
+            if (it.isAir()) ItemStack(Material.COBBLESTONE) else it
+        }
         return baseProduct.clone().apply { amount = speed }
     }
 
@@ -93,5 +109,5 @@ class Quarry(
 
     override fun getDividerItem() = GuiItems.RECIPES
 
-    companion object {}
+    companion object
 }

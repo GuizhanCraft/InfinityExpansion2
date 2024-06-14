@@ -1,5 +1,7 @@
 package net.guizhanss.infinityexpansion2.core.services
 
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem
+import io.github.thebusybiscuit.slimefun4.libraries.dough.items.ItemUtils
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.implementation.listeners.TranslationsLoadListener
 import net.guizhanss.infinityexpansion2.utils.items.MaterialType
@@ -11,6 +13,7 @@ import net.guizhanss.slimefuntranslation.utils.FileUtils
 import org.bukkit.Material
 import org.bukkit.configuration.file.YamlConfiguration
 import org.bukkit.entity.Player
+import org.bukkit.inventory.ItemStack
 import java.io.File
 
 class IntegrationService(private val plugin: InfinityExpansion2) {
@@ -64,6 +67,15 @@ class IntegrationService(private val plugin: InfinityExpansion2) {
             SlimefunTranslationAPI.getItemName(SlimefunTranslationAPI.getUser(p), id)
         } else {
             InfinityExpansion2.localization.getItemName(id, *extraLore)
+        }
+    }
+
+    fun getTranslatedItemName(p: Player, item: ItemStack): String {
+        val sfId = SlimefunItem.getByItem(item)?.id ?: return ItemUtils.getItemName(item)
+        return if (slimefunTranslationEnabled) {
+            SlimefunTranslationAPI.getItemName(SlimefunTranslationAPI.getUser(p), sfId)
+        } else {
+            ItemUtils.getItemName(item)
         }
     }
 }

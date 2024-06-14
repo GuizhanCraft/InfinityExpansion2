@@ -73,7 +73,7 @@ class ConfigService(plugin: InfinityExpansion2) {
         mobSimInterval = config.getInt("mob-simulation.output-interval", 20).clamp(1, 3600)
         mobSimExpMultiplier = config.getDouble("mob-simulation.exp-multiplier", 1.0).clamp(0.0, 1000.0)
         quarryInterval = config.getInt("quarry.output-interval", 10).clamp(1, 3600)
-        quarryOcsillators = loadDoubleMap(config.getConfigurationSection("quarry.ocsillators"))
+        quarryOcsillators = loadDoubleMap(config.getConfigurationSection("quarry.oscillators"))
         quarryPools = loadEnumKeyMap<Environment, QuarryPool>(config.getConfigurationSection("quarry.pools"),
             { obj -> QuarryPool(obj as ConfigurationSection) })
         advancedAnvilMaxLevels = loadEnchantmentKeyMap(config.getConfigurationSection("advanced-anvil.max-levels"))

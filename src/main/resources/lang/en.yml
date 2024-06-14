@@ -12,6 +12,10 @@ items:
     conditions:
       force-load: true
     name: "&k.&bI&4E&a&l2&k. &a- &aSingularities"
+  _IG_SLIMEFUN_EXPANSION:
+    conditions:
+      force-load: true
+    name: "&k.&bI&4E&a&l2&k. &a- &dSlimefun Expansion"
   _IG_TOOLS:
     conditions:
       force-load: true
@@ -36,10 +40,10 @@ items:
     conditions:
       force-load: true
     name: "&k.&bI&4E&a&l2&k. &a- &6Storage"
-  _IG_SLIMEFUN_EXPANSION:
+  _IG_HIDDEN:
     conditions:
       force-load: true
-    name: "&k.&bI&4E&a&l2&k. &a- &dSlimefun Expansion"
+    name: "&k.&bI&4E&a&l2&k. &a- &4Hidden items"
 
   # recipe types
   _RECIPE_VOID_HARVESTER:
@@ -360,6 +364,8 @@ items:
     name: "&8Void Glass"
     lore:
       - "&dWitherproof"
+  OSCILLATOR_FRAME:
+    name: "&6Oscillator Frame"
 
   # items - slimefun expansion
   VOID_CAPACITOR:
@@ -537,6 +543,12 @@ items:
       1: "%sftrlore_soulbound%"
   INFINITY_HOE:
     name: "&b&lHoe of the Green Earth"
+    lore:
+      - "&bSoulbound"
+    lore-overrides:
+      1: "%sftrlore_soulbound%"
+  INFINITY_FISHING_ROD:
+    name: "&b&lInfinity Rod"
     lore:
       - "&bSoulbound"
     lore-overrides:
@@ -945,6 +957,9 @@ items:
       - ""
       - "&7Used to craft infinity items."
   # items - generators
+  # items - hidden
+  OSCILLATOR:
+    name: "&6Oscillator"
 lores:
   collect: "&7Collects:"
   produce: "&7Produces:"

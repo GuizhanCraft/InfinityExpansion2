@@ -9,6 +9,7 @@ import io.github.thebusybiscuit.slimefun4.utils.HeadTexture
 import net.guizhanss.infinityexpansion2.implementation.groups.IEItemGroups
 import net.guizhanss.infinityexpansion2.implementation.items.gears.InfinityArmor
 import net.guizhanss.infinityexpansion2.implementation.items.gears.InfinityBow
+import net.guizhanss.infinityexpansion2.implementation.items.gears.InfinityTool
 import net.guizhanss.infinityexpansion2.implementation.items.machines.CobblePress
 import net.guizhanss.infinityexpansion2.implementation.items.machines.Decompressor
 import net.guizhanss.infinityexpansion2.implementation.items.machines.DustExtractor
@@ -35,11 +36,12 @@ import net.guizhanss.infinityexpansion2.implementation.items.sfextension.Capacit
 import net.guizhanss.infinityexpansion2.implementation.items.sfextension.ChargingBench
 import net.guizhanss.infinityexpansion2.implementation.items.sfextension.GeoMiner
 import net.guizhanss.infinityexpansion2.implementation.items.sfextension.Smeltery
-import net.guizhanss.infinityexpansion2.implementation.items.gears.InfinityTool
+import net.guizhanss.infinityexpansion2.implementation.items.tools.Oscillator
 import net.guizhanss.infinityexpansion2.implementation.items.tools.Strainer
 import net.guizhanss.infinityexpansion2.implementation.items.tools.StrainerBase
 import net.guizhanss.infinityexpansion2.implementation.recipes.IERecipeTypes
 import net.guizhanss.infinityexpansion2.utils.buildHiddenPotionEffect
+import net.guizhanss.infinityexpansion2.utils.emptyRecipe
 import net.guizhanss.infinityexpansion2.utils.fillRecipe
 import net.guizhanss.infinityexpansion2.utils.items.applyInfinityGearEnchantment
 import net.guizhanss.infinityexpansion2.utils.items.buildSlimefunItem
@@ -557,6 +559,18 @@ object IEItems {
             MACHINE_PLATE, MACHINE_CORE, INFINITY_INGOT, INFINITY_INGOT, MACHINE_CORE, MACHINE_PLATE,
         )
     }
+
+    val OSCILLATOR_FRAME = buildSlimefunItem<SimpleMaterial> {
+        id = "OSCILLATOR_FRAME"
+        material = Material.IRON_BARS.convert()
+        itemGroup = IEItemGroups.MATERIALS
+        recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
+        recipe = arrayOf(
+            MACHINE_PLATE, SlimefunItems.BLISTERING_INGOT_3, MACHINE_PLATE,
+            SlimefunItems.BLISTERING_INGOT_3, null, SlimefunItems.BLISTERING_INGOT_3,
+            MACHINE_PLATE, SlimefunItems.BLISTERING_INGOT_3, MACHINE_PLATE,
+        )
+    }
     // </editor-fold>
 
     // <editor-fold desc="Slimefun Expansion" collapsed="true">
@@ -1067,7 +1081,7 @@ object IEItems {
         }
     }
 
-    val INFINITY_CROSSBOW = buildSlimefunItem<InfinityBow> {
+    val INFINITY_CROSSBOW = buildSlimefunItem<InfinityTool> {
         id = "INFINITY_CROSSBOW"
         material = Material.CROSSBOW.convert()
         itemGroup = IEItemGroups.GEAR
@@ -1625,5 +1639,15 @@ object IEItems {
     // </editor-fold>
 
     // <editor-fold desc="Generators" collapsed="true">
+    // </editor-fold>
+
+    // <editor-fold desc="Hidden" collapsed="true">
+    val OSCILLATOR = buildSlimefunItem<Oscillator> {
+        id = "OSCILLATOR"
+        material = Material.REDSTONE_TORCH.convert()
+        itemGroup = IEItemGroups.HIDDEN
+        recipeType = RecipeType.NULL
+        recipe = emptyRecipe()
+    }
     // </editor-fold>
 }

@@ -12,6 +12,18 @@ data class QuarryPool(
         section.getConfigurationSection("products")?.let { loadIntMap(it) } ?: mapOf()
     )
 
+    private val productPool = mutableListOf<String>()
+
+    init {
+        products.forEach { (product, amount) ->
+            repeat(amount) {
+                productPool.add(product)
+            }
+        }
+    }
+
+    fun getRandomProduct() = productPool.random()
+
     override fun serialize(): Map<String, Any> {
         val map = mutableMapOf<String, Any>()
         map["base-product"] = baseProduct
