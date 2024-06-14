@@ -86,6 +86,14 @@ object IEItemGroups {
         )
     )
 
+    val HIDDEN = SubGroup(
+        "hidden".createKey(),
+        InfinityExpansion2.localization.getItemGroupItem(
+            MaterialType.Material(Material.BARRIER),
+            "hidden"
+        )
+    )
+
     init {
         // TODO: Guide group
         MAIN.addSubGroups(

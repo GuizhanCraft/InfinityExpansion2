@@ -6,7 +6,7 @@ import io.github.thebusybiscuit.slimefun4.api.items.settings.IntRangeSetting
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.core.IERegistry
-import net.guizhanss.infinityexpansion2.core.attributes.InformationalRecipeDisplayItem
+import net.guizhanss.infinityexpansion2.core.items.attributes.InformationalRecipeDisplayItem
 import net.guizhanss.infinityexpansion2.utils.items.GuiItems
 import org.bukkit.entity.Player
 import org.bukkit.inventory.ItemStack

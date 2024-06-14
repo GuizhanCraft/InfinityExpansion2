@@ -4,7 +4,7 @@ import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem
 import io.github.thebusybiscuit.slimefun4.api.player.PlayerProfile
 import io.github.thebusybiscuit.slimefun4.core.guide.SlimefunGuide
 import io.github.thebusybiscuit.slimefun4.core.guide.SlimefunGuideMode
-import net.guizhanss.infinityexpansion2.core.attributes.InformationalRecipeDisplayItem
+import net.guizhanss.infinityexpansion2.core.items.attributes.InformationalRecipeDisplayItem
 import net.guizhanss.infinityexpansion2.implementation.groups.displays.InfinityWorkbenchDisplay
 import net.guizhanss.infinityexpansion2.implementation.groups.displays.InformationalDisplay
 import net.guizhanss.infinityexpansion2.implementation.groups.displays.SingularityDisplay

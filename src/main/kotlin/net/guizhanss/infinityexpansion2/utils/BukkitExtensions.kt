@@ -18,6 +18,9 @@ import org.bukkit.potion.PotionEffect
 import org.bukkit.potion.PotionEffectType
 import kotlin.reflect.full.createType
 
+/**
+ * Check if a block is waterlogged.
+ */
 fun Block.isWaterLogged(tickRate: Int = 64) = if (InfinityExpansion2.sfTickCount() % tickRate == 0) {
     val blockData = blockData
 
@@ -31,12 +34,24 @@ fun Block.isWaterLogged(tickRate: Int = 64) = if (InfinityExpansion2.sfTickCount
     location.getBoolean("water_logged")
 }
 
+/**
+ * Check if the block has light from the sky.
+ */
 fun Block.hasLightFromSky() = location.add(0.0, 1.0, 0.0).block.lightFromSky.toInt() == 15
 
+/**
+ * Check if the world is day.
+ */
 fun World.isDay() = time in 0 until 13000
 
+/**
+ * Check if the world is night.
+ */
 fun World.isNight() = time in 13000..24000
 
+/**
+ * Get a [ConfigurationSerializable] by deserializing the [ConfigurationSection].
+ */
 inline fun <reified T : ConfigurationSerializable> ConfigurationSection.getSerializable(
     key: String,
     defaultVal: T? = null,
@@ -50,22 +65,46 @@ inline fun <reified T : ConfigurationSerializable> ConfigurationSection.getSeria
     return defaultVal
 }
 
+/**
+ * Parse the string to an [ItemStack]. The result is only calculated once and cached.
+ *
+ * - If the string is a Slimefun item ID, returns the template item.
+ * - If the string is a vanilla material name, returns an item stack with the material.
+ * - Returns an air item stack if the string is invalid.
+ */
 fun String.toItemStack(): ItemStack = IERegistry.itemMapping.getOrPut(this) {
     SlimefunItem.getById(this)?.item // sf item
-        ?: Material.getMaterial(this)?.let { ItemStack(it) } // material
-        ?: ItemStack(Material.COBBLESTONE) // fallback
+        ?: Material.getMaterial(this)?.let { ItemStack(it) } // vanilla material
+        ?: ItemStack(Material.AIR) // invalid
 }
 
+/**
+ * A shortcut to check if an [ItemStack] is air.
+ */
+fun ItemStack.isAir() = type.isAir
+
+/**
+ * Retrieve the [PotionEffectType] by the name. For 1.20.5+ compatibility.
+ */
 fun getPotionEffectType(name: String) = PotionEffectType.getByKey(NamespacedKey.minecraft(name))
 
+/**
+ * Retrieve the [Enchantment] by the name. For 1.20.5+ compatibility.
+ */
 fun getEnchantment(name: String) = Enchantment.getByKey(NamespacedKey.minecraft(name))
 
+/**
+ * Build a [PotionEffect] by the name, duration, and amplifier.
+ */
 fun buildPotionEffect(name: String, duration: Int, amplifier: Int) = PotionEffect(
     getPotionEffectType(name) ?: throw IllegalArgumentException("Invalid potion effect type: $name"),
     duration,
     amplifier,
 )
 
+/**
+ * Build a hidden [PotionEffect] by the name, duration, and amplifier.
+ */
 fun buildHiddenPotionEffect(name: String, duration: Int, amplifier: Int) = PotionEffect(
     getPotionEffectType(name) ?: throw IllegalArgumentException("Invalid potion effect type: $name"),
     duration,

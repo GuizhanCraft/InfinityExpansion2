@@ -14,7 +14,7 @@ import me.mrCookieSlime.Slimefun.api.inventory.DirtyChestMenu
 import net.guizhanss.guizhanlib.slimefun.machines.TickingMenuBlock
 import net.guizhanss.guizhanlib.utils.RandomUtil
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
-import net.guizhanss.infinityexpansion2.core.attributes.InformationalRecipeDisplayItem
+import net.guizhanss.infinityexpansion2.core.items.attributes.InformationalRecipeDisplayItem
 import net.guizhanss.infinityexpansion2.core.menu.MenuLayout
 import net.guizhanss.infinityexpansion2.utils.isWaterLogged
 import net.guizhanss.infinityexpansion2.utils.items.GuiItems

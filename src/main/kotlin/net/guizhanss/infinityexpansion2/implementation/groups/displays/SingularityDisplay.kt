@@ -64,7 +64,13 @@ open class SingularityDisplay(private val singularity: Singularity) : ItemDispla
         setupIngredients(p, profile, menu, mode, 1)
     }
 
-    private fun setupIngredients(p: Player, profile: PlayerProfile, menu: ChestMenu, mode: SlimefunGuideMode, page: Int) {
+    private fun setupIngredients(
+        p: Player,
+        profile: PlayerProfile,
+        menu: ChestMenu,
+        mode: SlimefunGuideMode,
+        page: Int
+    ) {
         val startIndex = (page - 1) * 9
         val endIndex = min(startIndex + 9, singularity.ingredients.size)
         val totalPages = ceil(singularity.ingredients.size / 9.0).toInt()

@@ -92,12 +92,14 @@ quarry:
         OBSIDIAN: 1
 
   # The chance (0 to 1) of an oscillator activating each time a material would be produced
+  # The materials listed here will be registered as oscillators.
+  # The key must be a valid material ID, or a valid Slimefun item ID.
   oscillators:
-    lapis: .5
-    diamond: .5
-    redstone: .5
-    quartz: .5
-    emerald: .5
+    LAPIS_LAZULI: .5
+    DIAMOND: .5
+    REDSTONE: .5
+    QUARTZ: .5
+    EMERALD: .5
 
 # The maximum possible level of every enchantment in advanced anvil
 # all the keys are the key part of an Enchantment's NamespacedKey
@@ -157,6 +159,10 @@ infinity-gear-enchantments:
     efficiency: 40
     fortune: 20
     silk_touch: 0
+  fishing_rod:
+    unbreakable: true
+    luck_of_the_sea: 10
+    lure: 10`
   bow:
     unbreakable: true
     power: 10

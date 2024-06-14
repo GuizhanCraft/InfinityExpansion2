@@ -9,7 +9,7 @@ import io.github.thebusybiscuit.slimefun4.core.networks.energy.EnergyNetComponen
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenuPreset
 import net.guizhanss.guizhanlib.slimefun.machines.MenuBlock
-import net.guizhanss.infinityexpansion2.core.attributes.EnergyActionConsumer
+import net.guizhanss.infinityexpansion2.core.items.attributes.EnergyActionConsumer
 import net.guizhanss.infinityexpansion2.core.menu.MenuLayout
 import org.bukkit.inventory.ItemStack
 

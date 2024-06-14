@@ -2,7 +2,6 @@
 
 package net.guizhanss.infinityexpansion2.implementation.groups
 
-import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup
 import io.github.thebusybiscuit.slimefun4.api.player.PlayerProfile
 import io.github.thebusybiscuit.slimefun4.core.guide.SlimefunGuide
 import io.github.thebusybiscuit.slimefun4.core.guide.SlimefunGuideMode
@@ -20,7 +19,7 @@ class MainGroup(
     key: NamespacedKey,
     item: ItemStack
 ) : FlexGroup(key, item) {
-    fun addSubGroups(vararg groups: ItemGroup) {
+    fun addSubGroups(vararg groups: SubGroup) {
         addMenuItem(*groups.map {
             object : MenuItem {
                 override fun getItem(p: Player, profile: PlayerProfile) = it.getItem(p)

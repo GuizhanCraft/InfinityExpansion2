@@ -1,4 +1,4 @@
-@file:Suppress("deprecation", "UNUSED_CHANGED_VALUE")
+@file:Suppress("deprecation")
 
 package net.guizhanss.infinityexpansion2.implementation.groups.displays
 
@@ -9,7 +9,7 @@ import io.github.thebusybiscuit.slimefun4.core.services.sounds.SoundEffect
 import io.github.thebusybiscuit.slimefun4.implementation.Slimefun
 import io.github.thebusybiscuit.slimefun4.utils.ChestMenuUtils
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ChestMenu
-import net.guizhanss.infinityexpansion2.core.attributes.InformationalRecipeDisplayItem
+import net.guizhanss.infinityexpansion2.core.items.attributes.InformationalRecipeDisplayItem
 import net.guizhanss.infinityexpansion2.utils.displayItem
 import org.bukkit.ChatColor
 import org.bukkit.entity.Player

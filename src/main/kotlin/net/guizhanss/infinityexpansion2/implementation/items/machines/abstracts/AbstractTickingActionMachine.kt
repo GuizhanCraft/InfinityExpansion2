@@ -9,8 +9,8 @@ import io.github.thebusybiscuit.slimefun4.core.networks.energy.EnergyNetComponen
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenuPreset
 import net.guizhanss.guizhanlib.slimefun.machines.TickingMenuBlock
-import net.guizhanss.infinityexpansion2.core.attributes.CustomTickRateMachine
-import net.guizhanss.infinityexpansion2.core.attributes.EnergyActionConsumer
+import net.guizhanss.infinityexpansion2.core.items.attributes.CustomTickRateMachine
+import net.guizhanss.infinityexpansion2.core.items.attributes.EnergyActionConsumer
 import net.guizhanss.infinityexpansion2.core.menu.MenuLayout
 import net.guizhanss.infinityexpansion2.utils.items.GuiItems
 import org.bukkit.block.Block
