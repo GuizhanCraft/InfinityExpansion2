@@ -24,9 +24,8 @@ class GeoQuarry(
     energyPerTick: Int,
     outputInterval: Int,
     val speed: Int, // the amount of output
-) : AbstractTickingMachine(
-    itemGroup, itemStack, recipeType, recipe, MenuLayout.OUTPUT_ONLY, energyPerTick, outputInterval
-), InformationalRecipeDisplayItem {
+) : AbstractTickingMachine(itemGroup, itemStack, recipeType, recipe, MenuLayout.OUTPUT_ONLY, energyPerTick),
+    InformationalRecipeDisplayItem {
 
     private val outputIntervalSetting = IntRangeSetting(this, "output-interval", 1, outputInterval, 3600)
 
