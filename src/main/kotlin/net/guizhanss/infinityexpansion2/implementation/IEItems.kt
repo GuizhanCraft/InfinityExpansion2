@@ -14,6 +14,7 @@ import net.guizhanss.infinityexpansion2.implementation.items.machines.CobblePres
 import net.guizhanss.infinityexpansion2.implementation.items.machines.Decompressor
 import net.guizhanss.infinityexpansion2.implementation.items.machines.DustExtractor
 import net.guizhanss.infinityexpansion2.implementation.items.machines.ExtremeFreezer
+import net.guizhanss.infinityexpansion2.implementation.items.machines.GeoQuarry
 import net.guizhanss.infinityexpansion2.implementation.items.machines.InfinityWorkbench
 import net.guizhanss.infinityexpansion2.implementation.items.machines.IngotFormer
 import net.guizhanss.infinityexpansion2.implementation.items.machines.MaterialGenerator
@@ -1614,11 +1615,40 @@ object IEItems {
         recipe = arrayOf(
             // @formatter:off
             null, MACHINE_PLATE, MACHINE_PLATE, MACHINE_PLATE, MACHINE_PLATE, null,
-//            MACHINE_PLATE, INFINITY_PICKAXE, INFINITY_MACHINE_CIRCUIT, INFINITY_MACHINE_CIRCUIT, INFINITY_PICKAXE, MACHINE_PLATE,
+            MACHINE_PLATE, INFINITY_PICKAXE, INFINITY_MACHINE_CIRCUIT, INFINITY_MACHINE_CIRCUIT, INFINITY_PICKAXE, MACHINE_PLATE,
             MACHINE_PLATE, QUARRY_3, INFINITY_MACHINE_CORE, INFINITY_MACHINE_CORE, QUARRY_3, MACHINE_PLATE,
             VOID_INGOT, null, INFINITY_INGOT, INFINITY_INGOT, null, VOID_INGOT,
             VOID_INGOT, null, INFINITY_INGOT, INFINITY_INGOT, null, VOID_INGOT,
             VOID_INGOT, null, INFINITY_INGOT, INFINITY_INGOT, null, VOID_INGOT,
+            // @formatter:on
+        )
+    }
+
+    val GEO_QUARRY = buildSlimefunItem<GeoQuarry>(450, 400, 1) {
+        id = "GEO_QUARRY"
+        material = Material.QUARTZ_BRICKS.convert()
+        itemGroup = IEItemGroups.MACHINES
+        recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
+        recipe = arrayOf(
+            MACHINE_PLATE, VOID_INGOT, MACHINE_PLATE,
+            VOID_INGOT, ADVANCED_GEO_MINER, VOID_INGOT,
+            MACHINE_PLATE, VOID_INGOT, MACHINE_PLATE,
+        )
+    }
+
+    val GEO_QUARRY_2 = buildSlimefunItem<GeoQuarry>(90000, 120, 4) {
+        id = "GEO_QUARRY_2"
+        material = Material.QUARTZ_BRICKS.convert()
+        itemGroup = IEItemGroups.MACHINES
+        recipeType = IERecipeTypes.INFINITY_WORKBENCH
+        recipe = arrayOf(
+            // @formatter:off
+            INFINITY_INGOT, null, null, null, null, INFINITY_INGOT,
+            null, VOID_INGOT, VOID_INGOT, VOID_INGOT, VOID_INGOT, null,
+            INFINITY_MACHINE_CIRCUIT, VOID_INGOT, GEO_QUARRY, GEO_QUARRY, VOID_INGOT, INFINITY_MACHINE_CIRCUIT,
+            INFINITY_MACHINE_CIRCUIT, VOID_INGOT, GEO_QUARRY, GEO_QUARRY, VOID_INGOT, INFINITY_MACHINE_CIRCUIT,
+            null, VOID_INGOT, VOID_INGOT, VOID_INGOT, VOID_INGOT, null,
+            INFINITY_INGOT, null, null, null, null, INFINITY_INGOT,
             // @formatter:on
         )
     }

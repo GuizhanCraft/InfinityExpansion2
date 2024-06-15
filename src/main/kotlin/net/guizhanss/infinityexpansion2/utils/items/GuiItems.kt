@@ -17,11 +17,11 @@ object GuiItems {
         "wiki"
     )
     val COLLECTING = InfinityExpansion2.localization.getGuiItem(
-        MaterialType.Material(Material.GREEN_STAINED_GLASS_PANE),
+        MaterialType.Material(Material.LIME_STAINED_GLASS_PANE),
         "collecting"
     )
     val PRODUCING = InfinityExpansion2.localization.getGuiItem(
-        MaterialType.Material(Material.GREEN_STAINED_GLASS_PANE),
+        MaterialType.Material(Material.LIME_STAINED_GLASS_PANE),
         "producing"
     )
     val NO_ROOM = InfinityExpansion2.localization.getGuiItem(

@@ -951,6 +951,24 @@ items:
       - "&8\u21E8 &e⚡ &7Speed: &b64x"
     lore-overrides:
       4: "%sftrlore_Speed_64%"
+  GEO_QUARRY:
+    name: "&2Geo Quarry"
+    lore:
+      - ""
+      - "&7Automatically mines GEO resources."
+      - ""
+      - "&8\u21E8 &e⚡ &7Speed: &b1x"
+    lore-overrides:
+      4: "%sftrlore_Speed_1%"
+  GEO_QUARRY_2:
+    name: "&bInfinity &2Geo Quarry"
+    lore:
+      - ""
+      - "&7Automatically mines GEO resources."
+      - ""
+      - "&8\u21E8 &e⚡ &7Speed: &b4x"
+    lore-overrides:
+      4: "%sftrlore_Speed_4%"
   INFINITY_WORKBENCH:
     name: "&6Infinity Workbench"
     lore:

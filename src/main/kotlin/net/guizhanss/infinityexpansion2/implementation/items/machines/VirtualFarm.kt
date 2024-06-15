@@ -12,8 +12,8 @@ class VirtualFarm(
     recipeType: RecipeType,
     recipe: Array<out ItemStack?>,
     energyPerTick: Int,
-    tickRate: Int,
-) : GrowingMachine(itemGroup, itemStack, recipeType, recipe, energyPerTick, tickRate) {
+    outputInterval: Int,
+) : GrowingMachine(itemGroup, itemStack, recipeType, recipe, energyPerTick, outputInterval) {
     init {
         addRecipe(ItemStack(Material.WHEAT_SEEDS), arrayOf(ItemStack(Material.WHEAT, 2)))
         addRecipe(ItemStack(Material.CARROT), arrayOf(ItemStack(Material.CARROT, 2)))
