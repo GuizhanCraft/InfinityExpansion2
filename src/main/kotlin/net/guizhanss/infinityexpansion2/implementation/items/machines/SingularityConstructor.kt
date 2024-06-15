@@ -13,6 +13,7 @@ import net.guizhanss.infinityexpansion2.implementation.items.materials.Singulari
 import net.guizhanss.infinityexpansion2.utils.getInt
 import net.guizhanss.infinityexpansion2.utils.getString
 import net.guizhanss.infinityexpansion2.utils.items.GuiItems
+import net.guizhanss.infinityexpansion2.utils.items.dropItem
 import net.guizhanss.infinityexpansion2.utils.items.toDisplayItem
 import net.guizhanss.infinityexpansion2.utils.setInt
 import net.guizhanss.infinityexpansion2.utils.setString
@@ -31,7 +32,16 @@ class SingularityConstructor(
     InformationalRecipeDisplayItem {
     override fun onBreak(e: BlockBreakEvent, menu: BlockMenu) {
         super.onBreak(e, menu)
-        // TODO: drop the ingredient items on the ground. the first ingredient that has 1 progress
+        val l = menu.location
+        val progress = menu.getProgress()
+        val target = menu.getTarget()
+        if (progress > 0 && target != null) {
+            val singularity = getSingularity(target)
+            if (singularity != null) {
+                val entry = singularity.ingredients.entries.first { it.value == 1 }
+                entry.key.dropItem(l, progress)
+            }
+        }
     }
 
     override fun onNewInstance(menu: BlockMenu, b: Block) {
@@ -39,6 +49,7 @@ class SingularityConstructor(
         if (menu.getTarget() == null && menu.getProgress() > 0) {
             menu.setProgress(0)
         }
+
         // set the target display item
         val singularity = getSingularity(menu.getTarget())
         if (singularity != null) {
