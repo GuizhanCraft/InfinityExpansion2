@@ -7,9 +7,10 @@ import io.github.thebusybiscuit.slimefun4.core.attributes.ProtectionType
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems
 import io.github.thebusybiscuit.slimefun4.utils.HeadTexture
 import net.guizhanss.infinityexpansion2.implementation.groups.IEItemGroups
-import net.guizhanss.infinityexpansion2.implementation.items.gears.InfinityArmor
-import net.guizhanss.infinityexpansion2.implementation.items.gears.InfinityBow
-import net.guizhanss.infinityexpansion2.implementation.items.gears.InfinityTool
+import net.guizhanss.infinityexpansion2.implementation.items.gear.InfinityArmor
+import net.guizhanss.infinityexpansion2.implementation.items.gear.InfinityBoots
+import net.guizhanss.infinityexpansion2.implementation.items.gear.InfinityBow
+import net.guizhanss.infinityexpansion2.implementation.items.gear.InfinityTool
 import net.guizhanss.infinityexpansion2.implementation.items.machines.CobblePress
 import net.guizhanss.infinityexpansion2.implementation.items.machines.Decompressor
 import net.guizhanss.infinityexpansion2.implementation.items.machines.DustExtractor
@@ -997,7 +998,7 @@ object IEItems {
         }
     }
 
-    val INFINITY_BOOTS = buildSlimefunItem<InfinityArmor>(
+    val INFINITY_BOOTS = buildSlimefunItem<InfinityBoots>(
         arrayOf(
             buildHiddenPotionEffect("speed", 600, 2),
             buildHiddenPotionEffect("dolphins_grace", 600, 0),

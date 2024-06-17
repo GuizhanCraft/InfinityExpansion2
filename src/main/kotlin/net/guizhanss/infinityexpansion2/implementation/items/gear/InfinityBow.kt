@@ -1,6 +1,6 @@
 @file:Suppress("deprecation", "UnstableApiUsage")
 
-package net.guizhanss.infinityexpansion2.implementation.items.gears
+package net.guizhanss.infinityexpansion2.implementation.items.gear
 
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem
@@ -18,8 +18,6 @@ import org.bukkit.Effect
 import org.bukkit.Material
 import org.bukkit.Particle
 import org.bukkit.SoundCategory
-import org.bukkit.damage.DamageSource
-import org.bukkit.damage.DamageType
 import org.bukkit.entity.ArmorStand
 import org.bukkit.entity.Entity
 import org.bukkit.entity.LivingEntity

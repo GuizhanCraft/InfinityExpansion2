@@ -1,4 +1,4 @@
-package net.guizhanss.infinityexpansion2.implementation.items.gears
+package net.guizhanss.infinityexpansion2.implementation.items.gear
 
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
@@ -11,7 +11,7 @@ import net.guizhanss.infinityexpansion2.utils.constant.Keys
 import org.bukkit.inventory.ItemStack
 import org.bukkit.potion.PotionEffect
 
-class InfinityArmor(
+open class InfinityArmor(
     itemGroup: ItemGroup,
     itemStack: SlimefunItemStack,
     recipeType: RecipeType,
