@@ -5,6 +5,7 @@ import net.guizhanss.infinityexpansion2.utils.isDay
 import net.guizhanss.infinityexpansion2.utils.isNight
 import net.guizhanss.infinityexpansion2.utils.isWaterLogged
 import org.bukkit.World
+import org.bukkit.World.Environment
 import org.bukkit.block.Block
 
 enum class GeneratorType {
@@ -15,14 +16,14 @@ enum class GeneratorType {
     },
     GEOTHERMAL {
         override fun generate(world: World, block: Block, def: Int) = when (world.environment) {
-            World.Environment.NETHER -> def * 2
-            World.Environment.NORMAL -> def
+            Environment.NETHER -> def * 2
+            Environment.NORMAL -> def
             else -> 0
         }
     },
     SOLAR {
         override fun generate(world: World, block: Block, def: Int) = when (world.environment) {
-            World.Environment.NORMAL -> {
+            Environment.NORMAL -> {
                 if (world.isDay() && block.hasLightFromSky()) def
                 else 0
             }
@@ -32,10 +33,10 @@ enum class GeneratorType {
     },
     LUNAR {
         override fun generate(world: World, block: Block, def: Int) = when (world.environment) {
-            World.Environment.NETHER,
-            World.Environment.THE_END -> def
+            Environment.NETHER,
+            Environment.THE_END -> def
 
-            World.Environment.NORMAL -> {
+            Environment.NORMAL -> {
                 if (world.isNight() || !block.hasLightFromSky()) def
                 else 0
             }

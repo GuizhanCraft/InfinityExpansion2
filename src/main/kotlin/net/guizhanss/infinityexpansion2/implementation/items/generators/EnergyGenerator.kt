@@ -10,6 +10,7 @@ import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
 import io.github.thebusybiscuit.slimefun4.core.attributes.EnergyNetProvider
 import io.github.thebusybiscuit.slimefun4.core.handlers.BlockUseHandler
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config
+import net.guizhanss.infinityexpansion2.core.items.attributes.InformationalRecipeDisplayItem
 import org.bukkit.Location
 import org.bukkit.inventory.ItemStack
 
@@ -19,10 +20,10 @@ class EnergyGenerator(
     recipeType: RecipeType,
     recipe: Array<out ItemStack?>,
     private val type: GeneratorType,
-    defaultEnergyProduction: Int,
-) : SlimefunItem(itemGroup, itemStack, recipeType, recipe), EnergyNetProvider {
+    defaultProduction: Int,
+) : SlimefunItem(itemGroup, itemStack, recipeType, recipe), EnergyNetProvider, InformationalRecipeDisplayItem {
     private val energyProductionSetting =
-        IntRangeSetting(this, "energy-production", 1, defaultEnergyProduction, 16_777_215) // 2 ^ 24 - 1
+        IntRangeSetting(this, "energy-production", 1, defaultProduction, 16_777_215) // 2 ^ 24 - 1
 
     init {
         addItemSetting(energyProductionSetting)
@@ -31,7 +32,7 @@ class EnergyGenerator(
 
     override fun getCapacity() = energyProductionSetting.value * 128
 
-    private fun getEnergyProduction() = energyProductionSetting.value
+    fun getEnergyProduction() = energyProductionSetting.value
 
     override fun getGeneratedOutput(l: Location, data: Config) =
         type.generate(l.world!!, l.block, getEnergyProduction())

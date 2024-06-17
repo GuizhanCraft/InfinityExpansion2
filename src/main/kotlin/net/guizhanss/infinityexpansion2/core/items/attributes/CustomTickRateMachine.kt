@@ -1,8 +1,9 @@
 package net.guizhanss.infinityexpansion2.core.items.attributes
 
+import io.github.thebusybiscuit.slimefun4.core.attributes.ItemAttribute
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 
-interface CustomTickRateMachine {
+interface CustomTickRateMachine : ItemAttribute {
     fun getCustomTickRate(): Int
 
     fun shouldRun() = InfinityExpansion2.sfTickCount() % getCustomTickRate() == 0

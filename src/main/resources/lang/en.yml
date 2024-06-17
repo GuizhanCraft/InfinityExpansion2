@@ -484,7 +484,7 @@ items:
   STRAINER_BASE:
     name: "&dStrainer Base"
     lore:
-      - "&7Put a strainer in"
+      - "&7Put a strainer in,"
       - "&7and make the base waterlogged"
       - "&7to start gathering materials from water."
   POTATO_FISH:

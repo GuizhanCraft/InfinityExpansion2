@@ -1000,7 +1000,7 @@ object IEItems {
     val INFINITY_BOOTS = buildSlimefunItem<InfinityArmor>(
         arrayOf(
             buildHiddenPotionEffect("speed", 600, 2),
-            buildHiddenPotionEffect("jump_boost", 600, 2),
+            buildHiddenPotionEffect("dolphins_grace", 600, 0),
         ),
         arrayOf<ProtectionType>()
     ) {
@@ -1082,7 +1082,7 @@ object IEItems {
         }
     }
 
-    val INFINITY_CROSSBOW = buildSlimefunItem<InfinityTool> {
+    val INFINITY_CROSSBOW = buildSlimefunItem<InfinityBow> {
         id = "INFINITY_CROSSBOW"
         material = Material.CROSSBOW.convert()
         itemGroup = IEItemGroups.GEAR
