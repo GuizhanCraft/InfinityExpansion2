@@ -1,0 +1,973 @@
+items:
+  #item groups
+  _IG_MAIN:
+    conditions:
+      force-load: true
+    name: "&k-&bInfinity&4Expansion&a&l2&k-" #pay attention to the color codes when you translate this.
+  _IG_MATERIALS:
+    conditions:
+      force-load: true
+    name: "&k.&bI&4E&a&l2&k. &a- &7Materials"
+  _IG_SINGULARITIES:
+    conditions:
+      force-load: true
+    name: "&k.&bI&4E&a&l2&k. &a- &aSingularities"
+  _IG_SLIMEFUN_EXPANSION:
+    conditions:
+      force-load: true
+    name: "&k.&bI&4E&a&l2&k. &a- &dSlimefun Expansion"
+  _IG_TOOLS:
+    conditions:
+      force-load: true
+    name: "&k.&bI&4E&a&l2&k. &a- &6Tools"
+  _IG_GEAR:
+    conditions:
+      force-load: true
+    name: "&k.&bI&4E&a&l2&k. &a- &2Gear"
+  _IG_MACHINES:
+    conditions:
+      force-load: true
+    name: "&k.&bI&4E&a&l2&k. &a- &9Machines"
+  _IG_GENERATORS:
+    conditions:
+      force-load: true
+    name: "&k.&bI&4E&a&l2&k. &a- &cGenerators"
+  _IG_MOB_SIMULATION:
+    conditions:
+      force-load: true
+    name: "&k.&bI&4E&a&l2&k. &a- &bMob Simulation"
+  _IG_STORAGE:
+    conditions:
+      force-load: true
+    name: "&k.&bI&4E&a&l2&k. &a- &6Storage"
+  _IG_HIDDEN:
+    conditions:
+      force-load: true
+    name: "&k.&bI&4E&a&l2&k. &a- &4Hidden items"
+  #recipe types
+  _RECIPE_VOID_HARVESTER:
+    conditions:
+      force-load: true
+    name: "&8Void Harvester"
+    lore:
+      - "&7Harvests resources from the void."
+  _RECIPE_INFINITY_WORKBENCH:
+    conditions:
+      force-load: true
+    name: "&6Infinity Workbench"
+    lore:
+      - "&7You are here because you enter this page"
+      - "&7from Slimefun's search result."
+      - ""
+      - "&cThe recipe displayed here is incorrect and incomplete."
+      - "&cCheck the correct recipe from InfinityExpansion 2 guide."
+  _RECIPE_SINGULARITY_CONSTRUCTOR:
+    conditions:
+      force-load: true
+    name: "&bSingularity Constructor"
+    lore:
+      - "&7Condenses lots of resources"
+      - "&7to create singularities."
+  #ui items
+  _UI_GUIDE:
+    conditions:
+      force-load: true
+    name: "&aIn-game Guide"
+    lore:
+      - ""
+      - "&7\u21E8 &aClick to open"
+  _UI_WIKI:
+    conditions:
+      force-load: true
+    name: "&eWiki"
+    lore:
+      - ""
+      - "&7\u21E8 &aClick to open"
+  _UI_COLLECTING:
+    conditions:
+      force-load: true
+    name: "&aCollecting..."
+  _UI_PRODUCING:
+    conditions:
+      force-load: true
+    name: "&aProducing..."
+  _UI_NO_ROOM:
+    conditions:
+      force-load: true
+    name: "&cNot enough room"
+  _UI_NO_POWER:
+    conditions:
+      force-load: true
+    name: "&cInsufficient power"
+  _UI_INVALID_INPUT:
+    conditions:
+      force-load: true
+    name: "&cInvalid input"
+  _UI_PROGRESS:
+    conditions:
+      force-load: true
+    name: "&eProgress:"
+  _UI_WORLD_NORMAL:
+    conditions:
+      force-load: true
+    name: "&2Normal world"
+  _UI_WORLD_NETHER:
+    conditions:
+      force-load: true
+    name: "&4Nether"
+  _UI_WORLD_THE_END:
+    conditions:
+      force-load: true
+    name: "&5The End"
+  #display recipe info items
+  _UI_PRODUCES:
+    conditions:
+      force-load: true
+    name: "&aProduces:"
+  _UI_RECIPES:
+    conditions:
+      force-load: true
+    name: "&eRecipes:"
+  _UI_TICK_RATE:
+    conditions:
+      force-load: true
+    name: "&eTick rate:"
+  _UI_ENERGY_CONSUMPTION:
+    conditions:
+      force-load: true
+    name: "&eEnergy consumption:"
+  _UI_ENERGY_PRODUCTION:
+    conditions:
+      force-load: true
+    name: "&eEnergy production:"
+  _UI_OUTPUT_INTERVAL:
+    conditions:
+      force-load: true
+    name: "&eOutput interval:"
+  _UI_PROGRESS_TOTAL:
+    conditions:
+      force-load: true
+    name: "&eTotal progress required:"
+  _UI_PROGRESS_INCREASE:
+    conditions:
+      force-load: true
+    name: "&eIncrease progress:"
+  _UI_CHANCE:
+    conditions:
+      force-load: true
+    name: "&eChance:"
+  #strainer specific
+  _UI_ANY_STRAINER:
+    conditions:
+      force-load: true
+    name: "&aAny Strainer"
+  #stoneworks factory specific
+  _UI_SW_CHANGE:
+    conditions:
+      force-load: true
+    name: "&eClick the item below to change action"
+  _UI_SW_NONE:
+    conditions:
+      force-load: true
+    name: "&cNo action"
+  _UI_SW_FURNACE:
+    conditions:
+      force-load: true
+    name: "&eSmelting"
+  _UI_SW_CRUSH:
+    conditions:
+      force-load: true
+    name: "&eCrushing"
+  _UI_SW_COMPACT:
+    conditions:
+      force-load: true
+    name: "&eCompacting"
+  _UI_SW_TRANSFORM:
+    conditions:
+      force-load: true
+    name: "&eTransforming"
+  #items - guide
+  _GUIDE_INTRO:
+    name: "&eIntroduction"
+    lore:
+      - "&7Welcome to Infinity Expansion 2 (IE2)!"
+      - "&7This guide will help you"
+      - "&7get familiar with IE2's guide"
+      - "&7and of course this addon's content."
+      - ""
+      - "&7If you have played Infinity Expansion before,"
+      - "&7you only need to read the \"information\" guide."
+  _GUIDE_INFO:
+    name: "&eInformation"
+    lore:
+      - "&7IE2 is more customizable."
+      - "&7Server owners can change"
+      - "&7a various of attributes of an item,"
+      - "&7including tick rate, energy consumption."
+      - ""
+      - "&7These information will not be displayed"
+      - "&7in the item's lore anymore, but"
+      - "&7in the item's guide menu."
+      - ""
+      - "&7The next guide item shows the fields that"
+      - "&7can be shown in the item's guide menu."
+  _GUIDE_INFO_FIELDS:
+    name: "&eInformation Fields"
+    lore:
+      - "&eTick rate &7(Slimefun tick)"
+      - "&7Determines how often the machine runs."
+      - "&7i.e. The machine runs every N tick(s)."
+      - ""
+      - "&eEnergy consumption"
+      - "&7The amount of energy the machine consumes"
+      - "&7per tick, per second, or per use."
+      - ""
+      - "&eEnergy production"
+  #items - singularities
+  IRON_SINGULARITY:
+    name: "&7Iron Singularity"
+  GOLD_SINGULARITY:
+    name: "&6Gold Singularity"
+  LAPIS_SINGULARITY:
+    name: "&9Lapis Singularity"
+  REDSTONE_SINGULARITY:
+    name: "&cRedstone Singularity"
+  QUARTZ_SINGULARITY:
+    name: "&fQuartz Singularity"
+  COPPER_SINGULARITY:
+    name: "&6Copper Singularity"
+  TIN_SINGULARITY:
+    name: "&7Tin Singularity"
+  LEAD_SINGULARITY:
+    name: "&8Lead Singularity"
+  SILVER_SINGULARITY:
+    name: "&7Silver Singularity"
+  ZINC_SINGULARITY:
+    name: "&7Zinc Singularity"
+  ALUMINUM_SINGULARITY:
+    name: "&7Aluminum Singularity"
+  MAGNESIUM_SINGULARITY:
+    name: "&dMagnesium Singularity"
+  DIAMOND_SINGULARITY:
+    name: "&bDiamond Singularity"
+  EMERALD_SINGULARITY:
+    name: "&aEmerald Singularity"
+  NETHERITE_SINGULARITY:
+    name: "&4Netherite Singularity"
+  COAL_SINGULARITY:
+    name: "&8Coal Singularity"
+  INFINITY_SINGULARITY:
+    name: "&bInfinity Singularity"
+  FORTUNE_SINGULARITY:
+    name: "&6Fortune Singularity"
+  MAGIC_SINGULARITY:
+    name: "&5Magic Singularity"
+  EARTH_SINGULARITY:
+    name: "&aEarth Singularity"
+  METAL_SINGULARITY:
+    name: "&8Metal Singularity"
+  #items - materials
+  ENDER_ESSENCE:
+    conditions:
+      match-lore: true
+    name: "&5Ender Essence"
+    lore:
+      - "&8&oFrom the depths of the end..."
+  COMPRESSED_COBBLESTONE_1:
+    name: "&7Single Compressed Cobblestone"
+    lore:
+      - "&89 cobblestones combined."
+  COMPRESSED_COBBLESTONE_2:
+    name: "&7Double Compressed Cobblestone"
+    lore:
+      - "&881 cobblestones combined."
+  COMPRESSED_COBBLESTONE_3:
+    name: "&7Triple Compressed Cobblestone"
+    lore:
+      - "&8729 cobblestones combined."
+  COMPRESSED_COBBLESTONE_4:
+    name: "&7Quadruple Compressed Cobblestone"
+    lore:
+      - "&86,561 cobblestones combined."
+  COMPRESSED_COBBLESTONE_5:
+    name: "&7Quintuple Compressed Cobblestone"
+    lore:
+      - "&859,049 cobblestones combined."
+  MAGSTEEL:
+    name: "&4MagSteel"
+  TITANIUM:
+    name: "&7Titanium"
+  MYTHRIL:
+    name: "&bMythril"
+  ADAMANTITE:
+    name: "&dAdamantite"
+  MAGNONIUM:
+    name: "&5Magnonium"
+  VOID_BIT:
+    name: "&8Void Bit"
+    lore:
+      - "&7&oIt feels... empty."
+  VOID_DUST:
+    name: "&8Void Dust"
+    lore:
+      - "&7&oIt is starting to form..."
+  VOID_INGOT:
+    name: "&8Void Ingot"
+    lore:
+      - "&7&oThe emptiness of the cosmos"
+      - "&7&oin the palm of your hand."
+  VOID_BLOCK:
+    name: "&8Void Block"
+    lore:
+      - "&7&oMore emptiness than you can handle."
+      - ""
+      - "&dWitherproof"
+  INFINITY_INGOT:
+    name: "&bInfinity Ingot"
+    lore:
+      - "&7&oThe fury of the cosmos"
+      - "&7&oin the palm of your hand."
+  MAGSTEEL_PLATE:
+    name: "&4MagSteel Plate"
+    lore:
+      - "&7Machine Component"
+  MACHINE_CIRCUIT:
+    name: "&6Machine Circuit"
+    lore:
+      - "&7Machine Component"
+  INFINITY_MACHINE_CIRCUIT:
+    name: "&bInfinity &7Machine Circuit"
+    lore:
+      - "&7Machine Component"
+  MACHINE_CORE:
+    name: "&fMachine Core"
+    lore:
+      - "&7Machine Component"
+  INFINITY_MACHINE_CORE:
+    name: "&bInfinity &fMachine Core"
+    lore:
+      - "&7Machine Component"
+  MACHINE_PLATE:
+    name: "&fMachine Plate"
+    lore:
+      - "&7Machine Component"
+  VOID_GLASS:
+    name: "&8Void Glass"
+    lore:
+      - "&dWitherproof"
+  OSCILLATOR_FRAME:
+    name: "&6Oscillator Frame"
+  #items - slimefun expansion
+  VOID_CAPACITOR:
+    name: "&8Void Capacitor"
+    lore:
+      - ""
+      - "&8\u21E8 &e⚡ 16,000,000 &7J Capacity"
+    lore-overrides:
+      2: "%sftrlore_PowerCapacity_16000000%"
+  INFINITY_CAPACITOR:
+    name: "&bInfinity Capacitor"
+    lore:
+      - ""
+      - "&8\u21E8 &e⚡ 2,000,000,000 &7J Capacity"
+    lore-overrides:
+      2: "%sftrlore_PowerCapacity_2000000000%"
+  ADVANCED_ENCHANTER:
+    name: "&cAdvanced Enchanter"
+    lore:
+      - ""
+      - "&8\u21E8 &e⚡ &7Speed: &b5x"
+      - "&8\u21E8 &e⚡ &7180 J/t"
+    lore-overrides:
+      2: "%sftrlore_Speed_5%"
+      3: "%sftrlore_PowerPerTick_180%"
+  INFINITY_ENCHANTER:
+    name: "&bInfinity Enchanter"
+    lore:
+      - ""
+      - "&8\u21E8 &e⚡ &7Speed: &b75x"
+      - "&8\u21E8 &e⚡ &712,000 J/t"
+    lore-overrides:
+      2: "%sftrlore_Speed_10%"
+      3: "%sftrlore_PowerPerTick_12000%"
+  ADVANCED_DISENCHANTER:
+    name: "&cAdvanced Disenchanter"
+    lore:
+      - ""
+      - "&8\u21E8 &e⚡ &7Speed: &b5x"
+      - "&8\u21E8 &e⚡ &7180 J/t"
+    lore-overrides:
+      2: "%sftrlore_Speed_5%"
+      3: "%sftrlore_PowerPerTick_180%"
+  INFINITY_DISENCHANTER:
+    name: "&bInfinity Disenchanter"
+    lore:
+      - ""
+      - "&8\u21E8 &e⚡ &7Speed: &b90x"
+      - "&8\u21E8 &e⚡ &712,000 J/t"
+    lore-overrides:
+      2: "%sftrlore_Speed_90%"
+      3: "%sftrlore_PowerPerTick_12000%"
+  ADVANCED_CHARGER:
+    name: "&cAdvanced Charger"
+    lore:
+      - ""
+      - "&8\u21E8 &e⚡ &7Speed: &b30x"
+      - "&8\u21E8 &e⚡ &7180 J/t"
+    lore-overrides:
+      2: "%sftrlore_Speed_30%"
+      3: "%sftrlore_PowerPerTick_180%"
+  INFINITY_CHARGER:
+    name: "&bInfinity Charger"
+    lore:
+      - ""
+      - "&8\u21E8 &e⚡ &7Speed: &b6000x"
+      - "&8\u21E8 &e⚡ &760,000 J/t"
+    lore-overrides:
+      2: "%sftrlore_Speed_6000%"
+      3: "%sftrlore_PowerPerTick_60000%"
+  ADVANCED_GEO_MINER:
+    name: "&cAdvanced Geo Miner"
+    lore:
+      - ""
+      - "&8\u21E8 &e⚡ &7Speed: &b4x"
+      - "&8\u21E8 &e⚡ &7120 J/t"
+    lore-overrides:
+      2: "%sftrlore_Speed_4%"
+      3: "%sftrlore_PowerPerTick_120%"
+  INFINITY_GEO_MINER:
+    name: "&bInfinity Geo Miner"
+    lore:
+      - ""
+      - "&8\u21E8 &e⚡ &7Speed: &b64x"
+      - "&8\u21E8 &e⚡ &712,000 J/t"
+    lore-overrides:
+      2: "%sftrlore_Speed_64%"
+      3: "%sftrlore_PowerPerTick_12000%"
+  ADVANCED_SMELTERY:
+    name: "&cAdvanced Smeltery"
+    lore:
+      - ""
+      - "&8\u21E8 &e⚡ &7Speed: &b24x"
+      - "&8\u21E8 &e⚡ &7240 J/t"
+    lore-overrides:
+      2: "%sftrlore_Speed_24%"
+      3: "%sftrlore_PowerPerTick_240%"
+  VOID_SMELTERY:
+    name: "&8Void Smeltery"
+    lore:
+      - ""
+      - "&8\u21E8 &e⚡ &7Speed: &b72x"
+      - "&8\u21E8 &e⚡ &71200 J/t"
+    lore-overrides:
+      2: "%sftrlore_Speed_72%"
+      3: "%sftrlore_PowerPerTick_1200%"
+  #items - tools
+  ENDER_FLAME:
+    name: "&c&lEnder Flame"
+  VEIN_MINER_RUNE:
+    name: "&bVein Miner Rune"
+    lore:
+      - "&7Throw this rune on a dropped tool."
+      - "&7It will be imbued with the power of the rune."
+  STRAINER_BASE:
+    name: "&dStrainer Base"
+    lore:
+      - "&7Put a strainer in,"
+      - "&7and make the base waterlogged"
+      - "&7to start gathering materials from water."
+  POTATO_FISH:
+    conditions:
+      force-load: true
+    name: "&7:&6Potatofish&7:"
+    lore:
+      - "&eLucky"
+  STRAINER_1:
+    name: "&9Basic Strainer"
+    lore:
+      - "&7Collects materials from flowing water."
+      - ""
+      - "&7Unbreaking and Mending enchantment"
+      - "&7can increase the durability of this item."
+      - "&cUnbreakable does not work."
+      - ""
+      - "&7Chance: 30%"
+  STRAINER_2:
+    name: "&cAdvanced Strainer"
+    lore:
+      - "&7Collects materials from flowing water."
+      - ""
+      - "&7Unbreaking and Mending enchantment"
+      - "&7can increase the durability of this item."
+      - "&cUnbreakable does not work."
+      - ""
+      - "&7Chance: 60%"
+  STRAINER_3:
+    name: "&bReinforced Strainer"
+    lore:
+      - "&7Collects materials from flowing water."
+      - ""
+      - "&7Unbreaking and Mending enchantment"
+      - "&7can increase the durability of this item."
+      - "&cUnbreakable does not work."
+      - ""
+      - "&7Chance: 90%"
+  INFINITY_PICKAXE:
+    name: "&b&lWorld Breaker"
+    lore:
+      - "&bSoulbound"
+    lore-overrides:
+      1: "%sftrlore_soulbound%"
+  INFINITY_AXE:
+    name: "&b&lNature's Ruin"
+    lore:
+      - "&bSoulbound"
+    lore-overrides:
+      1: "%sftrlore_soulbound%"
+  INFINITY_SHOVEL:
+    name: "&b&lMountain Eater"
+    lore:
+      - "&bSoulbound"
+    lore-overrides:
+      1: "%sftrlore_soulbound%"
+  INFINITY_HOE:
+    name: "&b&lHoe of the Green Earth"
+    lore:
+      - "&bSoulbound"
+    lore-overrides:
+      1: "%sftrlore_soulbound%"
+  INFINITY_FISHING_ROD:
+    name: "&b&lInfinity Rod"
+    lore:
+      - "&bSoulbound"
+    lore-overrides:
+      1: "%sftrlore_soulbound%"
+  INFINITY_MATRIX:
+    name: "&fInfinity Matrix"
+    lore:
+      - "&6Provides creative flight"
+      - ""
+      - "&7Right-Click to enable/disable and claim"
+      - "&7Crouch and Right-Click to remove ownership"
+      - ""
+      - "&bSoulbound"
+    lore-overrides:
+      6: "%sftrlore_soulbound%"
+  #items - gears
+  INFINITY_HELMET:
+    name: "&b&lInfinity Crown"
+    lore:
+      - "&7Night Vision I"
+      - "&7Conduit Power I"
+      - "&7Elytra Crash Immunity"
+      - "&bSoulbound"
+    lore-overrides:
+      4: "%sftrlore_soulbound%"
+  INFINITY_CHESTPLATE:
+    name: "&b&lInfinity Chestplate"
+    lore:
+      - "&7Strength II"
+      - "&7Resistance I"
+      - "&7Fire Resistance I"
+      - "&7Bee Sting Immunity"
+      - "&bSoulbound"
+    lore-overrides:
+      5: "%sftrlore_soulbound%"
+  INFINITY_LEGGINGS:
+    name: "&b&lInfinity Leggings"
+    lore:
+      - "&7Haste III"
+      - "&7Regeneration I"
+      - "&7Saturation I"
+      - "&7Radiation Immunity"
+      - "&bSoulbound"
+    lore-overrides:
+      5: "%sftrlore_soulbound%"
+  INFINITY_BOOTS:
+    name: "&b&lInfinity Boots"
+    lore:
+      - "&7Speed III"
+      - "&7Dolphins Grace I"
+      - "&7Fall Damage Immunity"
+      - "&bSoulbound"
+    lore-overrides:
+      3: "%sftrlore_soulbound%"
+  INFINITY_SHIELD:
+    name: "&b&lCosmic Aegis"
+    lore:
+      - "&bSoulbound"
+    lore-overrides:
+      1: "%sftrlore_soulbound%"
+  INFINITY_SWORD:
+    name: "&b&lBlade of the Cosmos"
+    lore:
+      - "&bSoulbound"
+    lore-overrides:
+      1: "%sftrlore_soulbound%"
+  INFINITY_BOW:
+    name: "&b&lSky Piercer"
+    lore:
+      - "&bSoulbound"
+    lore-overrides:
+      1: "%sftrlore_soulbound%"
+  INFINITY_CROSSBOW:
+    name: "&b&lStar Shooter"
+    lore:
+      - "&bSoulbound"
+    lore-overrides:
+      1: "%sftrlore_soulbound%"
+  #machines
+  COBBLESTONE_GENERATOR:
+    name: "&8Cobblestone Generator"
+    lore:
+      - ""
+      - "&7Produces cobblestone."
+      - ""
+      - "&8\u21E8 &e⚡ &7Speed: &b1x"
+    lore-overrides:
+      4: "%sftrlore_Speed_1%"
+      5: "%sftrlore_PowerPerTick_24%"
+  COBBLESTONE_GENERATOR_2:
+    name: "&cAdvanced &8Cobblestone Generator"
+    lore:
+      - ""
+      - "&7Produces cobblestone."
+      - ""
+      - "&8\u21E8 &e⚡ &7Speed: &b4x"
+    lore-overrides:
+      4: "%sftrlore_Speed_4%"
+  COBBLESTONE_GENERATOR_3:
+    name: "&7Void &8Cobblestone Generator"
+    lore:
+      - ""
+      - "&7Produces cobblestone."
+      - ""
+      - "&8\u21E8 &e⚡ &7Speed: &b16x"
+    lore-overrides:
+      4: "%sftrlore_Speed_16%"
+  COBBLESTONE_GENERATOR_4:
+    name: "&bInfinity &8Cobblestone Generator"
+    lore:
+      - ""
+      - "&7Produces cobblestone."
+      - ""
+      - "&8\u21E8 &e⚡ &7Speed: &b64x"
+    lore-overrides:
+      4: "%sftrlore_Speed_64%"
+  VIRTUAL_FARM:
+    name: "&aVirtual Farm"
+    lore:
+      - ""
+      - "&7Automatically grows, harvests,"
+      - "&7and replant crops."
+  VIRTUAL_FARM_2:
+    name: "&cAdvanced &aVirtual Farm"
+    lore:
+      - ""
+      - "&7Automatically grows, harvests,"
+      - "&7and replant crops."
+  VIRTUAL_FARM_3:
+    name: "&7Void &aVirtual Farm"
+    lore:
+      - ""
+      - "&7Automatically grows, harvests,"
+      - "&7and replant crops."
+  VIRTUAL_FARM_4:
+    name: "&bInfinity &aVirtual Farm"
+    lore:
+      - ""
+      - "&7Automatically grows, harvests,"
+      - "&7and replant crops."
+  TREE_GROWER:
+    name: "&2Tree Grower"
+    lore:
+      - ""
+      - "&7Automatically grows, harvests,"
+      - "&7and replant trees."
+  TREE_GROWER_2:
+    name: "&cAdvanced &2Tree Grower"
+    lore:
+      - ""
+      - "&7Automatically grows, harvests,"
+      - "&7and replant trees."
+  TREE_GROWER_3:
+    name: "&7Void &2Tree Grower"
+    lore:
+      - ""
+      - "&7Automatically grows, harvests,"
+      - "&7and replant trees."
+  TREE_GROWER_4:
+    name: "&bInfinity &2Tree Grower"
+    lore:
+      - ""
+      - "&7Automatically grows, harvests,"
+      - "&7and replant trees."
+  VOID_HARVESTER:
+    name: "&8Void Harvester"
+    lore:
+      - ""
+      - "&7Harvests resources from the void."
+      - ""
+      - "&8\u21E8 &e⚡ &7Speed: &b1x"
+    lore-overrides:
+      4: "%sftrlore_Speed_1%"
+  VOID_HARVESTER_2:
+    name: "&cAdvanced &8Void Harvester"
+    lore:
+      - ""
+      - "&7Harvests resources from the void."
+      - ""
+      - "&8\u21E8 &e⚡ &7Speed: &b16x"
+    lore-overrides:
+      4: "%sftrlore_Speed_16%"
+  VOID_HARVESTER_3:
+    name: "&bInfinity &8Void Harvester"
+    lore:
+      - ""
+      - "&7Harvests resources from the void."
+      - ""
+      - "&8\u21E8 &e⚡ &7Speed: &b64x"
+    lore-overrides:
+      4: "%sftrlore_Speed_64%"
+  STONEWORKS_FACTORY:
+    name: "&8Stoneworks Factory"
+    lore:
+      - ""
+      - "&7Generates cobblestone and"
+      - "&7processes it into various materials."
+      - ""
+      - "&8\u21E8 &e⚡ &7Speed: &b1x"
+    lore-overrides:
+      5: "%sftrlore_Speed_1%"
+  STONEWORKS_FACTORY_2:
+    name: "&cAdvanced &8Stoneworks Factory"
+    lore:
+      - ""
+      - "&7Generates cobblestone and"
+      - "&7processes it into various materials."
+      - ""
+      - "&8\u21E8 &e⚡ &7Speed: &b4x"
+    lore-overrides:
+      5: "%sftrlore_Speed_4%"
+  STONEWORKS_FACTORY_3:
+    name: "&7Void &8Stoneworks Factory"
+    lore:
+      - ""
+      - "&7Generates cobblestone and"
+      - "&7processes it into various materials."
+      - ""
+      - "&8\u21E8 &e⚡ &7Speed: &b16x"
+    lore-overrides:
+      5: "%sftrlore_Speed_16%"
+  STONEWORKS_FACTORY_4:
+    name: "&bInfinity &8Stoneworks Factory"
+    lore:
+      - ""
+      - "&7Generates cobblestone and"
+      - "&7processes it into various materials."
+      - ""
+      - "&8\u21E8 &e⚡ &7Speed: &b64x"
+    lore-overrides:
+      5: "%sftrlore_Speed_64%"
+  SINGULARITY_CONSTRUCTOR:
+    name: "&bSingularity Constructor"
+    lore:
+      - ""
+      - "&7Condenses lots of resources"
+      - "&7to create singularities."
+      - ""
+      - "&8\u21E8 &e⚡ &7Speed: &b1x"
+    lore-overrides:
+      5: "%sftrlore_Speed_1%"
+  RESOURCE_SYNTHESIZER:
+    name: "&6Resource Synthesizer"
+    lore:
+      - ""
+      - "&7Combines 2 singularities"
+      - "&7to create resources."
+  OBSIDIAN_GENERATOR:
+    name: "&8Obsidian Generator"
+    lore:
+      - ""
+      - "&7Produces obsidian."
+      - ""
+      - "&8\u21E8 &e⚡ &7Speed: &b1x"
+    lore-overrides:
+      4: "%sftrlore_Speed_1%"
+  EXTREME_FREEZER:
+    name: "&bExtreme Freezer"
+    lore:
+      - ""
+      - "&7Used to make coolants."
+      - ""
+      - "&8\u21E8 &e⚡ &7Speed: &b1x"
+    lore-overrides:
+      4: "%sftrlore_Speed_1%"
+  DUST_EXTRACTOR:
+    name: "&7Dust Extractor"
+    lore:
+      - ""
+      - "&7Extracts dust from stone variants."
+      - ""
+      - "&8\u21E8 &e⚡ &7Speed: &b1x"
+    lore-overrides:
+      4: "%sftrlore_Speed_1%"
+  DUST_EXTRACTOR_2:
+    name: "&cAdvanced &7Dust Extractor"
+    lore:
+      - ""
+      - "&7Extracts dust from stone variants."
+      - ""
+      - "&8\u21E8 &e⚡ &7Speed: &b2x"
+    lore-overrides:
+      4: "%sftrlore_Speed_2%"
+  DUST_EXTRACTOR_3:
+    name: "&8Void &7Dust Extractor"
+    lore:
+      - ""
+      - "&7Extracts dust from stone variants."
+      - ""
+      - "&8\u21E8 &e⚡ &7Speed: &b8x"
+    lore-overrides:
+      4: "%sftrlore_Speed_8%"
+  DUST_EXTRACTOR_4:
+    name: "&bInfinity &7Dust Extractor"
+    lore:
+      - ""
+      - "&7Extracts dust from stone variants."
+      - ""
+      - "&8\u21E8 &e⚡ &7Speed: &b16x"
+    lore-overrides:
+      4: "%sftrlore_Speed_16%"
+  INGOT_FORMER:
+    name: "&7Ingot Former"
+    lore:
+      - ""
+      - "&7Forms ingots from dust."
+      - ""
+      - "&8\u21E8 &e⚡ &7Speed: &b1x"
+    lore-overrides:
+      4: "%sftrlore_Speed_1%"
+  INGOT_FORMER_2:
+    name: "&cAdvanced &7Ingot Former"
+    lore:
+      - ""
+      - "&7Forms ingots from dust."
+      - ""
+      - "&8\u21E8 &e⚡ &7Speed: &b2x"
+    lore-overrides:
+      4: "%sftrlore_Speed_2%"
+  INGOT_FORMER_3:
+    name: "&8Void &7Ingot Former"
+    lore:
+      - ""
+      - "&7Forms ingots from dust."
+      - ""
+      - "&8\u21E8 &e⚡ &7Speed: &b8x"
+    lore-overrides:
+      4: "%sftrlore_Speed_8%"
+  INGOT_FORMER_4:
+    name: "&bInfinity &7Ingot Former"
+    lore:
+      - ""
+      - "&7Forms ingots from dust."
+      - ""
+      - "&8\u21E8 &e⚡ &7Speed: &b16x"
+    lore-overrides:
+      4: "%sftrlore_Speed_16%"
+  URANIUM_EXTRACTOR:
+    name: "&2Uranium Extractor"
+    lore:
+      - ""
+      - "&7Extracts uranium from stone variants."
+      - ""
+      - "&8\u21E8 &e⚡ &7Speed: &b1x"
+    lore-overrides:
+      4: "%sftrlore_Speed_1%"
+  COBBLE_PRESS:
+    name: "&8Cobble Press"
+    lore:
+      - ""
+      - "&7Compresses cobblestones"
+      - "&7more frequently."
+      - ""
+      - "&8\u21E8 &e⚡ &7Speed: &b1x"
+    lore-overrides:
+      5: "%sftrlore_Speed_1%"
+  DECOMPRESSOR:
+    name: "&7Decompressor"
+    lore:
+      - ""
+      - "&7Decompresses materials."
+      - ""
+      - "&8\u21E8 &e⚡ &7Speed: &b1x"
+    lore-overrides:
+      4: "%sftrlore_Speed_1%"
+  QUARRY:
+    name: "&9Basic Quarry"
+    lore:
+      - ""
+      - "&7Automatically mines resources."
+      - ""
+      - "&8\u21E8 &e⚡ &7Speed: &b1x"
+    lore-overrides:
+      4: "%sftrlore_Speed_1%"
+  QUARRY_2:
+    name: "&cAdvanced &9Quarry"
+    lore:
+      - ""
+      - "&7Automatically mines resources."
+      - ""
+      - "&8\u21E8 &e⚡ &7Speed: &b2x"
+    lore-overrides:
+      4: "%sftrlore_Speed_2%"
+  QUARRY_3:
+    name: "&8Void &9Quarry"
+    lore:
+      - ""
+      - "&7Automatically mines resources."
+      - ""
+      - "&8\u21E8 &e⚡ &7Speed: &b4x"
+    lore-overrides:
+      4: "%sftrlore_Speed_4%"
+  QUARRY_4:
+    name: "&bInfinity &9Quarry"
+    lore:
+      - ""
+      - "&7Automatically mines resources."
+      - ""
+      - "&8\u21E8 &e⚡ &7Speed: &b64x"
+    lore-overrides:
+      4: "%sftrlore_Speed_64%"
+  GEO_QUARRY:
+    name: "&2Geo Quarry"
+    lore:
+      - ""
+      - "&7Automatically mines GEO resources."
+      - ""
+      - "&8\u21E8 &e⚡ &7Speed: &b1x"
+    lore-overrides:
+      4: "%sftrlore_Speed_1%"
+  GEO_QUARRY_2:
+    name: "&bInfinity &2Geo Quarry"
+    lore:
+      - ""
+      - "&7Automatically mines GEO resources."
+      - ""
+      - "&8\u21E8 &e⚡ &7Speed: &b4x"
+    lore-overrides:
+      4: "%sftrlore_Speed_4%"
+  INFINITY_WORKBENCH:
+    name: "&6Infinity Workbench"
+    lore:
+      - ""
+      - "&7Used to craft infinity items."
+  #items - generators
+  #items - hidden
+  OSCILLATOR:
+    name: "&6Oscillator"
+lores:
+  collect: "&7Collects:"
+  produce: "&7Produces:"
+  info: "&7Information:"
+  soulbound: "&bSoulbound"
