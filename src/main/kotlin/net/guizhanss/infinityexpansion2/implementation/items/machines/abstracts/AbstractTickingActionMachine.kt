@@ -17,7 +17,7 @@ import org.bukkit.block.Block
 import org.bukkit.inventory.ItemStack
 
 /**
- * A ticking machine consumes energy every tick, and runs with a custom tick rate.
+ * A ticking machine that consumes energy every use, and runs with a custom tick rate.
  */
 abstract class AbstractTickingActionMachine(
     itemGroup: ItemGroup,
@@ -57,7 +57,7 @@ abstract class AbstractTickingActionMachine(
         if (!shouldRun()) return
         if (getCharge(menu.location) < getEnergyConsumptionPerAction()) {
             menu.setStatus(GuiItems.NO_POWER)
-        } else if (shouldRun() && process(b, menu)) {
+        } else if (process(b, menu)) {
             removeCharge(menu.location, getEnergyConsumptionPerAction())
         }
     }

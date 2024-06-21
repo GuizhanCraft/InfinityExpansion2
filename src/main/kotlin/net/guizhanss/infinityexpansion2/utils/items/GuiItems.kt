@@ -121,6 +121,9 @@ object GuiItems {
     )
 }
 
+/**
+ * Get a copy of the original [ItemStack] with display item flag.
+ */
 internal fun ItemStack.toDisplayItem(): ItemStack {
     val item = clone()
     val meta = item.itemMeta
@@ -129,6 +132,9 @@ internal fun ItemStack.toDisplayItem(): ItemStack {
     return item
 }
 
+/**
+ * Get a copy of the original [ItemStack] without display item flag.
+ */
 internal fun ItemStack.removeDisplayItem(): ItemStack {
     val item = clone()
     val meta = item.itemMeta

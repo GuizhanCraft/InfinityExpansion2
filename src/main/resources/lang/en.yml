@@ -970,6 +970,14 @@ items:
       - "&8\u21E8 &e⚡ &7Speed: &b4x"
     lore-overrides:
       4: "%sftrlore_Speed_4%"
+  ADVANCED_ANVIL:
+    name: "&cAdvanced Anvil"
+    lore:
+      - ""
+      - "&7Combines the enchantments like the anvil."
+      - "&7Bypasses the vanilla enchantment limits."
+      - ""
+      - "&7Works with Slimefun items."
   INFINITY_WORKBENCH:
     name: "&6Infinity Workbench"
     lore:
@@ -984,3 +992,9 @@ lores:
   produce: "&7Produces:"
   info: "&7Information:"
   soulbound: "&bSoulbound"
+messages:
+  no-room: "&cNot enough room"
+  advanced-anvil:
+    input1-not-enchantable: "&cThe first input is a Slimefun item that is not enchantable."
+    input2-not-disenchantable: "&cThe second input is a Slimefun item that is not disenchantable."
+    no-output: "&cNo upgrades available."

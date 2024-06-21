@@ -146,6 +146,27 @@ data class MenuLayout(
             statusSlot = 13,
         )
 
+        val ADVANCED_ANVIL = MenuLayout(
+            background = intArrayOf(
+                27, 28, 29, 33, 34, 35,
+                36, 37, 38, 42, 43, 44,
+                45, 46, 52, 53,
+            ),
+            inputBorder = intArrayOf(
+                0, 1, 2, 3, 4, 5,
+                9, 11, 12, 14,
+                18, 19, 20, 21, 22, 23,
+            ),
+            inputSlots = intArrayOf(10, 13),
+            outputBorder = intArrayOf(
+                6, 7, 8,
+                15, 17,
+                24, 25, 26,
+            ),
+            outputSlots = intArrayOf(16),
+            statusSlot = 40,
+        )
+
         val INFINITY_WORKBENCH = MenuLayout(
             background = intArrayOf(
                 6, 8,

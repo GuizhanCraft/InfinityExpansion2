@@ -9,6 +9,8 @@ inline fun <reified T : Enum<T>> valueOfOrNull(name: String): T? = enumValues<T>
 
 internal fun String.createKey() = NamespacedKey(InfinityExpansion2.instance, this.lowercase(Locale.getDefault()))
 
+internal fun String.toMinecraftKey() = NamespacedKey.minecraft(StringUtil.dehumanize(this.lowercase()))
+
 fun String.toId() = StringUtil.dehumanize(this).uppercase()
 
 fun Pair<String, String>.matches(str1: String, str2: String) =

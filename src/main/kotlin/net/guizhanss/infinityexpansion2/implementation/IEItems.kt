@@ -11,6 +11,7 @@ import net.guizhanss.infinityexpansion2.implementation.items.gear.InfinityArmor
 import net.guizhanss.infinityexpansion2.implementation.items.gear.InfinityBoots
 import net.guizhanss.infinityexpansion2.implementation.items.gear.InfinityBow
 import net.guizhanss.infinityexpansion2.implementation.items.gear.InfinityTool
+import net.guizhanss.infinityexpansion2.implementation.items.machines.AdvancedAnvil
 import net.guizhanss.infinityexpansion2.implementation.items.machines.CobblePress
 import net.guizhanss.infinityexpansion2.implementation.items.machines.Decompressor
 import net.guizhanss.infinityexpansion2.implementation.items.machines.DustExtractor
@@ -1654,9 +1655,23 @@ object IEItems {
         )
     }
 
+    val ADVANCED_ANVIL = buildSlimefunItem<AdvancedAnvil>(100_000) {
+        id = "ADVANCED_ANVIL"
+        material = Material.SMITHING_TABLE.convert()
+        itemGroup = IEItemGroups.MACHINES
+        recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
+        recipe = arrayOf(
+            // @formatter:off
+            MACHINE_PLATE, MACHINE_PLATE, MACHINE_PLATE,
+            MACHINE_PLATE, ItemStack(Material.ANVIL), MACHINE_PLATE,
+            MACHINE_CIRCUIT, MACHINE_CORE, MACHINE_CIRCUIT
+            // @formatter:on
+        )
+    }
+
     val INFINITY_WORKBENCH = buildSlimefunItem<InfinityWorkbench>(10_000_000) {
         id = "INFINITY_WORKBENCH"
-        material = Material.SMITHING_TABLE.convert()
+        material = Material.RESPAWN_ANCHOR.convert()
         itemGroup = IEItemGroups.MACHINES
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
         recipe = arrayOf(
@@ -1673,7 +1688,7 @@ object IEItems {
     // </editor-fold>
 
     // <editor-fold desc="Hidden" collapsed="true">
-    val OSCILLATOR = buildSlimefunItem<Oscillator> {
+    val OSCILLATOR = buildSlimefunItem<Oscillator>(ItemStack(Material.AIR)) {
         id = "OSCILLATOR"
         material = Material.REDSTONE_TORCH.convert()
         itemGroup = IEItemGroups.HIDDEN

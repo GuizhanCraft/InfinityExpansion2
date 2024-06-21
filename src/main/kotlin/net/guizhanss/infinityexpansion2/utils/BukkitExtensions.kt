@@ -86,12 +86,12 @@ fun ItemStack.isAir() = type.isAir
 /**
  * Retrieve the [PotionEffectType] by the name. For 1.20.5+ compatibility.
  */
-fun getPotionEffectType(name: String) = PotionEffectType.getByKey(NamespacedKey.minecraft(name))
+fun getPotionEffectType(name: String) = PotionEffectType.getByKey(name.toMinecraftKey())
 
 /**
  * Retrieve the [Enchantment] by the name. For 1.20.5+ compatibility.
  */
-fun getEnchantment(name: String) = Enchantment.getByKey(NamespacedKey.minecraft(name))
+fun getEnchantment(name: String) = Enchantment.getByKey(name.toMinecraftKey())
 
 /**
  * Build a [PotionEffect] by the name, duration, and amplifier.
