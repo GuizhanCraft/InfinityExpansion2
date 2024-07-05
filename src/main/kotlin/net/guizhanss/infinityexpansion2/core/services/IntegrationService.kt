@@ -2,7 +2,6 @@ package net.guizhanss.infinityexpansion2.core.services
 
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem
 import io.github.thebusybiscuit.slimefun4.libraries.dough.items.ItemUtils
-import net.guizhanss.guizhanlib.minecraft.utils.ChatUtil
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.implementation.listeners.TranslationsLoadListener
 import net.guizhanss.infinityexpansion2.utils.items.MaterialType
@@ -17,7 +16,6 @@ import org.bukkit.configuration.file.YamlConfiguration
 import org.bukkit.entity.Player
 import org.bukkit.inventory.ItemStack
 import java.io.File
-import java.text.MessageFormat
 
 class IntegrationService(private val plugin: InfinityExpansion2) {
     var slimefunTranslationEnabled = isPluginEnabled("SlimefunTranslation")

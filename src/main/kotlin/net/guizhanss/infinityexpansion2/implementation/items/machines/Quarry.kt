@@ -12,9 +12,9 @@ import net.guizhanss.infinityexpansion2.core.items.attributes.InformationalRecip
 import net.guizhanss.infinityexpansion2.core.menu.MenuLayout
 import net.guizhanss.infinityexpansion2.implementation.items.machines.abstracts.AbstractTickingMachine
 import net.guizhanss.infinityexpansion2.implementation.items.tools.Oscillator
-import net.guizhanss.infinityexpansion2.utils.isAir
+import net.guizhanss.infinityexpansion2.utils.bukkitext.isAir
 import net.guizhanss.infinityexpansion2.utils.items.GuiItems
-import net.guizhanss.infinityexpansion2.utils.toItemStack
+import net.guizhanss.infinityexpansion2.utils.bukkitext.toItemStack
 import org.bukkit.Material
 import org.bukkit.World
 import org.bukkit.block.Block
@@ -40,7 +40,7 @@ class Quarry(
 
     override fun setup(preset: BlockMenuPreset) {
         super.setup(preset)
-        preset.drawBackground(GuiItems.QUARRY_OSCILLATOR, layout.inputBorder)
+        preset.drawBackground(GuiItems.OSCILLATOR_SLOT, layout.inputBorder)
     }
 
     override fun process(b: Block, menu: BlockMenu): Boolean {

@@ -3,7 +3,7 @@ package net.guizhanss.infinityexpansion2.utils.items
 import io.github.thebusybiscuit.slimefun4.libraries.dough.data.persistent.PersistentDataAPI
 import io.github.thebusybiscuit.slimefun4.utils.ChestMenuUtils
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
-import net.guizhanss.infinityexpansion2.utils.createKey
+import net.guizhanss.infinityexpansion2.utils.bukkitext.createKey
 import org.bukkit.Material
 import org.bukkit.inventory.ItemStack
 
@@ -108,33 +108,9 @@ object GuiItems {
         "&7${String.format("%.1f", chance * 100)}%"
     )
 
-    // strainer specific
-    val ANY_STRAINER = InfinityExpansion2.localization.getGuiItem(
-        MaterialType.Material(Material.FISHING_ROD),
-        "any_strainer"
-    )
-
-    // stoneworks factory specific
-    val SW_CHANGE = InfinityExpansion2.localization.getGuiItem(
-        MaterialType.Material(Material.YELLOW_STAINED_GLASS_PANE),
-        "sw_change"
-    )
-
-    // quarry specific
-    val QUARRY_OSCILLATOR = InfinityExpansion2.localization.getGuiItem(
+    val OSCILLATOR_SLOT = InfinityExpansion2.localization.getGuiItem(
         MaterialType.Material(Material.LIME_STAINED_GLASS_PANE),
-        "quarry_oscillator"
-    )
-
-    // gear transformer specific
-    val GT_GEAR = InfinityExpansion2.localization.getGuiItem(
-        MaterialType.Material(Material.BLUE_STAINED_GLASS_PANE),
-        "gt_gear"
-    )
-
-    val GT_MATERIAL = InfinityExpansion2.localization.getGuiItem(
-        MaterialType.Material(Material.BLUE_STAINED_GLASS_PANE),
-        "gt_material"
+        "oscillator_slot"
     )
 }
 

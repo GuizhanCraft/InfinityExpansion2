@@ -5,8 +5,8 @@ package net.guizhanss.infinityexpansion2.implementation.listeners
 import io.github.thebusybiscuit.slimefun4.api.events.SlimefunItemRegistryFinalizedEvent
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.implementation.items.tools.Oscillator
-import net.guizhanss.infinityexpansion2.utils.isAir
-import net.guizhanss.infinityexpansion2.utils.toItemStack
+import net.guizhanss.infinityexpansion2.utils.bukkitext.isAir
+import net.guizhanss.infinityexpansion2.utils.bukkitext.toItemStack
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
 

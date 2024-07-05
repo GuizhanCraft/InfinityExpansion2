@@ -1,10 +1,10 @@
 package net.guizhanss.infinityexpansion2.core.config
 
-import net.guizhanss.infinityexpansion2.utils.loadIntMap
+import net.guizhanss.infinityexpansion2.utils.bukkitext.loadIntMap
 import org.bukkit.configuration.ConfigurationSection
 
 /**
- *
+ * A [ConfigurationSection] that represents a quarry pool.
  */
 data class QuarryPool(
     val baseProduct: String,

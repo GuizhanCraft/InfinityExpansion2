@@ -47,7 +47,7 @@ class GeoQuarry(
     private fun shouldProduce() =
         InfinityExpansion2.sfTickCount() % (getCustomTickRate() * outputIntervalSetting.value) == 0
 
-    private fun produce(menu: BlockMenu): ItemStack? {
+    private fun produce(menu: BlockMenu): ItemStack {
         val env = menu.location.world.environment
         val biome = menu.location.block.biome
 

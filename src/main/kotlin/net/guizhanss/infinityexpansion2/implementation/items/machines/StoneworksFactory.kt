@@ -34,7 +34,7 @@ class StoneworksFactory(
     InformationalRecipeDisplayItem {
     override fun setup(preset: BlockMenuPreset) {
         super.setup(preset)
-        preset.drawBackground(GuiItems.SW_CHANGE, CHOICE_INFO_SLOTS)
+        preset.drawBackground(CHANGE_ITEM, CHOICE_INFO_SLOTS)
     }
 
     override fun onNewInstance(menu: BlockMenu, b: Block) {
@@ -150,6 +150,11 @@ class StoneworksFactory(
         private val CHOICE_INFO_SLOTS = intArrayOf(2, 4, 6)
         private val CHOICE_SLOTS = intArrayOf(11, 13, 15)
         private val ITEM_SLOTS = intArrayOf(10, 12, 14)
+
+        private val CHANGE_ITEM = InfinityExpansion2.localization.getGuiItem(
+            MaterialType.Material(Material.YELLOW_STAINED_GLASS_PANE),
+            "sw_change"
+        )
     }
 
     private enum class Choice(private val material: Material, val map: Map<Material, Material>) {

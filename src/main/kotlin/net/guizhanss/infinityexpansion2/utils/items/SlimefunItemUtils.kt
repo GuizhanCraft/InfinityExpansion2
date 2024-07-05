@@ -3,7 +3,7 @@ package net.guizhanss.infinityexpansion2.utils.items
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
-import net.guizhanss.infinityexpansion2.utils.getEnchantment
+import net.guizhanss.infinityexpansion2.utils.bukkitext.getEnchantment
 import org.bukkit.Location
 import org.bukkit.inventory.ItemStack
 import java.util.logging.Level

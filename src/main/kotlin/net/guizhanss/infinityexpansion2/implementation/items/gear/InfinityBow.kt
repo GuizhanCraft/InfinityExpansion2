@@ -12,7 +12,7 @@ import io.github.thebusybiscuit.slimefun4.core.attributes.Soulbound
 import io.github.thebusybiscuit.slimefun4.core.services.sounds.SoundEffect
 import net.guizhanss.infinityexpansion2.core.items.attributes.BowItem
 import net.guizhanss.infinityexpansion2.core.items.handlers.BowShootHandler
-import net.guizhanss.infinityexpansion2.utils.buildPotionEffect
+import net.guizhanss.infinityexpansion2.utils.bukkitext.buildPotionEffect
 import org.bukkit.Bukkit
 import org.bukkit.Effect
 import org.bukkit.Material

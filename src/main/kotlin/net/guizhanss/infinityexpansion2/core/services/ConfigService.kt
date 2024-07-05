@@ -4,11 +4,11 @@ import net.guizhanss.guizhanlib.slimefun.addon.AddonConfig
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.core.config.QuarryPool
 import net.guizhanss.infinityexpansion2.utils.clamp
-import net.guizhanss.infinityexpansion2.utils.getAsSerializable
-import net.guizhanss.infinityexpansion2.utils.loadDoubleMap
-import net.guizhanss.infinityexpansion2.utils.loadEnchantmentKeyMap
-import net.guizhanss.infinityexpansion2.utils.loadEnumKeyMap
-import net.guizhanss.infinityexpansion2.utils.loadSectionMap
+import net.guizhanss.infinityexpansion2.utils.bukkitext.getAsSerializable
+import net.guizhanss.infinityexpansion2.utils.bukkitext.loadDoubleMap
+import net.guizhanss.infinityexpansion2.utils.bukkitext.loadEnchantmentKeyMap
+import net.guizhanss.infinityexpansion2.utils.bukkitext.loadEnumKeyMap
+import net.guizhanss.infinityexpansion2.utils.bukkitext.loadSectionMap
 import org.bukkit.World.Environment
 import org.bukkit.configuration.ConfigurationSection
 import org.bukkit.enchantments.Enchantment

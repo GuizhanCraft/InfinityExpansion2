@@ -1,7 +1,7 @@
 package net.guizhanss.infinityexpansion2.implementation.groups
 
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
-import net.guizhanss.infinityexpansion2.utils.createKey
+import net.guizhanss.infinityexpansion2.utils.bukkitext.createKey
 import net.guizhanss.infinityexpansion2.utils.items.MaterialType
 import org.bukkit.Material
 

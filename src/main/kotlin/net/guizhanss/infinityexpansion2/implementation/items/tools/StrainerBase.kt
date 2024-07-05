@@ -16,8 +16,9 @@ import net.guizhanss.guizhanlib.utils.RandomUtil
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.core.items.attributes.InformationalRecipeDisplayItem
 import net.guizhanss.infinityexpansion2.core.menu.MenuLayout
-import net.guizhanss.infinityexpansion2.utils.isWaterLogged
+import net.guizhanss.infinityexpansion2.utils.bukkitext.isWaterLogged
 import net.guizhanss.infinityexpansion2.utils.items.GuiItems
+import net.guizhanss.infinityexpansion2.utils.items.MaterialType
 import org.bukkit.Material
 import org.bukkit.block.Block
 import org.bukkit.enchantments.Enchantment
@@ -101,10 +102,15 @@ class StrainerBase(
 
     override fun getInformationalItems() = listOf(GuiItems.tickRate(tickRateSetting.value))
 
-    override fun getDefaultDisplayRecipes() = OUTPUTS.flatMap { listOf(GuiItems.ANY_STRAINER, it) }
+    override fun getDefaultDisplayRecipes() = OUTPUTS.flatMap { listOf(ANY_STRAINER_ITEM, it) }
 
     companion object {
         private val LAYOUT = MenuLayout.SINGLE_INPUT
+
+        private val ANY_STRAINER_ITEM = InfinityExpansion2.localization.getGuiItem(
+            MaterialType.Material(Material.FISHING_ROD),
+            "any_strainer"
+        )
 
         private val OUTPUTS = listOf(
             ItemStack(Material.STICK),

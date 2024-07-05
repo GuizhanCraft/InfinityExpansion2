@@ -9,7 +9,7 @@ import org.bukkit.event.entity.EntityDamageByEntityEvent
 import java.util.Optional
 
 /**
- * This bow shoot handler can be applied to a bow or a crossbow.
+ * This [BowShootHandler] can be applied to a bow or a crossbow.
  */
 fun interface BowShootHandler : ItemHandler {
     fun onHit(e: EntityDamageByEntityEvent, entity: LivingEntity)
@@ -27,7 +27,5 @@ fun interface BowShootHandler : ItemHandler {
         return Optional.empty()
     }
 
-    override fun getIdentifier(): Class<out ItemHandler?> {
-        return BowShootHandler::class.java
-    }
+    override fun getIdentifier() = BowShootHandler::class.java
 }

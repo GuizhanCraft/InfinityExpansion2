@@ -1,6 +1,6 @@
 package net.guizhanss.infinityexpansion2.utils.constant
 
-import net.guizhanss.infinityexpansion2.utils.createKey
+import net.guizhanss.infinityexpansion2.utils.bukkitext.createKey
 
 object Keys {
     val VEIN_MINER = "vein_miner".createKey()

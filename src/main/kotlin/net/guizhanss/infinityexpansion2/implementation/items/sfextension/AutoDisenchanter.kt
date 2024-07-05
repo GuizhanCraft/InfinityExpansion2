@@ -16,8 +16,8 @@ class AutoDisenchanter(
     energyPerTick: Int,
 ) : SlimefunAutoDisenchanter(itemGroup, itemStack, recipeType, recipe) {
     init {
-        setCapacity(energyPerTick)
-        setEnergyConsumption(energyPerTick)
+        capacity = energyPerTick
+        energyConsumption = energyPerTick
         setProcessingSpeed(speed)
     }
 

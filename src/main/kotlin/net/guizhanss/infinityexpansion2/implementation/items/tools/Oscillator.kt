@@ -13,10 +13,9 @@ import io.github.thebusybiscuit.slimefun4.libraries.dough.items.ItemUtils
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.implementation.IEItems
 import net.guizhanss.infinityexpansion2.implementation.groups.IEItemGroups
-import net.guizhanss.infinityexpansion2.implementation.items.materials.SimpleMaterial
 import net.guizhanss.infinityexpansion2.utils.constant.Keys
 import net.guizhanss.infinityexpansion2.utils.expandRecipe
-import net.guizhanss.infinityexpansion2.utils.toItemStack
+import net.guizhanss.infinityexpansion2.utils.bukkitext.toItemStack
 import org.bukkit.ChatColor
 import org.bukkit.inventory.ItemStack
 import org.bukkit.inventory.meta.ItemMeta

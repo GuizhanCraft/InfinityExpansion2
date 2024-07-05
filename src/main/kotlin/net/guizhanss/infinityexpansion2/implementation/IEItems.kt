@@ -16,6 +16,7 @@ import net.guizhanss.infinityexpansion2.implementation.items.machines.CobblePres
 import net.guizhanss.infinityexpansion2.implementation.items.machines.Decompressor
 import net.guizhanss.infinityexpansion2.implementation.items.machines.DustExtractor
 import net.guizhanss.infinityexpansion2.implementation.items.machines.ExtremeFreezer
+import net.guizhanss.infinityexpansion2.implementation.items.machines.GearTransformer
 import net.guizhanss.infinityexpansion2.implementation.items.machines.GeoQuarry
 import net.guizhanss.infinityexpansion2.implementation.items.machines.InfinityWorkbench
 import net.guizhanss.infinityexpansion2.implementation.items.machines.IngotFormer
@@ -43,7 +44,7 @@ import net.guizhanss.infinityexpansion2.implementation.items.tools.Oscillator
 import net.guizhanss.infinityexpansion2.implementation.items.tools.Strainer
 import net.guizhanss.infinityexpansion2.implementation.items.tools.StrainerBase
 import net.guizhanss.infinityexpansion2.implementation.recipes.IERecipeTypes
-import net.guizhanss.infinityexpansion2.utils.buildHiddenPotionEffect
+import net.guizhanss.infinityexpansion2.utils.bukkitext.buildHiddenPotionEffect
 import net.guizhanss.infinityexpansion2.utils.emptyRecipe
 import net.guizhanss.infinityexpansion2.utils.fillRecipe
 import net.guizhanss.infinityexpansion2.utils.items.applyInfinityGearEnchantment
@@ -1369,7 +1370,22 @@ object IEItems {
         )
     }
 
-    // TODO: more tiers of singularity constructor
+    val INFINITY_SINGULARITY_CONSTRUCTOR = buildSlimefunItem<SingularityConstructor>(64, 1200) {
+        id = "INFINITY_SINGULARITY_CONSTRUCTOR"
+        material = Material.CHISELED_QUARTZ_BLOCK.convert()
+        itemGroup = IEItemGroups.MACHINES
+        recipeType = IERecipeTypes.INFINITY_WORKBENCH
+        recipe = arrayOf(
+            // @formatter:off
+            null, MACHINE_PLATE, MACHINE_PLATE, MACHINE_PLATE, MACHINE_PLATE, null,
+            null, VOID_INGOT, INFINITY_MACHINE_CIRCUIT, INFINITY_MACHINE_CIRCUIT, VOID_INGOT, null,
+            null, VOID_INGOT, SINGULARITY_CONSTRUCTOR, SINGULARITY_CONSTRUCTOR, VOID_INGOT, null,
+            null, VOID_INGOT, SINGULARITY_CONSTRUCTOR, SINGULARITY_CONSTRUCTOR, VOID_INGOT, null,
+            null, INFINITY_INGOT, INFINITY_MACHINE_CORE, INFINITY_MACHINE_CORE, INFINITY_INGOT, null,
+            INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT,
+            // @formatter:on
+        )
+    }
 
     val RESOURCE_SYNTHESIZER = buildSlimefunItem<ResourceSynthesizer>(1_000_000) {
         id = "RESOURCE_SYNTHESIZER"
@@ -1651,6 +1667,20 @@ object IEItems {
             INFINITY_MACHINE_CIRCUIT, VOID_INGOT, GEO_QUARRY, GEO_QUARRY, VOID_INGOT, INFINITY_MACHINE_CIRCUIT,
             null, VOID_INGOT, VOID_INGOT, VOID_INGOT, VOID_INGOT, null,
             INFINITY_INGOT, null, null, null, null, INFINITY_INGOT,
+            // @formatter:on
+        )
+    }
+
+    val GEAR_TRANSFORMER = buildSlimefunItem<GearTransformer>(12_000) {
+        id = "GEAR_TRANSFORMER"
+        material = Material.EMERALD_BLOCK.convert()
+        itemGroup = IEItemGroups.MACHINES
+        recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
+        recipe = arrayOf(
+            // @formatter:off
+            MAGSTEEL_PLATE, MACHINE_CIRCUIT, MAGSTEEL_PLATE,
+            MACHINE_CIRCUIT, ItemStack(Material.SMITHING_TABLE), MACHINE_CIRCUIT,
+            MAGSTEEL_PLATE, MACHINE_CIRCUIT, MAGSTEEL_PLATE,
             // @formatter:on
         )
     }
