@@ -5,9 +5,8 @@ package net.guizhanss.infinityexpansion2.utils
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.core.IERegistry
-import net.guizhanss.infinityexpansion2.core.config.ConfigurationSerializable
+import net.guizhanss.infinityexpansion2.core.config.SerializableSection
 import org.bukkit.Material
-import org.bukkit.NamespacedKey
 import org.bukkit.World
 import org.bukkit.block.Block
 import org.bukkit.block.data.Waterlogged
@@ -16,7 +15,10 @@ import org.bukkit.enchantments.Enchantment
 import org.bukkit.inventory.ItemStack
 import org.bukkit.potion.PotionEffect
 import org.bukkit.potion.PotionEffectType
+import java.util.logging.Level
+import kotlin.reflect.full.companionObject
 import kotlin.reflect.full.createType
+import kotlin.reflect.full.functions
 
 /**
  * Check if a block is waterlogged.
@@ -50,19 +52,30 @@ fun World.isDay() = time in 0 until 13000
 fun World.isNight() = time in 13000..24000
 
 /**
- * Get a [ConfigurationSerializable] by deserializing the [ConfigurationSection].
+ * Get a [SerializableSection] by deserializing the [ConfigurationSection].
  */
-inline fun <reified T : ConfigurationSerializable> ConfigurationSection.getSerializable(
+inline fun <reified T : SerializableSection> ConfigurationSection.getAsSerializable(
+    defaultVal: T? = null,
+): T? {
+    try {
+        T::class.companionObject?.functions?.find { it.name == "deserialize" }?.let { deserialize ->
+            return deserialize.call(T::class, this) as T
+        }
+    } catch (e: Exception) {
+        InfinityExpansion2.log(Level.SEVERE, e, "An error has occurred while deserializing as ${T::class.simpleName}")
+    }
+    return defaultVal
+}
+
+/**
+ * Get a [SerializableSection] by deserializing the [ConfigurationSection] with the given key.
+ */
+inline fun <reified T : SerializableSection> ConfigurationSection.getSerializable(
     key: String,
     defaultVal: T? = null,
 ): T? {
     val section = this.getConfigurationSection(key) ?: return defaultVal
-    T::class.constructors.forEach { constructor ->
-        if (constructor.parameters.size == 1 && constructor.parameters[0].type == ConfigurationSection::class.createType()) {
-            return constructor.call(section)
-        }
-    }
-    return defaultVal
+    return section.getAsSerializable(defaultVal)
 }
 
 /**
@@ -81,7 +94,7 @@ fun String.toItemStack(): ItemStack = IERegistry.itemMapping.getOrPut(this) {
 /**
  * A shortcut to check if an [ItemStack] is air.
  */
-fun ItemStack.isAir() = type.isAir
+val ItemStack.isAir get() = type.isAir
 
 /**
  * Retrieve the [PotionEffectType] by the name. For 1.20.5+ compatibility.

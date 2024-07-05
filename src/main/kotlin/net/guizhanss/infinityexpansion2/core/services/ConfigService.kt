@@ -4,6 +4,7 @@ import net.guizhanss.guizhanlib.slimefun.addon.AddonConfig
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.core.config.QuarryPool
 import net.guizhanss.infinityexpansion2.utils.clamp
+import net.guizhanss.infinityexpansion2.utils.getAsSerializable
 import net.guizhanss.infinityexpansion2.utils.loadDoubleMap
 import net.guizhanss.infinityexpansion2.utils.loadEnchantmentKeyMap
 import net.guizhanss.infinityexpansion2.utils.loadEnumKeyMap
@@ -75,7 +76,7 @@ class ConfigService(plugin: InfinityExpansion2) {
         quarryInterval = config.getInt("quarry.output-interval", 10).clamp(1, 3600)
         quarryOcsillators = loadDoubleMap(config.getConfigurationSection("quarry.oscillators"))
         quarryPools = loadEnumKeyMap<Environment, QuarryPool>(config.getConfigurationSection("quarry.pools"),
-            { obj -> QuarryPool(obj as ConfigurationSection) })
+            { obj -> (obj as ConfigurationSection).getAsSerializable() })
         advancedAnvilMaxLevels = loadEnchantmentKeyMap(config.getConfigurationSection("advanced-anvil.max-levels"))
         infinityGearEnchantLevels = loadSectionMap(config.getConfigurationSection("infinity-gear-enchantments"))
 

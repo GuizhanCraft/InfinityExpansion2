@@ -146,6 +146,25 @@ data class MenuLayout(
             statusSlot = 13,
         )
 
+        val GEAR_TRANSFORMER = MenuLayout(
+            background = intArrayOf(
+                3, 4, 5,
+                12, 14,
+                21, 22, 23,
+                27, 29, 33, 35,
+                36, 44,
+                45, 46, 47, 51, 52, 53,
+            ),
+            inputSlots = intArrayOf(10, 16),
+            outputBorder = intArrayOf(
+                28, 30, 31, 32, 34,
+                37, 38, 39, 41, 42, 43,
+                48, 49, 50,
+            ),
+            outputSlots = intArrayOf(40),
+            statusSlot = 13,
+        )
+
         val ADVANCED_ANVIL = MenuLayout(
             background = intArrayOf(
                 27, 28, 29, 33, 34, 35,

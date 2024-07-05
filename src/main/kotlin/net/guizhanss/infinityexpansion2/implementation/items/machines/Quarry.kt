@@ -6,6 +6,7 @@ import io.github.thebusybiscuit.slimefun4.api.items.settings.DoubleRangeSetting
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
 import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu
+import me.mrCookieSlime.Slimefun.api.inventory.BlockMenuPreset
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.core.items.attributes.InformationalRecipeDisplayItem
 import net.guizhanss.infinityexpansion2.core.menu.MenuLayout
@@ -35,6 +36,11 @@ class Quarry(
 
     init {
         addItemSetting(chanceSetting)
+    }
+
+    override fun setup(preset: BlockMenuPreset) {
+        super.setup(preset)
+        preset.drawBackground(GuiItems.QUARRY_OSCILLATOR, layout.inputBorder)
     }
 
     override fun process(b: Block, menu: BlockMenu): Boolean {
@@ -69,9 +75,9 @@ class Quarry(
             }
         }
 
-        // should product base product
+        // should produce base product
         val baseProduct = pool.baseProduct.toItemStack().let {
-            if (it.isAir()) ItemStack(Material.COBBLESTONE) else it
+            if (it.isAir) ItemStack(Material.COBBLESTONE) else it
         }
         return baseProduct.clone().apply { amount = speed }
     }

@@ -23,14 +23,12 @@ class SlimefunRegistryListener(plugin: InfinityExpansion2) : Listener {
         InfinityExpansion2.configService.quarryOcsillators.forEach { (id, chance) ->
             InfinityExpansion2.debug("Loading oscillator: $id")
             // id check
-            val item = id.toItemStack()
-            if (item.isAir()) return@forEach
-            InfinityExpansion2.debug("Item is valid")
+            id.toItemStack().apply { if (isAir) return@forEach }
 
             // chance check
             if (chance <= 0 || chance > 1) return@forEach
-            InfinityExpansion2.debug("Chance is valid")
 
+            InfinityExpansion2.debug("Registering...")
             Oscillator.register(id)
         }
     }

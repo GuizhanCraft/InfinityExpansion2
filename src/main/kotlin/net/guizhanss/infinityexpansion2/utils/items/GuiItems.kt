@@ -119,6 +119,23 @@ object GuiItems {
         MaterialType.Material(Material.YELLOW_STAINED_GLASS_PANE),
         "sw_change"
     )
+
+    // quarry specific
+    val QUARRY_OSCILLATOR = InfinityExpansion2.localization.getGuiItem(
+        MaterialType.Material(Material.LIME_STAINED_GLASS_PANE),
+        "quarry_oscillator"
+    )
+
+    // gear transformer specific
+    val GT_GEAR = InfinityExpansion2.localization.getGuiItem(
+        MaterialType.Material(Material.BLUE_STAINED_GLASS_PANE),
+        "gt_gear"
+    )
+
+    val GT_MATERIAL = InfinityExpansion2.localization.getGuiItem(
+        MaterialType.Material(Material.BLUE_STAINED_GLASS_PANE),
+        "gt_material"
+    )
 }
 
 /**

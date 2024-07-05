@@ -192,6 +192,22 @@ items:
       force-load: true
     name: "&eTransforming"
 
+  # quarry specific
+  _UI_QUARRY_OSCILLATOR:
+    conditions:
+      force-load: true
+    name: "&eOscillator Slot"
+
+  # gear transformer specific
+  _UI_GT_GEAR:
+    conditions:
+      force-load: true
+    name: "&9Put gear here"
+  _UI_GT_MATERIAL:
+    conditions:
+      force-load: true
+    name: "&9Put material here"
+
   # items - guide
   _GUIDE_INTRO:
     name: "&eIntroduction"
