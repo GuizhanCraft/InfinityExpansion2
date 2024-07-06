@@ -6,6 +6,7 @@ import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
 import io.github.thebusybiscuit.slimefun4.libraries.dough.items.ItemUtils
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenuPreset
+import me.mrCookieSlime.Slimefun.api.inventory.DirtyChestMenu
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.core.items.attributes.InformationalRecipeDisplayItem
 import net.guizhanss.infinityexpansion2.core.menu.MenuLayout
@@ -32,6 +33,14 @@ class GearTransformer(
         super.setup(preset)
         preset.drawBackground(GEAR_BORDER_ITEM, GEAR_BORDER)
         preset.drawBackground(MATERIAL_BORDER_ITEM, MATERIAL_BORDER)
+    }
+
+    override fun getInputSlots(menu: DirtyChestMenu, item: ItemStack): IntArray {
+        return if (IETag.UPGRADABLE_TOOL.isTagged(item.type) || IETag.UPGRADABLE_ARMOR.isTagged(item.type)) {
+            intArrayOf(inputSlots[0])
+        } else {
+            intArrayOf(inputSlots[1])
+        }
     }
 
     override fun process(b: Block, menu: BlockMenu): Boolean {
