@@ -159,6 +159,14 @@ items:
     conditions:
       force-load: true
     name: "&eChance:"
+  _UI_SF_ITEM:
+    conditions:
+      force-load: true
+    name: "&eSlimefun items:"
+  _UI_OSCILLATOR_SLOT:
+    conditions:
+      force-load: true
+    name: "&eOscillator Slot"
 
   # strainer specific
   _UI_ANY_STRAINER:
@@ -192,12 +200,6 @@ items:
       force-load: true
     name: "&eTransforming"
 
-  # quarry specific
-  _UI_QUARRY_OSCILLATOR:
-    conditions:
-      force-load: true
-    name: "&eOscillator Slot"
-
   # gear transformer specific
   _UI_GT_GEAR:
     conditions:
@@ -207,6 +209,10 @@ items:
     conditions:
       force-load: true
     name: "&9Put material here"
+  _UI_GT_NO_SLIMEFUN:
+    conditions:
+      force-load: true
+    name: "&cSlimefun items are not allowed"
 
   # items - guide
   _GUIDE_INTRO:
@@ -799,7 +805,7 @@ items:
     lore-overrides:
       5: "%sftrlore_Speed_64%"
   SINGULARITY_CONSTRUCTOR:
-    name: "&bSingularity Constructor"
+    name: "&fSingularity Constructor"
     lore:
       - ""
       - "&7Condenses lots of resources"
@@ -808,6 +814,16 @@ items:
       - "&8\u21E8 &e⚡ &7Speed: &b1x"
     lore-overrides:
       5: "%sftrlore_Speed_1%"
+  INFINITY_SINGULARITY_CONSTRUCTOR:
+    name: "&bInfinity &fSingularity Constructor"
+    lore:
+      - ""
+      - "&7Condenses lots of resources"
+      - "&7to create singularities."
+      - ""
+      - "&8\u21E8 &e⚡ &7Speed: &b64x"
+    lore-overrides:
+      5: "%sftrlore_Speed_64%"
   RESOURCE_SYNTHESIZER:
     name: "&6Resource Synthesizer"
     lore:
@@ -986,6 +1002,12 @@ items:
       - "&8\u21E8 &e⚡ &7Speed: &b4x"
     lore-overrides:
       4: "%sftrlore_Speed_4%"
+  GEAR_TRANSFORMER:
+    name: "&9Gear Transformer"
+    lore:
+      - ""
+      - "&7Changes the material of tools and gear."
+      - ""
   ADVANCED_ANVIL:
     name: "&cAdvanced Anvil"
     lore:

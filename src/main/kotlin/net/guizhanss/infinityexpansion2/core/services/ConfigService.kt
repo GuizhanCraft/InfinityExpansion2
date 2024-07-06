@@ -44,17 +44,17 @@ class ConfigService(plugin: InfinityExpansion2) {
     // quarry options
     var quarryInterval = 10
         private set
-    var quarryPools: Map<Environment, QuarryPool> = mapOf()
+    var quarryPools: Map<Environment, QuarryPool> = emptyMap()
         private set
-    var quarryOcsillators: Map<String, Double> = mapOf()
+    var quarryOcsillators: Map<String, Double> = emptyMap()
         private set
 
     // advanced anvil options
-    var advancedAnvilMaxLevels: Map<Enchantment, Int> = mapOf()
+    var advancedAnvilMaxLevels: Map<Enchantment, Int> = emptyMap()
         private set
 
     // infinity gear enchantments
-    var infinityGearEnchantLevels: Map<String, ConfigurationSection> = mapOf()
+    var infinityGearEnchantLevels: Map<String, ConfigurationSection> = emptyMap()
         private set
 
     init {
@@ -74,11 +74,11 @@ class ConfigService(plugin: InfinityExpansion2) {
         mobSimInterval = config.getInt("mob-simulation.output-interval", 20).clamp(1, 3600)
         mobSimExpMultiplier = config.getDouble("mob-simulation.exp-multiplier", 1.0).clamp(0.0, 1000.0)
         quarryInterval = config.getInt("quarry.output-interval", 10).clamp(1, 3600)
-        quarryOcsillators = loadDoubleMap(config.getConfigurationSection("quarry.oscillators"))
-        quarryPools = loadEnumKeyMap<Environment, QuarryPool>(config.getConfigurationSection("quarry.pools"),
-            { obj -> (obj as ConfigurationSection).getAsSerializable() })
-        advancedAnvilMaxLevels = loadEnchantmentKeyMap(config.getConfigurationSection("advanced-anvil.max-levels"))
-        infinityGearEnchantLevels = loadSectionMap(config.getConfigurationSection("infinity-gear-enchantments"))
+        quarryOcsillators = config.getConfigurationSection("quarry.oscillators").loadDoubleMap()
+        quarryPools = config.getConfigurationSection("quarry.pools")
+            .loadEnumKeyMap<Environment, QuarryPool>({ obj -> (obj as ConfigurationSection).getAsSerializable() })
+        advancedAnvilMaxLevels = config.getConfigurationSection("advanced-anvil.max-levels").loadEnchantmentKeyMap()
+        infinityGearEnchantLevels = config.getConfigurationSection("infinity-gear-enchantments").loadSectionMap()
 
         config.save()
     }

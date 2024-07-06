@@ -4,7 +4,7 @@ import net.guizhanss.guizhanlib.utils.StringUtil
 
 inline fun <reified T : Enum<T>> valueOfOrNull(name: String): T? = enumValues<T>().firstOrNull { it.name == name }
 
-fun String.toId() = StringUtil.dehumanize(this).uppercase()
+fun String.toId() = StringUtil.dehumanize(this)
 
 fun Pair<String, String>.matches(str1: String, str2: String) =
     (first == str1 && second == str2) || (first == str2 && second == str1)

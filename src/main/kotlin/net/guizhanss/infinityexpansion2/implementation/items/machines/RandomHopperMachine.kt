@@ -19,7 +19,7 @@ open class RandomHopperMachine(
     recipeType: RecipeType,
     recipe: Array<out ItemStack?>,
     energyPerTick: Int,
-    recipes: Recipes = mapOf(),
+    recipes: Recipes = emptyMap(),
 ) : HopperMachine(itemGroup, itemStack, recipeType, recipe, energyPerTick, recipes) {
     override fun process(b: Block, menu: BlockMenu): Boolean {
         for (slot in inputSlots) {

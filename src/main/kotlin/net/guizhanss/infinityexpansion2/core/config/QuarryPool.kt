@@ -34,7 +34,7 @@ data class QuarryPool(
     companion object {
         fun deserialize(section: ConfigurationSection): QuarryPool {
             val baseProduct = section.getString("base-product")!!
-            val products = section.getConfigurationSection("products")?.let { loadIntMap(it) } ?: mapOf()
+            val products = section.getConfigurationSection("products").loadIntMap()
             return QuarryPool(baseProduct, products)
         }
     }

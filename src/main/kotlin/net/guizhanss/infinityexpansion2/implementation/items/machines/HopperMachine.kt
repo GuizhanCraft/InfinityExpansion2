@@ -28,7 +28,7 @@ open class HopperMachine(
     recipeType: RecipeType,
     recipe: Array<out ItemStack?>,
     energyPerTick: Int,
-    recipes: Recipes = mapOf(),
+    recipes: Recipes = emptyMap(),
 ) : AbstractTickingMachine(itemGroup, itemStack, recipeType, recipe, MenuLayout.HOPPER, energyPerTick),
     InformationalRecipeDisplayItem {
 

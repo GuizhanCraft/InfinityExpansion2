@@ -127,7 +127,7 @@ class AdvancedAnvil(
         } else if (meta.hasEnchants()) {
             return meta.enchants
         }
-        return mapOf()
+        return emptyMap()
     }
 
     private fun combineEnchantments(

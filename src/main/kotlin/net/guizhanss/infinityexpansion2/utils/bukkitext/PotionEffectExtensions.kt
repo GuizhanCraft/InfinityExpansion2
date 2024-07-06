@@ -1,3 +1,5 @@
+@file:Suppress("deprecation")
+
 package net.guizhanss.infinityexpansion2.utils.bukkitext
 
 import org.bukkit.potion.PotionEffect

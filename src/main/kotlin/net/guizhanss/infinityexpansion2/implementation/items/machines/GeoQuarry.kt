@@ -37,7 +37,7 @@ class GeoQuarry(
         menu.setStatus(GuiItems.PRODUCING)
         if (!shouldProduce()) return true
 
-        produce(menu)?.let {
+        produce(menu).let {
             menu.pushItem(it, *outputSlots)
         }
 

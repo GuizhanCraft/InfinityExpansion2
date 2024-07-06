@@ -10,6 +10,7 @@ import net.guizhanss.infinityexpansion2.core.services.LocalizationService
 import net.guizhanss.infinityexpansion2.implementation.IEItems
 import net.guizhanss.infinityexpansion2.implementation.groups.IEItemGroups
 import net.guizhanss.infinityexpansion2.implementation.setup.ResearchSetup
+import net.guizhanss.infinityexpansion2.utils.tags.IETag
 import org.bukkit.plugin.Plugin
 import java.io.File
 import java.util.logging.Level
@@ -29,6 +30,9 @@ class InfinityExpansion2 : AbstractAddon(
 //            server.pluginManager.disablePlugin(this)
 //            return
 //        }
+
+        // tags
+        IETag.reloadAll()
 
         // config
         configService = ConfigService(this)

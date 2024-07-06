@@ -4,6 +4,7 @@ import io.github.thebusybiscuit.slimefun4.libraries.dough.data.persistent.Persis
 import io.github.thebusybiscuit.slimefun4.utils.ChestMenuUtils
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.utils.bukkitext.createKey
+import net.guizhanss.infinityexpansion2.utils.constant.Strings
 import org.bukkit.Material
 import org.bukkit.inventory.ItemStack
 
@@ -106,6 +107,12 @@ object GuiItems {
         MaterialType.Material(Material.WHEAT_SEEDS),
         "chance",
         "&7${String.format("%.1f", chance * 100)}%"
+    )
+
+    fun sfItem(allowed: Boolean) = InfinityExpansion2.localization.getGuiItem(
+        MaterialType.Material(if (allowed) Material.GREEN_STAINED_GLASS_PANE else Material.RED_STAINED_GLASS_PANE),
+        "sf_item",
+        if (allowed) Strings.CHECK else Strings.CROSS
     )
 
     val OSCILLATOR_SLOT = InfinityExpansion2.localization.getGuiItem(
