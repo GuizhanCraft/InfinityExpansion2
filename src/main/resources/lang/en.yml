@@ -1021,7 +1021,73 @@ items:
     lore:
       - ""
       - "&7Used to craft infinity items."
+
   # items - generators
+  HYDRO_GENERATOR:
+    name: "&9Hydro Generator"
+    lore:
+      - ""
+      - "&7Generates energy from the movement of water."
+      - ""
+      - "&fMust be waterlogged to work."
+  HYDRO_GENERATOR_2:
+    name: "&cAdvanced &9Hydro Generator"
+    lore:
+      - ""
+      - "&7Generates energy from the movement of water."
+      - ""
+      - "&fMust be waterlogged to work."
+  GEOTHERMAL_GENERATOR:
+    name: "&cGeothermal Generator"
+    lore:
+      - ""
+      - "&7Generates energy from the heat of the world."
+      - ""
+      - "&fEnergy production is doubled while in the nether."
+  GEOTHERMAL_GENERATOR_2:
+    name: "&cAdvanced &6Geothermal Generator"
+    lore:
+      - ""
+      - "&7Generates energy from the heat of the world."
+      - ""
+      - "&fEnergy production is doubled while in the nether."
+  SOLAR_PANEL:
+    name: "&6Solar Panel"
+    lore:
+      - ""
+      - "&7Generates energy from the sun."
+      - ""
+  SOLAR_PANEL_2:
+    name: "&cAdvanced &6Solar Panel"
+    lore:
+      - ""
+      - "&7Generates energy from the sun."
+      - ""
+  SOLAR_PANEL_3:
+    name: "&eCelestial &6Solar Panel"
+    lore:
+      - ""
+      - "&7Generates energy from the sun."
+      - ""
+  VOID_PANEL:
+    name: "&8Void Panel"
+    lore:
+      - ""
+      - "&7Generates energy from the darkness."
+      - ""
+  INFINITY_PANEL:
+    name: "&bInfinity Panel"
+    lore:
+      - ""
+      - "&7Generates energy from the cosmos."
+      - ""
+  INFINITY_REACTOR:
+    name: "&bInfinity Reactor"
+    lore:
+      - ""
+      - "&7Generates energy through the compression"
+      - "&7of &8Void &7and &bInfinity &7Ingots."
+      - ""
   # items - hidden
   OSCILLATOR:
     name: "&6Oscillator"
@@ -1036,3 +1102,9 @@ messages:
     input1-not-enchantable: "&cThe first input is a Slimefun item that is not enchantable."
     input2-not-disenchantable: "&cThe second input is a Slimefun item that is not disenchantable."
     no-output: "&cNo upgrades available."
+  generators:
+    type: "&eType: &f{0}"
+    working: "&eWorking: &f{0}"
+    tick-rate: "&eTick rate: &f{0} &7tick(s)"
+    production: "&eEnergy production: &f{0} &7J/t (&f{1} &7J/s)"
+    expected-production: "&eExpected energy production: &f{0} &7J/t (&f{1} &7J/s)"

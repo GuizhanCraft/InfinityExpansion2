@@ -1,6 +1,6 @@
 package net.guizhanss.infinityexpansion2.utils.items
 
-import io.github.thebusybiscuit.slimefun4.implementation.Slimefun
+import net.guizhanss.infinityexpansion2.utils.powerPerTickToSecond
 import java.text.NumberFormat
 import java.util.Locale
 
@@ -10,8 +10,8 @@ object MachineLore {
 
     fun power(power: Int, suffix: String) = "$POWER_PREFIX${numberFormatter.format(power)} J$suffix"
     fun powerPerTick(powerPerTick: Int) = power(powerPerTick, "/t")
-    fun powerPerSecond(powerPerTick: Int) =
-        power((powerPerTick * 20.0 / Slimefun.getTickerTask().tickRate).toInt(), "/s")
+    fun powerPerSecond(powerPerTick: Int, tickRate: Int = 1) =
+        power(powerPerTickToSecond(powerPerTick, tickRate), "/s")
 
     fun powerPerUse(powerPerUse: Int) = power(powerPerUse, "/use")
 }

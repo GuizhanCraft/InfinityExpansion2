@@ -1,5 +1,6 @@
 package net.guizhanss.infinityexpansion2.utils
 
+import io.github.thebusybiscuit.slimefun4.implementation.Slimefun
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu
 import org.bukkit.inventory.ItemStack
 
@@ -35,3 +36,6 @@ fun calculateItems(items: List<ItemStack?>): Map<ItemStack, Int> {
     }
     return result
 }
+
+fun powerPerTickToSecond(powerPerTick: Int, tickRate: Int = 1) =
+    (powerPerTick * 20.0 / (Slimefun.getTickerTask().tickRate * tickRate)).toInt()

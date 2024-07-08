@@ -7,20 +7,21 @@ import org.bukkit.block.Block
 import org.bukkit.block.data.Waterlogged
 
 /**
- * Check if a block is waterlogged.
+ * Check if a block is waterlogged (result is cached and is updated every [tickRate] sf ticks).
  */
-fun Block.isWaterLogged(tickRate: Int = 64) = if (InfinityExpansion2.sfTickCount() % tickRate == 0) {
-    val blockData = blockData
+fun Block.isWaterLogged(tickRate: Int = 64) =
+    if (InfinityExpansion2.sfTickCount() % tickRate == 0) {
+        val blockData = blockData
 
-    if (blockData is Waterlogged) {
-        location.setBoolean("water_logged", blockData.isWaterlogged)
-        blockData.isWaterlogged
+        if (blockData is Waterlogged) {
+            location.setBoolean("water_logged", blockData.isWaterlogged)
+            blockData.isWaterlogged
+        } else {
+            false
+        }
     } else {
-        false
+        location.getBoolean("water_logged")
     }
-} else {
-    location.getBoolean("water_logged")
-}
 
 /**
  * Check if the block has light from the sky.

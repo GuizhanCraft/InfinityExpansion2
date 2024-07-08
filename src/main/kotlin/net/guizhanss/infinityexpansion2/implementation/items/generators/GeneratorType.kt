@@ -12,7 +12,6 @@ enum class GeneratorType {
     HYDROELECTRIC {
         override fun generate(world: World, block: Block, def: Int) =
             if (block.isWaterLogged()) def else 0
-
     },
     GEOTHERMAL {
         override fun generate(world: World, block: Block, def: Int) = when (world.environment) {

@@ -11,6 +11,8 @@ import net.guizhanss.infinityexpansion2.implementation.items.gear.InfinityArmor
 import net.guizhanss.infinityexpansion2.implementation.items.gear.InfinityBoots
 import net.guizhanss.infinityexpansion2.implementation.items.gear.InfinityBow
 import net.guizhanss.infinityexpansion2.implementation.items.gear.InfinityTool
+import net.guizhanss.infinityexpansion2.implementation.items.generators.EnergyGenerator
+import net.guizhanss.infinityexpansion2.implementation.items.generators.GeneratorType
 import net.guizhanss.infinityexpansion2.implementation.items.machines.AdvancedAnvil
 import net.guizhanss.infinityexpansion2.implementation.items.machines.CobblePress
 import net.guizhanss.infinityexpansion2.implementation.items.machines.Decompressor
@@ -61,6 +63,7 @@ object IEItems {
     private val STICK = ItemStack(Material.STICK)
     private val STRING = ItemStack(Material.STRING)
     private val DIAMOND_PICKAXE = ItemStack(Material.DIAMOND_PICKAXE)
+    private val BUCKET = ItemStack(Material.BUCKET)
     private val WATER_BUCKET = ItemStack(Material.WATER_BUCKET)
     private val LAVA_BUCKET = ItemStack(Material.LAVA_BUCKET)
     private val GRASS_BLOCK = ItemStack(Material.GRASS_BLOCK)
@@ -1715,6 +1718,118 @@ object IEItems {
     // </editor-fold>
 
     // <editor-fold desc="Generators" collapsed="true">
+    val HYDRO_GENERATOR = buildSlimefunItem<EnergyGenerator>(GeneratorType.HYDROELECTRIC, 5) {
+        id = "HYDRO_GENERATOR"
+        material = Material.PRISMARINE_WALL.convert()
+        itemGroup = IEItemGroups.GENERATORS
+        recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
+        recipe = arrayOf(
+            MAGSTEEL, MACHINE_CIRCUIT, MAGSTEEL,
+            BUCKET, SlimefunItems.ELECTRO_MAGNET, BUCKET,
+            MAGSTEEL, MACHINE_CIRCUIT, MAGSTEEL,
+        )
+    }
+
+    val HYDRO_GENERATOR_2 = buildSlimefunItem<EnergyGenerator>(GeneratorType.HYDROELECTRIC, 45) {
+        id = "HYDRO_GENERATOR_2"
+        material = Material.END_STONE_BRICK_WALL.convert()
+        itemGroup = IEItemGroups.GENERATORS
+        recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
+        recipe = arrayOf(
+            HYDRO_GENERATOR, MACHINE_CIRCUIT, HYDRO_GENERATOR,
+            MAGSTEEL_PLATE, MACHINE_CORE, MAGSTEEL_PLATE,
+            HYDRO_GENERATOR, MACHINE_CIRCUIT, HYDRO_GENERATOR,
+        )
+    }
+
+    val GEOTHERMAL_GENERATOR = buildSlimefunItem<EnergyGenerator>(GeneratorType.GEOTHERMAL, 35) {
+        id = "GEOTHERMAL_GENERATOR"
+        material = Material.MAGMA_BLOCK.convert()
+        itemGroup = IEItemGroups.GENERATORS
+        recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
+        recipe = arrayOf(
+            MAGSTEEL_PLATE, MAGSTEEL_PLATE, MAGSTEEL_PLATE,
+            SlimefunItems.LAVA_GENERATOR_2, SlimefunItems.LAVA_GENERATOR_2, SlimefunItems.LAVA_GENERATOR_2,
+            MACHINE_CIRCUIT, MACHINE_CORE, MACHINE_CIRCUIT,
+        )
+    }
+
+    val GEOTHERMAL_GENERATOR_2 = buildSlimefunItem<EnergyGenerator>(GeneratorType.GEOTHERMAL, 210) {
+        id = "GEOTHERMAL_GENERATOR_2"
+        material = Material.SHROOMLIGHT.convert()
+        itemGroup = IEItemGroups.GENERATORS
+        recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
+        recipe = arrayOf(
+            GEOTHERMAL_GENERATOR, MACHINE_CIRCUIT, GEOTHERMAL_GENERATOR,
+            MAGSTEEL_PLATE, MACHINE_CORE, MAGSTEEL_PLATE,
+            GEOTHERMAL_GENERATOR, MACHINE_CIRCUIT, GEOTHERMAL_GENERATOR,
+        )
+    }
+
+    val SOLAR_PANEL = buildSlimefunItem<EnergyGenerator>(GeneratorType.SOLAR, 10) {
+        id = "SOLAR_PANEL"
+        material = Material.BLUE_GLAZED_TERRACOTTA.convert()
+        itemGroup = IEItemGroups.GENERATORS
+        recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
+        recipe = arrayOf(
+            MAGSTEEL, MAGSTEEL_PLATE, MAGSTEEL,
+            SlimefunItems.SOLAR_PANEL, SlimefunItems.SOLAR_PANEL, SlimefunItems.SOLAR_PANEL,
+            MACHINE_CIRCUIT, MACHINE_CIRCUIT, MACHINE_CIRCUIT,
+        )
+    }
+
+    val SOLAR_PANEL_2 = buildSlimefunItem<EnergyGenerator>(GeneratorType.SOLAR, 150) {
+        id = "SOLAR_PANEL_2"
+        material = Material.RED_GLAZED_TERRACOTTA.convert()
+        itemGroup = IEItemGroups.GENERATORS
+        recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
+        recipe = arrayOf(
+            SOLAR_PANEL, SOLAR_PANEL, SOLAR_PANEL,
+            TITANIUM, SlimefunItems.SOLAR_GENERATOR_4, TITANIUM,
+            MACHINE_CIRCUIT, MACHINE_CIRCUIT, MACHINE_CIRCUIT,
+        )
+    }
+
+    val SOLAR_PANEL_3 = buildSlimefunItem<EnergyGenerator>(GeneratorType.SOLAR, 750) {
+        id = "SOLAR_PANEL_3"
+        material = Material.YELLOW_GLAZED_TERRACOTTA.convert()
+        itemGroup = IEItemGroups.GENERATORS
+        recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
+        recipe = arrayOf(
+            MACHINE_PLATE, MACHINE_PLATE, MACHINE_PLATE,
+            SOLAR_PANEL_2, SOLAR_PANEL_2, SOLAR_PANEL_2,
+            MACHINE_CIRCUIT, MACHINE_CORE, MACHINE_CIRCUIT,
+        )
+    }
+
+    val VOID_PANEL = buildSlimefunItem<EnergyGenerator>(GeneratorType.LUNAR, 3_000) {
+        id = "VOID_PANEL"
+        material = Material.LIGHT_GRAY_GLAZED_TERRACOTTA.convert()
+        itemGroup = IEItemGroups.GENERATORS
+        recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
+        recipe = arrayOf(
+            VOID_INGOT, VOID_INGOT, VOID_INGOT,
+            SOLAR_PANEL_3, SOLAR_PANEL_3, SOLAR_PANEL_3,
+            MAGNONIUM, MAGNONIUM, MAGNONIUM,
+        )
+    }
+
+    val INFINITY_PANEL = buildSlimefunItem<EnergyGenerator>(GeneratorType.INFINITY, 60_000) {
+        id = "INFINITY_PANEL"
+        material = Material.LIGHT_BLUE_GLAZED_TERRACOTTA.convert()
+        itemGroup = IEItemGroups.GENERATORS
+        recipeType = IERecipeTypes.INFINITY_WORKBENCH
+        recipe = arrayOf(
+            // @formatter:off
+            SOLAR_PANEL_3, SOLAR_PANEL_3, SOLAR_PANEL_3, SOLAR_PANEL_3, SOLAR_PANEL_3, SOLAR_PANEL_3,
+            SOLAR_PANEL_3, SOLAR_PANEL_3, SOLAR_PANEL_3, SOLAR_PANEL_3, SOLAR_PANEL_3, SOLAR_PANEL_3,
+            INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT,
+            INFINITY_INGOT, INFINITY_MACHINE_CIRCUIT, INFINITY_MACHINE_CORE, INFINITY_MACHINE_CORE, INFINITY_MACHINE_CIRCUIT, INFINITY_INGOT,
+            INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT,
+            VOID_PANEL, VOID_PANEL, VOID_PANEL, VOID_PANEL, VOID_PANEL, VOID_PANEL,
+            // @formatter:on
+        )
+    }
     // </editor-fold>
 
     // <editor-fold desc="Hidden" collapsed="true">

@@ -85,6 +85,13 @@ object GuiItems {
         MachineLore.powerPerUse(energyPerUse)
     )
 
+    fun energyProductionPerTick(energyPerTick: Int, tickRate: Int = 1) = InfinityExpansion2.localization.getGuiItem(
+        MaterialType.Material(Material.GLOWSTONE_DUST),
+        "energy_production",
+        MachineLore.powerPerTick(energyPerTick),
+        MachineLore.powerPerSecond(energyPerTick, tickRate)
+    )
+
     fun outputInterval(interval: Int) = InfinityExpansion2.localization.getGuiItem(
         MaterialType.Material(Material.COMPASS),
         "output_interval",
