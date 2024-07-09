@@ -13,6 +13,7 @@ import net.guizhanss.infinityexpansion2.implementation.items.gear.InfinityBow
 import net.guizhanss.infinityexpansion2.implementation.items.gear.InfinityTool
 import net.guizhanss.infinityexpansion2.implementation.items.generators.EnergyGenerator
 import net.guizhanss.infinityexpansion2.implementation.items.generators.GeneratorType
+import net.guizhanss.infinityexpansion2.implementation.items.generators.InfinityReactor
 import net.guizhanss.infinityexpansion2.implementation.items.machines.AdvancedAnvil
 import net.guizhanss.infinityexpansion2.implementation.items.machines.CobblePress
 import net.guizhanss.infinityexpansion2.implementation.items.machines.Decompressor
@@ -41,6 +42,7 @@ import net.guizhanss.infinityexpansion2.implementation.items.sfextension.AutoEnc
 import net.guizhanss.infinityexpansion2.implementation.items.sfextension.Capacitor
 import net.guizhanss.infinityexpansion2.implementation.items.sfextension.ChargingBench
 import net.guizhanss.infinityexpansion2.implementation.items.sfextension.GeoMiner
+import net.guizhanss.infinityexpansion2.implementation.items.sfextension.NetherStarReactor
 import net.guizhanss.infinityexpansion2.implementation.items.sfextension.Smeltery
 import net.guizhanss.infinityexpansion2.implementation.items.tools.Oscillator
 import net.guizhanss.infinityexpansion2.implementation.items.tools.Strainer
@@ -766,6 +768,20 @@ object IEItems {
             VOID_BLOCK,
             ADVANCED_SMELTERY,
             VOID_BLOCK
+        )
+    }
+
+    val ADVANCED_NETHER_STAR_REACTOR = buildSlimefunItem<NetherStarReactor>(1800, 90000) {
+        id = "ADVANCED_NETHER_STAR_REACTOR"
+        material = HeadTexture.NETHER_STAR_REACTOR.convert()
+        itemGroup = IEItemGroups.SLIMEFUN_EXPANSION
+        recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
+        recipe = arrayOf(
+            // @formatter:off
+            SlimefunItems.WITHER_PROOF_GLASS, SlimefunItems.WITHER_PROOF_GLASS, SlimefunItems.WITHER_PROOF_GLASS,
+            MACHINE_CIRCUIT, SlimefunItems.NETHER_STAR_REACTOR, MACHINE_CIRCUIT,
+            SlimefunItems.WITHER_PROOF_OBSIDIAN, SlimefunItems.WITHER_PROOF_OBSIDIAN, SlimefunItems.WITHER_PROOF_OBSIDIAN,
+            // @formatter:on
         )
     }
     // </editor-fold>
@@ -1827,6 +1843,23 @@ object IEItems {
             INFINITY_INGOT, INFINITY_MACHINE_CIRCUIT, INFINITY_MACHINE_CORE, INFINITY_MACHINE_CORE, INFINITY_MACHINE_CIRCUIT, INFINITY_INGOT,
             INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT,
             VOID_PANEL, VOID_PANEL, VOID_PANEL, VOID_PANEL, VOID_PANEL, VOID_PANEL,
+            // @formatter:on
+        )
+    }
+
+    val INFINITY_REACTOR = buildSlimefunItem<InfinityReactor>(120_000) {
+        id = "INFINITY_REACTOR"
+        material = Material.BEACON.convert()
+        itemGroup = IEItemGroups.GENERATORS
+        recipeType = IERecipeTypes.INFINITY_WORKBENCH
+        recipe = arrayOf(
+            // @formatter:off
+            null, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT, null,
+            INFINITY_INGOT, INFINITY_INGOT, VOID_INGOT, VOID_INGOT, INFINITY_INGOT, INFINITY_INGOT,
+            INFINITY_INGOT, MACHINE_PLATE, MACHINE_PLATE, MACHINE_PLATE, MACHINE_PLATE, INFINITY_INGOT,
+            INFINITY_INGOT, MACHINE_PLATE, ADVANCED_NETHER_STAR_REACTOR, ADVANCED_NETHER_STAR_REACTOR, MACHINE_PLATE, INFINITY_INGOT,
+            INFINITY_INGOT, MACHINE_PLATE, MACHINE_PLATE, MACHINE_PLATE, MACHINE_PLATE, INFINITY_INGOT,
+            INFINITY_INGOT, INFINITY_MACHINE_CIRCUIT, INFINITY_MACHINE_CORE, INFINITY_MACHINE_CORE, INFINITY_MACHINE_CIRCUIT, INFINITY_INGOT,
             // @formatter:on
         )
     }

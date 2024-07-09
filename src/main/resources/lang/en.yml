@@ -214,6 +214,39 @@ items:
       force-load: true
     name: "&cSlimefun items are not allowed"
 
+  # infinity reactor specific
+  _UI_IR_BORDER_VOID:
+    conditions:
+      force-load: true
+    name: "&7Put &8Void &7Ingot here"
+  _UI_IR_BORDER_INFINITY:
+    conditions:
+      force-load: true
+    name: "&7Put &bInfinity &7Ingot here"
+  _UI_IR_NEED_VOID:
+    conditions:
+      force-load: true
+    name: "&7Need more &8Void &7Ingot"
+  _UI_IR_NEED_INFINITY:
+    conditions:
+      force-load: true
+    name: "&7Need more &bInfinity &7Ingot"
+  _UI_IR_INFO_VOID:
+    conditions:
+      force-load: true
+    name: "&eVoid Ingot duration (sf ticks):"
+  _UI_IR_INFO_INFINITY:
+    conditions:
+      force-load: true
+    name: "&eInfinity Ingot duration (sf ticks):"
+  _UI_IR_INFO:
+    conditions:
+      force-load: true
+    name: "&aRunning..."
+    lore-overrides:
+      1: "&eRemaining sf ticks for Infinity Ingot:"
+      3: "&eRemaining sf ticks for Void Ingot:"
+
   # items - guide
   _GUIDE_INTRO:
     name: "&eIntroduction"
