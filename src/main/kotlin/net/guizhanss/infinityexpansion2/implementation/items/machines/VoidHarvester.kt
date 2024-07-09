@@ -56,11 +56,8 @@ class VoidHarvester(
 
     private fun BlockMenu.setProgress(progress: Int) {
         location.setInt("progress", progress)
-        setStatus(GuiItems.progressBar(progress, totalProgress))
+        setStatus { GuiItems.progressBar(progress, totalProgress) }
     }
-
-    override fun getRecipeSectionLabel(p: Player) = InfinityExpansion2.integrationService.getLore(p, "info")
-
 
     override fun getDefaultDisplayRecipes() = listOf(IEItems.VOID_BIT)
 

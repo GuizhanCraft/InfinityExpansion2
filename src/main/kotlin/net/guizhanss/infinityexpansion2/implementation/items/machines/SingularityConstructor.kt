@@ -105,7 +105,7 @@ class SingularityConstructor(
         val singularity = getSingularity(input)
 
         if (singularity == null) {
-            setStatus(GuiItems.INVALID_INPUT)
+            setStatus { GuiItems.INVALID_INPUT }
             return false
         }
 
@@ -114,7 +114,7 @@ class SingularityConstructor(
         setTarget(singularity.id)
         setProgress(progress)
         setTargetItem(singularity.item)
-        setStatus(GuiItems.progressBar(progress, singularity.totalProgress))
+        setStatus { GuiItems.progressBar(progress, singularity.totalProgress) }
 
         return true
     }
