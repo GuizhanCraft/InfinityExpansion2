@@ -32,11 +32,11 @@ open class RandomHopperMachine(
 
                     // must have at least one slot empty
                     if (!outputSlots.any { menu.getItemInSlot(it) == null }) {
-                        menu.setStatus(GuiItems.NO_ROOM)
+                        menu.setStatus { GuiItems.NO_ROOM }
                         return false
                     }
 
-                    menu.setStatus(GuiItems.PRODUCING)
+                    menu.setStatus { GuiItems.PRODUCING }
                     menu.consumeItem(slot, recipeInput.amount)
                     menu.pushItem(output, *outputSlots)
                     return true
@@ -44,7 +44,7 @@ open class RandomHopperMachine(
             }
         }
 
-        menu.setStatus(GuiItems.INVALID_INPUT)
+        menu.setStatus { GuiItems.INVALID_INPUT }
         return false
     }
 }

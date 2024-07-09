@@ -45,9 +45,9 @@ abstract class AbstractActionMachine(
 
     override fun getEnergyComponentType() = EnergyNetComponentType.CONSUMER
 
-    protected fun BlockMenu.setStatus(itemStack: ItemStack) {
+    protected fun BlockMenu.setStatus(itemStack: () -> ItemStack) {
         if (hasViewer()) {
-            replaceExistingItem(layout.statusSlot, itemStack)
+            replaceExistingItem(layout.statusSlot, itemStack())
         }
     }
 }

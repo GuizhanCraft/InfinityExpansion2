@@ -67,25 +67,25 @@ class ResourceSynthesizer(
         val input2 = SlimefunItem.getByItem(menu.getItemInSlot(inputSlots[1]))
 
         if (input1 == null || input2 == null) {
-            menu.setStatus(GuiItems.INVALID_INPUT)
+            menu.setStatus { GuiItems.INVALID_INPUT }
             return false
         }
 
         val recipe = _recipes.entries.firstOrNull { it.key.matches(input1.id, input2.id) }
 
         if (recipe == null) {
-            menu.setStatus(GuiItems.INVALID_INPUT)
+            menu.setStatus { GuiItems.INVALID_INPUT }
             return false
         }
 
         // process
         val output = recipe.value.clone()
         if (menu.fits(output, *outputSlots)) {
-            menu.setStatus(GuiItems.NO_ROOM)
+            menu.setStatus { GuiItems.NO_ROOM }
             return false
         }
 
-        menu.setStatus(GuiItems.PRODUCING)
+        menu.setStatus { GuiItems.PRODUCING }
         menu.consumeItem(inputSlots[0])
         menu.consumeItem(inputSlots[1])
         menu.pushItem(output, *outputSlots)

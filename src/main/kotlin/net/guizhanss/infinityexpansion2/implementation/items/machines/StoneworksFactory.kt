@@ -64,7 +64,7 @@ class StoneworksFactory(
     }
 
     override fun process(b: Block, menu: BlockMenu): Boolean {
-        menu.setStatus(GuiItems.PRODUCING)
+        menu.setStatus { GuiItems.PRODUCING }
 
         val tick = InfinityExpansion2.sfTickCount() / getCustomTickRate() % (CHOICE_SLOTS.size + 1)
         if (tick == CHOICE_SLOTS.size) {

@@ -48,16 +48,16 @@ class GearTransformer(
         val material = menu.getItemInSlot(inputSlots[1])
 
         if (gear == null || material == null) {
-            menu.setStatus(GuiItems.INVALID_INPUT)
+            menu.setStatus { GuiItems.INVALID_INPUT }
             return false
         }
 
         if (!InfinityExpansion2.configService.allowSfItemTransform && gear.isSlimefunItem()) {
-            menu.setStatus(NO_SLIMEFUN_ITEM)
+            menu.setStatus { NO_SLIMEFUN_ITEM }
             return false
         }
 
-        menu.setStatus(GuiItems.INVALID_INPUT)
+        menu.setStatus { GuiItems.INVALID_INPUT }
 
         // check if item is a tool/weapon
         if (IETag.UPGRADABLE_TOOL.isTagged(gear.type)) {
@@ -89,7 +89,7 @@ class GearTransformer(
 
         // update the menu
         if (!menu.fits(newGear, *outputSlots)) {
-            menu.setStatus(GuiItems.NO_ROOM)
+            menu.setStatus { GuiItems.NO_ROOM }
             return false
         }
         menu.consumeItem(inputSlots[0])

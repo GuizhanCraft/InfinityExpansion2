@@ -49,17 +49,17 @@ open class GrowingMachine(
     override fun process(b: Block, menu: BlockMenu): Boolean {
         val input = menu.getItemInSlot(inputSlots[0])
         if (input == null) {
-            menu.setStatus(GuiItems.INVALID_INPUT)
+            menu.setStatus { GuiItems.INVALID_INPUT }
             return false
         }
 
         val output = findRecipe(input)
         if (output == null) {
-            menu.setStatus(GuiItems.INVALID_INPUT)
+            menu.setStatus { GuiItems.INVALID_INPUT }
             return false
         }
 
-        menu.setStatus(GuiItems.PRODUCING)
+        menu.setStatus { GuiItems.PRODUCING }
         if (shouldProduce()) {
             output.forEach { menu.pushItem(it.clone(), *outputSlots) }
         }

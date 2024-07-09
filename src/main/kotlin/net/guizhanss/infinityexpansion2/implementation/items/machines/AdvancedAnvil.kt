@@ -51,15 +51,15 @@ class AdvancedAnvil(
         val input2 = menu.getItemInSlot(inputSlots[1])
 
         if (input1 == null || input2 == null || (input2.type != Material.ENCHANTED_BOOK && input1.type != input2.type)) {
-            menu.setStatus(GuiItems.INVALID_INPUT)
+            menu.setStatus { GuiItems.INVALID_INPUT }
             return false
         }
 
         val output = getOutput(input1, input2)
         if (output == null) {
-            menu.setStatus(GuiItems.INVALID_INPUT)
+            menu.setStatus { GuiItems.INVALID_INPUT }
         } else {
-            menu.setStatus(output.toDisplayItem())
+            menu.setStatus { output.toDisplayItem() }
         }
 
         return false

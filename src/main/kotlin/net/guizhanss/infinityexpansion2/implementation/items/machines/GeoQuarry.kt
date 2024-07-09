@@ -34,7 +34,7 @@ class GeoQuarry(
     }
 
     override fun process(b: Block, menu: BlockMenu): Boolean {
-        menu.setStatus(GuiItems.PRODUCING)
+        menu.setStatus { GuiItems.PRODUCING }
         if (!shouldProduce()) return true
 
         produce(menu).let {

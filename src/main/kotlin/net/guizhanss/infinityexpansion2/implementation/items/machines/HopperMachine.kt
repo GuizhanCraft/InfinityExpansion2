@@ -55,19 +55,19 @@ open class HopperMachine(
                     && input.amount >= recipeInput.amount
                 ) {
                     if (!InvUtils.fitAll(menu.toInventory(), recipeOutput, *outputSlots)) {
-                        menu.setStatus(GuiItems.NO_ROOM)
+                        menu.setStatus { GuiItems.NO_ROOM }
                         return false
                     }
 
                     recipeOutput.forEach { menu.pushItem(it.clone(), *outputSlots) }
                     menu.consumeItem(slot, recipeInput.amount)
-                    menu.setStatus(GuiItems.PRODUCING)
+                    menu.setStatus { GuiItems.PRODUCING }
                     return true
                 }
             }
         }
 
-        menu.setStatus(GuiItems.INVALID_INPUT)
+        menu.setStatus { GuiItems.INVALID_INPUT }
         return false
     }
 

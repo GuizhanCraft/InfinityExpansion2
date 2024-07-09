@@ -42,7 +42,7 @@ class VoidHarvester(
             val output = IEItems.VOID_BIT
 
             if (!menu.fits(output, *layout.outputSlots)) {
-                menu.setStatus(GuiItems.NO_ROOM)
+                menu.setStatus { GuiItems.NO_ROOM }
                 return false
             }
 

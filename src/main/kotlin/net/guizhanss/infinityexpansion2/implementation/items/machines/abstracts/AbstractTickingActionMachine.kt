@@ -56,7 +56,7 @@ abstract class AbstractTickingActionMachine(
     override fun tick(b: Block, menu: BlockMenu) {
         if (!shouldRun()) return
         if (getCharge(menu.location) < getEnergyConsumptionPerAction()) {
-            menu.setStatus(GuiItems.NO_POWER)
+            menu.setStatus { GuiItems.NO_POWER }
         } else if (process(b, menu)) {
             removeCharge(menu.location, getEnergyConsumptionPerAction())
         }
@@ -64,9 +64,9 @@ abstract class AbstractTickingActionMachine(
 
     protected abstract fun process(b: Block, menu: BlockMenu): Boolean
 
-    protected fun BlockMenu.setStatus(itemStack: ItemStack) {
+    protected fun BlockMenu.setStatus(itemStack: () -> ItemStack) {
         if (hasViewer()) {
-            replaceExistingItem(layout.statusSlot, itemStack)
+            replaceExistingItem(layout.statusSlot, itemStack())
         }
     }
 }

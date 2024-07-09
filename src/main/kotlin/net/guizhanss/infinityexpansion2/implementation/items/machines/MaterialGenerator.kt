@@ -25,11 +25,11 @@ class MaterialGenerator(
     override fun process(b: Block, menu: BlockMenu): Boolean {
         val output = ItemStack(material, speed)
         if (!menu.fits(output, *outputSlots)) {
-            menu.setStatus(GuiItems.NO_ROOM)
+            menu.setStatus { GuiItems.NO_ROOM }
             return false
         }
 
-        menu.setStatus(GuiItems.PRODUCING)
+        menu.setStatus { GuiItems.PRODUCING }
         menu.pushItem(output, *outputSlots)
         return true
     }

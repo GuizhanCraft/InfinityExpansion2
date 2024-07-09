@@ -79,7 +79,7 @@ class SingularityConstructor(
         if (progress >= singularity.totalProgress) {
             // finish
             if (!menu.fits(singularity.item, *outputSlots)) {
-                menu.setStatus(GuiItems.NO_ROOM)
+                menu.setStatus { GuiItems.NO_ROOM }
                 return false
             }
 
@@ -88,7 +88,7 @@ class SingularityConstructor(
         } else {
             // check input and add progress
             if (singularity != getSingularity(inputTemplate)) {
-                menu.setStatus(GuiItems.INVALID_INPUT)
+                menu.setStatus { GuiItems.INVALID_INPUT }
                 return false
             }
 
@@ -97,7 +97,7 @@ class SingularityConstructor(
         }
 
         menu.setProgress(progress)
-        menu.setStatus(GuiItems.progressBar(progress, singularity.totalProgress))
+        menu.setStatus { GuiItems.progressBar(progress, singularity.totalProgress) }
         return true
     }
 
