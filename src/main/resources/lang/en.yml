@@ -1130,6 +1130,18 @@ lores:
   info: "&7Information:"
   soulbound: "&bSoulbound"
 messages:
+  commands:
+    no-permission: "&cYou do not have permission to use this command."
+    player-only: "&cThis command can only be used by players."
+    player-not-found: "&cTarget player is not found."
+    invalid-item: "&cInvalid item."
+    giverecipe:
+      description: "Get the recipe ingredients."
+      to-sender: "&7You have provided the ingredients of &a{0} &7to &b{1}&7."
+      to-target: "&7You have received the ingredients of &a{0}&7."
+    printitem:
+      description: "Print the item in hand."
+      no-item: "&cYou must hold an item in your hand."
   no-room: "&cNot enough room"
   advanced-anvil:
     input1-not-enchantable: "&cThe first input is a Slimefun item that is not enchantable."

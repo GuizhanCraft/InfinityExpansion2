@@ -5,8 +5,9 @@ plugins {
 }
 
 group = "net.guizhanss"
-version = "UNOFFICIAL"
 description = "InfinityExpansion2"
+
+val mainPackage = "net.guizhanss.infinityexpansion2"
 
 repositories {
     mavenCentral()
@@ -15,20 +16,14 @@ repositories {
     maven("https://jitpack.io")
 }
 
-val paperVersion = "1.20.4-R0.1-SNAPSHOT"
-val slimefunVersion = "RC-37"
-val slimefunTranslationVersion = "e03b01a7b7"
-val guizhanLibVersion = "1.7.6"
-val bstatsVersion = "3.0.2"
-
 dependencies {
     library(kotlin("stdlib"))
     library(kotlin("reflect"))
-    compileOnly("io.papermc.paper:paper-api:$paperVersion")
-    compileOnly("com.github.Slimefun:Slimefun4:$slimefunVersion")
-    compileOnly("net.guizhanss:SlimefunTranslation:$slimefunTranslationVersion")
-    implementation("net.guizhanss:GuizhanLib-api:$guizhanLibVersion")
-    implementation("org.bstats:bstats-bukkit:$bstatsVersion")
+    compileOnly("io.papermc.paper:paper-api:1.20.4-R0.1-SNAPSHOT")
+    compileOnly("com.github.Slimefun:Slimefun4:RC-37")
+    compileOnly("net.guizhanss:SlimefunTranslation:e03b01a7b7")
+    implementation("net.guizhanss:GuizhanLib-api:1.7.6")
+    implementation("org.bstats:bstats-bukkit:3.0.2")
 }
 
 java {
@@ -46,8 +41,9 @@ tasks.compileKotlin {
 tasks.shadowJar {
     fun doRelocate(from: String) {
         val last = from.split(".").last()
-        relocate(from, "net.guizhanss.infinityexpansion2.libs.$last")
+        relocate(from, "$mainPackage.libs.$last")
     }
+
     doRelocate("net.guizhanss.guizhanlib")
     doRelocate("org.bstats")
     minimize()
@@ -55,10 +51,17 @@ tasks.shadowJar {
 }
 
 bukkit {
-    main = "net.guizhanss.infinityexpansion2.InfinityExpansion2"
+    main = "$mainPackage.InfinityExpansion2"
     apiVersion = "1.17"
     authors = listOf("ybw0014")
     description = "More Slimefun content"
     depend = listOf("Slimefun")
     softDepend = listOf("GuizhanLibPlugin", "SlimefunTranslation", "InfinityExpansion")
+
+    commands {
+        register("infinityexpansion") {
+            description = "InfinityExpansion2 command"
+            aliases = listOf("ie", "ie2", "infinityexpansion2")
+        }
+    }
 }

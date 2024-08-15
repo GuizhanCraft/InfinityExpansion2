@@ -11,6 +11,8 @@ import net.guizhanss.infinityexpansion2.implementation.IEItems
 import net.guizhanss.infinityexpansion2.implementation.groups.IEItemGroups
 import net.guizhanss.infinityexpansion2.implementation.setup.ResearchSetup
 import net.guizhanss.infinityexpansion2.utils.tags.IETag
+import org.bstats.bukkit.Metrics
+import org.bstats.charts.SimplePie
 import org.bukkit.plugin.Plugin
 import java.io.File
 import java.util.logging.Level
@@ -97,10 +99,13 @@ class InfinityExpansion2 : AbstractAddon(
     }
 
     private fun setupMetrics() {
-//        val metrics = Metrics(this, 14870)
+        val metrics = Metrics(this, 23025)
+
+        metrics.addCustomChart(SimplePie("auto_update") { configService.autoUpdate.toString() })
     }
 
     companion object {
+
         private const val GITHUB_USER = "ybw0014"
         private const val GITHUB_REPO = "InfinityExpansion2"
         private const val GITHUB_BRANCH = "master"

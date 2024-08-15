@@ -16,8 +16,10 @@ import org.bukkit.configuration.file.YamlConfiguration
 import org.bukkit.entity.Player
 import org.bukkit.inventory.ItemStack
 import java.io.File
+import java.text.MessageFormat
 
 class IntegrationService(private val plugin: InfinityExpansion2) {
+
     var slimefunTranslationEnabled = isPluginEnabled("SlimefunTranslation")
         private set
 
@@ -77,6 +79,14 @@ class IntegrationService(private val plugin: InfinityExpansion2) {
             SlimefunTranslationAPI.getItemName(SlimefunTranslationAPI.getUser(p), sfId)
         } else {
             ItemUtils.getItemName(item)
+        }
+    }
+
+    fun getMessage(sender: CommandSender, key: String, vararg args: Any): String {
+        return if (slimefunTranslationEnabled) {
+            SlimefunTranslationAPI.getMessageFactory(InfinityExpansion2.instance).getMessage(sender, key, *args)
+        } else {
+            MessageFormat.format(InfinityExpansion2.localization.getString("messages.$key"), *args)
         }
     }
 
