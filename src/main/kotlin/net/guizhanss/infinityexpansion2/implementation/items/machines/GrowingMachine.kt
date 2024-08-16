@@ -29,6 +29,7 @@ open class GrowingMachine(
     outputInterval: Int,
 ) : AbstractTickingMachine(itemGroup, itemStack, recipeType, recipe, MenuLayout.SINGLE_INPUT, energyPerTick),
     InformationalRecipeDisplayItem {
+
     private val outputIntervalSetting = IntRangeSetting(this, "output-interval", 1, outputInterval, 3600)
 
     init {

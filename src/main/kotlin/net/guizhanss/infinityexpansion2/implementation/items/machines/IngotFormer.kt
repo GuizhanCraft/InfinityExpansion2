@@ -16,6 +16,7 @@ class IngotFormer(
     inputAmount: Int,
     outputAmount: Int,
 ) : HopperMachine(itemGroup, itemStack, recipeType, recipe, energyPerTick) {
+
     init {
         addRecipe(
             SlimefunItemStack(SlimefunItems.COPPER_DUST, inputAmount),

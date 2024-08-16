@@ -10,10 +10,12 @@ import org.bukkit.block.Block
 
 enum class GeneratorType {
     HYDROELECTRIC {
+
         override fun generate(world: World, block: Block, def: Int) =
             if (block.isWaterLogged()) def else 0
     },
     GEOTHERMAL {
+
         override fun generate(world: World, block: Block, def: Int) = when (world.environment) {
             Environment.NETHER -> def * 2
             Environment.NORMAL -> def
@@ -21,6 +23,7 @@ enum class GeneratorType {
         }
     },
     SOLAR {
+
         override fun generate(world: World, block: Block, def: Int) = when (world.environment) {
             Environment.NORMAL -> {
                 if (world.isDay() && block.hasLightFromSky()) def
@@ -31,6 +34,7 @@ enum class GeneratorType {
         }
     },
     LUNAR {
+
         override fun generate(world: World, block: Block, def: Int) = when (world.environment) {
             Environment.NETHER,
             Environment.THE_END -> def
@@ -44,6 +48,7 @@ enum class GeneratorType {
         }
     },
     INFINITY {
+
         override fun generate(world: World, block: Block, def: Int) = def
     };
 

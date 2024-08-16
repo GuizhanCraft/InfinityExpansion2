@@ -60,6 +60,7 @@ import org.bukkit.enchantments.Enchantment
 import org.bukkit.inventory.ItemStack
 
 object IEItems {
+
     private val GLASS = ItemStack(Material.GLASS)
     private val COBBLESTONE = ItemStack(Material.COBBLESTONE)
     private val STICK = ItemStack(Material.STICK)

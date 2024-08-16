@@ -14,6 +14,7 @@ class CobblePress(
     recipe: Array<out ItemStack?>,
     energyPerTick: Int,
 ) : HopperMachine(itemGroup, itemStack, recipeType, recipe, energyPerTick) {
+
     init {
         addRecipe(
             ItemStack(Material.COBBLESTONE, 64),

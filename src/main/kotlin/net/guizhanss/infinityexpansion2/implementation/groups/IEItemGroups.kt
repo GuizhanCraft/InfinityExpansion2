@@ -6,6 +6,7 @@ import net.guizhanss.infinityexpansion2.utils.items.MaterialType
 import org.bukkit.Material
 
 object IEItemGroups {
+
     val MAIN = MainGroup(
         "main".createKey(),
         InfinityExpansion2.localization.getItemGroupItem(

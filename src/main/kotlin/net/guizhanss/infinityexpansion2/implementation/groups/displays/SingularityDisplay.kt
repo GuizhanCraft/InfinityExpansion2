@@ -22,6 +22,7 @@ import kotlin.math.min
  * Displays the recipe of an [SlimefunItem] that has some extra information to show.
  */
 open class SingularityDisplay(private val singularity: Singularity) : ItemDisplay(singularity) {
+
     override fun setupMenu(p: Player, profile: PlayerProfile, mode: SlimefunGuideMode, menu: ChestMenu) {
         val guide = Slimefun.getRegistry().getSlimefunGuide(mode)
 
@@ -117,6 +118,7 @@ open class SingularityDisplay(private val singularity: Singularity) : ItemDispla
     }
 
     companion object {
+
         private val BACKGROUND = intArrayOf(9, 10, 11, 12, 13, 14, 15, 16, 17)
         private const val GUIDE_BACK = 0
         private const val RECIPE_TYPE_SLOT = 2

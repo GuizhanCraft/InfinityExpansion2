@@ -14,7 +14,9 @@ class VeinMinerRune(
     recipeType: RecipeType,
     recipe: Array<out ItemStack?>
 ) : SimpleMaterial(itemGroup, itemStack, recipeType, recipe) {
+
     companion object {
+
         const val RANGE = 1.5
 
         private val blocks = mutableSetOf<Material>()

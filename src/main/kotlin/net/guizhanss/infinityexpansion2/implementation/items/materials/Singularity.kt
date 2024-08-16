@@ -20,6 +20,7 @@ class Singularity(
     defaultTotalProgress: Int,
     val ingredients: Map<ItemStack, Int>,
 ) : SimpleMaterial(itemGroup, itemStack, recipeType, recipe), InformationalRecipeDisplayItem {
+
     private val defaultProgressSetting = IntRangeSetting(this, "default-progress", 1, defaultTotalProgress, 1_000_000)
 
     init {

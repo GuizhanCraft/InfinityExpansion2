@@ -21,6 +21,7 @@ class LocalizationService(
     private val plugin: InfinityExpansion2,
     private val jarFile: File
 ) : SlimefunLocalization(plugin) {
+
     init {
         extractTranslations()
     }
@@ -75,6 +76,7 @@ class LocalizationService(
     }
 
     companion object {
+
         const val FOLDER_NAME = "lang"
     }
 }

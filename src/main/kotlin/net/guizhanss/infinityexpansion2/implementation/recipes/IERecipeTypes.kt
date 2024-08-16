@@ -7,6 +7,7 @@ import net.guizhanss.infinityexpansion2.utils.items.MaterialType
 import org.bukkit.Material
 
 object IERecipeTypes {
+
     val VOID_HARVESTER = RecipeType(
         "void_harvester".createKey(),
         InfinityExpansion2.localization.getRecipeTypeItem(

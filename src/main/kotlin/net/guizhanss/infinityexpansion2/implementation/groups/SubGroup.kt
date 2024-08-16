@@ -16,10 +16,14 @@ open class SubGroup(
     key: NamespacedKey,
     item: ItemStack
 ) : ItemGroup(key, item) {
+
     private val _extraItems: MutableList<ExtraItem> = mutableListOf()
 
     val extraItems: List<ExtraItem> get() = _extraItems
 
+    /**
+     * Adds an extra item that will be displayed in the [ItemGroup], it has custom recipe.
+     */
     fun addExtraItem(recipeType: RecipeType, input: Array<out ItemStack?>, output: ItemStack) {
         val item = ExtraItem(recipeType, input, output)
         _extraItems.add(item)

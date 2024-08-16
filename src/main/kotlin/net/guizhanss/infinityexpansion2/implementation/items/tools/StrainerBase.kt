@@ -32,6 +32,7 @@ class StrainerBase(
     recipeType: RecipeType,
     recipe: Array<out ItemStack?>
 ) : TickingMenuBlock(itemGroup, itemStack, recipeType, recipe), InformationalRecipeDisplayItem {
+
     private val tickRateSetting = IntRangeSetting(this, "tick-rate", 1, 10, 120)
 
     init {
@@ -105,6 +106,7 @@ class StrainerBase(
     override fun getDefaultDisplayRecipes() = OUTPUTS.flatMap { listOf(ANY_STRAINER_ITEM, it) }
 
     companion object {
+
         private val LAYOUT = MenuLayout.SINGLE_INPUT
 
         private val ANY_STRAINER_ITEM = InfinityExpansion2.localization.getGuiItem(

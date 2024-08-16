@@ -36,6 +36,7 @@ class InfinityBow(
     recipeType: RecipeType,
     recipe: Array<out ItemStack?>,
 ) : SlimefunItem(itemGroup, itemStack, recipeType, recipe), BowItem, NotPlaceable, Soulbound {
+
     private val explosionRangeSetting = IntRangeSetting(this, "explosion-range", 1, 3, Integer.MAX_VALUE)
 
     init {

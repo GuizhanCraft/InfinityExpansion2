@@ -9,6 +9,7 @@ import org.bukkit.inventory.ItemStack
  * A [MenuItem] can can have any custom click action.
  */
 interface MenuItem {
+
     fun getItem(p: Player, profile: PlayerProfile): ItemStack
 
     fun onClick(p: Player, profile: PlayerProfile, mode: SlimefunGuideMode)

@@ -3,6 +3,7 @@ package net.guizhanss.infinityexpansion2.implementation.items.gear
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
+import io.github.thebusybiscuit.slimefun4.core.attributes.NotPlaceable
 import io.github.thebusybiscuit.slimefun4.core.attributes.ProtectionType
 import io.github.thebusybiscuit.slimefun4.core.attributes.ProtectiveArmor
 import io.github.thebusybiscuit.slimefun4.core.attributes.Soulbound
@@ -18,7 +19,8 @@ open class InfinityArmor(
     recipe: Array<out ItemStack?>,
     effects: Array<PotionEffect> = arrayOf(),
     private val protectionTypes: Array<ProtectionType> = arrayOf(),
-) : SlimefunArmorPiece(itemGroup, itemStack, recipeType, recipe, effects), ProtectiveArmor, Soulbound {
+) : SlimefunArmorPiece(itemGroup, itemStack, recipeType, recipe, effects), ProtectiveArmor, Soulbound, NotPlaceable {
+
     override fun getProtectionTypes() = protectionTypes
 
     override fun isFullSetRequired() = false

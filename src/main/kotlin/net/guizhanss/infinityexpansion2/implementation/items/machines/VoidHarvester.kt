@@ -5,7 +5,6 @@ import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
 import io.github.thebusybiscuit.slimefun4.api.items.settings.IntRangeSetting
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu
-import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.core.items.attributes.InformationalRecipeDisplayItem
 import net.guizhanss.infinityexpansion2.core.menu.MenuLayout
 import net.guizhanss.infinityexpansion2.implementation.IEItems
@@ -14,7 +13,6 @@ import net.guizhanss.infinityexpansion2.utils.getInt
 import net.guizhanss.infinityexpansion2.utils.items.GuiItems
 import net.guizhanss.infinityexpansion2.utils.setInt
 import org.bukkit.block.Block
-import org.bukkit.entity.Player
 import org.bukkit.inventory.ItemStack
 
 class VoidHarvester(
@@ -26,6 +24,7 @@ class VoidHarvester(
     energyPerTick: Int,
 ) : AbstractTickingMachine(itemGroup, itemStack, recipeType, recipe, MenuLayout.OUTPUT_ONLY_ONE_ROW, energyPerTick),
     InformationalRecipeDisplayItem {
+
     private val totalProgressSetting = IntRangeSetting(this, "total-progress", 1, 1024, 1_000_000_000)
 
     init {

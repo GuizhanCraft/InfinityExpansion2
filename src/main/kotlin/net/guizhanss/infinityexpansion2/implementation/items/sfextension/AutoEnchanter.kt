@@ -15,6 +15,7 @@ class AutoEnchanter(
     speed: Int,
     energyPerTick: Int,
 ) : SlimefunAutoEnchanter(itemGroup, itemStack, recipeType, recipe) {
+
     init {
         capacity = energyPerTick
         energyConsumption = energyPerTick

@@ -16,6 +16,7 @@ class DustExtractor(
     inputAmount: Int,
     outputAmount: Int,
 ) : RandomHopperMachine(itemGroup, itemStack, recipeType, recipe, energyPerTick) {
+
     init {
         addRecipe(ItemStack(Material.COBBLESTONE, inputAmount), getDusts(outputAmount))
         addRecipe(ItemStack(Material.STONE, inputAmount), getDusts(outputAmount))
@@ -25,6 +26,7 @@ class DustExtractor(
     }
 
     companion object {
+
         private fun getDusts(amount: Int) = arrayOf<ItemStack>(
             SlimefunItemStack(SlimefunItems.COPPER_DUST, amount),
             SlimefunItemStack(SlimefunItems.ZINC_DUST, amount),

@@ -12,6 +12,7 @@ import java.util.Optional
  * This [BowShootHandler] can be applied to a bow or a crossbow.
  */
 fun interface BowShootHandler : ItemHandler {
+
     fun onHit(e: EntityDamageByEntityEvent, entity: LivingEntity)
 
     override fun validate(item: SlimefunItem): Optional<IncompatibleItemHandlerException> {

@@ -5,6 +5,7 @@ import java.text.NumberFormat
 import java.util.Locale
 
 object MachineLore {
+
     private const val POWER_PREFIX = "&8\u21E8 &e\u26A1 &7"
     private val numberFormatter get() = NumberFormat.getNumberInstance(Locale.getDefault())
 

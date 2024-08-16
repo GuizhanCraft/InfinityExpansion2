@@ -16,6 +16,7 @@ class VoidBlock(
     recipeType: RecipeType,
     recipe: Array<out ItemStack?>
 ) : WitherProofBlock(itemGroup, itemStack, recipeType, recipe) {
+
     override fun postRegister() {
         // decompress recipe
         // ItemStack isn't available yet, delay registering

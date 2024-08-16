@@ -29,6 +29,7 @@ class InfinityWorkbench(
     )
 
     companion object {
+
         private const val RECIPE_BOOK_SLOT = 7
         private val RECIPE_AREA = arrayOf(
             // @formatter:off

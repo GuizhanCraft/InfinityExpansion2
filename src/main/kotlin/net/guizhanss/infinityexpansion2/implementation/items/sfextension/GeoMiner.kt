@@ -14,6 +14,7 @@ class GeoMiner(
     speed: Int,
     energyPerTick: Int,
 ) : GEOMiner(itemGroup, itemStack, recipeType, recipe) {
+
     init {
         capacity = energyPerTick
         energyConsumption = energyPerTick

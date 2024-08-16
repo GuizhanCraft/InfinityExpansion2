@@ -78,6 +78,7 @@ class GeoQuarry(
     override fun getDividerItem() = GuiItems.RECIPES
 
     companion object {
+
         private val geoRecipes = mutableMapOf<Pair<Biome, Environment>, List<ItemStack>>()
     }
 }

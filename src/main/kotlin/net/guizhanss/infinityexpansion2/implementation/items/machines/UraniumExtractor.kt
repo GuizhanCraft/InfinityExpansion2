@@ -16,6 +16,7 @@ class UraniumExtractor(
     inputAmount: Int,
     outputAmount: Int,
 ) : HopperMachine(itemGroup, itemStack, recipeType, recipe, energyPerTick) {
+
     init {
         addRecipe(
             ItemStack(Material.COBBLESTONE, inputAmount),

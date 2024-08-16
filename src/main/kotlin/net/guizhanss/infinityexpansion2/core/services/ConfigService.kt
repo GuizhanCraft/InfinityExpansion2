@@ -3,17 +3,18 @@ package net.guizhanss.infinityexpansion2.core.services
 import net.guizhanss.guizhanlib.slimefun.addon.AddonConfig
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.core.config.QuarryPool
-import net.guizhanss.infinityexpansion2.utils.clamp
 import net.guizhanss.infinityexpansion2.utils.bukkitext.getAsSerializable
 import net.guizhanss.infinityexpansion2.utils.bukkitext.loadDoubleMap
 import net.guizhanss.infinityexpansion2.utils.bukkitext.loadEnchantmentKeyMap
 import net.guizhanss.infinityexpansion2.utils.bukkitext.loadEnumKeyMap
 import net.guizhanss.infinityexpansion2.utils.bukkitext.loadSectionMap
+import net.guizhanss.infinityexpansion2.utils.clamp
 import org.bukkit.World.Environment
 import org.bukkit.configuration.ConfigurationSection
 import org.bukkit.enchantments.Enchantment
 
 class ConfigService(plugin: InfinityExpansion2) {
+
     private val config = AddonConfig(plugin, "config.yml")
 
     var autoUpdate = true

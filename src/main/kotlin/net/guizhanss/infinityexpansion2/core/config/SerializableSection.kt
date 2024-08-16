@@ -12,5 +12,6 @@ import org.bukkit.configuration.ConfigurationSection
  * accepts a [ConfigurationSection] parameter and returns the class instance.
  */
 fun interface SerializableSection {
+
     fun serialize(): Map<String, Any>
 }

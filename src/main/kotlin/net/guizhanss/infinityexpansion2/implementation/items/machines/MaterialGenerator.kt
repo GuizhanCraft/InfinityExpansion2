@@ -22,6 +22,7 @@ class MaterialGenerator(
     energyPerTick: Int,
 ) : AbstractTickingMachine(itemGroup, itemStack, recipeType, recipe, MenuLayout.OUTPUT_ONLY_ONE_ROW, energyPerTick),
     InformationalRecipeDisplayItem {
+
     override fun process(b: Block, menu: BlockMenu): Boolean {
         val output = ItemStack(material, speed)
         if (!menu.fits(output, *outputSlots)) {

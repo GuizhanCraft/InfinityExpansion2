@@ -19,6 +19,7 @@ import kotlin.reflect.full.primaryConstructor
  * in project Slimefun-Addon-Community/Galactifun2
  */
 class SlimefunItemBuilder {
+
     var id: String by RequiredProperty()
     var material: MaterialType by RequiredProperty()
     var amount: Int by RequiredProperty(1)

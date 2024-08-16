@@ -8,6 +8,7 @@ import org.bukkit.inventory.ItemStack
  * Use any other classes outside api package is not recommended, as they are subject to change.
  */
 object InfinityExpansion2API {
+
     /**
      * Register a mob data card with the given loot table.
      */

@@ -22,6 +22,7 @@ import org.bukkit.inventory.ItemStack
 class FakeSubGroup(
     val itemGroup: SubGroup,
 ) : FlexGroup(itemGroup.key, CustomItemStack(Material.BARRIER, "x")) {
+
     init {
         itemGroup.items.forEach { sfItem ->
             addMenuItem(object : MenuItem {
@@ -91,6 +92,7 @@ class FakeSubGroup(
     override fun getGuideTitle(p: Player) = itemGroup.getName()
 
     companion object {
+
         private val GUIDE = Slimefun.getRegistry().getSlimefunGuide(SlimefunGuideMode.SURVIVAL_MODE)
     }
 }

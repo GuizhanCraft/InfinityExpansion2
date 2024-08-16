@@ -118,6 +118,7 @@ class GearTransformer(
     }
 
     companion object {
+
         private val GEAR_BORDER = intArrayOf(
             0, 1, 2,
             9, 11,

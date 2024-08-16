@@ -30,6 +30,7 @@ class SingularityConstructor(
     energyPerTick: Int,
 ) : AbstractTickingMachine(itemGroup, itemStack, recipeType, recipe, MenuLayout.SINGLE_INPUT_OUTPUT, energyPerTick),
     InformationalRecipeDisplayItem {
+
     override fun onBreak(e: BlockBreakEvent, menu: BlockMenu) {
         super.onBreak(e, menu)
         val l = menu.location
@@ -146,6 +147,7 @@ class SingularityConstructor(
     )
 
     companion object {
+
         private const val PROGRESS = "progress"
         private const val TARGET = "target"
         private const val TARGET_ITEM_DISPLAY_SLOT = 5

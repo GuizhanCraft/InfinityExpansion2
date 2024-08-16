@@ -14,6 +14,7 @@ data class MenuLayout(
     val outputSlots: IntArray = intArrayOf(),
     val statusSlot: Int = 0
 ) {
+
     /**
      * Sets up the preset with this layout.
      */
@@ -51,6 +52,7 @@ data class MenuLayout(
     }
 
     companion object {
+
         // one row, no input
         val OUTPUT_ONLY_ONE_ROW = MenuLayout(
             outputBorder = intArrayOf(1, 8),

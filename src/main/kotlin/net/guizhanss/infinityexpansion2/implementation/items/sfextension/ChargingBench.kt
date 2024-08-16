@@ -14,6 +14,7 @@ class ChargingBench(
     speed: Int,
     energyPerTick: Int,
 ) : SlimefunChargingBench(itemGroup, itemStack, recipeType, recipe) {
+
     init {
         capacity = energyPerTick
         energyConsumption = energyPerTick

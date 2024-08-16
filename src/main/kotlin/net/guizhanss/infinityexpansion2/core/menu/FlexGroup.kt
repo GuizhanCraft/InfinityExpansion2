@@ -23,6 +23,7 @@ import kotlin.math.min
 abstract class FlexGroup(
     key: NamespacedKey, item: ItemStack
 ) : FlexItemGroup(key, item) {
+
     private val _menuItems: MutableList<MenuItem> = mutableListOf()
 
     /**
@@ -156,6 +157,7 @@ abstract class FlexGroup(
     }
 
     companion object {
+
         private val HEADER = arrayOf(0, 2, 3, 4, 5, 6, 7, 8)
         private const val GUIDE_BACK = 1
         private val FOOTER = arrayOf(45, 46, 47, 48, 49, 50, 51, 52, 53)

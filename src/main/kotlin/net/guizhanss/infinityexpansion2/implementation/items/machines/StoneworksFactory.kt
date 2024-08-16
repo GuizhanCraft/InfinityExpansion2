@@ -32,6 +32,7 @@ class StoneworksFactory(
     energyPerTick: Int,
 ) : AbstractTickingMachine(itemGroup, itemStack, recipeType, recipe, MenuLayout.STONEWORKS_FACTORY, energyPerTick),
     InformationalRecipeDisplayItem {
+
     override fun setup(preset: BlockMenuPreset) {
         super.setup(preset)
         preset.drawBackground(CHANGE_ITEM, CHOICE_INFO_SLOTS)
@@ -147,6 +148,7 @@ class StoneworksFactory(
     override fun getDividerItem() = GuiItems.RECIPES
 
     companion object {
+
         private val CHOICE_INFO_SLOTS = intArrayOf(2, 4, 6)
         private val CHOICE_SLOTS = intArrayOf(11, 13, 15)
         private val ITEM_SLOTS = intArrayOf(10, 12, 14)

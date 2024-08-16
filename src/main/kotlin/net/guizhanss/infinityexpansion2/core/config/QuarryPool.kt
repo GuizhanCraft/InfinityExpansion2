@@ -10,6 +10,7 @@ data class QuarryPool(
     val baseProduct: String,
     val products: Map<String, Int>
 ) : SerializableSection {
+
     private val productPool = mutableListOf<String>()
 
     init {
@@ -32,6 +33,7 @@ data class QuarryPool(
     }
 
     companion object {
+
         fun deserialize(section: ConfigurationSection): QuarryPool {
             val baseProduct = section.getString("base-product")!!
             val products = section.getConfigurationSection("products").loadIntMap()

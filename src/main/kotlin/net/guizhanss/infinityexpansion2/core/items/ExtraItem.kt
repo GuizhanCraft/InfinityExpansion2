@@ -11,6 +11,7 @@ data class ExtraItem(
     val input: Array<out ItemStack?>,
     val output: ItemStack,
 ) {
+
     fun register() {
         recipeType.register(input, output)
     }

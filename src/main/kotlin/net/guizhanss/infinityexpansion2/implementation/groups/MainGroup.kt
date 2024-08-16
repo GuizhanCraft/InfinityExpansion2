@@ -19,6 +19,7 @@ class MainGroup(
     key: NamespacedKey,
     item: ItemStack
 ) : FlexGroup(key, item) {
+
     fun addSubGroups(vararg groups: SubGroup) {
         addMenuItem(*groups.map {
             object : MenuItem {
@@ -49,6 +50,7 @@ class MainGroup(
     }
 
     companion object {
+
         private const val GUIDE_SLOT = 4
         private const val WIKI_SLOT = 7
     }

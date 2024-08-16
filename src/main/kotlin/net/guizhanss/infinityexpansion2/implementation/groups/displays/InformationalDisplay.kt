@@ -20,6 +20,7 @@ import kotlin.math.min
  * Displays the recipe of an [SlimefunItem] that has some extra information to show.
  */
 open class InformationalDisplay(sfItem: SlimefunItem) : ItemDisplay(sfItem) {
+
     protected open val background = BACKGROUND
     protected open val inputBorder = INPUT_BORDER
     protected open val outputBorder = OUTPUT_BORDER
@@ -136,6 +137,7 @@ open class InformationalDisplay(sfItem: SlimefunItem) : ItemDisplay(sfItem) {
     }
 
     companion object {
+
         private val BACKGROUND = intArrayOf(27, 28, 29, 30, 31, 32, 33, 34, 35)
         private const val GUIDE_BACK = 0
         private const val RECIPE_TYPE_SLOT = 10

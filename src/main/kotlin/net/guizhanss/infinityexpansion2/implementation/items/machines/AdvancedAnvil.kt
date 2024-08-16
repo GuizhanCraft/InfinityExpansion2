@@ -203,6 +203,7 @@ class AdvancedAnvil(
     }
 
     companion object {
+
         private val ANVIL_BASE_ITEM = CustomItemStack(Material.BLACK_STAINED_GLASS_PANE, " ")
         private val ANVIL_BASE_SLOTS = intArrayOf(
             30, 31, 32, 39, 41, 47, 48, 49, 50, 51

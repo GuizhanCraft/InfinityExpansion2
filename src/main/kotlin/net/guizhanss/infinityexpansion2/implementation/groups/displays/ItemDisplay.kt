@@ -3,6 +3,7 @@
 package net.guizhanss.infinityexpansion2.implementation.groups.displays
 
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem
+import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup
 import io.github.thebusybiscuit.slimefun4.api.items.groups.FlexItemGroup
 import io.github.thebusybiscuit.slimefun4.api.player.PlayerProfile
 import io.github.thebusybiscuit.slimefun4.core.guide.SlimefunGuideMode
@@ -17,6 +18,7 @@ import org.bukkit.entity.Player
  */
 abstract class ItemDisplay(protected val sfItem: SlimefunItem) :
     FlexItemGroup(sfItem.id.createKey(), sfItem.item.clone()) {
+
     override fun isVisible(p: Player, profile: PlayerProfile, mode: SlimefunGuideMode) = false
 
     override fun open(p: Player, profile: PlayerProfile, mode: SlimefunGuideMode) {

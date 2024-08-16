@@ -18,6 +18,7 @@ import org.bukkit.event.entity.ProjectileHitEvent
 import java.util.UUID
 
 class BowItemListener(plugin: InfinityExpansion2) : Listener {
+
     private val projectiles = mutableMapOf<UUID, SlimefunItem>()
 
     init {

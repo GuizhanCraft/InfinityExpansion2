@@ -12,6 +12,7 @@ class RequiredProperty<T>(
     private val getter: (T) -> T = { it },
     private val setter: (T) -> T = { it }
 ) : ReadWriteProperty<Any, T> {
+
     override fun getValue(thisRef: Any, property: KProperty<*>): T {
         return getter(value ?: error("${property.name} must be set"))
     }

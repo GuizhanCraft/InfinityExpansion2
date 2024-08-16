@@ -14,6 +14,7 @@ class Decompressor(
     recipe: Array<out ItemStack?>,
     energyPerTick: Int,
 ) : HopperMachine(itemGroup, itemStack, recipeType, recipe, energyPerTick) {
+
     init {
         addRecipe(ItemStack(Material.NETHERITE_BLOCK), arrayOf(ItemStack(Material.NETHERITE_INGOT, 9)))
         addRecipe(ItemStack(Material.EMERALD_BLOCK), arrayOf(ItemStack(Material.EMERALD, 9)))

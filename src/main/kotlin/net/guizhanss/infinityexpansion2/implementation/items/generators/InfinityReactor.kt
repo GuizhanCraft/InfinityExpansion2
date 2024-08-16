@@ -170,6 +170,7 @@ class InfinityReactor(
     )
 
     companion object {
+
         private const val PROGRESS_KEY = "progress"
         private val BACKGROUND = intArrayOf(3, 4, 5)
         private val VOID_BORDER = intArrayOf(0, 2)

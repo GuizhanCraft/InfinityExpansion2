@@ -21,6 +21,7 @@ import java.nio.charset.StandardCharsets
  * The [TagParser] is responsible for parsing a JSON file into a [IETag].
  */
 internal class TagParser(tag: IETag) : Keyed {
+
     /**
      * Every [Tag] has a [NamespacedKey].
      * This is the [NamespacedKey] for the resulting [Tag].
@@ -75,6 +76,7 @@ internal class TagParser(tag: IETag) : Keyed {
     }
 
     companion object {
+
         private fun parseReader(reader: JsonReader) =
             if (Slimefun.getMinecraftVersion().isAtLeast(MinecraftVersion.MINECRAFT_1_18)) {
                 JsonParser.parseReader(reader)

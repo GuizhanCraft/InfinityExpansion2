@@ -17,6 +17,7 @@ import org.bukkit.ChatColor
 import org.bukkit.entity.Player
 
 class ExtraItemDisplay(val extraItem: ExtraItem) : FlexItemGroup("display".createKey(), extraItem.output) {
+
     override fun isVisible(p: Player, profile: PlayerProfile, layout: SlimefunGuideMode) = false
 
     override fun open(p: Player, profile: PlayerProfile, mode: SlimefunGuideMode) {
@@ -64,6 +65,7 @@ class ExtraItemDisplay(val extraItem: ExtraItem) : FlexItemGroup("display".creat
     }
 
     companion object {
+
         private val BACK_SLOT = 0
         private val RECIPE_TYPE_SLOT = 10
         private val RECIPE_AREA = intArrayOf(

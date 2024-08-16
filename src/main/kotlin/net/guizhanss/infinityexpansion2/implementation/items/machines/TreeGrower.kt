@@ -16,6 +16,7 @@ class TreeGrower(
     energyPerTick: Int,
     outputInterval: Int,
 ) : GrowingMachine(itemGroup, itemStack, recipeType, recipe, energyPerTick, outputInterval) {
+
     init {
         addRecipe(
             ItemStack(Material.OAK_SAPLING), arrayOf(

@@ -13,6 +13,7 @@ import org.bukkit.entity.Player
  * Display an item that is crafted in the Infinity Workbench.
  */
 open class InfinityWorkbenchDisplay(sfItem: SlimefunItem) : InformationalDisplay(sfItem) {
+
     override val background = BACKGROUND
     override val inputBorder = INPUT_BORDER
     override val outputBorder = OUTPUT_BORDER
@@ -35,6 +36,7 @@ open class InfinityWorkbenchDisplay(sfItem: SlimefunItem) : InformationalDisplay
     }
 
     companion object {
+
         private val BACKGROUND = intArrayOf(0, 2, 36, 37, 38, 45, 46, 47)
         private const val GUIDE_BACK = 1
         private const val RECIPE_TYPE_SLOT = 10

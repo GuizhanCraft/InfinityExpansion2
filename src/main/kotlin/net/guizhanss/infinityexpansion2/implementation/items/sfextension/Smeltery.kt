@@ -14,6 +14,7 @@ class Smeltery(
     speed: Int,
     energyPerTick: Int,
 ) : ElectricSmeltery(itemGroup, itemStack, recipeType, recipe) {
+
     init {
         capacity = energyPerTick
         energyConsumption = energyPerTick

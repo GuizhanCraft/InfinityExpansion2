@@ -9,6 +9,7 @@ import org.bukkit.Material
 import org.bukkit.inventory.ItemStack
 
 object GuiItems {
+
     val GUIDE = InfinityExpansion2.localization.getGuiItem(
         MaterialType.Material(Material.ENCHANTED_BOOK),
         "guide"

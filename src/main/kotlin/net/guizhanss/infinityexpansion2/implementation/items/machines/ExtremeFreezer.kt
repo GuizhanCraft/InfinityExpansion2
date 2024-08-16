@@ -14,6 +14,7 @@ class ExtremeFreezer(
     recipe: Array<out ItemStack?>,
     energyPerTick: Int,
 ) : HopperMachine(itemGroup, itemStack, recipeType, recipe, energyPerTick) {
+
     init {
         addRecipe(ItemStack(Material.ICE, 2), arrayOf(SlimefunItems.REACTOR_COOLANT_CELL))
         addRecipe(ItemStack(Material.MAGMA_BLOCK, 2), arrayOf(SlimefunItems.NETHER_ICE_COOLANT_CELL))

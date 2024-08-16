@@ -9,6 +9,7 @@ import org.bukkit.inventory.ItemStack
  * An extended [RecipeDisplayItem] that provides additional informational items to display in the guide.
  */
 interface InformationalRecipeDisplayItem : RecipeDisplayItem {
+
     /**
      * This list contains the default display recipes without informational items.
      */
