@@ -37,7 +37,7 @@ class EnergyGenerator(
 
     init {
         addItemSetting(tickRateSetting, energyProductionSetting)
-        addItemHandler(getBlockClickHandler())
+        addItemHandler(onBlockClick())
     }
 
     override fun getCapacity() = energyProductionSetting.value * 128
@@ -49,7 +49,7 @@ class EnergyGenerator(
     override fun getGeneratedOutput(l: Location, data: Config) =
         type.generate(l.world!!, l.block, getEnergyProduction())
 
-    private fun getBlockClickHandler() = BlockUseHandler { e ->
+    private fun onBlockClick() = BlockUseHandler { e ->
         if (e.clickedBlock.isEmpty) return@BlockUseHandler
         val sfItem = e.slimefunBlock.get()
         if (sfItem !is EnergyGenerator) return@BlockUseHandler

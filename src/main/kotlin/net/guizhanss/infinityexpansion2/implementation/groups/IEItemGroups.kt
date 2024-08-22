@@ -39,6 +39,14 @@ object IEItemGroups {
         )
     )
 
+    val FOOD = SubGroup(
+        "food".createKey(),
+        InfinityExpansion2.localization.getItemGroupItem(
+            MaterialType.Material(Material.COOKED_BEEF),
+            "food"
+        )
+    )
+
     val TOOLS = SubGroup(
         "tools".createKey(),
         InfinityExpansion2.localization.getItemGroupItem(
@@ -101,6 +109,7 @@ object IEItemGroups {
             MATERIALS,
             SINGULARITIES,
             SLIMEFUN_EXPANSION,
+            FOOD,
             TOOLS,
             GEAR,
             MACHINES,

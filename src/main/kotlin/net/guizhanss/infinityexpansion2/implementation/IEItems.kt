@@ -7,6 +7,7 @@ import io.github.thebusybiscuit.slimefun4.core.attributes.ProtectionType
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems
 import io.github.thebusybiscuit.slimefun4.utils.HeadTexture
 import net.guizhanss.infinityexpansion2.implementation.groups.IEItemGroups
+import net.guizhanss.infinityexpansion2.implementation.items.food.CosmicMeatballs
 import net.guizhanss.infinityexpansion2.implementation.items.gear.InfinityArmor
 import net.guizhanss.infinityexpansion2.implementation.items.gear.InfinityBoots
 import net.guizhanss.infinityexpansion2.implementation.items.gear.InfinityBow
@@ -782,6 +783,25 @@ object IEItems {
             SlimefunItems.WITHER_PROOF_GLASS, SlimefunItems.WITHER_PROOF_GLASS, SlimefunItems.WITHER_PROOF_GLASS,
             MACHINE_CIRCUIT, SlimefunItems.NETHER_STAR_REACTOR, MACHINE_CIRCUIT,
             SlimefunItems.WITHER_PROOF_OBSIDIAN, SlimefunItems.WITHER_PROOF_OBSIDIAN, SlimefunItems.WITHER_PROOF_OBSIDIAN,
+            // @formatter:on
+        )
+    }
+    // </editor-fold>
+
+    // <editor-fold desc="Food" collapsed="true">
+    val COSMIC_MEATBALLS = buildSlimefunItem<CosmicMeatballs> {
+        id = "COSMIC_MEATBALLS"
+        material = Material.COOKED_BEEF.convert()
+        itemGroup = IEItemGroups.FOOD
+        recipeType = IERecipeTypes.INFINITY_WORKBENCH
+        recipe = arrayOf(
+            // @formatter:off
+            null, null, null, null, null, null,
+            null, ItemStack(Material.CHICKEN), ItemStack(Material.BEEF), ItemStack(Material.BEEF), ItemStack(Material.RABBIT), null,
+            null, ItemStack(Material.CHICKEN), VOID_DUST, ItemStack(Material.COD), ItemStack(Material.RABBIT), null,
+            null, ItemStack(Material.MUTTON), ItemStack(Material.COD), VOID_DUST, ItemStack(Material.SALMON), null,
+            null, ItemStack(Material.MUTTON), ItemStack(Material.PORKCHOP), ItemStack(Material.PORKCHOP), ItemStack(Material.SALMON), null,
+            null, null, null, null, null, null,
             // @formatter:on
         )
     }

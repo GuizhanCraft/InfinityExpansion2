@@ -16,6 +16,10 @@ items:
     conditions:
       force-load: true
     name: "&k.&bI&4E&a&l2&k. &a- &dSlimefun Expansion"
+  _IG_FOOD:
+    conditions:
+      force-load: true
+    name: "&k.&bI&4E&a&l2&k. &a- &eFood"
   _IG_TOOLS:
     conditions:
       force-load: true
@@ -527,6 +531,10 @@ items:
     lore-overrides:
       2: "%sftrlore_Speed_72%"
       3: "%sftrlore_PowerPerTick_1200%"
+
+  # items - food
+  COSMIC_MEATBALLS:
+    name: "&bCosmic Meatballs"
 
   # items - tools
   ENDER_FLAME:
