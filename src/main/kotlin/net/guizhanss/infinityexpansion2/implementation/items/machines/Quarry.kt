@@ -114,6 +114,4 @@ class Quarry(
     )
 
     override fun getDividerItem() = GuiItems.RECIPES
-
-    companion object
 }

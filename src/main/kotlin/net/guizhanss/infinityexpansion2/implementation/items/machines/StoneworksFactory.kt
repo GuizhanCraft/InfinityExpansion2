@@ -50,9 +50,9 @@ class StoneworksFactory(
 
         // set the choice item
         CHOICE_SLOTS.forEachIndexed { index, slot ->
-            val choice = menu.getChoice(index)
-            menu.replaceExistingItem(slot, choice.item)
+            menu.replaceExistingItem(slot, menu.getChoice(index).item)
             menu.addMenuClickHandler(slot) { _, _, _, action ->
+                val choice = menu.getChoice(index)
                 val nextChoiceIndex =
                     (choice.ordinal + action.choiceOffset() + Choice.entries.size) % Choice.entries.size
                 val nextChoice = Choice.entries[nextChoiceIndex]
