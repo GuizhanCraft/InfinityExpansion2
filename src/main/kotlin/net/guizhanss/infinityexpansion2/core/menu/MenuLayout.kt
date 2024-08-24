@@ -114,11 +114,11 @@ data class MenuLayout(
         // special layouts
         val STONEWORKS_FACTORY = MenuLayout(
             background = intArrayOf(
-                0, 1, 2, 3, 4, 5,
+                0, 1, 2, 3, 4, 5, 6,
                 11, 13, 15,
-                18, 19, 20, 21, 22, 23,
+                18, 19, 20, 21, 22, 23, 24,
             ),
-            outputBorder = intArrayOf(6, 7, 8, 17, 24, 25, 26),
+            outputBorder = intArrayOf(7, 8, 17, 25, 26),
             outputSlots = intArrayOf(16),
             statusSlot = 9,
         )

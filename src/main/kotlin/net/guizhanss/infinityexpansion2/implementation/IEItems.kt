@@ -45,6 +45,7 @@ import net.guizhanss.infinityexpansion2.implementation.items.sfextension.Chargin
 import net.guizhanss.infinityexpansion2.implementation.items.sfextension.GeoMiner
 import net.guizhanss.infinityexpansion2.implementation.items.sfextension.NetherStarReactor
 import net.guizhanss.infinityexpansion2.implementation.items.sfextension.Smeltery
+import net.guizhanss.infinityexpansion2.implementation.items.tools.InfinityMatrix
 import net.guizhanss.infinityexpansion2.implementation.items.tools.Oscillator
 import net.guizhanss.infinityexpansion2.implementation.items.tools.Strainer
 import net.guizhanss.infinityexpansion2.implementation.items.tools.StrainerBase
@@ -959,6 +960,23 @@ object IEItems {
             applyInfinityGearEnchantment(it)
         }
     }
+
+    val INFINITY_MATRIX = buildSlimefunItem<InfinityMatrix> {
+        id = "INFINITY_MATRIX"
+        material = Material.NETHER_STAR.convert()
+        itemGroup = IEItemGroups.TOOLS
+        recipeType = IERecipeTypes.INFINITY_WORKBENCH
+        recipe = arrayOf(
+            // @formatter:off
+            INFINITY_INGOT, null, INFINITY_INGOT, INFINITY_INGOT, null, INFINITY_INGOT,
+            INFINITY_INGOT, VOID_INGOT, VOID_INGOT, VOID_INGOT, VOID_INGOT, INFINITY_INGOT,
+            VOID_INGOT, VOID_INGOT, ItemStack(Material.ELYTRA), ItemStack(Material.ELYTRA), VOID_INGOT, VOID_INGOT,
+            VOID_INGOT, VOID_INGOT, INFINITY_INGOT, INFINITY_INGOT, VOID_INGOT, VOID_INGOT,
+            INFINITY_INGOT, VOID_INGOT, VOID_INGOT, VOID_INGOT, VOID_INGOT, INFINITY_INGOT,
+            INFINITY_INGOT, null, INFINITY_INGOT, INFINITY_INGOT, null, INFINITY_INGOT
+            // @formatter:on
+        )
+    }
     // </editor-fold>
 
     // <editor-fold desc="Gears" collapsed="true">
@@ -1452,8 +1470,6 @@ object IEItems {
             MACHINE_CIRCUIT, COBBLESTONE_GENERATOR_2, MACHINE_CIRCUIT,
         )
     }
-
-    // TODO: more tiers of obsidian generator?
 
     val EXTREME_FREEZER = buildSlimefunItem<ExtremeFreezer>(90) {
         id = "EXTREME_FREEZER"

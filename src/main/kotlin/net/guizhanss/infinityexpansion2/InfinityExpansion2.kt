@@ -5,11 +5,16 @@ import net.guizhanss.guizhanlib.slimefun.addon.AbstractAddon
 import net.guizhanss.guizhanlib.updater.GuizhanBuildsUpdater
 import net.guizhanss.infinityexpansion2.core.services.ConfigService
 import net.guizhanss.infinityexpansion2.core.services.IntegrationService
-import net.guizhanss.infinityexpansion2.core.services.ListenerService
 import net.guizhanss.infinityexpansion2.core.services.LocalizationService
 import net.guizhanss.infinityexpansion2.implementation.IEItems
 import net.guizhanss.infinityexpansion2.implementation.groups.IEItemGroups
+import net.guizhanss.infinityexpansion2.implementation.listeners.ArmorItemListener
+import net.guizhanss.infinityexpansion2.implementation.listeners.BowItemListener
+import net.guizhanss.infinityexpansion2.implementation.listeners.SlimefunRegistryListener
+import net.guizhanss.infinityexpansion2.implementation.listeners.TranslationsLoadListener
+import net.guizhanss.infinityexpansion2.implementation.listeners.VeinMinerListener
 import net.guizhanss.infinityexpansion2.implementation.setup.ResearchSetup
+import net.guizhanss.infinityexpansion2.implementation.tasks.InfinityMatrixTask
 import net.guizhanss.infinityexpansion2.utils.tags.IETag
 import org.bstats.bukkit.Metrics
 import org.bstats.charts.SimplePie
@@ -64,8 +69,9 @@ class InfinityExpansion2 : AbstractAddon(
         // integrations
         integrationService = IntegrationService(this)
 
-        // listeners
-        ListenerService(this)
+        // listeners & tasks
+        setupListeners()
+        setupTasks()
 
         // Metrics setup
         setupMetrics()
@@ -96,6 +102,18 @@ class InfinityExpansion2 : AbstractAddon(
                 GuizhanBuildsUpdater(this, file, githubUser, githubRepo, githubBranch).start()
             }
         }
+    }
+
+    private fun setupListeners() {
+        ArmorItemListener(this)
+        BowItemListener(this)
+        SlimefunRegistryListener(this)
+        TranslationsLoadListener(this)
+        VeinMinerListener(this)
+    }
+
+    private fun setupTasks() {
+        InfinityMatrixTask()
     }
 
     private fun setupMetrics() {
