@@ -126,7 +126,7 @@ items:
       force-load: true
     name: "&5The End"
 
-  # display recipe info items
+  # ui - display recipe info
   _UI_PRODUCES:
     conditions:
       force-load: true
@@ -172,13 +172,13 @@ items:
       force-load: true
     name: "&eOscillator Slot"
 
-  # strainer specific
+  # ui = strainer specific
   _UI_ANY_STRAINER:
     conditions:
       force-load: true
     name: "&aAny Strainer"
 
-  # stoneworks factory specific
+  # ui - stoneworks factory specific
   _UI_SW_CHANGE:
     conditions:
       force-load: true
@@ -204,7 +204,7 @@ items:
       force-load: true
     name: "&eTransforming"
 
-  # gear transformer specific
+  # ui - gear transformer specific
   _UI_GT_GEAR:
     conditions:
       force-load: true
@@ -217,6 +217,12 @@ items:
     conditions:
       force-load: true
     name: "&cSlimefun items are not allowed"
+
+  # ui - advanced anvil specific
+  _UI_AA_MAX_ENCHANTMENT_LEVEL:
+    conditions:
+      force-load: true
+    name: "&eMax enchantment level:"
 
   # infinity reactor specific
   _UI_IR_BORDER_VOID:
@@ -531,6 +537,13 @@ items:
     lore-overrides:
       2: "%sftrlore_Speed_72%"
       3: "%sftrlore_PowerPerTick_1200%"
+  ADVANCED_NETHER_STAR_REACTOR:
+    name: "&cAdvanced &fNether Star Reactor"
+    lore:
+      - ""
+      - "&fRuns on Nether Stars"
+      - "&8\u21E8 &bMust be surrounded by Water"
+      - "&8\u21E8 &bMust be supplied with Nether Ice Coolant Cells"
 
   # items - food
   COSMIC_MEATBALLS:
@@ -617,6 +630,8 @@ items:
     lore-overrides:
       1: "%sftrlore_soulbound%"
   INFINITY_MATRIX:
+    options:
+      partial-override: true
     name: "&fInfinity Matrix"
     lore:
       - "&6Provides creative flight"
@@ -625,8 +640,13 @@ items:
       - "&7Crouch and Right-Click to remove ownership"
       - ""
       - "&bSoulbound"
+      - ""
     lore-overrides:
       6: "%sftrlore_soulbound%"
+    lore-replacements:
+      8:
+        original: "Owner:" # DO NOT change this, translate the replaced value instead.
+        replaced: "Owner:"
 
   # items - gears
   INFINITY_HELMET:
@@ -1161,3 +1181,8 @@ messages:
     tick-rate: "&eTick rate: &f{0} &7tick(s)"
     production: "&eEnergy production: &f{0} &7J/t (&f{1} &7J/s)"
     expected-production: "&eExpected energy production: &f{0} &7J/t (&f{1} &7J/s)"
+  infinity-matrix:
+    not-owner: "&cYou are not the owner of this matrix."
+    ownership-removed: "&bYou are no longer the owner of this matrix."
+    flight-enabled: "&aFlight is enabled!"
+    flight-disabled: "&cFlight is disabled!"
