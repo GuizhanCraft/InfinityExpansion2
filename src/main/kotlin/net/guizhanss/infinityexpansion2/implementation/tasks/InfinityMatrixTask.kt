@@ -3,6 +3,7 @@ package net.guizhanss.infinityexpansion2.implementation.tasks
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.implementation.items.tools.InfinityMatrix
+import net.guizhanss.infinityexpansion2.utils.bukkitext.isAir
 import org.bukkit.Bukkit
 import org.bukkit.GameMode
 import java.util.UUID
@@ -29,7 +30,7 @@ class InfinityMatrixTask : Runnable {
             // check if player's inv still have matrix
             var found = false
             p.inventory.contents.firstOrNull {
-                it != null && !it.type.isAir && SlimefunItem.getByItem(it) is InfinityMatrix
+                !it.isAir && SlimefunItem.getByItem(it) is InfinityMatrix
             }?.let { found = true }
 
             // not found, disable flying

@@ -2,6 +2,7 @@ package net.guizhanss.infinityexpansion2.utils
 
 import io.github.thebusybiscuit.slimefun4.implementation.Slimefun
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu
+import net.guizhanss.infinityexpansion2.utils.bukkitext.isAir
 import org.bukkit.inventory.ItemStack
 
 typealias RecipeInput = ItemStack
@@ -28,7 +29,7 @@ fun BlockMenu.calculateItems(vararg slots: Int) = calculateItems(slots.map { get
 fun calculateItems(items: List<ItemStack?>): Map<ItemStack, Int> {
     val result = mutableMapOf<ItemStack, Int>()
     items.forEach {
-        if (it == null || it.type.isAir) return@forEach
+        if (it == null || it.isAir) return@forEach
 
         val itemTemplate = it.clone().apply { amount = 1 }
 

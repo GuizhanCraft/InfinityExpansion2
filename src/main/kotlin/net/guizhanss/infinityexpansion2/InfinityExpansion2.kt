@@ -3,6 +3,7 @@ package net.guizhanss.infinityexpansion2
 import io.github.thebusybiscuit.slimefun4.libraries.dough.updater.BlobBuildUpdater
 import net.guizhanss.guizhanlib.slimefun.addon.AbstractAddon
 import net.guizhanss.guizhanlib.updater.GuizhanBuildsUpdater
+import net.guizhanss.infinityexpansion2.core.commands.MainCommand
 import net.guizhanss.infinityexpansion2.core.services.ConfigService
 import net.guizhanss.infinityexpansion2.core.services.IntegrationService
 import net.guizhanss.infinityexpansion2.core.services.LocalizationService
@@ -68,6 +69,9 @@ class InfinityExpansion2 : AbstractAddon(
 
         // integrations
         integrationService = IntegrationService(this)
+
+        // commands
+        MainCommand(getPluginCommand("infinityexpansion2"))
 
         // listeners & tasks
         setupListeners()

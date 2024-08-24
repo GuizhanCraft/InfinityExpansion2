@@ -27,6 +27,7 @@ class UuidDataType : PersistentDataType<ByteArray, UUID> {
 
     companion object {
 
+        @JvmStatic
         val TYPE = UuidDataType()
     }
 }

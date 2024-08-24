@@ -59,9 +59,9 @@ bukkit {
     softDepend = listOf("GuizhanLibPlugin", "SlimefunTranslation", "InfinityExpansion")
 
     commands {
-        register("infinityexpansion") {
+        register("infinityexpansion2") {
             description = "InfinityExpansion2 command"
-            aliases = listOf("ie", "ie2", "infinityexpansion2")
+            aliases = listOf("ie", "ie2", "infinityexpansion")
         }
     }
 }
