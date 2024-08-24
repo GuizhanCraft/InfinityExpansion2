@@ -20,12 +20,13 @@ jobs:
           distribution: temurin
 
       - name: Validate Gradle wrapper
-        uses: gradle/actions/wrapper-validation@v3
+        uses: gradle/actions/wrapper-validation@v4
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
 
       - name: Build with Gradle
-        uses: gradle/gradle-build-action@v3
-        with:
-          arguments: build shadowJar
+        run: ./gradlew clean shadowJar
 
       - name: Rename jar file
         run: mv build/libs/InfinityExpansion2-*.jar build/libs/InfinityExpansion2.jar

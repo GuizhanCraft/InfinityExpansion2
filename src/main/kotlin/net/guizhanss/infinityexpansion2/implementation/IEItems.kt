@@ -278,50 +278,6 @@ object IEItems {
         itemGroup = IEItemGroups.SINGULARITIES
         recipeType = IERecipeTypes.SINGULARITY_CONSTRUCTOR
     }
-
-    val FORTUNE_SINGULARITY = buildSlimefunItem<SimpleMaterial> {
-        id = "FORTUNE_SINGULARITY"
-        material = Material.NETHER_STAR.convert()
-        itemGroup = IEItemGroups.SINGULARITIES
-        recipeType = RecipeType.SMELTERY
-        recipe = arrayOf(
-            GOLD_SINGULARITY, DIAMOND_SINGULARITY, EMERALD_SINGULARITY,
-            NETHERITE_SINGULARITY, ADAMANTITE,
-        )
-    }
-
-    val MAGIC_SINGULARITY = buildSlimefunItem<SimpleMaterial> {
-        id = "MAGIC_SINGULARITY"
-        material = Material.NETHER_STAR.convert()
-        itemGroup = IEItemGroups.SINGULARITIES
-        recipeType = RecipeType.SMELTERY
-        recipe = arrayOf(
-            REDSTONE_SINGULARITY, LAPIS_SINGULARITY, QUARTZ_SINGULARITY,
-            MAGNESIUM_SINGULARITY, MAGNONIUM,
-        )
-    }
-
-    val EARTH_SINGULARITY = buildSlimefunItem<SimpleMaterial> {
-        id = "EARTH_SINGULARITY"
-        material = Material.NETHER_STAR.convert()
-        itemGroup = IEItemGroups.SINGULARITIES
-        recipeType = RecipeType.SMELTERY
-        recipe = arrayOf(
-            COMPRESSED_COBBLESTONE_4, COAL_SINGULARITY, IRON_SINGULARITY,
-            COPPER_SINGULARITY, LEAD_SINGULARITY,
-        )
-    }
-
-    val METAL_SINGULARITY = buildSlimefunItem<SimpleMaterial> {
-        id = "METAL_SINGULARITY"
-        material = Material.NETHER_STAR.convert()
-        itemGroup = IEItemGroups.SINGULARITIES
-        recipeType = RecipeType.SMELTERY
-        recipe = arrayOf(
-            SILVER_SINGULARITY, ALUMINUM_SINGULARITY, TIN_SINGULARITY,
-            ZINC_SINGULARITY, TITANIUM,
-        )
-    }
     // </editor-fold>
 
     // <editor-fold desc="Materials" collapsed="true">
@@ -461,6 +417,51 @@ object IEItems {
         itemGroup = IEItemGroups.MATERIALS
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
         recipe = VOID_INGOT.fillRecipe()
+    }
+
+    // singularities here due to load order
+    val FORTUNE_SINGULARITY = buildSlimefunItem<SimpleMaterial> {
+        id = "FORTUNE_SINGULARITY"
+        material = Material.NETHER_STAR.convert()
+        itemGroup = IEItemGroups.SINGULARITIES
+        recipeType = RecipeType.SMELTERY
+        recipe = arrayOf(
+            GOLD_SINGULARITY, DIAMOND_SINGULARITY, EMERALD_SINGULARITY,
+            NETHERITE_SINGULARITY, ADAMANTITE,
+        )
+    }
+
+    val MAGIC_SINGULARITY = buildSlimefunItem<SimpleMaterial> {
+        id = "MAGIC_SINGULARITY"
+        material = Material.NETHER_STAR.convert()
+        itemGroup = IEItemGroups.SINGULARITIES
+        recipeType = RecipeType.SMELTERY
+        recipe = arrayOf(
+            REDSTONE_SINGULARITY, LAPIS_SINGULARITY, QUARTZ_SINGULARITY,
+            MAGNESIUM_SINGULARITY, MAGNONIUM,
+        )
+    }
+
+    val EARTH_SINGULARITY = buildSlimefunItem<SimpleMaterial> {
+        id = "EARTH_SINGULARITY"
+        material = Material.NETHER_STAR.convert()
+        itemGroup = IEItemGroups.SINGULARITIES
+        recipeType = RecipeType.SMELTERY
+        recipe = arrayOf(
+            COMPRESSED_COBBLESTONE_4, COAL_SINGULARITY, IRON_SINGULARITY,
+            COPPER_SINGULARITY, LEAD_SINGULARITY,
+        )
+    }
+
+    val METAL_SINGULARITY = buildSlimefunItem<SimpleMaterial> {
+        id = "METAL_SINGULARITY"
+        material = Material.NETHER_STAR.convert()
+        itemGroup = IEItemGroups.SINGULARITIES
+        recipeType = RecipeType.SMELTERY
+        recipe = arrayOf(
+            SILVER_SINGULARITY, ALUMINUM_SINGULARITY, TIN_SINGULARITY,
+            ZINC_SINGULARITY, TITANIUM,
+        )
     }
 
     val INFINITY_INGOT = buildSlimefunItem<SimpleMaterial> {

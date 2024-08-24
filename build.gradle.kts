@@ -1,5 +1,7 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+
 plugins {
-    kotlin("jvm") version "1.9.23"
+    kotlin("jvm") version "2.0.20"
     id("com.github.johnrengelman.shadow") version "8.1.1"
     id("net.minecrell.plugin-yml.bukkit") version "0.6.0"
 }
@@ -31,10 +33,10 @@ java {
     targetCompatibility = JavaVersion.VERSION_17
 }
 
-tasks.compileKotlin {
-    kotlinOptions {
+kotlin {
+    compilerOptions {
         javaParameters = true
-        jvmTarget = "17"
+        jvmTarget = JvmTarget.JVM_17
     }
 }
 
