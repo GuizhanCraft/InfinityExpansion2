@@ -14,16 +14,16 @@ class InfinityMatrixTask : Runnable {
     }
 
     override fun run() {
-        player@ for (p in Bukkit.getOnlinePlayers()) {
+        for (p in Bukkit.getOnlinePlayers()) {
             val uuid = p.uniqueId
 
             // only check for active players
-            if (!ACTIVE_PLAYERS.contains(uuid)) continue@player
+            if (!ACTIVE_PLAYERS.contains(uuid)) continue
 
             // if active players are in creative or spectator mode, no need to track them
             if (p.gameMode == GameMode.CREATIVE || p.gameMode == GameMode.SPECTATOR) {
                 ACTIVE_PLAYERS.remove(uuid)
-                continue@player
+                continue
             }
 
             // check if player's inv still have matrix

@@ -12,6 +12,7 @@ import io.github.thebusybiscuit.slimefun4.core.handlers.ItemUseHandler
 import io.github.thebusybiscuit.slimefun4.implementation.items.SimpleSlimefunItem
 import io.github.thebusybiscuit.slimefun4.libraries.dough.data.persistent.PersistentDataAPI
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
+import net.guizhanss.infinityexpansion2.core.persistent.UuidDataType
 import net.guizhanss.infinityexpansion2.implementation.tasks.InfinityMatrixTask
 import net.guizhanss.infinityexpansion2.utils.bukkitext.createKey
 import org.bukkit.ChatColor
@@ -33,8 +34,9 @@ class InfinityMatrix(
         val item = e.item
         val meta = item.itemMeta
 
-        if (PersistentDataAPI.hasUUID(meta, OWNER)) {
-            val owner = PersistentDataAPI.getUUID(meta, OWNER)
+        if (PersistentDataAPI.has(meta, OWNER, UuidDataType.TYPE)) {
+            val owner = PersistentDataAPI.get(meta, OWNER, UuidDataType.TYPE)
+            InfinityExpansion2.debug("owner of the matrix: $owner")
 
             // check if the player is the owner
             if (owner != p.uniqueId) {
@@ -55,7 +57,7 @@ class InfinityMatrix(
             if (p.isSneaking) return@ItemUseHandler
 
             // no owner, set owner
-            PersistentDataAPI.setUUID(meta, OWNER, p.uniqueId)
+            PersistentDataAPI.set(meta, OWNER, UuidDataType.TYPE, p.uniqueId)
             setLore(meta, p.uniqueId)
             item.itemMeta = meta
         }
