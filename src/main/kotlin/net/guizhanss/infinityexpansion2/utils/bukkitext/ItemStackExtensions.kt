@@ -19,11 +19,6 @@ fun String.toItemStack(): ItemStack = IERegistry.itemMapping.getOrPut(this) {
 }
 
 /**
- * A shortcut to check if an [ItemStack] is air.
- */
-val ItemStack.isAir get() = type.isAir
-
-/**
  * A shortcut to check if an [ItemStack] is null or air.
  */
-val ItemStack?.isAir get() = this?.isAir ?: true
+val ItemStack?.isAir get() = this?.type?.isAir ?: true
