@@ -71,7 +71,7 @@ class InfinityExpansion2 : AbstractAddon(
         integrationService = IntegrationService(this)
 
         // commands
-        MainCommand(getPluginCommand("infinityexpansion2"))
+        MainCommand(getPluginCommand("infinityexpansion2")).register()
 
         // listeners & tasks
         setupListeners()
