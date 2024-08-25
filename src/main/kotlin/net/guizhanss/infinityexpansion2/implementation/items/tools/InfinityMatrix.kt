@@ -3,6 +3,7 @@
 package net.guizhanss.infinityexpansion2.implementation.items.tools
 
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
 import io.github.thebusybiscuit.slimefun4.core.attributes.DistinctiveItem
@@ -15,6 +16,7 @@ import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.core.persistent.UuidDataType
 import net.guizhanss.infinityexpansion2.implementation.tasks.InfinityMatrixTask
 import net.guizhanss.infinityexpansion2.utils.bukkitext.createKey
+import net.guizhanss.infinityexpansion2.utils.bukkitext.isAir
 import org.bukkit.ChatColor
 import org.bukkit.GameMode
 import org.bukkit.inventory.ItemStack
@@ -96,5 +98,7 @@ class InfinityMatrix(
     companion object {
 
         private val OWNER = "owner".createKey()
+
+        fun isMatrix(item: ItemStack?) = !item.isAir && SlimefunItem.getByItem(item) is InfinityMatrix
     }
 }

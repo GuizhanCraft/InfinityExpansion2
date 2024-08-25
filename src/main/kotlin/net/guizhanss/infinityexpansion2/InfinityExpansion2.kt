@@ -11,6 +11,7 @@ import net.guizhanss.infinityexpansion2.implementation.IEItems
 import net.guizhanss.infinityexpansion2.implementation.groups.IEItemGroups
 import net.guizhanss.infinityexpansion2.implementation.listeners.ArmorItemListener
 import net.guizhanss.infinityexpansion2.implementation.listeners.BowItemListener
+import net.guizhanss.infinityexpansion2.implementation.listeners.InfinityMatrixListener
 import net.guizhanss.infinityexpansion2.implementation.listeners.SlimefunRegistryListener
 import net.guizhanss.infinityexpansion2.implementation.listeners.TranslationsLoadListener
 import net.guizhanss.infinityexpansion2.implementation.listeners.VeinMinerListener
@@ -111,6 +112,7 @@ class InfinityExpansion2 : AbstractAddon(
     private fun setupListeners() {
         ArmorItemListener(this)
         BowItemListener(this)
+        InfinityMatrixListener(this)
         SlimefunRegistryListener(this)
         TranslationsLoadListener(this)
         VeinMinerListener(this)
