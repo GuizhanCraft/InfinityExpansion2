@@ -207,9 +207,9 @@ class InfinityReactor(
         private fun info(infinity: Int, void: Int) = InfinityExpansion2.localization.getGuiItem(
             Material.LIME_STAINED_GLASS_PANE.convert(),
             "ir_info",
-            "",
+            InfinityExpansion2.localization.getString("items._UI_IR_INFO.lore-overrides.1"),
             "${ChatColor.GRAY}${MachineLore.format(infinity)}",
-            "",
+            InfinityExpansion2.localization.getString("items._UI_IR_INFO.lore-overrides.3"),
             "${ChatColor.GRAY}${MachineLore.format(void)}",
         )
     }
