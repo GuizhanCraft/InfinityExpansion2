@@ -7,7 +7,7 @@ import net.guizhanss.infinityexpansion2.utils.bukkitext.buildPotionEffect
 import org.bukkit.entity.Player
 import org.bukkit.inventory.ItemStack
 
-class CosmicMeatballs(
+class UltimateStew(
     itemGroup: ItemGroup,
     itemStack: SlimefunItemStack,
     recipeType: RecipeType,
@@ -15,6 +15,6 @@ class CosmicMeatballs(
 ) : InfinityFood(itemGroup, itemStack, recipeType, recipe) {
 
     override fun applyEffects(p: Player) {
-        p.addPotionEffect(buildPotionEffect("strength", 5 * 60 * 20, 1))
+        p.addPotionEffect(buildPotionEffect("regeneration", 5 * 60 * 20, 1))
     }
 }

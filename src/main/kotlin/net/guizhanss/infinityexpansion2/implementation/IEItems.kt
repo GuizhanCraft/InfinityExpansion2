@@ -8,6 +8,7 @@ import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems
 import io.github.thebusybiscuit.slimefun4.utils.HeadTexture
 import net.guizhanss.infinityexpansion2.implementation.groups.IEItemGroups
 import net.guizhanss.infinityexpansion2.implementation.items.food.CosmicMeatballs
+import net.guizhanss.infinityexpansion2.implementation.items.food.UltimateStew
 import net.guizhanss.infinityexpansion2.implementation.items.gear.InfinityArmor
 import net.guizhanss.infinityexpansion2.implementation.items.gear.InfinityBoots
 import net.guizhanss.infinityexpansion2.implementation.items.gear.InfinityBow
@@ -799,9 +800,26 @@ object IEItems {
         recipe = arrayOf(
             // @formatter:off
             null, null, null, null, null, null,
+            null, ItemStack(Material.WHEAT), ItemStack(Material.POTATO), ItemStack(Material.POTATO), ItemStack(Material.CACTUS), null,
+            null, ItemStack(Material.WHEAT), VOID_DUST, ItemStack(Material.NETHER_WART), ItemStack(Material.CACTUS), null,
+            null, ItemStack(Material.CARROT), ItemStack(Material.NETHER_WART), null, ItemStack(Material.BROWN_MUSHROOM), null,
+            null, ItemStack(Material.CARROT), ItemStack(Material.RED_MUSHROOM), ItemStack(Material.RED_MUSHROOM), ItemStack(Material.BROWN_MUSHROOM), null,
+            null, null, null, null, null, null,
+            // @formatter:on
+        )
+    }
+
+    val ULTIMATE_STEW = buildSlimefunItem<UltimateStew> {
+        id = "ULTIMATE_STEW"
+        material = Material.SUSPICIOUS_STEW.convert()
+        itemGroup = IEItemGroups.FOOD
+        recipeType = IERecipeTypes.INFINITY_WORKBENCH
+        recipe = arrayOf(
+            // @formatter:off
+            null, null, null, null, null, null,
             null, ItemStack(Material.CHICKEN), ItemStack(Material.BEEF), ItemStack(Material.BEEF), ItemStack(Material.RABBIT), null,
             null, ItemStack(Material.CHICKEN), VOID_DUST, ItemStack(Material.COD), ItemStack(Material.RABBIT), null,
-            null, ItemStack(Material.MUTTON), ItemStack(Material.COD), VOID_DUST, ItemStack(Material.SALMON), null,
+            null, ItemStack(Material.MUTTON), ItemStack(Material.COD), null, ItemStack(Material.SALMON), null,
             null, ItemStack(Material.MUTTON), ItemStack(Material.PORKCHOP), ItemStack(Material.PORKCHOP), ItemStack(Material.SALMON), null,
             null, null, null, null, null, null,
             // @formatter:on

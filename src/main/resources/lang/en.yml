@@ -548,6 +548,12 @@ items:
   # items - food
   COSMIC_MEATBALLS:
     name: "&bCosmic Meatballs"
+    lore:
+      - "&7Provides 5 minutes of Strength II."
+  ULTIMATE_STEW:
+    name: "&6Ultimate Stew"
+    lore:
+      - "&7Provides 5 minutes of Regeneration II."
 
   # items - tools
   ENDER_FLAME:
