@@ -1,6 +1,8 @@
 package net.guizhanss.infinityexpansion2
 
 import io.github.thebusybiscuit.slimefun4.libraries.dough.updater.BlobBuildUpdater
+import net.byteflux.libby.BukkitLibraryManager
+import net.byteflux.libby.Library
 import net.guizhanss.guizhanlib.slimefun.addon.AbstractAddon
 import net.guizhanss.guizhanlib.updater.GuizhanBuildsUpdater
 import net.guizhanss.infinityexpansion2.core.commands.MainCommand
@@ -27,6 +29,21 @@ import java.util.logging.Level
 class InfinityExpansion2 : AbstractAddon(
     GITHUB_USER, GITHUB_REPO, GITHUB_BRANCH, AUTO_UPDATE_KEY
 ) {
+
+    override fun load() {
+        // check if there is central repo prop defined
+        val centralRepo = System.getProperty("centralRepository") ?: "https://repo1.maven.org/maven2/"
+
+        // download libs
+        val manager = BukkitLibraryManager(this, "libraries")
+        manager.addRepository(centralRepo)
+        manager.loadLibrary(
+            Library.builder().groupId("org.jetbrains.kotlin").artifactId("kotlin-stdlib").version("2.0.20").build()
+        )
+        manager.loadLibrary(
+            Library.builder().groupId("org.jetbrains.kotlin").artifactId("kotlin-reflect").version("2.0.20").build()
+        )
+    }
 
     override fun enable() {
         instance = this

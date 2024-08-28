@@ -16,15 +16,17 @@ repositories {
     mavenCentral()
     maven("https://repo.papermc.io/repository/maven-public/")
     maven("https://s01.oss.sonatype.org/content/repositories/snapshots/")
+    maven("https://repo.alessiodp.com/releases/")
     maven("https://jitpack.io")
 }
 
 dependencies {
-    library(kotlin("stdlib"))
-    library(kotlin("reflect"))
+    compileOnly(kotlin("stdlib"))
+    compileOnly(kotlin("reflect"))
     compileOnly("io.papermc.paper:paper-api:1.20.4-R0.1-SNAPSHOT")
     compileOnly("com.github.Slimefun:Slimefun4:RC-37")
     compileOnly("net.guizhanss:SlimefunTranslation:e03b01a7b7")
+    implementation("net.byteflux:libby-bukkit:1.3.1")
     implementation("net.guizhanss:GuizhanLib-api:1.7.6")
     implementation("org.bstats:bstats-bukkit:3.0.2")
 }
@@ -47,6 +49,7 @@ tasks.shadowJar {
         relocate(from, "$mainPackage.libs.$last")
     }
 
+    doRelocate("net.byteflux.libby")
     doRelocate("net.guizhanss.guizhanlib")
     doRelocate("org.bstats")
     minimize()
