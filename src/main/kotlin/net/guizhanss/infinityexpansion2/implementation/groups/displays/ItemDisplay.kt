@@ -11,10 +11,11 @@ import io.github.thebusybiscuit.slimefun4.core.services.sounds.SoundEffect
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ChestMenu
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.utils.bukkitext.createKey
+import net.guizhanss.infinityexpansion2.utils.items.removePrefix
 import org.bukkit.entity.Player
 
 /**
- * A fake [ItemGroup] that displays a [SlimefunItem].
+ * A fake [ItemGroup] that displays any [SlimefunItem].
  */
 abstract class ItemDisplay(protected val sfItem: SlimefunItem) :
     FlexItemGroup(sfItem.id.createKey(), sfItem.item.clone()) {

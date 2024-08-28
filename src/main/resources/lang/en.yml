@@ -439,14 +439,14 @@ items:
       - ""
       - "&8\u21E8 &e⚡ 16,000,000 &7J Capacity"
     lore-overrides:
-      2: "%sftrlore_PowerCapacity_16000000%"
+      2: "%sftrlore_PowerCapacity_16000000%" # DO NOT translate this
   INFINITY_CAPACITOR:
     name: "&bInfinity Capacitor"
     lore:
       - ""
       - "&8\u21E8 &e⚡ 2,000,000,000 &7J Capacity"
     lore-overrides:
-      2: "%sftrlore_PowerCapacity_2000000000%"
+      2: "%sftrlore_PowerCapacity_2000000000%" # DO NOT translate this
   ADVANCED_ENCHANTER:
     name: "&cAdvanced Enchanter"
     lore:
@@ -454,8 +454,8 @@ items:
       - "&8\u21E8 &e⚡ &7Speed: &b5x"
       - "&8\u21E8 &e⚡ &7180 J/t"
     lore-overrides:
-      2: "%sftrlore_Speed_5%"
-      3: "%sftrlore_PowerPerTick_180%"
+      2: "%sftrlore_Speed_5%" # DO NOT translate this
+      3: "%sftrlore_PowerPerTick_180%" # DO NOT translate this
   INFINITY_ENCHANTER:
     name: "&bInfinity Enchanter"
     lore:
@@ -463,8 +463,8 @@ items:
       - "&8\u21E8 &e⚡ &7Speed: &b75x"
       - "&8\u21E8 &e⚡ &712,000 J/t"
     lore-overrides:
-      2: "%sftrlore_Speed_10%"
-      3: "%sftrlore_PowerPerTick_12000%"
+      2: "%sftrlore_Speed_10%" # DO NOT translate this
+      3: "%sftrlore_PowerPerTick_12000%" # DO NOT translate this
   ADVANCED_DISENCHANTER:
     name: "&cAdvanced Disenchanter"
     lore:
@@ -472,8 +472,8 @@ items:
       - "&8\u21E8 &e⚡ &7Speed: &b5x"
       - "&8\u21E8 &e⚡ &7180 J/t"
     lore-overrides:
-      2: "%sftrlore_Speed_5%"
-      3: "%sftrlore_PowerPerTick_180%"
+      2: "%sftrlore_Speed_5%" # DO NOT translate this
+      3: "%sftrlore_PowerPerTick_180%" # DO NOT translate this
   INFINITY_DISENCHANTER:
     name: "&bInfinity Disenchanter"
     lore:
@@ -481,8 +481,8 @@ items:
       - "&8\u21E8 &e⚡ &7Speed: &b90x"
       - "&8\u21E8 &e⚡ &712,000 J/t"
     lore-overrides:
-      2: "%sftrlore_Speed_90%"
-      3: "%sftrlore_PowerPerTick_12000%"
+      2: "%sftrlore_Speed_90%" # DO NOT translate this
+      3: "%sftrlore_PowerPerTick_12000%" # DO NOT translate this
   ADVANCED_CHARGER:
     name: "&cAdvanced Charger"
     lore:
@@ -490,8 +490,8 @@ items:
       - "&8\u21E8 &e⚡ &7Speed: &b30x"
       - "&8\u21E8 &e⚡ &7180 J/t"
     lore-overrides:
-      2: "%sftrlore_Speed_30%"
-      3: "%sftrlore_PowerPerTick_180%"
+      2: "%sftrlore_Speed_30%" # DO NOT translate this
+      3: "%sftrlore_PowerPerTick_180%" # DO NOT translate this
   INFINITY_CHARGER:
     name: "&bInfinity Charger"
     lore:
@@ -499,8 +499,8 @@ items:
       - "&8\u21E8 &e⚡ &7Speed: &b6000x"
       - "&8\u21E8 &e⚡ &760,000 J/t"
     lore-overrides:
-      2: "%sftrlore_Speed_6000%"
-      3: "%sftrlore_PowerPerTick_60000%"
+      2: "%sftrlore_Speed_6000%" # DO NOT translate this
+      3: "%sftrlore_PowerPerTick_60000%" # DO NOT translate this
   ADVANCED_GEO_MINER:
     name: "&cAdvanced Geo Miner"
     lore:
@@ -508,8 +508,8 @@ items:
       - "&8\u21E8 &e⚡ &7Speed: &b4x"
       - "&8\u21E8 &e⚡ &7120 J/t"
     lore-overrides:
-      2: "%sftrlore_Speed_4%"
-      3: "%sftrlore_PowerPerTick_120%"
+      2: "%sftrlore_Speed_4%" # DO NOT translate this
+      3: "%sftrlore_PowerPerTick_120%" # DO NOT translate this
   INFINITY_GEO_MINER:
     name: "&bInfinity Geo Miner"
     lore:
@@ -517,8 +517,8 @@ items:
       - "&8\u21E8 &e⚡ &7Speed: &b64x"
       - "&8\u21E8 &e⚡ &712,000 J/t"
     lore-overrides:
-      2: "%sftrlore_Speed_64%"
-      3: "%sftrlore_PowerPerTick_12000%"
+      2: "%sftrlore_Speed_64%" # DO NOT translate this
+      3: "%sftrlore_PowerPerTick_12000%" # DO NOT translate this
   ADVANCED_SMELTERY:
     name: "&cAdvanced Smeltery"
     lore:
@@ -526,17 +526,17 @@ items:
       - "&8\u21E8 &e⚡ &7Speed: &b24x"
       - "&8\u21E8 &e⚡ &7240 J/t"
     lore-overrides:
-      2: "%sftrlore_Speed_24%"
-      3: "%sftrlore_PowerPerTick_240%"
+      2: "%sftrlore_Speed_24%" # DO NOT translate this
+      3: "%sftrlore_PowerPerTick_240%" # DO NOT translate this
   VOID_SMELTERY:
     name: "&8Void Smeltery"
     lore:
       - ""
       - "&8\u21E8 &e⚡ &7Speed: &b72x"
-      - "&8\u21E8 &e⚡ &71200 J/t"
+      - "&8\u21E8 &e⚡ &71,200 J/t"
     lore-overrides:
-      2: "%sftrlore_Speed_72%"
-      3: "%sftrlore_PowerPerTick_1200%"
+      2: "%sftrlore_Speed_72%" # DO NOT translate this
+      3: "%sftrlore_PowerPerTick_1200%" # DO NOT translate this
   ADVANCED_NETHER_STAR_REACTOR:
     name: "&cAdvanced &fNether Star Reactor"
     lore:
@@ -544,6 +544,12 @@ items:
       - "&fRuns on Nether Stars"
       - "&8\u21E8 &bMust be surrounded by Water"
       - "&8\u21E8 &bMust be supplied with Nether Ice Coolant Cells"
+      - ""
+      - "&8\u21E8 &e⚡ 90,000 &7J Capacity"
+      - "&8\u21E8 &e⚡ &71,800 J/t"
+    lore-overrides:
+      6: "%sftrlore_PowerCapacity_90000%" # DO NOT translate this
+      7: "%sftrlore_PowerPerTick_1200%" # DO NOT translate this
 
   # items - food
   COSMIC_MEATBALLS:
@@ -610,31 +616,31 @@ items:
     lore:
       - "&bSoulbound"
     lore-overrides:
-      1: "%sftrlore_soulbound%"
+      1: "%sftrlore_soulbound%" # DO NOT translate this
   INFINITY_AXE:
     name: "&b&lNature's Ruin"
     lore:
       - "&bSoulbound"
     lore-overrides:
-      1: "%sftrlore_soulbound%"
+      1: "%sftrlore_soulbound%" # DO NOT translate this
   INFINITY_SHOVEL:
     name: "&b&lMountain Eater"
     lore:
       - "&bSoulbound"
     lore-overrides:
-      1: "%sftrlore_soulbound%"
+      1: "%sftrlore_soulbound%" # DO NOT translate this
   INFINITY_HOE:
     name: "&b&lHoe of the Green Earth"
     lore:
       - "&bSoulbound"
     lore-overrides:
-      1: "%sftrlore_soulbound%"
+      1: "%sftrlore_soulbound%" # DO NOT translate this
   INFINITY_FISHING_ROD:
     name: "&b&lInfinity Rod"
     lore:
       - "&bSoulbound"
     lore-overrides:
-      1: "%sftrlore_soulbound%"
+      1: "%sftrlore_soulbound%" # DO NOT translate this
   INFINITY_MATRIX:
     options:
       partial-override: true
@@ -648,11 +654,11 @@ items:
       - "&bSoulbound"
       - ""
     lore-overrides:
-      6: "%sftrlore_soulbound%"
+      6: "%sftrlore_soulbound%" # DO NOT translate this
     lore-replacements:
       8:
-        original: "Owner:" # DO NOT change this, translate the replaced value instead.
-        replaced: "Owner:"
+        original: "Owner: " # DO NOT translate this, translate the replaced value instead. Also keep in mind the duplicated entries.
+        replaced: "Owner: "
 
   # items - gears
   INFINITY_HELMET:
@@ -663,7 +669,7 @@ items:
       - "&7Elytra Crash Immunity"
       - "&bSoulbound"
     lore-overrides:
-      4: "%sftrlore_soulbound%"
+      4: "%sftrlore_soulbound%" # DO NOT translate this
   INFINITY_CHESTPLATE:
     name: "&b&lInfinity Chestplate"
     lore:
@@ -673,7 +679,7 @@ items:
       - "&7Bee Sting Immunity"
       - "&bSoulbound"
     lore-overrides:
-      5: "%sftrlore_soulbound%"
+      5: "%sftrlore_soulbound%" # DO NOT translate this
   INFINITY_LEGGINGS:
     name: "&b&lInfinity Leggings"
     lore:
@@ -683,7 +689,7 @@ items:
       - "&7Radiation Immunity"
       - "&bSoulbound"
     lore-overrides:
-      5: "%sftrlore_soulbound%"
+      5: "%sftrlore_soulbound%" # DO NOT translate this
   INFINITY_BOOTS:
     name: "&b&lInfinity Boots"
     lore:
@@ -692,31 +698,31 @@ items:
       - "&7Fall Damage Immunity"
       - "&bSoulbound"
     lore-overrides:
-      3: "%sftrlore_soulbound%"
+      3: "%sftrlore_soulbound%" # DO NOT translate this
   INFINITY_SHIELD:
     name: "&b&lCosmic Aegis"
     lore:
       - "&bSoulbound"
     lore-overrides:
-      1: "%sftrlore_soulbound%"
+      1: "%sftrlore_soulbound%" # DO NOT translate this
   INFINITY_SWORD:
     name: "&b&lBlade of the Cosmos"
     lore:
       - "&bSoulbound"
     lore-overrides:
-      1: "%sftrlore_soulbound%"
+      1: "%sftrlore_soulbound%" # DO NOT translate this
   INFINITY_BOW:
     name: "&b&lSky Piercer"
     lore:
       - "&bSoulbound"
     lore-overrides:
-      1: "%sftrlore_soulbound%"
+      1: "%sftrlore_soulbound%" # DO NOT translate this
   INFINITY_CROSSBOW:
     name: "&b&lStar Shooter"
     lore:
       - "&bSoulbound"
     lore-overrides:
-      1: "%sftrlore_soulbound%"
+      1: "%sftrlore_soulbound%" # DO NOT translate this
 
   # machines
   COBBLESTONE_GENERATOR:
@@ -727,8 +733,8 @@ items:
       - ""
       - "&8\u21E8 &e⚡ &7Speed: &b1x"
     lore-overrides:
-      4: "%sftrlore_Speed_1%"
-      5: "%sftrlore_PowerPerTick_24%"
+      4: "%sftrlore_Speed_1%" # DO NOT translate this
+      5: "%sftrlore_PowerPerTick_24%" # DO NOT translate this
   COBBLESTONE_GENERATOR_2:
     name: "&cAdvanced &8Cobblestone Generator"
     lore:
@@ -737,7 +743,7 @@ items:
       - ""
       - "&8\u21E8 &e⚡ &7Speed: &b4x"
     lore-overrides:
-      4: "%sftrlore_Speed_4%"
+      4: "%sftrlore_Speed_4%" # DO NOT translate this
   COBBLESTONE_GENERATOR_3:
     name: "&7Void &8Cobblestone Generator"
     lore:
@@ -746,7 +752,7 @@ items:
       - ""
       - "&8\u21E8 &e⚡ &7Speed: &b16x"
     lore-overrides:
-      4: "%sftrlore_Speed_16%"
+      4: "%sftrlore_Speed_16%" # DO NOT translate this
   COBBLESTONE_GENERATOR_4:
     name: "&bInfinity &8Cobblestone Generator"
     lore:
@@ -755,7 +761,7 @@ items:
       - ""
       - "&8\u21E8 &e⚡ &7Speed: &b64x"
     lore-overrides:
-      4: "%sftrlore_Speed_64%"
+      4: "%sftrlore_Speed_64%" # DO NOT translate this
   VIRTUAL_FARM:
     name: "&aVirtual Farm"
     lore:
@@ -812,7 +818,7 @@ items:
       - ""
       - "&8\u21E8 &e⚡ &7Speed: &b1x"
     lore-overrides:
-      4: "%sftrlore_Speed_1%"
+      4: "%sftrlore_Speed_1%" # DO NOT translate this
   VOID_HARVESTER_2:
     name: "&cAdvanced &8Void Harvester"
     lore:
@@ -821,7 +827,7 @@ items:
       - ""
       - "&8\u21E8 &e⚡ &7Speed: &b16x"
     lore-overrides:
-      4: "%sftrlore_Speed_16%"
+      4: "%sftrlore_Speed_16%" # DO NOT translate this
   VOID_HARVESTER_3:
     name: "&bInfinity &8Void Harvester"
     lore:
@@ -830,7 +836,7 @@ items:
       - ""
       - "&8\u21E8 &e⚡ &7Speed: &b64x"
     lore-overrides:
-      4: "%sftrlore_Speed_64%"
+      4: "%sftrlore_Speed_64%" # DO NOT translate this
   STONEWORKS_FACTORY:
     name: "&8Stoneworks Factory"
     lore:
@@ -840,7 +846,7 @@ items:
       - ""
       - "&8\u21E8 &e⚡ &7Speed: &b1x"
     lore-overrides:
-      5: "%sftrlore_Speed_1%"
+      5: "%sftrlore_Speed_1%" # DO NOT translate this
   STONEWORKS_FACTORY_2:
     name: "&cAdvanced &8Stoneworks Factory"
     lore:
@@ -850,7 +856,7 @@ items:
       - ""
       - "&8\u21E8 &e⚡ &7Speed: &b4x"
     lore-overrides:
-      5: "%sftrlore_Speed_4%"
+      5: "%sftrlore_Speed_4%" # DO NOT translate this
   STONEWORKS_FACTORY_3:
     name: "&7Void &8Stoneworks Factory"
     lore:
@@ -860,7 +866,7 @@ items:
       - ""
       - "&8\u21E8 &e⚡ &7Speed: &b16x"
     lore-overrides:
-      5: "%sftrlore_Speed_16%"
+      5: "%sftrlore_Speed_16%" # DO NOT translate this
   STONEWORKS_FACTORY_4:
     name: "&bInfinity &8Stoneworks Factory"
     lore:
@@ -870,7 +876,7 @@ items:
       - ""
       - "&8\u21E8 &e⚡ &7Speed: &b64x"
     lore-overrides:
-      5: "%sftrlore_Speed_64%"
+      5: "%sftrlore_Speed_64%" # DO NOT translate this
   SINGULARITY_CONSTRUCTOR:
     name: "&fSingularity Constructor"
     lore:
@@ -880,7 +886,7 @@ items:
       - ""
       - "&8\u21E8 &e⚡ &7Speed: &b1x"
     lore-overrides:
-      5: "%sftrlore_Speed_1%"
+      5: "%sftrlore_Speed_1%" # DO NOT translate this
   INFINITY_SINGULARITY_CONSTRUCTOR:
     name: "&bInfinity &fSingularity Constructor"
     lore:
@@ -890,7 +896,7 @@ items:
       - ""
       - "&8\u21E8 &e⚡ &7Speed: &b64x"
     lore-overrides:
-      5: "%sftrlore_Speed_64%"
+      5: "%sftrlore_Speed_64%" # DO NOT translate this
   RESOURCE_SYNTHESIZER:
     name: "&6Resource Synthesizer"
     lore:
@@ -905,7 +911,7 @@ items:
       - ""
       - "&8\u21E8 &e⚡ &7Speed: &b1x"
     lore-overrides:
-      4: "%sftrlore_Speed_1%"
+      4: "%sftrlore_Speed_1%" # DO NOT translate this
   EXTREME_FREEZER:
     name: "&bExtreme Freezer"
     lore:
@@ -914,7 +920,7 @@ items:
       - ""
       - "&8\u21E8 &e⚡ &7Speed: &b1x"
     lore-overrides:
-      4: "%sftrlore_Speed_1%"
+      4: "%sftrlore_Speed_1%" # DO NOT translate this
   DUST_EXTRACTOR:
     name: "&7Dust Extractor"
     lore:
@@ -923,7 +929,7 @@ items:
       - ""
       - "&8\u21E8 &e⚡ &7Speed: &b1x"
     lore-overrides:
-      4: "%sftrlore_Speed_1%"
+      4: "%sftrlore_Speed_1%" # DO NOT translate this
   DUST_EXTRACTOR_2:
     name: "&cAdvanced &7Dust Extractor"
     lore:
@@ -932,7 +938,7 @@ items:
       - ""
       - "&8\u21E8 &e⚡ &7Speed: &b2x"
     lore-overrides:
-      4: "%sftrlore_Speed_2%"
+      4: "%sftrlore_Speed_2%" # DO NOT translate this
   DUST_EXTRACTOR_3:
     name: "&8Void &7Dust Extractor"
     lore:
@@ -941,7 +947,7 @@ items:
       - ""
       - "&8\u21E8 &e⚡ &7Speed: &b8x"
     lore-overrides:
-      4: "%sftrlore_Speed_8%"
+      4: "%sftrlore_Speed_8%" # DO NOT translate this
   DUST_EXTRACTOR_4:
     name: "&bInfinity &7Dust Extractor"
     lore:
@@ -950,7 +956,7 @@ items:
       - ""
       - "&8\u21E8 &e⚡ &7Speed: &b16x"
     lore-overrides:
-      4: "%sftrlore_Speed_16%"
+      4: "%sftrlore_Speed_16%" # DO NOT translate this
   INGOT_FORMER:
     name: "&7Ingot Former"
     lore:
@@ -959,7 +965,7 @@ items:
       - ""
       - "&8\u21E8 &e⚡ &7Speed: &b1x"
     lore-overrides:
-      4: "%sftrlore_Speed_1%"
+      4: "%sftrlore_Speed_1%" # DO NOT translate this
   INGOT_FORMER_2:
     name: "&cAdvanced &7Ingot Former"
     lore:
@@ -968,7 +974,7 @@ items:
       - ""
       - "&8\u21E8 &e⚡ &7Speed: &b2x"
     lore-overrides:
-      4: "%sftrlore_Speed_2%"
+      4: "%sftrlore_Speed_2%" # DO NOT translate this
   INGOT_FORMER_3:
     name: "&8Void &7Ingot Former"
     lore:
@@ -977,7 +983,7 @@ items:
       - ""
       - "&8\u21E8 &e⚡ &7Speed: &b8x"
     lore-overrides:
-      4: "%sftrlore_Speed_8%"
+      4: "%sftrlore_Speed_8%" # DO NOT translate this
   INGOT_FORMER_4:
     name: "&bInfinity &7Ingot Former"
     lore:
@@ -986,7 +992,7 @@ items:
       - ""
       - "&8\u21E8 &e⚡ &7Speed: &b16x"
     lore-overrides:
-      4: "%sftrlore_Speed_16%"
+      4: "%sftrlore_Speed_16%" # DO NOT translate this
   URANIUM_EXTRACTOR:
     name: "&2Uranium Extractor"
     lore:
@@ -995,7 +1001,7 @@ items:
       - ""
       - "&8\u21E8 &e⚡ &7Speed: &b1x"
     lore-overrides:
-      4: "%sftrlore_Speed_1%"
+      4: "%sftrlore_Speed_1%" # DO NOT translate this
   COBBLE_PRESS:
     name: "&8Cobble Press"
     lore:
@@ -1005,7 +1011,7 @@ items:
       - ""
       - "&8\u21E8 &e⚡ &7Speed: &b1x"
     lore-overrides:
-      5: "%sftrlore_Speed_1%"
+      5: "%sftrlore_Speed_1%" # DO NOT translate this
   DECOMPRESSOR:
     name: "&7Decompressor"
     lore:
@@ -1014,7 +1020,7 @@ items:
       - ""
       - "&8\u21E8 &e⚡ &7Speed: &b1x"
     lore-overrides:
-      4: "%sftrlore_Speed_1%"
+      4: "%sftrlore_Speed_1%" # DO NOT translate this
   QUARRY:
     name: "&9Basic Quarry"
     lore:
@@ -1025,14 +1031,14 @@ items:
     lore-overrides:
       4: "%sftrlore_Speed_1%"
   QUARRY_2:
-    name: "&cAdvanced &9Quarry"
+    name: "&cAdvanced &9Quarry" # DO NOT translate this
     lore:
       - ""
       - "&7Automatically mines resources."
       - ""
       - "&8\u21E8 &e⚡ &7Speed: &b2x"
     lore-overrides:
-      4: "%sftrlore_Speed_2%"
+      4: "%sftrlore_Speed_2%" # DO NOT translate this
   QUARRY_3:
     name: "&8Void &9Quarry"
     lore:
@@ -1041,7 +1047,7 @@ items:
       - ""
       - "&8\u21E8 &e⚡ &7Speed: &b4x"
     lore-overrides:
-      4: "%sftrlore_Speed_4%"
+      4: "%sftrlore_Speed_4%" # DO NOT translate this
   QUARRY_4:
     name: "&bInfinity &9Quarry"
     lore:
@@ -1050,7 +1056,7 @@ items:
       - ""
       - "&8\u21E8 &e⚡ &7Speed: &b64x"
     lore-overrides:
-      4: "%sftrlore_Speed_64%"
+      4: "%sftrlore_Speed_64%" # DO NOT translate this
   GEO_QUARRY:
     name: "&2Geo Quarry"
     lore:
@@ -1059,7 +1065,7 @@ items:
       - ""
       - "&8\u21E8 &e⚡ &7Speed: &b1x"
     lore-overrides:
-      4: "%sftrlore_Speed_1%"
+      4: "%sftrlore_Speed_1%" # DO NOT translate this
   GEO_QUARRY_2:
     name: "&bInfinity &2Geo Quarry"
     lore:
@@ -1068,7 +1074,7 @@ items:
       - ""
       - "&8\u21E8 &e⚡ &7Speed: &b4x"
     lore-overrides:
-      4: "%sftrlore_Speed_4%"
+      4: "%sftrlore_Speed_4%" # DO NOT translate this
   GEAR_TRANSFORMER:
     name: "&9Gear Transformer"
     lore:
@@ -1173,6 +1179,8 @@ messages:
       description: "Get the recipe ingredients."
       to-sender: "&7You have provided the ingredients of &a{0} &7to &b{1}&7."
       to-target: "&7You have received the ingredients of &a{0}&7."
+    guide:
+      description: "Open the guide for your hand held Slimefun item."
     printitem:
       description: "Print the item in hand."
       no-item: "&cYou must hold an item in your hand."

@@ -800,10 +800,10 @@ object IEItems {
         recipe = arrayOf(
             // @formatter:off
             null, null, null, null, null, null,
-            null, ItemStack(Material.WHEAT), ItemStack(Material.POTATO), ItemStack(Material.POTATO), ItemStack(Material.CACTUS), null,
-            null, ItemStack(Material.WHEAT), VOID_DUST, ItemStack(Material.NETHER_WART), ItemStack(Material.CACTUS), null,
-            null, ItemStack(Material.CARROT), ItemStack(Material.NETHER_WART), null, ItemStack(Material.BROWN_MUSHROOM), null,
-            null, ItemStack(Material.CARROT), ItemStack(Material.RED_MUSHROOM), ItemStack(Material.RED_MUSHROOM), ItemStack(Material.BROWN_MUSHROOM), null,
+            null, ItemStack(Material.CHICKEN), ItemStack(Material.BEEF), ItemStack(Material.BEEF), ItemStack(Material.RABBIT), null,
+            null, ItemStack(Material.CHICKEN), VOID_DUST, ItemStack(Material.COD), ItemStack(Material.RABBIT), null,
+            null, ItemStack(Material.MUTTON), ItemStack(Material.COD), null, ItemStack(Material.SALMON), null,
+            null, ItemStack(Material.MUTTON), ItemStack(Material.PORKCHOP), ItemStack(Material.PORKCHOP), ItemStack(Material.SALMON), null,
             null, null, null, null, null, null,
             // @formatter:on
         )
@@ -817,10 +817,10 @@ object IEItems {
         recipe = arrayOf(
             // @formatter:off
             null, null, null, null, null, null,
-            null, ItemStack(Material.CHICKEN), ItemStack(Material.BEEF), ItemStack(Material.BEEF), ItemStack(Material.RABBIT), null,
-            null, ItemStack(Material.CHICKEN), VOID_DUST, ItemStack(Material.COD), ItemStack(Material.RABBIT), null,
-            null, ItemStack(Material.MUTTON), ItemStack(Material.COD), null, ItemStack(Material.SALMON), null,
-            null, ItemStack(Material.MUTTON), ItemStack(Material.PORKCHOP), ItemStack(Material.PORKCHOP), ItemStack(Material.SALMON), null,
+            null, ItemStack(Material.WHEAT), ItemStack(Material.POTATO), ItemStack(Material.POTATO), ItemStack(Material.CACTUS), null,
+            null, ItemStack(Material.WHEAT), VOID_DUST, ItemStack(Material.NETHER_WART), ItemStack(Material.CACTUS), null,
+            null, ItemStack(Material.CARROT), ItemStack(Material.NETHER_WART), null, ItemStack(Material.BROWN_MUSHROOM), null,
+            null, ItemStack(Material.CARROT), ItemStack(Material.RED_MUSHROOM), ItemStack(Material.RED_MUSHROOM), ItemStack(Material.BROWN_MUSHROOM), null,
             null, null, null, null, null, null,
             // @formatter:on
         )

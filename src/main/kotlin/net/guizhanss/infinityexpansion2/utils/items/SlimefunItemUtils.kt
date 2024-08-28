@@ -18,18 +18,7 @@ fun ItemStack?.isSlimefunItem() = SlimefunItem.getByItem(this) != null
 @JvmName("isSlimefunItemGeneric")
 inline fun <reified T : SlimefunItem> ItemStack?.isSlimefunItem() = SlimefunItem.getByItem(this) is T
 
-fun ItemStack.dropItem(loc: Location, amount: Int = 1) {
-    val fullStacks = amount / maxStackSize
-    val remaining = amount % maxStackSize
-    repeat(fullStacks) {
-        val item = clone().apply { this.amount = amount }
-        loc.world.dropItem(loc, item)
-    }
-    if (remaining > 0) {
-        val item = clone().apply { this.amount = remaining }
-        loc.world.dropItem(loc, item)
-    }
-}
+fun String.removePrefix() = this.replace(InfinityExpansion2.localization.idPrefix, "")
 
 fun applyInfinityGearEnchantment(sfItem: SlimefunItemStack) {
     val key = sfItem.itemId.replace("${InfinityExpansion2.localization.idPrefix}INFINITY_", "").lowercase()

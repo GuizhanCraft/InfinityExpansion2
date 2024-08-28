@@ -2,6 +2,7 @@ package net.guizhanss.infinityexpansion2.utils.bukkitext
 
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem
 import net.guizhanss.infinityexpansion2.core.IERegistry
+import org.bukkit.Location
 import org.bukkit.Material
 import org.bukkit.inventory.ItemStack
 
@@ -22,3 +23,19 @@ fun String.toItemStack(): ItemStack = IERegistry.itemMapping.getOrPut(this) {
  * A shortcut to check if an [ItemStack] is null or air.
  */
 val ItemStack?.isAir get() = this?.type?.isAir ?: true
+
+/**
+ * Drop the [ItemStack] with the given amount at the [Location].
+ */
+fun ItemStack.dropItem(loc: Location, amount: Int = 1) {
+    val fullStacks = amount / maxStackSize
+    val remaining = amount % maxStackSize
+    repeat(fullStacks) {
+        val item = clone().apply { this.amount = amount }
+        loc.world.dropItem(loc, item)
+    }
+    if (remaining > 0) {
+        val item = clone().apply { this.amount = remaining }
+        loc.world.dropItem(loc, item)
+    }
+}

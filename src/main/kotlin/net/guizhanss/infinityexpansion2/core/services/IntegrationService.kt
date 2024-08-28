@@ -5,6 +5,7 @@ import io.github.thebusybiscuit.slimefun4.libraries.dough.items.ItemUtils
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.implementation.listeners.TranslationsLoadListener
 import net.guizhanss.infinityexpansion2.utils.items.MaterialType
+import net.guizhanss.infinityexpansion2.utils.items.removePrefix
 import net.guizhanss.slimefuntranslation.api.SlimefunTranslationAPI
 import net.guizhanss.slimefuntranslation.api.config.TranslationConfiguration
 import net.guizhanss.slimefuntranslation.api.config.TranslationConfigurationDefaults
@@ -69,7 +70,7 @@ class IntegrationService(private val plugin: InfinityExpansion2) {
         return if (slimefunTranslationEnabled) {
             SlimefunTranslationAPI.getItemName(SlimefunTranslationAPI.getUser(p), id)
         } else {
-            InfinityExpansion2.localization.getItemName(id, *extraLore)
+            InfinityExpansion2.localization.getItemName(id.removePrefix(), *extraLore)
         }
     }
 

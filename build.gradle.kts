@@ -1,3 +1,4 @@
+import net.minecrell.pluginyml.bukkit.BukkitPluginDescription
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
@@ -64,6 +65,18 @@ bukkit {
         register("infinityexpansion2") {
             description = "InfinityExpansion2 command"
             aliases = listOf("ie", "ie2", "infinityexpansion")
+        }
+    }
+
+    permissions {
+        register("infinityexpansion2.command.giverecipe") {
+            default = BukkitPluginDescription.Permission.Default.OP
+        }
+        register("infinityexpansion2.command.guide") {
+            default = BukkitPluginDescription.Permission.Default.TRUE
+        }
+        register("infinityexpansion2.command.printitem") {
+            default = BukkitPluginDescription.Permission.Default.OP
         }
     }
 }
