@@ -98,7 +98,5 @@ class InfinityMatrix(
     companion object {
 
         private val OWNER = "owner".createKey()
-
-        fun isMatrix(item: ItemStack?) = !item.isAir && SlimefunItem.getByItem(item) is InfinityMatrix
     }
 }

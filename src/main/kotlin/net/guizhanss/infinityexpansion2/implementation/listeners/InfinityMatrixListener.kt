@@ -5,6 +5,7 @@ import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.implementation.items.tools.InfinityMatrix
 import net.guizhanss.infinityexpansion2.implementation.tasks.InfinityMatrixTask
 import net.guizhanss.infinityexpansion2.utils.bukkitext.isAir
+import net.guizhanss.infinityexpansion2.utils.items.isSlimefunItem
 import org.bukkit.GameMode
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
@@ -34,7 +35,7 @@ class InfinityMatrixListener(plugin: InfinityExpansion2) : Listener {
 
         // check if there are any other matrix in the inventory
         var found = false
-        p.inventory.contents.firstOrNull { InfinityMatrix.isMatrix(it) }?.let { found = true }
+        p.inventory.contents.firstOrNull { it.isSlimefunItem<InfinityMatrix>() }?.let { found = true }
 
         if (!found) {
             InfinityMatrixTask.ACTIVE_PLAYERS.remove(p.uniqueId)
