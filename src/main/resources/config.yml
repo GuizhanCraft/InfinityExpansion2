@@ -24,23 +24,43 @@ balance:
 
 # Resource synthesizer options
 resource-synthesizer:
-  # Each line represents a recipe.
-  # format: input1,input2,output,amount
-  # Use English comma (,) to separate the arguments.
-  # The 4th argument is the amount of output item, default is 1, can be omitted.
+  # Each entry is a recipe.
   #
-  # The input item must be a singularity that can be constructed from a singularity constructor.
-  # (meaning fortune, magic, earth, and metal singularity cannot be used as ingredient)
-  # The common ID prefix for input item(IE_) is not needed.
+  # The input and output item must be a valid Slimefun item, or the recipe will be ignored.
+  # All the infinity expansion 2 item has the prefix IE_.
   #
-  # For the output item, you MUST use the full ID of the item. (for infinity expansion 2 items, they are all prefixed IE_)
-  # If the recipe output is not a valid Slimefun item, the recipe will be ignored.
+  # The output amount is default to 1, and can be omitted.
   recipes:
-    - 'IRON_SINGULARITY,COAL_SINGULARITY,REINFORCED_ALLOY_INGOT,32'
-    - 'DIAMOND_SINGULARITY,COAL_SINGULARITY,CARBONADO,16'
-    - 'GOLD_SINGULARITY,EMERALD_SINGULARITY,BLISTERING_INGOT_3,16'
-    - 'COPPER_SINGULARITY,ZINC_SINGULARITY,ELECTRO_MAGNET,64'
-    - 'IRON_SINGULARITY,QUARTZ_SINGULARITY,SOLAR_PANEL,64'
+    - input:
+        1: IE_IRON_SINGULARITY
+        2: IE_COAL_SINGULARITY
+      output:
+        item: REINFORCED_ALLOY_INGOT
+        amount: 32
+    - input:
+        1: IE_DIAMOND_SINGULARITY
+        2: IE_COAL_SINGULARITY
+      output:
+        item: CARBONADO
+        amount: 16
+    - input:
+        1: IE_GOLD_SINGULARITY
+        2: IE_EMERALD_SINGULARITY
+      output:
+        item: BLISTERING_INGOT_3
+        amount: 16
+    - input:
+        1: IE_COPPER_SINGULARITY
+        2: IE_ZINC_SINGULARITY
+      output:
+        item: ELECTRO_MAGNET
+        amount: 64
+    - input:
+        1: IE_IRON_SINGULARITY
+        2: IE_QUARTZ_SINGULARITY
+      output:
+        item: SOLAR_PANEL
+        amount: 64
 
 # Mob simulation options
 mob-simulation:

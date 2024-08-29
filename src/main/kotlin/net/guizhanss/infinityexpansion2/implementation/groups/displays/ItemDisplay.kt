@@ -2,8 +2,8 @@
 
 package net.guizhanss.infinityexpansion2.implementation.groups.displays
 
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem
 import io.github.thebusybiscuit.slimefun4.api.items.groups.FlexItemGroup
 import io.github.thebusybiscuit.slimefun4.api.player.PlayerProfile
 import io.github.thebusybiscuit.slimefun4.core.guide.SlimefunGuideMode
@@ -11,7 +11,6 @@ import io.github.thebusybiscuit.slimefun4.core.services.sounds.SoundEffect
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ChestMenu
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.utils.bukkitext.createKey
-import net.guizhanss.infinityexpansion2.utils.items.removePrefix
 import org.bukkit.entity.Player
 
 /**

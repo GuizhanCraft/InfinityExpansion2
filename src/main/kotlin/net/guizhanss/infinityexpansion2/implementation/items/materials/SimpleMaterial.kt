@@ -10,6 +10,5 @@ open class SimpleMaterial(
     itemGroup: ItemGroup,
     itemStack: SlimefunItemStack,
     recipeType: RecipeType,
-    recipe: Array<out ItemStack?>
+    recipe: Array<out ItemStack?>,
 ) : UnplaceableBlock(itemGroup, itemStack, recipeType, recipe)
-

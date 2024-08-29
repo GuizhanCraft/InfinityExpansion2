@@ -9,7 +9,9 @@ import org.bukkit.configuration.ConfigurationSection
  * which can cause problems when the class is not loaded. (like when loading Slimefun's Items config)
  *
  * The implementation should also have a companion function called `deserialize` that
- * accepts a [ConfigurationSection] parameter and returns the class instance.
+ * accepts a [ConfigurationSection] parameter or a [Map]<[String], [Any]> parameter, and returns the class instance.
+ *
+ * The [Map] passed is a flattened map, the key separator is `.`.
  */
 fun interface SerializableSection {
 

@@ -3,7 +3,7 @@ package net.guizhanss.infinityexpansion2.implementation.recipes
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.utils.bukkitext.createKey
-import net.guizhanss.infinityexpansion2.utils.items.MaterialType
+import net.guizhanss.infinityexpansion2.utils.items.convert
 import org.bukkit.Material
 
 object IERecipeTypes {
@@ -11,7 +11,7 @@ object IERecipeTypes {
     val VOID_HARVESTER = RecipeType(
         "void_harvester".createKey(),
         InfinityExpansion2.localization.getRecipeTypeItem(
-            MaterialType.Material(Material.OBSIDIAN),
+            Material.OBSIDIAN.convert(),
             "void_harvester"
         )
     )
@@ -19,7 +19,7 @@ object IERecipeTypes {
     val INFINITY_WORKBENCH = RecipeType(
         "infinity_workbench".createKey(),
         InfinityExpansion2.localization.getRecipeTypeItem(
-            MaterialType.Material(Material.SMITHING_TABLE),
+            Material.SMITHING_TABLE.convert(),
             "infinity_workbench"
         )
     )
@@ -27,8 +27,16 @@ object IERecipeTypes {
     val SINGULARITY_CONSTRUCTOR = RecipeType(
         "singularity_constructor".createKey(),
         InfinityExpansion2.localization.getRecipeTypeItem(
-            MaterialType.Material(Material.QUARTZ_BLOCK),
+            Material.QUARTZ_BLOCK.convert(),
             "singularity_constructor"
+        )
+    )
+
+    val MOB_DATA_INFUSER = RecipeType(
+        "mob_data_infuser".createKey(),
+        InfinityExpansion2.localization.getRecipeTypeItem(
+            Material.SPAWNER.convert(),
+            "mob_data_infuser"
         )
     )
 }

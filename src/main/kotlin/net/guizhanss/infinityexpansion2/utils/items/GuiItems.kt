@@ -123,6 +123,12 @@ object GuiItems {
         if (allowed) Strings.CHECK else Strings.CROSS
     )
 
+    fun experience(exp: Int) = InfinityExpansion2.localization.getGuiItem(
+        MaterialType.Material(Material.EXPERIENCE_BOTTLE),
+        "experience",
+        "&7${exp}"
+    )
+
     val OSCILLATOR_SLOT = InfinityExpansion2.localization.getGuiItem(
         MaterialType.Material(Material.LIME_STAINED_GLASS_PANE),
         "oscillator_slot"

@@ -3,7 +3,9 @@ package net.guizhanss.infinityexpansion2.core.services
 import net.guizhanss.guizhanlib.slimefun.addon.AddonConfig
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.core.config.QuarryPool
+import net.guizhanss.infinityexpansion2.core.config.ResourceSynthesizerRecipe
 import net.guizhanss.infinityexpansion2.utils.bukkitext.getAsSerializable
+import net.guizhanss.infinityexpansion2.utils.bukkitext.getAsSerializableList
 import net.guizhanss.infinityexpansion2.utils.bukkitext.loadDoubleMap
 import net.guizhanss.infinityexpansion2.utils.bukkitext.loadEnchantmentKeyMap
 import net.guizhanss.infinityexpansion2.utils.bukkitext.loadEnumKeyMap
@@ -33,7 +35,7 @@ class ConfigService(plugin: InfinityExpansion2) {
         private set
 
     // resource synthesizer options
-    var resourceSynthesizerRecipes: List<String> = listOf()
+    var resourceSynthesizerRecipes: List<ResourceSynthesizerRecipe> = listOf()
         private set
 
     // mob simulation options
@@ -47,7 +49,7 @@ class ConfigService(plugin: InfinityExpansion2) {
         private set
     var quarryPools: Map<Environment, QuarryPool> = emptyMap()
         private set
-    var quarryOcsillators: Map<String, Double> = emptyMap()
+    var quarryOscillators: Map<String, Double> = emptyMap()
         private set
 
     // advanced anvil options
@@ -71,11 +73,12 @@ class ConfigService(plugin: InfinityExpansion2) {
         singularityCostMultiplier = config.getDouble("balance.singularity-cost-multiplier", 1.0).clamp(0.0, 1000.0)
         allowSfItemTransform = config.getBoolean("balance.allow-sf-item-transform", false)
         enableResearches = config.getBoolean("balance.enable-researches", false)
-        resourceSynthesizerRecipes = config.getStringList("resource-synthesizer.recipes")
+        resourceSynthesizerRecipes = config.getMapList("resource-synthesizer.recipes")
+            .getAsSerializableList<ResourceSynthesizerRecipe>()
         mobSimInterval = config.getInt("mob-simulation.output-interval", 20).clamp(1, 3600)
         mobSimExpMultiplier = config.getDouble("mob-simulation.exp-multiplier", 1.0).clamp(0.0, 1000.0)
         quarryInterval = config.getInt("quarry.output-interval", 10).clamp(1, 3600)
-        quarryOcsillators = config.getConfigurationSection("quarry.oscillators").loadDoubleMap()
+        quarryOscillators = config.getConfigurationSection("quarry.oscillators").loadDoubleMap()
         quarryPools = config.getConfigurationSection("quarry.pools")
             .loadEnumKeyMap<Environment, QuarryPool>({ obj -> (obj as ConfigurationSection).getAsSerializable() })
         advancedAnvilMaxLevels = config.getConfigurationSection("advanced-anvil.max-levels").loadEnchantmentKeyMap()

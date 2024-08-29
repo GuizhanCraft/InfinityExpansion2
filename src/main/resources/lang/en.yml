@@ -167,6 +167,10 @@ items:
     conditions:
       force-load: true
     name: "&eSlimefun items:"
+  _UI_EXPERIENCE:
+    conditions:
+      force-load: true
+    name: "&eExperiences:"
   _UI_OSCILLATOR_SLOT:
     conditions:
       force-load: true

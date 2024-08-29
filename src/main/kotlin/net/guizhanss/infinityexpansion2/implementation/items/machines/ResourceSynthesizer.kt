@@ -11,7 +11,6 @@ import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.core.items.attributes.InformationalRecipeDisplayItem
 import net.guizhanss.infinityexpansion2.core.menu.MenuLayout
 import net.guizhanss.infinityexpansion2.implementation.items.machines.abstracts.AbstractTickingActionMachine
-import net.guizhanss.infinityexpansion2.implementation.items.materials.Singularity
 import net.guizhanss.infinityexpansion2.utils.items.GuiItems
 import net.guizhanss.infinityexpansion2.utils.items.isSlimefunItem
 import net.guizhanss.infinityexpansion2.utils.matches
@@ -25,14 +24,8 @@ class ResourceSynthesizer(
     recipe: Array<out ItemStack?>,
     energyPerUse: Int,
 ) : AbstractTickingActionMachine(
-    itemGroup,
-    itemStack,
-    recipeType,
-    recipe,
-    MenuLayout.RESOURCE_SYNTHESIZER,
-    energyPerUse
-),
-    InformationalRecipeDisplayItem {
+    itemGroup, itemStack, recipeType, recipe, MenuLayout.RESOURCE_SYNTHESIZER, energyPerUse
+), InformationalRecipeDisplayItem {
 
     private val _recipes = mutableMapOf<Pair<String, String>, ItemStack>()
 
@@ -44,22 +37,16 @@ class ResourceSynthesizer(
 
     private fun loadRecipes() {
         check(state == ItemState.UNREGISTERED) { "Cannot add recipes after the machine has been registered" }
-        InfinityExpansion2.configService.resourceSynthesizerRecipes.forEach {
-            val args = it.split(',')
+        val recipes = InfinityExpansion2.configService.resourceSynthesizerRecipes
+        recipes.forEach { recipe ->
+            if (!recipe.inputs.first.isSlimefunItem()) return@forEach
+            if (!recipe.inputs.second.isSlimefunItem()) return@forEach
+            if (!recipe.output.first.isSlimefunItem()) return@forEach
 
-            if (args.size !in 3..4) return@forEach
-
-            val amount = args.getOrElse(3) { "1" }.toIntOrNull() ?: 1
-            if (!args[0].isSingularity()) return@forEach
-            if (!args[1].isSingularity()) return@forEach
-            if (!args[2].isSlimefunItem()) return@forEach
-
-            _recipes[Pair(args[0], args[1])] = CustomItemStack(SlimefunItem.getById(args[2])!!.item, amount)
+            _recipes[recipe.inputs] =
+                CustomItemStack(SlimefunItem.getById(recipe.output.first)!!.item, recipe.output.second)
         }
     }
-
-    private fun String.isSingularity() =
-        "${InfinityExpansion2.localization.idPrefix}$this".isSlimefunItem<Singularity>()
 
     override fun process(b: Block, menu: BlockMenu): Boolean {
         // check input

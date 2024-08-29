@@ -66,7 +66,7 @@ class Oscillator(
         /**
          * Get the chance of an oscillator.
          */
-        fun getChance(target: String): Double = InfinityExpansion2.configService.quarryOcsillators[target] ?: 0.0
+        fun getChance(target: String): Double = InfinityExpansion2.configService.quarryOscillators[target] ?: 0.0
 
         /**
          * Get the chance of an oscillator.
