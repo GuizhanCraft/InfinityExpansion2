@@ -27,7 +27,7 @@ dependencies {
     compileOnly("com.github.Slimefun:Slimefun4:RC-37")
     compileOnly("net.guizhanss:SlimefunTranslation:e03b01a7b7")
     implementation("net.byteflux:libby-bukkit:1.3.1")
-    implementation("net.guizhanss:GuizhanLib-api:1.7.6")
+    implementation("net.guizhanss:GuizhanLib-api:1.8.1")
     implementation("org.bstats:bstats-bukkit:3.0.2")
 }
 
