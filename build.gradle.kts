@@ -28,7 +28,7 @@ dependencies {
     compileOnly("net.guizhanss:SlimefunTranslation:e03b01a7b7")
     implementation("net.byteflux:libby-bukkit:1.3.1")
     implementation("net.guizhanss:GuizhanLib-api:1.8.1")
-    implementation("org.bstats:bstats-bukkit:3.0.3")
+    implementation("org.bstats:bstats-bukkit:3.1.0")
 }
 
 java {
