@@ -8,7 +8,8 @@ import java.util.Locale
 /**
  * Create a InfinityExpansion2 [NamespacedKey] from the string.
  */
-internal fun String.createKey() = NamespacedKey(InfinityExpansion2.instance, this.lowercase(Locale.getDefault()))
+internal fun String.createKey() =
+    NamespacedKey(InfinityExpansion2.instance, StringUtil.dehumanize(this).lowercase(Locale.getDefault()))
 
 /**
  * Create a Minecraft [NamespacedKey] from the string.

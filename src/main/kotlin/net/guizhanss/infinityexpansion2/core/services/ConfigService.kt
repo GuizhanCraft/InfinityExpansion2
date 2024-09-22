@@ -1,5 +1,6 @@
 package net.guizhanss.infinityexpansion2.core.services
 
+import io.github.thebusybiscuit.slimefun4.libraries.dough.config.Config
 import net.guizhanss.guizhanlib.slimefun.addon.AddonConfig
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.core.config.QuarryPool
@@ -16,8 +17,6 @@ import org.bukkit.configuration.ConfigurationSection
 import org.bukkit.enchantments.Enchantment
 
 class ConfigService(plugin: InfinityExpansion2) {
-
-    private val config = AddonConfig(plugin, "config.yml")
 
     var autoUpdate = true
         private set
@@ -56,16 +55,23 @@ class ConfigService(plugin: InfinityExpansion2) {
     var advancedAnvilMaxLevels: Map<Enchantment, Int> = emptyMap()
         private set
 
-    // infinity gear enchantments
-    var infinityGearEnchantLevels: Map<String, ConfigurationSection> = emptyMap()
+    // infinity gear section
+    var infinityGear: Map<String, ConfigurationSection> = emptyMap()
         private set
 
+    private val config = AddonConfig(plugin, "config.yml")
+    val mobSimConfig = Config(plugin, "mob-simulation.yml")
+
     init {
+        if (!mobSimConfig.file.exists()) {
+            plugin.saveResource("mob-simulation.yml", false)
+        }
         reload()
     }
 
     fun reload() {
         config.reload()
+        mobSimConfig.reload()
 
         autoUpdate = config.getBoolean("auto-update", true)
         debug = config.getBoolean("debug", false)
@@ -82,7 +88,7 @@ class ConfigService(plugin: InfinityExpansion2) {
         quarryPools = config.getConfigurationSection("quarry.pools")
             .loadEnumKeyMap<Environment, QuarryPool>({ obj -> (obj as ConfigurationSection).getAsSerializable() })
         advancedAnvilMaxLevels = config.getConfigurationSection("advanced-anvil.max-levels").loadEnchantmentKeyMap()
-        infinityGearEnchantLevels = config.getConfigurationSection("infinity-gear-enchantments").loadSectionMap()
+        infinityGear = config.getConfigurationSection("infinity-gear").loadSectionMap()
 
         config.save()
     }

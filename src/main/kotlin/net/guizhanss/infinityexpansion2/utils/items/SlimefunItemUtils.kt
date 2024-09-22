@@ -21,20 +21,31 @@ fun String.removePrefix() = this.replace(InfinityExpansion2.localization.idPrefi
 
 fun applyInfinityGearEnchantment(sfItem: SlimefunItemStack) {
     val key = sfItem.itemId.replace("${InfinityExpansion2.localization.idPrefix}INFINITY_", "").lowercase()
-    val section = InfinityExpansion2.configService.infinityGearEnchantLevels[key] ?: return
+    val section = InfinityExpansion2.configService.infinityGear[key] ?: run {
+        InfinityExpansion2.log(
+            Level.WARNING, "Infinity gear \"$key\"'s config section is missing."
+        )
+        return
+    }
 
+    InfinityExpansion2.debug("applying config for $key")
     val meta = sfItem.itemMeta
     meta.isUnbreakable = section.getBoolean("unbreakable")
-    section.getKeys(false).forEach { enchant ->
-        // unbreakable isn't an enchantment
-        if (enchant == "unbreakable") return@forEach
+    val enchantSection = section.getConfigurationSection("enchantments") ?: run {
+        InfinityExpansion2.log(
+            Level.WARNING, "Infinity gear \"$key\"'s enchantments section is missing."
+        )
+        return
+    }
+    InfinityExpansion2.debug("begin enchantments")
+    enchantSection.getKeys(false).forEach { enchant ->
 
         // lv 0 means disabled enchantment
-        val level = section.getInt(enchant)
+        val level = enchantSection.getInt(enchant)
+        InfinityExpansion2.debug("enchantment: $enchant, level: $level")
         if (level <= 0) return@forEach
 
-        val enchantment = getEnchantment(enchant)
-        if (enchantment == null) {
+        val enchantment = getEnchantment(enchant) ?: run {
             InfinityExpansion2.log(
                 Level.WARNING, "Infinity gear \"${sfItem.itemId}\" " +
                     "has an invalid enchantment \"$enchant\" in the config."
@@ -44,5 +55,6 @@ fun applyInfinityGearEnchantment(sfItem: SlimefunItemStack) {
 
         meta.addEnchant(enchantment, level, true)
     }
+    InfinityExpansion2.debug("end enchantments")
     sfItem.itemMeta = meta
 }

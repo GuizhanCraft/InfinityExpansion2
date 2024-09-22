@@ -75,7 +75,7 @@ object IEItems {
     private val GRASS_BLOCK = ItemStack(Material.GRASS_BLOCK)
     private val PODZOL = ItemStack(Material.PODZOL)
 
-    // <editor-fold desc="Singularities" collapsed="true">
+    //<editor-fold desc="Singularities" defaultstate="collapsed">
     val IRON_SINGULARITY = buildSlimefunItem<Singularity>(
         2000, mapOf(
             ItemStack(Material.IRON_INGOT) to 1,
@@ -279,9 +279,9 @@ object IEItems {
         itemGroup = IEItemGroups.SINGULARITIES
         recipeType = IERecipeTypes.SINGULARITY_CONSTRUCTOR
     }
-    // </editor-fold>
+    //</editor-fold>
 
-    // <editor-fold desc="Materials" collapsed="true">
+    //<editor-fold desc="Materials" defaultstate="collapsed">
     val ENDER_ESSENCE = buildSlimefunItem<EnderEssence> {
         id = "ENDER_ESSENCE"
         material = Material.BLAZE_POWDER.convert()
@@ -585,9 +585,9 @@ object IEItems {
             MACHINE_PLATE, SlimefunItems.BLISTERING_INGOT_3, MACHINE_PLATE,
         )
     }
-    // </editor-fold>
+    //</editor-fold>
 
-    // <editor-fold desc="Slimefun Expansion" collapsed="true">
+    //<editor-fold desc="Slimefun Expansion" defaultstate="collapsed">
     val VOID_CAPACITOR = buildSlimefunItem<Capacitor>(16_000_000) {
         id = "VOID_CAPACITOR"
         material = HeadTexture.CAPACITOR_25.convert()
@@ -789,9 +789,9 @@ object IEItems {
             // @formatter:on
         )
     }
-    // </editor-fold>
+    //</editor-fold>
 
-    // <editor-fold desc="Food" collapsed="true">
+    //<editor-fold desc="Food" defaultstate="collapsed">
     val COSMIC_MEATBALLS = buildSlimefunItem<CosmicMeatballs> {
         id = "COSMIC_MEATBALLS"
         material = Material.COOKED_BEEF.convert()
@@ -825,9 +825,9 @@ object IEItems {
             // @formatter:on
         )
     }
-    // </editor-fold>
+    //</editor-fold>
 
-    // <editor-fold desc="Tools" collapsed="true">
+    //<editor-fold desc="Tools" defaultstate="collapsed">
     val ENDER_FLAME = buildSlimefunItem<SimpleMaterial> {
         id = "ENDER_FLAME"
         material = Material.ENCHANTED_BOOK.convert()
@@ -996,9 +996,9 @@ object IEItems {
             // @formatter:on
         )
     }
-    // </editor-fold>
+    //</editor-fold>
 
-    // <editor-fold desc="Gears" collapsed="true">
+    //<editor-fold desc="Gears" defaultstate="collapsed">
     val INFINITY_HELMET = buildSlimefunItem<InfinityArmor>(
         arrayOf(
             buildHiddenPotionEffect("night_vision", 600, 0),
@@ -1181,9 +1181,9 @@ object IEItems {
             applyInfinityGearEnchantment(it)
         }
     }
-    // </editor-fold>
+    //</editor-fold>
 
-    // <editor-fold desc="Machines" collapsed="true">
+    //<editor-fold desc="Machines" defaultstate="collapsed">
     val COBBLESTONE_GENERATOR = buildSlimefunItem<MaterialGenerator>(Material.COBBLESTONE, 1, 24) {
         id = "COBBLESTONE_GENERATOR"
         material = Material.SMOOTH_STONE.convert()
@@ -1787,9 +1787,9 @@ object IEItems {
             // @formatter:on
         )
     }
-    // </editor-fold>
+    //</editor-fold>
 
-    // <editor-fold desc="Generators" collapsed="true">
+    //<editor-fold desc="Generators" defaultstate="collapsed">
     val HYDRO_GENERATOR = buildSlimefunItem<EnergyGenerator>(GeneratorType.HYDROELECTRIC, 5) {
         id = "HYDRO_GENERATOR"
         material = Material.PRISMARINE_WALL.convert()
@@ -1919,9 +1919,36 @@ object IEItems {
             // @formatter:on
         )
     }
-    // </editor-fold>
+    //</editor-fold>
 
-    // <editor-fold desc="Hidden" collapsed="true">
+    //<editor-fold desc="Mob Simulation" defaultstate="collapsed">
+//    val MOB_SIMULATION_CHAMBER = buildSlimefunItem<MobSimulationChamber>(1, 120) {
+//        id = "MOB_SIMULATION_CHAMBER"
+//        material = Material.IRON_BARS.convert()
+//        itemGroup = IEItemGroups.MOB_SIMULATION
+//        recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
+//        recipe = arrayOf(
+//            MACHINE_PLATE, SlimefunItems.MOB_CRUSHER, MACHINE_PLATE,
+//            MACHINE_CIRCUIT, MACHINE_CORE, MACHINE_CIRCUIT,
+//            MACHINE_PLATE, SlimefunItems.MOB_CRUSHER, MACHINE_PLATE,
+//        )
+//    }
+    // MOB_DATA_INFUSER =
+
+    val MOB_DATA_CARD_EMPTY = buildSlimefunItem<SimpleMaterial> {
+        id = "MOB_DATA_CARD_EMPTY"
+        material = Material.CHAINMAIL_CHESTPLATE.convert()
+        itemGroup = IEItemGroups.MOB_SIMULATION
+        recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
+        recipe = arrayOf(
+            SlimefunItems.MAGNESIUM_INGOT, MACHINE_CIRCUIT, SlimefunItems.MAGNESIUM_INGOT,
+            SlimefunItems.SYNTHETIC_SAPPHIRE, SlimefunItems.SYNTHETIC_DIAMOND, SlimefunItems.SYNTHETIC_EMERALD,
+            SlimefunItems.MAGNESIUM_INGOT, MACHINE_CIRCUIT, SlimefunItems.MAGNESIUM_INGOT,
+        )
+    }
+    //</editor-fold>
+
+    //<editor-fold desc="Hidden" defaultstate="collapsed">
     val OSCILLATOR = buildSlimefunItem<Oscillator>(ItemStack(Material.AIR)) {
         id = "OSCILLATOR"
         material = Material.REDSTONE_TORCH.convert()
@@ -1929,5 +1956,5 @@ object IEItems {
         recipeType = RecipeType.NULL
         recipe = emptyRecipe()
     }
-    // </editor-fold>
+    //</editor-fold>
 }

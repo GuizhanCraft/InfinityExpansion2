@@ -45,7 +45,7 @@ internal class TagParser(tag: IETag) : Keyed {
             val stream = InfinityExpansion2::class.java.getResourceAsStream(path)
                 ?: error("Tag file not found within jar: $path")
             val reader = JsonReader(InputStreamReader(stream, StandardCharsets.UTF_8))
-            val root = parseReader(reader).asJsonObject
+            val root = JsonParser.parseReader(reader).asJsonObject
             root["values"].apply {
                 if (!isJsonArray) error("No values array found in tag file")
             }.asJsonArray.forEach {
@@ -75,13 +75,4 @@ internal class TagParser(tag: IETag) : Keyed {
         }
     }
 
-    companion object {
-
-        private fun parseReader(reader: JsonReader) =
-            if (Slimefun.getMinecraftVersion().isAtLeast(MinecraftVersion.MINECRAFT_1_18)) {
-                JsonParser.parseReader(reader)
-            } else {
-                JsonParser().parse(reader)
-            }
-    }
 }

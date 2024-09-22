@@ -29,7 +29,10 @@ resource-synthesizer:
   # The input and output item must be a valid Slimefun item, or the recipe will be ignored.
   # All the infinity expansion 2 item has the prefix IE_.
   #
-  # The output amount is default to 1, and can be omitted.
+  # The output amount can be omitted and default to 1.
+  #
+  # Usually, you should use singularity as the input, but you can use any Slimefun item.
+  # The machine only checks ID of the input item, so do not use complex items.
   recipes:
     - input:
         1: IE_IRON_SINGULARITY
@@ -63,6 +66,7 @@ resource-synthesizer:
         amount: 64
 
 # Mob simulation options
+# Customize all data cards in mob-simulation.yml
 mob-simulation:
 
   # The amount of runs required to output once (affected by tick rate)
@@ -145,9 +149,10 @@ advanced-anvil:
     looting: 6
     unbreaking: 13
 
-# Defines the enchantment levels of infinity gears.
+# Infinity gear options
 #
 # `unbreakable` is a boolean value that determines whether the gear is unbreakable.
+#
 # You can add new enchantments, but cannot remove enchantment fields, the plugin will fill all missing fields.
 # To disable an existing enchantment, set its level to 0.
 #
@@ -206,34 +211,27 @@ infinity-gear:
       quick_charge: 5
   helmet:
     unbreakable: true
-    effects:
-      night_vision: 0
-      conduit_power: 0
     enchantments:
       protection: 20
       aqua_affinity: 10
   chestplate:
     unbreakable: true
-    effects:
     enchantments:
       protection: 20
       thorns: 10
   leggings:
     unbreakable: true
-    effects:
     enchantments:
       protection: 20
       thorns: 10
   boots:
     unbreakable: true
-    effects:
     enchantments:
       protection: 20
       feather_falling: 0
       thorns: 0
   shield:
     unbreakable: true
-    effects:
     enchantments:
       protection: 20
       thorns: 10

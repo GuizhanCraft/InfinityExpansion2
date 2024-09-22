@@ -10,13 +10,13 @@ import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
 import io.github.thebusybiscuit.slimefun4.core.attributes.NotPlaceable
 import io.github.thebusybiscuit.slimefun4.core.attributes.Soulbound
 import io.github.thebusybiscuit.slimefun4.core.services.sounds.SoundEffect
+import net.guizhanss.guizhanlib.minecraft.utils.compatibility.ParticleX
 import net.guizhanss.infinityexpansion2.core.items.attributes.BowItem
 import net.guizhanss.infinityexpansion2.core.items.handlers.BowShootHandler
 import net.guizhanss.infinityexpansion2.utils.bukkitext.buildPotionEffect
 import org.bukkit.Bukkit
 import org.bukkit.Effect
 import org.bukkit.Material
-import org.bukkit.Particle
 import org.bukkit.SoundCategory
 import org.bukkit.entity.ArmorStand
 import org.bukkit.entity.Entity
@@ -47,7 +47,7 @@ class InfinityBow(
     private fun onShoot(): BowShootHandler {
         return BowShootHandler { e, target ->
             // explosive part
-            target.world.spawnParticle(Particle.EXPLOSION_LARGE, target.location, 1)
+            target.world.spawnParticle(ParticleX.EXPLOSION, target.location, 1)
             SoundEffect.EXPLOSIVE_BOW_HIT_SOUND.playAt(target.location, SoundCategory.PLAYERS)
             val radius = explosionRangeSetting.value.toDouble()
 
