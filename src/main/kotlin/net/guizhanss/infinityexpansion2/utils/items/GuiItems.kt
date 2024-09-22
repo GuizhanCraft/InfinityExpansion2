@@ -3,7 +3,7 @@ package net.guizhanss.infinityexpansion2.utils.items
 import io.github.thebusybiscuit.slimefun4.libraries.dough.data.persistent.PersistentDataAPI
 import io.github.thebusybiscuit.slimefun4.utils.ChestMenuUtils
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
-import net.guizhanss.infinityexpansion2.utils.bukkitext.createKey
+import net.guizhanss.infinityexpansion2.utils.constant.Keys
 import net.guizhanss.infinityexpansion2.utils.constant.Strings
 import org.bukkit.Material
 import org.bukkit.inventory.ItemStack
@@ -114,7 +114,7 @@ object GuiItems {
     fun chance(chance: Double) = InfinityExpansion2.localization.getGuiItem(
         MaterialType.Material(Material.WHEAT_SEEDS),
         "chance",
-        "&7${String.format("%.1f", chance * 100)}%"
+        "&7${String.format("%.6f", chance * 100.0).trimEnd('0').trimEnd('.')}%"
     )
 
     fun sfItem(allowed: Boolean) = InfinityExpansion2.localization.getGuiItem(
@@ -141,7 +141,7 @@ object GuiItems {
 internal fun ItemStack.toDisplayItem(): ItemStack {
     val item = clone()
     val meta = item.itemMeta
-    PersistentDataAPI.setBoolean(meta!!, "display_item".createKey(), true)
+    PersistentDataAPI.setBoolean(meta!!, Keys.DISPLAY_ITEM, true)
     item.itemMeta = meta
     return item
 }
@@ -152,7 +152,7 @@ internal fun ItemStack.toDisplayItem(): ItemStack {
 internal fun ItemStack.removeDisplayItem(): ItemStack {
     val item = clone()
     val meta = item.itemMeta
-    PersistentDataAPI.remove(meta!!, "display_item".createKey())
+    PersistentDataAPI.remove(meta!!, Keys.DISPLAY_ITEM)
     item.itemMeta = meta
     return item
 }

@@ -17,6 +17,7 @@ import net.guizhanss.infinityexpansion2.implementation.listeners.InfinityMatrixL
 import net.guizhanss.infinityexpansion2.implementation.listeners.SlimefunRegistryListener
 import net.guizhanss.infinityexpansion2.implementation.listeners.TranslationsLoadListener
 import net.guizhanss.infinityexpansion2.implementation.listeners.VeinMinerListener
+import net.guizhanss.infinityexpansion2.implementation.setup.MobSimulationSetup
 import net.guizhanss.infinityexpansion2.implementation.setup.ResearchSetup
 import net.guizhanss.infinityexpansion2.implementation.tasks.InfinityMatrixTask
 import net.guizhanss.infinityexpansion2.utils.tags.IETag
@@ -85,6 +86,7 @@ class InfinityExpansion2 : AbstractAddon(
 
         // item setup
         IEItems
+        MobSimulationSetup
 
         // researches setup
         if (configService.enableResearches) {

@@ -35,7 +35,7 @@ object IERecipeTypes {
     val MOB_DATA_INFUSER = RecipeType(
         "mob_data_infuser".createKey(),
         InfinityExpansion2.localization.getRecipeTypeItem(
-            Material.SPAWNER.convert(),
+            Material.LODESTONE.convert(),
             "mob_data_infuser"
         )
     )

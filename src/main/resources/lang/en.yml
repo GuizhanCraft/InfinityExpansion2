@@ -65,7 +65,8 @@ items:
       - "&7from Slimefun's search result."
       - ""
       - "&cThe recipe displayed here is incorrect and incomplete."
-      - "&cCheck the correct recipe from InfinityExpansion 2 guide."
+      - "&cCheck the correct recipe from InfinityExpansion 2 guide,"
+      - "&cor hold the item and use command &e/ie2 guide&c."
   _RECIPE_SINGULARITY_CONSTRUCTOR:
     conditions:
       force-load: true
@@ -73,6 +74,13 @@ items:
     lore:
       - "&7Condenses lots of resources"
       - "&7to create singularities."
+  _RECIPE_MOB_DATA_INFUSER:
+    conditions:
+      force-load: true
+    name: "&bMob Data Infuser"
+    lore:
+      - "&7Infuses empty mob data card"
+      - "&7with mob items."
 
   # ui items
   _UI_GUIDE:
@@ -1165,6 +1173,29 @@ items:
       - "&7Generates energy through the compression"
       - "&7of &8Void &7and &bInfinity &7Ingots."
       - ""
+  # items - mob simulation
+  MOB_DATA_CARD_EMPTY:
+    name: "&8Mob Data Card (Empty)"
+  MOB_DATA_CARD:
+    conditions:
+      force-load: true
+    name: "&8Mob Data Card"
+  MOB_DATA_INFUSER:
+    name: "&bMob Data Infuser"
+    lore:
+      - ""
+      - "&7Infuses empty mob data card"
+      - "&7with mob items."
+      - ""
+  MOB_SIMULATION_CHAMBER:
+    name: "&8Mob Simulation Chamber"
+    lore:
+      - ""
+      - "&7Simulates mobs using mob data card."
+      - ""
+      - "&7Generates mob drops and experience."
+      - ""
+
   # items - hidden
   OSCILLATOR:
     name: "&6Oscillator"
