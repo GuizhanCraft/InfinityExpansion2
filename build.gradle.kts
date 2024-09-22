@@ -3,7 +3,7 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
     kotlin("jvm") version "2.0.20"
-    id("com.github.johnrengelman.shadow") version "8.1.1"
+    id("com.gradleup.shadow") version "8.3.0"
     id("net.minecrell.plugin-yml.bukkit") version "0.6.0"
 }
 
@@ -23,23 +23,23 @@ repositories {
 dependencies {
     compileOnly(kotlin("stdlib"))
     compileOnly(kotlin("reflect"))
-    compileOnly("io.papermc.paper:paper-api:1.20.4-R0.1-SNAPSHOT")
-    compileOnly("com.github.Slimefun:Slimefun4:RC-37")
+    compileOnly("io.papermc.paper:paper-api:1.20.6-R0.1-SNAPSHOT")
+    compileOnly("com.github.Slimefun:Slimefun4:e02a0f61d1")
     compileOnly("net.guizhanss:SlimefunTranslation:e03b01a7b7")
     implementation("net.byteflux:libby-bukkit:1.3.1")
-    implementation("net.guizhanss:GuizhanLib-api:1.7.6")
-    implementation("org.bstats:bstats-bukkit:3.0.2")
+    implementation("net.guizhanss:GuizhanLib-api:1.8.1")
+    implementation("org.bstats:bstats-bukkit:3.0.3")
 }
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_17
-    targetCompatibility = JavaVersion.VERSION_17
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
 }
 
 kotlin {
     compilerOptions {
         javaParameters = true
-        jvmTarget = JvmTarget.JVM_17
+        jvmTarget = JvmTarget.JVM_21
     }
 }
 
@@ -58,7 +58,7 @@ tasks.shadowJar {
 
 bukkit {
     main = "$mainPackage.InfinityExpansion2"
-    apiVersion = "1.17"
+    apiVersion = "1.18"
     authors = listOf("ybw0014")
     description = "More Slimefun content"
     depend = listOf("Slimefun")
