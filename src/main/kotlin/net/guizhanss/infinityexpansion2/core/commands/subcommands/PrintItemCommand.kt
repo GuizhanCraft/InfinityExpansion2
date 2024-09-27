@@ -13,18 +13,18 @@ class PrintItemCommand(parent: AbstractCommand) : AbstractSubCommand(
 
     override fun onExecute(p: CommandSender, args: Array<String>) {
         if (!p.hasPermission()) {
-            InfinityExpansion2.integrationService.sendMessage(p, "no-permission")
+            InfinityExpansion2.integrationService.sendMessage(p, "commands.no-permission")
             return
         }
         if (p !is Player) {
-            InfinityExpansion2.integrationService.sendMessage(p, "player-only")
+            InfinityExpansion2.integrationService.sendMessage(p, "commands.player-only")
             return
         }
 
         val item = p.inventory.itemInMainHand
 
         if (item.isAir) {
-            InfinityExpansion2.integrationService.sendMessage(p, "commands.printitem.no-item")
+            InfinityExpansion2.integrationService.sendMessage(p, "commands.commands.printitem.no-item")
             return
         }
 

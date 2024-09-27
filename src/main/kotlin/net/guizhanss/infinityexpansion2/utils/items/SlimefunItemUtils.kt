@@ -17,6 +17,8 @@ fun ItemStack?.isSlimefunItem() = SlimefunItem.getByItem(this) != null
 @JvmName("isSlimefunItemGeneric")
 inline fun <reified T : SlimefunItem> ItemStack?.isSlimefunItem() = SlimefunItem.getByItem(this) is T
 
+inline fun <reified T : SlimefunItem> ItemStack?.asSlimefunItem() = SlimefunItem.getByItem(this) as? T
+
 fun String.removePrefix() = this.replace(InfinityExpansion2.localization.idPrefix, "")
 
 fun applyInfinityGearEnchantment(sfItem: SlimefunItemStack) {

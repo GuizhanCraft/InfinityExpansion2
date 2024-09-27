@@ -5,6 +5,7 @@ plugins {
     kotlin("jvm") version "2.0.20"
     id("com.gradleup.shadow") version "8.3.2"
     id("net.minecrell.plugin-yml.bukkit") version "0.6.0"
+    id("xyz.jpenilla.run-paper") version "2.3.1"
 }
 
 group = "net.guizhanss"
@@ -82,5 +83,15 @@ bukkit {
         register("infinityexpansion2.command.printitem") {
             default = BukkitPluginDescription.Permission.Default.OP
         }
+    }
+}
+
+tasks {
+    runServer {
+        downloadPlugins {
+            url("https://blob.build/dl/Slimefun4/Dev/latest")
+        }
+        jvmArgs("-Dcom.mojang.eula.agree=true")
+        minecraftVersion("1.20.6")
     }
 }

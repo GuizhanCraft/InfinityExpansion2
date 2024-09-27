@@ -6,6 +6,7 @@ import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
 import io.github.thebusybiscuit.slimefun4.core.attributes.ProtectionType
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems
 import io.github.thebusybiscuit.slimefun4.utils.HeadTexture
+import net.guizhanss.infinityexpansion2.api.mobsim.MobDataCardProps
 import net.guizhanss.infinityexpansion2.implementation.groups.IEItemGroups
 import net.guizhanss.infinityexpansion2.implementation.items.food.CosmicMeatballs
 import net.guizhanss.infinityexpansion2.implementation.items.food.UltimateStew
@@ -39,6 +40,9 @@ import net.guizhanss.infinityexpansion2.implementation.items.materials.SimpleMat
 import net.guizhanss.infinityexpansion2.implementation.items.materials.Singularity
 import net.guizhanss.infinityexpansion2.implementation.items.materials.VoidBlock
 import net.guizhanss.infinityexpansion2.implementation.items.materials.VoidGlass
+import net.guizhanss.infinityexpansion2.implementation.items.mobsim.MobDataCard
+import net.guizhanss.infinityexpansion2.implementation.items.mobsim.MobDataInfuser
+import net.guizhanss.infinityexpansion2.implementation.items.mobsim.MobSimChamber
 import net.guizhanss.infinityexpansion2.implementation.items.sfextension.AutoDisenchanter
 import net.guizhanss.infinityexpansion2.implementation.items.sfextension.AutoEnchanter
 import net.guizhanss.infinityexpansion2.implementation.items.sfextension.Capacitor
@@ -62,6 +66,9 @@ import org.bukkit.Material
 import org.bukkit.enchantments.Enchantment
 import org.bukkit.inventory.ItemStack
 
+/**
+ * Stores almost all the items in Infinity Expansion 2, also responsible for registering them.
+ */
 object IEItems {
 
     private val GLASS = ItemStack(Material.GLASS)
@@ -836,7 +843,7 @@ object IEItems {
         recipe = ItemStack(Material.BOOK) surroundedBy ENDER_ESSENCE
 
         postCreate = {
-            it.addUnsafeEnchantment(Enchantment.getByName("fire_aspect")!!, 10)
+            it.addUnsafeEnchantment(Enchantment.FIRE_ASPECT, 10)
         }
     }
 
@@ -1922,18 +1929,29 @@ object IEItems {
     //</editor-fold>
 
     //<editor-fold desc="Mob Simulation" defaultstate="collapsed">
-//    val MOB_SIMULATION_CHAMBER = buildSlimefunItem<MobSimulationChamber>(1, 120) {
-//        id = "MOB_SIMULATION_CHAMBER"
-//        material = Material.IRON_BARS.convert()
-//        itemGroup = IEItemGroups.MOB_SIMULATION
-//        recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
-//        recipe = arrayOf(
-//            MACHINE_PLATE, SlimefunItems.MOB_CRUSHER, MACHINE_PLATE,
-//            MACHINE_CIRCUIT, MACHINE_CORE, MACHINE_CIRCUIT,
-//            MACHINE_PLATE, SlimefunItems.MOB_CRUSHER, MACHINE_PLATE,
-//        )
-//    }
-    // MOB_DATA_INFUSER =
+    val MOB_SIMULATION_CHAMBER = buildSlimefunItem<MobSimChamber>(150) {
+        id = "MOB_SIMULATION_CHAMBER"
+        material = Material.GILDED_BLACKSTONE.convert()
+        itemGroup = IEItemGroups.MOB_SIMULATION
+        recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
+        recipe = arrayOf(
+            MAGSTEEL_PLATE, MACHINE_PLATE, MAGSTEEL_PLATE,
+            MACHINE_CIRCUIT, SlimefunItems.PROGRAMMABLE_ANDROID_BUTCHER, MACHINE_CIRCUIT,
+            MAGSTEEL_PLATE, MACHINE_PLATE, MAGSTEEL_PLATE,
+        )
+    }
+
+    val MOB_DATA_INFUSER = buildSlimefunItem<MobDataInfuser>(20_000) {
+        id = "MOB_DATA_INFUSER"
+        material = Material.LODESTONE.convert()
+        itemGroup = IEItemGroups.MOB_SIMULATION
+        recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
+        recipe = arrayOf(
+            MACHINE_CIRCUIT, SlimefunItems.REINFORCED_ALLOY_INGOT, MACHINE_CIRCUIT,
+            SlimefunItems.REINFORCED_ALLOY_INGOT, MACHINE_CORE, SlimefunItems.REINFORCED_ALLOY_INGOT,
+            MACHINE_CIRCUIT, SlimefunItems.REINFORCED_ALLOY_INGOT, MACHINE_CIRCUIT
+        )
+    }
 
     val MOB_DATA_CARD_EMPTY = buildSlimefunItem<SimpleMaterial> {
         id = "MOB_DATA_CARD_EMPTY"
@@ -1945,6 +1963,15 @@ object IEItems {
             SlimefunItems.SYNTHETIC_SAPPHIRE, SlimefunItems.SYNTHETIC_DIAMOND, SlimefunItems.SYNTHETIC_EMERALD,
             SlimefunItems.MAGNESIUM_INGOT, MACHINE_CIRCUIT, SlimefunItems.MAGNESIUM_INGOT,
         )
+    }
+
+    // register this to ensure the recipe output items are recognized as sf items
+    val MOB_DATA_CARD = buildSlimefunItem<MobDataCard>(MobDataCardProps.EMPTY) {
+        id = "MOB_DATA_CARD"
+        material = Material.LEATHER_CHESTPLATE.convert()
+        itemGroup = IEItemGroups.HIDDEN
+        recipeType = RecipeType.NULL
+        recipe = emptyRecipe()
     }
     //</editor-fold>
 

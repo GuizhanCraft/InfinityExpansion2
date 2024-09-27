@@ -14,11 +14,11 @@ class GuideCommand(parent: AbstractCommand) : AbstractSubCommand(
 
     override fun onExecute(p: CommandSender, args: Array<String>) {
         if (!p.hasPermission()) {
-            InfinityExpansion2.integrationService.sendMessage(p, "no-permission")
+            InfinityExpansion2.integrationService.sendMessage(p, "commands.no-permission")
             return
         }
         if (p !is Player) {
-            InfinityExpansion2.integrationService.sendMessage(p, "player-only")
+            InfinityExpansion2.integrationService.sendMessage(p, "commands.player-only")
             return
         }
 
@@ -26,7 +26,7 @@ class GuideCommand(parent: AbstractCommand) : AbstractSubCommand(
         val sfItem = SlimefunItem.getByItem(p.inventory.itemInMainHand)
 
         if (sfItem == null) {
-            InfinityExpansion2.integrationService.sendMessage(p, "invalid-item")
+            InfinityExpansion2.integrationService.sendMessage(p, "commands.invalid-item")
             return
         }
 

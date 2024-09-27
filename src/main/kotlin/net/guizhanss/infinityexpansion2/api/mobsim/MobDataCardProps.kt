@@ -1,5 +1,6 @@
 package net.guizhanss.infinityexpansion2.api.mobsim
 
+import org.bukkit.Material
 import org.bukkit.inventory.ItemStack
 
 /**
@@ -37,5 +38,18 @@ data class MobDataCardProps(
         result = 31 * result + drops.hashCode()
         result = 31 * result + recipe.contentHashCode()
         return result
+    }
+
+    companion object {
+
+        val EMPTY = MobDataCardProps(
+            id = "",
+            name = "",
+            texture = ItemStack(Material.AIR),
+            energy = 0,
+            experience = 0,
+            drops = emptyList(),
+            recipe = emptyArray()
+        )
     }
 }

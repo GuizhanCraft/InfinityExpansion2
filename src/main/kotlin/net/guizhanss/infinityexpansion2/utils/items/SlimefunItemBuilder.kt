@@ -49,7 +49,12 @@ class SlimefunItemBuilder {
         sfItem.amount = amount
         postCreate(sfItem)
         val constructor = clazz.primaryConstructor ?: error("Primary constructor not found for $clazz")
-        val item = constructor.call(itemGroup, sfItem, recipeType, recipe, *otherArgs)
+        val item = try {
+            constructor.call(itemGroup, sfItem, recipeType, recipe, *otherArgs)
+        } catch (e: Exception) {
+            InfinityExpansion2.log(Level.SEVERE, e, "Failed to create Slimefun item")
+            throw e
+        }
         preRegister(item)
         item.register(InfinityExpansion2.instance)
         return sfItem

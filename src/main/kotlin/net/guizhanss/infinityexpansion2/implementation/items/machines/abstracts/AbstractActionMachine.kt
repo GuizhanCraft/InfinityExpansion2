@@ -25,7 +25,8 @@ abstract class AbstractActionMachine(
     energyPerUse: Int,
 ) : MenuBlock(itemGroup, itemStack, recipeType, recipe), EnergyNetComponent, EnergyActionConsumer {
 
-    private val energyPerUseSetting = IntRangeSetting(this, "energy-per-use", 1, energyPerUse, 1_000_000_000)
+    // should avoid accessing this directly
+    protected val energyPerUseSetting = IntRangeSetting(this, "energy-per-use", 1, energyPerUse, 1_000_000_000)
 
     init {
         addItemSetting(energyPerUseSetting)

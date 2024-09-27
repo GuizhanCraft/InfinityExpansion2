@@ -18,19 +18,19 @@ class GiveRecipeCommand(parent: AbstractCommand) : AbstractSubCommand(
 
     override fun onExecute(p: CommandSender, args: Array<String>) {
         if (!p.hasPermission()) {
-            InfinityExpansion2.integrationService.sendMessage(p, "no-permission")
+            InfinityExpansion2.integrationService.sendMessage(p, "commands.no-permission")
             return
         }
 
         // get the target player from the second arg or the sender
         val target = if (args.size == 2) {
             InfinityExpansion2.instance.server.getPlayer(args[1]) ?: run {
-                InfinityExpansion2.integrationService.sendMessage(p, "player-not-found")
+                InfinityExpansion2.integrationService.sendMessage(p, "commands.player-not-found")
                 return
             }
         } else {
             if (p !is Player) {
-                InfinityExpansion2.integrationService.sendMessage(p, "player-only")
+                InfinityExpansion2.integrationService.sendMessage(p, "commands.player-only")
                 return
             }
             p
@@ -44,7 +44,7 @@ class GiveRecipeCommand(parent: AbstractCommand) : AbstractSubCommand(
             sfItem.recipeType == RecipeType.GEO_MINER ||
             sfItem.recipeType == IERecipeTypes.SINGULARITY_CONSTRUCTOR
         ) {
-            InfinityExpansion2.integrationService.sendMessage(p, "invalid-item")
+            InfinityExpansion2.integrationService.sendMessage(p, "commands.invalid-item")
             return
         }
 

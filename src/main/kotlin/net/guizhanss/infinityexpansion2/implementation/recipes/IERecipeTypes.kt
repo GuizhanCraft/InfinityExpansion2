@@ -2,6 +2,8 @@ package net.guizhanss.infinityexpansion2.implementation.recipes
 
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
+import net.guizhanss.infinityexpansion2.core.IERegistry
+import net.guizhanss.infinityexpansion2.core.recipes.MachineRecipe
 import net.guizhanss.infinityexpansion2.utils.bukkitext.createKey
 import net.guizhanss.infinityexpansion2.utils.items.convert
 import org.bukkit.Material
@@ -21,7 +23,10 @@ object IERecipeTypes {
         InfinityExpansion2.localization.getRecipeTypeItem(
             Material.SMITHING_TABLE.convert(),
             "infinity_workbench"
-        )
+        ),
+        { recipe, output ->
+            IERegistry.infinityRecipes.add(MachineRecipe.of(recipe, output))
+        }
     )
 
     val SINGULARITY_CONSTRUCTOR = RecipeType(
@@ -37,6 +42,9 @@ object IERecipeTypes {
         InfinityExpansion2.localization.getRecipeTypeItem(
             Material.LODESTONE.convert(),
             "mob_data_infuser"
-        )
+        ),
+        { recipe, output ->
+            IERegistry.infinityRecipes.add(MachineRecipe.of(recipe, output))
+        }
     )
 }

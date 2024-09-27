@@ -117,10 +117,20 @@ items:
     conditions:
       force-load: true
     name: "&cInvalid input"
+  _UI_SUCCESS:
+    conditions:
+      force-load: true
+    name: "&aSuccess!"
   _UI_PROGRESS:
     conditions:
       force-load: true
     name: "&eProgress:"
+  _UI_CRAFT:
+    conditions:
+      force-load: true
+    name: "&eClick to craft"
+
+  # ui - display recipe info
   _UI_WORLD_NORMAL:
     conditions:
       force-load: true
@@ -133,8 +143,6 @@ items:
     conditions:
       force-load: true
     name: "&5The End"
-
-  # ui - display recipe info
   _UI_PRODUCES:
     conditions:
       force-load: true
@@ -1174,19 +1182,6 @@ items:
       - "&7of &8Void &7and &bInfinity &7Ingots."
       - ""
   # items - mob simulation
-  MOB_DATA_CARD_EMPTY:
-    name: "&8Mob Data Card (Empty)"
-  MOB_DATA_CARD:
-    conditions:
-      force-load: true
-    name: "&8Mob Data Card"
-  MOB_DATA_INFUSER:
-    name: "&bMob Data Infuser"
-    lore:
-      - ""
-      - "&7Infuses empty mob data card"
-      - "&7with mob items."
-      - ""
   MOB_SIMULATION_CHAMBER:
     name: "&8Mob Simulation Chamber"
     lore:
@@ -1195,6 +1190,17 @@ items:
       - ""
       - "&7Generates mob drops and experience."
       - ""
+  MOB_DATA_INFUSER:
+    name: "&bMob Data Infuser"
+    lore:
+      - ""
+      - "&7Infuses empty mob data card"
+      - "&7with mob items."
+      - ""
+  MOB_DATA_CARD_EMPTY:
+    name: "&8Mob Data Card (Empty)"
+  MOB_DATA_CARD:
+    name: "&8Mob Data Card"
 
   # items - hidden
   OSCILLATOR:
@@ -1220,6 +1226,9 @@ messages:
       description: "Print the item in hand."
       no-item: "&cYou must hold an item in your hand."
   no-room: "&cNot enough room"
+  crafting:
+    invalid-input: "&cInvalid input."
+    success: "&aSuccessfully crafted &b{0}&a."
   advanced-anvil:
     input1-not-enchantable: "&cThe first input is a Slimefun item that is not enchantable."
     input2-not-disenchantable: "&cThe second input is a Slimefun item that is not disenchantable."

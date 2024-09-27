@@ -111,6 +111,29 @@ data class MenuLayout(
             statusSlot = 4,
         )
 
+        val CRAFTING_DEFAULT = MenuLayout(
+            background = intArrayOf(),
+            inputBorder = intArrayOf(
+                0, 1, 2, 3, 4,
+                9, 13,
+                18, 22,
+                27, 31,
+                36, 37, 38, 39, 40,
+            ),
+            inputSlots = intArrayOf(
+                10, 11, 12,
+                19, 20, 21,
+                28, 29, 30,
+            ),
+            outputBorder = intArrayOf(
+                15, 16, 17,
+                24, 26,
+                33, 34, 35,
+            ),
+            outputSlots = intArrayOf(25),
+            statusSlot = 14,
+        )
+
         // special layouts
         val STONEWORKS_FACTORY = MenuLayout(
             background = intArrayOf(

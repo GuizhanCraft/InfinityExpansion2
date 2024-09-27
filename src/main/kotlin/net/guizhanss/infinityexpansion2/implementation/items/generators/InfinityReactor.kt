@@ -45,7 +45,7 @@ class InfinityReactor(
         IntRangeSetting(this, "energy-production", 1, defaultProduction, Int.MAX_VALUE)
     private val voidIngotDurationSetting = IntRangeSetting(this, "void-ingot-duration", 1, 32000, Int.MAX_VALUE)
     private val infinityIngotDurationSetting =
-        IntRangeSetting(this, "infinity-ingot-duration", 1, 196000, Int.MAX_VALUE)
+        IntRangeSetting(this, "infinity-ingot-duration", 1, 192000, Int.MAX_VALUE)
 
     init {
         addItemSetting(tickRateSetting, energyProductionSetting, voidIngotDurationSetting, infinityIngotDurationSetting)
