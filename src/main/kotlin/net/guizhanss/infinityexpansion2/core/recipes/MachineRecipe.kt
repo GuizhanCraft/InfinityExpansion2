@@ -3,6 +3,8 @@ package net.guizhanss.infinityexpansion2.core.recipes
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem
 import io.github.thebusybiscuit.slimefun4.libraries.dough.items.ItemUtils
 import io.github.thebusybiscuit.slimefun4.utils.itemstack.ItemStackWrapper
+import net.guizhanss.infinityexpansion2.InfinityExpansion2
+import net.guizhanss.infinityexpansion2.utils.toDebugMessage
 import org.bukkit.entity.Player
 import org.bukkit.inventory.ItemStack
 
@@ -15,17 +17,29 @@ class MachineRecipe private constructor(
 ) {
 
     private val sfOutput: SlimefunItem? = SlimefunItem.getByItem(output)
+    private val recipeValidItemCount = recipe.count { it != null }
 
     fun check(input: Array<out ItemStack?>): Boolean {
-        if (input.size != recipe.size) {
+        InfinityExpansion2.debug("Checking recipe: ${recipe.toDebugMessage()}")
+        InfinityExpansion2.debug("Output: $output")
+        if (input.size != recipe.size || recipeValidItemCount != input.count { it != null }) {
             return false
         }
+        InfinityExpansion2.debug("input size match")
         recipe.forEachIndexed { i, recipeItem ->
+            // check if the recipe item is null and the input item is null
+            // because canStack returns false for both null
+            if (recipeItem == null && input[i] == null) {
+                return@forEachIndexed
+            }
+
             val similar = ItemUtils.canStack(recipeItem, input[i])
+            InfinityExpansion2.debug("Checking item $i: $recipeItem, ${input[i]}, similar: $similar")
             if (!similar || (recipeItem != null && recipeItem.amount > input[i]!!.amount)) {
                 return false
             }
         }
+        InfinityExpansion2.debug("All ingredients match")
         return true
     }
 

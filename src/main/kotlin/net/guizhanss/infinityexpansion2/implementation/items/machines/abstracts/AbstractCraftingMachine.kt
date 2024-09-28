@@ -10,6 +10,7 @@ import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.core.menu.MenuLayout
 import net.guizhanss.infinityexpansion2.core.recipes.MachineRecipe
 import net.guizhanss.infinityexpansion2.utils.items.GuiItems
+import net.guizhanss.infinityexpansion2.utils.toDebugMessage
 import org.bukkit.block.Block
 import org.bukkit.entity.Player
 import org.bukkit.inventory.ItemStack
@@ -27,12 +28,12 @@ abstract class AbstractCraftingMachine(
     energyPerUse: Int,
 ) : AbstractActionMachine(itemGroup, itemStack, recipeType, recipe, layout, energyPerUse) {
 
-    open val recipes: List<MachineRecipe>
-        get() = _recipes
+    // the subclass can choose to override this property to provide pre-defined recipes instead of adding them one by one
+    open val recipes: List<MachineRecipe> by lazy { _recipes }
 
     private val _recipes = mutableListOf<MachineRecipe>()
 
-    open val craftSlot: Int = 16
+    open val craftSlot: Int = 23
 
     open val craftButton: ItemStack = GuiItems.CRAFT
 
@@ -61,9 +62,10 @@ abstract class AbstractCraftingMachine(
 
     private fun craft(menu: BlockMenu, p: Player): Boolean {
         val input = Array(inputSlots.size) { index -> menu.getItemInSlot(inputSlots[index]) }
+        InfinityExpansion2.debug("crafting start, input: ${input.toDebugMessage()}")
 
         val recipe = getRecipe(input)
-        if (recipe == null || !recipe.check(input)) {
+        if (recipe == null || !recipe.check(p)) {
             menu.setStatus { GuiItems.INVALID_INPUT }
             InfinityExpansion2.integrationService.sendMessage(p, "crafting.invalid-input")
             return false
@@ -100,6 +102,7 @@ abstract class AbstractCraftingMachine(
 
     private fun getRecipe(input: Array<ItemStack?>): MachineRecipe? {
         val inputSnapshot = ItemStackWrapper.wrapArray(input)
+        InfinityExpansion2.debug("recipe count: ${recipes.size}")
         recipes.forEach { recipe ->
             if (recipe.check(inputSnapshot)) {
                 return recipe

@@ -10,6 +10,7 @@ import net.guizhanss.infinityexpansion2.api.mobsim.MobDataCardProps
 import net.guizhanss.infinityexpansion2.implementation.items.mobsim.MobDataCard
 import net.guizhanss.infinityexpansion2.utils.displayItem
 import org.bukkit.entity.Player
+import org.bukkit.inventory.ItemStack
 
 /**
  * This class provides API endpoints to access InfinityExpansion2's features.
@@ -21,9 +22,9 @@ object InfinityExpansion2API {
      * Open the InfinityExpansion2 guide of the specific [SlimefunItem] for the [Player].
      */
     @JvmStatic
-    fun openGuide(p: Player, sfItem: SlimefunItem) {
+    fun openGuide(p: Player, sfItem: SlimefunItem, item: ItemStack? = null) {
         PlayerProfile.get(p) { profile ->
-            displayItem(profile, sfItem, SlimefunGuideMode.SURVIVAL_MODE)
+            displayItem(profile, sfItem, SlimefunGuideMode.SURVIVAL_MODE, item)
         }
     }
 

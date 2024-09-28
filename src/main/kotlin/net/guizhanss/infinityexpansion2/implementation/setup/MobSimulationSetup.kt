@@ -92,6 +92,7 @@ internal object MobSimulationSetup {
                 for (j in recipePattern[i].indices) {
                     val char = recipePattern[i][j]
                     val index = i * 3 + j
+                    if (char == ' ') continue
                     if (char == 'X') {
                         recipe[index] = IEItems.MOB_DATA_CARD_EMPTY
                         continue

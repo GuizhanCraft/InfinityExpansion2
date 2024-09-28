@@ -44,7 +44,7 @@ object IERecipeTypes {
             "mob_data_infuser"
         ),
         { recipe, output ->
-            IERegistry.infinityRecipes.add(MachineRecipe.of(recipe, output))
+            IERegistry.mobDataInfuserRecipes.add(MachineRecipe.of(recipe, output))
         }
     )
 }

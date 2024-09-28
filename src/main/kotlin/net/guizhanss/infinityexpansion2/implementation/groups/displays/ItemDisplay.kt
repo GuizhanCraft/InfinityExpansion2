@@ -8,6 +8,7 @@ import io.github.thebusybiscuit.slimefun4.api.items.groups.FlexItemGroup
 import io.github.thebusybiscuit.slimefun4.api.player.PlayerProfile
 import io.github.thebusybiscuit.slimefun4.core.guide.SlimefunGuideMode
 import io.github.thebusybiscuit.slimefun4.core.services.sounds.SoundEffect
+import io.github.thebusybiscuit.slimefun4.libraries.dough.items.ItemUtils
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ChestMenu
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.utils.bukkitext.createKey
@@ -24,7 +25,11 @@ abstract class ItemDisplay(protected val sfItem: SlimefunItem) :
     override fun open(p: Player, profile: PlayerProfile, mode: SlimefunGuideMode) {
         profile.guideHistory.add(this, 1)
 
-        val menu = ChestMenu(InfinityExpansion2.integrationService.getItemName(p, sfItem.id))
+        var itemName = InfinityExpansion2.integrationService.getItemName(p, sfItem.id)
+        if (itemName.isEmpty()) {
+            itemName = ItemUtils.getItemName(sfItem.item)
+        }
+        val menu = ChestMenu(itemName)
 
         menu.setEmptySlotsClickable(false)
         menu.addMenuOpeningHandler { pl -> SoundEffect.GUIDE_BUTTON_CLICK_SOUND.playFor(pl) }

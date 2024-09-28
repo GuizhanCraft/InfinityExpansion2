@@ -1221,7 +1221,7 @@ messages:
       to-sender: "&7You have provided the ingredients of &a{0} &7to &b{1}&7."
       to-target: "&7You have received the ingredients of &a{0}&7."
     guide:
-      description: "Open the guide for your hand held Slimefun item."
+      description: "Open the guide for the specified or your hand held Slimefun item."
     printitem:
       description: "Print the item in hand."
       no-item: "&cYou must hold an item in your hand."
