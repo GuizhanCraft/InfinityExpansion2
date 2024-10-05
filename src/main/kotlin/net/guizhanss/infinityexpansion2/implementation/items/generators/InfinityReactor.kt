@@ -63,7 +63,7 @@ class InfinityReactor(
                 Level.WARNING,
                 "The duration of infinity ingot must be divisible by the duration of void ingot. "
             )
-            InfinityExpansion2.log(Level.WARNING, "The durations are reset to default, please update the config.")
+            InfinityExpansion2.log(Level.WARNING, "Using default values now, please update the config.")
             voidIngotDurationSetting.update(voidIngotDurationSetting.defaultValue)
             infinityIngotDurationSetting.update(infinityIngotDurationSetting.defaultValue)
         }

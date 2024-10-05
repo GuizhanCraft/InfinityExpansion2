@@ -73,9 +73,19 @@ mob-simulation:
   # Range: 1 to 3600
   output-interval: 20
 
+  # Whether cards can be stackable.
+  # When enabled, the product will be multiplied by the amount of cards. The energy consumption remains same for 1x.
+  # When disabled, multiple cards always produce 1x.
+  allow-stacked-card: false
+
   # The experience multiplier for mob simulation
   # Range: 0.0 to 1000.0
   exp-multiplier: 1.0
+
+  # Whether to use the legacy output mode in InfinityExpansion.
+  # Legacy V1 mode: The chance of each drop is its weight, and each time the simulation will randomly choose 1 drop from the pool.
+  # V2 mode: Each drop has a chance to be dropped.
+  legacy-output: false
 
 # Quarry options
 quarry:

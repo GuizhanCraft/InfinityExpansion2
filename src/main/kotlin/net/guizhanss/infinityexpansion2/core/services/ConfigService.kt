@@ -40,7 +40,11 @@ class ConfigService(plugin: InfinityExpansion2) {
     // mob simulation options
     var mobSimInterval = 20
         private set
+    var mobSimAllowStackedCard = false
+        private set
     var mobSimExpMultiplier = 1.0
+        private set
+    var mobSimLegacyOutput = false
         private set
 
     // quarry options
@@ -82,7 +86,9 @@ class ConfigService(plugin: InfinityExpansion2) {
         resourceSynthesizerRecipes = config.getMapList("resource-synthesizer.recipes")
             .getAsSerializableList<ResourceSynthesizerRecipe>()
         mobSimInterval = config.getInt("mob-simulation.output-interval", 20).clamp(1, 3600)
+        mobSimAllowStackedCard = config.getBoolean("mob-simulation.allow-stacked-card", false)
         mobSimExpMultiplier = config.getDouble("mob-simulation.exp-multiplier", 1.0).clamp(0.0, 1000.0)
+        mobSimLegacyOutput = config.getBoolean("mob-simulation.legacy-output", false)
         quarryInterval = config.getInt("quarry.output-interval", 10).clamp(1, 3600)
         quarryOscillators = config.getConfigurationSection("quarry.oscillators").loadDoubleMap()
         quarryPools = config.getConfigurationSection("quarry.pools")

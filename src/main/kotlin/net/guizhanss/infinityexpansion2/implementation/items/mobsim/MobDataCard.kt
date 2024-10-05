@@ -23,6 +23,7 @@ import org.bukkit.ChatColor
 import org.bukkit.Material
 import org.bukkit.inventory.ItemStack
 import org.bukkit.inventory.meta.ItemMeta
+import kotlin.math.floor
 
 /**
  * Data card may have different ids (based on how they are obtained, like from crafting or from cheating menu).
@@ -58,7 +59,7 @@ class MobDataCard(
 
     override fun getInformationalItems() = listOf(
         GuiItems.energyConsumptionPerTick(getEnergyConsumptionPerTick()),
-        GuiItems.experience(props.experience)
+        GuiItems.experience(floor(props.experience * InfinityExpansion2.configService.mobSimExpMultiplier).toInt())
     )
 
     override fun getDividerItem() = GuiItems.PRODUCES

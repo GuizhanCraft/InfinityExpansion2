@@ -1,5 +1,6 @@
 package net.guizhanss.infinityexpansion2.api.mobsim
 
+import io.github.thebusybiscuit.slimefun4.libraries.dough.collections.RandomizedSet
 import org.bukkit.Material
 import org.bukkit.inventory.ItemStack
 
@@ -16,17 +17,23 @@ data class MobDataCardProps(
     val recipe: Array<ItemStack?>,
 ) {
 
+    private val dropSet = RandomizedSet<ItemStack>()
+
+    init {
+        drops.forEach { (item, chance) ->
+            dropSet.add(item, chance.toFloat())
+        }
+    }
+
+    fun getRandomDrop(): ItemStack = dropSet.random
+
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is MobDataCardProps) return false
 
-        return id == other.id &&
-            name == other.name &&
-            texture == other.texture &&
-            energy == other.energy &&
-            experience == other.experience &&
-            drops == other.drops &&
-            recipe.contentEquals(other.recipe)
+        return id == other.id && name == other.name && texture == other.texture && energy == other.energy && experience == other.experience && drops == other.drops && recipe.contentEquals(
+            other.recipe
+        )
     }
 
     override fun hashCode(): Int {

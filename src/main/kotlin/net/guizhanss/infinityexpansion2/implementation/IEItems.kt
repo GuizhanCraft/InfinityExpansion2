@@ -42,7 +42,7 @@ import net.guizhanss.infinityexpansion2.implementation.items.materials.VoidBlock
 import net.guizhanss.infinityexpansion2.implementation.items.materials.VoidGlass
 import net.guizhanss.infinityexpansion2.implementation.items.mobsim.MobDataCard
 import net.guizhanss.infinityexpansion2.implementation.items.mobsim.MobDataInfuser
-import net.guizhanss.infinityexpansion2.implementation.items.mobsim.MobSimChamber
+import net.guizhanss.infinityexpansion2.implementation.items.mobsim.MobSimulationChamber
 import net.guizhanss.infinityexpansion2.implementation.items.sfextension.AutoDisenchanter
 import net.guizhanss.infinityexpansion2.implementation.items.sfextension.AutoEnchanter
 import net.guizhanss.infinityexpansion2.implementation.items.sfextension.Capacitor
@@ -1930,7 +1930,7 @@ object IEItems {
     //</editor-fold>
 
     //<editor-fold desc="Mob Simulation" defaultstate="collapsed">
-    val MOB_SIMULATION_CHAMBER = buildSlimefunItem<MobSimChamber>(150) {
+    val MOB_SIMULATION_CHAMBER = buildSlimefunItem<MobSimulationChamber>(150) {
         id = "MOB_SIMULATION_CHAMBER"
         material = Material.GILDED_BLACKSTONE.convert()
         itemGroup = IEItemGroups.MOB_SIMULATION
