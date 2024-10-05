@@ -17,7 +17,19 @@ fun ItemStack?.isSlimefunItem() = SlimefunItem.getByItem(this) != null
 @JvmName("isSlimefunItemGeneric")
 inline fun <reified T : SlimefunItem> ItemStack?.isSlimefunItem() = SlimefunItem.getByItem(this) is T
 
-inline fun <reified T : SlimefunItem> ItemStack?.asSlimefunItem() = SlimefunItem.getByItem(this) as? T
+/**
+ * This should be called only after [isSlimefunItem] check, or this will throw [IllegalStateException].
+ * Cast to the base [SlimefunItem]. Use the generic one to set the class for casting to.
+ */
+fun ItemStack?.getSlimefunItem() = SlimefunItem.getByItem(this) ?: error("Not a SlimefunItem")
+
+/**
+ * This should be called only after [isSlimefunItem] check, or this will throw [IllegalStateException].
+ * Cast to the specified [SlimefunItem] subclass.
+ */
+@JvmName("getSlimefunItemGeneric")
+inline fun <reified T : SlimefunItem> ItemStack?.getSlimefunItem() =
+    SlimefunItem.getByItem(this) as? T ?: error("Not a SlimefunItem")
 
 fun String.removePrefix() = this.replace(InfinityExpansion2.localization.idPrefix, "")
 

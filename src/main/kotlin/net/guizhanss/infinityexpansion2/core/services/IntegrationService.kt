@@ -77,7 +77,8 @@ class IntegrationService(private val plugin: InfinityExpansion2) {
     fun getTranslatedItemName(p: Player, item: ItemStack): String {
         val sfId = SlimefunItem.getByItem(item)?.id ?: return ItemUtils.getItemName(item)
         return if (slimefunTranslationEnabled) {
-            SlimefunTranslationAPI.getItemName(SlimefunTranslationAPI.getUser(p), sfId)
+            SlimefunTranslationAPI.getItemName(SlimefunTranslationAPI.getUser(p), sfId).takeIf { it.isNotEmpty() }
+                ?: ItemUtils.getItemName(item)
         } else {
             ItemUtils.getItemName(item)
         }

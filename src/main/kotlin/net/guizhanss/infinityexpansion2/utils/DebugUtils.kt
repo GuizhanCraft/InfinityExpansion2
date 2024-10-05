@@ -1,7 +1,6 @@
 package net.guizhanss.infinityexpansion2.utils
 
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem
-import net.guizhanss.infinityexpansion2.utils.items.asSlimefunItem
+import net.guizhanss.infinityexpansion2.utils.items.getSlimefunItem
 import net.guizhanss.infinityexpansion2.utils.items.isSlimefunItem
 import org.bukkit.inventory.ItemStack
 
@@ -12,7 +11,7 @@ fun Array<out ItemStack?>.toDebugMessage(): String {
         }
 
         if (itemStack.isSlimefunItem()) {
-            val sfItem = itemStack.asSlimefunItem<SlimefunItem>()!!
+            val sfItem = itemStack.getSlimefunItem()
             return@joinToString sfItem.item.toString()
         }
 

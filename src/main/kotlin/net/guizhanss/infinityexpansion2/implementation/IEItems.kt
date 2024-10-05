@@ -54,6 +54,7 @@ import net.guizhanss.infinityexpansion2.implementation.items.tools.InfinityMatri
 import net.guizhanss.infinityexpansion2.implementation.items.tools.Oscillator
 import net.guizhanss.infinityexpansion2.implementation.items.tools.Strainer
 import net.guizhanss.infinityexpansion2.implementation.items.tools.StrainerBase
+import net.guizhanss.infinityexpansion2.implementation.items.tools.VeinMinerRune
 import net.guizhanss.infinityexpansion2.implementation.recipes.IERecipeTypes
 import net.guizhanss.infinityexpansion2.utils.bukkitext.buildHiddenPotionEffect
 import net.guizhanss.infinityexpansion2.utils.emptyRecipe
@@ -847,7 +848,7 @@ object IEItems {
         }
     }
 
-    val VEIN_MINER_RUNE = buildSlimefunItem<SimpleMaterial> {
+    val VEIN_MINER_RUNE = buildSlimefunItem<VeinMinerRune> {
         id = "VEIN_MINER_RUNE"
         material = Material.DIAMOND.convert()
         itemGroup = IEItemGroups.TOOLS

@@ -1210,6 +1210,7 @@ lores:
   produce: "&7Produces:"
   info: "&7Information:"
   soulbound: "&bSoulbound"
+  vein-miner: "&bVein Miner"
 messages:
   commands:
     no-permission: "&cYou do not have permission to use this command."
@@ -1225,6 +1226,9 @@ messages:
     printitem:
       description: "Print the item in hand."
       no-item: "&cYou must hold an item in your hand."
+  vein-miner:
+    applied: "&aVein Miner has been applied to the item."
+    no-hunger: "&cYou do not have enough hunger level to do this."
   no-room: "&cNot enough room"
   crafting:
     invalid-input: "&cInvalid input."

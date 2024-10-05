@@ -17,15 +17,13 @@ class VeinMinerRune(
 
     companion object {
 
-        const val RANGE = 1.5
+        const val ACTIVATE_RANGE = 1.5
 
-        private val blocks = mutableSetOf<Material>()
-
-        init {
-            blocks.addAll(SlimefunTag.ORES.values)
-            blocks.addAll(SlimefunTag.LOGS.values)
-        }
-
-        val ALLOWED_BLOCKS = blocks.toSet()
+        // TODO: find a better way to manage blocks
+        val ALLOWED_BLOCKS = arrayOf(
+            "_ORE", "_LOG", "_WOOD", "GILDED", "SOUL", "GRAVEL",
+            "MAGMA", "OBSIDIAN", "DIORITE", "ANDESITE", "GRANITE", "_LEAVES",
+            "GLASS", "DIRT", "GRASS", "DEBRIS", "GLOWSTONE"
+        )
     }
 }
