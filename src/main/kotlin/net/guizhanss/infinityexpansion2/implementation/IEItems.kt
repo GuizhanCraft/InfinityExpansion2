@@ -1965,21 +1965,21 @@ object IEItems {
             SlimefunItems.MAGNESIUM_INGOT, MACHINE_CIRCUIT, SlimefunItems.MAGNESIUM_INGOT,
         )
     }
-
-    // register this to ensure the recipe output items are recognized as sf items
-    val MOB_DATA_CARD = buildSlimefunItem<MobDataCard>(MobDataCardProps.EMPTY) {
-        id = "MOB_DATA_CARD"
-        material = Material.LEATHER_CHESTPLATE.convert()
-        itemGroup = IEItemGroups.HIDDEN
-        recipeType = RecipeType.NULL
-        recipe = emptyRecipe()
-    }
     //</editor-fold>
 
     //<editor-fold desc="Hidden" defaultstate="collapsed">
     val OSCILLATOR = buildSlimefunItem<Oscillator>(ItemStack(Material.AIR)) {
         id = "OSCILLATOR"
         material = Material.REDSTONE_TORCH.convert()
+        itemGroup = IEItemGroups.HIDDEN
+        recipeType = RecipeType.NULL
+        recipe = emptyRecipe()
+    }
+
+    // register this to ensure the recipe output items are recognized as sf items
+    val MOB_DATA_CARD = buildSlimefunItem<MobDataCard>(MobDataCardProps.EMPTY) {
+        id = "MOB_DATA_CARD"
+        material = Material.LEATHER_CHESTPLATE.convert()
         itemGroup = IEItemGroups.HIDDEN
         recipeType = RecipeType.NULL
         recipe = emptyRecipe()
