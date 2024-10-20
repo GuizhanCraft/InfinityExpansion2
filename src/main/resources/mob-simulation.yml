@@ -118,6 +118,34 @@ villager:
         item: PUMPKIN
         amount: 64
 
+pig:
+  enabled: true
+  name: "Pig"
+  texture: IRON_CHESTPLATE
+  energy: 75
+  experience: 1
+  drops:
+    - item: PORKCHOP
+      chance: 1
+  recipe:
+    pattern:
+      - "TPC"
+      - "KXK"
+      - "CPK"
+    ingredient:
+      T:
+        item: POTATO
+        amount: 64
+      P:
+        item: PORKCHOP
+        amount: 64
+      K:
+        item: COOKED_PORKCHOP
+        amount: 64
+      C:
+        item: CARROT
+        amount: 64
+
 bee:
   enabled: true
   name: "Bee"
@@ -186,6 +214,28 @@ magma_cube:
       S:
         item: SLIME_BLOCK
         amount: 16
+
+ghast:
+  enabled: true
+  name: "Ghast"
+  texture: IRON_CHESTPLATE
+  energy: 300
+  experience: 2
+  drops:
+    - item: GHAST_TEAR
+      chance: 1
+  recipe:
+    pattern:
+      - "GTG"
+      - "TXT"
+      - "GTG"
+    ingredient:
+      G:
+        item: GUNPOWDER
+        amount: 64
+      T:
+        item: GHAST_TEAR
+        amount: 64
 
 witch:
   enabled: true
