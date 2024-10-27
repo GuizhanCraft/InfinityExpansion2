@@ -11,8 +11,8 @@ import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenuPreset
 import me.mrCookieSlime.Slimefun.api.inventory.DirtyChestMenu
+import net.guizhanss.guizhanlib.common.utils.RandomUtil
 import net.guizhanss.guizhanlib.slimefun.machines.TickingMenuBlock
-import net.guizhanss.guizhanlib.utils.RandomUtil
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.core.items.attributes.InformationalRecipeDisplayItem
 import net.guizhanss.infinityexpansion2.core.menu.MenuLayout

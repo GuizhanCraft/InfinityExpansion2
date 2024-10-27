@@ -1,6 +1,6 @@
 package net.guizhanss.infinityexpansion2.utils.bukkitext
 
-import net.guizhanss.guizhanlib.utils.StringUtil
+import net.guizhanss.guizhanlib.common.utils.StringUtil
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import org.bukkit.NamespacedKey
 import java.util.Locale

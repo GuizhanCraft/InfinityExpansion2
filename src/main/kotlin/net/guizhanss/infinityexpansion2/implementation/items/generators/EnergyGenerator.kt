@@ -10,7 +10,7 @@ import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
 import io.github.thebusybiscuit.slimefun4.core.attributes.EnergyNetProvider
 import io.github.thebusybiscuit.slimefun4.core.handlers.BlockUseHandler
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config
-import net.guizhanss.guizhanlib.utils.StringUtil
+import net.guizhanss.guizhanlib.common.utils.StringUtil
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.core.items.attributes.CustomTickRateMachine
 import net.guizhanss.infinityexpansion2.core.items.attributes.EnergyProducer

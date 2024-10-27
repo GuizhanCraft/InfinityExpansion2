@@ -15,20 +15,29 @@ val mainPackage = "net.guizhanss.infinityexpansion2"
 
 repositories {
     mavenCentral()
-    maven("https://repo.papermc.io/repository/maven-public/")
-    maven("https://s01.oss.sonatype.org/content/repositories/snapshots/")
-    maven("https://repo.alessiodp.com/releases/")
-    maven("https://jitpack.io")
+    maven("https://repo.papermc.io/repository/maven-public/") {
+        name = "papermc"
+    }
+    maven("https://s01.oss.sonatype.org/content/groups/public/") {
+        name = "sonatype"
+    }
+    maven("https://repo.alessiodp.com/releases/") {
+        name = "alessiodp"
+    }
+    maven("https://jitpack.io") {
+        name = "jitpack"
+    }
 }
 
 dependencies {
-    compileOnly(kotlin("stdlib"))
-    compileOnly(kotlin("reflect"))
+    compileOnly(kotlin("stdlib")) // loaded during server startup
+    compileOnly(kotlin("reflect")) // loaded during server startup
     compileOnly("io.papermc.paper:paper-api:1.20.6-R0.1-SNAPSHOT")
     compileOnly("com.github.Slimefun:Slimefun4:e02a0f61d1")
     compileOnly("net.guizhanss:SlimefunTranslation:e03b01a7b7")
+    compileOnly("com.github.schntgaispock:SlimeHUD:1.3.0")
     implementation("net.byteflux:libby-bukkit:1.3.1")
-    implementation("net.guizhanss:GuizhanLib-api:1.8.1")
+    implementation("net.guizhanss:guizhanlib-all:2.1.0")
     implementation("org.bstats:bstats-bukkit:3.1.0")
 }
 
@@ -63,7 +72,7 @@ bukkit {
     authors = listOf("ybw0014")
     description = "More Slimefun content"
     depend = listOf("Slimefun")
-    softDepend = listOf("GuizhanLibPlugin", "SlimefunTranslation", "InfinityExpansion")
+    softDepend = listOf("GuizhanLibPlugin", "SlimefunTranslation", "InfinityExpansion", "SlimeHUD")
     loadBefore = listOf("SlimeCustomizer", "RykenSlimeCustomizer")
 
     commands {

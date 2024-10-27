@@ -2,7 +2,7 @@
 
 package net.guizhanss.infinityexpansion2.implementation.setup
 
-import net.guizhanss.guizhanlib.utils.StringUtil
+import net.guizhanss.guizhanlib.common.utils.StringUtil
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.api.InfinityExpansion2API
 import net.guizhanss.infinityexpansion2.api.mobsim.MobDataCardProps

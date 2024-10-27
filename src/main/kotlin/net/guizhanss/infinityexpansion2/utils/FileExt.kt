@@ -1,6 +1,6 @@
 package net.guizhanss.infinityexpansion2.utils
 
-import net.guizhanss.guizhanlib.utils.FileUtil
+import net.guizhanss.guizhanlib.common.utils.FileUtil
 import java.io.File
 import java.io.IOException
 import java.util.jar.JarEntry
