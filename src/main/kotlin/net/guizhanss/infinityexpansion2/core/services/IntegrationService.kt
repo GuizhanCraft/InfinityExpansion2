@@ -4,6 +4,7 @@ import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem
 import io.github.thebusybiscuit.slimefun4.libraries.dough.items.ItemUtils
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.implementation.listeners.TranslationsLoadListener
+import net.guizhanss.infinityexpansion2.integration.SlimeHUDIntegration
 import net.guizhanss.infinityexpansion2.utils.items.MaterialType
 import net.guizhanss.infinityexpansion2.utils.items.removePrefix
 import net.guizhanss.slimefuntranslation.api.SlimefunTranslationAPI
@@ -23,6 +24,14 @@ class IntegrationService(private val plugin: InfinityExpansion2) {
 
     var slimefunTranslationEnabled = isPluginEnabled("SlimefunTranslation")
         private set
+    var slimeHudEnabled = isPluginEnabled("SlimeHUD")
+        private set
+
+    init {
+        if (slimeHudEnabled) {
+            SlimeHUDIntegration
+        }
+    }
 
     private fun isPluginEnabled(pluginName: String) = plugin.server.pluginManager.isPluginEnabled(pluginName)
 

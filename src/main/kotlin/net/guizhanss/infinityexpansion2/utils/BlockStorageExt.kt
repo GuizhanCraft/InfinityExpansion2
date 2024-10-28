@@ -1,6 +1,7 @@
 package net.guizhanss.infinityexpansion2.utils
 
 import me.mrCookieSlime.Slimefun.api.BlockStorage
+import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu
 import org.bukkit.Location
 import org.bukkit.block.Block
 
@@ -27,3 +28,7 @@ fun Location.getInt(key: String, defaultValue: Int = 0) = getString(key)?.toIntO
 fun Block.getInt(key: String, defaultValue: Int = 0) = location.getInt(key, defaultValue)
 fun Location.setInt(key: String, value: Int) = setString(key, value.toString())
 fun Block.setInt(key: String, value: Int) = location.setInt(key, value)
+
+// inventory
+fun Location.getBlockMenu(): BlockMenu = BlockStorage.getInventory(this)
+fun Block.getBlockMenu() = location.getBlockMenu()

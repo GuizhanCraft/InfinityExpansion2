@@ -37,7 +37,7 @@ class InfinityExpansion2 : AbstractAddon(
 
         logger.info("Loading libraries, please wait...")
         logger.info("If you stuck here for a long time, try to specify a mirror repository.")
-        logger.info("More info at: https://docs.ybw0014.dev/infinity-expansion-2/installing")
+        logger.info("Add -DcentralRepository=<url> to the JVM arguments.")
 
         // download libs
         val manager = BukkitLibraryManager(this, "libraries")
@@ -117,7 +117,11 @@ class InfinityExpansion2 : AbstractAddon(
         } else if (pluginVersion.startsWith("Build")) {
             try {
                 // use updater in lib plugin
-                val clazz = Class.forName("net.guizhanss.guizhanlibplugin.updater.GuizhanUpdater")
+                val pluginPackage = charArrayOf(
+                    'n', 'e', 't', '.', 'g', 'u', 'i', 'z', 'h', 'a', 'n', 's', 's', '.',
+                    'g', 'u', 'i', 'z', 'h', 'a', 'n', 'l', 'i', 'b', 'p', 'l', 'u', 'g', 'i', 'n'
+                )
+                val clazz = Class.forName(String(pluginPackage) + ".updater.GuizhanUpdater")
                 val updaterStart = clazz.getDeclaredMethod(
                     "start",
                     Plugin::class.java,
