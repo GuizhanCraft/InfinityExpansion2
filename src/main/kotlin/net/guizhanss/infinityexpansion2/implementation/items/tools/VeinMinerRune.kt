@@ -19,7 +19,7 @@ class VeinMinerRune(
 
         const val ACTIVATE_RANGE = 1.5
 
-        // TODO: find a better way to manage blocks
+        // TODO: use tags to manage allowed blocks
         val ALLOWED_BLOCKS = arrayOf(
             "_ORE", "_LOG", "_WOOD", "GILDED", "SOUL", "GRAVEL",
             "MAGMA", "OBSIDIAN", "DIORITE", "ANDESITE", "GRANITE", "_LEAVES",

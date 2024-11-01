@@ -20,6 +20,11 @@ fun String.toItemStack(): ItemStack = IERegistry.itemMapping.getOrPut(this) {
 }
 
 /**
+ * Create an [ItemStack] from the [Material] with the given amount (default 1).
+ */
+fun Material.toItem(amount: Int = 1): ItemStack = ItemStack(this, amount)
+
+/**
  * A shortcut to check if an [ItemStack] is null or air.
  */
 val ItemStack?.isAir get() = this?.type?.isAir ?: true

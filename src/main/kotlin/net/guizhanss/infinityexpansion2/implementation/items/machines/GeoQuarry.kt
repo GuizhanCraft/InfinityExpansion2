@@ -38,7 +38,7 @@ class GeoQuarry(
         if (!shouldProduce()) return true
 
         produce(menu).let {
-            menu.pushItem(it, *outputSlots)
+            menu.pushItem(it.clone(), *outputSlots)
         }
 
         return true

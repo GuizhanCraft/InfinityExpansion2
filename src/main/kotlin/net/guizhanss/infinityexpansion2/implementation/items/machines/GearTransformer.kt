@@ -57,7 +57,7 @@ class GearTransformer(
             return false
         }
 
-        menu.setStatus { GuiItems.INVALID_INPUT }
+        menu.setStatus { GuiItems.PRODUCING }
 
         // check if item is a tool/weapon
         if (IETag.UPGRADABLE_TOOL.isTagged(gear.type)) {
@@ -72,13 +72,13 @@ class GearTransformer(
     }
 
     private fun process(menu: BlockMenu, map: Map<String, ItemStack>, gear: ItemStack, material: ItemStack): Boolean {
-        // check if the gear is in the map (for sure)
+        // make sure the current gear material is in the map
         val current = map.entries.firstOrNull { gear.type.name.startsWith(it.key) } ?: return false
 
         // find the new material
         val new = map.entries.firstOrNull { ItemUtils.canStack(material, it.value) } ?: return false
 
-        // the new material shouldnt be same as current
+        // the new material shouldn't be same as current
         if (current.key == new.key) {
             return false
         }

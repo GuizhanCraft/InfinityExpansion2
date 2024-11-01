@@ -57,6 +57,7 @@ import net.guizhanss.infinityexpansion2.implementation.items.tools.StrainerBase
 import net.guizhanss.infinityexpansion2.implementation.items.tools.VeinMinerRune
 import net.guizhanss.infinityexpansion2.implementation.recipes.IERecipeTypes
 import net.guizhanss.infinityexpansion2.utils.bukkitext.buildHiddenPotionEffect
+import net.guizhanss.infinityexpansion2.utils.bukkitext.toItem
 import net.guizhanss.infinityexpansion2.utils.emptyRecipe
 import net.guizhanss.infinityexpansion2.utils.fillRecipe
 import net.guizhanss.infinityexpansion2.utils.items.applyInfinityGearEnchantment
@@ -65,29 +66,17 @@ import net.guizhanss.infinityexpansion2.utils.items.convert
 import net.guizhanss.infinityexpansion2.utils.surroundedBy
 import org.bukkit.Material
 import org.bukkit.enchantments.Enchantment
-import org.bukkit.inventory.ItemStack
 
 /**
  * Stores almost all the items in Infinity Expansion 2, also responsible for registering them.
  */
 object IEItems {
 
-    private val GLASS = ItemStack(Material.GLASS)
-    private val COBBLESTONE = ItemStack(Material.COBBLESTONE)
-    private val STICK = ItemStack(Material.STICK)
-    private val STRING = ItemStack(Material.STRING)
-    private val DIAMOND_PICKAXE = ItemStack(Material.DIAMOND_PICKAXE)
-    private val BUCKET = ItemStack(Material.BUCKET)
-    private val WATER_BUCKET = ItemStack(Material.WATER_BUCKET)
-    private val LAVA_BUCKET = ItemStack(Material.LAVA_BUCKET)
-    private val GRASS_BLOCK = ItemStack(Material.GRASS_BLOCK)
-    private val PODZOL = ItemStack(Material.PODZOL)
-
     //<editor-fold desc="Singularities" defaultstate="collapsed">
     val IRON_SINGULARITY = buildSlimefunItem<Singularity>(
         2000, mapOf(
-            ItemStack(Material.IRON_INGOT) to 1,
-            ItemStack(Material.IRON_BLOCK) to 9,
+            Material.IRON_INGOT.toItem() to 1,
+            Material.IRON_BLOCK.toItem() to 9,
         )
     ) {
         id = "IRON_SINGULARITY"
@@ -98,8 +87,8 @@ object IEItems {
 
     val GOLD_SINGULARITY = buildSlimefunItem<Singularity>(
         2000, mapOf(
-            ItemStack(Material.GOLD_INGOT) to 1,
-            ItemStack(Material.GOLD_BLOCK) to 9,
+            Material.GOLD_INGOT.toItem() to 1,
+            Material.GOLD_BLOCK.toItem() to 9,
             SlimefunItems.GOLD_4K to 1,
             SlimefunItems.GOLD_6K to 2,
             SlimefunItems.GOLD_8K to 3,
@@ -122,8 +111,8 @@ object IEItems {
 
     val LAPIS_SINGULARITY = buildSlimefunItem<Singularity>(
         1500, mapOf(
-            ItemStack(Material.LAPIS_LAZULI) to 1,
-            ItemStack(Material.LAPIS_BLOCK) to 9,
+            Material.LAPIS_LAZULI.toItem() to 1,
+            Material.LAPIS_BLOCK.toItem() to 9,
         )
     ) {
         id = "LAPIS_SINGULARITY"
@@ -134,8 +123,8 @@ object IEItems {
 
     val REDSTONE_SINGULARITY = buildSlimefunItem<Singularity>(
         3000, mapOf(
-            ItemStack(Material.REDSTONE) to 1,
-            ItemStack(Material.REDSTONE_BLOCK) to 9,
+            Material.REDSTONE.toItem() to 1,
+            Material.REDSTONE_BLOCK.toItem() to 9,
         )
     ) {
         id = "REDSTONE_SINGULARITY"
@@ -146,8 +135,8 @@ object IEItems {
 
     val QUARTZ_SINGULARITY = buildSlimefunItem<Singularity>(
         3000, mapOf(
-            ItemStack(Material.QUARTZ) to 1,
-            ItemStack(Material.QUARTZ_BLOCK) to 4,
+            Material.QUARTZ.toItem() to 1,
+            Material.QUARTZ_BLOCK.toItem() to 4,
         )
     ) {
         id = "QUARTZ_SINGULARITY"
@@ -158,8 +147,8 @@ object IEItems {
 
     val COPPER_SINGULARITY = buildSlimefunItem<Singularity>(
         3000, mapOf(
-            ItemStack(Material.COPPER_INGOT) to 1,
-            ItemStack(Material.COPPER_BLOCK) to 9,
+            Material.COPPER_INGOT.toItem() to 1,
+            Material.COPPER_BLOCK.toItem() to 9,
             SlimefunItems.COPPER_INGOT to 1,
         )
     ) {
@@ -237,8 +226,8 @@ object IEItems {
 
     val DIAMOND_SINGULARITY = buildSlimefunItem<Singularity>(
         500, mapOf(
-            ItemStack(Material.DIAMOND) to 1,
-            ItemStack(Material.DIAMOND_BLOCK) to 9,
+            Material.DIAMOND.toItem() to 1,
+            Material.DIAMOND_BLOCK.toItem() to 9,
             SlimefunItems.SYNTHETIC_DIAMOND to 1,
         )
     ) {
@@ -250,8 +239,8 @@ object IEItems {
 
     val EMERALD_SINGULARITY = buildSlimefunItem<Singularity>(
         500, mapOf(
-            ItemStack(Material.EMERALD) to 1,
-            ItemStack(Material.EMERALD_BLOCK) to 9,
+            Material.EMERALD.toItem() to 1,
+            Material.EMERALD_BLOCK.toItem() to 9,
             SlimefunItems.SYNTHETIC_EMERALD to 1,
         )
     ) {
@@ -263,8 +252,8 @@ object IEItems {
 
     val NETHERITE_SINGULARITY = buildSlimefunItem<Singularity>(
         200, mapOf(
-            ItemStack(Material.NETHERITE_INGOT) to 1,
-            ItemStack(Material.NETHERITE_BLOCK) to 9,
+            Material.NETHERITE_INGOT.toItem() to 1,
+            Material.NETHERITE_BLOCK.toItem() to 9,
         )
     ) {
         id = "NETHERITE_SINGULARITY"
@@ -275,8 +264,8 @@ object IEItems {
 
     val COAL_SINGULARITY = buildSlimefunItem<Singularity>(
         1500, mapOf(
-            ItemStack(Material.COAL) to 1,
-            ItemStack(Material.COAL_BLOCK) to 9,
+            Material.COAL.toItem() to 1,
+            Material.COAL_BLOCK.toItem() to 9,
             SlimefunItems.CARBON to 8,
             SlimefunItems.COMPRESSED_CARBON to 32,
             SlimefunItems.CARBON_CHUNK to 256,
@@ -302,7 +291,7 @@ object IEItems {
         material = Material.ANDESITE.convert()
         itemGroup = IEItemGroups.MATERIALS
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
-        recipe = COBBLESTONE.fillRecipe()
+        recipe = Material.COBBLESTONE.toItem().fillRecipe()
     }
 
     val COMPRESSED_COBBLESTONE_2 = buildSlimefunItem<SimpleMaterial> {
@@ -479,12 +468,10 @@ object IEItems {
         itemGroup = IEItemGroups.MATERIALS
         recipeType = RecipeType.SMELTERY
         recipe = arrayOf(
-            EARTH_SINGULARITY,
-            MYTHRIL,
-            FORTUNE_SINGULARITY,
-            MAGIC_SINGULARITY,
-            VOID_INGOT,
-            METAL_SINGULARITY,
+            // @formatter:off
+            EARTH_SINGULARITY, MYTHRIL, FORTUNE_SINGULARITY,
+            MAGIC_SINGULARITY, VOID_INGOT, METAL_SINGULARITY,
+            // @formatter:on
         )
     }
 
@@ -549,7 +536,7 @@ object IEItems {
         material = Material.GLASS.convert()
         itemGroup = IEItemGroups.MATERIALS
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
-        recipe = VOID_BLOCK surroundedBy GLASS
+        recipe = VOID_BLOCK surroundedBy Material.GLASS.toItem()
     }
 
     val INFINITY_MACHINE_CIRCUIT = buildSlimefunItem<SimpleMaterial> {
@@ -808,10 +795,10 @@ object IEItems {
         recipe = arrayOf(
             // @formatter:off
             null, null, null, null, null, null,
-            null, ItemStack(Material.CHICKEN), ItemStack(Material.BEEF), ItemStack(Material.BEEF), ItemStack(Material.RABBIT), null,
-            null, ItemStack(Material.CHICKEN), VOID_DUST, ItemStack(Material.COD), ItemStack(Material.RABBIT), null,
-            null, ItemStack(Material.MUTTON), ItemStack(Material.COD), null, ItemStack(Material.SALMON), null,
-            null, ItemStack(Material.MUTTON), ItemStack(Material.PORKCHOP), ItemStack(Material.PORKCHOP), ItemStack(Material.SALMON), null,
+            null, Material.CHICKEN.toItem(), Material.BEEF.toItem(), Material.BEEF.toItem(), Material.RABBIT.toItem(), null,
+            null, Material.CHICKEN.toItem(), VOID_DUST, Material.COD.toItem(), Material.RABBIT.toItem(), null,
+            null, Material.MUTTON.toItem(), Material.COD.toItem(), null, Material.SALMON.toItem(), null,
+            null, Material.MUTTON.toItem(), Material.PORKCHOP.toItem(), Material.PORKCHOP.toItem(), Material.SALMON.toItem(), null,
             null, null, null, null, null, null,
             // @formatter:on
         )
@@ -825,10 +812,10 @@ object IEItems {
         recipe = arrayOf(
             // @formatter:off
             null, null, null, null, null, null,
-            null, ItemStack(Material.WHEAT), ItemStack(Material.POTATO), ItemStack(Material.POTATO), ItemStack(Material.CACTUS), null,
-            null, ItemStack(Material.WHEAT), VOID_DUST, ItemStack(Material.NETHER_WART), ItemStack(Material.CACTUS), null,
-            null, ItemStack(Material.CARROT), ItemStack(Material.NETHER_WART), null, ItemStack(Material.BROWN_MUSHROOM), null,
-            null, ItemStack(Material.CARROT), ItemStack(Material.RED_MUSHROOM), ItemStack(Material.RED_MUSHROOM), ItemStack(Material.BROWN_MUSHROOM), null,
+            null, Material.WHEAT.toItem(), Material.POTATO.toItem(), Material.POTATO.toItem(), Material.CACTUS.toItem(), null,
+            null, Material.WHEAT.toItem(), VOID_DUST, Material.NETHER_WART.toItem(), Material.CACTUS.toItem(), null,
+            null, Material.CARROT.toItem(), Material.NETHER_WART.toItem(), null, Material.BROWN_MUSHROOM.toItem(), null,
+            null, Material.CARROT.toItem(), Material.RED_MUSHROOM.toItem(), Material.RED_MUSHROOM.toItem(), Material.BROWN_MUSHROOM.toItem(), null,
             null, null, null, null, null, null,
             // @formatter:on
         )
@@ -841,7 +828,7 @@ object IEItems {
         material = Material.ENCHANTED_BOOK.convert()
         itemGroup = IEItemGroups.TOOLS
         recipeType = RecipeType.MAGIC_WORKBENCH
-        recipe = ItemStack(Material.BOOK) surroundedBy ENDER_ESSENCE
+        recipe = Material.BOOK.toItem() surroundedBy ENDER_ESSENCE
 
         postCreate = {
             it.addUnsafeEnchantment(Enchantment.FIRE_ASPECT, 10)
@@ -866,9 +853,11 @@ object IEItems {
         itemGroup = IEItemGroups.TOOLS
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
         recipe = arrayOf(
-            STICK, STRING, STICK,
-            STICK, STRING, STICK,
+            // @formatter:off
+            Material.STICK.toItem(), Material.STRING.toItem(), Material.STICK.toItem(),
+            Material.STICK.toItem(), Material.STRING.toItem(), Material.STICK.toItem(),
             MAGSTEEL, MAGSTEEL, MAGSTEEL,
+            // @formatter:on
         )
     }
 
@@ -878,9 +867,11 @@ object IEItems {
         itemGroup = IEItemGroups.TOOLS
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
         recipe = arrayOf(
-            STICK, STRING, STICK,
-            STRING, STICK, STRING,
-            STICK, STRING, STICK,
+            // @formatter:off
+            Material.STICK.toItem(), Material.STRING.toItem(), Material.STICK.toItem(),
+            Material.STRING.toItem(), Material.STICK.toItem(), Material.STRING.toItem(),
+            Material.STICK.toItem(), Material.STRING.toItem(), Material.STICK.toItem(),
+            // @formatter:on
         )
     }
 
@@ -890,9 +881,11 @@ object IEItems {
         itemGroup = IEItemGroups.TOOLS
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
         recipe = arrayOf(
-            MAGSTEEL, STRING, MAGSTEEL,
-            STRING, STRAINER_1, STRING,
-            MAGSTEEL, STRING, MAGSTEEL,
+            // @formatter:off
+            MAGSTEEL, Material.STRING.toItem(), MAGSTEEL,
+            Material.STRING.toItem(), STRAINER_1, Material.STRING.toItem(),
+            MAGSTEEL, Material.STRING.toItem(), MAGSTEEL,
+            // @formatter:on
         )
     }
 
@@ -902,9 +895,11 @@ object IEItems {
         itemGroup = IEItemGroups.TOOLS
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
         recipe = arrayOf(
-            SlimefunItems.REINFORCED_ALLOY_INGOT, STRING, SlimefunItems.REINFORCED_ALLOY_INGOT,
-            STRING, STRAINER_2, STRING,
-            SlimefunItems.REINFORCED_ALLOY_INGOT, STRING, SlimefunItems.REINFORCED_ALLOY_INGOT,
+            // @formatter:off
+            SlimefunItems.REINFORCED_ALLOY_INGOT, Material.STRING.toItem(), SlimefunItems.REINFORCED_ALLOY_INGOT,
+            Material.STRING.toItem(), STRAINER_2, Material.STRING.toItem(),
+            SlimefunItems.REINFORCED_ALLOY_INGOT, Material.STRING.toItem(), SlimefunItems.REINFORCED_ALLOY_INGOT,
+            // @formatter:on
         )
     }
 
@@ -997,7 +992,7 @@ object IEItems {
             // @formatter:off
             INFINITY_INGOT, null, INFINITY_INGOT, INFINITY_INGOT, null, INFINITY_INGOT,
             INFINITY_INGOT, VOID_INGOT, VOID_INGOT, VOID_INGOT, VOID_INGOT, INFINITY_INGOT,
-            VOID_INGOT, VOID_INGOT, ItemStack(Material.ELYTRA), ItemStack(Material.ELYTRA), VOID_INGOT, VOID_INGOT,
+            VOID_INGOT, VOID_INGOT, Material.ELYTRA.toItem(), Material.ELYTRA.toItem(), VOID_INGOT, VOID_INGOT,
             VOID_INGOT, VOID_INGOT, INFINITY_INGOT, INFINITY_INGOT, VOID_INGOT, VOID_INGOT,
             INFINITY_INGOT, VOID_INGOT, VOID_INGOT, VOID_INGOT, VOID_INGOT, INFINITY_INGOT,
             INFINITY_INGOT, null, INFINITY_INGOT, INFINITY_INGOT, null, INFINITY_INGOT
@@ -1198,9 +1193,11 @@ object IEItems {
         itemGroup = IEItemGroups.MACHINES
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
         recipe = arrayOf(
-            MAGSTEEL, DIAMOND_PICKAXE, MAGSTEEL,
-            WATER_BUCKET, COMPRESSED_COBBLESTONE_2, LAVA_BUCKET,
+            // @formatter:off
+            MAGSTEEL, Material.DIAMOND_PICKAXE.toItem(), MAGSTEEL,
+            Material.WATER_BUCKET.toItem(), COMPRESSED_COBBLESTONE_2, Material.LAVA_BUCKET.toItem(),
             MAGSTEEL, MACHINE_CIRCUIT, MAGSTEEL,
+            // @formatter:on
         )
     }
 
@@ -1210,9 +1207,11 @@ object IEItems {
         itemGroup = IEItemGroups.MACHINES
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
         recipe = arrayOf(
+            // @formatter:off
             MAGSTEEL, COBBLESTONE_GENERATOR, MAGSTEEL,
-            WATER_BUCKET, COMPRESSED_COBBLESTONE_3, LAVA_BUCKET,
+            Material.WATER_BUCKET.toItem(), COMPRESSED_COBBLESTONE_3, Material.LAVA_BUCKET.toItem(),
             MACHINE_CIRCUIT, COBBLESTONE_GENERATOR, MACHINE_CIRCUIT,
+            // @formatter:on
         )
     }
 
@@ -1222,9 +1221,11 @@ object IEItems {
         itemGroup = IEItemGroups.MACHINES
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
         recipe = arrayOf(
+            // @formatter:off
             VOID_BLOCK, COBBLESTONE_GENERATOR_2, MACHINE_PLATE,
-            WATER_BUCKET, COMPRESSED_COBBLESTONE_4, LAVA_BUCKET,
+            Material.WATER_BUCKET.toItem(), COMPRESSED_COBBLESTONE_4, Material.LAVA_BUCKET.toItem(),
             MACHINE_CIRCUIT, COBBLESTONE_GENERATOR_2, VOID_BLOCK,
+            // @formatter:on
         )
     }
 
@@ -1249,9 +1250,11 @@ object IEItems {
         itemGroup = IEItemGroups.MACHINES
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
         recipe = arrayOf(
-            GLASS, GLASS, GLASS,
-            MAGSTEEL, ItemStack(Material.DIAMOND_HOE), MAGSTEEL,
-            MACHINE_CIRCUIT, GRASS_BLOCK, MACHINE_CIRCUIT,
+            // @formatter:off
+            Material.GLASS.toItem(), Material.GLASS.toItem(), Material.GLASS.toItem(),
+            MAGSTEEL, Material.DIAMOND_HOE.toItem(), MAGSTEEL,
+            MACHINE_CIRCUIT, Material.GRASS_BLOCK.toItem(), MACHINE_CIRCUIT,
+            // @formatter:on
         )
     }
 
@@ -1261,9 +1264,11 @@ object IEItems {
         itemGroup = IEItemGroups.MACHINES
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
         recipe = arrayOf(
+            // @formatter:off
             SlimefunItems.HARDENED_GLASS, SlimefunItems.HARDENED_GLASS, SlimefunItems.HARDENED_GLASS,
             MAGNONIUM, VIRTUAL_FARM, MAGNONIUM,
             MACHINE_CIRCUIT, MACHINE_CORE, MACHINE_CIRCUIT,
+            // @formatter:on
         )
     }
 
@@ -1286,10 +1291,10 @@ object IEItems {
         recipeType = IERecipeTypes.INFINITY_WORKBENCH
         recipe = arrayOf(
             // @formatter:off
-            GLASS, GLASS, GLASS, GLASS, GLASS, GLASS,
-            GLASS, null, null, null, null, GLASS,
-            GLASS, null, null, null, null, GLASS,
-            GLASS, GRASS_BLOCK, GRASS_BLOCK, GRASS_BLOCK, GRASS_BLOCK, GLASS,
+            Material.GLASS.toItem(), Material.GLASS.toItem(), Material.GLASS.toItem(), Material.GLASS.toItem(), Material.GLASS.toItem(), Material.GLASS.toItem(),
+            Material.GLASS.toItem(), null, null, null, null, Material.GLASS.toItem(),
+            Material.GLASS.toItem(), null, null, null, null, Material.GLASS.toItem(),
+            Material.GLASS.toItem(), Material.GRASS_BLOCK.toItem(), Material.GRASS_BLOCK.toItem(), Material.GRASS_BLOCK.toItem(), Material.GRASS_BLOCK.toItem(), Material.GLASS.toItem(),
             MACHINE_PLATE, SlimefunItems.CROP_GROWTH_ACCELERATOR_2, VIRTUAL_FARM_3, VIRTUAL_FARM_3, SlimefunItems.CROP_GROWTH_ACCELERATOR_2, MACHINE_PLATE,
             MACHINE_PLATE, INFINITY_MACHINE_CIRCUIT, INFINITY_MACHINE_CORE, INFINITY_MACHINE_CORE, INFINITY_MACHINE_CIRCUIT, MACHINE_PLATE,
             // @formatter:on
@@ -1302,9 +1307,11 @@ object IEItems {
         itemGroup = IEItemGroups.MACHINES
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
         recipe = arrayOf(
-            GLASS, GLASS, GLASS,
-            MAGSTEEL, PODZOL, MAGSTEEL,
+            // @formatter:off
+            Material.GLASS.toItem(), Material.GLASS.toItem(), Material.GLASS.toItem(),
+            MAGSTEEL, Material.PODZOL.toItem(), MAGSTEEL,
             MACHINE_CIRCUIT, VIRTUAL_FARM, MACHINE_CIRCUIT,
+            // @formatter:on
         )
     }
 
@@ -1339,11 +1346,11 @@ object IEItems {
         recipeType = IERecipeTypes.INFINITY_WORKBENCH
         recipe = arrayOf(
             // @formatter:off
-            GLASS, GLASS, GLASS, GLASS, GLASS, GLASS,
-            GLASS, SlimefunItems.TREE_GROWTH_ACCELERATOR, null, null, SlimefunItems.TREE_GROWTH_ACCELERATOR, GLASS,
-            GLASS, TREE_GROWER_3, null, null, TREE_GROWER_3, GLASS,
-            GLASS, SlimefunItems.TREE_GROWTH_ACCELERATOR, null, null, SlimefunItems.TREE_GROWTH_ACCELERATOR, GLASS,
-            MACHINE_PLATE, PODZOL, PODZOL, PODZOL, PODZOL, MACHINE_PLATE,
+            Material.GLASS.toItem(), Material.GLASS.toItem(), Material.GLASS.toItem(), Material.GLASS.toItem(), Material.GLASS.toItem(), Material.GLASS.toItem(),
+            Material.GLASS.toItem(), SlimefunItems.TREE_GROWTH_ACCELERATOR, null, null, SlimefunItems.TREE_GROWTH_ACCELERATOR, Material.GLASS.toItem(),
+            Material.GLASS.toItem(), TREE_GROWER_3, null, null, TREE_GROWER_3, Material.GLASS.toItem(),
+            Material.GLASS.toItem(), SlimefunItems.TREE_GROWTH_ACCELERATOR, null, null, SlimefunItems.TREE_GROWTH_ACCELERATOR, Material.GLASS.toItem(),
+            MACHINE_PLATE, Material.PODZOL.toItem(), Material.PODZOL.toItem(), Material.PODZOL.toItem(), Material.PODZOL.toItem(), MACHINE_PLATE,
             MACHINE_PLATE, INFINITY_MACHINE_CIRCUIT, INFINITY_MACHINE_CORE, INFINITY_MACHINE_CORE, INFINITY_MACHINE_CIRCUIT, MACHINE_PLATE,
             // @formatter:on
         )
@@ -1493,7 +1500,7 @@ object IEItems {
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
         recipe = arrayOf(
             SlimefunItems.FLUID_PUMP, SlimefunItems.PROGRAMMABLE_ANDROID_MINER, SlimefunItems.FLUID_PUMP,
-            ItemStack(Material.DISPENSER), VOID_INGOT, ItemStack(Material.DISPENSER),
+            Material.DISPENSER.toItem(), VOID_INGOT, Material.DISPENSER.toItem(),
             MACHINE_CIRCUIT, COBBLESTONE_GENERATOR_2, MACHINE_CIRCUIT,
         )
     }
@@ -1505,7 +1512,7 @@ object IEItems {
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
         recipe = arrayOf(
             SlimefunItems.FREEZER_2, SlimefunItems.FREEZER_2, SlimefunItems.FREEZER_2,
-            WATER_BUCKET, SlimefunItems.FLUID_PUMP, WATER_BUCKET,
+            Material.WATER_BUCKET.toItem(), SlimefunItems.FLUID_PUMP, Material.WATER_BUCKET.toItem(),
             MACHINE_CIRCUIT, MACHINE_CORE, MACHINE_CIRCUIT,
         )
     }
@@ -1648,15 +1655,11 @@ object IEItems {
         itemGroup = IEItemGroups.MACHINES
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
         recipe = arrayOf(
-            MACHINE_PLATE,
-            COMPRESSED_COBBLESTONE_3,
-            MACHINE_PLATE,
-            SlimefunItems.ELECTRIC_PRESS_2,
-            SlimefunItems.ELECTRIC_PRESS_2,
-            SlimefunItems.ELECTRIC_PRESS_2,
-            MACHINE_PLATE,
-            COMPRESSED_COBBLESTONE_3,
-            MACHINE_PLATE
+            // @formatter:off
+            MACHINE_PLATE, COMPRESSED_COBBLESTONE_3, MACHINE_PLATE,
+            SlimefunItems.ELECTRIC_PRESS_2, SlimefunItems.ELECTRIC_PRESS_2, SlimefunItems.ELECTRIC_PRESS_2,
+            MACHINE_PLATE, COMPRESSED_COBBLESTONE_3, MACHINE_PLATE,
+            // @formatter:on
         )
     }
 
@@ -1666,9 +1669,11 @@ object IEItems {
         itemGroup = IEItemGroups.MACHINES
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
         recipe = arrayOf(
+            // @formatter:off
             MAGSTEEL_PLATE, MAGSTEEL_PLATE, MAGSTEEL_PLATE,
-            ItemStack(Material.STICKY_PISTON), SlimefunItems.ELECTRIC_PRESS_2, ItemStack(Material.STICKY_PISTON),
+            Material.STICKY_PISTON.toItem(), SlimefunItems.ELECTRIC_PRESS_2, Material.STICKY_PISTON.toItem(),
             MACHINE_CIRCUIT, MACHINE_CORE, MACHINE_CIRCUIT,
+            // @formatter:on
         )
     }
 
@@ -1679,7 +1684,7 @@ object IEItems {
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
         recipe = arrayOf(
             MAGSTEEL_PLATE, SlimefunItems.CARBONADO_EDGED_CAPACITOR, MAGSTEEL_PLATE,
-            ItemStack(Material.IRON_PICKAXE), SlimefunItems.GEO_MINER, ItemStack(Material.IRON_PICKAXE),
+            Material.IRON_PICKAXE.toItem(), SlimefunItems.GEO_MINER, Material.IRON_PICKAXE.toItem(),
             MACHINE_CIRCUIT, MACHINE_CORE, MACHINE_CIRCUIT,
         )
     }
@@ -1691,7 +1696,7 @@ object IEItems {
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
         recipe = arrayOf(
             MACHINE_PLATE, SlimefunItems.ENERGIZED_CAPACITOR, MACHINE_PLATE,
-            ItemStack(Material.DIAMOND_PICKAXE), QUARRY, ItemStack(Material.DIAMOND_PICKAXE),
+            Material.DIAMOND_PICKAXE.toItem(), QUARRY, Material.DIAMOND_PICKAXE.toItem(),
             MACHINE_CIRCUIT, MACHINE_CORE, MACHINE_CIRCUIT,
         )
     }
@@ -1703,7 +1708,7 @@ object IEItems {
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
         recipe = arrayOf(
             VOID_INGOT, VOID_CAPACITOR, VOID_INGOT,
-            ItemStack(Material.NETHERITE_PICKAXE), QUARRY_2, ItemStack(Material.NETHERITE_PICKAXE),
+            Material.NETHERITE_PICKAXE.toItem(), QUARRY_2, Material.NETHERITE_PICKAXE.toItem(),
             MACHINE_CIRCUIT, MACHINE_CORE, MACHINE_CIRCUIT,
         )
     }
@@ -1737,7 +1742,7 @@ object IEItems {
         )
     }
 
-    val GEO_QUARRY_2 = buildSlimefunItem<GeoQuarry>(90000, 120, 4) {
+    val GEO_QUARRY_2 = buildSlimefunItem<GeoQuarry>(90_000, 120, 4) {
         id = "GEO_QUARRY_2"
         material = Material.QUARTZ_BRICKS.convert()
         itemGroup = IEItemGroups.MACHINES
@@ -1762,7 +1767,7 @@ object IEItems {
         recipe = arrayOf(
             // @formatter:off
             MAGSTEEL_PLATE, MACHINE_CIRCUIT, MAGSTEEL_PLATE,
-            MACHINE_CIRCUIT, ItemStack(Material.SMITHING_TABLE), MACHINE_CIRCUIT,
+            MACHINE_CIRCUIT, Material.SMITHING_TABLE.toItem(), MACHINE_CIRCUIT,
             MAGSTEEL_PLATE, MACHINE_CIRCUIT, MAGSTEEL_PLATE,
             // @formatter:on
         )
@@ -1776,7 +1781,7 @@ object IEItems {
         recipe = arrayOf(
             // @formatter:off
             MACHINE_PLATE, MACHINE_PLATE, MACHINE_PLATE,
-            MACHINE_PLATE, ItemStack(Material.ANVIL), MACHINE_PLATE,
+            MACHINE_PLATE, Material.ANVIL.toItem(), MACHINE_PLATE,
             MACHINE_CIRCUIT, MACHINE_CORE, MACHINE_CIRCUIT
             // @formatter:on
         )
@@ -1790,7 +1795,7 @@ object IEItems {
         recipe = arrayOf(
             // @formatter:off
             VOID_BLOCK, MACHINE_PLATE, VOID_BLOCK,
-            SlimefunItems.ENERGIZED_CAPACITOR, ItemStack(Material.CRAFTING_TABLE), SlimefunItems.ENERGIZED_CAPACITOR,
+            SlimefunItems.ENERGIZED_CAPACITOR, Material.CRAFTING_TABLE.toItem(), SlimefunItems.ENERGIZED_CAPACITOR,
             VOID_BLOCK, MACHINE_PLATE, VOID_BLOCK,
             // @formatter:on
         )
@@ -1804,9 +1809,11 @@ object IEItems {
         itemGroup = IEItemGroups.GENERATORS
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
         recipe = arrayOf(
+            // @formatter:off
             MAGSTEEL, MACHINE_CIRCUIT, MAGSTEEL,
-            BUCKET, SlimefunItems.ELECTRO_MAGNET, BUCKET,
+            Material.BUCKET.toItem(), SlimefunItems.ELECTRO_MAGNET, Material.BUCKET.toItem(),
             MAGSTEEL, MACHINE_CIRCUIT, MAGSTEEL,
+            // @formatter:on
         )
     }
 
@@ -1968,7 +1975,7 @@ object IEItems {
     //</editor-fold>
 
     //<editor-fold desc="Hidden" defaultstate="collapsed">
-    val OSCILLATOR = buildSlimefunItem<Oscillator>(ItemStack(Material.AIR)) {
+    val OSCILLATOR = buildSlimefunItem<Oscillator>(Material.AIR.toItem()) {
         id = "OSCILLATOR"
         material = Material.REDSTONE_TORCH.convert()
         itemGroup = IEItemGroups.HIDDEN
