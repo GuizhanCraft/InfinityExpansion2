@@ -271,6 +271,40 @@ items:
   #items - guide
   _GUIDE_INTRO:
     name: "&e介绍"
+    lore:
+      - "&7Welcome to Infinity Expansion 2 (IE2)!"
+      - "&7This guide will help you"
+      - "&7get familiar with IE2's guide"
+      - "&7and of course this addon's content."
+      - ""
+      - "&7If you have played Infinity Expansion before,"
+      - "&7you only need to read the \"information\" guide."
+  _GUIDE_INFO:
+    name: "&eInformation"
+    lore:
+      - "&7IE2 is more customizable."
+      - "&7Server owners can change"
+      - "&7a various of attributes of an item,"
+      - "&7including tick rate, energy consumption."
+      - ""
+      - "&7These information will not be displayed"
+      - "&7in the item's lore anymore, but"
+      - "&7in the item's guide menu."
+      - ""
+      - "&7The next guide item shows the fields that"
+      - "&7can be shown in the item's guide menu."
+  _GUIDE_INFO_FIELDS:
+    name: "&eInformation Fields"
+    lore:
+      - "&eTick rate &7(Slimefun tick)"
+      - "&7Determines how often the machine runs."
+      - "&7i.e. The machine runs every N tick(s)."
+      - ""
+      - "&eEnergy consumption"
+      - "&7The amount of energy the machine consumes"
+      - "&7per tick, per second, or per use."
+      - ""
+      - "&eEnergy production"
   #items - singularities
   IRON_SINGULARITY:
     name: "&7铁奇点"
