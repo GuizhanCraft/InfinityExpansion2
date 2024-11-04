@@ -1,0 +1,21 @@
+{
+	"values": [
+		"#slimefun:ores",
+		"minecraft:ancient_debris",
+		"#minecraft:logs",
+		"minecraft:gilded_blackstone",
+		"minecraft:gravel",
+		"minecraft:magma_block",
+		"minecraft:obsidian",
+		"minecraft:diorite",
+		"minecraft:andesite",
+		"minecraft:granite",
+		"#minecraft:leaves",
+		"#slimefun:glass",
+		"#minecraft:dirt",
+		"minecraft:grass",
+		"#ie:grass",
+		"minecraft:grass_block",
+		"minecraft:glowstone"
+	]
+}

@@ -10,6 +10,7 @@ import net.guizhanss.infinityexpansion2.utils.bukkitext.isAir
 import net.guizhanss.infinityexpansion2.utils.constant.Keys
 import net.guizhanss.infinityexpansion2.utils.items.getSlimefunItem
 import net.guizhanss.infinityexpansion2.utils.items.isSlimefunItem
+import net.guizhanss.infinityexpansion2.utils.tags.IETag
 import org.bukkit.Bukkit
 import org.bukkit.Location
 import org.bukkit.Material
@@ -60,7 +61,7 @@ class VeinMinerListener(plugin: InfinityExpansion2) : Listener {
 
         // check if the block is allowed
         val blockType = b.type
-        if (VeinMinerRune.ALLOWED_BLOCKS.none { blockType.name.contains(it) }) return
+        if (!IETag.VEIN_MINER_BLOCKS.isTagged(blockType)) return
 
         // no sf block vein mining
         val loc = b.location

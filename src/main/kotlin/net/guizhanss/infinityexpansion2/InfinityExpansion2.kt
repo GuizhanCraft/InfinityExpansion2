@@ -64,11 +64,11 @@ class InfinityExpansion2 : AbstractAddon(
 //            return
 //        }
 
-        // tags
-        IETag.reloadAll()
-
         // config
         configService = ConfigService(this)
+
+        // tags
+        IETag.reloadAll()
 
         // localization
         log(Level.INFO, "Loading language...")

@@ -3,9 +3,7 @@ package net.guizhanss.infinityexpansion2.implementation.items.tools
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
-import io.github.thebusybiscuit.slimefun4.utils.tags.SlimefunTag
 import net.guizhanss.infinityexpansion2.implementation.items.materials.SimpleMaterial
-import org.bukkit.Material
 import org.bukkit.inventory.ItemStack
 
 class VeinMinerRune(
@@ -18,12 +16,5 @@ class VeinMinerRune(
     companion object {
 
         const val ACTIVATE_RANGE = 1.5
-
-        // TODO: use tags to manage allowed blocks
-        val ALLOWED_BLOCKS = arrayOf(
-            "_ORE", "_LOG", "_WOOD", "GILDED", "SOUL", "GRAVEL",
-            "MAGMA", "OBSIDIAN", "DIORITE", "ANDESITE", "GRANITE", "_LEAVES",
-            "GLASS", "DIRT", "GRASS", "DEBRIS", "GLOWSTONE"
-        )
     }
 }

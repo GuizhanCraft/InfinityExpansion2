@@ -4,12 +4,12 @@ package net.guizhanss.infinityexpansion2.utils.tags
 
 import com.google.gson.JsonParser
 import com.google.gson.stream.JsonReader
-import io.github.thebusybiscuit.slimefun4.api.MinecraftVersion
 import io.github.thebusybiscuit.slimefun4.api.exceptions.TagMisconfigurationException
-import io.github.thebusybiscuit.slimefun4.implementation.Slimefun
 import io.github.thebusybiscuit.slimefun4.libraries.dough.common.CommonPatterns
+import io.github.thebusybiscuit.slimefun4.utils.tags.SlimefunTag
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.utils.constant.Patterns
+import org.bukkit.Bukkit
 import org.bukkit.Keyed
 import org.bukkit.Material
 import org.bukkit.NamespacedKey
@@ -17,10 +17,11 @@ import org.bukkit.Tag
 import java.io.InputStreamReader
 import java.nio.charset.StandardCharsets
 
+
 /**
  * The [TagParser] is responsible for parsing a JSON file into a [IETag].
  */
-internal class TagParser(tag: IETag) : Keyed {
+internal class TagParser(private val tag: IETag) : Keyed {
 
     /**
      * Every [Tag] has a [NamespacedKey].
@@ -46,6 +47,7 @@ internal class TagParser(tag: IETag) : Keyed {
                 ?: error("Tag file not found within jar: $path")
             val reader = JsonReader(InputStreamReader(stream, StandardCharsets.UTF_8))
             val root = JsonParser.parseReader(reader).asJsonObject
+            InfinityExpansion2.debug("Parsing tag: $tag")
             root["values"].apply {
                 if (!isJsonArray) error("No values array found in tag file")
             }.asJsonArray.forEach {
@@ -55,6 +57,7 @@ internal class TagParser(tag: IETag) : Keyed {
                     error("Unexpected value format: ${it.javaClass.simpleName} - $it")
                 }
             }
+            InfinityExpansion2.debug("The parsed tag has the following values: $materials, $tags")
 
             callback(materials, tags)
         } catch (ex: Exception) {
@@ -67,11 +70,31 @@ internal class TagParser(tag: IETag) : Keyed {
             Material.matchMaterial(value)?.apply {
                 materials.add(this)
             }
+        } else if (Patterns.MINECRAFT_TAG.matcher(value).matches()) {
+            val keyValue = CommonPatterns.COLON.split(value)[1].lowercase()
+            val namespacedKey = NamespacedKey.minecraft(keyValue)
+            val itemsTag = Bukkit.getTag(Tag.REGISTRY_ITEMS, namespacedKey, Material::class.java)
+            val blocksTag = Bukkit.getTag(Tag.REGISTRY_BLOCKS, namespacedKey, Material::class.java)
+
+            if (itemsTag != null) {
+                tags.add(itemsTag)
+            } else if (blocksTag != null) {
+                tags.add(blocksTag)
+            } else {
+                error("Minecraft Tag not exist: $keyValue")
+            }
         } else if (Patterns.IE_TAG.matcher(value).matches()) {
             val keyValue = CommonPatterns.COLON.split(value)[1].uppercase()
             IETag.getTag(keyValue)?.apply {
                 tags.add(this)
-            } ?: error("Tag not exist: $keyValue")
+            } ?: error("InfinityExpansion2 Tag not exist: $keyValue")
+        } else if (Patterns.SLIMEFUN_TAG.matcher(value).matches()) {
+            val keyValue = CommonPatterns.COLON.split(value)[1].uppercase()
+            SlimefunTag.getTag(keyValue)?.apply {
+                tags.add(this)
+            } ?: error("Slimefun Tag not exist: $keyValue")
+        } else {
+            error("Unexpected tag value: $value")
         }
     }
 
