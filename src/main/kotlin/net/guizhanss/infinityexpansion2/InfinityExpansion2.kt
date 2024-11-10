@@ -1,11 +1,11 @@
 package net.guizhanss.infinityexpansion2
 
 import io.github.thebusybiscuit.slimefun4.libraries.dough.updater.BlobBuildUpdater
-import net.byteflux.libby.BukkitLibraryManager
 import net.byteflux.libby.Library
 import net.guizhanss.guizhanlib.slimefun.addon.AbstractAddon
 import net.guizhanss.guizhanlib.updater.GuizhanBuildsUpdater
 import net.guizhanss.infinityexpansion2.core.commands.MainCommand
+import net.guizhanss.infinityexpansion2.core.services.BukkitLibraryService
 import net.guizhanss.infinityexpansion2.core.services.ConfigService
 import net.guizhanss.infinityexpansion2.core.services.IntegrationService
 import net.guizhanss.infinityexpansion2.core.services.LocalizationService
@@ -40,7 +40,7 @@ class InfinityExpansion2 : AbstractAddon(
         logger.info("Add -DcentralRepository=<url> to the JVM arguments.")
 
         // download libs
-        val manager = BukkitLibraryManager(this, "libraries")
+        val manager = BukkitLibraryService(this)
         manager.addRepository(centralRepo)
         manager.loadLibrary(
             Library.builder().groupId("org.jetbrains.kotlin").artifactId("kotlin-stdlib").version("2.0.21").build()
