@@ -20,7 +20,8 @@ class MobDataInfuser(
 ) : AbstractCraftingMachine(itemGroup, itemStack, recipeType, recipe, MenuLayout.CRAFTING_DEFAULT, energyPerUse),
     InformationalRecipeDisplayItem {
 
-    override val recipes: List<MachineRecipe> by lazy { IERegistry.mobDataInfuserRecipes }
+    override val recipes: List<MachineRecipe>
+        get() = IERegistry.mobDataInfuserRecipes
 
     override fun getInformationalItems() = listOf(
         GuiItems.energyConsumptionPerUse(getEnergyConsumptionPerAction())

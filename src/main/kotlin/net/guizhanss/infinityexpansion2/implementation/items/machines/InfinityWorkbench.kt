@@ -20,7 +20,8 @@ class InfinityWorkbench(
 ) : AbstractCraftingMachine(itemGroup, itemStack, recipeType, recipe, MenuLayout.INFINITY_WORKBENCH, energyPerUse),
     InformationalRecipeDisplayItem {
 
-    override val recipes: List<MachineRecipe> by lazy { IERegistry.infinityRecipes }
+    override val recipes: List<MachineRecipe>
+        get() = IERegistry.infinityRecipes
 
     override val craftSlot = 25
 

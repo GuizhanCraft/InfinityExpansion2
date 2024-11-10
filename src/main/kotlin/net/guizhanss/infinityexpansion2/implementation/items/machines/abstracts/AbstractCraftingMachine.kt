@@ -29,7 +29,8 @@ abstract class AbstractCraftingMachine(
 ) : AbstractActionMachine(itemGroup, itemStack, recipeType, recipe, layout, energyPerUse) {
 
     // the subclass can choose to override this property to provide pre-defined recipes instead of adding them one by one
-    open val recipes: List<MachineRecipe> by lazy { _recipes }
+    open val recipes: List<MachineRecipe>
+        get() = _recipes
 
     private val _recipes = mutableListOf<MachineRecipe>()
 
