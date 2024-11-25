@@ -4,7 +4,6 @@ import io.github.seggan.sf4k.item.builder.ItemProvider
 import io.github.seggan.sf4k.item.builder.ItemRegistry
 import io.github.seggan.sf4k.item.builder.MaterialType
 import io.github.seggan.sf4k.util.RequiredProperty
-import io.github.seggan.sf4k.util.findConstructorFromArgs
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
@@ -15,6 +14,7 @@ import org.bukkit.inventory.ItemStack
 import java.util.logging.Level
 import kotlin.properties.PropertyDelegateProvider
 import kotlin.reflect.KClass
+import kotlin.reflect.full.valueParameters
 
 /**
  * The main DSL class for constructing a [SlimefunItem].
@@ -57,8 +57,15 @@ class SlimefunItemBuilder(private val registry: ItemRegistry) {
 
         // SlimefunItem
         val args = arrayOf(itemGroup, sfis, recipeType, recipe, *otherArgs)
-        val constructor = clazz.findConstructorFromArgs(*args)
-            ?: error("No constructor found for ${clazz.simpleName} with arguments: ${args.joinToString()}")
+        // sf4k's reflection cant find the constructor, we use our own implementation
+        val constructor = clazz.constructors.firstOrNull { constructor ->
+            constructor.valueParameters.size == args.size && constructor.valueParameters.zip(args).all { (param, arg) ->
+                val classifier = param.type.classifier as? KClass<*> ?: return@all false
+                if (arg == null) param.type.isMarkedNullable
+                else classifier.isInstance(arg)
+            }
+        } ?: error("No constructor found for ${clazz.simpleName} with arguments: ${args.joinToString()}")
+
         val item = try {
             constructor.call(*args)
         } catch (e: Exception) {

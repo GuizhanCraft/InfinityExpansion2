@@ -7,13 +7,12 @@ on:
 
 jobs:
   build:
-    if: startsWith(github.event.head_commit.message, '[CI skip]') == false
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up JDK
+      - name: Set up JDK ${{ vars.BUILDS_JAVA_VERSION }}
         uses: actions/setup-java@v4
         with:
           java-version: ${{ vars.BUILDS_JAVA_VERSION }}

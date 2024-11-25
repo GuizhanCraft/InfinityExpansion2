@@ -1,11 +1,14 @@
-@file:Suppress("deprecation", "unused", "MemberVisibilityCanBePrivate")
+@file:Suppress("kotlin:S1192", "unused", "MemberVisibilityCanBePrivate")
 
 package net.guizhanss.infinityexpansion2.implementation
 
+import io.github.seggan.sf4k.item.builder.ItemRegistry
+import io.github.seggan.sf4k.item.builder.asMaterialType
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
 import io.github.thebusybiscuit.slimefun4.core.attributes.ProtectionType
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems
 import io.github.thebusybiscuit.slimefun4.utils.HeadTexture
+import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.api.mobsim.MobDataCardProps
 import net.guizhanss.infinityexpansion2.implementation.groups.IEItemGroups
 import net.guizhanss.infinityexpansion2.implementation.items.food.CosmicMeatballs
@@ -58,34 +61,31 @@ import net.guizhanss.infinityexpansion2.implementation.items.tools.VeinMinerRune
 import net.guizhanss.infinityexpansion2.implementation.recipes.IERecipeTypes
 import net.guizhanss.infinityexpansion2.utils.bukkitext.buildHiddenPotionEffect
 import net.guizhanss.infinityexpansion2.utils.bukkitext.toItem
-import net.guizhanss.infinityexpansion2.utils.emptyRecipe
-import net.guizhanss.infinityexpansion2.utils.fillRecipe
 import net.guizhanss.infinityexpansion2.utils.items.applyInfinityGearEnchantment
-import net.guizhanss.infinityexpansion2.utils.items.buildSlimefunItem
-import net.guizhanss.infinityexpansion2.utils.items.convert
-import net.guizhanss.infinityexpansion2.utils.surroundedBy
+import net.guizhanss.infinityexpansion2.utils.items.builder.asMaterialType
+import net.guizhanss.infinityexpansion2.utils.items.builder.buildSlimefunItem
+import net.guizhanss.infinityexpansion2.utils.items.builder.recipes.buildRecipe
 import org.bukkit.Material
 import org.bukkit.enchantments.Enchantment
 
 /**
  * Stores almost all the items in Infinity Expansion 2, also responsible for registering them.
  */
-object IEItems {
+object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.localization.idPrefix) {
 
     //<editor-fold desc="Singularities" defaultstate="collapsed">
-    val IRON_SINGULARITY = buildSlimefunItem<Singularity>(
+    val IRON_SINGULARITY by buildSlimefunItem<Singularity>(
         2000, mapOf(
             Material.IRON_INGOT.toItem() to 1,
             Material.IRON_BLOCK.toItem() to 9,
         )
     ) {
-        id = "IRON_SINGULARITY"
-        material = Material.IRON_BLOCK.convert()
+        material = Material.IRON_BLOCK.asMaterialType()
         itemGroup = IEItemGroups.SINGULARITIES
         recipeType = IERecipeTypes.SINGULARITY_CONSTRUCTOR
     }
 
-    val GOLD_SINGULARITY = buildSlimefunItem<Singularity>(
+    val GOLD_SINGULARITY by buildSlimefunItem<Singularity>(
         2000, mapOf(
             Material.GOLD_INGOT.toItem() to 1,
             Material.GOLD_BLOCK.toItem() to 9,
@@ -103,166 +103,152 @@ object IEItems {
             SlimefunItems.GOLD_24K_BLOCK to 99,
         )
     ) {
-        id = "GOLD_SINGULARITY"
-        material = Material.GOLD_BLOCK.convert()
+        material = Material.GOLD_BLOCK.asMaterialType()
         itemGroup = IEItemGroups.SINGULARITIES
         recipeType = IERecipeTypes.SINGULARITY_CONSTRUCTOR
     }
 
-    val LAPIS_SINGULARITY = buildSlimefunItem<Singularity>(
+    val LAPIS_SINGULARITY by buildSlimefunItem<Singularity>(
         1500, mapOf(
             Material.LAPIS_LAZULI.toItem() to 1,
             Material.LAPIS_BLOCK.toItem() to 9,
         )
     ) {
-        id = "LAPIS_SINGULARITY"
-        material = Material.LAPIS_BLOCK.convert()
+        material = Material.LAPIS_BLOCK.asMaterialType()
         itemGroup = IEItemGroups.SINGULARITIES
         recipeType = IERecipeTypes.SINGULARITY_CONSTRUCTOR
     }
 
-    val REDSTONE_SINGULARITY = buildSlimefunItem<Singularity>(
+    val REDSTONE_SINGULARITY by buildSlimefunItem<Singularity>(
         3000, mapOf(
             Material.REDSTONE.toItem() to 1,
             Material.REDSTONE_BLOCK.toItem() to 9,
         )
     ) {
-        id = "REDSTONE_SINGULARITY"
-        material = Material.REDSTONE_BLOCK.convert()
+        material = Material.REDSTONE_BLOCK.asMaterialType()
         itemGroup = IEItemGroups.SINGULARITIES
         recipeType = IERecipeTypes.SINGULARITY_CONSTRUCTOR
     }
 
-    val QUARTZ_SINGULARITY = buildSlimefunItem<Singularity>(
+    val QUARTZ_SINGULARITY by buildSlimefunItem<Singularity>(
         3000, mapOf(
             Material.QUARTZ.toItem() to 1,
             Material.QUARTZ_BLOCK.toItem() to 4,
         )
     ) {
-        id = "QUARTZ_SINGULARITY"
-        material = Material.QUARTZ_BLOCK.convert()
+        material = Material.QUARTZ_BLOCK.asMaterialType()
         itemGroup = IEItemGroups.SINGULARITIES
         recipeType = IERecipeTypes.SINGULARITY_CONSTRUCTOR
     }
 
-    val COPPER_SINGULARITY = buildSlimefunItem<Singularity>(
+    val COPPER_SINGULARITY by buildSlimefunItem<Singularity>(
         3000, mapOf(
             Material.COPPER_INGOT.toItem() to 1,
             Material.COPPER_BLOCK.toItem() to 9,
             SlimefunItems.COPPER_INGOT to 1,
         )
     ) {
-        id = "COPPER_SINGULARITY"
-        material = Material.COPPER_BLOCK.convert()
+        material = Material.COPPER_BLOCK.asMaterialType()
         itemGroup = IEItemGroups.SINGULARITIES
         recipeType = IERecipeTypes.SINGULARITY_CONSTRUCTOR
     }
 
-    val TIN_SINGULARITY = buildSlimefunItem<Singularity>(
+    val TIN_SINGULARITY by buildSlimefunItem<Singularity>(
         3000, mapOf(
             SlimefunItems.TIN_INGOT to 1,
         )
     ) {
-        id = "TIN_SINGULARITY"
-        material = Material.IRON_BLOCK.convert()
+        material = Material.IRON_BLOCK.asMaterialType()
         itemGroup = IEItemGroups.SINGULARITIES
         recipeType = IERecipeTypes.SINGULARITY_CONSTRUCTOR
     }
 
-    val LEAD_SINGULARITY = buildSlimefunItem<Singularity>(
+    val LEAD_SINGULARITY by buildSlimefunItem<Singularity>(
         3000, mapOf(
             SlimefunItems.LEAD_INGOT to 1,
         )
     ) {
-        id = "LEAD_SINGULARITY"
-        material = Material.IRON_BLOCK.convert()
+        material = Material.IRON_BLOCK.asMaterialType()
         itemGroup = IEItemGroups.SINGULARITIES
         recipeType = IERecipeTypes.SINGULARITY_CONSTRUCTOR
     }
 
-    val SILVER_SINGULARITY = buildSlimefunItem<Singularity>(
+    val SILVER_SINGULARITY by buildSlimefunItem<Singularity>(
         3000, mapOf(
             SlimefunItems.SILVER_INGOT to 1,
         )
     ) {
-        id = "SILVER_SINGULARITY"
-        material = Material.IRON_BLOCK.convert()
+        material = Material.IRON_BLOCK.asMaterialType()
         itemGroup = IEItemGroups.SINGULARITIES
         recipeType = IERecipeTypes.SINGULARITY_CONSTRUCTOR
     }
 
-    val ZINC_SINGULARITY = buildSlimefunItem<Singularity>(
+    val ZINC_SINGULARITY by buildSlimefunItem<Singularity>(
         3000, mapOf(
             SlimefunItems.ZINC_INGOT to 1,
         )
     ) {
-        id = "ZINC_SINGULARITY"
-        material = Material.IRON_BLOCK.convert()
+        material = Material.IRON_BLOCK.asMaterialType()
         itemGroup = IEItemGroups.SINGULARITIES
         recipeType = IERecipeTypes.SINGULARITY_CONSTRUCTOR
     }
 
-    val ALUMINUM_SINGULARITY = buildSlimefunItem<Singularity>(
+    val ALUMINUM_SINGULARITY by buildSlimefunItem<Singularity>(
         3000, mapOf(
             SlimefunItems.ALUMINUM_INGOT to 1,
         )
     ) {
-        id = "ALUMINUM_SINGULARITY"
-        material = Material.IRON_BLOCK.convert()
+        material = Material.IRON_BLOCK.asMaterialType()
         itemGroup = IEItemGroups.SINGULARITIES
         recipeType = IERecipeTypes.SINGULARITY_CONSTRUCTOR
     }
 
-    val MAGNESIUM_SINGULARITY = buildSlimefunItem<Singularity>(
+    val MAGNESIUM_SINGULARITY by buildSlimefunItem<Singularity>(
         3000, mapOf(
             SlimefunItems.MAGNESIUM_INGOT to 1,
         )
     ) {
-        id = "MAGNESIUM_SINGULARITY"
-        material = Material.IRON_BLOCK.convert()
+        material = Material.IRON_BLOCK.asMaterialType()
         itemGroup = IEItemGroups.SINGULARITIES
         recipeType = IERecipeTypes.SINGULARITY_CONSTRUCTOR
     }
 
-    val DIAMOND_SINGULARITY = buildSlimefunItem<Singularity>(
+    val DIAMOND_SINGULARITY by buildSlimefunItem<Singularity>(
         500, mapOf(
             Material.DIAMOND.toItem() to 1,
             Material.DIAMOND_BLOCK.toItem() to 9,
             SlimefunItems.SYNTHETIC_DIAMOND to 1,
         )
     ) {
-        id = "DIAMOND_SINGULARITY"
-        material = Material.DIAMOND_BLOCK.convert()
+        material = Material.DIAMOND_BLOCK.asMaterialType()
         itemGroup = IEItemGroups.SINGULARITIES
         recipeType = IERecipeTypes.SINGULARITY_CONSTRUCTOR
     }
 
-    val EMERALD_SINGULARITY = buildSlimefunItem<Singularity>(
+    val EMERALD_SINGULARITY by buildSlimefunItem<Singularity>(
         500, mapOf(
             Material.EMERALD.toItem() to 1,
             Material.EMERALD_BLOCK.toItem() to 9,
             SlimefunItems.SYNTHETIC_EMERALD to 1,
         )
     ) {
-        id = "EMERALD_SINGULARITY"
-        material = Material.EMERALD_BLOCK.convert()
+        material = Material.EMERALD_BLOCK.asMaterialType()
         itemGroup = IEItemGroups.SINGULARITIES
         recipeType = IERecipeTypes.SINGULARITY_CONSTRUCTOR
     }
 
-    val NETHERITE_SINGULARITY = buildSlimefunItem<Singularity>(
+    val NETHERITE_SINGULARITY by buildSlimefunItem<Singularity>(
         200, mapOf(
             Material.NETHERITE_INGOT.toItem() to 1,
             Material.NETHERITE_BLOCK.toItem() to 9,
         )
     ) {
-        id = "NETHERITE_SINGULARITY"
-        material = Material.NETHERITE_BLOCK.convert()
+        material = Material.NETHERITE_BLOCK.asMaterialType()
         itemGroup = IEItemGroups.SINGULARITIES
         recipeType = IERecipeTypes.SINGULARITY_CONSTRUCTOR
     }
 
-    val COAL_SINGULARITY = buildSlimefunItem<Singularity>(
+    val COAL_SINGULARITY by buildSlimefunItem<Singularity>(
         1500, mapOf(
             Material.COAL.toItem() to 1,
             Material.COAL_BLOCK.toItem() to 9,
@@ -271,112 +257,137 @@ object IEItems {
             SlimefunItems.CARBON_CHUNK to 256,
         )
     ) {
-        id = "COAL_SINGULARITY"
-        material = Material.COAL_BLOCK.convert()
+        material = Material.COAL_BLOCK.asMaterialType()
         itemGroup = IEItemGroups.SINGULARITIES
         recipeType = IERecipeTypes.SINGULARITY_CONSTRUCTOR
     }
     //</editor-fold>
 
     //<editor-fold desc="Materials" defaultstate="collapsed">
-    val ENDER_ESSENCE = buildSlimefunItem<EnderEssence> {
-        id = "ENDER_ESSENCE"
-        material = Material.BLAZE_POWDER.convert()
+    val ENDER_ESSENCE by buildSlimefunItem<EnderEssence> {
+        material = Material.BLAZE_POWDER.asMaterialType()
         itemGroup = IEItemGroups.MATERIALS
         recipeType = RecipeType.GEO_MINER
     }
 
-    val COMPRESSED_COBBLESTONE_1 = buildSlimefunItem<SimpleMaterial> {
-        id = "COMPRESSED_COBBLESTONE_1"
-        material = Material.ANDESITE.convert()
+    val COMPRESSED_COBBLESTONE_1 by buildSlimefunItem<SimpleMaterial> {
+        material = Material.ANDESITE.asMaterialType()
         itemGroup = IEItemGroups.MATERIALS
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
-        recipe = Material.COBBLESTONE.toItem().fillRecipe()
+        recipe = buildRecipe {
+            +"xxx"
+            +"xxx"
+            +"xxx"
+            'x' means Material.COBBLESTONE.toItem()
+        }
     }
 
-    val COMPRESSED_COBBLESTONE_2 = buildSlimefunItem<SimpleMaterial> {
-        id = "COMPRESSED_COBBLESTONE_2"
-        material = Material.ANDESITE.convert()
+    val COMPRESSED_COBBLESTONE_2 by buildSlimefunItem<SimpleMaterial> {
+        material = Material.ANDESITE.asMaterialType()
         itemGroup = IEItemGroups.MATERIALS
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
-        recipe = COMPRESSED_COBBLESTONE_1.fillRecipe()
+        recipe = buildRecipe {
+            +"xxx"
+            +"xxx"
+            +"xxx"
+            'x' means COMPRESSED_COBBLESTONE_1
+        }
     }
 
-    val COMPRESSED_COBBLESTONE_3 = buildSlimefunItem<SimpleMaterial> {
-        id = "COMPRESSED_COBBLESTONE_3"
-        material = Material.ANDESITE.convert()
+    val COMPRESSED_COBBLESTONE_3 by buildSlimefunItem<SimpleMaterial> {
+        material = Material.ANDESITE.asMaterialType()
         itemGroup = IEItemGroups.MATERIALS
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
-        recipe = COMPRESSED_COBBLESTONE_2.fillRecipe()
+        recipe = buildRecipe {
+            +"xxx"
+            +"xxx"
+            +"xxx"
+            'x' means COMPRESSED_COBBLESTONE_2
+        }
     }
 
-    val COMPRESSED_COBBLESTONE_4 = buildSlimefunItem<SimpleMaterial> {
-        id = "COMPRESSED_COBBLESTONE_4"
-        material = Material.STONE.convert()
+    val COMPRESSED_COBBLESTONE_4 by buildSlimefunItem<SimpleMaterial> {
+        material = Material.STONE.asMaterialType()
         itemGroup = IEItemGroups.MATERIALS
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
-        recipe = COMPRESSED_COBBLESTONE_3.fillRecipe()
+        recipe = buildRecipe {
+            +"xxx"
+            +"xxx"
+            +"xxx"
+            'x' means COMPRESSED_COBBLESTONE_3
+        }
     }
 
-    val COMPRESSED_COBBLESTONE_5 = buildSlimefunItem<SimpleMaterial> {
-        id = "COMPRESSED_COBBLESTONE_5"
-        material = Material.STONE.convert()
+    val COMPRESSED_COBBLESTONE_5 by buildSlimefunItem<SimpleMaterial> {
+        material = Material.STONE.asMaterialType()
         itemGroup = IEItemGroups.MATERIALS
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
-        recipe = COMPRESSED_COBBLESTONE_4.fillRecipe()
+        recipe = buildRecipe {
+            +"xxx"
+            +"xxx"
+            +"xxx"
+            'x' means COMPRESSED_COBBLESTONE_4
+        }
     }
 
-    val MAGSTEEL = buildSlimefunItem<SimpleMaterial> {
-        id = "MAGSTEEL"
-        material = Material.BRICK.convert()
+    val MAGSTEEL by buildSlimefunItem<SimpleMaterial> {
+        material = Material.BRICK.asMaterialType()
         itemGroup = IEItemGroups.MATERIALS
         recipeType = RecipeType.SMELTERY
-        recipe = arrayOf(
-            SlimefunItems.MAGNESIUM_INGOT,
-            SlimefunItems.STEEL_INGOT,
-            SlimefunItems.MAGNESIUM_DUST,
-        )
+        recipe = buildRecipe {
+            +"MSm"
+            +"   "
+            +"   "
+            'M' means SlimefunItems.MAGNESIUM_INGOT
+            'S' means SlimefunItems.STEEL_INGOT
+            'm' means SlimefunItems.MAGNESIUM_DUST
+        }
     }
 
-    val TITANIUM = buildSlimefunItem<SimpleMaterial> {
-        id = "TITANIUM"
-        material = Material.IRON_INGOT.convert()
+    val TITANIUM by buildSlimefunItem<SimpleMaterial> {
+        material = Material.IRON_INGOT.asMaterialType()
         itemGroup = IEItemGroups.MATERIALS
         recipeType = RecipeType.SMELTERY
-        recipe = arrayOf(
-            SlimefunItems.REINFORCED_ALLOY_INGOT,
-            SlimefunItems.DAMASCUS_STEEL_INGOT,
-            SlimefunItems.HARDENED_METAL_INGOT,
-        )
+        recipe = buildRecipe {
+            +"RDH"
+            +"   "
+            +"   "
+            'R' means SlimefunItems.REINFORCED_ALLOY_INGOT
+            'D' means SlimefunItems.DAMASCUS_STEEL_INGOT
+            'H' means SlimefunItems.HARDENED_METAL_INGOT
+        }
     }
 
-    val MYTHRIL = buildSlimefunItem<SimpleMaterial> {
-        id = "MYTHRIL"
-        material = Material.IRON_INGOT.convert()
+    val MYTHRIL by buildSlimefunItem<SimpleMaterial> {
+        material = Material.IRON_INGOT.asMaterialType()
         itemGroup = IEItemGroups.MATERIALS
         recipeType = RecipeType.SMELTERY
-        recipe = arrayOf(
-            SlimefunItems.MAGNESIUM_INGOT,
-            IRON_SINGULARITY,
-            SlimefunItems.MAGNESIUM_DUST,
-        )
+        recipe = buildRecipe {
+            +"MIm"
+            +"   "
+            +"   "
+            'M' means SlimefunItems.MAGNESIUM_INGOT
+            'I' means IRON_SINGULARITY
+            'm' means SlimefunItems.MAGNESIUM_DUST
+        }
     }
 
-    val ADAMANTITE = buildSlimefunItem<SimpleMaterial> {
-        id = "ADAMANTITE"
-        material = Material.BRICK.convert()
+    val ADAMANTITE by buildSlimefunItem<SimpleMaterial> {
+        material = Material.BRICK.asMaterialType()
         itemGroup = IEItemGroups.MATERIALS
         recipeType = RecipeType.SMELTERY
-        recipe = arrayOf(
-            SlimefunItems.REDSTONE_ALLOY,
-            DIAMOND_SINGULARITY,
-            MAGSTEEL,
-        )
+        recipe = buildRecipe {
+            +"RDM"
+            +"   "
+            +"   "
+            'R' means SlimefunItems.REDSTONE_ALLOY
+            'D' means DIAMOND_SINGULARITY
+            'M' means MAGSTEEL
+        }
     }
 
-    val MAGNONIUM = buildSlimefunItem<SimpleMaterial> {
-        id = "MAGNONIUM"
-        material = Material.NETHER_BRICK.convert()
+    val MAGNONIUM by buildSlimefunItem<SimpleMaterial> {
+        material = Material.NETHER_BRICK.asMaterialType()
         itemGroup = IEItemGroups.MATERIALS
         recipeType = RecipeType.SMELTERY
         recipe = arrayOf(
@@ -384,87 +395,133 @@ object IEItems {
             MAGNESIUM_SINGULARITY,
             ENDER_ESSENCE,
         )
+        recipe = buildRecipe {
+            +"MSE"
+            +"   "
+            +"   "
+            'M' means MAGSTEEL
+            'S' means MAGNESIUM_SINGULARITY
+            'E' means ENDER_ESSENCE
+        }
     }
 
-    val VOID_BIT = buildSlimefunItem<SimpleMaterial> {
-        id = "VOID_BIT"
-        material = Material.IRON_NUGGET.convert()
+    val VOID_BIT by buildSlimefunItem<SimpleMaterial> {
+        material = Material.IRON_NUGGET.asMaterialType()
         itemGroup = IEItemGroups.MATERIALS
         recipeType = IERecipeTypes.VOID_HARVESTER
     }
 
-    val VOID_DUST = buildSlimefunItem<SimpleMaterial> {
-        id = "VOID_DUST"
-        material = Material.GUNPOWDER.convert()
+    val VOID_DUST by buildSlimefunItem<SimpleMaterial> {
+        material = Material.GUNPOWDER.asMaterialType()
         itemGroup = IEItemGroups.MATERIALS
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
-        recipe = VOID_BIT.fillRecipe()
+        recipe = buildRecipe {
+            +"VVV"
+            +"VVV"
+            +"VVV"
+            'V' means VOID_BIT
+        }
     }
 
-    val VOID_INGOT = buildSlimefunItem<SimpleMaterial> {
-        id = "VOID_INGOT"
-        material = Material.NETHERITE_INGOT.convert()
+    val VOID_INGOT by buildSlimefunItem<SimpleMaterial> {
+        material = Material.NETHERITE_INGOT.asMaterialType()
         itemGroup = IEItemGroups.MATERIALS
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
-        recipe = VOID_DUST.fillRecipe()
+        recipe = buildRecipe {
+            +"VVV"
+            +"VVV"
+            +"VVV"
+            'V' means VOID_DUST
+        }
     }
 
-    val VOID_BLOCK = buildSlimefunItem<VoidBlock> {
-        id = "VOID_BLOCK"
-        material = Material.NETHERITE_BLOCK.convert()
+    val VOID_BLOCK by buildSlimefunItem<VoidBlock> {
+        material = Material.NETHERITE_BLOCK.asMaterialType()
         itemGroup = IEItemGroups.MATERIALS
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
-        recipe = VOID_INGOT.fillRecipe()
+        recipe = buildRecipe {
+            +"VVV"
+            +"VVV"
+            +"VVV"
+            'V' means VOID_INGOT
+        }
     }
 
     // singularities here due to load order
-    val FORTUNE_SINGULARITY = buildSlimefunItem<SimpleMaterial> {
-        id = "FORTUNE_SINGULARITY"
-        material = Material.NETHER_STAR.convert()
+    val FORTUNE_SINGULARITY by buildSlimefunItem<SimpleMaterial> {
+        material = Material.NETHER_STAR.asMaterialType()
         itemGroup = IEItemGroups.SINGULARITIES
         recipeType = RecipeType.SMELTERY
-        recipe = arrayOf(
-            GOLD_SINGULARITY, DIAMOND_SINGULARITY, EMERALD_SINGULARITY,
-            NETHERITE_SINGULARITY, ADAMANTITE,
-        )
+        recipe = buildRecipe {
+            +"GDE"
+            +"NA "
+            +"   "
+            'G' means GOLD_SINGULARITY
+            'D' means DIAMOND_SINGULARITY
+            'E' means EMERALD_SINGULARITY
+            'N' means NETHERITE_SINGULARITY
+            'A' means ADAMANTITE
+        }
     }
 
-    val MAGIC_SINGULARITY = buildSlimefunItem<SimpleMaterial> {
-        id = "MAGIC_SINGULARITY"
-        material = Material.NETHER_STAR.convert()
+    val MAGIC_SINGULARITY by buildSlimefunItem<SimpleMaterial> {
+        material = Material.NETHER_STAR.asMaterialType()
         itemGroup = IEItemGroups.SINGULARITIES
         recipeType = RecipeType.SMELTERY
         recipe = arrayOf(
             REDSTONE_SINGULARITY, LAPIS_SINGULARITY, QUARTZ_SINGULARITY,
             MAGNESIUM_SINGULARITY, MAGNONIUM,
         )
+        recipe = buildRecipe {
+            +"RLQ"
+            +"MG "
+            +"   "
+            'R' means REDSTONE_SINGULARITY
+            'L' means LAPIS_SINGULARITY
+            'Q' means QUARTZ_SINGULARITY
+            'M' means MAGNESIUM_SINGULARITY
+            'G' means MAGNONIUM
+        }
     }
 
-    val EARTH_SINGULARITY = buildSlimefunItem<SimpleMaterial> {
-        id = "EARTH_SINGULARITY"
-        material = Material.NETHER_STAR.convert()
+    val EARTH_SINGULARITY by buildSlimefunItem<SimpleMaterial> {
+        material = Material.NETHER_STAR.asMaterialType()
         itemGroup = IEItemGroups.SINGULARITIES
         recipeType = RecipeType.SMELTERY
         recipe = arrayOf(
             COMPRESSED_COBBLESTONE_4, COAL_SINGULARITY, IRON_SINGULARITY,
             COPPER_SINGULARITY, LEAD_SINGULARITY,
         )
+        recipe = buildRecipe {
+            +"XCI"
+            +"OL "
+            +"   "
+            'X' means COMPRESSED_COBBLESTONE_4
+            'C' means COAL_SINGULARITY
+            'I' means IRON_SINGULARITY
+            'O' means COPPER_SINGULARITY
+            'L' means LEAD_SINGULARITY
+        }
     }
 
-    val METAL_SINGULARITY = buildSlimefunItem<SimpleMaterial> {
-        id = "METAL_SINGULARITY"
-        material = Material.NETHER_STAR.convert()
+    val METAL_SINGULARITY by buildSlimefunItem<SimpleMaterial> {
+        material = Material.NETHER_STAR.asMaterialType()
         itemGroup = IEItemGroups.SINGULARITIES
         recipeType = RecipeType.SMELTERY
-        recipe = arrayOf(
-            SILVER_SINGULARITY, ALUMINUM_SINGULARITY, TIN_SINGULARITY,
-            ZINC_SINGULARITY, TITANIUM,
-        )
+        recipe = buildRecipe {
+            +"SAT"
+            +"ZI "
+            +"   "
+            'S' means SILVER_SINGULARITY
+            'A' means ALUMINUM_SINGULARITY
+            'T' means TIN_SINGULARITY
+            'Z' means ZINC_SINGULARITY
+            'I' means TITANIUM
+        }
     }
 
-    val INFINITY_INGOT = buildSlimefunItem<SimpleMaterial> {
-        id = "INFINITY_INGOT"
-        material = Material.IRON_INGOT.convert()
+    val INFINITY_INGOT by buildSlimefunItem<SimpleMaterial> {
+        material = Material.IRON_INGOT.asMaterialType()
         itemGroup = IEItemGroups.MATERIALS
         recipeType = RecipeType.SMELTERY
         recipe = arrayOf(
@@ -473,588 +530,629 @@ object IEItems {
             MAGIC_SINGULARITY, VOID_INGOT, METAL_SINGULARITY,
             // @formatter:on
         )
+        recipe = buildRecipe {
+            +"EMF"
+            +"AVT"
+            +"   "
+            'E' means EARTH_SINGULARITY
+            'M' means MYTHRIL
+            'F' means FORTUNE_SINGULARITY
+            'A' means MAGIC_SINGULARITY
+            'V' means VOID_INGOT
+            'T' means METAL_SINGULARITY
+        }
     }
 
     // Singularity put here due to load order
-    val INFINITY_SINGULARITY = buildSlimefunItem<Singularity>(
+    val INFINITY_SINGULARITY by buildSlimefunItem<Singularity>(
         100, mapOf(
             INFINITY_INGOT to 1,
         )
     ) {
-        id = "INFINITY_SINGULARITY"
-        material = Material.SMOOTH_QUARTZ.convert()
+        material = Material.SMOOTH_QUARTZ.asMaterialType()
         itemGroup = IEItemGroups.SINGULARITIES
         recipeType = IERecipeTypes.SINGULARITY_CONSTRUCTOR
     }
 
-    val MAGSTEEL_PLATE = buildSlimefunItem<SimpleMaterial> {
-        id = "MAGSTEEL_PLATE"
-        material = Material.NETHERITE_SCRAP.convert()
+    val MAGSTEEL_PLATE by buildSlimefunItem<SimpleMaterial> {
+        material = Material.NETHERITE_SCRAP.asMaterialType()
         itemGroup = IEItemGroups.MATERIALS
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
-        recipe = SlimefunItems.HARDENED_METAL_INGOT surroundedBy MAGSTEEL
+        recipe = buildRecipe {
+            +"MMM"
+            +"MHM"
+            +"MMM"
+            'M' means MAGSTEEL
+            'H' means SlimefunItems.HARDENED_METAL_INGOT
+        }
     }
 
-    val MACHINE_CIRCUIT = buildSlimefunItem<SimpleMaterial> {
-        id = "MACHINE_CIRCUIT"
-        material = Material.GOLD_INGOT.convert()
+    val MACHINE_CIRCUIT by buildSlimefunItem<SimpleMaterial> {
+        material = Material.GOLD_INGOT.asMaterialType()
         itemGroup = IEItemGroups.MATERIALS
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
-        recipe = arrayOf(
-            SlimefunItems.COPPER_INGOT, SlimefunItems.ELECTRO_MAGNET, SlimefunItems.COPPER_INGOT,
-            SlimefunItems.COPPER_INGOT, SlimefunItems.SILICON, SlimefunItems.COPPER_INGOT,
-            SlimefunItems.COPPER_INGOT, SlimefunItems.ELECTRO_MAGNET, SlimefunItems.COPPER_INGOT,
-        )
+        recipe = buildRecipe {
+            +"CEC"
+            +"CSC"
+            +"CEC"
+            'C' means SlimefunItems.COPPER_INGOT
+            'E' means SlimefunItems.ELECTRO_MAGNET
+            'S' means SlimefunItems.SILICON
+        }
     }
 
-    val MACHINE_PLATE = buildSlimefunItem<SimpleMaterial> {
-        id = "MACHINE_PLATE"
-        material = Material.PAPER.convert()
+    val MACHINE_PLATE by buildSlimefunItem<SimpleMaterial> {
+        material = Material.PAPER.asMaterialType()
         itemGroup = IEItemGroups.MATERIALS
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
-        recipe = arrayOf(
-            SlimefunItems.REINFORCED_ALLOY_INGOT, SlimefunItems.REINFORCED_PLATE, SlimefunItems.REINFORCED_ALLOY_INGOT,
-            MAGSTEEL_PLATE, TITANIUM, MAGSTEEL_PLATE,
-            SlimefunItems.REINFORCED_ALLOY_INGOT, SlimefunItems.REINFORCED_PLATE, SlimefunItems.REINFORCED_ALLOY_INGOT,
-        )
+        recipe = buildRecipe {
+            +"RPR"
+            +"MTM"
+            +"RPR"
+            'R' means SlimefunItems.REINFORCED_ALLOY_INGOT
+            'P' means SlimefunItems.REINFORCED_PLATE
+            'M' means MAGSTEEL_PLATE
+            'T' means TITANIUM
+        }
     }
 
-    val MACHINE_CORE = buildSlimefunItem<SimpleMaterial> {
-        id = "MACHINE_CORE"
-        material = Material.IRON_BLOCK.convert()
+    val MACHINE_CORE by buildSlimefunItem<SimpleMaterial> {
+        material = Material.IRON_BLOCK.asMaterialType()
         itemGroup = IEItemGroups.MATERIALS
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
-        recipe = arrayOf(
-            TITANIUM, MACHINE_CIRCUIT, TITANIUM,
-            MACHINE_CIRCUIT, MACHINE_PLATE, MACHINE_CIRCUIT,
-            TITANIUM, MACHINE_CIRCUIT, TITANIUM,
-        )
+        recipe = buildRecipe {
+            +"TCT"
+            +"CMC"
+            +"TCT"
+            'T' means TITANIUM
+            'C' means MACHINE_CIRCUIT
+            'M' means MACHINE_PLATE
+        }
     }
 
-    val VOID_GLASS = buildSlimefunItem<VoidGlass>(16) {
-        id = "VOID_GLASS"
-        material = Material.GLASS.convert()
+    val VOID_GLASS by buildSlimefunItem<VoidGlass>(16) {
+        material = Material.GLASS.asMaterialType()
         itemGroup = IEItemGroups.MATERIALS
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
-        recipe = VOID_BLOCK surroundedBy Material.GLASS.toItem()
+        recipe = buildRecipe {
+            +"GGG"
+            +"GVG"
+            +"GGG"
+            'V' means VOID_BLOCK
+            'G' means Material.GLASS.toItem()
+        }
     }
 
-    val INFINITY_MACHINE_CIRCUIT = buildSlimefunItem<SimpleMaterial> {
-        id = "INFINITY_MACHINE_CIRCUIT"
-        material = Material.DIAMOND.convert()
+    val INFINITY_MACHINE_CIRCUIT by buildSlimefunItem<SimpleMaterial> {
+        material = Material.DIAMOND.asMaterialType()
         itemGroup = IEItemGroups.MATERIALS
         recipeType = IERecipeTypes.INFINITY_WORKBENCH
-        recipe = arrayOf(
-            MACHINE_CIRCUIT, INFINITY_INGOT, MACHINE_CIRCUIT, MACHINE_CIRCUIT, INFINITY_INGOT, MACHINE_CIRCUIT,
-            VOID_INGOT, MACHINE_CIRCUIT, VOID_INGOT, VOID_INGOT, MACHINE_CIRCUIT, VOID_INGOT,
-            INFINITY_INGOT, VOID_INGOT, MACHINE_CIRCUIT, MACHINE_CIRCUIT, VOID_INGOT, INFINITY_INGOT,
-            INFINITY_INGOT, VOID_INGOT, MACHINE_CIRCUIT, MACHINE_CIRCUIT, VOID_INGOT, INFINITY_INGOT,
-            VOID_INGOT, MACHINE_CIRCUIT, VOID_INGOT, VOID_INGOT, MACHINE_CIRCUIT, VOID_INGOT,
-            MACHINE_CIRCUIT, INFINITY_INGOT, MACHINE_CIRCUIT, MACHINE_CIRCUIT, INFINITY_INGOT, MACHINE_CIRCUIT,
-        )
+        recipe = buildRecipe(6) {
+            +"CICCIC"
+            +"VCVVCV"
+            +"IVCCVI"
+            +"IVCCVI"
+            +"VCVVCV"
+            +"CICCIC"
+            'C' means MACHINE_CIRCUIT
+            'I' means INFINITY_INGOT
+            'V' means VOID_INGOT
+        }
     }
 
-    val INFINITY_MACHINE_CORE = buildSlimefunItem<SimpleMaterial> {
-        id = "INFINITY_MACHINE_CORE"
-        material = Material.DIAMOND_BLOCK.convert()
+    val INFINITY_MACHINE_CORE by buildSlimefunItem<SimpleMaterial> {
+        material = Material.DIAMOND_BLOCK.asMaterialType()
         itemGroup = IEItemGroups.MATERIALS
         recipeType = IERecipeTypes.INFINITY_WORKBENCH
-        recipe = arrayOf(
-            MACHINE_PLATE, MACHINE_CORE, INFINITY_INGOT, INFINITY_INGOT, MACHINE_CORE, MACHINE_PLATE,
-            MACHINE_CORE, MACHINE_PLATE, MACHINE_CIRCUIT, MACHINE_CIRCUIT, MACHINE_PLATE, MACHINE_CORE,
-            INFINITY_INGOT, MACHINE_CIRCUIT, INFINITY_INGOT, INFINITY_INGOT, MACHINE_CIRCUIT, INFINITY_INGOT,
-            INFINITY_INGOT, MACHINE_CIRCUIT, INFINITY_INGOT, INFINITY_INGOT, MACHINE_CIRCUIT, INFINITY_INGOT,
-            MACHINE_CORE, MACHINE_PLATE, MACHINE_CIRCUIT, MACHINE_CIRCUIT, MACHINE_PLATE, MACHINE_CORE,
-            MACHINE_PLATE, MACHINE_CORE, INFINITY_INGOT, INFINITY_INGOT, MACHINE_CORE, MACHINE_PLATE,
-        )
+        recipe = buildRecipe(6) {
+            +"POIIOP"
+            +"OPCCPO"
+            +"ICIICI"
+            +"ICIICI"
+            +"OPCCPO"
+            +"POIIOP"
+            'P' means MACHINE_PLATE
+            'O' means MACHINE_CORE
+            'I' means INFINITY_INGOT
+        }
     }
 
-    val OSCILLATOR_FRAME = buildSlimefunItem<SimpleMaterial> {
-        id = "OSCILLATOR_FRAME"
-        material = Material.IRON_BARS.convert()
+    val OSCILLATOR_FRAME by buildSlimefunItem<SimpleMaterial> {
+        material = Material.IRON_BARS.asMaterialType()
         itemGroup = IEItemGroups.MATERIALS
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
-        recipe = arrayOf(
-            MACHINE_PLATE, SlimefunItems.BLISTERING_INGOT_3, MACHINE_PLATE,
-            SlimefunItems.BLISTERING_INGOT_3, null, SlimefunItems.BLISTERING_INGOT_3,
-            MACHINE_PLATE, SlimefunItems.BLISTERING_INGOT_3, MACHINE_PLATE,
-        )
+        recipe = buildRecipe {
+            +"PBP"
+            +"B B"
+            +"PBP"
+            'P' means MACHINE_PLATE
+            'B' means SlimefunItems.BLISTERING_INGOT_3
+        }
     }
     //</editor-fold>
 
     //<editor-fold desc="Slimefun Expansion" defaultstate="collapsed">
-    val VOID_CAPACITOR = buildSlimefunItem<Capacitor>(16_000_000) {
-        id = "VOID_CAPACITOR"
-        material = HeadTexture.CAPACITOR_25.convert()
+    val VOID_CAPACITOR by buildSlimefunItem<Capacitor>(16_000_000) {
+        material = HeadTexture.CAPACITOR_25.asMaterialType()
         itemGroup = IEItemGroups.SLIMEFUN_EXPANSION
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
-        recipe = arrayOf(
-            VOID_INGOT,
-            REDSTONE_SINGULARITY,
-            VOID_INGOT,
-            VOID_INGOT,
-            SlimefunItems.ENERGIZED_CAPACITOR,
-            VOID_INGOT,
-            VOID_INGOT,
-            REDSTONE_SINGULARITY,
-            VOID_INGOT
-        )
+        recipe = buildRecipe {
+            +"VRV"
+            +"VCV"
+            +"VRV"
+            'V' means VOID_INGOT
+            'R' means REDSTONE_SINGULARITY
+            'C' means SlimefunItems.ENERGIZED_CAPACITOR
+        }
     }
 
-    val INFINITY_CAPACITOR = buildSlimefunItem<Capacitor>(64_000_000) {
-        id = "INFINITY_CAPACITOR"
-        material = HeadTexture.CAPACITOR_25.convert()
+    val INFINITY_CAPACITOR by buildSlimefunItem<Capacitor>(64_000_000) {
+        material = HeadTexture.CAPACITOR_25.asMaterialType()
         itemGroup = IEItemGroups.SLIMEFUN_EXPANSION
         recipeType = IERecipeTypes.INFINITY_WORKBENCH
-        recipe = arrayOf(
-            // @formatter:off
-            null, INFINITY_INGOT, VOID_INGOT, VOID_INGOT, INFINITY_INGOT, null,
-            null, INFINITY_INGOT, INFINITY_MACHINE_CIRCUIT, INFINITY_MACHINE_CIRCUIT, INFINITY_INGOT, null,
-            null, INFINITY_INGOT, SlimefunItems.ENERGIZED_CAPACITOR, SlimefunItems.ENERGIZED_CAPACITOR, INFINITY_INGOT, null,
-            null, INFINITY_INGOT, SlimefunItems.ENERGIZED_CAPACITOR, SlimefunItems.ENERGIZED_CAPACITOR, INFINITY_INGOT, null,
-            null, INFINITY_INGOT, INFINITY_MACHINE_CIRCUIT, INFINITY_MACHINE_CIRCUIT, INFINITY_INGOT, null,
-            null, INFINITY_INGOT, VOID_INGOT, VOID_INGOT, INFINITY_INGOT, null
-            // @formatter:on
-        )
+        recipe = buildRecipe(6) {
+            +" IVVI "
+            +" ICCI "
+            +" IEEI "
+            +" IEEI "
+            +" ICCI "
+            +" IVVI "
+            'V' means VOID_INGOT
+            'I' means INFINITY_INGOT
+            'C' means INFINITY_MACHINE_CORE
+            'E' means SlimefunItems.ENERGIZED_CAPACITOR
+        }
     }
 
-    val ADVANCED_ENCHANTER = buildSlimefunItem<AutoEnchanter>(5, 180) {
-        id = "ADVANCED_ENCHANTER"
-        material = Material.ENCHANTING_TABLE.convert()
+    val ADVANCED_ENCHANTER by buildSlimefunItem<AutoEnchanter>(5, 180) {
+        material = Material.ENCHANTING_TABLE.asMaterialType()
         itemGroup = IEItemGroups.SLIMEFUN_EXPANSION
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
-        recipe = arrayOf(
-            MAGSTEEL,
-            MAGSTEEL,
-            MAGSTEEL,
-            MAGSTEEL_PLATE,
-            SlimefunItems.AUTO_ENCHANTER,
-            MAGSTEEL_PLATE,
-            MACHINE_CIRCUIT,
-            MACHINE_CORE,
-            MACHINE_CIRCUIT
-        )
+        recipe = buildRecipe {
+            +"MMM"
+            +"PAP"
+            +"COC"
+            'M' means MAGSTEEL
+            'P' means MAGSTEEL_PLATE
+            'A' means SlimefunItems.AUTO_ENCHANTER
+            'C' means MACHINE_CIRCUIT
+            'O' means MACHINE_CORE
+        }
     }
 
-    val INFINITY_ENCHANTER = buildSlimefunItem<AutoEnchanter>(75, 12_000) {
-        id = "INFINITY_ENCHANTER"
-        material = Material.ENCHANTING_TABLE.convert()
+    val INFINITY_ENCHANTER by buildSlimefunItem<AutoEnchanter>(75, 12_000) {
+        material = Material.ENCHANTING_TABLE.asMaterialType()
         itemGroup = IEItemGroups.SLIMEFUN_EXPANSION
         recipeType = IERecipeTypes.INFINITY_WORKBENCH
-        recipe = arrayOf(
-            // @formatter:off
-            null, null, null, null, null, null,
-            VOID_INGOT, null, null, null, null, VOID_INGOT,
-            VOID_INGOT, VOID_INGOT, ADVANCED_ENCHANTER, ADVANCED_ENCHANTER, VOID_INGOT, VOID_INGOT,
-            MACHINE_PLATE, VOID_INGOT, INFINITY_MACHINE_CIRCUIT, INFINITY_MACHINE_CIRCUIT, VOID_INGOT, MACHINE_PLATE,
-            MACHINE_PLATE, VOID_INGOT, INFINITY_MACHINE_CORE, INFINITY_MACHINE_CORE, VOID_INGOT, MACHINE_PLATE,
-            MACHINE_PLATE, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT, MACHINE_PLATE
-            // @formatter:on
-        )
+        recipe = buildRecipe(6) {
+            +"      "
+            +"V    V"
+            +"VVAAVV"
+            +"PVCCVP"
+            +"PVOOVP"
+            +"PIIIIP"
+            'V' means VOID_INGOT
+            'A' means ADVANCED_ENCHANTER
+            'P' means MACHINE_PLATE
+            'C' means INFINITY_MACHINE_CIRCUIT
+            'O' means INFINITY_MACHINE_CORE
+            'I' means INFINITY_INGOT
+        }
     }
 
-    val ADVANCED_DISENCHANTER = buildSlimefunItem<AutoDisenchanter>(5, 180) {
-        id = "ADVANCED_DISENCHANTER"
-        material = Material.ENCHANTING_TABLE.convert()
+    val ADVANCED_DISENCHANTER by buildSlimefunItem<AutoDisenchanter>(5, 180) {
+        material = Material.ENCHANTING_TABLE.asMaterialType()
         itemGroup = IEItemGroups.SLIMEFUN_EXPANSION
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
-        recipe = arrayOf(
-            MAGSTEEL,
-            MAGSTEEL,
-            MAGSTEEL,
-            MAGSTEEL_PLATE,
-            SlimefunItems.AUTO_DISENCHANTER,
-            MAGSTEEL_PLATE,
-            MACHINE_CIRCUIT,
-            MACHINE_CORE,
-            MACHINE_CIRCUIT
-        )
+        recipe = buildRecipe {
+            +"MMM"
+            +"PAP"
+            +"COC"
+            'M' means MAGSTEEL
+            'P' means MAGSTEEL_PLATE
+            'A' means SlimefunItems.AUTO_DISENCHANTER
+            'C' means MACHINE_CIRCUIT
+            'O' means MACHINE_CORE
+        }
     }
 
-    val INFINITY_DISENCHANTER = buildSlimefunItem<AutoDisenchanter>(90, 12_000) {
-        id = "INFINITY_DISENCHANTER"
-        material = Material.ENCHANTING_TABLE.convert()
+    val INFINITY_DISENCHANTER by buildSlimefunItem<AutoDisenchanter>(90, 12_000) {
+        material = Material.ENCHANTING_TABLE.asMaterialType()
         itemGroup = IEItemGroups.SLIMEFUN_EXPANSION
         recipeType = IERecipeTypes.INFINITY_WORKBENCH
-        recipe = arrayOf(
-            // @formatter:off
-            null, null, null, null, null, null,
-            VOID_INGOT, null, null, null, null, VOID_INGOT,
-            VOID_INGOT, VOID_INGOT, ADVANCED_DISENCHANTER, ADVANCED_DISENCHANTER, VOID_INGOT, VOID_INGOT,
-            MACHINE_PLATE, VOID_INGOT, INFINITY_MACHINE_CIRCUIT, INFINITY_MACHINE_CIRCUIT, VOID_INGOT, MACHINE_PLATE,
-            MACHINE_PLATE, VOID_INGOT, INFINITY_MACHINE_CORE, INFINITY_MACHINE_CORE, VOID_INGOT, MACHINE_PLATE,
-            MACHINE_PLATE, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT, MACHINE_PLATE
-            // @formatter:on
-        )
+        recipe = buildRecipe(6) {
+            +"      "
+            +"V    V"
+            +"VVAAVV"
+            +"PVCCVP"
+            +"PVOOVP"
+            +"PIIIIP"
+            'V' means VOID_INGOT
+            'A' means ADVANCED_DISENCHANTER
+            'P' means MACHINE_PLATE
+            'C' means INFINITY_MACHINE_CIRCUIT
+            'O' means INFINITY_MACHINE_CORE
+            'I' means INFINITY_INGOT
+        }
     }
 
-    val ADVANCED_CHARGER = buildSlimefunItem<ChargingBench>(30, 180) {
-        id = "ADVANCED_CHARGER"
-        material = Material.HONEYCOMB_BLOCK.convert()
+    val ADVANCED_CHARGER by buildSlimefunItem<ChargingBench>(30, 180) {
+        material = Material.HONEYCOMB_BLOCK.asMaterialType()
         itemGroup = IEItemGroups.SLIMEFUN_EXPANSION
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
-        recipe = arrayOf(
-            MAGSTEEL_PLATE, MACHINE_CIRCUIT, MAGSTEEL_PLATE,
-            MACHINE_CIRCUIT, SlimefunItems.CHARGING_BENCH, MACHINE_CIRCUIT,
-            MAGSTEEL_PLATE, MACHINE_CORE, MAGSTEEL_PLATE,
-        )
+        recipe = buildRecipe {
+            +"MCM"
+            +"CAC"
+            +"MOM"
+            'M' means MAGSTEEL_PLATE
+            'C' means MACHINE_CIRCUIT
+            'O' means MACHINE_CORE
+            'A' means SlimefunItems.CHARGING_BENCH
+        }
     }
 
-    val INFINITY_CHARGER = buildSlimefunItem<ChargingBench>(6000, 60_000) {
-        id = "INFINITY_CHARGER"
-        material = Material.SEA_LANTERN.convert()
+    val INFINITY_CHARGER by buildSlimefunItem<ChargingBench>(6000, 60_000) {
+        material = Material.SEA_LANTERN.asMaterialType()
         itemGroup = IEItemGroups.SLIMEFUN_EXPANSION
         recipeType = IERecipeTypes.INFINITY_WORKBENCH
-        recipe = arrayOf(
-            // @formatter:off
-            null, null, null, null, null, null,
-            VOID_INGOT, MACHINE_CIRCUIT, MACHINE_CIRCUIT, MACHINE_CIRCUIT, MACHINE_CIRCUIT, VOID_INGOT,
-            VOID_INGOT, MACHINE_CIRCUIT, ADVANCED_CHARGER, ADVANCED_CHARGER, MACHINE_CIRCUIT, VOID_INGOT,
-            VOID_INGOT, MACHINE_CIRCUIT, ADVANCED_CHARGER, ADVANCED_CHARGER, MACHINE_CIRCUIT, VOID_INGOT,
-            VOID_INGOT, INFINITY_MACHINE_CIRCUIT, INFINITY_MACHINE_CORE, INFINITY_MACHINE_CORE, INFINITY_MACHINE_CIRCUIT, VOID_INGOT,
-            INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT
-            // @formatter:on
-        )
+        recipe = buildRecipe(6) {
+            +"      "
+            +"VccccV"
+            +"VcAAcV"
+            +"VcAAcV"
+            +"VCOOCV"
+            +"IIIIII"
+            'V' means VOID_INGOT
+            'c' means MACHINE_CIRCUIT
+            'A' means ADVANCED_CHARGER
+            'P' means MACHINE_PLATE
+            'C' means INFINITY_MACHINE_CIRCUIT
+            'O' means INFINITY_MACHINE_CORE
+            'I' means INFINITY_INGOT
+        }
     }
 
-    val ADVANCED_GEO_MINER = buildSlimefunItem<GeoMiner>(4, 120) {
-        id = "ADVANCED_GEO_MINER"
-        material = HeadTexture.GEO_MINER.convert()
+    val ADVANCED_GEO_MINER by buildSlimefunItem<GeoMiner>(4, 120) {
+        material = HeadTexture.GEO_MINER.asMaterialType()
         itemGroup = IEItemGroups.SLIMEFUN_EXPANSION
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
-        recipe = arrayOf(
-            MAGSTEEL_PLATE,
-            MAGSTEEL_PLATE,
-            MAGSTEEL_PLATE,
-            SlimefunItems.COBALT_PICKAXE,
-            SlimefunItems.GEO_MINER,
-            SlimefunItems.COBALT_PICKAXE,
-            MACHINE_CIRCUIT,
-            MACHINE_CORE,
-            MACHINE_CIRCUIT
-        )
+        recipe = buildRecipe {
+            +"MMM"
+            +"PAP"
+            +"COC"
+            'M' means MAGSTEEL_PLATE
+            'P' means SlimefunItems.COBALT_PICKAXE
+            'A' means SlimefunItems.GEO_MINER
+            'C' means MACHINE_CIRCUIT
+            'O' means MACHINE_CORE
+        }
     }
 
-    val ADVANCED_SMELTERY = buildSlimefunItem<Smeltery>(24, 240) {
-        id = "ADVANCED_SMELTERY"
-        material = Material.FURNACE.convert()
+    val ADVANCED_SMELTERY by buildSlimefunItem<Smeltery>(24, 240) {
+        material = Material.FURNACE.asMaterialType()
         itemGroup = IEItemGroups.SLIMEFUN_EXPANSION
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
-        recipe = arrayOf(
-            SlimefunItems.ELECTRIC_SMELTERY_2,
-            SlimefunItems.ELECTRIC_SMELTERY_2,
-            SlimefunItems.ELECTRIC_SMELTERY_2,
-            SlimefunItems.ELECTRIC_SMELTERY_2,
-            SlimefunItems.ELECTRIC_SMELTERY_2,
-            SlimefunItems.ELECTRIC_SMELTERY_2,
-            MACHINE_CIRCUIT,
-            MACHINE_CORE,
-            MACHINE_CIRCUIT
-        )
+        recipe = buildRecipe {
+            +"SSS"
+            +"SSS"
+            +"COC"
+            'S' means SlimefunItems.ELECTRIC_SMELTERY_2
+            'C' means MACHINE_CIRCUIT
+            'O' means MACHINE_CORE
+        }
     }
 
-    val VOID_SMELTERY = buildSlimefunItem<Smeltery>(72, 1200) {
-        id = "VOID_SMELTERY"
-        material = Material.FURNACE.convert()
+    val VOID_SMELTERY by buildSlimefunItem<Smeltery>(72, 1200) {
+        material = Material.FURNACE.asMaterialType()
         itemGroup = IEItemGroups.SLIMEFUN_EXPANSION
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
-        recipe = arrayOf(
-            VOID_BLOCK,
-            MACHINE_CORE,
-            VOID_BLOCK,
-            MACHINE_CIRCUIT,
-            ADVANCED_SMELTERY,
-            MACHINE_CIRCUIT,
-            VOID_BLOCK,
-            ADVANCED_SMELTERY,
-            VOID_BLOCK
-        )
+        recipe = buildRecipe {
+            +"VOV"
+            +"CSC"
+            +"VSV"
+            'V' means VOID_BLOCK
+            'O' means MACHINE_CORE
+            'C' means MACHINE_CIRCUIT
+            'S' means ADVANCED_SMELTERY
+        }
     }
 
-    val ADVANCED_NETHER_STAR_REACTOR = buildSlimefunItem<NetherStarReactor>(1800, 90000) {
-        id = "ADVANCED_NETHER_STAR_REACTOR"
-        material = HeadTexture.NETHER_STAR_REACTOR.convert()
+    val ADVANCED_NETHER_STAR_REACTOR by buildSlimefunItem<NetherStarReactor>(1800, 90000) {
+        material = HeadTexture.NETHER_STAR_REACTOR.asMaterialType()
         itemGroup = IEItemGroups.SLIMEFUN_EXPANSION
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
-        recipe = arrayOf(
-            // @formatter:off
-            SlimefunItems.WITHER_PROOF_GLASS, SlimefunItems.WITHER_PROOF_GLASS, SlimefunItems.WITHER_PROOF_GLASS,
-            MACHINE_CIRCUIT, SlimefunItems.NETHER_STAR_REACTOR, MACHINE_CIRCUIT,
-            SlimefunItems.WITHER_PROOF_OBSIDIAN, SlimefunItems.WITHER_PROOF_OBSIDIAN, SlimefunItems.WITHER_PROOF_OBSIDIAN,
-            // @formatter:on
-        )
+        recipe = buildRecipe {
+            +"GGG"
+            +"CNC"
+            +"OOO"
+            'G' means SlimefunItems.WITHER_PROOF_GLASS
+            'C' means MACHINE_CIRCUIT
+            'N' means SlimefunItems.NETHER_STAR_REACTOR
+            'O' means SlimefunItems.WITHER_PROOF_OBSIDIAN
+        }
     }
     //</editor-fold>
 
     //<editor-fold desc="Food" defaultstate="collapsed">
-    val COSMIC_MEATBALLS = buildSlimefunItem<CosmicMeatballs> {
-        id = "COSMIC_MEATBALLS"
-        material = Material.COOKED_BEEF.convert()
+    val COSMIC_MEATBALLS by buildSlimefunItem<CosmicMeatballs> {
+        material = Material.COOKED_BEEF.asMaterialType()
         itemGroup = IEItemGroups.FOOD
         recipeType = IERecipeTypes.INFINITY_WORKBENCH
-        recipe = arrayOf(
-            // @formatter:off
-            null, null, null, null, null, null,
-            null, Material.CHICKEN.toItem(), Material.BEEF.toItem(), Material.BEEF.toItem(), Material.RABBIT.toItem(), null,
-            null, Material.CHICKEN.toItem(), VOID_DUST, Material.COD.toItem(), Material.RABBIT.toItem(), null,
-            null, Material.MUTTON.toItem(), Material.COD.toItem(), null, Material.SALMON.toItem(), null,
-            null, Material.MUTTON.toItem(), Material.PORKCHOP.toItem(), Material.PORKCHOP.toItem(), Material.SALMON.toItem(), null,
-            null, null, null, null, null, null,
-            // @formatter:on
-        )
+        recipe = buildRecipe(6) {
+            +"      "
+            +" CBBR "
+            +" CVOR "
+            +" MO S "
+            +" MPPS "
+            +"      "
+            'C' means Material.CHICKEN.toItem()
+            'B' means Material.BEEF.toItem()
+            'R' means Material.RABBIT.toItem()
+            'V' means VOID_DUST
+            'O' means Material.COD.toItem()
+            'M' means Material.MUTTON.toItem()
+            'S' means Material.SALMON.toItem()
+            'P' means Material.PORKCHOP.toItem()
+        }
     }
 
-    val ULTIMATE_STEW = buildSlimefunItem<UltimateStew> {
-        id = "ULTIMATE_STEW"
-        material = Material.SUSPICIOUS_STEW.convert()
+    val ULTIMATE_STEW by buildSlimefunItem<UltimateStew> {
+        material = Material.SUSPICIOUS_STEW.asMaterialType()
         itemGroup = IEItemGroups.FOOD
         recipeType = IERecipeTypes.INFINITY_WORKBENCH
-        recipe = arrayOf(
-            // @formatter:off
-            null, null, null, null, null, null,
-            null, Material.WHEAT.toItem(), Material.POTATO.toItem(), Material.POTATO.toItem(), Material.CACTUS.toItem(), null,
-            null, Material.WHEAT.toItem(), VOID_DUST, Material.NETHER_WART.toItem(), Material.CACTUS.toItem(), null,
-            null, Material.CARROT.toItem(), Material.NETHER_WART.toItem(), null, Material.BROWN_MUSHROOM.toItem(), null,
-            null, Material.CARROT.toItem(), Material.RED_MUSHROOM.toItem(), Material.RED_MUSHROOM.toItem(), Material.BROWN_MUSHROOM.toItem(), null,
-            null, null, null, null, null, null,
-            // @formatter:on
-        )
+        recipe = buildRecipe(6) {
+            +"      "
+            +" WPPC "
+            +" WVNC "
+            +" cN m "
+            +" cMMm "
+            +"      "
+            'W' means Material.WHEAT.toItem()
+            'P' means Material.POTATO.toItem()
+            'C' means Material.CACTUS.toItem()
+            'V' means VOID_DUST
+            'N' means Material.NETHER_WART.toItem()
+            'c' means Material.CARROT.toItem()
+            'm' means Material.BROWN_MUSHROOM.toItem()
+            'M' means Material.RED_MUSHROOM.toItem()
+        }
     }
     //</editor-fold>
 
     //<editor-fold desc="Tools" defaultstate="collapsed">
-    val ENDER_FLAME = buildSlimefunItem<SimpleMaterial> {
-        id = "ENDER_FLAME"
-        material = Material.ENCHANTED_BOOK.convert()
+    val ENDER_FLAME by buildSlimefunItem<SimpleMaterial> {
+        material = Material.ENCHANTED_BOOK.asMaterialType()
         itemGroup = IEItemGroups.TOOLS
         recipeType = RecipeType.MAGIC_WORKBENCH
-        recipe = Material.BOOK.toItem() surroundedBy ENDER_ESSENCE
+        recipe = buildRecipe {
+            +"EEE"
+            +"EBE"
+            +"EEE"
+            'E' means ENDER_ESSENCE
+            'B' means Material.BOOK.toItem()
+        }
 
-        postCreate = {
+        itemModifier = {
             it.addUnsafeEnchantment(Enchantment.FIRE_ASPECT, 10)
         }
     }
 
-    val VEIN_MINER_RUNE = buildSlimefunItem<VeinMinerRune> {
-        id = "VEIN_MINER_RUNE"
-        material = Material.DIAMOND.convert()
+    val VEIN_MINER_RUNE by buildSlimefunItem<VeinMinerRune> {
+        material = Material.DIAMOND.asMaterialType()
         itemGroup = IEItemGroups.TOOLS
         recipeType = RecipeType.MAGIC_WORKBENCH
-        recipe = arrayOf(
-            MAGSTEEL_PLATE, SlimefunItems.PICKAXE_OF_VEIN_MINING, MAGSTEEL_PLATE,
-            ENDER_ESSENCE, SlimefunItems.BLANK_RUNE, ENDER_ESSENCE,
-            MAGSTEEL_PLATE, SlimefunItems.PICKAXE_OF_VEIN_MINING, MAGSTEEL_PLATE,
-        )
+        recipe = buildRecipe {
+            +"MVM"
+            +"ERE"
+            +"MVM"
+            'M' means MAGSTEEL_PLATE
+            'V' means SlimefunItems.PICKAXE_OF_VEIN_MINING
+            'E' means ENDER_ESSENCE
+            'R' means SlimefunItems.BLANK_RUNE
+        }
     }
 
-    val STRAINER_BASE = buildSlimefunItem<StrainerBase> {
-        id = "STRAINER_BASE"
-        material = Material.SANDSTONE_WALL.convert()
+    val STRAINER_BASE by buildSlimefunItem<StrainerBase> {
+        material = Material.SANDSTONE_WALL.asMaterialType()
         itemGroup = IEItemGroups.TOOLS
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
-        recipe = arrayOf(
-            // @formatter:off
-            Material.STICK.toItem(), Material.STRING.toItem(), Material.STICK.toItem(),
-            Material.STICK.toItem(), Material.STRING.toItem(), Material.STICK.toItem(),
-            MAGSTEEL, MAGSTEEL, MAGSTEEL,
-            // @formatter:on
-        )
+        recipe = buildRecipe {
+            +"STS"
+            +"STS"
+            +"MMM"
+            'S' means Material.STICK.toItem()
+            'T' means Material.STRING.toItem()
+            'M' means MAGSTEEL
+        }
     }
 
-    val STRAINER_1 = buildSlimefunItem<Strainer>(30) {
-        id = "STRAINER_1"
-        material = Material.FISHING_ROD.convert()
+    val STRAINER_1 by buildSlimefunItem<Strainer>(30) {
+        material = Material.FISHING_ROD.asMaterialType()
         itemGroup = IEItemGroups.TOOLS
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
-        recipe = arrayOf(
-            // @formatter:off
-            Material.STICK.toItem(), Material.STRING.toItem(), Material.STICK.toItem(),
-            Material.STRING.toItem(), Material.STICK.toItem(), Material.STRING.toItem(),
-            Material.STICK.toItem(), Material.STRING.toItem(), Material.STICK.toItem(),
-            // @formatter:on
-        )
+        recipe = buildRecipe {
+            +"STS"
+            +"TST"
+            +"STS"
+            'S' means Material.STICK.toItem()
+            'T' means Material.STRING.toItem()
+        }
     }
 
-    val STRAINER_2 = buildSlimefunItem<Strainer>(60) {
-        id = "STRAINER_2"
-        material = Material.FISHING_ROD.convert()
+    val STRAINER_2 by buildSlimefunItem<Strainer>(60) {
+        material = Material.FISHING_ROD.asMaterialType()
         itemGroup = IEItemGroups.TOOLS
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
-        recipe = arrayOf(
-            // @formatter:off
-            MAGSTEEL, Material.STRING.toItem(), MAGSTEEL,
-            Material.STRING.toItem(), STRAINER_1, Material.STRING.toItem(),
-            MAGSTEEL, Material.STRING.toItem(), MAGSTEEL,
-            // @formatter:on
-        )
+        recipe = buildRecipe {
+            +"MSM"
+            +"STS"
+            +"MSM"
+            'S' means Material.STRING.toItem()
+            'T' means STRAINER_1
+            'M' means MAGSTEEL
+        }
     }
 
-    val STRAINER_3 = buildSlimefunItem<Strainer>(90) {
-        id = "STRAINER_3"
-        material = Material.FISHING_ROD.convert()
+    val STRAINER_3 by buildSlimefunItem<Strainer>(90) {
+        material = Material.FISHING_ROD.asMaterialType()
         itemGroup = IEItemGroups.TOOLS
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
-        recipe = arrayOf(
-            // @formatter:off
-            SlimefunItems.REINFORCED_ALLOY_INGOT, Material.STRING.toItem(), SlimefunItems.REINFORCED_ALLOY_INGOT,
-            Material.STRING.toItem(), STRAINER_2, Material.STRING.toItem(),
-            SlimefunItems.REINFORCED_ALLOY_INGOT, Material.STRING.toItem(), SlimefunItems.REINFORCED_ALLOY_INGOT,
-            // @formatter:on
-        )
+        recipe = buildRecipe {
+            +"RSR"
+            +"STS"
+            +"RSR"
+            'S' means Material.STRING.toItem()
+            'T' means STRAINER_2
+            'R' means SlimefunItems.REINFORCED_ALLOY_INGOT
+        }
     }
 
-    val INFINITY_PICKAXE = buildSlimefunItem<InfinityTool> {
-        id = "INFINITY_PICKAXE"
-        material = Material.NETHERITE_PICKAXE.convert()
+    val INFINITY_PICKAXE by buildSlimefunItem<InfinityTool> {
+        material = Material.NETHERITE_PICKAXE.asMaterialType()
         itemGroup = IEItemGroups.TOOLS
         recipeType = IERecipeTypes.INFINITY_WORKBENCH
-        recipe = arrayOf(
-            // @formatter:off
-            null, VOID_INGOT, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT, null,
-            null, null, null, INFINITY_INGOT, VOID_INGOT, INFINITY_INGOT,
-            null, null, null, VOID_INGOT, INFINITY_INGOT, INFINITY_INGOT,
-            null, null, VOID_INGOT, null, null, INFINITY_INGOT,
-            null, VOID_INGOT, null, null, null, VOID_INGOT,
-            VOID_INGOT, null, null, null, null, null,
-            // @formatter:on
-        )
-        postCreate = {
+        recipe = buildRecipe(6) {
+            +" VIII "
+            +"   IVI"
+            +"   VII"
+            +"  V  I"
+            +" V   V"
+            +"V     "
+            'V' means VOID_INGOT
+            'I' means INFINITY_INGOT
+        }
+        itemModifier = {
             applyInfinityGearEnchantment(it)
         }
     }
 
-    val INFINITY_AXE = buildSlimefunItem<InfinityTool> {
-        id = "INFINITY_AXE"
-        material = Material.NETHERITE_AXE.convert()
+    val INFINITY_AXE by buildSlimefunItem<InfinityTool> {
+        material = Material.NETHERITE_AXE.asMaterialType()
         itemGroup = IEItemGroups.TOOLS
         recipeType = IERecipeTypes.INFINITY_WORKBENCH
-        recipe = arrayOf(
-            // @formatter:off
-            null, VOID_INGOT, INFINITY_INGOT, INFINITY_INGOT, null, null,
-            VOID_INGOT, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT, VOID_INGOT, null,
-            null, INFINITY_INGOT, INFINITY_INGOT, VOID_INGOT, INFINITY_INGOT, INFINITY_INGOT,
-            null, null, VOID_INGOT, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT,
-            null, VOID_INGOT, null, INFINITY_INGOT, INFINITY_INGOT, VOID_INGOT,
-            VOID_INGOT, null, null, null, VOID_INGOT, null
-            // @formatter:on
-        )
-        postCreate = {
+        recipe = buildRecipe(6) {
+            +" VII  "
+            +"VIIIV "
+            +" IIVII"
+            +"  VIII"
+            +" V IIV"
+            +"V   V "
+            'V' means VOID_INGOT
+            'I' means INFINITY_INGOT
+        }
+        itemModifier = {
             applyInfinityGearEnchantment(it)
         }
     }
 
-    val INFINITY_SHOVEL = buildSlimefunItem<InfinityTool> {
-        id = "INFINITY_SHOVEL"
-        material = Material.NETHERITE_SHOVEL.convert()
+    val INFINITY_SHOVEL by buildSlimefunItem<InfinityTool> {
+        material = Material.NETHERITE_SHOVEL.asMaterialType()
         itemGroup = IEItemGroups.TOOLS
         recipeType = IERecipeTypes.INFINITY_WORKBENCH
-        recipe = arrayOf(
-            // @formatter:off
-            null, null, null, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT,
-            null, null, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT,
-            null, null, INFINITY_INGOT, VOID_INGOT, INFINITY_INGOT, INFINITY_INGOT,
-            null, null, VOID_INGOT, INFINITY_INGOT, INFINITY_INGOT, null,
-            null, VOID_INGOT, null, null, null, null,
-            VOID_INGOT, null, null, null, null, null
-            // @formatter:on
-        )
-        postCreate = {
+        recipe = buildRecipe(6) {
+            +"   III"
+            +"  IIII"
+            +"  IVII"
+            +"  VII "
+            +" V    "
+            +"V     "
+            'V' means VOID_INGOT
+            'I' means INFINITY_INGOT
+        }
+        itemModifier = {
             applyInfinityGearEnchantment(it)
         }
     }
 
-    val INFINITY_HOE = buildSlimefunItem<InfinityTool> {
-        id = "INFINITY_HOE"
-        material = Material.NETHERITE_HOE.convert()
+    val INFINITY_HOE by buildSlimefunItem<InfinityTool> {
+        material = Material.NETHERITE_HOE.asMaterialType()
         itemGroup = IEItemGroups.TOOLS
         recipeType = IERecipeTypes.INFINITY_WORKBENCH
-        recipe = arrayOf(
-            // @formatter:off
-            null, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT, VOID_INGOT,
-            null, null, INFINITY_INGOT, INFINITY_INGOT, VOID_INGOT, INFINITY_INGOT,
-            null, null, null, VOID_INGOT, null, null,
-            null, null, VOID_INGOT, null, null, null,
-            null, VOID_INGOT, null, null, null, null,
-            VOID_INGOT, null, null, null, null, null,
-            // @formatter:on
-        )
-        postCreate = {
+        recipe = buildRecipe(6) {
+            +" IIIIV"
+            +"  IIVI"
+            +"   V  "
+            +"  V   "
+            +" V    "
+            +"V     "
+            'V' means VOID_INGOT
+            'I' means INFINITY_INGOT
+        }
+        itemModifier = {
             applyInfinityGearEnchantment(it)
         }
     }
 
-    val INFINITY_MATRIX = buildSlimefunItem<InfinityMatrix> {
-        id = "INFINITY_MATRIX"
-        material = Material.NETHER_STAR.convert()
+    val INFINITY_MATRIX by buildSlimefunItem<InfinityMatrix> {
+        material = Material.NETHER_STAR.asMaterialType()
         itemGroup = IEItemGroups.TOOLS
         recipeType = IERecipeTypes.INFINITY_WORKBENCH
-        recipe = arrayOf(
-            // @formatter:off
-            INFINITY_INGOT, null, INFINITY_INGOT, INFINITY_INGOT, null, INFINITY_INGOT,
-            INFINITY_INGOT, VOID_INGOT, VOID_INGOT, VOID_INGOT, VOID_INGOT, INFINITY_INGOT,
-            VOID_INGOT, VOID_INGOT, Material.ELYTRA.toItem(), Material.ELYTRA.toItem(), VOID_INGOT, VOID_INGOT,
-            VOID_INGOT, VOID_INGOT, INFINITY_INGOT, INFINITY_INGOT, VOID_INGOT, VOID_INGOT,
-            INFINITY_INGOT, VOID_INGOT, VOID_INGOT, VOID_INGOT, VOID_INGOT, INFINITY_INGOT,
-            INFINITY_INGOT, null, INFINITY_INGOT, INFINITY_INGOT, null, INFINITY_INGOT
-            // @formatter:on
-        )
+        recipe = buildRecipe(6) {
+            +"I II I"
+            +"IVVVVI"
+            +"VVEEVV"
+            +"VVIIVV"
+            +"IVVVVI"
+            +"I II I"
+            'V' means VOID_INGOT
+            'I' means INFINITY_INGOT
+            'E' means Material.ELYTRA.toItem()
+        }
     }
     //</editor-fold>
 
     //<editor-fold desc="Gears" defaultstate="collapsed">
-    val INFINITY_HELMET = buildSlimefunItem<InfinityArmor>(
+    val INFINITY_HELMET by buildSlimefunItem<InfinityArmor>(
         arrayOf(
             buildHiddenPotionEffect("night_vision", 600, 0),
             buildHiddenPotionEffect("conduit_power", 600, 0),
         ),
         arrayOf(ProtectionType.FLYING_INTO_WALL),
     ) {
-        id = "INFINITY_HELMET"
-        material = Material.NETHERITE_HELMET.convert()
+        material = Material.NETHERITE_HELMET.asMaterialType()
         itemGroup = IEItemGroups.GEAR
         recipeType = IERecipeTypes.INFINITY_WORKBENCH
-        recipe = arrayOf(
-            // @formatter:off
-            null, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT, null,
-            INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT,
-            INFINITY_INGOT, VOID_INGOT, INFINITY_INGOT, INFINITY_INGOT, VOID_INGOT, INFINITY_INGOT,
-            null, INFINITY_INGOT, null, null, INFINITY_INGOT, null,
-            null, null, null, null, null, null,
-            null, null, null, null, null, null,
-            // @formatter:on
-        )
-        postCreate = {
+        recipe = buildRecipe(6) {
+            +" IIII "
+            +"IIIIII"
+            +"IVIIVI"
+            +" I  I "
+            +"      "
+            +"      "
+            'V' means VOID_INGOT
+            'I' means INFINITY_INGOT
+        }
+        itemModifier = {
             applyInfinityGearEnchantment(it)
         }
     }
 
-    val INFINIYT_CHESTPLATE = buildSlimefunItem<InfinityArmor>(
+    val INFINIYT_CHESTPLATE by buildSlimefunItem<InfinityArmor>(
         arrayOf(
             buildHiddenPotionEffect("night_vision", 600, 0),
             buildHiddenPotionEffect("conduit_power", 600, 0),
         ),
         arrayOf(ProtectionType.BEES),
     ) {
-        id = "INFINITY_CHESTPLATE"
-        material = Material.NETHERITE_CHESTPLATE.convert()
+        material = Material.NETHERITE_CHESTPLATE.asMaterialType()
         itemGroup = IEItemGroups.GEAR
         recipeType = IERecipeTypes.INFINITY_WORKBENCH
-        recipe = arrayOf(
-            // @formatter:off
-            null, INFINITY_INGOT, null, null, INFINITY_INGOT, null,
-            INFINITY_INGOT, VOID_INGOT, INFINITY_INGOT, INFINITY_INGOT, VOID_INGOT, INFINITY_INGOT,
-            VOID_INGOT, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT, VOID_INGOT,
-            VOID_INGOT, INFINITY_INGOT, VOID_INGOT, VOID_INGOT, INFINITY_INGOT, VOID_INGOT,
-            null, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT, null,
-            null, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT, null,
-            // @formatter:on
-        )
-        postCreate = {
+        recipe = buildRecipe(6) {
+            +" I  I "
+            +"IVIIVI"
+            +"VIIIIV"
+            +"VIVVIV"
+            +" IIII "
+            +" IIII "
+            'V' means VOID_INGOT
+            'I' means INFINITY_INGOT
+        }
+        itemModifier = {
             applyInfinityGearEnchantment(it)
         }
     }
 
-    val INFINITY_LEGGINGS = buildSlimefunItem<InfinityArmor>(
+    val INFINITY_LEGGINGS by buildSlimefunItem<InfinityArmor>(
         arrayOf(
             buildHiddenPotionEffect("haste", 600, 2),
             buildHiddenPotionEffect("regeneration", 600, 0),
@@ -1062,934 +1160,1081 @@ object IEItems {
         ),
         arrayOf(ProtectionType.RADIATION),
     ) {
-        id = "INFINITY_LEGGINGS"
-        material = Material.NETHERITE_LEGGINGS.convert()
+        material = Material.NETHERITE_LEGGINGS.asMaterialType()
         itemGroup = IEItemGroups.GEAR
         recipeType = IERecipeTypes.INFINITY_WORKBENCH
-        recipe = arrayOf(
-            // @formatter:off
-            null, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT, null,
-            INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT,
-            VOID_INGOT, INFINITY_INGOT, null, null, INFINITY_INGOT, VOID_INGOT,
-            VOID_INGOT, INFINITY_INGOT, null, null, INFINITY_INGOT, VOID_INGOT,
-            VOID_INGOT, INFINITY_INGOT, null, null, INFINITY_INGOT, VOID_INGOT,
-            null, INFINITY_INGOT, null, null, INFINITY_INGOT, null,
-        )
-        postCreate = {
+        recipe = buildRecipe(6) {
+            +" IIII "
+            +"IIIIII"
+            +"VI  IV"
+            +"VI  IV"
+            +"VI  IV"
+            +" I  I "
+            'V' means VOID_INGOT
+            'I' means INFINITY_INGOT
+        }
+        itemModifier = {
             applyInfinityGearEnchantment(it)
         }
     }
 
-    val INFINITY_BOOTS = buildSlimefunItem<InfinityBoots>(
+    val INFINITY_BOOTS by buildSlimefunItem<InfinityBoots>(
         arrayOf(
             buildHiddenPotionEffect("speed", 600, 2),
             buildHiddenPotionEffect("dolphins_grace", 600, 0),
-        ),
-        arrayOf<ProtectionType>()
+        ), arrayOf<ProtectionType>()
     ) {
-        id = "INFINITY_BOOTS"
-        material = Material.NETHERITE_BOOTS.convert()
+        material = Material.NETHERITE_BOOTS.asMaterialType()
         itemGroup = IEItemGroups.GEAR
         recipeType = IERecipeTypes.INFINITY_WORKBENCH
-        recipe = arrayOf(
-            // @formatter:off
-            null, null, null, null, null, null,
-            INFINITY_INGOT, INFINITY_INGOT, null, null, INFINITY_INGOT, INFINITY_INGOT,
-            INFINITY_INGOT, INFINITY_INGOT, null, null, INFINITY_INGOT, INFINITY_INGOT,
-            VOID_INGOT, VOID_INGOT, null, null, VOID_INGOT, VOID_INGOT,
-            INFINITY_INGOT, INFINITY_INGOT, null, null, INFINITY_INGOT, INFINITY_INGOT,
-            INFINITY_INGOT, INFINITY_INGOT, null, null, INFINITY_INGOT, INFINITY_INGOT,
-        )
-        postCreate = {
+        recipe = buildRecipe(6) {
+            +"      "
+            +"II  II"
+            +"II  II"
+            +"VV  VV"
+            +"II  II"
+            +"II  II"
+            'V' means VOID_INGOT
+            'I' means INFINITY_INGOT
+        }
+        itemModifier = {
             applyInfinityGearEnchantment(it)
         }
     }
 
-    val INFINITY_SHIELD = buildSlimefunItem<InfinityTool> {
-        id = "INFINITY_SHIELD"
-        material = Material.SHIELD.convert()
+    val INFINITY_SHIELD by buildSlimefunItem<InfinityTool> {
+        material = Material.SHIELD.asMaterialType()
         itemGroup = IEItemGroups.GEAR
         recipeType = IERecipeTypes.INFINITY_WORKBENCH
-        recipe = arrayOf(
-            // @formatter:off
-            INFINITY_INGOT, INFINITY_INGOT, null, null, INFINITY_INGOT, INFINITY_INGOT,
-            INFINITY_INGOT, VOID_INGOT, INFINITY_INGOT, INFINITY_INGOT, VOID_INGOT, INFINITY_INGOT,
-            INFINITY_INGOT, VOID_INGOT, INFINITY_INGOT, INFINITY_INGOT, VOID_INGOT, INFINITY_INGOT,
-            INFINITY_INGOT, VOID_INGOT, INFINITY_INGOT, INFINITY_INGOT, VOID_INGOT, INFINITY_INGOT,
-            null, INFINITY_INGOT, VOID_INGOT, VOID_INGOT, INFINITY_INGOT, null,
-            null, INFINITY_INGOT, VOID_INGOT, VOID_INGOT, INFINITY_INGOT, null,
-            // @formatter:on
-        )
-        postCreate = {
+        recipe = buildRecipe(6) {
+            +"II  II"
+            +"IVIIVI"
+            +"IVIIVI"
+            +"IVIIVI"
+            +" IVVI "
+            +" IVVI "
+            'V' means VOID_INGOT
+            'I' means INFINITY_INGOT
+        }
+        itemModifier = {
             applyInfinityGearEnchantment(it)
         }
     }
 
-    val INFINITY_SWORD = buildSlimefunItem<InfinityTool> {
-        id = "INFINITY_SWORD"
-        material = Material.NETHERITE_SWORD.convert()
+    val INFINITY_SWORD by buildSlimefunItem<InfinityTool> {
+        material = Material.NETHERITE_SWORD.asMaterialType()
         itemGroup = IEItemGroups.GEAR
         recipeType = IERecipeTypes.INFINITY_WORKBENCH
-        recipe = arrayOf(
-            // @formatter:off
-            null, null, null, null, INFINITY_INGOT, INFINITY_INGOT,
-            null, null, null, INFINITY_INGOT, VOID_INGOT, INFINITY_INGOT,
-            null, null, INFINITY_INGOT, VOID_INGOT, INFINITY_INGOT, null,
-            INFINITY_INGOT, INFINITY_INGOT, VOID_INGOT, INFINITY_INGOT, null, null,
-            null, VOID_INGOT, INFINITY_INGOT, null, null, null,
-            VOID_INGOT, null, INFINITY_INGOT, null, null, null
-            // @formatter:on
-        )
-        postCreate = {
+        recipe = buildRecipe(6) {
+            +"    II"
+            +"   IVI"
+            +"  IVI "
+            +"IIVI  "
+            +" VI   "
+            +"V I   "
+            'V' means VOID_INGOT
+            'I' means INFINITY_INGOT
+        }
+        itemModifier = {
             applyInfinityGearEnchantment(it)
         }
     }
 
-    val INFINITY_BOW = buildSlimefunItem<InfinityBow> {
-        id = "INFINITY_BOW"
-        material = Material.BOW.convert()
+    val INFINITY_BOW by buildSlimefunItem<InfinityBow> {
+        material = Material.BOW.asMaterialType()
         itemGroup = IEItemGroups.GEAR
         recipeType = IERecipeTypes.INFINITY_WORKBENCH
-        recipe = arrayOf(
-            // @formatter:off
-            null, INFINITY_INGOT, INFINITY_INGOT, VOID_INGOT, null, null,
-            INFINITY_INGOT, null, INFINITY_INGOT, INFINITY_INGOT, VOID_INGOT, null,
-            VOID_INGOT, null, null, ENDER_FLAME, INFINITY_INGOT, VOID_INGOT,
-            null, VOID_INGOT, null, null, INFINITY_INGOT, INFINITY_INGOT,
-            null, null, VOID_INGOT, null, null, INFINITY_INGOT,
-            null, null, null, VOID_INGOT, INFINITY_INGOT, null
-            // @formatter:on
-        )
-        postCreate = {
+        recipe = buildRecipe(6) {
+            +" IIV  "
+            +"I IIV "
+            +"V  EIV"
+            +" V  II"
+            +"  V  I"
+            +"   VI "
+            'V' means VOID_INGOT
+            'I' means INFINITY_INGOT
+            'E' means ENDER_FLAME
+        }
+        itemModifier = {
             applyInfinityGearEnchantment(it)
         }
     }
 
-    val INFINITY_CROSSBOW = buildSlimefunItem<InfinityBow> {
-        id = "INFINITY_CROSSBOW"
-        material = Material.CROSSBOW.convert()
+    val INFINITY_CROSSBOW by buildSlimefunItem<InfinityBow> {
+        material = Material.CROSSBOW.asMaterialType()
         itemGroup = IEItemGroups.GEAR
         recipeType = IERecipeTypes.INFINITY_WORKBENCH
-        recipe = arrayOf(
-            // @formatter:off
-            null, VOID_INGOT, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT, null,
-            VOID_INGOT, INFINITY_INGOT, VOID_INGOT, null, null, INFINITY_INGOT,
-            INFINITY_INGOT, VOID_INGOT, INFINITY_INGOT, INFINITY_INGOT, null, VOID_INGOT,
-            INFINITY_INGOT, null, INFINITY_INGOT, INFINITY_INGOT, VOID_INGOT, null,
-            INFINITY_INGOT, null, null, VOID_INGOT, INFINITY_INGOT, INFINITY_INGOT,
-            null, INFINITY_INGOT, VOID_INGOT, null, INFINITY_INGOT, INFINITY_INGOT,
-            // @formatter:on
-        )
-        postCreate = {
+        recipe = buildRecipe(6) {
+            +" VIII "
+            +"VIV  I"
+            +"IVII V"
+            +"I IIV "
+            +"I  VII"
+            +" IV II"
+            'V' means VOID_INGOT
+            'I' means INFINITY_INGOT
+        }
+        itemModifier = {
             applyInfinityGearEnchantment(it)
         }
     }
     //</editor-fold>
 
     //<editor-fold desc="Machines" defaultstate="collapsed">
-    val COBBLESTONE_GENERATOR = buildSlimefunItem<MaterialGenerator>(Material.COBBLESTONE, 1, 24) {
-        id = "COBBLESTONE_GENERATOR"
-        material = Material.SMOOTH_STONE.convert()
+    val COBBLESTONE_GENERATOR by buildSlimefunItem<MaterialGenerator>(Material.COBBLESTONE, 1, 24) {
+        material = Material.SMOOTH_STONE.asMaterialType()
         itemGroup = IEItemGroups.MACHINES
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
-        recipe = arrayOf(
-            // @formatter:off
-            MAGSTEEL, Material.DIAMOND_PICKAXE.toItem(), MAGSTEEL,
-            Material.WATER_BUCKET.toItem(), COMPRESSED_COBBLESTONE_2, Material.LAVA_BUCKET.toItem(),
-            MAGSTEEL, MACHINE_CIRCUIT, MAGSTEEL,
-            // @formatter:on
-        )
+        recipe = buildRecipe {
+            +"MPM"
+            +"WCL"
+            +"McM"
+            'M' means MAGSTEEL
+            'P' means Material.DIAMOND_PICKAXE.toItem()
+            'W' means Material.WATER_BUCKET.toItem()
+            'C' means COMPRESSED_COBBLESTONE_2
+            'L' means Material.LAVA_BUCKET.toItem()
+            'c' means MACHINE_CIRCUIT
+        }
     }
 
-    val COBBLESTONE_GENERATOR_2 = buildSlimefunItem<MaterialGenerator>(Material.COBBLESTONE, 4, 120) {
-        id = "COBBLESTONE_GENERATOR_2"
-        material = Material.SMOOTH_STONE.convert()
+    val COBBLESTONE_GENERATOR_2 by buildSlimefunItem<MaterialGenerator>(Material.COBBLESTONE, 4, 120) {
+        material = Material.SMOOTH_STONE.asMaterialType()
         itemGroup = IEItemGroups.MACHINES
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
-        recipe = arrayOf(
-            // @formatter:off
-            MAGSTEEL, COBBLESTONE_GENERATOR, MAGSTEEL,
-            Material.WATER_BUCKET.toItem(), COMPRESSED_COBBLESTONE_3, Material.LAVA_BUCKET.toItem(),
-            MACHINE_CIRCUIT, COBBLESTONE_GENERATOR, MACHINE_CIRCUIT,
-            // @formatter:on
-        )
+        recipe = buildRecipe {
+            +"MGM"
+            +"WCL"
+            +"CGC"
+            'M' means MAGSTEEL
+            'G' means COBBLESTONE_GENERATOR
+            'W' means Material.WATER_BUCKET.toItem()
+            'C' means COMPRESSED_COBBLESTONE_3
+            'L' means Material.LAVA_BUCKET.toItem()
+        }
     }
 
-    val COBBLESTONE_GENERATOR_3 = buildSlimefunItem<MaterialGenerator>(Material.COBBLESTONE, 16, 360) {
-        id = "COBBLESTONE_GENERATOR_3"
-        material = Material.SMOOTH_STONE.convert()
+    val COBBLESTONE_GENERATOR_3 by buildSlimefunItem<MaterialGenerator>(Material.COBBLESTONE, 16, 360) {
+        material = Material.SMOOTH_STONE.asMaterialType()
         itemGroup = IEItemGroups.MACHINES
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
-        recipe = arrayOf(
-            // @formatter:off
-            VOID_BLOCK, COBBLESTONE_GENERATOR_2, MACHINE_PLATE,
-            Material.WATER_BUCKET.toItem(), COMPRESSED_COBBLESTONE_4, Material.LAVA_BUCKET.toItem(),
-            MACHINE_CIRCUIT, COBBLESTONE_GENERATOR_2, VOID_BLOCK,
-            // @formatter:on
-        )
+        recipe = buildRecipe {
+            +"VGc"
+            +"WCL"
+            +"cGV"
+            'V' means VOID_BLOCK
+            'G' means COBBLESTONE_GENERATOR_2
+            'c' means MACHINE_CIRCUIT
+            'W' means Material.WATER_BUCKET.toItem()
+            'C' means COMPRESSED_COBBLESTONE_4
+            'L' means Material.LAVA_BUCKET.toItem()
+        }
     }
 
-    val COBBLESTONE_GENERATOR_4 = buildSlimefunItem<MaterialGenerator>(Material.COBBLESTONE, 64, 800) {
-        id = "COBBLESTONE_GENERATOR_4"
-        material = Material.SMOOTH_STONE.convert()
+    val COBBLESTONE_GENERATOR_4 by buildSlimefunItem<MaterialGenerator>(Material.COBBLESTONE, 64, 800) {
+        material = Material.SMOOTH_STONE.asMaterialType()
         itemGroup = IEItemGroups.MACHINES
         recipeType = IERecipeTypes.INFINITY_WORKBENCH
-        recipe = arrayOf(
-            INFINITY_INGOT, VOID_INGOT, null, null, VOID_INGOT, INFINITY_INGOT,
-            null, VOID_INGOT, COBBLESTONE_GENERATOR_3, COBBLESTONE_GENERATOR_3, VOID_INGOT, null,
-            null, VOID_INGOT, COBBLESTONE_GENERATOR_3, COBBLESTONE_GENERATOR_3, VOID_INGOT, null,
-            null, VOID_INGOT, COBBLESTONE_GENERATOR_3, COBBLESTONE_GENERATOR_3, VOID_INGOT, null,
-            null, VOID_INGOT, COBBLESTONE_GENERATOR_3, COBBLESTONE_GENERATOR_3, VOID_INGOT, null,
-            INFINITY_INGOT, VOID_INGOT, null, null, VOID_INGOT, INFINITY_INGOT,
-        )
+        recipe = buildRecipe(6) {
+            +"IV  VI"
+            +" VGGV "
+            +" VGGV "
+            +" VGGV "
+            +" VGGV "
+            +"IV  VI"
+            'V' means VOID_INGOT
+            'I' means INFINITY_INGOT
+            'G' means COBBLESTONE_GENERATOR_3
+        }
     }
 
-    val VIRTUAL_FARM = buildSlimefunItem<VirtualFarm>(18, 300) {
-        id = "VIRTUAL_FARM"
-        material = Material.GRASS_BLOCK.convert()
+    val VIRTUAL_FARM by buildSlimefunItem<VirtualFarm>(18, 300) {
+        material = Material.GRASS_BLOCK.asMaterialType()
         itemGroup = IEItemGroups.MACHINES
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
-        recipe = arrayOf(
-            // @formatter:off
-            Material.GLASS.toItem(), Material.GLASS.toItem(), Material.GLASS.toItem(),
-            MAGSTEEL, Material.DIAMOND_HOE.toItem(), MAGSTEEL,
-            MACHINE_CIRCUIT, Material.GRASS_BLOCK.toItem(), MACHINE_CIRCUIT,
-            // @formatter:on
-        )
+        recipe = buildRecipe {
+            +"GGG"
+            +"MHM"
+            +"CBC"
+            'G' means Material.GLASS.toItem()
+            'M' means MAGSTEEL
+            'H' means Material.DIAMOND_HOE.toItem()
+            'C' means MACHINE_CIRCUIT
+            'B' means Material.GRASS_BLOCK.toItem()
+        }
     }
 
-    val VIRTUAL_FARM_2 = buildSlimefunItem<VirtualFarm>(90, 60) {
-        id = "VIRTUAL_FARM_2"
-        material = Material.CRIMSON_NYLIUM.convert()
+    val VIRTUAL_FARM_2 by buildSlimefunItem<VirtualFarm>(90, 60) {
+        material = Material.CRIMSON_NYLIUM.asMaterialType()
         itemGroup = IEItemGroups.MACHINES
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
-        recipe = arrayOf(
-            // @formatter:off
-            SlimefunItems.HARDENED_GLASS, SlimefunItems.HARDENED_GLASS, SlimefunItems.HARDENED_GLASS,
-            MAGNONIUM, VIRTUAL_FARM, MAGNONIUM,
-            MACHINE_CIRCUIT, MACHINE_CORE, MACHINE_CIRCUIT,
-            // @formatter:on
-        )
+        recipe = buildRecipe {
+            +"GGG"
+            +"MFM"
+            +"COC"
+            'G' means Material.GLASS.toItem()
+            'M' means MAGNONIUM
+            'F' means VIRTUAL_FARM
+            'C' means MACHINE_CIRCUIT
+            'O' means MACHINE_CORE
+        }
     }
 
-    val VIRTUAL_FARM_3 = buildSlimefunItem<VirtualFarm>(270, 30) {
-        id = "VIRTUAL_FARM_3"
-        material = Material.WARPED_NYLIUM.convert()
+    val VIRTUAL_FARM_3 by buildSlimefunItem<VirtualFarm>(270, 30) {
+        material = Material.WARPED_NYLIUM.asMaterialType()
         itemGroup = IEItemGroups.MACHINES
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
-        recipe = arrayOf(
-            VOID_BLOCK, VIRTUAL_FARM_2, VOID_BLOCK,
-            MACHINE_CORE, VIRTUAL_FARM_2, MACHINE_CORE,
-            VOID_BLOCK, VIRTUAL_FARM_2, VOID_BLOCK,
-        )
+        recipe = buildRecipe {
+            +"VFV"
+            +"OFO"
+            +"VFV"
+            'V' means VOID_BLOCK
+            'F' means VIRTUAL_FARM_2
+            'O' means MACHINE_CORE
+        }
     }
 
-    val VIRTUAL_FARM_4 = buildSlimefunItem<VirtualFarm>(1000, 10) {
-        id = "VIRTUAL_FARM_4"
-        material = Material.END_STONE.convert()
+    val VIRTUAL_FARM_4 by buildSlimefunItem<VirtualFarm>(1000, 10) {
+        material = Material.END_STONE.asMaterialType()
         itemGroup = IEItemGroups.MACHINES
         recipeType = IERecipeTypes.INFINITY_WORKBENCH
-        recipe = arrayOf(
-            // @formatter:off
-            Material.GLASS.toItem(), Material.GLASS.toItem(), Material.GLASS.toItem(), Material.GLASS.toItem(), Material.GLASS.toItem(), Material.GLASS.toItem(),
-            Material.GLASS.toItem(), null, null, null, null, Material.GLASS.toItem(),
-            Material.GLASS.toItem(), null, null, null, null, Material.GLASS.toItem(),
-            Material.GLASS.toItem(), Material.GRASS_BLOCK.toItem(), Material.GRASS_BLOCK.toItem(), Material.GRASS_BLOCK.toItem(), Material.GRASS_BLOCK.toItem(), Material.GLASS.toItem(),
-            MACHINE_PLATE, SlimefunItems.CROP_GROWTH_ACCELERATOR_2, VIRTUAL_FARM_3, VIRTUAL_FARM_3, SlimefunItems.CROP_GROWTH_ACCELERATOR_2, MACHINE_PLATE,
-            MACHINE_PLATE, INFINITY_MACHINE_CIRCUIT, INFINITY_MACHINE_CORE, INFINITY_MACHINE_CORE, INFINITY_MACHINE_CIRCUIT, MACHINE_PLATE,
-            // @formatter:on
-        )
+        recipe = buildRecipe(6) {
+            +"GGGGGG"
+            +"G    G"
+            +"G    G"
+            +"GRRRRG"
+            +"PAFFAP"
+            +"PCOOCP"
+            'G' means Material.GLASS.toItem()
+            'R' means Material.GRASS_BLOCK.toItem()
+            'P' means MACHINE_PLATE
+            'A' means SlimefunItems.CROP_GROWTH_ACCELERATOR_2
+            'F' means VIRTUAL_FARM_3
+            'C' means INFINITY_MACHINE_CIRCUIT
+            'O' means INFINITY_MACHINE_CORE
+        }
     }
 
-    val TREE_GROWER = buildSlimefunItem<TreeGrower>(36, 600) {
-        id = "TREE_GROWER"
-        material = Material.STRIPPED_OAK_WOOD.convert()
+    val TREE_GROWER by buildSlimefunItem<TreeGrower>(36, 600) {
+        material = Material.STRIPPED_OAK_WOOD.asMaterialType()
         itemGroup = IEItemGroups.MACHINES
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
-        recipe = arrayOf(
-            // @formatter:off
-            Material.GLASS.toItem(), Material.GLASS.toItem(), Material.GLASS.toItem(),
-            MAGSTEEL, Material.PODZOL.toItem(), MAGSTEEL,
-            MACHINE_CIRCUIT, VIRTUAL_FARM, MACHINE_CIRCUIT,
-            // @formatter:on
-        )
+        recipe = buildRecipe {
+            +"GGG"
+            +"MPM"
+            +"CFC"
+            'G' means Material.GLASS.toItem()
+            'M' means MAGSTEEL
+            'P' means Material.PODZOL.toItem()
+            'C' means MACHINE_CIRCUIT
+            'F' means VIRTUAL_FARM
+        }
     }
 
-    val TREE_GROWER_2 = buildSlimefunItem<TreeGrower>(180, 120) {
-        id = "TREE_GROWER_2"
-        material = Material.STRIPPED_ACACIA_WOOD.convert()
+    val TREE_GROWER_2 by buildSlimefunItem<TreeGrower>(180, 120) {
+        material = Material.STRIPPED_ACACIA_WOOD.asMaterialType()
         itemGroup = IEItemGroups.MACHINES
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
-        recipe = arrayOf(
-            SlimefunItems.HARDENED_GLASS, SlimefunItems.HARDENED_GLASS, SlimefunItems.HARDENED_GLASS,
-            MAGNONIUM, TREE_GROWER, MAGNONIUM,
-            MACHINE_CIRCUIT, MACHINE_CORE, MACHINE_CIRCUIT,
-        )
+        recipe = buildRecipe {
+            +"GGG"
+            +"MTM"
+            +"COC"
+            'G' means Material.GLASS.toItem()
+            'M' means MAGSTEEL
+            'T' means TREE_GROWER
+            'C' means MACHINE_CIRCUIT
+            'O' means MACHINE_CORE
+        }
     }
 
-    val TREE_GROWER_3 = buildSlimefunItem<TreeGrower>(540, 60) {
-        id = "TREE_GROWER_3"
-        material = Material.STRIPPED_CRIMSON_HYPHAE.convert()
+    val TREE_GROWER_3 by buildSlimefunItem<TreeGrower>(540, 60) {
+        material = Material.STRIPPED_CRIMSON_HYPHAE.asMaterialType()
         itemGroup = IEItemGroups.MACHINES
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
-        recipe = arrayOf(
-            VOID_BLOCK, TREE_GROWER_2, VOID_BLOCK,
-            MACHINE_CORE, TREE_GROWER_2, MACHINE_CORE,
-            VOID_BLOCK, TREE_GROWER_2, VOID_BLOCK,
-        )
+        recipe = buildRecipe {
+            +"VTV"
+            +"OTO"
+            +"VTV"
+            'V' means VOID_BLOCK
+            'T' means TREE_GROWER_2
+            'O' means MACHINE_CORE
+        }
     }
 
-    val TREE_GROWER_4 = buildSlimefunItem<TreeGrower>(2000, 12) {
-        id = "TREE_GROWER_4"
-        material = Material.STRIPPED_WARPED_HYPHAE.convert()
+    val TREE_GROWER_4 by buildSlimefunItem<TreeGrower>(2000, 12) {
+        material = Material.STRIPPED_WARPED_HYPHAE.asMaterialType()
         itemGroup = IEItemGroups.MACHINES
         recipeType = IERecipeTypes.INFINITY_WORKBENCH
-        recipe = arrayOf(
-            // @formatter:off
-            Material.GLASS.toItem(), Material.GLASS.toItem(), Material.GLASS.toItem(), Material.GLASS.toItem(), Material.GLASS.toItem(), Material.GLASS.toItem(),
-            Material.GLASS.toItem(), SlimefunItems.TREE_GROWTH_ACCELERATOR, null, null, SlimefunItems.TREE_GROWTH_ACCELERATOR, Material.GLASS.toItem(),
-            Material.GLASS.toItem(), TREE_GROWER_3, null, null, TREE_GROWER_3, Material.GLASS.toItem(),
-            Material.GLASS.toItem(), SlimefunItems.TREE_GROWTH_ACCELERATOR, null, null, SlimefunItems.TREE_GROWTH_ACCELERATOR, Material.GLASS.toItem(),
-            MACHINE_PLATE, Material.PODZOL.toItem(), Material.PODZOL.toItem(), Material.PODZOL.toItem(), Material.PODZOL.toItem(), MACHINE_PLATE,
-            MACHINE_PLATE, INFINITY_MACHINE_CIRCUIT, INFINITY_MACHINE_CORE, INFINITY_MACHINE_CORE, INFINITY_MACHINE_CIRCUIT, MACHINE_PLATE,
-            // @formatter:on
-        )
+        recipe = buildRecipe(6) {
+            +"GGGGGG"
+            +"GA  AG"
+            +"GT  TG"
+            +"GA  AG"
+            +"PppppP"
+            +"PCOOCP"
+            'G' means Material.GLASS.toItem()
+            'A' means SlimefunItems.TREE_GROWTH_ACCELERATOR
+            'T' means TREE_GROWER_3
+            'P' means MACHINE_PLATE
+            'p' means Material.PODZOL.toItem()
+            'C' means INFINITY_MACHINE_CIRCUIT
+            'O' means INFINITY_MACHINE_CORE
+        }
     }
 
-    val VOID_HARVESTER = buildSlimefunItem<VoidHarvester>(1, 120) {
-        id = "VOID_HARVESTER"
-        material = Material.OBSIDIAN.convert()
+    val VOID_HARVESTER by buildSlimefunItem<VoidHarvester>(1, 120) {
+        material = Material.OBSIDIAN.asMaterialType()
         itemGroup = IEItemGroups.MACHINES
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
-        recipe = arrayOf(
-            TITANIUM, TITANIUM, TITANIUM,
-            MACHINE_PLATE, SlimefunItems.GEO_MINER, MACHINE_PLATE,
-            MACHINE_CIRCUIT, MACHINE_CORE, MACHINE_CIRCUIT,
-        )
+        recipe = buildRecipe {
+            +"TTT"
+            +"PMP"
+            +"COC"
+            'T' means TITANIUM
+            'P' means MACHINE_PLATE
+            'M' means SlimefunItems.GEO_MINER
+            'C' means MACHINE_CIRCUIT
+            'O' means MACHINE_CORE
+        }
     }
 
-    val VOID_HARVESTER_2 = buildSlimefunItem<VoidHarvester>(8, 1200) {
-        id = "VOID_HARVESTER_2"
-        material = Material.OBSIDIAN.convert()
+    val VOID_HARVESTER_2 by buildSlimefunItem<VoidHarvester>(8, 1200) {
+        material = Material.OBSIDIAN.asMaterialType()
         itemGroup = IEItemGroups.MACHINES
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
-        recipe = arrayOf(
-            SlimefunItems.REINFORCED_PLATE, SlimefunItems.REINFORCED_PLATE, SlimefunItems.REINFORCED_PLATE,
-            MAGSTEEL_PLATE, VOID_HARVESTER, MAGSTEEL_PLATE,
-            MACHINE_CIRCUIT, MACHINE_CORE, MACHINE_CIRCUIT,
-        )
+        recipe = buildRecipe {
+            +"RRR"
+            +"PHP"
+            +"COC"
+            'R' means SlimefunItems.REINFORCED_PLATE
+            'P' means MACHINE_PLATE
+            'H' means VOID_HARVESTER
+            'C' means MACHINE_CIRCUIT
+            'O' means MACHINE_CORE
+        }
     }
 
-    val VOID_HARVESTER_3 = buildSlimefunItem<VoidHarvester>(64, 12000) {
-        id = "VOID_HARVESTER_3"
-        material = Material.CRYING_OBSIDIAN.convert()
+    val VOID_HARVESTER_3 by buildSlimefunItem<VoidHarvester>(64, 12000) {
+        material = Material.CRYING_OBSIDIAN.asMaterialType()
         itemGroup = IEItemGroups.MACHINES
         recipeType = IERecipeTypes.INFINITY_WORKBENCH
-        recipe = arrayOf(
-            // @formatter:off
-            MACHINE_PLATE, MACHINE_PLATE, MACHINE_PLATE, MACHINE_PLATE, MACHINE_PLATE, MACHINE_PLATE,
-            MAGNONIUM, VOID_INGOT, VOID_INGOT, VOID_INGOT, VOID_INGOT, MAGNONIUM,
-            MAGNONIUM, VOID_INGOT, INFINITY_MACHINE_CIRCUIT, INFINITY_MACHINE_CIRCUIT, VOID_INGOT, MAGNONIUM,
-            MAGNONIUM, VOID_INGOT, VOID_HARVESTER_2, VOID_HARVESTER_2, VOID_INGOT, MAGNONIUM,
-            MAGNONIUM, VOID_INGOT, VOID_INGOT, VOID_INGOT, VOID_INGOT, MAGNONIUM,
-            MACHINE_PLATE, MACHINE_PLATE, MACHINE_PLATE, MACHINE_PLATE, MACHINE_PLATE, MACHINE_PLATE,
-            // @formatter:on
-        )
+        recipe = buildRecipe(6) {
+            +"PPPPPP"
+            +"MVVVVM"
+            +"MVCCVM"
+            +"MVHHVM"
+            +"MVVVVM"
+            +"PPPPPP"
+            'P' means MACHINE_PLATE
+            'M' means MAGNONIUM
+            'V' means VOID_INGOT
+            'C' means INFINITY_MACHINE_CIRCUIT
+            'H' means VOID_HARVESTER_2
+        }
     }
 
-    val STONEWORKS_FACTORY = buildSlimefunItem<StoneworksFactory>(1, 200) {
-        id = "STONEWORKS_FACTORY"
-        material = Material.BLAST_FURNACE.convert()
+    val STONEWORKS_FACTORY by buildSlimefunItem<StoneworksFactory>(1, 200) {
+        material = Material.BLAST_FURNACE.asMaterialType()
         itemGroup = IEItemGroups.MACHINES
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
-        recipe = arrayOf(
-            MAGSTEEL_PLATE, COBBLESTONE_GENERATOR, MAGSTEEL_PLATE,
-            SlimefunItems.ELECTRIC_FURNACE, MACHINE_CIRCUIT, SlimefunItems.ELECTRIC_ORE_GRINDER,
-            MAGSTEEL_PLATE, SlimefunItems.ELECTRIC_PRESS, MAGSTEEL_PLATE,
-        )
+        recipe = buildRecipe {
+            +"PGP"
+            +"FCR"
+            +"PSP"
+            'P' means MAGSTEEL_PLATE
+            'G' means COBBLESTONE_GENERATOR
+            'F' means SlimefunItems.ELECTRIC_FURNACE
+            'C' means MACHINE_CIRCUIT
+            'R' means SlimefunItems.ELECTRIC_ORE_GRINDER
+            'S' means SlimefunItems.ELECTRIC_PRESS
+        }
     }
 
-    val STONEWORKS_FACTORY_2 = buildSlimefunItem<StoneworksFactory>(4, 600) {
-        id = "STONEWORKS_FACTORY_2"
-        material = Material.BLAST_FURNACE.convert()
+    val STONEWORKS_FACTORY_2 by buildSlimefunItem<StoneworksFactory>(4, 600) {
+        material = Material.BLAST_FURNACE.asMaterialType()
         itemGroup = IEItemGroups.MACHINES
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
-        recipe = arrayOf(
-            MAGSTEEL_PLATE, COBBLESTONE_GENERATOR_2, MAGSTEEL_PLATE,
-            SlimefunItems.ELECTRIC_FURNACE_2, STONEWORKS_FACTORY, SlimefunItems.ELECTRIC_ORE_GRINDER_2,
-            MACHINE_CIRCUIT, SlimefunItems.ELECTRIC_PRESS_2, MACHINE_CIRCUIT,
-        )
+        recipe = buildRecipe {
+            +"PGP"
+            +"FAR"
+            +"CSC"
+            'P' means MAGSTEEL_PLATE
+            'G' means COBBLESTONE_GENERATOR_2
+            'F' means SlimefunItems.ELECTRIC_FURNACE_2
+            'A' means STONEWORKS_FACTORY
+            'R' means SlimefunItems.ELECTRIC_ORE_GRINDER_2
+            'C' means MACHINE_CIRCUIT
+            'S' means SlimefunItems.ELECTRIC_PRESS_2
+        }
     }
 
-    val STONEWORKS_FACTORY_3 = buildSlimefunItem<StoneworksFactory>(16, 1800) {
-        id = "STONEWORKS_FACTORY_3"
-        material = Material.BLAST_FURNACE.convert()
+    val STONEWORKS_FACTORY_3 by buildSlimefunItem<StoneworksFactory>(16, 1800) {
+        material = Material.BLAST_FURNACE.asMaterialType()
         itemGroup = IEItemGroups.MACHINES
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
-        recipe = arrayOf(
-            MACHINE_PLATE, COBBLESTONE_GENERATOR_3, VOID_BLOCK,
-            SlimefunItems.ELECTRIC_FURNACE_3, STONEWORKS_FACTORY_2, SlimefunItems.ELECTRIC_ORE_GRINDER_3,
-            VOID_BLOCK, SlimefunItems.ELECTRIC_PRESS_2, MACHINE_CIRCUIT,
-        )
+        recipe = buildRecipe {
+            +"PGV"
+            +"FAR"
+            +"VSC"
+            'P' means MACHINE_PLATE
+            'G' means COBBLESTONE_GENERATOR_3
+            'V' means VOID_BLOCK
+            'F' means SlimefunItems.ELECTRIC_FURNACE_3
+            'A' means STONEWORKS_FACTORY_2
+            'R' means SlimefunItems.ELECTRIC_ORE_GRINDER_3
+            'S' means SlimefunItems.ELECTRIC_PRESS_2
+            'C' means MACHINE_CIRCUIT
+        }
     }
 
-    val STONEWORKS_FACTORY_4 = buildSlimefunItem<StoneworksFactory>(64, 5400) {
-        id = "STONEWORKS_FACTORY_4"
-        material = Material.BLAST_FURNACE.convert()
+    val STONEWORKS_FACTORY_4 by buildSlimefunItem<StoneworksFactory>(64, 5400) {
+        material = Material.BLAST_FURNACE.asMaterialType()
         itemGroup = IEItemGroups.MACHINES
         recipeType = IERecipeTypes.INFINITY_WORKBENCH
-        recipe = arrayOf(
-            // @formatter:off
-            INFINITY_INGOT, VOID_INGOT, null, null, VOID_INGOT, INFINITY_INGOT,
-            null, SlimefunItems.ELECTRIC_FURNACE_3, STONEWORKS_FACTORY_3, STONEWORKS_FACTORY_3, SlimefunItems.ELECTRIC_FURNACE_3, null,
-            SlimefunItems.ELECTRIC_ORE_GRINDER_3, VOID_INGOT, COBBLESTONE_GENERATOR_4, COBBLESTONE_GENERATOR_4, VOID_INGOT, SlimefunItems.ELECTRIC_ORE_GRINDER_3,
-            SlimefunItems.ELECTRIC_PRESS_2, VOID_INGOT, MACHINE_CIRCUIT, MACHINE_CIRCUIT, VOID_INGOT, SlimefunItems.ELECTRIC_PRESS_2,
-            MACHINE_PLATE, MACHINE_CIRCUIT, MACHINE_CIRCUIT, MACHINE_CIRCUIT, MACHINE_CIRCUIT, MACHINE_PLATE,
-            INFINITY_INGOT, VOID_INGOT, null, null, VOID_INGOT, INFINITY_INGOT,
-            // @formatter:on
-        )
+        recipe = buildRecipe(6) {
+            +"IV  VI"
+            +" FSSF "
+            +"RVGGVR"
+            +"EVCCVE"
+            +"PCCCCP"
+            +"IV  VI"
+            'V' means VOID_INGOT
+            'I' means INFINITY_INGOT
+            'F' means SlimefunItems.ELECTRIC_FURNACE_3
+            'S' means STONEWORKS_FACTORY_3
+            'R' means SlimefunItems.ELECTRIC_ORE_GRINDER_3
+            'G' means COBBLESTONE_GENERATOR_4
+            'E' means SlimefunItems.ELECTRIC_PRESS_2
+            'C' means MACHINE_CIRCUIT
+            'P' means MACHINE_PLATE
+        }
     }
 
-    val SINGULARITY_CONSTRUCTOR = buildSlimefunItem<SingularityConstructor>(1, 120) {
-        id = "SINGULARITY_CONSTRUCTOR"
-        material = Material.QUARTZ_BRICKS.convert()
+    val SINGULARITY_CONSTRUCTOR by buildSlimefunItem<SingularityConstructor>(1, 120) {
+        material = Material.QUARTZ_BRICKS.asMaterialType()
         itemGroup = IEItemGroups.MACHINES
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
-        recipe = arrayOf(
-            MAGSTEEL, MAGSTEEL, MAGSTEEL,
-            MACHINE_PLATE, SlimefunItems.CARBON_PRESS_3, MACHINE_PLATE,
-            MACHINE_CIRCUIT, MACHINE_CORE, MACHINE_CIRCUIT,
-        )
+        recipe = buildRecipe {
+            +"MMM"
+            +"PRP"
+            +"COC"
+            'M' means MAGSTEEL
+            'P' means MACHINE_PLATE
+            'R' means SlimefunItems.CARBON_PRESS_3
+            'C' means MACHINE_CIRCUIT
+            'O' means MACHINE_CORE
+        }
     }
 
-    val INFINITY_SINGULARITY_CONSTRUCTOR = buildSlimefunItem<SingularityConstructor>(64, 1200) {
-        id = "INFINITY_SINGULARITY_CONSTRUCTOR"
-        material = Material.CHISELED_QUARTZ_BLOCK.convert()
+    val SINGULARITY_CONSTRUCTOR_2 by buildSlimefunItem<SingularityConstructor>(64, 1200) {
+        material = Material.CHISELED_QUARTZ_BLOCK.asMaterialType()
         itemGroup = IEItemGroups.MACHINES
         recipeType = IERecipeTypes.INFINITY_WORKBENCH
-        recipe = arrayOf(
-            // @formatter:off
-            null, MACHINE_PLATE, MACHINE_PLATE, MACHINE_PLATE, MACHINE_PLATE, null,
-            null, VOID_INGOT, INFINITY_MACHINE_CIRCUIT, INFINITY_MACHINE_CIRCUIT, VOID_INGOT, null,
-            null, VOID_INGOT, SINGULARITY_CONSTRUCTOR, SINGULARITY_CONSTRUCTOR, VOID_INGOT, null,
-            null, VOID_INGOT, SINGULARITY_CONSTRUCTOR, SINGULARITY_CONSTRUCTOR, VOID_INGOT, null,
-            null, INFINITY_INGOT, INFINITY_MACHINE_CORE, INFINITY_MACHINE_CORE, INFINITY_INGOT, null,
-            INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT,
-            // @formatter:on
-        )
+        recipe = buildRecipe(6) {
+            +" PPPP "
+            +" VCCV "
+            +" VSSV "
+            +" VSSV "
+            +" IOOI "
+            +"IIIIII"
+            'P' means MACHINE_PLATE
+            'V' means VOID_INGOT
+            'C' means INFINITY_MACHINE_CIRCUIT
+            'S' means SINGULARITY_CONSTRUCTOR
+            'O' means INFINITY_MACHINE_CORE
+            'I' means INFINITY_INGOT
+        }
     }
 
-    val RESOURCE_SYNTHESIZER = buildSlimefunItem<ResourceSynthesizer>(1_000_000) {
-        id = "RESOURCE_SYNTHESIZER"
-        material = Material.LODESTONE.convert()
+    val RESOURCE_SYNTHESIZER by buildSlimefunItem<ResourceSynthesizer>(1_000_000) {
+        material = Material.LODESTONE.asMaterialType()
         itemGroup = IEItemGroups.MACHINES
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
-        recipe = arrayOf(
-            // @formatter:off
-            ADAMANTITE, ADAMANTITE, ADAMANTITE,
-            MACHINE_PLATE, SlimefunItems.REINFORCED_FURNACE, MACHINE_PLATE,
-            MACHINE_PLATE, MACHINE_CORE, MACHINE_PLATE,
-            // @formatter:on
-        )
+        recipe = buildRecipe {
+            +"AAA"
+            +"PFP"
+            +"POP"
+            'A' means ADAMANTITE
+            'P' means MACHINE_PLATE
+            'F' means SlimefunItems.REINFORCED_FURNACE
+            'O' means MACHINE_CORE
+        }
     }
 
-    val OBSIDIAN_GENERATOR = buildSlimefunItem<MaterialGenerator>(Material.OBSIDIAN, 1, 240) {
-        id = "OBSIDIAN_GENERATOR"
-        material = Material.SMOOTH_STONE.convert()
+    val OBSIDIAN_GENERATOR by buildSlimefunItem<MaterialGenerator>(Material.OBSIDIAN, 1, 240) {
+        material = Material.SMOOTH_STONE.asMaterialType()
         itemGroup = IEItemGroups.MACHINES
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
-        recipe = arrayOf(
-            SlimefunItems.FLUID_PUMP, SlimefunItems.PROGRAMMABLE_ANDROID_MINER, SlimefunItems.FLUID_PUMP,
-            Material.DISPENSER.toItem(), VOID_INGOT, Material.DISPENSER.toItem(),
-            MACHINE_CIRCUIT, COBBLESTONE_GENERATOR_2, MACHINE_CIRCUIT,
-        )
+        recipe = buildRecipe {
+            +"FMF"
+            +"DVD"
+            +"CGC"
+            'F' means SlimefunItems.FLUID_PUMP
+            'M' means SlimefunItems.PROGRAMMABLE_ANDROID_MINER
+            'D' means Material.DISPENSER.toItem()
+            'V' means VOID_INGOT
+            'C' means MACHINE_CIRCUIT
+            'G' means COBBLESTONE_GENERATOR_2
+        }
     }
 
-    val EXTREME_FREEZER = buildSlimefunItem<ExtremeFreezer>(90) {
-        id = "EXTREME_FREEZER"
-        material = Material.LIGHT_BLUE_CONCRETE.convert()
+    val EXTREME_FREEZER by buildSlimefunItem<ExtremeFreezer>(90) {
+        material = Material.LIGHT_BLUE_CONCRETE.asMaterialType()
         itemGroup = IEItemGroups.MACHINES
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
-        recipe = arrayOf(
-            SlimefunItems.FREEZER_2, SlimefunItems.FREEZER_2, SlimefunItems.FREEZER_2,
-            Material.WATER_BUCKET.toItem(), SlimefunItems.FLUID_PUMP, Material.WATER_BUCKET.toItem(),
-            MACHINE_CIRCUIT, MACHINE_CORE, MACHINE_CIRCUIT,
-        )
+        recipe = buildRecipe {
+            +"FFF"
+            +"WPW"
+            +"COC"
+            'F' means SlimefunItems.FREEZER_2
+            'W' means Material.WATER_BUCKET.toItem()
+            'P' means SlimefunItems.FLUID_PUMP
+            'C' means MACHINE_CIRCUIT
+            'O' means MACHINE_CORE
+        }
     }
 
-    val DUST_EXTRACTOR = buildSlimefunItem<DustExtractor>(200, 4, 2) {
-        id = "DUST_EXTRACTOR"
-        material = Material.FURNACE.convert()
+    val DUST_EXTRACTOR by buildSlimefunItem<DustExtractor>(200, 4, 2) {
+        material = Material.FURNACE.asMaterialType()
         itemGroup = IEItemGroups.MACHINES
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
-        recipe = arrayOf(
-            // @formatter:off
-            SlimefunItems.ELECTRIC_ORE_GRINDER_2, SlimefunItems.ELECTRIC_GOLD_PAN_3, SlimefunItems.ELECTRIC_DUST_WASHER_3,
-            SlimefunItems.ELECTRIC_ORE_GRINDER_2, SlimefunItems.ELECTRIC_GOLD_PAN_3, SlimefunItems.ELECTRIC_DUST_WASHER_3,
-            MACHINE_CIRCUIT, MACHINE_CORE, MACHINE_CIRCUIT,
-            // @formatter:on
-        )
+        recipe = buildRecipe {
+            +"GPW"
+            +"GPW"
+            +"COC"
+            'G' means SlimefunItems.ELECTRIC_ORE_GRINDER_2
+            'P' means SlimefunItems.ELECTRIC_GOLD_PAN_3
+            'W' means SlimefunItems.ELECTRIC_DUST_WASHER_3
+            'C' means MACHINE_CIRCUIT
+            'O' means MACHINE_CORE
+        }
     }
 
-    val DUST_EXTRACTOR_2 = buildSlimefunItem<DustExtractor>(800, 8, 4) {
-        id = "DUST_EXTRACTOR_2"
-        material = Material.FURNACE.convert()
+    val DUST_EXTRACTOR_2 by buildSlimefunItem<DustExtractor>(800, 8, 4) {
+        material = Material.FURNACE.asMaterialType()
         itemGroup = IEItemGroups.MACHINES
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
-        recipe = arrayOf(
-            // @formatter:off
-            MAGSTEEL_PLATE, DUST_EXTRACTOR, MAGSTEEL_PLATE,
-            MAGSTEEL_PLATE, DUST_EXTRACTOR, MAGSTEEL_PLATE,
-            MACHINE_CIRCUIT, MACHINE_CORE, MACHINE_CIRCUIT,
-            // @formatter:on
-        )
+        recipe = buildRecipe {
+            +"MDM"
+            +"MDM"
+            +"COC"
+            'M' means MAGSTEEL_PLATE
+            'D' means DUST_EXTRACTOR
+            'C' means MACHINE_CIRCUIT
+            'O' means MACHINE_CORE
+        }
     }
 
-    val DUST_EXTRACTOR_3 = buildSlimefunItem<DustExtractor>(2400, 32, 32) {
-        id = "DUST_EXTRACTOR_3"
-        material = Material.FURNACE.convert()
+    val DUST_EXTRACTOR_3 by buildSlimefunItem<DustExtractor>(2400, 32, 32) {
+        material = Material.FURNACE.asMaterialType()
         itemGroup = IEItemGroups.MACHINES
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
-        recipe = arrayOf(
-            // @formatter:off
-            VOID_BLOCK, DUST_EXTRACTOR_2, VOID_BLOCK,
-            MACHINE_PLATE, DUST_EXTRACTOR_2, MACHINE_PLATE,
-            MACHINE_PLATE, MACHINE_CORE, MACHINE_PLATE,
-            // @formatter:on
-        )
+        recipe = buildRecipe {
+            +"VDV"
+            +"PDP"
+            +"POP"
+            'V' means VOID_BLOCK
+            'D' means DUST_EXTRACTOR_2
+            'P' means MACHINE_PLATE
+            'O' means MACHINE_CORE
+        }
     }
 
-    val DUST_EXTRACTOR_4 = buildSlimefunItem<DustExtractor>(7200, 64, 64) {
-        id = "DUST_EXTRACTOR_4"
-        material = Material.FURNACE.convert()
+    val DUST_EXTRACTOR_4 by buildSlimefunItem<DustExtractor>(7200, 64, 64) {
+        material = Material.FURNACE.asMaterialType()
         itemGroup = IEItemGroups.MACHINES
         recipeType = IERecipeTypes.INFINITY_WORKBENCH
-        recipe = arrayOf(
-            // @formatter:off
-            VOID_BLOCK, null, null, null, null, VOID_BLOCK,
-            VOID_INGOT, INFINITY_INGOT, INFINITY_MACHINE_CIRCUIT, INFINITY_MACHINE_CIRCUIT, INFINITY_INGOT, VOID_INGOT,
-            VOID_INGOT, INFINITY_INGOT, null, null, INFINITY_INGOT, VOID_INGOT,
-            VOID_INGOT, INFINITY_INGOT, DUST_EXTRACTOR_3, DUST_EXTRACTOR_3, INFINITY_INGOT, VOID_INGOT,
-            VOID_INGOT, INFINITY_INGOT, null, null, INFINITY_INGOT, VOID_INGOT,
-            VOID_BLOCK, null, null, null, null, VOID_BLOCK,
-            // @formatter:on
-        )
+        recipe = buildRecipe(6) {
+            +"V    V"
+            +"VICCIV"
+            +"VI  IV"
+            +"VIDDIV"
+            +"VI  IV"
+            +"V    V"
+            'V' means VOID_INGOT
+            'I' means INFINITY_INGOT
+            'C' means INFINITY_MACHINE_CIRCUIT
+            'D' means DUST_EXTRACTOR_3
+        }
     }
 
-    val INGOT_FORMER = buildSlimefunItem<IngotFormer>(200, 8, 4) {
-        id = "INGOT_FORMER"
-        material = Material.BLAST_FURNACE.convert()
+    val INGOT_FORMER by buildSlimefunItem<IngotFormer>(200, 8, 4) {
+        material = Material.BLAST_FURNACE.asMaterialType()
         itemGroup = IEItemGroups.MACHINES
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
-        recipe = arrayOf(
-            // @formatter:off
-            SlimefunItems.ELECTRIC_INGOT_FACTORY_2, SlimefunItems.ELECTRIC_INGOT_FACTORY_2, SlimefunItems.ELECTRIC_INGOT_FACTORY_2,
-            SlimefunItems.ELECTRIC_INGOT_FACTORY_2, SlimefunItems.ELECTRIC_INGOT_FACTORY_2, SlimefunItems.ELECTRIC_INGOT_FACTORY_2,
-            MACHINE_CIRCUIT, MACHINE_CORE, MACHINE_CIRCUIT,
-            // @formatter:on
-        )
+        recipe = buildRecipe {
+            +"III"
+            +"III"
+            +"COC"
+            'I' means SlimefunItems.ELECTRIC_INGOT_FACTORY_2
+            'C' means MACHINE_CIRCUIT
+            'O' means MACHINE_CORE
+        }
     }
 
-    val INGOT_FORMER_2 = buildSlimefunItem<IngotFormer>(800, 16, 8) {
-        id = "INGOT_FORMER_2"
-        material = Material.BLAST_FURNACE.convert()
+    val INGOT_FORMER_2 by buildSlimefunItem<IngotFormer>(800, 16, 8) {
+        material = Material.BLAST_FURNACE.asMaterialType()
         itemGroup = IEItemGroups.MACHINES
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
-        recipe = arrayOf(
-            // @formatter:off
-            MAGSTEEL_PLATE, INGOT_FORMER, MAGSTEEL_PLATE,
-            MAGSTEEL_PLATE, INGOT_FORMER, MAGSTEEL_PLATE,
-            MACHINE_CIRCUIT, MACHINE_CORE, MACHINE_CIRCUIT,
-            // @formatter:on
-        )
+        recipe = buildRecipe {
+            +"PIP"
+            +"PIP"
+            +"COC"
+            'P' means MAGSTEEL_PLATE
+            'I' means INGOT_FORMER
+            'C' means MACHINE_CIRCUIT
+            'O' means MACHINE_CORE
+        }
     }
 
-    val INGOT_FORMER_3 = buildSlimefunItem<IngotFormer>(2400, 32, 16) {
-        id = "INGOT_FORMER_3"
-        material = Material.BLAST_FURNACE.convert()
+    val INGOT_FORMER_3 by buildSlimefunItem<IngotFormer>(2400, 32, 16) {
+        material = Material.BLAST_FURNACE.asMaterialType()
         itemGroup = IEItemGroups.MACHINES
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
-        recipe = arrayOf(
-            // @formatter:off
-            VOID_BLOCK, INGOT_FORMER_2, VOID_BLOCK,
-            MACHINE_PLATE, INGOT_FORMER_2, MACHINE_PLATE,
-            MACHINE_PLATE, MACHINE_CORE, MACHINE_PLATE,
-            // @formatter:on
-        )
+        recipe = buildRecipe {
+            +"VIV"
+            +"PIP"
+            +"POP"
+            'V' means VOID_BLOCK
+            'I' means INGOT_FORMER_2
+            'P' means MACHINE_PLATE
+            'O' means MACHINE_CORE
+        }
     }
 
-    val INGOT_FORMER_4 = buildSlimefunItem<IngotFormer>(7200, 64, 32) {
-        id = "INGOT_FORMER_4"
-        material = Material.BLAST_FURNACE.convert()
+    val INGOT_FORMER_4 by buildSlimefunItem<IngotFormer>(7200, 64, 32) {
+        material = Material.BLAST_FURNACE.asMaterialType()
         itemGroup = IEItemGroups.MACHINES
         recipeType = IERecipeTypes.INFINITY_WORKBENCH
-        recipe = arrayOf(
-            // @formatter:off
-            VOID_BLOCK, null, null, null, null, VOID_BLOCK,
-            VOID_INGOT, INFINITY_INGOT, INFINITY_MACHINE_CIRCUIT, INFINITY_MACHINE_CIRCUIT, INFINITY_INGOT, VOID_INGOT,
-            VOID_INGOT, INFINITY_INGOT, null, null, INFINITY_INGOT, VOID_INGOT,
-            VOID_INGOT, INFINITY_INGOT, INGOT_FORMER_3, INGOT_FORMER_3, INFINITY_INGOT, VOID_INGOT,
-            VOID_INGOT, INFINITY_INGOT, null, null, INFINITY_INGOT, VOID_INGOT,
-            VOID_BLOCK, null, null, null, null, VOID_BLOCK,
-            // @formatter:on
-        )
+        recipe = buildRecipe(6) {
+            +"V    V"
+            +"VICCIV"
+            +"VI  IV"
+            +"VIFFIV"
+            +"VI  IV"
+            +"V    V"
+            'V' means VOID_INGOT
+            'I' means INFINITY_INGOT
+            'C' means INFINITY_MACHINE_CIRCUIT
+            'F' means INGOT_FORMER_3
+        }
     }
 
-    val URANIUM_EXTRACTOR = buildSlimefunItem<UraniumExtractor>(200, 4, 1) {
-        id = "URANIUM_EXTRACTOR"
-        material = Material.LIME_CONCRETE.convert()
+    val URANIUM_EXTRACTOR by buildSlimefunItem<UraniumExtractor>(200, 4, 1) {
+        material = Material.LIME_CONCRETE.asMaterialType()
         itemGroup = IEItemGroups.MACHINES
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
-        recipe = arrayOf(
-            // @formatter:off
-            SlimefunItems.ELECTRIC_ORE_GRINDER_2, SlimefunItems.ELECTRIC_ORE_GRINDER_2, SlimefunItems.ELECTRIC_ORE_GRINDER_2,
-            SlimefunItems.ELECTRIC_GOLD_PAN_3, SlimefunItems.ELECTRIC_DUST_WASHER_3, SlimefunItems.ENHANCED_AUTO_CRAFTER,
-            MACHINE_CIRCUIT, MACHINE_CORE, MACHINE_CIRCUIT,
-            // @formatter:on
-        )
+        recipe = buildRecipe {
+            +"RRR"
+            +"PWA"
+            +"COC"
+            'R' means SlimefunItems.ELECTRIC_ORE_GRINDER_2
+            'P' means SlimefunItems.ELECTRIC_GOLD_PAN_3
+            'W' means SlimefunItems.ELECTRIC_DUST_WASHER_3
+            'A' means SlimefunItems.ENHANCED_AUTO_CRAFTER
+            'C' means MACHINE_CIRCUIT
+            'O' means MACHINE_CORE
+        }
     }
 
-    val COBBLE_PRESS = buildSlimefunItem<CobblePress>(200) {
-        id = "COBBLE_PRESS"
-        material = Material.SMOOTH_STONE.convert()
+    val COBBLE_PRESS by buildSlimefunItem<CobblePress>(200) {
+        material = Material.SMOOTH_STONE.asMaterialType()
         itemGroup = IEItemGroups.MACHINES
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
-        recipe = arrayOf(
-            // @formatter:off
-            MACHINE_PLATE, COMPRESSED_COBBLESTONE_3, MACHINE_PLATE,
-            SlimefunItems.ELECTRIC_PRESS_2, SlimefunItems.ELECTRIC_PRESS_2, SlimefunItems.ELECTRIC_PRESS_2,
-            MACHINE_PLATE, COMPRESSED_COBBLESTONE_3, MACHINE_PLATE,
-            // @formatter:on
-        )
+        recipe = buildRecipe {
+            +"PCP"
+            +"RRR"
+            +"PCP"
+            'P' means MACHINE_PLATE
+            'C' means COMPRESSED_COBBLESTONE_3
+            'R' means SlimefunItems.ELECTRIC_PRESS_2
+        }
     }
 
-    val DECOMPRESSOR = buildSlimefunItem<Decompressor>(60) {
-        id = "DECOMPRESSOR"
-        material = Material.TARGET.convert()
+    val DECOMPRESSOR by buildSlimefunItem<Decompressor>(60) {
+        material = Material.TARGET.asMaterialType()
         itemGroup = IEItemGroups.MACHINES
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
-        recipe = arrayOf(
-            // @formatter:off
-            MAGSTEEL_PLATE, MAGSTEEL_PLATE, MAGSTEEL_PLATE,
-            Material.STICKY_PISTON.toItem(), SlimefunItems.ELECTRIC_PRESS_2, Material.STICKY_PISTON.toItem(),
-            MACHINE_CIRCUIT, MACHINE_CORE, MACHINE_CIRCUIT,
-            // @formatter:on
-        )
+        recipe = buildRecipe {
+            +"PPP"
+            +"SES"
+            +"COC"
+            'P' means MAGSTEEL_PLATE
+            'S' means Material.STICKY_PISTON.toItem()
+            'E' means SlimefunItems.ELECTRIC_PRESS_2
+            'C' means MACHINE_CIRCUIT
+            'O' means MACHINE_CORE
+        }
     }
 
-    val QUARRY = buildSlimefunItem<Quarry>(300, 1, 0.15) {
-        id = "QUARRY"
-        material = Material.CHISELED_SANDSTONE.convert()
+    val QUARRY by buildSlimefunItem<Quarry>(300, 1, 0.15) {
+        material = Material.CHISELED_SANDSTONE.asMaterialType()
         itemGroup = IEItemGroups.MACHINES
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
-        recipe = arrayOf(
-            MAGSTEEL_PLATE, SlimefunItems.CARBONADO_EDGED_CAPACITOR, MAGSTEEL_PLATE,
-            Material.IRON_PICKAXE.toItem(), SlimefunItems.GEO_MINER, Material.IRON_PICKAXE.toItem(),
-            MACHINE_CIRCUIT, MACHINE_CORE, MACHINE_CIRCUIT,
-        )
+        recipe = buildRecipe {
+            +"PAP"
+            +"IGI"
+            +"COC"
+            'P' means MAGSTEEL_PLATE
+            'A' means SlimefunItems.CARBONADO_EDGED_CAPACITOR
+            'I' means Material.IRON_PICKAXE.toItem()
+            'G' means SlimefunItems.GEO_MINER
+            'C' means MACHINE_CIRCUIT
+            'O' means MACHINE_CORE
+        }
     }
 
-    val QUARRY_2 = buildSlimefunItem<Quarry>(900, 2, 0.25) {
-        id = "QUARRY_2"
-        material = Material.CHISELED_RED_SANDSTONE.convert()
+    val QUARRY_2 by buildSlimefunItem<Quarry>(900, 2, 0.25) {
+        material = Material.CHISELED_RED_SANDSTONE.asMaterialType()
         itemGroup = IEItemGroups.MACHINES
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
-        recipe = arrayOf(
-            MACHINE_PLATE, SlimefunItems.ENERGIZED_CAPACITOR, MACHINE_PLATE,
-            Material.DIAMOND_PICKAXE.toItem(), QUARRY, Material.DIAMOND_PICKAXE.toItem(),
-            MACHINE_CIRCUIT, MACHINE_CORE, MACHINE_CIRCUIT,
-        )
+        recipe = buildRecipe {
+            +"PAP"
+            +"DQD"
+            +"COC"
+            'P' means MACHINE_PLATE
+            'A' means SlimefunItems.ENERGIZED_CAPACITOR
+            'D' means Material.DIAMOND_PICKAXE.toItem()
+            'Q' means QUARRY
+            'C' means MACHINE_CIRCUIT
+            'O' means MACHINE_CORE
+        }
     }
 
-    val QUARRY_3 = buildSlimefunItem<Quarry>(3600, 4, 0.5) {
-        id = "QUARRY_3"
-        material = Material.CHISELED_NETHER_BRICKS.convert()
+    val QUARRY_3 by buildSlimefunItem<Quarry>(3600, 4, 0.5) {
+        material = Material.CHISELED_NETHER_BRICKS.asMaterialType()
         itemGroup = IEItemGroups.MACHINES
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
-        recipe = arrayOf(
-            VOID_INGOT, VOID_CAPACITOR, VOID_INGOT,
-            Material.NETHERITE_PICKAXE.toItem(), QUARRY_2, Material.NETHERITE_PICKAXE.toItem(),
-            MACHINE_CIRCUIT, MACHINE_CORE, MACHINE_CIRCUIT,
-        )
+        recipe = buildRecipe {
+            +"VAV"
+            +"DQD"
+            +"COC"
+            'V' means VOID_INGOT
+            'A' means VOID_CAPACITOR
+            'N' means Material.NETHERITE_PICKAXE.toItem()
+            'Q' means QUARRY_2
+            'C' means MACHINE_CIRCUIT
+            'O' means MACHINE_CORE
+        }
     }
 
-    val QUARRY_4 = buildSlimefunItem<Quarry>(36000, 64, 1.0) {
-        id = "QUARRY_4"
-        material = Material.CHISELED_POLISHED_BLACKSTONE.convert()
+    val QUARRY_4 by buildSlimefunItem<Quarry>(36000, 64, 1.0) {
+        material = Material.CHISELED_POLISHED_BLACKSTONE.asMaterialType()
         itemGroup = IEItemGroups.MACHINES
         recipeType = IERecipeTypes.INFINITY_WORKBENCH
-        recipe = arrayOf(
-            // @formatter:off
-            null, MACHINE_PLATE, MACHINE_PLATE, MACHINE_PLATE, MACHINE_PLATE, null,
-            MACHINE_PLATE, INFINITY_PICKAXE, INFINITY_MACHINE_CIRCUIT, INFINITY_MACHINE_CIRCUIT, INFINITY_PICKAXE, MACHINE_PLATE,
-            MACHINE_PLATE, QUARRY_3, INFINITY_MACHINE_CORE, INFINITY_MACHINE_CORE, QUARRY_3, MACHINE_PLATE,
-            VOID_INGOT, null, INFINITY_INGOT, INFINITY_INGOT, null, VOID_INGOT,
-            VOID_INGOT, null, INFINITY_INGOT, INFINITY_INGOT, null, VOID_INGOT,
-            VOID_INGOT, null, INFINITY_INGOT, INFINITY_INGOT, null, VOID_INGOT,
-            // @formatter:on
-        )
+        recipe = buildRecipe(6) {
+            +" PPPP "
+            +"PACCAP"
+            +"PQOOQP"
+            +"V II V"
+            +"V II V"
+            +"V II V"
+            'V' means VOID_INGOT
+            'I' means INFINITY_INGOT
+            'P' means MACHINE_PLATE
+            'A' means INFINITY_PICKAXE
+            'C' means INFINITY_MACHINE_CIRCUIT
+            'O' means INFINITY_MACHINE_CORE
+            'Q' means QUARRY_3
+        }
     }
 
-    val GEO_QUARRY = buildSlimefunItem<GeoQuarry>(450, 400, 1) {
-        id = "GEO_QUARRY"
-        material = Material.QUARTZ_BRICKS.convert()
+    val GEO_QUARRY by buildSlimefunItem<GeoQuarry>(450, 400, 1) {
+        material = Material.QUARTZ_BRICKS.asMaterialType()
         itemGroup = IEItemGroups.MACHINES
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
-        recipe = arrayOf(
-            MACHINE_PLATE, VOID_INGOT, MACHINE_PLATE,
-            VOID_INGOT, ADVANCED_GEO_MINER, VOID_INGOT,
-            MACHINE_PLATE, VOID_INGOT, MACHINE_PLATE,
-        )
+        recipe = buildRecipe {
+            +"PVP"
+            +"VGV"
+            +"PVP"
+            'P' means MACHINE_PLATE
+            'V' means VOID_INGOT
+            'G' means ADVANCED_GEO_MINER
+        }
     }
 
-    val GEO_QUARRY_2 = buildSlimefunItem<GeoQuarry>(90_000, 120, 4) {
-        id = "GEO_QUARRY_2"
-        material = Material.QUARTZ_BRICKS.convert()
+    val GEO_QUARRY_2 by buildSlimefunItem<GeoQuarry>(90_000, 120, 4) {
+        material = Material.QUARTZ_BRICKS.asMaterialType()
         itemGroup = IEItemGroups.MACHINES
         recipeType = IERecipeTypes.INFINITY_WORKBENCH
-        recipe = arrayOf(
-            // @formatter:off
-            INFINITY_INGOT, null, null, null, null, INFINITY_INGOT,
-            null, VOID_INGOT, VOID_INGOT, VOID_INGOT, VOID_INGOT, null,
-            INFINITY_MACHINE_CIRCUIT, VOID_INGOT, GEO_QUARRY, GEO_QUARRY, VOID_INGOT, INFINITY_MACHINE_CIRCUIT,
-            INFINITY_MACHINE_CIRCUIT, VOID_INGOT, GEO_QUARRY, GEO_QUARRY, VOID_INGOT, INFINITY_MACHINE_CIRCUIT,
-            null, VOID_INGOT, VOID_INGOT, VOID_INGOT, VOID_INGOT, null,
-            INFINITY_INGOT, null, null, null, null, INFINITY_INGOT,
-            // @formatter:on
-        )
+        recipe = buildRecipe(6) {
+            +"I    I"
+            +" VVVV "
+            +"CVQQVC"
+            +"CVQQVC"
+            +" VVVV "
+            +"I    I"
+            'I' means INFINITY_INGOT
+            'V' means VOID_INGOT
+            'C' means INFINITY_MACHINE_CIRCUIT
+            'Q' means GEO_QUARRY
+        }
     }
 
-    val GEAR_TRANSFORMER = buildSlimefunItem<GearTransformer>(12_000) {
-        id = "GEAR_TRANSFORMER"
-        material = Material.EMERALD_BLOCK.convert()
+    val GEAR_TRANSFORMER by buildSlimefunItem<GearTransformer>(12_000) {
+        material = Material.EMERALD_BLOCK.asMaterialType()
         itemGroup = IEItemGroups.MACHINES
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
-        recipe = arrayOf(
-            // @formatter:off
-            MAGSTEEL_PLATE, MACHINE_CIRCUIT, MAGSTEEL_PLATE,
-            MACHINE_CIRCUIT, Material.SMITHING_TABLE.toItem(), MACHINE_CIRCUIT,
-            MAGSTEEL_PLATE, MACHINE_CIRCUIT, MAGSTEEL_PLATE,
-            // @formatter:on
-        )
+        recipe = buildRecipe {
+            +"PCP"
+            +"CSC"
+            +"PCP"
+            'P' means MACHINE_PLATE
+            'C' means MACHINE_CIRCUIT
+            'S' means Material.SMITHING_TABLE.toItem()
+        }
     }
 
-    val ADVANCED_ANVIL = buildSlimefunItem<AdvancedAnvil>(100_000) {
-        id = "ADVANCED_ANVIL"
-        material = Material.SMITHING_TABLE.convert()
+    val ADVANCED_ANVIL by buildSlimefunItem<AdvancedAnvil>(100_000) {
+        material = Material.SMITHING_TABLE.asMaterialType()
         itemGroup = IEItemGroups.MACHINES
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
-        recipe = arrayOf(
-            // @formatter:off
-            MACHINE_PLATE, MACHINE_PLATE, MACHINE_PLATE,
-            MACHINE_PLATE, Material.ANVIL.toItem(), MACHINE_PLATE,
-            MACHINE_CIRCUIT, MACHINE_CORE, MACHINE_CIRCUIT
-            // @formatter:on
-        )
+        recipe = buildRecipe {
+            +"PPP"
+            +"PAP"
+            +"COC"
+            'P' means MACHINE_PLATE
+            'A' means Material.ANVIL.toItem()
+            'C' means MACHINE_CIRCUIT
+            'O' means MACHINE_CORE
+        }
     }
 
-    val INFINITY_WORKBENCH = buildSlimefunItem<InfinityWorkbench>(10_000_000) {
-        id = "INFINITY_WORKBENCH"
-        material = Material.RESPAWN_ANCHOR.convert()
+    val INFINITY_WORKBENCH by buildSlimefunItem<InfinityWorkbench>(10_000_000) {
+        material = Material.RESPAWN_ANCHOR.asMaterialType()
         itemGroup = IEItemGroups.MACHINES
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
-        recipe = arrayOf(
-            // @formatter:off
-            VOID_BLOCK, MACHINE_PLATE, VOID_BLOCK,
-            SlimefunItems.ENERGIZED_CAPACITOR, Material.CRAFTING_TABLE.toItem(), SlimefunItems.ENERGIZED_CAPACITOR,
-            VOID_BLOCK, MACHINE_PLATE, VOID_BLOCK,
-            // @formatter:on
-        )
+        recipe = buildRecipe {
+            +"VPV"
+            +"CTC"
+            +"VPV"
+            'V' means VOID_INGOT
+            'P' means MACHINE_PLATE
+            'C' means SlimefunItems.ENERGIZED_CAPACITOR
+            'T' means Material.CRAFTING_TABLE.toItem()
+        }
     }
     //</editor-fold>
 
     //<editor-fold desc="Generators" defaultstate="collapsed">
-    val HYDRO_GENERATOR = buildSlimefunItem<EnergyGenerator>(GeneratorType.HYDROELECTRIC, 5) {
-        id = "HYDRO_GENERATOR"
-        material = Material.PRISMARINE_WALL.convert()
+    val HYDRO_GENERATOR by buildSlimefunItem<EnergyGenerator>(GeneratorType.HYDROELECTRIC, 5) {
+        material = Material.PRISMARINE_WALL.asMaterialType()
         itemGroup = IEItemGroups.GENERATORS
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
-        recipe = arrayOf(
-            // @formatter:off
-            MAGSTEEL, MACHINE_CIRCUIT, MAGSTEEL,
-            Material.BUCKET.toItem(), SlimefunItems.ELECTRO_MAGNET, Material.BUCKET.toItem(),
-            MAGSTEEL, MACHINE_CIRCUIT, MAGSTEEL,
-            // @formatter:on
-        )
+        recipe = buildRecipe {
+            +"MCM"
+            +"BEB"
+            +"MCM"
+            'M' means MAGSTEEL
+            'C' means MACHINE_CIRCUIT
+            'B' means Material.BUCKET.toItem()
+            'E' means SlimefunItems.ELECTRO_MAGNET
+        }
     }
 
-    val HYDRO_GENERATOR_2 = buildSlimefunItem<EnergyGenerator>(GeneratorType.HYDROELECTRIC, 45) {
-        id = "HYDRO_GENERATOR_2"
-        material = Material.END_STONE_BRICK_WALL.convert()
+    val HYDRO_GENERATOR_2 by buildSlimefunItem<EnergyGenerator>(GeneratorType.HYDROELECTRIC, 45) {
+        material = Material.END_STONE_BRICK_WALL.asMaterialType()
         itemGroup = IEItemGroups.GENERATORS
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
-        recipe = arrayOf(
-            HYDRO_GENERATOR, MACHINE_CIRCUIT, HYDRO_GENERATOR,
-            MAGSTEEL_PLATE, MACHINE_CORE, MAGSTEEL_PLATE,
-            HYDRO_GENERATOR, MACHINE_CIRCUIT, HYDRO_GENERATOR,
-        )
+        recipe = buildRecipe {
+            +"GCG"
+            +"POP"
+            +"GCG"
+            'G' means HYDRO_GENERATOR
+            'C' means MACHINE_CIRCUIT
+            'P' means MAGSTEEL_PLATE
+            'O' means MACHINE_CORE
+        }
     }
 
-    val GEOTHERMAL_GENERATOR = buildSlimefunItem<EnergyGenerator>(GeneratorType.GEOTHERMAL, 35) {
-        id = "GEOTHERMAL_GENERATOR"
-        material = Material.MAGMA_BLOCK.convert()
+    val GEOTHERMAL_GENERATOR by buildSlimefunItem<EnergyGenerator>(GeneratorType.GEOTHERMAL, 35) {
+        material = Material.MAGMA_BLOCK.asMaterialType()
         itemGroup = IEItemGroups.GENERATORS
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
-        recipe = arrayOf(
-            MAGSTEEL_PLATE, MAGSTEEL_PLATE, MAGSTEEL_PLATE,
-            SlimefunItems.LAVA_GENERATOR_2, SlimefunItems.LAVA_GENERATOR_2, SlimefunItems.LAVA_GENERATOR_2,
-            MACHINE_CIRCUIT, MACHINE_CORE, MACHINE_CIRCUIT,
-        )
+        recipe = buildRecipe {
+            +"PPP"
+            +"LLL"
+            +"COC"
+            'P' means MAGSTEEL_PLATE
+            'L' means SlimefunItems.LAVA_GENERATOR_2
+            'C' means MACHINE_CIRCUIT
+            'O' means MACHINE_CORE
+        }
     }
 
-    val GEOTHERMAL_GENERATOR_2 = buildSlimefunItem<EnergyGenerator>(GeneratorType.GEOTHERMAL, 210) {
-        id = "GEOTHERMAL_GENERATOR_2"
-        material = Material.SHROOMLIGHT.convert()
+    val GEOTHERMAL_GENERATOR_2 by buildSlimefunItem<EnergyGenerator>(GeneratorType.GEOTHERMAL, 210) {
+        material = Material.SHROOMLIGHT.asMaterialType()
         itemGroup = IEItemGroups.GENERATORS
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
-        recipe = arrayOf(
-            GEOTHERMAL_GENERATOR, MACHINE_CIRCUIT, GEOTHERMAL_GENERATOR,
-            MAGSTEEL_PLATE, MACHINE_CORE, MAGSTEEL_PLATE,
-            GEOTHERMAL_GENERATOR, MACHINE_CIRCUIT, GEOTHERMAL_GENERATOR,
-        )
+        recipe = buildRecipe {
+            +"GCG"
+            +"POP"
+            +"GCG"
+            'G' means GEOTHERMAL_GENERATOR
+            'C' means MACHINE_CIRCUIT
+            'P' means MAGSTEEL_PLATE
+            'O' means MACHINE_CORE
+        }
     }
 
-    val SOLAR_PANEL = buildSlimefunItem<EnergyGenerator>(GeneratorType.SOLAR, 10) {
-        id = "SOLAR_PANEL"
-        material = Material.BLUE_GLAZED_TERRACOTTA.convert()
+    val SOLAR_PANEL by buildSlimefunItem<EnergyGenerator>(GeneratorType.SOLAR, 10) {
+        material = Material.BLUE_GLAZED_TERRACOTTA.asMaterialType()
         itemGroup = IEItemGroups.GENERATORS
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
-        recipe = arrayOf(
-            MAGSTEEL, MAGSTEEL_PLATE, MAGSTEEL,
-            SlimefunItems.SOLAR_PANEL, SlimefunItems.SOLAR_PANEL, SlimefunItems.SOLAR_PANEL,
-            MACHINE_CIRCUIT, MACHINE_CIRCUIT, MACHINE_CIRCUIT,
-        )
+        recipe = buildRecipe {
+            +"MPM"
+            +"SSS"
+            +"CCC"
+            'M' means MAGSTEEL
+            'P' means MAGSTEEL_PLATE
+            'S' means SlimefunItems.SOLAR_PANEL
+            'C' means MACHINE_CIRCUIT
+        }
     }
 
-    val SOLAR_PANEL_2 = buildSlimefunItem<EnergyGenerator>(GeneratorType.SOLAR, 150) {
-        id = "SOLAR_PANEL_2"
-        material = Material.RED_GLAZED_TERRACOTTA.convert()
+    val SOLAR_PANEL_2 by buildSlimefunItem<EnergyGenerator>(GeneratorType.SOLAR, 150) {
+        material = Material.RED_GLAZED_TERRACOTTA.asMaterialType()
         itemGroup = IEItemGroups.GENERATORS
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
-        recipe = arrayOf(
-            SOLAR_PANEL, SOLAR_PANEL, SOLAR_PANEL,
-            TITANIUM, SlimefunItems.SOLAR_GENERATOR_4, TITANIUM,
-            MACHINE_CIRCUIT, MACHINE_CIRCUIT, MACHINE_CIRCUIT,
-        )
+        recipe = buildRecipe {
+            +"SSS"
+            +"TGT"
+            +"CCC"
+            'S' means SOLAR_PANEL
+            'T' means TITANIUM
+            'G' means SlimefunItems.SOLAR_GENERATOR_4
+            'C' means MACHINE_CIRCUIT
+        }
     }
 
-    val SOLAR_PANEL_3 = buildSlimefunItem<EnergyGenerator>(GeneratorType.SOLAR, 750) {
-        id = "SOLAR_PANEL_3"
-        material = Material.YELLOW_GLAZED_TERRACOTTA.convert()
+    val SOLAR_PANEL_3 by buildSlimefunItem<EnergyGenerator>(GeneratorType.SOLAR, 750) {
+        material = Material.YELLOW_GLAZED_TERRACOTTA.asMaterialType()
         itemGroup = IEItemGroups.GENERATORS
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
-        recipe = arrayOf(
-            MACHINE_PLATE, MACHINE_PLATE, MACHINE_PLATE,
-            SOLAR_PANEL_2, SOLAR_PANEL_2, SOLAR_PANEL_2,
-            MACHINE_CIRCUIT, MACHINE_CORE, MACHINE_CIRCUIT,
-        )
+        recipe = buildRecipe {
+            +"PPP"
+            +"SSS"
+            +"COC"
+            'P' means MACHINE_PLATE
+            'S' means SOLAR_PANEL_2
+            'C' means MACHINE_CIRCUIT
+            'O' means MACHINE_CORE
+        }
     }
 
-    val VOID_PANEL = buildSlimefunItem<EnergyGenerator>(GeneratorType.LUNAR, 3_000) {
-        id = "VOID_PANEL"
-        material = Material.LIGHT_GRAY_GLAZED_TERRACOTTA.convert()
+    val VOID_PANEL by buildSlimefunItem<EnergyGenerator>(GeneratorType.LUNAR, 3_000) {
+        material = Material.LIGHT_GRAY_GLAZED_TERRACOTTA.asMaterialType()
         itemGroup = IEItemGroups.GENERATORS
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
-        recipe = arrayOf(
-            VOID_INGOT, VOID_INGOT, VOID_INGOT,
-            SOLAR_PANEL_3, SOLAR_PANEL_3, SOLAR_PANEL_3,
-            MAGNONIUM, MAGNONIUM, MAGNONIUM,
-        )
+        recipe = buildRecipe {
+            +"VVV"
+            +"SSS"
+            +"MMM"
+            'V' means VOID_INGOT
+            'S' means SOLAR_PANEL_3
+            'M' means MAGNONIUM
+        }
     }
 
-    val INFINITY_PANEL = buildSlimefunItem<EnergyGenerator>(GeneratorType.INFINITY, 60_000) {
-        id = "INFINITY_PANEL"
-        material = Material.LIGHT_BLUE_GLAZED_TERRACOTTA.convert()
+    val INFINITY_PANEL by buildSlimefunItem<EnergyGenerator>(GeneratorType.INFINITY, 60_000) {
+        material = Material.LIGHT_BLUE_GLAZED_TERRACOTTA.asMaterialType()
         itemGroup = IEItemGroups.GENERATORS
         recipeType = IERecipeTypes.INFINITY_WORKBENCH
-        recipe = arrayOf(
-            // @formatter:off
-            SOLAR_PANEL_3, SOLAR_PANEL_3, SOLAR_PANEL_3, SOLAR_PANEL_3, SOLAR_PANEL_3, SOLAR_PANEL_3,
-            SOLAR_PANEL_3, SOLAR_PANEL_3, SOLAR_PANEL_3, SOLAR_PANEL_3, SOLAR_PANEL_3, SOLAR_PANEL_3,
-            INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT,
-            INFINITY_INGOT, INFINITY_MACHINE_CIRCUIT, INFINITY_MACHINE_CORE, INFINITY_MACHINE_CORE, INFINITY_MACHINE_CIRCUIT, INFINITY_INGOT,
-            INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT,
-            VOID_PANEL, VOID_PANEL, VOID_PANEL, VOID_PANEL, VOID_PANEL, VOID_PANEL,
-            // @formatter:on
-        )
+        recipe = buildRecipe(6) {
+            +"SSSSSS"
+            +"SSSSSS"
+            +"IIIIII"
+            +"ICOOCI"
+            +"IIIIII"
+            +"PPPPPP"
+            'S' means SOLAR_PANEL_3
+            'I' means INFINITY_INGOT
+            'C' means INFINITY_MACHINE_CIRCUIT
+            'O' means INFINITY_MACHINE_CORE
+            'P' means VOID_PANEL
+        }
     }
 
-    val INFINITY_REACTOR = buildSlimefunItem<InfinityReactor>(120_000) {
-        id = "INFINITY_REACTOR"
-        material = Material.BEACON.convert()
+    val INFINITY_REACTOR by buildSlimefunItem<InfinityReactor>(120_000) {
+        material = Material.BEACON.asMaterialType()
         itemGroup = IEItemGroups.GENERATORS
         recipeType = IERecipeTypes.INFINITY_WORKBENCH
-        recipe = arrayOf(
-            // @formatter:off
-            null, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT, INFINITY_INGOT, null,
-            INFINITY_INGOT, INFINITY_INGOT, VOID_INGOT, VOID_INGOT, INFINITY_INGOT, INFINITY_INGOT,
-            INFINITY_INGOT, MACHINE_PLATE, MACHINE_PLATE, MACHINE_PLATE, MACHINE_PLATE, INFINITY_INGOT,
-            INFINITY_INGOT, MACHINE_PLATE, ADVANCED_NETHER_STAR_REACTOR, ADVANCED_NETHER_STAR_REACTOR, MACHINE_PLATE, INFINITY_INGOT,
-            INFINITY_INGOT, MACHINE_PLATE, MACHINE_PLATE, MACHINE_PLATE, MACHINE_PLATE, INFINITY_INGOT,
-            INFINITY_INGOT, INFINITY_MACHINE_CIRCUIT, INFINITY_MACHINE_CORE, INFINITY_MACHINE_CORE, INFINITY_MACHINE_CIRCUIT, INFINITY_INGOT,
-            // @formatter:on
-        )
+        recipe = buildRecipe(6) {
+            +" IIII "
+            +"IIVVII"
+            +"IPPPPI"
+            +"IPRRPI"
+            +"IPPPPI"
+            +"ICOOCI"
+            'I' means INFINITY_INGOT
+            'V' means VOID_INGOT
+            'P' means MACHINE_PLATE
+            'R' means ADVANCED_NETHER_STAR_REACTOR
+            'C' means INFINITY_MACHINE_CIRCUIT
+            'O' means INFINITY_MACHINE_CORE
+        }
     }
     //</editor-fold>
 
     //<editor-fold desc="Mob Simulation" defaultstate="collapsed">
-    val MOB_SIMULATION_CHAMBER = buildSlimefunItem<MobSimulationChamber>(150) {
-        id = "MOB_SIMULATION_CHAMBER"
-        material = Material.GILDED_BLACKSTONE.convert()
+    val MOB_SIMULATION_CHAMBER by buildSlimefunItem<MobSimulationChamber>(150) {
+        material = Material.GILDED_BLACKSTONE.asMaterialType()
         itemGroup = IEItemGroups.MOB_SIMULATION
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
-        recipe = arrayOf(
-            MAGSTEEL_PLATE, MACHINE_PLATE, MAGSTEEL_PLATE,
-            MACHINE_CIRCUIT, SlimefunItems.PROGRAMMABLE_ANDROID_BUTCHER, MACHINE_CIRCUIT,
-            MAGSTEEL_PLATE, MACHINE_PLATE, MAGSTEEL_PLATE,
-        )
+        recipe = buildRecipe {
+            +"MPM"
+            +"CBC"
+            +"MPM"
+            'M' means MAGSTEEL_PLATE
+            'P' means MACHINE_PLATE
+            'C' means MACHINE_CIRCUIT
+            'B' means SlimefunItems.PROGRAMMABLE_ANDROID_BUTCHER
+        }
     }
 
-    val MOB_DATA_INFUSER = buildSlimefunItem<MobDataInfuser>(20_000) {
-        id = "MOB_DATA_INFUSER"
-        material = Material.LODESTONE.convert()
+    val MOB_DATA_INFUSER by buildSlimefunItem<MobDataInfuser>(20_000) {
+        material = Material.LODESTONE.asMaterialType()
         itemGroup = IEItemGroups.MOB_SIMULATION
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
-        recipe = arrayOf(
-            MACHINE_CIRCUIT, SlimefunItems.REINFORCED_ALLOY_INGOT, MACHINE_CIRCUIT,
-            SlimefunItems.REINFORCED_ALLOY_INGOT, MACHINE_CORE, SlimefunItems.REINFORCED_ALLOY_INGOT,
-            MACHINE_CIRCUIT, SlimefunItems.REINFORCED_ALLOY_INGOT, MACHINE_CIRCUIT
-        )
+        recipe = buildRecipe {
+            +"CRC"
+            +"ROR"
+            +"CRC"
+            'C' means MACHINE_CIRCUIT
+            'R' means SlimefunItems.REINFORCED_ALLOY_INGOT
+            'O' means MACHINE_CORE
+        }
     }
 
-    val MOB_DATA_CARD_EMPTY = buildSlimefunItem<SimpleMaterial> {
-        id = "MOB_DATA_CARD_EMPTY"
-        material = Material.CHAINMAIL_CHESTPLATE.convert()
+    val MOB_DATA_CARD_EMPTY by buildSlimefunItem<SimpleMaterial> {
+        material = Material.CHAINMAIL_CHESTPLATE.asMaterialType()
         itemGroup = IEItemGroups.MOB_SIMULATION
         recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
-        recipe = arrayOf(
-            SlimefunItems.MAGNESIUM_INGOT, MACHINE_CIRCUIT, SlimefunItems.MAGNESIUM_INGOT,
-            SlimefunItems.SYNTHETIC_SAPPHIRE, SlimefunItems.SYNTHETIC_DIAMOND, SlimefunItems.SYNTHETIC_EMERALD,
-            SlimefunItems.MAGNESIUM_INGOT, MACHINE_CIRCUIT, SlimefunItems.MAGNESIUM_INGOT,
-        )
+        recipe = buildRecipe {
+            +"MCM"
+            +"SDE"
+            +"MCM"
+            'M' means SlimefunItems.MAGNESIUM_INGOT
+            'C' means MACHINE_CIRCUIT
+            'S' means SlimefunItems.SYNTHETIC_SAPPHIRE
+            'D' means SlimefunItems.SYNTHETIC_DIAMOND
+            'E' means SlimefunItems.SYNTHETIC_EMERALD
+        }
     }
     //</editor-fold>
 
     //<editor-fold desc="Hidden" defaultstate="collapsed">
-    val OSCILLATOR = buildSlimefunItem<Oscillator>(Material.AIR.toItem()) {
-        id = "OSCILLATOR"
-        material = Material.REDSTONE_TORCH.convert()
+    val OSCILLATOR by buildSlimefunItem<Oscillator>(Material.AIR.toItem()) {
+        material = Material.REDSTONE_TORCH.asMaterialType()
         itemGroup = IEItemGroups.HIDDEN
         recipeType = RecipeType.NULL
-        recipe = emptyRecipe()
     }
 
     // register this to ensure the recipe output items are recognized as sf items
-    val MOB_DATA_CARD = buildSlimefunItem<MobDataCard>(MobDataCardProps.EMPTY) {
-        id = "MOB_DATA_CARD"
-        material = Material.LEATHER_CHESTPLATE.convert()
+    val MOB_DATA_CARD by buildSlimefunItem<MobDataCard>(MobDataCardProps.EMPTY) {
+        material = Material.LEATHER_CHESTPLATE.asMaterialType()
         itemGroup = IEItemGroups.HIDDEN
         recipeType = RecipeType.NULL
-        recipe = emptyRecipe()
     }
     //</editor-fold>
 }
