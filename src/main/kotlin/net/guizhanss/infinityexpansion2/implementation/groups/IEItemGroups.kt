@@ -2,7 +2,7 @@ package net.guizhanss.infinityexpansion2.implementation.groups
 
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.utils.bukkitext.createKey
-import net.guizhanss.infinityexpansion2.utils.items.MaterialType
+import net.guizhanss.infinityexpansion2.utils.items.builder.asMaterialType
 import org.bukkit.Material
 
 object IEItemGroups {
@@ -10,7 +10,7 @@ object IEItemGroups {
     val MAIN = MainGroup(
         "main".createKey(),
         InfinityExpansion2.localization.getItemGroupItem(
-            MaterialType.Material(Material.NETHER_STAR),
+            Material.NETHER_STAR.asMaterialType(),
             "main"
         )
     )
@@ -18,7 +18,7 @@ object IEItemGroups {
     val MATERIALS = SubGroup(
         "materials".createKey(),
         InfinityExpansion2.localization.getItemGroupItem(
-            MaterialType.Material(Material.NETHER_STAR),
+            Material.NETHER_STAR.asMaterialType(),
             "materials"
         )
     )
@@ -26,7 +26,7 @@ object IEItemGroups {
     val SINGULARITIES = SubGroup(
         "singularities".createKey(),
         InfinityExpansion2.localization.getItemGroupItem(
-            MaterialType.Material(Material.NETHERITE_BLOCK),
+            Material.NETHERITE_BLOCK.asMaterialType(),
             "singularities"
         )
     )
@@ -34,7 +34,7 @@ object IEItemGroups {
     val SLIMEFUN_EXPANSION = SubGroup(
         "slimefun_expansion".createKey(),
         InfinityExpansion2.localization.getItemGroupItem(
-            MaterialType.Material(Material.SLIME_BLOCK),
+            Material.SLIME_BLOCK.asMaterialType(),
             "slimefun_expansion"
         )
     )
@@ -42,7 +42,7 @@ object IEItemGroups {
     val FOOD = SubGroup(
         "food".createKey(),
         InfinityExpansion2.localization.getItemGroupItem(
-            MaterialType.Material(Material.COOKED_BEEF),
+            Material.COOKED_BEEF.asMaterialType(),
             "food"
         )
     )
@@ -50,7 +50,7 @@ object IEItemGroups {
     val TOOLS = SubGroup(
         "tools".createKey(),
         InfinityExpansion2.localization.getItemGroupItem(
-            MaterialType.Material(Material.DIAMOND_PICKAXE),
+            Material.DIAMOND_PICKAXE.asMaterialType(),
             "tools"
         )
     )
@@ -58,7 +58,7 @@ object IEItemGroups {
     val GEAR = SubGroup(
         "gear".createKey(),
         InfinityExpansion2.localization.getItemGroupItem(
-            MaterialType.Material(Material.DIAMOND_CHESTPLATE),
+            Material.DIAMOND_CHESTPLATE.asMaterialType(),
             "gear"
         )
     )
@@ -66,7 +66,7 @@ object IEItemGroups {
     val MACHINES = SubGroup(
         "machines".createKey(),
         InfinityExpansion2.localization.getItemGroupItem(
-            MaterialType.Material(Material.LOOM),
+            Material.LOOM.asMaterialType(),
             "machines"
         )
     )
@@ -74,7 +74,7 @@ object IEItemGroups {
     val GENERATORS = SubGroup(
         "generators".createKey(),
         InfinityExpansion2.localization.getItemGroupItem(
-            MaterialType.Material(Material.BLAST_FURNACE),
+            Material.BLAST_FURNACE.asMaterialType(),
             "generators"
         )
     )
@@ -82,7 +82,7 @@ object IEItemGroups {
     val MOB_SIMULATION = SubGroup(
         "mob_simulation".createKey(),
         InfinityExpansion2.localization.getItemGroupItem(
-            MaterialType.Material(Material.BEACON),
+            Material.BEACON.asMaterialType(),
             "mob_simulation"
         )
     )
@@ -90,7 +90,7 @@ object IEItemGroups {
     val STORAGE = SubGroup(
         "storage".createKey(),
         InfinityExpansion2.localization.getItemGroupItem(
-            MaterialType.Material(Material.BEEHIVE),
+            Material.BEEHIVE.asMaterialType(),
             "storage"
         )
     )
@@ -98,7 +98,7 @@ object IEItemGroups {
     val HIDDEN = SubGroup(
         "hidden".createKey(),
         InfinityExpansion2.localization.getItemGroupItem(
-            MaterialType.Material(Material.BARRIER),
+            Material.BARRIER.asMaterialType(),
             "hidden"
         )
     )

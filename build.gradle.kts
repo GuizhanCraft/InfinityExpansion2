@@ -30,8 +30,8 @@ repositories {
 }
 
 dependencies {
-    compileOnly(kotlin("stdlib")) // loaded during server startup
-    compileOnly(kotlin("reflect")) // loaded during server startup
+    compileOnly(kotlin("stdlib")) // loaded through library loader
+    compileOnly(kotlin("reflect")) // loaded through library loader
     compileOnly("io.papermc.paper:paper-api:1.20.6-R0.1-SNAPSHOT")
     compileOnly("com.github.Slimefun:Slimefun4:e02a0f61d1")
     compileOnly("net.guizhanss:SlimefunTranslation:e03b01a7b7")
@@ -39,6 +39,7 @@ dependencies {
     implementation("net.byteflux:libby-bukkit:1.3.1")
     implementation("net.guizhanss:guizhanlib-all:2.1.0")
     implementation("org.bstats:bstats-bukkit:3.1.0")
+    implementation("io.github.seggan:sf4k:0.8.0")
 }
 
 java {
@@ -62,6 +63,7 @@ tasks.shadowJar {
     doRelocate("net.byteflux.libby")
     doRelocate("net.guizhanss.guizhanlib")
     doRelocate("org.bstats")
+    doRelocate("io.github.seggan.sf4k")
     minimize()
     archiveClassifier = ""
 }

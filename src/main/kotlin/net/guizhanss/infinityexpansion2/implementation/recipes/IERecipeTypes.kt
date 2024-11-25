@@ -5,7 +5,7 @@ import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.core.IERegistry
 import net.guizhanss.infinityexpansion2.core.recipes.MachineRecipe
 import net.guizhanss.infinityexpansion2.utils.bukkitext.createKey
-import net.guizhanss.infinityexpansion2.utils.items.convert
+import net.guizhanss.infinityexpansion2.utils.items.builder.asMaterialType
 import org.bukkit.Material
 
 object IERecipeTypes {
@@ -13,7 +13,7 @@ object IERecipeTypes {
     val VOID_HARVESTER = RecipeType(
         "void_harvester".createKey(),
         InfinityExpansion2.localization.getRecipeTypeItem(
-            Material.OBSIDIAN.convert(),
+            Material.OBSIDIAN.asMaterialType(),
             "void_harvester"
         )
     )
@@ -21,7 +21,7 @@ object IERecipeTypes {
     val INFINITY_WORKBENCH = RecipeType(
         "infinity_workbench".createKey(),
         InfinityExpansion2.localization.getRecipeTypeItem(
-            Material.SMITHING_TABLE.convert(),
+            Material.SMITHING_TABLE.asMaterialType(),
             "infinity_workbench"
         ),
         { recipe, output ->
@@ -32,7 +32,7 @@ object IERecipeTypes {
     val SINGULARITY_CONSTRUCTOR = RecipeType(
         "singularity_constructor".createKey(),
         InfinityExpansion2.localization.getRecipeTypeItem(
-            Material.QUARTZ_BLOCK.convert(),
+            Material.QUARTZ_BLOCK.asMaterialType(),
             "singularity_constructor"
         )
     )
@@ -40,7 +40,7 @@ object IERecipeTypes {
     val MOB_DATA_INFUSER = RecipeType(
         "mob_data_infuser".createKey(),
         InfinityExpansion2.localization.getRecipeTypeItem(
-            Material.LODESTONE.convert(),
+            Material.LODESTONE.asMaterialType(),
             "mob_data_infuser"
         ),
         { recipe, output ->

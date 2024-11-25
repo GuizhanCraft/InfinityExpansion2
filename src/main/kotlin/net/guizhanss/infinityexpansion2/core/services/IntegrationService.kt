@@ -3,9 +3,10 @@ package net.guizhanss.infinityexpansion2.core.services
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem
 import io.github.thebusybiscuit.slimefun4.libraries.dough.items.ItemUtils
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
+import net.guizhanss.infinityexpansion2.implementation.IEItems
 import net.guizhanss.infinityexpansion2.implementation.listeners.TranslationsLoadListener
 import net.guizhanss.infinityexpansion2.integration.SlimeHUDIntegration
-import net.guizhanss.infinityexpansion2.utils.items.MaterialType
+import net.guizhanss.infinityexpansion2.utils.items.builder.asMaterialType
 import net.guizhanss.infinityexpansion2.utils.items.removePrefix
 import net.guizhanss.slimefuntranslation.api.SlimefunTranslationAPI
 import net.guizhanss.slimefuntranslation.api.config.TranslationConfiguration
@@ -41,7 +42,7 @@ class IntegrationService(private val plugin: InfinityExpansion2) {
     fun loadTranslations() {
         val fields = TranslationConfigurationFields.builder().items("items").lore("lores").build()
         val defaults = TranslationConfigurationDefaults.builder().name("InfinityExpansion2")
-            .prefix(InfinityExpansion2.localization.idPrefix).build()
+            .prefix(IEItems.prefix).build()
         val languages = FileUtils.listYamlFiles(File(plugin.dataFolder, "lang"))
         for (langFile in languages) {
             val file = File(plugin.dataFolder, "lang" + File.separator + langFile)
@@ -67,7 +68,7 @@ class IntegrationService(private val plugin: InfinityExpansion2) {
      */
     fun getItemGroupName(p: Player, id: String): String {
         return if (slimefunTranslationEnabled) {
-            val item = InfinityExpansion2.localization.getItemGroupItem(MaterialType.Material(Material.BARRIER), id)
+            val item = InfinityExpansion2.localization.getItemGroupItem(Material.BARRIER.asMaterialType(), id)
             SlimefunTranslationAPI.translateItem(SlimefunTranslationAPI.getUser(p), item)
             item.displayName!!
         } else {

@@ -16,7 +16,7 @@ import net.guizhanss.infinityexpansion2.implementation.items.machines.abstracts.
 import net.guizhanss.infinityexpansion2.utils.getString
 import net.guizhanss.infinityexpansion2.utils.hasData
 import net.guizhanss.infinityexpansion2.utils.items.GuiItems
-import net.guizhanss.infinityexpansion2.utils.items.MaterialType
+import net.guizhanss.infinityexpansion2.utils.items.builder.asMaterialType
 import net.guizhanss.infinityexpansion2.utils.setString
 import net.guizhanss.infinityexpansion2.utils.valueOfOrNull
 import org.bukkit.Material
@@ -154,7 +154,7 @@ class StoneworksFactory(
         private val ITEM_SLOTS = intArrayOf(10, 12, 14)
 
         private val CHANGE_ITEM = InfinityExpansion2.localization.getGuiItem(
-            MaterialType.Material(Material.YELLOW_STAINED_GLASS_PANE),
+            Material.YELLOW_STAINED_GLASS_PANE.asMaterialType(),
             "sw_change"
         )
     }
@@ -196,7 +196,7 @@ class StoneworksFactory(
 
         val item: ItemStack
             get() = InfinityExpansion2.localization.getGuiItem(
-                MaterialType.Material(material),
+                material.asMaterialType(),
                 "sw_${name}"
             )
     }

@@ -22,7 +22,7 @@ import net.guizhanss.infinityexpansion2.implementation.IEItems
 import net.guizhanss.infinityexpansion2.utils.getInt
 import net.guizhanss.infinityexpansion2.utils.items.GuiItems
 import net.guizhanss.infinityexpansion2.utils.items.MachineLore
-import net.guizhanss.infinityexpansion2.utils.items.convert
+import net.guizhanss.infinityexpansion2.utils.items.builder.asMaterialType
 import net.guizhanss.infinityexpansion2.utils.setInt
 import org.bukkit.ChatColor
 import org.bukkit.Location
@@ -181,32 +181,32 @@ class InfinityReactor(
         private const val STATUS_SLOT = 4
 
         private val VOID_BORDER_ITEM = InfinityExpansion2.localization.getGuiItem(
-            Material.BLUE_STAINED_GLASS_PANE.convert(), "ir_border_void"
+            Material.BLUE_STAINED_GLASS_PANE.asMaterialType(), "ir_border_void"
         )
         private val INFINITY_BORDER_ITEM = InfinityExpansion2.localization.getGuiItem(
-            Material.LIGHT_BLUE_STAINED_GLASS_PANE.convert(), "ir_border_infinity"
+            Material.LIGHT_BLUE_STAINED_GLASS_PANE.asMaterialType(), "ir_border_infinity"
         )
         private val NEED_VOID = InfinityExpansion2.localization.getGuiItem(
-            Material.RED_STAINED_GLASS_PANE.convert(), "ir_need_void"
+            Material.RED_STAINED_GLASS_PANE.asMaterialType(), "ir_need_void"
         )
         private val NEED_INFINITY = InfinityExpansion2.localization.getGuiItem(
-            Material.RED_STAINED_GLASS_PANE.convert(), "ir_need_infinity"
+            Material.RED_STAINED_GLASS_PANE.asMaterialType(), "ir_need_infinity"
         )
 
         private fun infoVoid(ticks: Int) = InfinityExpansion2.localization.getGuiItem(
-            Material.LIME_STAINED_GLASS_PANE.convert(),
+            Material.LIME_STAINED_GLASS_PANE.asMaterialType(),
             "ir_info_void",
             "${ChatColor.GRAY}${MachineLore.format(ticks)}"
         )
 
         private fun infoInfinity(ticks: Int) = InfinityExpansion2.localization.getGuiItem(
-            Material.LIME_STAINED_GLASS_PANE.convert(),
+            Material.LIME_STAINED_GLASS_PANE.asMaterialType(),
             "ir_info_infinity",
             "${ChatColor.GRAY}${MachineLore.format(ticks)}"
         )
 
         private fun info(infinity: Int, void: Int) = InfinityExpansion2.localization.getGuiItem(
-            Material.LIME_STAINED_GLASS_PANE.convert(),
+            Material.LIME_STAINED_GLASS_PANE.asMaterialType(),
             "ir_info",
             InfinityExpansion2.localization.getString("items._UI_IR_INFO.lore-overrides.1"),
             "${ChatColor.GRAY}${MachineLore.format(infinity)}",

@@ -15,7 +15,7 @@ import net.guizhanss.infinityexpansion2.implementation.IEItems
 import net.guizhanss.infinityexpansion2.implementation.groups.IEItemGroups
 import net.guizhanss.infinityexpansion2.utils.bukkitext.toItemStack
 import net.guizhanss.infinityexpansion2.utils.constant.Keys
-import net.guizhanss.infinityexpansion2.utils.expandRecipe
+import net.guizhanss.infinityexpansion2.utils.items.builder.recipes.buildRecipe
 import org.bukkit.ChatColor
 import org.bukkit.inventory.ItemStack
 import org.bukkit.inventory.meta.ItemMeta
@@ -84,11 +84,18 @@ class Oscillator(
         fun register(target: String) {
             val targetItem = target.toItemStack()
             val item = getItem(target)
+            // TODO: properly handle sf 1.21 changes here
             val sfItem = Oscillator(
                 IEItemGroups.TOOLS,
-                SlimefunItemStack("${InfinityExpansion2.localization.idPrefix}OSCILLATOR_$target", item),
+                SlimefunItemStack("${IEItems.prefix}OSCILLATOR_$target", item),
                 RecipeType.ENHANCED_CRAFTING_TABLE,
-                expandRecipe(IEItems.OSCILLATOR_FRAME, targetItem),
+                buildRecipe {
+                    +"FI "
+                    +"   "
+                    +"   "
+                    'F' means IEItems.OSCILLATOR_FRAME
+                    'I' means targetItem
+                },
                 item
             )
             sfItem.register(InfinityExpansion2.instance)

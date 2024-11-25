@@ -10,8 +10,11 @@ object MachineLore {
     private val numberFormatter get() = NumberFormat.getNumberInstance(Locale.getDefault())
 
     fun format(value: Int) = numberFormatter.format(value)
+
     fun power(power: Int, suffix: String) = "$POWER_PREFIX${format(power)} J$suffix"
+
     fun powerPerTick(powerPerTick: Int) = power(powerPerTick, "/t")
+
     fun powerPerSecond(powerPerTick: Int, tickRate: Int = 1) =
         power(powerPerTickToSecond(powerPerTick, tickRate), "/s")
 

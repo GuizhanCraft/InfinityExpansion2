@@ -3,6 +3,7 @@ package net.guizhanss.infinityexpansion2.utils.items
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
+import net.guizhanss.infinityexpansion2.implementation.IEItems
 import net.guizhanss.infinityexpansion2.utils.bukkitext.getEnchantment
 import org.bukkit.inventory.ItemStack
 import java.util.logging.Level
@@ -31,10 +32,10 @@ fun ItemStack?.getSlimefunItem() = SlimefunItem.getByItem(this) ?: error("Not a 
 inline fun <reified T : SlimefunItem> ItemStack?.getSlimefunItem() =
     SlimefunItem.getByItem(this) as? T ?: error("Not a SlimefunItem")
 
-fun String.removePrefix() = this.replace(InfinityExpansion2.localization.idPrefix, "")
+fun String.removePrefix() = this.replace(IEItems.prefix, "")
 
 fun applyInfinityGearEnchantment(sfItem: SlimefunItemStack) {
-    val key = sfItem.itemId.replace("${InfinityExpansion2.localization.idPrefix}INFINITY_", "").lowercase()
+    val key = sfItem.itemId.replace("${IEItems.prefix}INFINITY_", "").lowercase()
     val section = InfinityExpansion2.configService.infinityGear[key] ?: run {
         InfinityExpansion2.log(
             Level.WARNING, "Infinity gear \"$key\"'s config section is missing."

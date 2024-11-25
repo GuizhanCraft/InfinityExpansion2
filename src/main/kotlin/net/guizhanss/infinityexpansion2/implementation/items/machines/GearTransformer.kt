@@ -12,8 +12,7 @@ import net.guizhanss.infinityexpansion2.core.items.attributes.InformationalRecip
 import net.guizhanss.infinityexpansion2.core.menu.MenuLayout
 import net.guizhanss.infinityexpansion2.implementation.items.machines.abstracts.AbstractTickingActionMachine
 import net.guizhanss.infinityexpansion2.utils.items.GuiItems
-import net.guizhanss.infinityexpansion2.utils.items.MaterialType
-import net.guizhanss.infinityexpansion2.utils.items.convert
+import net.guizhanss.infinityexpansion2.utils.items.builder.asMaterialType
 import net.guizhanss.infinityexpansion2.utils.items.isSlimefunItem
 import net.guizhanss.infinityexpansion2.utils.tags.IETag
 import org.bukkit.Material
@@ -131,15 +130,15 @@ class GearTransformer(
         )
 
         private val GEAR_BORDER_ITEM = InfinityExpansion2.localization.getGuiItem(
-            MaterialType.Material(Material.BLUE_STAINED_GLASS_PANE),
+            Material.BLUE_STAINED_GLASS_PANE.asMaterialType(),
             "gt_gear"
         )
         private val MATERIAL_BORDER_ITEM = InfinityExpansion2.localization.getGuiItem(
-            MaterialType.Material(Material.BLUE_STAINED_GLASS_PANE),
+            Material.BLUE_STAINED_GLASS_PANE.asMaterialType(),
             "gt_material"
         )
         private val NO_SLIMEFUN_ITEM = InfinityExpansion2.localization.getGuiItem(
-            Material.BARRIER.convert(),
+            Material.BARRIER.asMaterialType(),
             "gt_no_slimefun"
         )
 

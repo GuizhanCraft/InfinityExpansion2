@@ -15,7 +15,7 @@ import net.guizhanss.infinityexpansion2.core.menu.MenuLayout
 import net.guizhanss.infinityexpansion2.core.sound.IESound
 import net.guizhanss.infinityexpansion2.implementation.items.machines.abstracts.AbstractTickingActionMachine
 import net.guizhanss.infinityexpansion2.utils.items.GuiItems
-import net.guizhanss.infinityexpansion2.utils.items.convert
+import net.guizhanss.infinityexpansion2.utils.items.builder.asMaterialType
 import net.guizhanss.infinityexpansion2.utils.items.toDisplayItem
 import org.bukkit.Material
 import org.bukkit.block.Block
@@ -197,7 +197,7 @@ class AdvancedAnvil(
             if (maxLevel <= 0) return@forEach
 
             val item = InfinityExpansion2.localization.getGuiItem(
-                Material.ENCHANTED_BOOK.convert(),
+                Material.ENCHANTED_BOOK.asMaterialType(),
                 "aa_max_enchantment_level"
             )
             item.addUnsafeEnchantment(enchantment, maxLevel)

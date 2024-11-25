@@ -18,7 +18,7 @@ import net.guizhanss.infinityexpansion2.core.items.attributes.InformationalRecip
 import net.guizhanss.infinityexpansion2.core.menu.MenuLayout
 import net.guizhanss.infinityexpansion2.utils.bukkitext.isWaterLogged
 import net.guizhanss.infinityexpansion2.utils.items.GuiItems
-import net.guizhanss.infinityexpansion2.utils.items.MaterialType
+import net.guizhanss.infinityexpansion2.utils.items.builder.asMaterialType
 import org.bukkit.Material
 import org.bukkit.block.Block
 import org.bukkit.enchantments.Enchantment
@@ -110,7 +110,7 @@ class StrainerBase(
         private val LAYOUT = MenuLayout.SINGLE_INPUT
 
         private val ANY_STRAINER_ITEM = InfinityExpansion2.localization.getGuiItem(
-            MaterialType.Material(Material.FISHING_ROD),
+            Material.FISHING_ROD.asMaterialType(),
             "any_strainer"
         )
 
