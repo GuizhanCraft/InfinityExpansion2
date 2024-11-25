@@ -2,6 +2,7 @@
 
 package net.guizhanss.infinityexpansion2.implementation.items.generators
 
+import io.github.seggan.sf4k.item.builder.asMaterialType
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
@@ -22,7 +23,6 @@ import net.guizhanss.infinityexpansion2.implementation.IEItems
 import net.guizhanss.infinityexpansion2.utils.getInt
 import net.guizhanss.infinityexpansion2.utils.items.GuiItems
 import net.guizhanss.infinityexpansion2.utils.items.MachineLore
-import net.guizhanss.infinityexpansion2.utils.items.builder.asMaterialType
 import net.guizhanss.infinityexpansion2.utils.setInt
 import org.bukkit.ChatColor
 import org.bukkit.Location

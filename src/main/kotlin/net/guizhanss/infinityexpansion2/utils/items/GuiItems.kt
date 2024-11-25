@@ -1,11 +1,11 @@
 package net.guizhanss.infinityexpansion2.utils.items
 
+import io.github.seggan.sf4k.item.builder.asMaterialType
 import io.github.thebusybiscuit.slimefun4.libraries.dough.data.persistent.PersistentDataAPI
 import io.github.thebusybiscuit.slimefun4.utils.ChestMenuUtils
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.utils.constant.Keys
 import net.guizhanss.infinityexpansion2.utils.constant.Strings
-import net.guizhanss.infinityexpansion2.utils.items.builder.MaterialType
 import net.guizhanss.infinityexpansion2.utils.items.builder.asMaterialType
 import org.bukkit.Material
 import org.bukkit.inventory.ItemStack
@@ -133,7 +133,11 @@ object GuiItems {
     )
 
     fun sfItem(allowed: Boolean) = InfinityExpansion2.localization.getGuiItem(
-        MaterialType.Material(if (allowed) Material.GREEN_STAINED_GLASS_PANE else Material.RED_STAINED_GLASS_PANE),
+        if (allowed) {
+            Material.GREEN_STAINED_GLASS_PANE.asMaterialType()
+        } else {
+            Material.RED_STAINED_GLASS_PANE.asMaterialType()
+        },
         "sf_item",
         if (allowed) Strings.CHECK else Strings.CROSS
     )

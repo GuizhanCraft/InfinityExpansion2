@@ -2,6 +2,7 @@ package net.guizhanss.infinityexpansion2.implementation.items.machines
 
 import com.google.common.collect.MapDifference
 import com.google.common.collect.Maps
+import io.github.seggan.sf4k.item.builder.asMaterialType
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
@@ -15,7 +16,6 @@ import net.guizhanss.infinityexpansion2.core.menu.MenuLayout
 import net.guizhanss.infinityexpansion2.core.sound.IESound
 import net.guizhanss.infinityexpansion2.implementation.items.machines.abstracts.AbstractTickingActionMachine
 import net.guizhanss.infinityexpansion2.utils.items.GuiItems
-import net.guizhanss.infinityexpansion2.utils.items.builder.asMaterialType
 import net.guizhanss.infinityexpansion2.utils.items.toDisplayItem
 import org.bukkit.Material
 import org.bukkit.block.Block

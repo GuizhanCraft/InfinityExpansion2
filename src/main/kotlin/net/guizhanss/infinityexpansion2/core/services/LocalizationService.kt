@@ -2,11 +2,11 @@
 
 package net.guizhanss.infinityexpansion2.core.services
 
+import io.github.seggan.sf4k.item.builder.MaterialType
 import net.guizhanss.guizhanlib.minecraft.utils.ChatUtil
 import net.guizhanss.guizhanlib.minecraft.utils.ItemUtil
 import net.guizhanss.guizhanlib.slimefun.addon.SlimefunLocalization
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
-import net.guizhanss.infinityexpansion2.utils.items.builder.MaterialType
 import net.guizhanss.infinityexpansion2.utils.listYmlFilesInJar
 import net.guizhanss.infinityexpansion2.utils.toId
 import net.md_5.bungee.api.ChatMessageType

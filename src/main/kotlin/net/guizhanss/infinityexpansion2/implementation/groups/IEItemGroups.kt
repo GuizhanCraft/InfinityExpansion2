@@ -1,8 +1,8 @@
 package net.guizhanss.infinityexpansion2.implementation.groups
 
+import io.github.seggan.sf4k.item.builder.asMaterialType
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.utils.bukkitext.createKey
-import net.guizhanss.infinityexpansion2.utils.items.builder.asMaterialType
 import org.bukkit.Material
 
 object IEItemGroups {

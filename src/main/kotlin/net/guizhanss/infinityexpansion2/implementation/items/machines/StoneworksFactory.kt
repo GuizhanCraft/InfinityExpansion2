@@ -2,6 +2,7 @@
 
 package net.guizhanss.infinityexpansion2.implementation.items.machines
 
+import io.github.seggan.sf4k.item.builder.asMaterialType
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
@@ -16,7 +17,6 @@ import net.guizhanss.infinityexpansion2.implementation.items.machines.abstracts.
 import net.guizhanss.infinityexpansion2.utils.getString
 import net.guizhanss.infinityexpansion2.utils.hasData
 import net.guizhanss.infinityexpansion2.utils.items.GuiItems
-import net.guizhanss.infinityexpansion2.utils.items.builder.asMaterialType
 import net.guizhanss.infinityexpansion2.utils.setString
 import net.guizhanss.infinityexpansion2.utils.valueOfOrNull
 import org.bukkit.Material

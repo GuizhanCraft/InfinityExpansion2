@@ -2,6 +2,7 @@ package net.guizhanss.infinityexpansion2.utils.items.builder
 
 import io.github.seggan.sf4k.item.builder.ItemProvider
 import io.github.seggan.sf4k.item.builder.ItemRegistry
+import io.github.seggan.sf4k.item.builder.MaterialType
 import io.github.seggan.sf4k.util.RequiredProperty
 import io.github.seggan.sf4k.util.findConstructorFromArgs
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup
@@ -56,7 +57,8 @@ class SlimefunItemBuilder(private val registry: ItemRegistry) {
 
         // SlimefunItem
         val args = arrayOf(itemGroup, sfis, recipeType, recipe, *otherArgs)
-        val constructor = clazz.findConstructorFromArgs(*args) ?: error("Primary constructor not found for $clazz")
+        val constructor = clazz.findConstructorFromArgs(*args)
+            ?: error("No constructor found for ${clazz.simpleName} with arguments: ${args.joinToString()}")
         val item = try {
             constructor.call(*args)
         } catch (e: Exception) {

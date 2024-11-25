@@ -1,5 +1,6 @@
 package net.guizhanss.infinityexpansion2.implementation.items.machines
 
+import io.github.seggan.sf4k.item.builder.asMaterialType
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
@@ -12,7 +13,6 @@ import net.guizhanss.infinityexpansion2.core.items.attributes.InformationalRecip
 import net.guizhanss.infinityexpansion2.core.menu.MenuLayout
 import net.guizhanss.infinityexpansion2.implementation.items.machines.abstracts.AbstractTickingActionMachine
 import net.guizhanss.infinityexpansion2.utils.items.GuiItems
-import net.guizhanss.infinityexpansion2.utils.items.builder.asMaterialType
 import net.guizhanss.infinityexpansion2.utils.items.isSlimefunItem
 import net.guizhanss.infinityexpansion2.utils.tags.IETag
 import org.bukkit.Material

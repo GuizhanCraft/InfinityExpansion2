@@ -1,11 +1,11 @@
 package net.guizhanss.infinityexpansion2.implementation.recipes
 
+import io.github.seggan.sf4k.item.builder.asMaterialType
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.core.IERegistry
 import net.guizhanss.infinityexpansion2.core.recipes.MachineRecipe
 import net.guizhanss.infinityexpansion2.utils.bukkitext.createKey
-import net.guizhanss.infinityexpansion2.utils.items.builder.asMaterialType
 import org.bukkit.Material
 
 object IERecipeTypes {
