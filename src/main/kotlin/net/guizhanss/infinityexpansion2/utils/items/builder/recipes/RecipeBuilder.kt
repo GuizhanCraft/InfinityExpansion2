@@ -51,7 +51,7 @@ class RecipeBuilder(private val size: Int) {
     }
 }
 
-@ExperimentalContracts
+@OptIn(ExperimentalContracts::class)
 inline fun buildRecipe(size: Int = 3, init: RecipeBuilder.() -> Unit): Array<out ItemStack?> {
     contract {
         callsInPlace(init, InvocationKind.EXACTLY_ONCE)
