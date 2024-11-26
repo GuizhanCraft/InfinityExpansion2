@@ -36,9 +36,10 @@ dependencies {
     compileOnly("com.github.Slimefun:Slimefun4:d12ae8580b")
     compileOnly("net.guizhanss:SlimefunTranslation:e03b01a7b7")
     compileOnly("com.github.schntgaispock:SlimeHUD:1.3.0")
-    implementation("net.byteflux:libby-bukkit:1.3.1")
+    implementation("net.byteflux:libby-core:1.3.1")
     implementation("net.guizhanss:guizhanlib-all:2.1.0")
     implementation("org.bstats:bstats-bukkit:3.1.0")
+    implementation("it.unimi.dsi:fastutil:8.5.15")
     implementation("io.github.seggan:sf4k:0.8.0") {
         exclude(group = "org.jetbrains.kotlin")
         exclude(group = "com.github.Slimefun")
@@ -68,7 +69,7 @@ tasks.shadowJar {
     doRelocate("org.bstats")
     doRelocate("io.github.seggan.sf4k")
     doRelocate("io.papermc.lib", "paperlib")
-    doRelocate("kotlinx.serialization")
+    doRelocate("it.unimi.dsi.fastutil")
     minimize()
     archiveClassifier = ""
 }
