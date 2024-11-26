@@ -17,7 +17,7 @@ import kotlin.reflect.KClass
 import kotlin.reflect.full.valueParameters
 
 /**
- * The main DSL class for constructing a [SlimefunItem].
+ * The main DSL class for constructing a [SlimefunItem], adapted for InfinityExpansion2.
  *
  * Modified from [sf4k by Seggan](https://github.com/Seggan/sf4k/blob/master/src/main/kotlin/io/github/seggan/sf4k/item/builder/ItemBuilder.kt).
  */

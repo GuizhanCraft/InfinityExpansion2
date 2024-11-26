@@ -39,7 +39,10 @@ dependencies {
     implementation("net.byteflux:libby-bukkit:1.3.1")
     implementation("net.guizhanss:guizhanlib-all:2.1.0")
     implementation("org.bstats:bstats-bukkit:3.1.0")
-    implementation("io.github.seggan:sf4k:0.8.0")
+    implementation("io.github.seggan:sf4k:0.8.0") {
+        exclude(group = "org.jetbrains.kotlin")
+        exclude(group = "com.github.Slimefun")
+    }
 }
 
 java {
@@ -55,8 +58,8 @@ kotlin {
 }
 
 tasks.shadowJar {
-    fun doRelocate(from: String) {
-        val last = from.split(".").last()
+    fun doRelocate(from: String, to: String? = null) {
+        val last = to ?: from.split(".").last()
         relocate(from, "$mainPackage.libs.$last")
     }
 
@@ -64,6 +67,8 @@ tasks.shadowJar {
     doRelocate("net.guizhanss.guizhanlib")
     doRelocate("org.bstats")
     doRelocate("io.github.seggan.sf4k")
+    doRelocate("io.papermc.lib", "paperlib")
+    doRelocate("kotlinx.serialization")
     minimize()
     archiveClassifier = ""
 }

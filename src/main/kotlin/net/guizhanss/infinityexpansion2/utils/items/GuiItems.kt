@@ -14,6 +14,7 @@ import java.util.Locale
 
 object GuiItems {
 
+    // not all the countries use dot(.) as decimal point
     private val decimalPoint = DecimalFormatSymbols.getInstance(Locale.getDefault()).decimalSeparator
 
     val GUIDE = InfinityExpansion2.localization.getGuiItem(

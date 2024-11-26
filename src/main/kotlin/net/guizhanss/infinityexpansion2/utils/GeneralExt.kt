@@ -6,8 +6,8 @@ inline fun <reified T : Enum<T>> valueOfOrNull(name: String): T? = enumValues<T>
 
 fun String.toId() = StringUtil.dehumanize(this)
 
-fun Pair<String, String>.matches(str1: String, str2: String) =
-    (first == str1 && second == str2) || (first == str2 && second == str1)
+fun <T> Pair<T, T>.matches(obj1: T, obj2: T) =
+    (first == obj1 && second == obj2) || (first == obj2 && second == obj1)
 
 fun Int.clamp(min: Int, max: Int) = when {
     this < min -> min

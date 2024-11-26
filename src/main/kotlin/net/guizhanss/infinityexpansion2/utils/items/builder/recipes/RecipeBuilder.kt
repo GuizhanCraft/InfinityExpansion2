@@ -1,6 +1,5 @@
 package net.guizhanss.infinityexpansion2.utils.items.builder.recipes
 
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
 import it.unimi.dsi.fastutil.chars.Char2ObjectOpenHashMap
 import org.bukkit.Material
 import org.bukkit.inventory.ItemStack
@@ -52,7 +51,7 @@ class RecipeBuilder(private val size: Int) {
     }
 }
 
-@OptIn(ExperimentalContracts::class)
+@ExperimentalContracts
 inline fun buildRecipe(size: Int = 3, init: RecipeBuilder.() -> Unit): Array<out ItemStack?> {
     contract {
         callsInPlace(init, InvocationKind.EXACTLY_ONCE)

@@ -1,5 +1,3 @@
-@file:Suppress("deprecation")
-
 package net.guizhanss.infinityexpansion2.utils.tags
 
 import com.google.gson.JsonParser
@@ -16,7 +14,6 @@ import org.bukkit.NamespacedKey
 import org.bukkit.Tag
 import java.io.InputStreamReader
 import java.nio.charset.StandardCharsets
-
 
 /**
  * The [TagParser] is responsible for parsing a JSON file into a [IETag].
