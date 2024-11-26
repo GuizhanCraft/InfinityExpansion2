@@ -4,6 +4,8 @@ import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems
+import net.guizhanss.infinityexpansion2.utils.bukkitext.toItem
+import net.guizhanss.infinityexpansion2.utils.bukkitext.withAmount
 import org.bukkit.Material
 import org.bukkit.inventory.ItemStack
 
@@ -19,24 +21,24 @@ class UraniumExtractor(
 
     init {
         addRecipe(
-            ItemStack(Material.COBBLESTONE, inputAmount),
-            arrayOf(SlimefunItemStack(SlimefunItems.SMALL_URANIUM, outputAmount))
+            Material.COBBLESTONE.toItem(inputAmount),
+            SlimefunItems.SMALL_URANIUM.withAmount(outputAmount)
         )
         addRecipe(
-            ItemStack(Material.STONE, inputAmount),
-            arrayOf(SlimefunItemStack(SlimefunItems.SMALL_URANIUM, outputAmount))
+            Material.STONE.toItem(inputAmount),
+            SlimefunItems.SMALL_URANIUM.withAmount(outputAmount)
         )
         addRecipe(
-            ItemStack(Material.ANDESITE, inputAmount),
-            arrayOf(SlimefunItemStack(SlimefunItems.SMALL_URANIUM, outputAmount))
+            Material.ANDESITE.toItem(inputAmount),
+            SlimefunItems.SMALL_URANIUM.withAmount(outputAmount)
         )
         addRecipe(
-            ItemStack(Material.DIORITE, inputAmount),
-            arrayOf(SlimefunItemStack(SlimefunItems.SMALL_URANIUM, outputAmount))
+            Material.DIORITE.toItem(inputAmount),
+            SlimefunItems.SMALL_URANIUM.withAmount(outputAmount)
         )
         addRecipe(
-            ItemStack(Material.GRANITE, inputAmount),
-            arrayOf(SlimefunItemStack(SlimefunItems.SMALL_URANIUM, outputAmount))
+            Material.GRANITE.toItem(inputAmount),
+            SlimefunItems.SMALL_URANIUM.withAmount(outputAmount)
         )
     }
 }

@@ -4,7 +4,6 @@ import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
 import io.github.thebusybiscuit.slimefun4.api.items.settings.DoubleRangeSetting
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
-import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenuPreset
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
@@ -13,7 +12,10 @@ import net.guizhanss.infinityexpansion2.core.menu.MenuLayout
 import net.guizhanss.infinityexpansion2.implementation.items.machines.abstracts.AbstractTickingMachine
 import net.guizhanss.infinityexpansion2.implementation.items.tools.Oscillator
 import net.guizhanss.infinityexpansion2.utils.bukkitext.isAir
+import net.guizhanss.infinityexpansion2.utils.bukkitext.toItem
 import net.guizhanss.infinityexpansion2.utils.bukkitext.toItemStack
+import net.guizhanss.infinityexpansion2.utils.bukkitext.withAmount
+import net.guizhanss.infinityexpansion2.utils.bukkitext.withName
 import net.guizhanss.infinityexpansion2.utils.items.GuiItems
 import org.bukkit.Material
 import org.bukkit.World
@@ -68,16 +70,16 @@ class Quarry(
                 || Random.nextDouble() > Oscillator.getChance(oscillatorItem)
             ) {
                 // normal product from pool
-                CustomItemStack(pool.getRandomProduct().toItemStack(), speed)
+                pool.getRandomProduct().toItemStack().withAmount(speed)
             } else {
                 // oscillator product
-                CustomItemStack(Oscillator.getTarget(oscillatorItem)!!.toItemStack(), speed)
+                Oscillator.getTarget(oscillatorItem)!!.toItemStack().withAmount(speed)
             }
         }
 
         // should produce base product
         val baseProduct = pool.baseProduct.toItemStack().let {
-            if (it.isAir) ItemStack(Material.COBBLESTONE) else it
+            if (it.isAir) Material.COBBLESTONE.toItem() else it
         }
         return baseProduct.clone().apply { amount = speed }
     }
@@ -90,13 +92,13 @@ class Quarry(
                     World.Environment.NORMAL -> GuiItems.WORLD_NORMAL
                     World.Environment.NETHER -> GuiItems.WORLD_NETHER
                     World.Environment.THE_END -> GuiItems.WORLD_THE_END
-                    else -> CustomItemStack(Material.BARRIER, "&cUnknown")
+                    else -> Material.BARRIER.toItem().withName("&cUnknown")
                 }
             )
-            result.add(CustomItemStack(pool.baseProduct.toItemStack(), speed))
+            result.add(pool.baseProduct.toItemStack().withAmount(speed))
             pool.products.forEach { (product, amount) ->
                 for (i in 1..amount) {
-                    result.add(CustomItemStack(product.toItemStack(), speed))
+                    result.add(product.toItemStack().withAmount(speed))
                 }
             }
             if (pool.products.size % 2 != 0) {

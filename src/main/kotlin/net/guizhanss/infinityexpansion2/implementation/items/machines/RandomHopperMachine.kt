@@ -5,7 +5,6 @@ import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
 import io.github.thebusybiscuit.slimefun4.utils.SlimefunUtils
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu
-import net.guizhanss.infinityexpansion2.utils.Recipes
 import net.guizhanss.infinityexpansion2.utils.items.GuiItems
 import org.bukkit.block.Block
 import org.bukkit.inventory.ItemStack
@@ -19,8 +18,7 @@ open class RandomHopperMachine(
     recipeType: RecipeType,
     recipe: Array<out ItemStack?>,
     energyPerTick: Int,
-    recipes: Recipes = emptyMap(),
-) : HopperMachine(itemGroup, itemStack, recipeType, recipe, energyPerTick, recipes) {
+) : HopperMachine(itemGroup, itemStack, recipeType, recipe, energyPerTick) {
 
     override fun process(b: Block, menu: BlockMenu): Boolean {
         for (slot in inputSlots) {

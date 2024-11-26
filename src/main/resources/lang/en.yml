@@ -451,6 +451,11 @@ items:
       - "&dWitherproof"
   OSCILLATOR_FRAME:
     name: "&6Oscillator Frame"
+  UNKNOWN_SMITHING_TEMPLATE:
+    name: "&8Unknown &7Smithing Template"
+    lore:
+      - "&7Is this a normal template"
+      - "&7or just an armor trim?"
 
   # items - slimefun expansion
   VOID_CAPACITOR:
@@ -754,7 +759,6 @@ items:
       - "&8\u21E8 &e⚡ &7Speed: &b1x"
     lore-overrides:
       4: "%sftrlore_Speed_1%" # DO NOT translate this
-      5: "%sftrlore_PowerPerTick_24%" # DO NOT translate this
   COBBLESTONE_GENERATOR_2:
     name: "&cAdvanced &8Cobblestone Generator"
     lore:
@@ -830,6 +834,30 @@ items:
       - ""
       - "&7Automatically grows, harvests,"
       - "&7and replant trees."
+  FLOWER_GROWER:
+    name: "&dFlower Grower"
+    lore:
+      - ""
+      - "&7Automatically grows, harvests,"
+      - "&7and replant flowers."
+  FLOWER_GROWER_2:
+    name: "&cAdvanced &dFlower Grower"
+    lore:
+      - ""
+      - "&7Automatically grows, harvests,"
+      - "&7and replant flowers."
+  FLOWER_GROWER_3:
+    name: "&7Void &dFlower Grower"
+    lore:
+      - ""
+      - "&7Automatically grows, harvests,"
+      - "&7and replant flowers."
+  FLOWER_GROWER_4:
+    name: "&bInfinity &dFlower Grower"
+    lore:
+      - ""
+      - "&7Automatically grows, harvests,"
+      - "&7and replant flowers."
   VOID_HARVESTER:
     name: "&8Void Harvester"
     lore:
@@ -1100,6 +1128,15 @@ items:
     lore:
       - ""
       - "&7Changes the material of tools and gear."
+      - ""
+  SMITHING_TEMPLATE_RANDOMIZER:
+    name: "&8Smithing Template Randomizer"
+    lore:
+      - ""
+      - "&7Randomly get a smithing template"
+      - "&7from an &bUnknown Smithing Template."
+      - ""
+      - "&cOnly works on 1.20+."
       - ""
   ADVANCED_ANVIL:
     name: "&cAdvanced Anvil"

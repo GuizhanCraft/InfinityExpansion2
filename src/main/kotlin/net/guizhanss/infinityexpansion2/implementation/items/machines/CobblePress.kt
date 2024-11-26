@@ -4,6 +4,8 @@ import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
 import net.guizhanss.infinityexpansion2.implementation.IEItems
+import net.guizhanss.infinityexpansion2.utils.bukkitext.toItem
+import net.guizhanss.infinityexpansion2.utils.bukkitext.withAmount
 import org.bukkit.Material
 import org.bukkit.inventory.ItemStack
 
@@ -17,24 +19,24 @@ class CobblePress(
 
     init {
         addRecipe(
-            ItemStack(Material.COBBLESTONE, 64),
-            arrayOf(SlimefunItemStack(IEItems.COMPRESSED_COBBLESTONE_1, 8))
+            Material.COBBLESTONE.toItem(64),
+            IEItems.COMPRESSED_COBBLESTONE_1.withAmount(8)
         )
         addRecipe(
-            SlimefunItemStack(IEItems.COMPRESSED_COBBLESTONE_1, 64),
-            arrayOf(SlimefunItemStack(IEItems.COMPRESSED_COBBLESTONE_2, 8))
+            IEItems.COMPRESSED_COBBLESTONE_1.withAmount(64),
+            IEItems.COMPRESSED_COBBLESTONE_2.withAmount(8)
         )
         addRecipe(
-            SlimefunItemStack(IEItems.COMPRESSED_COBBLESTONE_2, 64),
-            arrayOf(SlimefunItemStack(IEItems.COMPRESSED_COBBLESTONE_3, 8))
+            IEItems.COMPRESSED_COBBLESTONE_2.withAmount(64),
+            IEItems.COMPRESSED_COBBLESTONE_3.withAmount(8)
         )
         addRecipe(
-            SlimefunItemStack(IEItems.COMPRESSED_COBBLESTONE_3, 64),
-            arrayOf(SlimefunItemStack(IEItems.COMPRESSED_COBBLESTONE_4, 8))
+            IEItems.COMPRESSED_COBBLESTONE_3.withAmount(64),
+            IEItems.COMPRESSED_COBBLESTONE_4.withAmount(8)
         )
         addRecipe(
-            SlimefunItemStack(IEItems.COMPRESSED_COBBLESTONE_4, 64),
-            arrayOf(SlimefunItemStack(IEItems.COMPRESSED_COBBLESTONE_5, 8))
+            IEItems.COMPRESSED_COBBLESTONE_4.withAmount(64),
+            IEItems.COMPRESSED_COBBLESTONE_5.withAmount(8)
         )
     }
 }

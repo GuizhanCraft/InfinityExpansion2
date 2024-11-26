@@ -12,6 +12,7 @@ import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.core.items.attributes.InformationalRecipeDisplayItem
 import net.guizhanss.infinityexpansion2.core.menu.MenuLayout
 import net.guizhanss.infinityexpansion2.implementation.items.machines.abstracts.AbstractTickingActionMachine
+import net.guizhanss.infinityexpansion2.utils.bukkitext.toItem
 import net.guizhanss.infinityexpansion2.utils.items.GuiItems
 import net.guizhanss.infinityexpansion2.utils.items.isSlimefunItem
 import net.guizhanss.infinityexpansion2.utils.tags.IETag
@@ -83,7 +84,7 @@ class GearTransformer(
         }
 
         // change the material
-        val newGear = ItemStack(Material.getMaterial(gear.type.name.replace(current.key, new.key))!!, gear.amount)
+        val newGear = Material.getMaterial(gear.type.name.replace(current.key, new.key))!!.toItem(gear.amount)
         newGear.itemMeta = gear.itemMeta
 
         // update the menu
@@ -143,20 +144,20 @@ class GearTransformer(
         )
 
         private val TOOLS = mapOf(
-            "WOODEN_" to ItemStack(Material.OAK_PLANKS, 4),
-            "STONE_" to ItemStack(Material.COBBLESTONE, 4),
-            "IRON_" to ItemStack(Material.IRON_INGOT, 4),
-            "GOLDEN_" to ItemStack(Material.GOLD_INGOT, 4),
-            "DIAMOND_" to ItemStack(Material.DIAMOND, 4),
-            "NETHERITE_" to ItemStack(Material.NETHERITE_INGOT, 2),
+            "WOODEN_" to Material.OAK_PLANKS.toItem(4),
+            "STONE_" to Material.COBBLESTONE.toItem(4),
+            "IRON_" to Material.IRON_INGOT.toItem(4),
+            "GOLDEN_" to Material.GOLD_INGOT.toItem(4),
+            "DIAMOND_" to Material.DIAMOND.toItem(4),
+            "NETHERITE_" to Material.NETHERITE_INGOT.toItem(2),
         )
         private val ARMORS = mapOf(
-            "LEATHER_" to ItemStack(Material.LEATHER, 4),
-            "CHAINMAIL_" to ItemStack(Material.CHAIN, 4),
-            "IRON_" to ItemStack(Material.IRON_INGOT, 4),
-            "GOLDEN_" to ItemStack(Material.GOLD_INGOT, 4),
-            "DIAMOND_" to ItemStack(Material.DIAMOND, 4),
-            "NETHERITE_" to ItemStack(Material.NETHERITE_INGOT, 2),
+            "LEATHER_" to Material.LEATHER.toItem(4),
+            "CHAINMAIL_" to Material.CHAIN.toItem(4),
+            "IRON_" to Material.IRON_INGOT.toItem(4),
+            "GOLDEN_" to Material.GOLD_INGOT.toItem(4),
+            "DIAMOND_" to Material.DIAMOND.toItem(4),
+            "NETHERITE_" to Material.NETHERITE_INGOT.toItem(2),
         )
     }
 }

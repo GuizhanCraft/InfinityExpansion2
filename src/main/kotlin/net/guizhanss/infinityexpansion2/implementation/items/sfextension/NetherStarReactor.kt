@@ -6,6 +6,7 @@ import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
 import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.abstractItems.MachineFuel
 import me.mrCookieSlime.Slimefun.api.BlockStorage
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
+import net.guizhanss.infinityexpansion2.utils.bukkitext.toItem
 import org.bukkit.Location
 import org.bukkit.Material
 import org.bukkit.entity.LivingEntity
@@ -28,7 +29,7 @@ class NetherStarReactor(
     override fun getCapacity() = capacity
 
     override fun registerDefaultFuelTypes() {
-        registerFuel(MachineFuel(600, ItemStack(Material.NETHER_STAR)))
+        registerFuel(MachineFuel(600, Material.NETHER_STAR.toItem()))
     }
 
     override fun extraTick(l: Location) {

@@ -25,6 +25,7 @@ import net.guizhanss.infinityexpansion2.implementation.items.machines.CobblePres
 import net.guizhanss.infinityexpansion2.implementation.items.machines.Decompressor
 import net.guizhanss.infinityexpansion2.implementation.items.machines.DustExtractor
 import net.guizhanss.infinityexpansion2.implementation.items.machines.ExtremeFreezer
+import net.guizhanss.infinityexpansion2.implementation.items.machines.FlowerGrower
 import net.guizhanss.infinityexpansion2.implementation.items.machines.GearTransformer
 import net.guizhanss.infinityexpansion2.implementation.items.machines.GeoQuarry
 import net.guizhanss.infinityexpansion2.implementation.items.machines.InfinityWorkbench
@@ -33,6 +34,7 @@ import net.guizhanss.infinityexpansion2.implementation.items.machines.MaterialGe
 import net.guizhanss.infinityexpansion2.implementation.items.machines.Quarry
 import net.guizhanss.infinityexpansion2.implementation.items.machines.ResourceSynthesizer
 import net.guizhanss.infinityexpansion2.implementation.items.machines.SingularityConstructor
+import net.guizhanss.infinityexpansion2.implementation.items.machines.SmithingTemplateRandomizer
 import net.guizhanss.infinityexpansion2.implementation.items.machines.StoneworksFactory
 import net.guizhanss.infinityexpansion2.implementation.items.machines.TreeGrower
 import net.guizhanss.infinityexpansion2.implementation.items.machines.UraniumExtractor
@@ -667,6 +669,19 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             +"PBP"
             'P' means MACHINE_PLATE
             'B' means SlimefunItems.BLISTERING_INGOT_3
+        }
+    }
+
+    val UNKNOWN_SMITHING_TEMPLATE by buildSlimefunItem<SimpleMaterial> {
+        material = Material.NETHERITE_INGOT.asMaterialType()
+        itemGroup = IEItemGroups.MATERIALS
+        recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
+        recipe = buildRecipe {
+            +"NNN"
+            +"NVN"
+            +"NNN"
+            'N' means Material.NETHERITE_INGOT.toItem()
+            'V' means VOID_INGOT
         }
     }
     //</editor-fold>
@@ -1482,6 +1497,72 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
         }
     }
 
+    val FLOWER_GROWER by buildSlimefunItem<FlowerGrower>(18, 300) {
+        material = Material.LIME_STAINED_GLASS.asMaterialType()
+        itemGroup = IEItemGroups.MACHINES
+        recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
+        recipe = buildRecipe {
+            +"GGG"
+            +"MPM"
+            +"CGC"
+            'G' means Material.GLASS.toItem()
+            'M' means MAGSTEEL
+            'P' means Material.POPPY.toItem()
+            'C' means MACHINE_CIRCUIT
+            'G' means Material.GRASS_BLOCK.toItem()
+        }
+    }
+
+    val FLOWER_GROWER_2 by buildSlimefunItem<FlowerGrower>(90, 60) {
+        material = Material.LIME_STAINED_GLASS.asMaterialType()
+        itemGroup = IEItemGroups.MACHINES
+        recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
+        recipe = buildRecipe {
+            +"GGG"
+            +"EFE"
+            +"COC"
+            'G' means SlimefunItems.HARDENED_GLASS
+            'E' means ENDER_ESSENCE
+            'F' means FLOWER_GROWER
+            'C' means MACHINE_CIRCUIT
+            'O' means MACHINE_CORE
+        }
+    }
+
+    val FLOWER_GROWER_3 by buildSlimefunItem<FlowerGrower>(270, 30) {
+        material = Material.LIME_STAINED_GLASS.asMaterialType()
+        itemGroup = IEItemGroups.MACHINES
+        recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
+        recipe = buildRecipe {
+            +"VFV"
+            +"OFO"
+            +"VFV"
+            'V' means VOID_BLOCK
+            'F' means FLOWER_GROWER_2
+            'O' means MACHINE_CORE
+        }
+    }
+
+    val FLOWER_GROWER_4 by buildSlimefunItem<FlowerGrower>(1000, 10) {
+        material = Material.LIME_STAINED_GLASS.asMaterialType()
+        itemGroup = IEItemGroups.MACHINES
+        recipeType = IERecipeTypes.INFINITY_WORKBENCH
+        recipe = buildRecipe(6) {
+            +"GGGGGG"
+            +"G    G"
+            +"G    G"
+            +"GRRRRG"
+            +"P FF P"
+            +"PCOOCP"
+            'G' means Material.GLASS.toItem()
+            'R' means Material.GRASS_BLOCK.toItem()
+            'P' means MACHINE_PLATE
+            'F' means FLOWER_GROWER_3
+            'C' means INFINITY_MACHINE_CIRCUIT
+            'O' means INFINITY_MACHINE_CORE
+        }
+    }
+
     val VOID_HARVESTER by buildSlimefunItem<VoidHarvester>(1, 120) {
         material = Material.OBSIDIAN.asMaterialType()
         itemGroup = IEItemGroups.MACHINES
@@ -1982,6 +2063,20 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             'P' means MACHINE_PLATE
             'C' means MACHINE_CIRCUIT
             'S' means Material.SMITHING_TABLE.toItem()
+        }
+    }
+
+    val SMITHING_TEMPLATE_RANDOMIZER by buildSlimefunItem<SmithingTemplateRandomizer>(1_000) {
+        material = Material.LODESTONE.asMaterialType()
+        itemGroup = IEItemGroups.MACHINES
+        recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
+        recipe = buildRecipe {
+            +"VVV"
+            +"VRV"
+            +"VTV"
+            'V' means VOID_INGOT
+            'R' means RESOURCE_SYNTHESIZER
+            'T' means UNKNOWN_SMITHING_TEMPLATE
         }
     }
 

@@ -16,6 +16,7 @@ import net.guizhanss.infinityexpansion2.core.items.attributes.InformationalRecip
 import net.guizhanss.infinityexpansion2.implementation.IEItems
 import net.guizhanss.infinityexpansion2.implementation.groups.IEItemGroups
 import net.guizhanss.infinityexpansion2.implementation.recipes.IERecipeTypes
+import net.guizhanss.infinityexpansion2.utils.bukkitext.toItem
 import net.guizhanss.infinityexpansion2.utils.constant.Keys
 import net.guizhanss.infinityexpansion2.utils.items.GuiItems
 import net.guizhanss.infinityexpansion2.utils.toId
@@ -91,7 +92,7 @@ class MobDataCard(
         )
 
         fun buildOutputItem(id: String, name: String, texture: ItemStack) = if (id.isEmpty()) {
-            ItemStack(Material.AIR)
+            Material.AIR.toItem()
         } else {
             buildOutputItem(
                 buildDisplayItem(id, name, texture)

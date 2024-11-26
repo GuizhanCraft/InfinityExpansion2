@@ -1,10 +1,10 @@
 package net.guizhanss.infinityexpansion2.implementation.items.machines
 
-import io.github.thebusybiscuit.slimefun4.api.MinecraftVersion
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
-import io.github.thebusybiscuit.slimefun4.implementation.Slimefun
+import net.guizhanss.guizhanlib.minecraft.utils.MinecraftVersionUtil
+import net.guizhanss.infinityexpansion2.utils.bukkitext.toItem
 import org.bukkit.Material
 import org.bukkit.inventory.ItemStack
 
@@ -19,74 +19,85 @@ class TreeGrower(
 
     init {
         addRecipe(
-            ItemStack(Material.OAK_SAPLING), arrayOf(
-                ItemStack(Material.OAK_LEAVES, 8),
-                ItemStack(Material.OAK_LOG, 6),
-                ItemStack(Material.STICK),
-                ItemStack(Material.APPLE)
+            Material.OAK_SAPLING.toItem(), arrayOf(
+                Material.OAK_LEAVES.toItem(8),
+                Material.OAK_LOG.toItem(6),
+                Material.STICK.toItem(),
+                Material.APPLE.toItem()
             )
         )
 
         addRecipe(
-            ItemStack(Material.SPRUCE_SAPLING), arrayOf(
-                ItemStack(Material.SPRUCE_LEAVES, 8),
-                ItemStack(Material.SPRUCE_LOG, 6),
-                ItemStack(Material.STICK, 2)
+            Material.SPRUCE_SAPLING.toItem(), arrayOf(
+                Material.SPRUCE_LEAVES.toItem(8),
+                Material.SPRUCE_LOG.toItem(6),
+                Material.STICK.toItem(2)
             )
         )
 
         addRecipe(
-            ItemStack(Material.DARK_OAK_SAPLING), arrayOf(
-                ItemStack(Material.DARK_OAK_LEAVES, 8),
-                ItemStack(Material.DARK_OAK_LOG, 6),
-                ItemStack(Material.APPLE)
+            Material.DARK_OAK_SAPLING.toItem(), arrayOf(
+                Material.DARK_OAK_LEAVES.toItem(8),
+                Material.DARK_OAK_LOG.toItem(6),
+                Material.APPLE.toItem()
             )
         )
 
         addRecipe(
-            ItemStack(Material.BIRCH_SAPLING), arrayOf(
-                ItemStack(Material.BIRCH_LEAVES, 8),
-                ItemStack(Material.BIRCH_LOG, 6)
+            Material.BIRCH_SAPLING.toItem(), arrayOf(
+                Material.BIRCH_LEAVES.toItem(8),
+                Material.BIRCH_LOG.toItem(6)
             )
         )
 
         addRecipe(
-            ItemStack(Material.ACACIA_SAPLING), arrayOf(
-                ItemStack(Material.ACACIA_LEAVES, 8),
-                ItemStack(Material.ACACIA_LOG, 6)
+            Material.ACACIA_SAPLING.toItem(), arrayOf(
+                Material.ACACIA_LEAVES.toItem(8),
+                Material.ACACIA_LOG.toItem(6)
             )
         )
 
         addRecipe(
-            ItemStack(Material.JUNGLE_SAPLING), arrayOf(
-                ItemStack(Material.JUNGLE_LEAVES, 8),
-                ItemStack(Material.JUNGLE_LOG, 6),
-                ItemStack(Material.COCOA_BEANS)
+            Material.JUNGLE_SAPLING.toItem(), arrayOf(
+                Material.JUNGLE_LEAVES.toItem(8),
+                Material.JUNGLE_LOG.toItem(6),
+                Material.COCOA_BEANS.toItem()
             )
         )
 
         addRecipe(
-            ItemStack(Material.WARPED_FUNGUS), arrayOf(
-                ItemStack(Material.WARPED_HYPHAE, 8),
-                ItemStack(Material.WARPED_STEM, 6),
-                ItemStack(Material.SHROOMLIGHT)
+            Material.WARPED_FUNGUS.toItem(), arrayOf(
+                Material.WARPED_HYPHAE.toItem(8),
+                Material.WARPED_STEM.toItem(6),
+                Material.SHROOMLIGHT.toItem()
             )
         )
 
         addRecipe(
-            ItemStack(Material.CRIMSON_FUNGUS), arrayOf(
-                ItemStack(Material.CRIMSON_HYPHAE, 8),
-                ItemStack(Material.CRIMSON_STEM, 6),
-                ItemStack(Material.WEEPING_VINES)
+            Material.CRIMSON_FUNGUS.toItem(), arrayOf(
+                Material.CRIMSON_HYPHAE.toItem(8),
+                Material.CRIMSON_STEM.toItem(6),
+                Material.WEEPING_VINES.toItem()
             )
         )
 
-        if (Slimefun.getMinecraftVersion().isAtLeast(MinecraftVersion.MINECRAFT_1_20)) {
+        if (MinecraftVersionUtil.isAtLeast(19)) {
             addRecipe(
-                ItemStack(Material.CHERRY_SAPLING), arrayOf(
-                    ItemStack(Material.CHERRY_LEAVES, 8),
-                    ItemStack(Material.CHERRY_LOG, 6),
-                    ItemStack(Material.STICK)
+                Material.MANGROVE_PROPAGULE.toItem(), arrayOf(
+                    Material.MANGROVE_LEAVES.toItem(8),
+                    Material.MANGROVE_LOG.toItem(6),
+                    Material.MANGROVE_ROOTS.toItem(4),
+                    Material.MUDDY_MANGROVE_ROOTS.toItem(2)
+                )
+            )
+        }
+
+        if (MinecraftVersionUtil.isAtLeast(20)) {
+            addRecipe(
+                Material.CHERRY_SAPLING.toItem(), arrayOf(
+                    Material.CHERRY_LEAVES.toItem(8),
+                    Material.CHERRY_LOG.toItem(6),
+                    Material.STICK.toItem()
                 )
             )
         }

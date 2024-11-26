@@ -18,6 +18,8 @@ import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.core.items.attributes.InformationalRecipeDisplayItem
 import net.guizhanss.infinityexpansion2.core.menu.MenuLayout
 import net.guizhanss.infinityexpansion2.utils.bukkitext.isWaterLogged
+import net.guizhanss.infinityexpansion2.utils.bukkitext.toItem
+import net.guizhanss.infinityexpansion2.utils.bukkitext.withAmount
 import net.guizhanss.infinityexpansion2.utils.items.GuiItems
 import org.bukkit.Material
 import org.bukkit.block.Block
@@ -115,22 +117,22 @@ class StrainerBase(
         )
 
         private val OUTPUTS = listOf(
-            ItemStack(Material.STICK),
-            ItemStack(Material.SAND),
-            ItemStack(Material.GRAVEL),
-            ItemStack(Material.QUARTZ),
-            ItemStack(Material.REDSTONE),
-            ItemStack(Material.EMERALD),
-            SlimefunItemStack(SlimefunItems.MAGNESIUM_DUST, 1),
-            SlimefunItemStack(SlimefunItems.COPPER_DUST, 1),
-            SlimefunItemStack(SlimefunItems.COPPER_DUST, 1),
-            SlimefunItemStack(SlimefunItems.SILVER_DUST, 1),
-            SlimefunItemStack(SlimefunItems.ALUMINUM_DUST, 1),
-            SlimefunItemStack(SlimefunItems.LEAD_DUST, 1),
-            SlimefunItemStack(SlimefunItems.IRON_DUST, 1),
-            SlimefunItemStack(SlimefunItems.GOLD_DUST, 1),
-            SlimefunItemStack(SlimefunItems.TIN_DUST, 1),
-            SlimefunItemStack(SlimefunItems.ZINC_DUST, 1),
+            Material.STICK.toItem(),
+            Material.SAND.toItem(),
+            Material.GRAVEL.toItem(),
+            Material.QUARTZ.toItem(),
+            Material.REDSTONE.toItem(),
+            Material.EMERALD.toItem(),
+            SlimefunItems.MAGNESIUM_DUST.withAmount(1),
+            SlimefunItems.COPPER_DUST.withAmount(1),
+            SlimefunItems.COPPER_DUST.withAmount(1),
+            SlimefunItems.SILVER_DUST.withAmount(1),
+            SlimefunItems.ALUMINUM_DUST.withAmount(1),
+            SlimefunItems.LEAD_DUST.withAmount(1),
+            SlimefunItems.IRON_DUST.withAmount(1),
+            SlimefunItems.GOLD_DUST.withAmount(1),
+            SlimefunItems.TIN_DUST.withAmount(1),
+            SlimefunItems.ZINC_DUST.withAmount(1),
         )
 
         private val POTATO_FISH = InfinityExpansion2.localization.getItem(

@@ -42,7 +42,7 @@ class GuideCommand(parent: AbstractCommand) : AbstractSubCommand(
         }
     }
 
-    override fun onTab(sender: CommandSender, args: Array<String>): List<String>? {
+    override fun onTab(sender: CommandSender, args: Array<String>): List<String> {
         return if (args.size == 1) {
             // filter slimefun item id
             Slimefun.getRegistry().enabledSlimefunItems

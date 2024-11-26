@@ -28,23 +28,22 @@ open class HopperMachine(
     recipeType: RecipeType,
     recipe: Array<out ItemStack?>,
     energyPerTick: Int,
-    recipes: Recipes = emptyMap(),
 ) : AbstractTickingMachine(itemGroup, itemStack, recipeType, recipe, MenuLayout.HOPPER, energyPerTick),
     InformationalRecipeDisplayItem {
 
     private val _recipes: MutableRecipes = mutableMapOf()
 
-    init {
-        _recipes.putAll(recipes)
-    }
-
     val recipes: Recipes get() = _recipes
 
-    fun addRecipe(input: RecipeInput, output: RecipeOutput): HopperMachine {
+    fun addRecipe(input: RecipeInput, output: RecipeOutput) {
         require(output.isNotEmpty()) { "Recipe output cannot be empty" }
         check(state == ItemState.UNREGISTERED) { "Cannot add recipes after the machine has been registered" }
         _recipes[input] = output
-        return this
+    }
+
+    @JvmName("addRecipeVararg")
+    fun addRecipe(input: RecipeInput, vararg output: ItemStack) {
+        addRecipe(input, output)
     }
 
     override fun process(b: Block, menu: BlockMenu): Boolean {

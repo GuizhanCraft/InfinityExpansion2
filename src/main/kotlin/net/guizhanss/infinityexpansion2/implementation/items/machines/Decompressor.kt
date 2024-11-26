@@ -3,7 +3,10 @@ package net.guizhanss.infinityexpansion2.implementation.items.machines
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
+import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems
 import net.guizhanss.infinityexpansion2.implementation.IEItems
+import net.guizhanss.infinityexpansion2.utils.bukkitext.toItem
+import net.guizhanss.infinityexpansion2.utils.bukkitext.withAmount
 import org.bukkit.Material
 import org.bukkit.inventory.ItemStack
 
@@ -16,19 +19,20 @@ class Decompressor(
 ) : HopperMachine(itemGroup, itemStack, recipeType, recipe, energyPerTick) {
 
     init {
-        addRecipe(ItemStack(Material.NETHERITE_BLOCK), arrayOf(ItemStack(Material.NETHERITE_INGOT, 9)))
-        addRecipe(ItemStack(Material.EMERALD_BLOCK), arrayOf(ItemStack(Material.EMERALD, 9)))
-        addRecipe(ItemStack(Material.DIAMOND_BLOCK), arrayOf(ItemStack(Material.DIAMOND, 9)))
-        addRecipe(ItemStack(Material.GOLD_BLOCK), arrayOf(ItemStack(Material.GOLD_INGOT, 9)))
-        addRecipe(ItemStack(Material.IRON_BLOCK), arrayOf(ItemStack(Material.IRON_INGOT, 9)))
-        addRecipe(ItemStack(Material.LAPIS_BLOCK), arrayOf(ItemStack(Material.LAPIS_LAZULI, 9)))
-        addRecipe(ItemStack(Material.REDSTONE_BLOCK), arrayOf(ItemStack(Material.REDSTONE, 9)))
-        addRecipe(ItemStack(Material.COAL_BLOCK), arrayOf(ItemStack(Material.COAL, 9)))
-        addRecipe(ItemStack(Material.QUARTZ_BLOCK), arrayOf(ItemStack(Material.QUARTZ, 4)))
-        addRecipe(IEItems.COMPRESSED_COBBLESTONE_5, arrayOf(SlimefunItemStack(IEItems.COMPRESSED_COBBLESTONE_4, 8)))
-        addRecipe(IEItems.COMPRESSED_COBBLESTONE_4, arrayOf(SlimefunItemStack(IEItems.COMPRESSED_COBBLESTONE_3, 8)))
-        addRecipe(IEItems.COMPRESSED_COBBLESTONE_3, arrayOf(SlimefunItemStack(IEItems.COMPRESSED_COBBLESTONE_2, 8)))
-        addRecipe(IEItems.COMPRESSED_COBBLESTONE_2, arrayOf(SlimefunItemStack(IEItems.COMPRESSED_COBBLESTONE_1, 8)))
-        addRecipe(IEItems.COMPRESSED_COBBLESTONE_1, arrayOf(ItemStack(Material.COBBLESTONE, 8)))
+        addRecipe(Material.NETHERITE_BLOCK.toItem(), Material.NETHERITE_INGOT.toItem(9))
+        addRecipe(Material.EMERALD_BLOCK.toItem(), Material.EMERALD.toItem(9))
+        addRecipe(Material.DIAMOND_BLOCK.toItem(), Material.DIAMOND.toItem(9))
+        addRecipe(Material.GOLD_BLOCK.toItem(), Material.GOLD_INGOT.toItem(9))
+        addRecipe(Material.IRON_BLOCK.toItem(), Material.IRON_INGOT.toItem(9))
+        addRecipe(Material.COPPER_BLOCK.toItem(), SlimefunItems.COPPER_INGOT.withAmount(9))
+        addRecipe(Material.LAPIS_BLOCK.toItem(), Material.LAPIS_LAZULI.toItem(9))
+        addRecipe(Material.REDSTONE_BLOCK.toItem(), Material.REDSTONE.toItem(9))
+        addRecipe(Material.COAL_BLOCK.toItem(), Material.COAL.toItem(9))
+        addRecipe(Material.QUARTZ_BLOCK.toItem(), Material.QUARTZ.toItem(4))
+        addRecipe(IEItems.COMPRESSED_COBBLESTONE_5.withAmount(1), IEItems.COMPRESSED_COBBLESTONE_4.withAmount(8))
+        addRecipe(IEItems.COMPRESSED_COBBLESTONE_4.withAmount(1), IEItems.COMPRESSED_COBBLESTONE_3.withAmount(8))
+        addRecipe(IEItems.COMPRESSED_COBBLESTONE_3.withAmount(1), IEItems.COMPRESSED_COBBLESTONE_2.withAmount(8))
+        addRecipe(IEItems.COMPRESSED_COBBLESTONE_2.withAmount(1), IEItems.COMPRESSED_COBBLESTONE_1.withAmount(8))
+        addRecipe(IEItems.COMPRESSED_COBBLESTONE_1.withAmount(1), Material.COBBLESTONE.toItem(8))
     }
 }

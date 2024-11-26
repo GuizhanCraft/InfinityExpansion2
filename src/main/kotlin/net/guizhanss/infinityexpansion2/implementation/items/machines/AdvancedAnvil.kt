@@ -7,7 +7,6 @@ import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
-import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenuPreset
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
@@ -15,6 +14,8 @@ import net.guizhanss.infinityexpansion2.core.items.attributes.InformationalRecip
 import net.guizhanss.infinityexpansion2.core.menu.MenuLayout
 import net.guizhanss.infinityexpansion2.core.sound.IESound
 import net.guizhanss.infinityexpansion2.implementation.items.machines.abstracts.AbstractTickingActionMachine
+import net.guizhanss.infinityexpansion2.utils.bukkitext.toItem
+import net.guizhanss.infinityexpansion2.utils.bukkitext.withName
 import net.guizhanss.infinityexpansion2.utils.items.GuiItems
 import net.guizhanss.infinityexpansion2.utils.items.toDisplayItem
 import org.bukkit.Material
@@ -208,7 +209,7 @@ class AdvancedAnvil(
 
     companion object {
 
-        private val ANVIL_BASE_ITEM = CustomItemStack(Material.BLACK_STAINED_GLASS_PANE, " ")
+        private val ANVIL_BASE_ITEM = Material.BLACK_STAINED_GLASS_PANE.toItem().withName(" ")
         private val ANVIL_BASE_SLOTS = intArrayOf(
             30, 31, 32, 39, 41, 47, 48, 49, 50, 51
         )

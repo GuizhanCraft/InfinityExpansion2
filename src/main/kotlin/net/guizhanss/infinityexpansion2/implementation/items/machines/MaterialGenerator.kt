@@ -7,6 +7,7 @@ import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu
 import net.guizhanss.infinityexpansion2.core.items.attributes.InformationalRecipeDisplayItem
 import net.guizhanss.infinityexpansion2.core.menu.MenuLayout
 import net.guizhanss.infinityexpansion2.implementation.items.machines.abstracts.AbstractTickingMachine
+import net.guizhanss.infinityexpansion2.utils.bukkitext.toItem
 import net.guizhanss.infinityexpansion2.utils.items.GuiItems
 import org.bukkit.Material
 import org.bukkit.block.Block
@@ -24,7 +25,7 @@ class MaterialGenerator(
     InformationalRecipeDisplayItem {
 
     override fun process(b: Block, menu: BlockMenu): Boolean {
-        val output = ItemStack(material, speed)
+        val output = material.toItem(speed)
         if (!menu.fits(output, *outputSlots)) {
             menu.setStatus { GuiItems.NO_ROOM }
             return false
@@ -36,7 +37,7 @@ class MaterialGenerator(
     }
 
     override fun getDefaultDisplayRecipes() = listOf(
-        ItemStack(material, speed)
+        material.toItem(speed)
     )
 
     override fun getInformationalItems() = listOf(

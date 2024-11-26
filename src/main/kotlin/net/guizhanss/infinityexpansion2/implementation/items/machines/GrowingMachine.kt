@@ -40,11 +40,15 @@ open class GrowingMachine(
 
     val recipes: Recipes get() = _recipes
 
-    fun addRecipe(input: RecipeInput, output: RecipeOutput): GrowingMachine {
+    fun addRecipe(input: RecipeInput, output: RecipeOutput) {
         require(output.isNotEmpty()) { "Recipe output cannot be empty" }
         check(state == ItemState.UNREGISTERED) { "Cannot add recipes after the machine has been registered" }
         _recipes[input] = output
-        return this
+    }
+
+    @JvmName("addRecipeVararg")
+    fun addRecipe(input: RecipeInput, vararg output: ItemStack) {
+        addRecipe(input, output)
     }
 
     override fun process(b: Block, menu: BlockMenu): Boolean {

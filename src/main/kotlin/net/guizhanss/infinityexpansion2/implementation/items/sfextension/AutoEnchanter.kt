@@ -3,6 +3,7 @@ package net.guizhanss.infinityexpansion2.implementation.items.sfextension
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
+import net.guizhanss.infinityexpansion2.utils.bukkitext.toItem
 import org.bukkit.Material
 import org.bukkit.inventory.ItemStack
 import io.github.thebusybiscuit.slimefun4.implementation.items.electric.machines.enchanting.AutoEnchanter as SlimefunAutoEnchanter
@@ -22,5 +23,5 @@ class AutoEnchanter(
         setProcessingSpeed(speed)
     }
 
-    override fun getProgressBar() = ItemStack(Material.NETHERITE_CHESTPLATE)
+    override fun getProgressBar() = Material.NETHERITE_CHESTPLATE.toItem()
 }

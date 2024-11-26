@@ -5,12 +5,12 @@ import io.github.thebusybiscuit.slimefun4.api.items.ItemState
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
-import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.core.items.attributes.InformationalRecipeDisplayItem
 import net.guizhanss.infinityexpansion2.core.menu.MenuLayout
 import net.guizhanss.infinityexpansion2.implementation.items.machines.abstracts.AbstractTickingActionMachine
+import net.guizhanss.infinityexpansion2.utils.bukkitext.withAmount
 import net.guizhanss.infinityexpansion2.utils.items.GuiItems
 import net.guizhanss.infinityexpansion2.utils.items.isSlimefunItem
 import net.guizhanss.infinityexpansion2.utils.matches
@@ -44,7 +44,7 @@ class ResourceSynthesizer(
             if (!recipe.output.first.isSlimefunItem()) return@forEach
 
             _recipes[recipe.inputs] =
-                CustomItemStack(SlimefunItem.getById(recipe.output.first)!!.item, recipe.output.second)
+                SlimefunItem.getById(recipe.output.first)!!.item.withAmount(recipe.output.second)
         }
     }
 

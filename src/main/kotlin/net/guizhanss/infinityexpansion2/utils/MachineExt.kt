@@ -6,14 +6,14 @@ import net.guizhanss.infinityexpansion2.utils.bukkitext.isAir
 import org.bukkit.inventory.ItemStack
 
 typealias RecipeInput = ItemStack
-typealias RecipeOutput = Array<ItemStack>
+typealias RecipeOutput = Array<out ItemStack>
 typealias Recipes = Map<RecipeInput, RecipeOutput>
 typealias MutableRecipes = MutableMap<RecipeInput, RecipeOutput>
 
 /**
  * Get the display recipe [List] for the given pair of a single item input recipe.
  */
-fun Pair<ItemStack, Array<ItemStack>>.toDisplayRecipe(): List<ItemStack> {
+fun Pair<RecipeInput, RecipeOutput>.toDisplayRecipe(): List<ItemStack> {
     val (input, output) = this
     val result = mutableListOf<ItemStack>()
     val size = output.size
