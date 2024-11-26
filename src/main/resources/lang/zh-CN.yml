@@ -703,7 +703,6 @@ items:
       - "&8\u21E8 &e⚡ &7速度: &b1x"
     lore-overrides:
       4: "%sftrlore_Speed_1%" #DO NOT translate this
-      5: "%sftrlore_PowerPerTick_24%" #DO NOT translate this
   COBBLESTONE_GENERATOR_2:
     name: "&c高级&8圆石生成器"
     lore:
@@ -779,6 +778,26 @@ items:
       - ""
       - "&7自动种植、收割，"
       - "&7和再种植树苗。"
+  FLOWER_GROWER:
+    lore:
+      - ""
+      - "&7自动种植、收割，"
+      - ""
+  FLOWER_GROWER_2:
+    lore:
+      - ""
+      - "&7自动种植、收割，"
+      - ""
+  FLOWER_GROWER_3:
+    lore:
+      - ""
+      - "&7自动种植、收割，"
+      - ""
+  FLOWER_GROWER_4:
+    lore:
+      - ""
+      - "&7自动种植、收割，"
+      - ""
   VOID_HARVESTER:
     name: "&8虚空收集者"
     lore:
