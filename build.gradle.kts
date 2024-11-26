@@ -33,7 +33,7 @@ dependencies {
     compileOnly(kotlin("stdlib")) // loaded through library loader
     compileOnly(kotlin("reflect")) // loaded through library loader
     compileOnly("io.papermc.paper:paper-api:1.20.6-R0.1-SNAPSHOT")
-    compileOnly("com.github.Slimefun:Slimefun4:e02a0f61d1")
+    compileOnly("com.github.Slimefun:Slimefun4:d12ae8580b")
     compileOnly("net.guizhanss:SlimefunTranslation:e03b01a7b7")
     compileOnly("com.github.schntgaispock:SlimeHUD:1.3.0")
     implementation("net.byteflux:libby-bukkit:1.3.1")
