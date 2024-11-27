@@ -20,6 +20,7 @@ import net.guizhanss.infinityexpansion2.implementation.items.gear.InfinityTool
 import net.guizhanss.infinityexpansion2.implementation.items.generators.EnergyGenerator
 import net.guizhanss.infinityexpansion2.implementation.items.generators.GeneratorType
 import net.guizhanss.infinityexpansion2.implementation.items.generators.InfinityReactor
+import net.guizhanss.infinityexpansion2.implementation.items.generators.InfinitySingularityReactor
 import net.guizhanss.infinityexpansion2.implementation.items.machines.AdvancedAnvil
 import net.guizhanss.infinityexpansion2.implementation.items.machines.CobblePress
 import net.guizhanss.infinityexpansion2.implementation.items.machines.Decompressor
@@ -38,6 +39,7 @@ import net.guizhanss.infinityexpansion2.implementation.items.machines.SmithingTe
 import net.guizhanss.infinityexpansion2.implementation.items.machines.StoneworksFactory
 import net.guizhanss.infinityexpansion2.implementation.items.machines.TreeGrower
 import net.guizhanss.infinityexpansion2.implementation.items.machines.UraniumExtractor
+import net.guizhanss.infinityexpansion2.implementation.items.machines.UraniumIngotExtractor
 import net.guizhanss.infinityexpansion2.implementation.items.machines.VirtualFarm
 import net.guizhanss.infinityexpansion2.implementation.items.machines.VoidHarvester
 import net.guizhanss.infinityexpansion2.implementation.items.materials.EnderEssence
@@ -707,15 +709,15 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
         recipeType = IERecipeTypes.INFINITY_WORKBENCH
         recipe = buildRecipe(6) {
             +" IVVI "
+            +" IOOI "
             +" ICCI "
-            +" IEEI "
-            +" IEEI "
             +" ICCI "
+            +" IOOI "
             +" IVVI "
             'V' means VOID_INGOT
             'I' means INFINITY_INGOT
-            'C' means INFINITY_MACHINE_CORE
-            'E' means SlimefunItems.ENERGIZED_CAPACITOR
+            'O' means INFINITY_MACHINE_CORE
+            'C' means VOID_CAPACITOR
         }
     }
 
@@ -1759,6 +1761,8 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
         }
     }
 
+    // TODO: more tiers of obsidian generator
+
     val EXTREME_FREEZER by buildSlimefunItem<ExtremeFreezer>(90) {
         material = Material.LIGHT_BLUE_CONCRETE.asMaterialType()
         itemGroup = IEItemGroups.MACHINES
@@ -1915,6 +1919,20 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             'A' means SlimefunItems.ENHANCED_AUTO_CRAFTER
             'C' means MACHINE_CIRCUIT
             'O' means MACHINE_CORE
+        }
+    }
+
+    val URANIUM_INGOT_EXTRACTOR by buildSlimefunItem<UraniumIngotExtractor>(800, 4, 1) {
+        material = Material.GREEN_CONCRETE.asMaterialType()
+        itemGroup = IEItemGroups.MACHINES
+        recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
+        recipe = buildRecipe {
+            +"NEN"
+            +"NUN"
+            +"UUU"
+            'N' means Material.NETHERITE_BLOCK.toItem()
+            'E' means SlimefunItems.ENERGIZED_CAPACITOR
+            'U' means URANIUM_EXTRACTOR
         }
     }
 
@@ -2265,6 +2283,26 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             'V' means VOID_INGOT
             'P' means MACHINE_PLATE
             'R' means ADVANCED_NETHER_STAR_REACTOR
+            'C' means INFINITY_MACHINE_CIRCUIT
+            'O' means INFINITY_MACHINE_CORE
+        }
+    }
+
+    val INFINITY_SINGULARITY_REACTOR by buildSlimefunItem<InfinitySingularityReactor>(180_000) {
+        material = Material.BEACON.asMaterialType()
+        itemGroup = IEItemGroups.GENERATORS
+        recipeType = IERecipeTypes.INFINITY_WORKBENCH
+        recipe = buildRecipe(6) {
+            +" S  S "
+            +"IIIIII"
+            +"P CC P"
+            +"P RO P"
+            +"IIIIII"
+            +"      "
+            'S' means INFINITY_SINGULARITY
+            'I' means INFINITY_INGOT
+            'P' means MACHINE_PLATE
+            'R' means INFINITY_REACTOR
             'C' means INFINITY_MACHINE_CIRCUIT
             'O' means INFINITY_MACHINE_CORE
         }

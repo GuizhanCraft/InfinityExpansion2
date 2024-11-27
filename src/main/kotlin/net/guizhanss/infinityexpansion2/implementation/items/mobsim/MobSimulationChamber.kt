@@ -148,7 +148,8 @@ class MobSimulationChamber(
 
     override fun getInformationalItems() = listOf(
         GuiItems.tickRate(getCustomTickRate()),
-        GuiItems.energyConsumptionPerTick(getEnergyConsumptionPerTick())
+        GuiItems.energyConsumptionPerTick(getEnergyConsumptionPerTick()),
+        GuiItems.outputInterval(InfinityExpansion2.configService.mobSimInterval),
     )
 
     companion object {

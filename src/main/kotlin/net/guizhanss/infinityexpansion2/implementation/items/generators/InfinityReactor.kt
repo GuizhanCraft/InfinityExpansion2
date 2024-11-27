@@ -8,26 +8,18 @@ import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
 import io.github.thebusybiscuit.slimefun4.api.items.settings.IntRangeSetting
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
-import io.github.thebusybiscuit.slimefun4.core.attributes.EnergyNetProvider
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config
 import me.mrCookieSlime.Slimefun.api.BlockStorage
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenuPreset
 import me.mrCookieSlime.Slimefun.api.inventory.DirtyChestMenu
-import net.guizhanss.guizhanlib.slimefun.machines.MenuBlock
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
-import net.guizhanss.infinityexpansion2.core.items.attributes.CustomTickRateMachine
-import net.guizhanss.infinityexpansion2.core.items.attributes.EnergyProducer
-import net.guizhanss.infinityexpansion2.core.items.attributes.InformationalRecipeDisplayItem
 import net.guizhanss.infinityexpansion2.implementation.IEItems
-import net.guizhanss.infinityexpansion2.utils.getInt
 import net.guizhanss.infinityexpansion2.utils.items.GuiItems
 import net.guizhanss.infinityexpansion2.utils.items.MachineLore
-import net.guizhanss.infinityexpansion2.utils.setInt
 import org.bukkit.ChatColor
 import org.bukkit.Location
 import org.bukkit.Material
-import org.bukkit.block.Block
 import org.bukkit.inventory.ItemStack
 import java.util.logging.Level
 
@@ -37,19 +29,15 @@ class InfinityReactor(
     recipeType: RecipeType,
     recipe: Array<out ItemStack?>,
     defaultProduction: Int,
-) : MenuBlock(itemGroup, itemStack, recipeType, recipe), EnergyNetProvider, CustomTickRateMachine, EnergyProducer,
-    InformationalRecipeDisplayItem {
+) : AbstractReactor(itemGroup, itemStack, recipeType, recipe, defaultProduction) {
 
-    private val tickRateSetting = IntRangeSetting(this, "tick-rate", 1, 1, 3600)
-    private val energyProductionSetting =
-        IntRangeSetting(this, "energy-production", 1, defaultProduction, Int.MAX_VALUE)
     private val voidIngotDurationSetting =
         IntRangeSetting(this, "void-ingot-duration", 1, 28_800, Int.MAX_VALUE) // 4 hours
     private val infinityIngotDurationSetting =
         IntRangeSetting(this, "infinity-ingot-duration", 1, 172_800, Int.MAX_VALUE) // 24 hours
 
     init {
-        addItemSetting(tickRateSetting, energyProductionSetting, voidIngotDurationSetting, infinityIngotDurationSetting)
+        addItemSetting(voidIngotDurationSetting, infinityIngotDurationSetting)
     }
 
     override fun postRegister() {
@@ -76,10 +64,6 @@ class InfinityReactor(
         preset.drawBackground(INFINITY_BORDER_ITEM, INFINITY_BORDER)
     }
 
-    override fun onNewInstance(menu: BlockMenu, b: Block) {
-        b.setInt(PROGRESS_KEY, 0)
-    }
-
     override fun getInputSlots() = intArrayOf(VOID_INPUT, INFINITY_INPUT)
 
     override fun getInputSlots(menu: DirtyChestMenu, item: ItemStack): IntArray {
@@ -88,17 +72,9 @@ class InfinityReactor(
         else intArrayOf()
     }
 
-    override fun getOutputSlots() = intArrayOf()
-
-    override fun getCustomTickRate() = tickRateSetting.value
-
-    override fun getCapacity() = getEnergyProduction()
-
-    override fun getEnergyProduction() = energyProductionSetting.value
-
     override fun getGeneratedOutput(l: Location, data: Config): Int {
         val menu = BlockStorage.getInventory(l) ?: return 0
-        val progress = l.getInt(PROGRESS_KEY)
+        val progress = l.getProgress()
         val voidInput = menu.getItemInSlot(VOID_INPUT)
         val infinityInput = menu.getItemInSlot(INFINITY_INPUT)
 
@@ -116,13 +92,13 @@ class InfinityReactor(
             menu.consumeItem(VOID_INPUT)
             menu.consumeItem(INFINITY_INPUT)
             menu.setStatus { info(infinityIngotDurationSetting.value, voidIngotDurationSetting.value) }
-            l.setInt(PROGRESS_KEY, 1)
+            l.setProgress(1)
             return getEnergyProduction()
         }
 
         if (progress > infinityIngotDurationSetting.value) { // done
             menu.setStatus { GuiItems.PRODUCING }
-            l.setInt(PROGRESS_KEY, 0)
+            l.setProgress(0)
             return getEnergyProduction()
         }
 
@@ -132,19 +108,11 @@ class InfinityReactor(
                 return 0
             }
 
-            l.setInt(PROGRESS_KEY, progress + 1)
             menu.consumeItem(VOID_INPUT)
-            menu.setStatus {
-                info(
-                    infinityIngotDurationSetting.value - progress,
-                    voidIngotDurationSetting.value - Math.floorMod(progress, voidIngotDurationSetting.value)
-                )
-            }
-            return getEnergyProduction()
         }
 
         // progressing
-        l.setInt(PROGRESS_KEY, progress + 1)
+        l.setProgress(progress + 1)
         menu.setStatus {
             info(
                 infinityIngotDurationSetting.value - progress,
@@ -172,7 +140,6 @@ class InfinityReactor(
 
     companion object {
 
-        private const val PROGRESS_KEY = "progress"
         private val BACKGROUND = intArrayOf(3, 4, 5)
         private val VOID_BORDER = intArrayOf(0, 2)
         private val INFINITY_BORDER = intArrayOf(6, 8)
@@ -195,13 +162,13 @@ class InfinityReactor(
 
         private fun infoVoid(ticks: Int) = InfinityExpansion2.localization.getGuiItem(
             Material.LIME_STAINED_GLASS_PANE.asMaterialType(),
-            "ir_info_void",
+            "ir_duration_void",
             "${ChatColor.GRAY}${MachineLore.format(ticks)}"
         )
 
         private fun infoInfinity(ticks: Int) = InfinityExpansion2.localization.getGuiItem(
             Material.LIME_STAINED_GLASS_PANE.asMaterialType(),
-            "ir_info_infinity",
+            "ir_duration_infinity",
             "${ChatColor.GRAY}${MachineLore.format(ticks)}"
         )
 

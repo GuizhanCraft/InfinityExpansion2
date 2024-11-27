@@ -261,11 +261,11 @@ items:
     conditions:
       force-load: true
     name: "&7Need more &bInfinity &7Ingot"
-  _UI_IR_INFO_VOID:
+  _UI_IR_DURATION_VOID:
     conditions:
       force-load: true
     name: "&eVoid Ingot duration (sf ticks):"
-  _UI_IR_INFO_INFINITY:
+  _UI_IR_DURATION_INFINITY:
     conditions:
       force-load: true
     name: "&eInfinity Ingot duration (sf ticks):"
@@ -276,6 +276,26 @@ items:
     lore-overrides:
       1: "&eRemaining sf ticks for Infinity Ingot:"
       3: "&eRemaining sf ticks for Void Ingot:"
+
+  # infinity singularity reactor specific
+  _UI_ISR_BORDER:
+    conditions:
+      force-load: true
+    name: "&7Put &bInfinity Singularity &7here"
+  _UI_ISR_NEED:
+    conditions:
+      force-load: true
+    name: "&7Need more &bInfinity Singularity"
+  _UI_ISR_DURATION:
+    conditions:
+      force-load: true
+    name: "&eInfinity Singularity duration (sf ticks):"
+  _UI_ISR_INFO:
+    conditions:
+      force-load: true
+    name: "&aRunning..."
+    lore-overrides:
+      1: "&eRemaining sf ticks for Infinity Singularity:"
 
   # items - guide
   _GUIDE_INTRO:
@@ -548,19 +568,19 @@ items:
     name: "&cAdvanced Smeltery"
     lore:
       - ""
-      - "&8\u21E8 &e⚡ &7Speed: &b24x"
+      - "&8\u21E8 &e⚡ &7Speed: &b12x"
       - "&8\u21E8 &e⚡ &7240 J/t"
     lore-overrides:
-      2: "%sftrlore_Speed_24%" # DO NOT translate this
+      2: "%sftrlore_Speed_12%" # DO NOT translate this
       3: "%sftrlore_PowerPerTick_240%" # DO NOT translate this
   VOID_SMELTERY:
     name: "&8Void Smeltery"
     lore:
       - ""
-      - "&8\u21E8 &e⚡ &7Speed: &b72x"
+      - "&8\u21E8 &e⚡ &7Speed: &b24x"
       - "&8\u21E8 &e⚡ &71,200 J/t"
     lore-overrides:
-      2: "%sftrlore_Speed_72%" # DO NOT translate this
+      2: "%sftrlore_Speed_24%" # DO NOT translate this
       3: "%sftrlore_PowerPerTick_1200%" # DO NOT translate this
   ADVANCED_NETHER_STAR_REACTOR:
     name: "&cAdvanced &fNether Star Reactor"
@@ -935,7 +955,7 @@ items:
       - "&8\u21E8 &e⚡ &7Speed: &b1x"
     lore-overrides:
       5: "%sftrlore_Speed_1%" # DO NOT translate this
-  INFINITY_SINGULARITY_CONSTRUCTOR:
+  SINGULARITY_CONSTRUCTOR_2:
     name: "&bInfinity &fSingularity Constructor"
     lore:
       - ""
@@ -1046,6 +1066,15 @@ items:
     lore:
       - ""
       - "&7Extracts uranium from stone variants."
+      - ""
+      - "&8\u21E8 &e⚡ &7Speed: &b1x"
+    lore-overrides:
+      4: "%sftrlore_Speed_1%" # DO NOT translate this
+  URANIUM_INGOT_EXTRACTOR:
+    name: "&aUranium Ingot Extractor"
+    lore:
+      - ""
+      - "&7Extracts uranium ingots from stone variants."
       - ""
       - "&8\u21E8 &e⚡ &7Speed: &b1x"
     lore-overrides:
@@ -1217,6 +1246,13 @@ items:
       - ""
       - "&7Generates energy through the compression"
       - "&7of &8Void &7and &bInfinity &7Ingots."
+      - ""
+  INFINITY_SINGULARITY_REACTOR:
+    name: "&bInfinity Singularity Reactor"
+    lore:
+      - ""
+      - "&7Generates energy through the compression"
+      - "&7of &bInfinity Singularities&7."
       - ""
   # items - mob simulation
   MOB_SIMULATION_CHAMBER:

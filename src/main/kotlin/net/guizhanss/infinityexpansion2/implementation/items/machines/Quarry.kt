@@ -112,7 +112,8 @@ class Quarry(
     override fun getInformationalItems() = listOf(
         GuiItems.tickRate(getCustomTickRate()),
         GuiItems.energyConsumptionPerTick(getEnergyConsumptionPerTick()),
-        GuiItems.chance(chanceSetting.value)
+        GuiItems.chance(chanceSetting.value),
+        GuiItems.outputInterval(InfinityExpansion2.configService.quarryInterval),
     )
 
     override fun getDividerItem() = GuiItems.RECIPES

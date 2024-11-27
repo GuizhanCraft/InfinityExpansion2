@@ -134,6 +134,8 @@ quarry:
     REDSTONE: .5
     QUARTZ: .5
     EMERALD: .5
+    COAL: .5
+    GOLD_INGOT: .5
 
 # The maximum possible level of every enchantment in advanced anvil
 # all the keys are the key part of an Enchantment's NamespacedKey
