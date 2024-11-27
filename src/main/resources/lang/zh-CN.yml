@@ -253,14 +253,12 @@ items:
     conditions:
       force-load: true
     name: "&7还需要更多的&b无尽&7锭"
-  _UI_IR_INFO_VOID:
+  _UI_IR_DURATION_VOID:
     conditions:
       force-load: true
-    name: "&e虚空锭的持续时间（粘液刻）："
-  _UI_IR_INFO_INFINITY:
+  _UI_IR_DURATION_INFINITY:
     conditions:
       force-load: true
-    name: "&e无尽锭的持续时间（粘液刻）："
   _UI_IR_INFO:
     conditions:
       force-load: true
@@ -268,6 +266,20 @@ items:
     lore-overrides:
       1: "&e无尽锭剩余时间（粘液刻）："
       3: "&e虚空锭剩余时间（粘液刻）："
+  #infinity singularity reactor specific
+  _UI_ISR_BORDER:
+    conditions:
+      force-load: true
+  _UI_ISR_NEED:
+    conditions:
+      force-load: true
+  _UI_ISR_DURATION:
+    conditions:
+      force-load: true
+  _UI_ISR_INFO:
+    conditions:
+      force-load: true
+    name: "&a运行中..."
   #items - guide
   _GUIDE_INTRO:
     name: "&e介绍"
@@ -496,19 +508,17 @@ items:
     name: "&c高级冶炼炉"
     lore:
       - ""
-      - "&8\u21E8 &e⚡ &7速度: &b24x"
+      - ""
       - "&8\u21E8 &e⚡ &7240 J/t"
     lore-overrides:
-      2: "%sftrlore_Speed_24%" #DO NOT translate this
       3: "%sftrlore_PowerPerTick_240%" #DO NOT translate this
   VOID_SMELTERY:
     name: "&8虚空冶炼炉"
     lore:
       - ""
-      - "&8\u21E8 &e⚡ &7速度: &b72x"
+      - ""
       - "&8\u21E8 &e⚡ &71,200 J/t"
     lore-overrides:
-      2: "%sftrlore_Speed_72%" #DO NOT translate this
       3: "%sftrlore_PowerPerTick_1200%" #DO NOT translate this
   ADVANCED_NETHER_STAR_REACTOR:
     name: "&c高级&f下界之星反应堆"
@@ -875,8 +885,7 @@ items:
       - "&8\u21E8 &e⚡ &7速度: &b1x"
     lore-overrides:
       5: "%sftrlore_Speed_1%" #DO NOT translate this
-  INFINITY_SINGULARITY_CONSTRUCTOR:
-    name: "&b无尽&f奇点构造机"
+  SINGULARITY_CONSTRUCTOR_2:
     lore:
       - ""
       - "&7浓缩了大量资源"
@@ -986,6 +995,14 @@ items:
     lore:
       - ""
       - "&7从各类石头中提取铀。"
+      - ""
+      - "&8\u21E8 &e⚡ &7速度: &b1x"
+    lore-overrides:
+      4: "%sftrlore_Speed_1%" #DO NOT translate this
+  URANIUM_INGOT_EXTRACTOR:
+    lore:
+      - ""
+      - ""
       - ""
       - "&8\u21E8 &e⚡ &7速度: &b1x"
     lore-overrides:
@@ -1147,6 +1164,12 @@ items:
       - ""
       - "&7通过压缩&8虚空锭"
       - "&7与&b无尽锭来发电。"
+      - ""
+  INFINITY_SINGULARITY_REACTOR:
+    lore:
+      - ""
+      - "&7通过压缩&8虚空锭"
+      - ""
       - ""
   #items - mob simulation
   MOB_SIMULATION_CHAMBER:
