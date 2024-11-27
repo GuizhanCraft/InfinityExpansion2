@@ -176,13 +176,26 @@ items:
   _UI_IR_NEED_INFINITY:
     conditions:
       force-load: true
-  _UI_IR_INFO_VOID:
+  _UI_IR_DURATION_VOID:
     conditions:
       force-load: true
-  _UI_IR_INFO_INFINITY:
+  _UI_IR_DURATION_INFINITY:
     conditions:
       force-load: true
   _UI_IR_INFO:
+    conditions:
+      force-load: true
+  #infinity singularity reactor specific
+  _UI_ISR_BORDER:
+    conditions:
+      force-load: true
+  _UI_ISR_NEED:
+    conditions:
+      force-load: true
+  _UI_ISR_DURATION:
+    conditions:
+      force-load: true
+  _UI_ISR_INFO:
     conditions:
       force-load: true
   #items - materials
