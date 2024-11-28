@@ -192,6 +192,7 @@ class StoneworksFactory(
 
                 if (MinecraftVersionUtil.isAtLeast(20)) {
                     put(Material.SAND, Material.SUSPICIOUS_SAND)
+                    put(Material.GRAVEL, Material.SUSPICIOUS_GRAVEL)
                 }
             }
         );

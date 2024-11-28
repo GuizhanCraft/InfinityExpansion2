@@ -2,10 +2,10 @@ package net.guizhanss.infinityexpansion2
 
 import io.github.thebusybiscuit.slimefun4.libraries.dough.updater.BlobBuildUpdater
 import net.byteflux.libby.Library
+import net.guizhanss.guizhanlib.libraries.BukkitLibraryManager
 import net.guizhanss.guizhanlib.slimefun.addon.AbstractAddon
 import net.guizhanss.guizhanlib.updater.GuizhanBuildsUpdater
 import net.guizhanss.infinityexpansion2.core.commands.MainCommand
-import net.guizhanss.infinityexpansion2.core.services.BukkitLibraryService
 import net.guizhanss.infinityexpansion2.core.services.ConfigService
 import net.guizhanss.infinityexpansion2.core.services.IntegrationService
 import net.guizhanss.infinityexpansion2.core.services.LocalizationService
@@ -40,7 +40,7 @@ class InfinityExpansion2 : AbstractAddon(
         logger.info("Add -DcentralRepository=<url> to the JVM arguments.")
 
         // download libs
-        val manager = BukkitLibraryService(this)
+        val manager = BukkitLibraryManager(this)
         manager.addRepository(centralRepo)
         manager.loadLibrary(
             Library.builder().groupId("org.jetbrains.kotlin").artifactId("kotlin-stdlib").version("2.0.21").build()
@@ -117,11 +117,7 @@ class InfinityExpansion2 : AbstractAddon(
         } else if (pluginVersion.startsWith("Build")) {
             try {
                 // use updater in lib plugin
-                val pluginPackage = charArrayOf(
-                    'n', 'e', 't', '.', 'g', 'u', 'i', 'z', 'h', 'a', 'n', 's', 's', '.',
-                    'g', 'u', 'i', 'z', 'h', 'a', 'n', 'l', 'i', 'b', 'p', 'l', 'u', 'g', 'i', 'n'
-                )
-                val clazz = Class.forName(String(pluginPackage) + ".updater.GuizhanUpdater")
+                val clazz = Class.forName("net.guizhanss.minecraft.guizhanlib.updater.GuizhanUpdater")
                 val updaterStart = clazz.getDeclaredMethod(
                     "start",
                     Plugin::class.java,
