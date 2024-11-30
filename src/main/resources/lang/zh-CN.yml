@@ -248,16 +248,16 @@ items:
   _UI_IR_NEED_VOID:
     conditions:
       force-load: true
-    name: "&7还需要更多的&8虚空&7锭"
+    name: "&7需要更多&8虚空&7锭"
   _UI_IR_NEED_INFINITY:
     conditions:
       force-load: true
-    name: "&7还需要更多的&b无尽&7锭"
-  _UI_IR_INFO_VOID:
+    name: "&7需要更多&b无尽&7锭"
+  _UI_IR_DURATION_VOID:
     conditions:
       force-load: true
     name: "&e虚空锭的持续时间（粘液刻）："
-  _UI_IR_INFO_INFINITY:
+  _UI_IR_DURATION_INFINITY:
     conditions:
       force-load: true
     name: "&e无尽锭的持续时间（粘液刻）："
@@ -268,6 +268,25 @@ items:
     lore-overrides:
       1: "&e无尽锭剩余时间（粘液刻）："
       3: "&e虚空锭剩余时间（粘液刻）："
+  #infinity singularity reactor specific
+  _UI_ISR_BORDER:
+    conditions:
+      force-load: true
+    name: "&7将&b无尽奇点&7放入此处"
+  _UI_ISR_NEED:
+    conditions:
+      force-load: true
+    name: "&7需要更多&b无尽奇点"
+  _UI_ISR_DURATION:
+    conditions:
+      force-load: true
+    name: "&e无尽奇点的持续时间（粘液刻）："
+  _UI_ISR_INFO:
+    conditions:
+      force-load: true
+    name: "&a运行中..."
+    lore-overrides:
+      1: "&e无尽奇点剩余时间（粘液刻）："
   #items - guide
   _GUIDE_INTRO:
     name: "&e介绍"
@@ -405,6 +424,11 @@ items:
       - "&d防凋灵"
   OSCILLATOR_FRAME:
     name: "&6加速器框架"
+  UNKNOWN_SMITHING_TEMPLATE:
+    name: "&8未知&7锻造模版"
+    lore:
+      - "&7这究竟是普通的模版"
+      - "&7还是护甲纹饰？"
   #items - slimefun expansion
   VOID_CAPACITOR:
     name: "&8虚空电容"
@@ -496,19 +520,19 @@ items:
     name: "&c高级冶炼炉"
     lore:
       - ""
-      - "&8\u21E8 &e⚡ &7速度: &b24x"
+      - "&8\u21E8 &e⚡ &7速度: &b12x"
       - "&8\u21E8 &e⚡ &7240 J/t"
     lore-overrides:
-      2: "%sftrlore_Speed_24%" #DO NOT translate this
+      2: "%sftrlore_Speed_12%" #DO NOT translate this
       3: "%sftrlore_PowerPerTick_240%" #DO NOT translate this
   VOID_SMELTERY:
     name: "&8虚空冶炼炉"
     lore:
       - ""
-      - "&8\u21E8 &e⚡ &7速度: &b72x"
+      - "&8\u21E8 &e⚡ &7速度: &b24x"
       - "&8\u21E8 &e⚡ &71,200 J/t"
     lore-overrides:
-      2: "%sftrlore_Speed_72%" #DO NOT translate this
+      2: "%sftrlore_Speed_24%" #DO NOT translate this
       3: "%sftrlore_PowerPerTick_1200%" #DO NOT translate this
   ADVANCED_NETHER_STAR_REACTOR:
     name: "&c高级&f下界之星反应堆"
@@ -703,7 +727,6 @@ items:
       - "&8\u21E8 &e⚡ &7速度: &b1x"
     lore-overrides:
       4: "%sftrlore_Speed_1%" #DO NOT translate this
-      5: "%sftrlore_PowerPerTick_24%" #DO NOT translate this
   COBBLESTONE_GENERATOR_2:
     name: "&c高级&8圆石生成器"
     lore:
@@ -779,6 +802,30 @@ items:
       - ""
       - "&7自动种植、收割，"
       - "&7和再种植树苗。"
+  FLOWER_GROWER:
+    name: "&d自动花卉机"
+    lore:
+      - ""
+      - "&7自动种植、收割，"
+      - "&7和再种植花卉。"
+  FLOWER_GROWER_2:
+    name: "&c高级&d自动花卉机"
+    lore:
+      - ""
+      - "&7自动种植、收割，"
+      - "&7和再种植花卉。"
+  FLOWER_GROWER_3:
+    name: "&7虚空&d自动花卉机"
+    lore:
+      - ""
+      - "&7自动种植、收割，"
+      - "&7和再种植花卉。"
+  FLOWER_GROWER_4:
+    name: "&b无尽&d自动花卉机"
+    lore:
+      - ""
+      - "&7自动种植、收割，"
+      - "&7和再种植花卉。"
   VOID_HARVESTER:
     name: "&8虚空收集者"
     lore:
@@ -856,7 +903,7 @@ items:
       - "&8\u21E8 &e⚡ &7速度: &b1x"
     lore-overrides:
       5: "%sftrlore_Speed_1%" #DO NOT translate this
-  INFINITY_SINGULARITY_CONSTRUCTOR:
+  SINGULARITY_CONSTRUCTOR_2:
     name: "&b无尽&f奇点构造机"
     lore:
       - ""
@@ -971,6 +1018,15 @@ items:
       - "&8\u21E8 &e⚡ &7速度: &b1x"
     lore-overrides:
       4: "%sftrlore_Speed_1%" #DO NOT translate this
+  URANIUM_INGOT_EXTRACTOR:
+    name: "&2铀锭提取机"
+    lore:
+      - ""
+      - "&7从各类石头中提取铀。"
+      - ""
+      - "&8\u21E8 &e⚡ &7速度: &b1x"
+    lore-overrides:
+      4: "%sftrlore_Speed_1%" #DO NOT translate this
   COBBLE_PRESS:
     name: "&8圆石压缩机"
     lore:
@@ -1050,6 +1106,15 @@ items:
       - ""
       - "&7改变工具和装备的材质。"
       - ""
+  SMITHING_TEMPLATE_RANDOMIZER:
+    name: "&8锻造模版随机器"
+    lore:
+      - ""
+      - "&7随机获得一个盔甲纹饰"
+      - "&7使用&b未知锻造模版。"
+      - ""
+      - "&c仅适用于 1.20+"
+      - ""
   ADVANCED_ANVIL:
     name: "&c高级铁砧"
     lore:
@@ -1128,6 +1193,13 @@ items:
       - ""
       - "&7通过压缩&8虚空锭"
       - "&7与&b无尽锭来发电。"
+      - ""
+  INFINITY_SINGULARITY_REACTOR:
+    name: "&b无尽奇点反应堆"
+    lore:
+      - ""
+      - "&7通过压缩"
+      - "&b无尽奇点&7来发电。"
       - ""
   #items - mob simulation
   MOB_SIMULATION_CHAMBER:
