@@ -62,7 +62,6 @@ class SingularityConstructor(
         val input = menu.getItemInSlot(inputSlots[0])
         val inputTemplate = input?.clone()?.apply { amount = 1 }
         val target = menu.getTarget()
-        var progress = menu.getProgress()
 
         if (target == null || getSingularity(target) == null) {
             // not valid target, probably new machine
@@ -70,6 +69,7 @@ class SingularityConstructor(
         }
 
         // target is valid
+        var progress = menu.getProgress()
 
         // allow user to change singularity type
         if (progress == 0) {
@@ -103,9 +103,7 @@ class SingularityConstructor(
     }
 
     private fun BlockMenu.checkNewSingularity(input: ItemStack?): Boolean {
-        val singularity = getSingularity(input)
-
-        if (singularity == null) {
+        val singularity = getSingularity(input) ?: run {
             setStatus { GuiItems.INVALID_INPUT }
             return false
         }
