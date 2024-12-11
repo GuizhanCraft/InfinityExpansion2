@@ -1144,7 +1144,7 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
         }
     }
 
-    val INFINIYT_CHESTPLATE by buildSlimefunItem<InfinityArmor>(
+    val INFINITY_CHESTPLATE by buildSlimefunItem<InfinityArmor>(
         arrayOf(
             buildHiddenPotionEffect("night_vision", 600, 0),
             buildHiddenPotionEffect("conduit_power", 600, 0),
