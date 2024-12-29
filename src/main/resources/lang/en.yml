@@ -709,41 +709,27 @@ items:
   INFINITY_HELMET:
     name: "&b&lInfinity Crown"
     lore:
-      - "&7Night Vision I"
-      - "&7Conduit Power I"
-      - "&7Elytra Crash Immunity"
       - "&bSoulbound"
     lore-overrides:
-      4: "%sftrlore_soulbound%" # DO NOT translate this
+      1: "%sftrlore_soulbound%" # DO NOT translate this
   INFINITY_CHESTPLATE:
     name: "&b&lInfinity Chestplate"
     lore:
-      - "&7Strength II"
-      - "&7Resistance I"
-      - "&7Fire Resistance I"
-      - "&7Bee Sting Immunity"
       - "&bSoulbound"
     lore-overrides:
-      5: "%sftrlore_soulbound%" # DO NOT translate this
+      1: "%sftrlore_soulbound%" # DO NOT translate this
   INFINITY_LEGGINGS:
     name: "&b&lInfinity Leggings"
     lore:
-      - "&7Haste III"
-      - "&7Regeneration I"
-      - "&7Saturation I"
-      - "&7Radiation Immunity"
       - "&bSoulbound"
     lore-overrides:
-      5: "%sftrlore_soulbound%" # DO NOT translate this
+      1: "%sftrlore_soulbound%" # DO NOT translate this
   INFINITY_BOOTS:
     name: "&b&lInfinity Boots"
     lore:
-      - "&7Speed III"
-      - "&7Dolphins Grace I"
-      - "&7Fall Damage Immunity"
       - "&bSoulbound"
     lore-overrides:
-      3: "%sftrlore_soulbound%" # DO NOT translate this
+      1: "%sftrlore_soulbound%" # DO NOT translate this
   INFINITY_SHIELD:
     name: "&b&lCosmic Aegis"
     lore:

@@ -8,6 +8,7 @@ import io.github.thebusybiscuit.slimefun4.core.attributes.ProtectionType
 import io.github.thebusybiscuit.slimefun4.core.attributes.ProtectiveArmor
 import io.github.thebusybiscuit.slimefun4.core.attributes.Soulbound
 import io.github.thebusybiscuit.slimefun4.implementation.items.armor.SlimefunArmorPiece
+import net.guizhanss.infinityexpansion2.core.items.attributes.InformationalRecipeDisplayItem
 import net.guizhanss.infinityexpansion2.utils.constant.Keys
 import org.bukkit.inventory.ItemStack
 import org.bukkit.potion.PotionEffect
@@ -17,9 +18,10 @@ open class InfinityArmor(
     itemStack: SlimefunItemStack,
     recipeType: RecipeType,
     recipe: Array<out ItemStack?>,
-    effects: Array<PotionEffect> = arrayOf(),
+    private val effects: Array<PotionEffect> = arrayOf(),
     private val protectionTypes: Array<ProtectionType> = arrayOf(),
-) : SlimefunArmorPiece(itemGroup, itemStack, recipeType, recipe, effects), ProtectiveArmor, Soulbound, NotPlaceable {
+) : SlimefunArmorPiece(itemGroup, itemStack, recipeType, recipe, effects), ProtectiveArmor, Soulbound, NotPlaceable,
+    InformationalRecipeDisplayItem {
 
     override fun getProtectionTypes() = protectionTypes
 

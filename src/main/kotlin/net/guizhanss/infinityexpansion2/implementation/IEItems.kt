@@ -63,12 +63,12 @@ import net.guizhanss.infinityexpansion2.implementation.items.tools.Strainer
 import net.guizhanss.infinityexpansion2.implementation.items.tools.StrainerBase
 import net.guizhanss.infinityexpansion2.implementation.items.tools.VeinMinerRune
 import net.guizhanss.infinityexpansion2.implementation.recipes.IERecipeTypes
-import net.guizhanss.infinityexpansion2.utils.bukkitext.buildHiddenPotionEffect
 import net.guizhanss.infinityexpansion2.utils.bukkitext.toItem
 import net.guizhanss.infinityexpansion2.utils.items.applyInfinityGearEnchantment
 import net.guizhanss.infinityexpansion2.utils.items.builder.asMaterialType
 import net.guizhanss.infinityexpansion2.utils.items.builder.buildSlimefunItem
 import net.guizhanss.infinityexpansion2.utils.items.builder.recipes.buildRecipe
+import net.guizhanss.infinityexpansion2.utils.items.getInfinityGearPotionEffects
 import org.bukkit.Material
 import org.bukkit.enchantments.Enchantment
 
@@ -1120,10 +1120,7 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
 
     //<editor-fold desc="Gears" defaultstate="collapsed">
     val INFINITY_HELMET by buildSlimefunItem<InfinityArmor>(
-        arrayOf(
-            buildHiddenPotionEffect("night_vision", 600, 0),
-            buildHiddenPotionEffect("conduit_power", 600, 0),
-        ),
+        getInfinityGearPotionEffects("helmet"),
         arrayOf(ProtectionType.FLYING_INTO_WALL),
     ) {
         material = Material.NETHERITE_HELMET.asMaterialType()
@@ -1145,10 +1142,7 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
     }
 
     val INFINITY_CHESTPLATE by buildSlimefunItem<InfinityArmor>(
-        arrayOf(
-            buildHiddenPotionEffect("night_vision", 600, 0),
-            buildHiddenPotionEffect("conduit_power", 600, 0),
-        ),
+        getInfinityGearPotionEffects("chestplate"),
         arrayOf(ProtectionType.BEES),
     ) {
         material = Material.NETHERITE_CHESTPLATE.asMaterialType()
@@ -1170,11 +1164,7 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
     }
 
     val INFINITY_LEGGINGS by buildSlimefunItem<InfinityArmor>(
-        arrayOf(
-            buildHiddenPotionEffect("haste", 600, 2),
-            buildHiddenPotionEffect("regeneration", 600, 0),
-            buildHiddenPotionEffect("saturation", 600, 0),
-        ),
+        getInfinityGearPotionEffects("leggings"),
         arrayOf(ProtectionType.RADIATION),
     ) {
         material = Material.NETHERITE_LEGGINGS.asMaterialType()
@@ -1196,10 +1186,8 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
     }
 
     val INFINITY_BOOTS by buildSlimefunItem<InfinityBoots>(
-        arrayOf(
-            buildHiddenPotionEffect("speed", 600, 2),
-            buildHiddenPotionEffect("dolphins_grace", 600, 0),
-        ), arrayOf<ProtectionType>()
+        getInfinityGearPotionEffects("boots"),
+        arrayOf<ProtectionType>(),
     ) {
         material = Material.NETHERITE_BOOTS.asMaterialType()
         itemGroup = IEItemGroups.GEAR
@@ -2357,7 +2345,7 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
     //</editor-fold>
 
     //<editor-fold desc="Hidden" defaultstate="collapsed">
-    val OSCILLATOR by buildSlimefunItem<Oscillator>(Material.AIR) {
+    val OSCILLATOR by buildSlimefunItem<Oscillator>(Material.AIR.toItem()) {
         material = Material.REDSTONE_TORCH.asMaterialType()
         itemGroup = IEItemGroups.HIDDEN
         recipeType = RecipeType.NULL
