@@ -282,7 +282,7 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             +"xxx"
             +"xxx"
             +"xxx"
-            'x' means Material.COBBLESTONE.toItem()
+            'x' means Material.COBBLESTONE
         }
     }
 
@@ -623,7 +623,7 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             +"GVG"
             +"GGG"
             'V' means VOID_BLOCK
-            'G' means Material.GLASS.toItem()
+            'G' means Material.GLASS
         }
     }
 
@@ -682,7 +682,7 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             +"NNN"
             +"NVN"
             +"NNN"
-            'N' means Material.NETHERITE_INGOT.toItem()
+            'N' means Material.NETHERITE_INGOT
             'V' means VOID_INGOT
         }
     }
@@ -902,14 +902,14 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             +" MO S "
             +" MPPS "
             +"      "
-            'C' means Material.CHICKEN.toItem()
-            'B' means Material.BEEF.toItem()
-            'R' means Material.RABBIT.toItem()
+            'C' means Material.CHICKEN
+            'B' means Material.BEEF
+            'R' means Material.RABBIT
             'V' means VOID_DUST
-            'O' means Material.COD.toItem()
-            'M' means Material.MUTTON.toItem()
-            'S' means Material.SALMON.toItem()
-            'P' means Material.PORKCHOP.toItem()
+            'O' means Material.COD
+            'M' means Material.MUTTON
+            'S' means Material.SALMON
+            'P' means Material.PORKCHOP
         }
     }
 
@@ -924,14 +924,14 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             +" cN m "
             +" cMMm "
             +"      "
-            'W' means Material.WHEAT.toItem()
-            'P' means Material.POTATO.toItem()
-            'C' means Material.CACTUS.toItem()
+            'W' means Material.WHEAT
+            'P' means Material.POTATO
+            'C' means Material.CACTUS
             'V' means VOID_DUST
-            'N' means Material.NETHER_WART.toItem()
-            'c' means Material.CARROT.toItem()
-            'm' means Material.BROWN_MUSHROOM.toItem()
-            'M' means Material.RED_MUSHROOM.toItem()
+            'N' means Material.NETHER_WART
+            'c' means Material.CARROT
+            'm' means Material.BROWN_MUSHROOM
+            'M' means Material.RED_MUSHROOM
         }
     }
     //</editor-fold>
@@ -946,7 +946,7 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             +"EBE"
             +"EEE"
             'E' means ENDER_ESSENCE
-            'B' means Material.BOOK.toItem()
+            'B' means Material.BOOK
         }
 
         itemModifier = {
@@ -977,8 +977,8 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             +"STS"
             +"STS"
             +"MMM"
-            'S' means Material.STICK.toItem()
-            'T' means Material.STRING.toItem()
+            'S' means Material.STICK
+            'T' means Material.STRING
             'M' means MAGSTEEL
         }
     }
@@ -991,8 +991,8 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             +"STS"
             +"TST"
             +"STS"
-            'S' means Material.STICK.toItem()
-            'T' means Material.STRING.toItem()
+            'S' means Material.STICK
+            'T' means Material.STRING
         }
     }
 
@@ -1004,7 +1004,7 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             +"MSM"
             +"STS"
             +"MSM"
-            'S' means Material.STRING.toItem()
+            'S' means Material.STRING
             'T' means STRAINER_1
             'M' means MAGSTEEL
         }
@@ -1018,7 +1018,7 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             +"RSR"
             +"STS"
             +"RSR"
-            'S' means Material.STRING.toItem()
+            'S' means Material.STRING
             'T' means STRAINER_2
             'R' means SlimefunItems.REINFORCED_ALLOY_INGOT
         }
@@ -1113,7 +1113,7 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             +"I II I"
             'V' means VOID_INGOT
             'I' means INFINITY_INGOT
-            'E' means Material.ELYTRA.toItem()
+            'E' means Material.ELYTRA
         }
     }
     //</editor-fold>
@@ -1307,10 +1307,10 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             +"WCL"
             +"McM"
             'M' means MAGSTEEL
-            'P' means Material.DIAMOND_PICKAXE.toItem()
-            'W' means Material.WATER_BUCKET.toItem()
+            'P' means Material.DIAMOND_PICKAXE
+            'W' means Material.WATER_BUCKET
             'C' means COMPRESSED_COBBLESTONE_2
-            'L' means Material.LAVA_BUCKET.toItem()
+            'L' means Material.LAVA_BUCKET
             'c' means MACHINE_CIRCUIT
         }
     }
@@ -1325,9 +1325,9 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             +"CGC"
             'M' means MAGSTEEL
             'G' means COBBLESTONE_GENERATOR
-            'W' means Material.WATER_BUCKET.toItem()
+            'W' means Material.WATER_BUCKET
             'C' means COMPRESSED_COBBLESTONE_3
-            'L' means Material.LAVA_BUCKET.toItem()
+            'L' means Material.LAVA_BUCKET
         }
     }
 
@@ -1342,9 +1342,9 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             'V' means VOID_BLOCK
             'G' means COBBLESTONE_GENERATOR_2
             'c' means MACHINE_CIRCUIT
-            'W' means Material.WATER_BUCKET.toItem()
+            'W' means Material.WATER_BUCKET
             'C' means COMPRESSED_COBBLESTONE_4
-            'L' means Material.LAVA_BUCKET.toItem()
+            'L' means Material.LAVA_BUCKET
         }
     }
 
@@ -1373,11 +1373,11 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             +"GGG"
             +"MHM"
             +"CBC"
-            'G' means Material.GLASS.toItem()
+            'G' means Material.GLASS
             'M' means MAGSTEEL
-            'H' means Material.DIAMOND_HOE.toItem()
+            'H' means Material.DIAMOND_HOE
             'C' means MACHINE_CIRCUIT
-            'B' means Material.GRASS_BLOCK.toItem()
+            'B' means Material.GRASS_BLOCK
         }
     }
 
@@ -1389,7 +1389,7 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             +"GGG"
             +"MFM"
             +"COC"
-            'G' means Material.GLASS.toItem()
+            'G' means Material.GLASS
             'M' means MAGNONIUM
             'F' means VIRTUAL_FARM
             'C' means MACHINE_CIRCUIT
@@ -1422,8 +1422,8 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             +"GRRRRG"
             +"PAFFAP"
             +"PCOOCP"
-            'G' means Material.GLASS.toItem()
-            'R' means Material.GRASS_BLOCK.toItem()
+            'G' means Material.GLASS
+            'R' means Material.GRASS_BLOCK
             'P' means MACHINE_PLATE
             'A' means SlimefunItems.CROP_GROWTH_ACCELERATOR_2
             'F' means VIRTUAL_FARM_3
@@ -1440,9 +1440,9 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             +"GGG"
             +"MPM"
             +"CFC"
-            'G' means Material.GLASS.toItem()
+            'G' means Material.GLASS
             'M' means MAGSTEEL
-            'P' means Material.PODZOL.toItem()
+            'P' means Material.PODZOL
             'C' means MACHINE_CIRCUIT
             'F' means VIRTUAL_FARM
         }
@@ -1456,7 +1456,7 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             +"GGG"
             +"MTM"
             +"COC"
-            'G' means Material.GLASS.toItem()
+            'G' means Material.GLASS
             'M' means MAGSTEEL
             'T' means TREE_GROWER
             'C' means MACHINE_CIRCUIT
@@ -1489,11 +1489,11 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             +"GA  AG"
             +"PppppP"
             +"PCOOCP"
-            'G' means Material.GLASS.toItem()
+            'G' means Material.GLASS
             'A' means SlimefunItems.TREE_GROWTH_ACCELERATOR
             'T' means TREE_GROWER_3
             'P' means MACHINE_PLATE
-            'p' means Material.PODZOL.toItem()
+            'p' means Material.PODZOL
             'C' means INFINITY_MACHINE_CIRCUIT
             'O' means INFINITY_MACHINE_CORE
         }
@@ -1507,11 +1507,11 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             +"GGG"
             +"MPM"
             +"CGC"
-            'G' means Material.GLASS.toItem()
+            'G' means Material.GLASS
             'M' means MAGSTEEL
-            'P' means Material.POPPY.toItem()
+            'P' means Material.POPPY
             'C' means MACHINE_CIRCUIT
-            'G' means Material.GRASS_BLOCK.toItem()
+            'G' means Material.GRASS_BLOCK
         }
     }
 
@@ -1556,8 +1556,8 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             +"GRRRRG"
             +"P FF P"
             +"PCOOCP"
-            'G' means Material.GLASS.toItem()
-            'R' means Material.GRASS_BLOCK.toItem()
+            'G' means Material.GLASS
+            'R' means Material.GRASS_BLOCK
             'P' means MACHINE_PLATE
             'F' means FLOWER_GROWER_3
             'C' means INFINITY_MACHINE_CIRCUIT
@@ -1754,7 +1754,7 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             +"CGC"
             'F' means SlimefunItems.FLUID_PUMP
             'M' means SlimefunItems.PROGRAMMABLE_ANDROID_MINER
-            'D' means Material.DISPENSER.toItem()
+            'D' means Material.DISPENSER
             'V' means VOID_INGOT
             'C' means MACHINE_CIRCUIT
             'G' means COBBLESTONE_GENERATOR_2
@@ -1772,7 +1772,7 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             +"WPW"
             +"COC"
             'F' means SlimefunItems.FREEZER_2
-            'W' means Material.WATER_BUCKET.toItem()
+            'W' means Material.WATER_BUCKET
             'P' means SlimefunItems.FLUID_PUMP
             'C' means MACHINE_CIRCUIT
             'O' means MACHINE_CORE
@@ -1930,7 +1930,7 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             +"NEN"
             +"NUN"
             +"UUU"
-            'N' means Material.NETHERITE_BLOCK.toItem()
+            'N' means Material.NETHERITE_BLOCK
             'E' means SlimefunItems.ENERGIZED_CAPACITOR
             'U' means URANIUM_EXTRACTOR
         }
@@ -1959,7 +1959,7 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             +"SES"
             +"COC"
             'P' means MAGSTEEL_PLATE
-            'S' means Material.STICKY_PISTON.toItem()
+            'S' means Material.STICKY_PISTON
             'E' means SlimefunItems.ELECTRIC_PRESS_2
             'C' means MACHINE_CIRCUIT
             'O' means MACHINE_CORE
@@ -1976,7 +1976,7 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             +"COC"
             'P' means MAGSTEEL_PLATE
             'A' means SlimefunItems.CARBONADO_EDGED_CAPACITOR
-            'I' means Material.IRON_PICKAXE.toItem()
+            'I' means Material.IRON_PICKAXE
             'G' means SlimefunItems.GEO_MINER
             'C' means MACHINE_CIRCUIT
             'O' means MACHINE_CORE
@@ -1993,7 +1993,7 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             +"COC"
             'P' means MACHINE_PLATE
             'A' means SlimefunItems.ENERGIZED_CAPACITOR
-            'D' means Material.DIAMOND_PICKAXE.toItem()
+            'D' means Material.DIAMOND_PICKAXE
             'Q' means QUARRY
             'C' means MACHINE_CIRCUIT
             'O' means MACHINE_CORE
@@ -2010,7 +2010,7 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             +"COC"
             'V' means VOID_INGOT
             'A' means VOID_CAPACITOR
-            'N' means Material.NETHERITE_PICKAXE.toItem()
+            'N' means Material.NETHERITE_PICKAXE
             'Q' means QUARRY_2
             'C' means MACHINE_CIRCUIT
             'O' means MACHINE_CORE
@@ -2080,7 +2080,7 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             +"PCP"
             'P' means MACHINE_PLATE
             'C' means MACHINE_CIRCUIT
-            'S' means Material.SMITHING_TABLE.toItem()
+            'S' means Material.SMITHING_TABLE
         }
     }
 
@@ -2107,7 +2107,7 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             +"PAP"
             +"COC"
             'P' means MACHINE_PLATE
-            'A' means Material.ANVIL.toItem()
+            'A' means Material.ANVIL
             'C' means MACHINE_CIRCUIT
             'O' means MACHINE_CORE
         }
@@ -2124,7 +2124,7 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             'V' means VOID_INGOT
             'P' means MACHINE_PLATE
             'C' means SlimefunItems.ENERGIZED_CAPACITOR
-            'T' means Material.CRAFTING_TABLE.toItem()
+            'T' means Material.CRAFTING_TABLE
         }
     }
     //</editor-fold>
@@ -2140,7 +2140,7 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             +"MCM"
             'M' means MAGSTEEL
             'C' means MACHINE_CIRCUIT
-            'B' means Material.BUCKET.toItem()
+            'B' means Material.BUCKET
             'E' means SlimefunItems.ELECTRO_MAGNET
         }
     }
@@ -2357,7 +2357,7 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
     //</editor-fold>
 
     //<editor-fold desc="Hidden" defaultstate="collapsed">
-    val OSCILLATOR by buildSlimefunItem<Oscillator>(Material.AIR.toItem()) {
+    val OSCILLATOR by buildSlimefunItem<Oscillator>(Material.AIR) {
         material = Material.REDSTONE_TORCH.asMaterialType()
         itemGroup = IEItemGroups.HIDDEN
         recipeType = RecipeType.NULL
