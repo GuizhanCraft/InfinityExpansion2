@@ -67,7 +67,7 @@ tasks.shadowJar {
 
 bukkit {
     main = "$mainPackage.InfinityExpansion2"
-    apiVersion = "1.18"
+    apiVersion = "1.20"
     authors = listOf("ybw0014")
     description = "More Slimefun content"
     depend = listOf("Slimefun")
