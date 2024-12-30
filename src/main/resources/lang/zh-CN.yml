@@ -80,6 +80,9 @@ items:
     lore:
       - "&7使用生物相关物品"
       - "&7注入到空的生物数据卡中。"
+  _RECIPE_STORAGE_FORGE:
+    conditions:
+      force-load: true
   #ui items
   _UI_GUIDE:
     conditions:
