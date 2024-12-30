@@ -18,6 +18,8 @@ import org.bukkit.Bukkit
 import org.bukkit.Effect
 import org.bukkit.Material
 import org.bukkit.SoundCategory
+import org.bukkit.damage.DamageSource
+import org.bukkit.damage.DamageType
 import org.bukkit.entity.ArmorStand
 import org.bukkit.entity.Entity
 import org.bukkit.entity.LivingEntity
@@ -44,55 +46,54 @@ class InfinityBow(
         addItemHandler(onShoot())
     }
 
-    private fun onShoot(): BowShootHandler {
-        return BowShootHandler { e, target ->
-            // explosive part
-            target.world.spawnParticle(ParticleX.EXPLOSION, target.location, 1)
-            SoundEffect.EXPLOSIVE_BOW_HIT_SOUND.playAt(target.location, SoundCategory.PLAYERS)
-            val radius = explosionRangeSetting.value.toDouble()
+    private fun onShoot() = BowShootHandler { e, target ->
+        // explosive part
+        target.world.spawnParticle(ParticleX.EXPLOSION, target.location, 1)
+        SoundEffect.EXPLOSIVE_BOW_HIT_SOUND.playAt(target.location, SoundCategory.PLAYERS)
+        val radius = explosionRangeSetting.value.toDouble()
 
-            target.world.getNearbyEntities(target.location, radius, radius, radius) { canDamage(it) }
-                .forEach { nearby ->
-                    val entity = nearby as LivingEntity
+        target.world.getNearbyEntities(target.location, radius, radius, radius) { canDamage(it) }
+            .forEach { nearby ->
+                val entity = nearby as LivingEntity
 
-                    val distanceVector =
-                        entity.location.toVector().subtract(target.location.toVector()).add(Vector(0.0, 0.75, 0.0))
+                val distanceVector =
+                    entity.location.toVector().subtract(target.location.toVector()).add(Vector(0.0, 0.75, 0.0))
 
-                    val distanceSquared = distanceVector.lengthSquared()
-                    val damage = e.damage * (1 - (distanceSquared / (2 * radius * radius)))
+                val distanceSquared = distanceVector.lengthSquared()
+                val damage = e.damage * (1 - (distanceSquared / (2 * radius * radius)))
 
-                    if (entity.uniqueId != target.uniqueId) {
-                        val event = EntityDamageByEntityEvent(
-                            e.damager,
-                            entity,
-                            EntityDamageEvent.DamageCause.ENTITY_EXPLOSION,
-                            damage
-                        )
-                        Bukkit.getPluginManager().callEvent(event)
+                if (entity.uniqueId != target.uniqueId) {
+                    val event = EntityDamageByEntityEvent(
+                        e.damager,
+                        entity,
+                        EntityDamageEvent.DamageCause.ENTITY_EXPLOSION,
+                        DamageSource.builder(DamageType.EXPLOSION).withCausingEntity(e.damager).build(),
+                        damage
+                    )
+                    Bukkit.getPluginManager().callEvent(event)
 
-                        if (!event.isCancelled) {
-                            distanceVector.setY(0.75)
-                            val knockback = distanceVector.normalize().multiply(2)
-                            entity.velocity = entity.velocity.add(knockback)
-                            entity.damage(event.damage)
-                        }
+                    if (!event.isCancelled) {
+                        distanceVector.setY(0.75)
+                        val knockback = distanceVector.normalize().multiply(2)
+                        entity.velocity = entity.velocity.add(knockback)
+                        entity.damage(event.damage)
                     }
                 }
-
-            // freeze part
-            if (target is Player) {
-                if (target.isBlocking && e.finalDamage <= 0) {
-                    return@BowShootHandler
-                }
-
-                target.setFreezeTicks(60)
             }
 
-            target.world.playEffect(target.location, Effect.STEP_SOUND, Material.ICE)
-            target.world.playEffect(target.eyeLocation, Effect.STEP_SOUND, Material.ICE)
-            target.addPotionEffect(buildPotionEffect("slowness", 20 * 2, 10))
-            target.addPotionEffect(buildPotionEffect("jump_boost", 20 * 2, -10))
+        // freeze part
+        if (target is Player) {
+            if (target.isBlocking && e.finalDamage <= 0) {
+                return@BowShootHandler
+            }
+
+            target.setFreezeTicks(60)
         }
+
+        target.world.playEffect(target.location, Effect.STEP_SOUND, Material.ICE)
+        target.world.playEffect(target.eyeLocation, Effect.STEP_SOUND, Material.ICE)
+        target.addPotionEffect(buildPotionEffect("slowness", 20 * 2, 10))
+        target.addPotionEffect(buildPotionEffect("jump_boost", 20 * 2, -10))
     }
 
     private fun canDamage(entity: Entity) =
