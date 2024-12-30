@@ -10,7 +10,7 @@ import io.github.thebusybiscuit.slimefun4.implementation.Slimefun
 import io.github.thebusybiscuit.slimefun4.utils.ChestMenuUtils
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ChestMenu
 import net.guizhanss.infinityexpansion2.core.items.attributes.InformationalRecipeDisplayItem
-import net.guizhanss.infinityexpansion2.utils.displayItem
+import net.guizhanss.infinityexpansion2.utils.slimefunext.displayItem
 import org.bukkit.ChatColor
 import org.bukkit.entity.Player
 import kotlin.math.ceil

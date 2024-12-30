@@ -5,7 +5,6 @@ package net.guizhanss.infinityexpansion2.implementation
 import io.github.seggan.sf4k.item.builder.ItemRegistry
 import io.github.seggan.sf4k.item.builder.asMaterialType
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
-import io.github.thebusybiscuit.slimefun4.core.attributes.ProtectionType
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems
 import io.github.thebusybiscuit.slimefun4.utils.HeadTexture
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
@@ -14,7 +13,6 @@ import net.guizhanss.infinityexpansion2.implementation.groups.IEItemGroups
 import net.guizhanss.infinityexpansion2.implementation.items.food.CosmicMeatballs
 import net.guizhanss.infinityexpansion2.implementation.items.food.UltimateStew
 import net.guizhanss.infinityexpansion2.implementation.items.gear.InfinityArmor
-import net.guizhanss.infinityexpansion2.implementation.items.gear.InfinityBoots
 import net.guizhanss.infinityexpansion2.implementation.items.gear.InfinityBow
 import net.guizhanss.infinityexpansion2.implementation.items.gear.InfinityTool
 import net.guizhanss.infinityexpansion2.implementation.items.generators.EnergyGenerator
@@ -69,6 +67,7 @@ import net.guizhanss.infinityexpansion2.utils.items.builder.asMaterialType
 import net.guizhanss.infinityexpansion2.utils.items.builder.buildSlimefunItem
 import net.guizhanss.infinityexpansion2.utils.items.builder.recipes.buildRecipe
 import net.guizhanss.infinityexpansion2.utils.items.getInfinityGearPotionEffects
+import net.guizhanss.infinityexpansion2.utils.items.getInfinityGearProtectionTypes
 import org.bukkit.Material
 import org.bukkit.enchantments.Enchantment
 
@@ -1121,7 +1120,7 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
     //<editor-fold desc="Gears" defaultstate="collapsed">
     val INFINITY_HELMET by buildSlimefunItem<InfinityArmor>(
         getInfinityGearPotionEffects("helmet"),
-        arrayOf(ProtectionType.FLYING_INTO_WALL),
+        getInfinityGearProtectionTypes("helmet"),
     ) {
         material = Material.NETHERITE_HELMET.asMaterialType()
         itemGroup = IEItemGroups.GEAR
@@ -1143,7 +1142,7 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
 
     val INFINITY_CHESTPLATE by buildSlimefunItem<InfinityArmor>(
         getInfinityGearPotionEffects("chestplate"),
-        arrayOf(ProtectionType.BEES),
+        getInfinityGearProtectionTypes("chestplate"),
     ) {
         material = Material.NETHERITE_CHESTPLATE.asMaterialType()
         itemGroup = IEItemGroups.GEAR
@@ -1165,7 +1164,7 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
 
     val INFINITY_LEGGINGS by buildSlimefunItem<InfinityArmor>(
         getInfinityGearPotionEffects("leggings"),
-        arrayOf(ProtectionType.RADIATION),
+        getInfinityGearProtectionTypes("leggings"),
     ) {
         material = Material.NETHERITE_LEGGINGS.asMaterialType()
         itemGroup = IEItemGroups.GEAR
@@ -1185,9 +1184,9 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
         }
     }
 
-    val INFINITY_BOOTS by buildSlimefunItem<InfinityBoots>(
+    val INFINITY_BOOTS by buildSlimefunItem<InfinityArmor>(
         getInfinityGearPotionEffects("boots"),
-        arrayOf<ProtectionType>(),
+        getInfinityGearProtectionTypes("boots"),
     ) {
         material = Material.NETHERITE_BOOTS.asMaterialType()
         itemGroup = IEItemGroups.GEAR

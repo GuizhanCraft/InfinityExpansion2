@@ -3,17 +3,28 @@ package net.guizhanss.infinityexpansion2.utils.items
 import io.github.seggan.sf4k.item.builder.asMaterialType
 import io.github.thebusybiscuit.slimefun4.libraries.dough.data.persistent.PersistentDataAPI
 import io.github.thebusybiscuit.slimefun4.utils.ChestMenuUtils
+import net.guizhanss.guizhanlib.common.utils.StringUtil
+import net.guizhanss.guizhanlib.minecraft.utils.ChatUtil
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
+import net.guizhanss.infinityexpansion2.core.items.attributes.ProtectionType
 import net.guizhanss.infinityexpansion2.utils.constant.Keys
 import net.guizhanss.infinityexpansion2.utils.constant.Strings
 import net.guizhanss.infinityexpansion2.utils.items.builder.asMaterialType
+import net.kyori.adventure.text.Component
+import net.kyori.adventure.text.format.NamedTextColor
 import org.bukkit.Material
 import org.bukkit.inventory.ItemStack
+import org.bukkit.inventory.meta.PotionMeta
+import org.bukkit.potion.PotionEffect
 import java.text.DecimalFormatSymbols
 import java.util.Locale
 
+/**
+ * The helper object for GUI items.
+ */
 object GuiItems {
 
+    // get the decimal point on the system locale
     // not all the countries use dot(.) as decimal point
     private val decimalPoint = DecimalFormatSymbols.getInstance(Locale.getDefault()).decimalSeparator
 
@@ -153,6 +164,30 @@ object GuiItems {
         Material.LIME_STAINED_GLASS_PANE.asMaterialType(),
         "oscillator_slot"
     )
+
+    fun potionEffects(effects: Collection<PotionEffect>): ItemStack {
+        val item = InfinityExpansion2.localization.getGuiItem(
+            Material.POTION.asMaterialType(),
+            "potion_effects"
+        )
+        val meta = item.itemMeta as PotionMeta
+        effects.forEach {
+            meta.addCustomEffect(it, true)
+        }
+        item.itemMeta = meta
+        return item
+    }
+
+    fun protectionTypes(types: Collection<ProtectionType>): ItemStack {
+        val item = InfinityExpansion2.localization.getGuiItem(
+            Material.SHIELD.asMaterialType(),
+            "protection_types"
+        )
+        val meta = item.itemMeta
+        meta.lore(types.map { StringUtil.humanize(it.key.key) }.map { Component.text(it, NamedTextColor.GRAY) })
+        item.itemMeta = meta
+        return item
+    }
 }
 
 /**

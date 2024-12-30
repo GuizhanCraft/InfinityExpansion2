@@ -13,7 +13,7 @@ import net.guizhanss.infinityexpansion2.implementation.groups.displays.ExtraItem
 import net.guizhanss.infinityexpansion2.utils.bukkitext.toItem
 import net.guizhanss.infinityexpansion2.utils.bukkitext.withLore
 import net.guizhanss.infinityexpansion2.utils.bukkitext.withName
-import net.guizhanss.infinityexpansion2.utils.displayItem
+import net.guizhanss.infinityexpansion2.utils.slimefunext.displayItem
 import org.bukkit.Material
 import org.bukkit.entity.Player
 import org.bukkit.inventory.ItemStack

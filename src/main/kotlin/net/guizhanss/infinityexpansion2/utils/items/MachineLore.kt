@@ -1,6 +1,6 @@
 package net.guizhanss.infinityexpansion2.utils.items
 
-import net.guizhanss.infinityexpansion2.utils.powerPerTickToSecond
+import net.guizhanss.infinityexpansion2.utils.slimefunext.powerPerTickToSecond
 import java.text.NumberFormat
 import java.util.Locale
 

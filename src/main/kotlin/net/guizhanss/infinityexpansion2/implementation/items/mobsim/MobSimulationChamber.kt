@@ -16,11 +16,11 @@ import net.guizhanss.infinityexpansion2.core.items.attributes.InformationalRecip
 import net.guizhanss.infinityexpansion2.core.menu.MenuLayout
 import net.guizhanss.infinityexpansion2.implementation.items.machines.abstracts.AbstractTickingMachine
 import net.guizhanss.infinityexpansion2.utils.bukkitext.isAir
-import net.guizhanss.infinityexpansion2.utils.getBlockMenu
-import net.guizhanss.infinityexpansion2.utils.getInt
+import net.guizhanss.infinityexpansion2.utils.slimefunext.getBlockMenu
+import net.guizhanss.infinityexpansion2.utils.slimefunext.getInt
 import net.guizhanss.infinityexpansion2.utils.items.GuiItems
 import net.guizhanss.infinityexpansion2.utils.items.isSlimefunItem
-import net.guizhanss.infinityexpansion2.utils.setInt
+import net.guizhanss.infinityexpansion2.utils.slimefunext.setInt
 import org.bukkit.Sound
 import org.bukkit.block.Block
 import org.bukkit.inventory.ItemStack

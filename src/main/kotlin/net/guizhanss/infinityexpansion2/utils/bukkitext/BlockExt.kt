@@ -1,8 +1,8 @@
 package net.guizhanss.infinityexpansion2.utils.bukkitext
 
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
-import net.guizhanss.infinityexpansion2.utils.getBoolean
-import net.guizhanss.infinityexpansion2.utils.setBoolean
+import net.guizhanss.infinityexpansion2.utils.slimefunext.getBoolean
+import net.guizhanss.infinityexpansion2.utils.slimefunext.setBoolean
 import org.bukkit.block.Block
 import org.bukkit.block.data.Waterlogged
 

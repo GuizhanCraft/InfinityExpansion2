@@ -191,6 +191,14 @@ items:
     conditions:
       force-load: true
     name: "&eOscillator Slot"
+  _UI_POTION_EFFECTS:
+    conditions:
+      force-load: true
+    name: "&ePotion Effects:"
+  _UI_PROTECTION_TYPES:
+    conditions:
+      force-load: true
+    name: "&eProtection Types:"
 
   # ui = strainer specific
   _UI_ANY_STRAINER:

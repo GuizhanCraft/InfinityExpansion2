@@ -167,13 +167,19 @@ advanced-anvil:
 #
 # You can add new enchantments, but cannot remove enchantment fields, due to the plugin autofill all missing fields.
 # To disable an existing enchantment, set its level to 0.
-#
-# Potion effect and protection are only supported on armor.
-#
-# You can add new potion effects, but cannot remove potion effect fields, due to the plugin autofill all missing fields.
-# To disable an existing potion effect, set its level to a negative number (like -1).
+# Enchantment: https://jd.papermc.io/paper/1.20.6/org/bukkit/enchantments/Enchantment.html
 #
 # Unbreakable and enchantments only affect new gears, not existing ones.
+#
+# You can add new potion effects, but cannot remove potion effect fields, due to the plugin autofill all missing fields.
+# The value represents the amplifier, which is the level of the potion effect - 1. (e.g. haste: 2 means Haste III in game)
+# To disable an existing potion effect, set its amplifier to a negative number (like -1).
+# PotionEffectType: https://jd.papermc.io/paper/1.20.6/org/bukkit/potion/PotionEffectType.html
+#
+# Protections can be found here:
+# https://github.com/GuizhanCraft/InfinityExpansion2/blob/master/src/main/kotlin/net/guizhanss/infinityexpansion2/core/items/attributes/ProtectionType.kt
+#
+# Potion effects and protections affect both existing and new gears.
 infinity-gear:
   sword:
     unbreakable: true
@@ -233,6 +239,8 @@ infinity-gear:
     potion-effects:
       night_vision: 0
       conduit_power: 0
+    protections:
+      - "flying_into_wall"
   chestplate:
     unbreakable: true
     enchantments:
@@ -242,6 +250,8 @@ infinity-gear:
       resistance: 0
       fire_resistance: 0
       strength: 1
+    protections:
+      - "bees"
   leggings:
     unbreakable: true
     enchantments:
@@ -251,6 +261,8 @@ infinity-gear:
       haste: 2
       regeneration: 0
       saturation: 0
+    protections:
+      - "radiation"
   boots:
     unbreakable: true
     enchantments:
@@ -260,6 +272,8 @@ infinity-gear:
     potion-effects:
       speed: 2
       dolphins_grace: 0
+    protections:
+      - "fall"
   shield:
     unbreakable: true
     enchantments:

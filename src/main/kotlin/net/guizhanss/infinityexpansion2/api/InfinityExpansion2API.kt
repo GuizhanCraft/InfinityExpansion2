@@ -1,5 +1,3 @@
-@file:Suppress("deprecation")
-
 package net.guizhanss.infinityexpansion2.api
 
 import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon
@@ -8,7 +6,7 @@ import io.github.thebusybiscuit.slimefun4.api.player.PlayerProfile
 import io.github.thebusybiscuit.slimefun4.core.guide.SlimefunGuideMode
 import net.guizhanss.infinityexpansion2.api.mobsim.MobDataCardProps
 import net.guizhanss.infinityexpansion2.implementation.items.mobsim.MobDataCard
-import net.guizhanss.infinityexpansion2.utils.displayItem
+import net.guizhanss.infinityexpansion2.utils.slimefunext.displayItem
 import org.bukkit.entity.Player
 import org.bukkit.inventory.ItemStack
 

@@ -1,5 +1,3 @@
-@file:Suppress("deprecation")
-
 package net.guizhanss.infinityexpansion2.implementation.items.machines
 
 import io.github.seggan.sf4k.item.builder.asMaterialType
@@ -16,10 +14,10 @@ import net.guizhanss.infinityexpansion2.core.items.attributes.InformationalRecip
 import net.guizhanss.infinityexpansion2.core.menu.MenuLayout
 import net.guizhanss.infinityexpansion2.implementation.items.machines.abstracts.AbstractTickingMachine
 import net.guizhanss.infinityexpansion2.utils.bukkitext.toItem
-import net.guizhanss.infinityexpansion2.utils.getString
-import net.guizhanss.infinityexpansion2.utils.hasData
+import net.guizhanss.infinityexpansion2.utils.slimefunext.getString
+import net.guizhanss.infinityexpansion2.utils.slimefunext.hasData
 import net.guizhanss.infinityexpansion2.utils.items.GuiItems
-import net.guizhanss.infinityexpansion2.utils.setString
+import net.guizhanss.infinityexpansion2.utils.slimefunext.setString
 import net.guizhanss.infinityexpansion2.utils.valueOfOrNull
 import org.bukkit.Material
 import org.bukkit.block.Block

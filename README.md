@@ -10,12 +10,12 @@ features and improvements.
 
 ## Download
 
-(WIP)
+(WIP, check Slimefun discord for preview builds)
 
 ### Requirement
 
-- Java 17 or higher
-- Minecraft 1.17 or higher
+- Java 21 or higher
+- Minecraft 1.20 or higher
 - Paper or its forks
 - (Optional) SlimefunTranslation
 

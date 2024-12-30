@@ -1,4 +1,4 @@
-package net.guizhanss.infinityexpansion2.utils
+package net.guizhanss.infinityexpansion2.utils.slimefunext
 
 import io.github.thebusybiscuit.slimefun4.implementation.Slimefun
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu

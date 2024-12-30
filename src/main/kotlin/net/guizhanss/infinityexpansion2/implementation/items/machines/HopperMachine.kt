@@ -10,12 +10,12 @@ import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu
 import net.guizhanss.infinityexpansion2.core.items.attributes.InformationalRecipeDisplayItem
 import net.guizhanss.infinityexpansion2.core.menu.MenuLayout
 import net.guizhanss.infinityexpansion2.implementation.items.machines.abstracts.AbstractTickingMachine
-import net.guizhanss.infinityexpansion2.utils.MutableRecipes
-import net.guizhanss.infinityexpansion2.utils.RecipeInput
-import net.guizhanss.infinityexpansion2.utils.RecipeOutput
-import net.guizhanss.infinityexpansion2.utils.Recipes
+import net.guizhanss.infinityexpansion2.utils.slimefunext.MutableRecipes
+import net.guizhanss.infinityexpansion2.utils.slimefunext.RecipeInput
+import net.guizhanss.infinityexpansion2.utils.slimefunext.RecipeOutput
+import net.guizhanss.infinityexpansion2.utils.slimefunext.Recipes
 import net.guizhanss.infinityexpansion2.utils.items.GuiItems
-import net.guizhanss.infinityexpansion2.utils.toDisplayRecipe
+import net.guizhanss.infinityexpansion2.utils.slimefunext.toDisplayRecipe
 import org.bukkit.block.Block
 import org.bukkit.inventory.ItemStack
 

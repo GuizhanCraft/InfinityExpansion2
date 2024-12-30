@@ -11,12 +11,12 @@ import net.guizhanss.infinityexpansion2.core.menu.MenuLayout
 import net.guizhanss.infinityexpansion2.implementation.items.machines.abstracts.AbstractTickingMachine
 import net.guizhanss.infinityexpansion2.implementation.items.materials.Singularity
 import net.guizhanss.infinityexpansion2.utils.bukkitext.dropItem
-import net.guizhanss.infinityexpansion2.utils.getInt
-import net.guizhanss.infinityexpansion2.utils.getString
+import net.guizhanss.infinityexpansion2.utils.slimefunext.getInt
+import net.guizhanss.infinityexpansion2.utils.slimefunext.getString
 import net.guizhanss.infinityexpansion2.utils.items.GuiItems
 import net.guizhanss.infinityexpansion2.utils.items.toDisplayItem
-import net.guizhanss.infinityexpansion2.utils.setInt
-import net.guizhanss.infinityexpansion2.utils.setString
+import net.guizhanss.infinityexpansion2.utils.slimefunext.setInt
+import net.guizhanss.infinityexpansion2.utils.slimefunext.setString
 import org.bukkit.block.Block
 import org.bukkit.event.block.BlockBreakEvent
 import org.bukkit.inventory.ItemStack

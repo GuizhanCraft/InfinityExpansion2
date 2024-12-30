@@ -1,4 +1,6 @@
-package net.guizhanss.infinityexpansion2.utils
+@file:Suppress("unused")
+
+package net.guizhanss.infinityexpansion2.utils.slimefunext
 
 import me.mrCookieSlime.Slimefun.api.BlockStorage
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu

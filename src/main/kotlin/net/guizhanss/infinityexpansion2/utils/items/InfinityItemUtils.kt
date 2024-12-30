@@ -2,7 +2,9 @@ package net.guizhanss.infinityexpansion2.utils.items
 
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
+import net.guizhanss.infinityexpansion2.core.items.attributes.ProtectionType
 import net.guizhanss.infinityexpansion2.implementation.IEItems
+import net.guizhanss.infinityexpansion2.utils.bukkitext.createKey
 import net.guizhanss.infinityexpansion2.utils.bukkitext.getEnchantment
 import net.guizhanss.infinityexpansion2.utils.bukkitext.getPotionEffectType
 import org.bukkit.potion.PotionEffect
@@ -46,6 +48,17 @@ fun getInfinityGearPotionEffects(key: String): Array<PotionEffect> {
     }
 
     return effects.toTypedArray()
+}
+
+fun getInfinityGearProtectionTypes(key: String): Array<ProtectionType> {
+    val section = InfinityExpansion2.configService.infinityGear[key.lowercase()] ?: run {
+        InfinityExpansion2.log(
+            Level.WARNING, "Infinity gear \"$key\"'s config section is missing."
+        )
+        return arrayOf()
+    }
+    val types = section.getStringList("protections").toList()
+    return types.mapNotNull { ProtectionType.getByKey(it.createKey()) }.toTypedArray()
 }
 
 fun applyInfinityGearEnchantment(sfItem: SlimefunItemStack) {

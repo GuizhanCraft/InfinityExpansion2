@@ -1,5 +1,3 @@
-@file:Suppress("deprecation")
-
 package net.guizhanss.infinityexpansion2.implementation.items.generators
 
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup
@@ -17,7 +15,7 @@ import net.guizhanss.infinityexpansion2.core.items.attributes.EnergyProducer
 import net.guizhanss.infinityexpansion2.core.items.attributes.InformationalRecipeDisplayItem
 import net.guizhanss.infinityexpansion2.utils.constant.Strings
 import net.guizhanss.infinityexpansion2.utils.items.GuiItems
-import net.guizhanss.infinityexpansion2.utils.powerPerTickToSecond
+import net.guizhanss.infinityexpansion2.utils.slimefunext.powerPerTickToSecond
 import org.bukkit.Location
 import org.bukkit.inventory.ItemStack
 

@@ -11,7 +11,7 @@ import io.github.thebusybiscuit.slimefun4.utils.ChestMenuUtils
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ChestMenu
 import net.guizhanss.infinityexpansion2.implementation.IEItems
 import net.guizhanss.infinityexpansion2.implementation.items.materials.Singularity
-import net.guizhanss.infinityexpansion2.utils.displayItem
+import net.guizhanss.infinityexpansion2.utils.slimefunext.displayItem
 import net.guizhanss.infinityexpansion2.utils.items.GuiItems
 import org.bukkit.ChatColor
 import org.bukkit.entity.Player
