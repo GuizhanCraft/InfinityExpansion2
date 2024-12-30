@@ -49,6 +49,9 @@ items:
   _RECIPE_MOB_DATA_INFUSER:
     conditions:
       force-load: true
+  _RECIPE_STORAGE_FORGE:
+    conditions:
+      force-load: true
   #ui items
   _UI_GUIDE:
     conditions:
