@@ -188,6 +188,12 @@ items:
     conditions:
       force-load: true
     name: "&e加速器栏位"
+  _UI_POTION_EFFECTS:
+    conditions:
+      force-load: true
+  _UI_PROTECTION_TYPES:
+    conditions:
+      force-load: true
   #ui = strainer specific
   _UI_ANY_STRAINER:
     conditions:
@@ -432,16 +438,10 @@ items:
   #items - slimefun expansion
   VOID_CAPACITOR:
     name: "&8虚空电容"
-    lore:
-      - ""
-      - "&8\u21E8 &e⚡ 16,000,000 &7J 可储存"
     lore-overrides:
       2: "%sftrlore_PowerCapacity_16000000%" #DO NOT translate this
   INFINITY_CAPACITOR:
     name: "&b无尽电容"
-    lore:
-      - ""
-      - "&8\u21E8 &e⚡ 2,000,000,000 &7J 可储存"
     lore-overrides:
       2: "%sftrlore_PowerCapacity_2000000000%" #DO NOT translate this
   ADVANCED_ENCHANTER:
@@ -542,11 +542,10 @@ items:
       - "&8\u21E8 &b必须被水包围"
       - "&8\u21E8 &b必须使用下界冰冷却剂工作"
       - ""
-      - "&8\u21E8 &e⚡ 90,000 &7J 可储存"
+      - ""
       - "&8\u21E8 &e⚡ &71,800 J/t"
     lore-overrides:
       6: "%sftrlore_PowerCapacity_90000%" #DO NOT translate this
-      7: "%sftrlore_PowerPerTick_1200%" #DO NOT translate this
   #items - food
   COSMIC_MEATBALLS:
     name: "&b寰宇肉丸"
