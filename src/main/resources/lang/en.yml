@@ -81,6 +81,13 @@ items:
     lore:
       - "&7Infuses empty mob data card"
       - "&7with mob items."
+  _RECIPE_STORAGE_FORGE:
+    conditions:
+      force-load: true
+    name: "&6Storage Forge"
+    lore:
+      - "&7Craft and upgrade Storage Units."
+      - "&7Items are kept when upgrading."
 
   # ui items
   _UI_GUIDE:
@@ -1268,6 +1275,23 @@ items:
     name: "&8Mob Data Card (Empty)"
   MOB_DATA_CARD:
     name: "&8Mob Data Card"
+
+  # items - storage
+  STORAGE_FORGE:
+    name: "&6Storage Forge"
+    lore:
+      - "&7Craft and upgrade Storage Units."
+      - "&7Items are kept when upgrading."
+  STORAGE_UNIT:
+    name: "&9Basic &8Storage Unit"
+  STORAGE_UNIT_2:
+    name: "&cAdvanced &8Storage Unit"
+  STORAGE_UNIT_3:
+    name: "&fReinforced &8Storage Unit"
+  STORAGE_UNIT_4:
+    name: "&7Void &8Storage Unit"
+  STORAGE_UNIT_5:
+    name: "&bInfinity &8Storage Unit"
 
   # items - hidden
   OSCILLATOR:

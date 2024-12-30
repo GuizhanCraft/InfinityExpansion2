@@ -4,7 +4,6 @@ import io.github.seggan.sf4k.item.builder.asMaterialType
 import io.github.thebusybiscuit.slimefun4.libraries.dough.data.persistent.PersistentDataAPI
 import io.github.thebusybiscuit.slimefun4.utils.ChestMenuUtils
 import net.guizhanss.guizhanlib.common.utils.StringUtil
-import net.guizhanss.guizhanlib.minecraft.utils.ChatUtil
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.core.items.attributes.ProtectionType
 import net.guizhanss.infinityexpansion2.utils.constant.Keys
@@ -12,6 +11,7 @@ import net.guizhanss.infinityexpansion2.utils.constant.Strings
 import net.guizhanss.infinityexpansion2.utils.items.builder.asMaterialType
 import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.format.NamedTextColor
+import net.kyori.adventure.text.format.TextDecoration
 import org.bukkit.Material
 import org.bukkit.inventory.ItemStack
 import org.bukkit.inventory.meta.PotionMeta
@@ -22,7 +22,7 @@ import java.util.Locale
 /**
  * The helper object for GUI items.
  */
-object GuiItems {
+internal object GuiItems {
 
     // get the decimal point on the system locale
     // not all the countries use dot(.) as decimal point
@@ -184,7 +184,9 @@ object GuiItems {
             "protection_types"
         )
         val meta = item.itemMeta
-        meta.lore(types.map { StringUtil.humanize(it.key.key) }.map { Component.text(it, NamedTextColor.GRAY) })
+        meta.lore(types.map { StringUtil.humanize(it.key.key) }
+            .map { Component.text(it, NamedTextColor.GRAY).decoration(TextDecoration.ITALIC, false) }
+        )
         item.itemMeta = meta
         return item
     }

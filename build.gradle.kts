@@ -31,6 +31,7 @@ dependencies {
     implementation("net.guizhanss:guizhanlib-all:2.2.0-SNAPSHOT")
     implementation("org.bstats:bstats-bukkit:3.1.0")
     implementation("it.unimi.dsi:fastutil:8.5.15")
+    implementation("com.jeff-media:MorePersistentDataTypes:2.4.0")
     implementation("io.github.seggan:sf4k:0.8.0") {
         exclude(group = "org.jetbrains.kotlin")
         exclude(group = "com.github.Slimefun")
@@ -61,6 +62,7 @@ tasks.shadowJar {
     doRelocate("io.github.seggan.sf4k")
     doRelocate("io.papermc.lib", "paperlib")
     doRelocate("it.unimi.dsi.fastutil")
+    doRelocate("com.jeff_media.morepersistentdatatypes")
     minimize()
     archiveClassifier = ""
 }

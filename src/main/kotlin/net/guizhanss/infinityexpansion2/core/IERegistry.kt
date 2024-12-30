@@ -10,7 +10,8 @@ internal object IERegistry {
     val itemMapping = mutableMapOf<String, ItemStack>() // ID to ItemStack, either vanilla or SlimefunItemStack
     val singularities = mutableListOf<Singularity>()
     val singularityIngredientMap = mutableMapOf<ItemStack, Singularity>() // ingredient to Singularity
+    val infinityRecipes = mutableListOf<MachineRecipe>() // infinity workbench recipes
     val mobDataCards = mutableMapOf<String, MobDataCardProps>() // id to props
     val mobDataInfuserRecipes = mutableListOf<MachineRecipe>() // mob data infuser recipes
-    val infinityRecipes = mutableListOf<MachineRecipe>() // infinity workbench recipes
+    val storageForgeRecipes = mutableListOf<MachineRecipe>() // storage forge recipes
 }

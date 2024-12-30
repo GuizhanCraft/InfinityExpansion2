@@ -234,5 +234,26 @@ data class MenuLayout(
             outputSlots = intArrayOf(52),
             statusSlot = 34,
         )
+
+        val STORAGE_UNIT = MenuLayout(
+            background = intArrayOf(
+                3, 5,
+                12, 14,
+                21, 23,
+            ),
+            inputSlots = intArrayOf(10),
+            inputBorder = intArrayOf(
+                0, 1, 2,
+                9, 11,
+                18, 19, 20,
+            ),
+            outputSlots = intArrayOf(16),
+            outputBorder = intArrayOf(
+                6, 7, 8,
+                15, 17,
+                24, 25, 26,
+            ),
+            statusSlot = 4,
+        )
     }
 }

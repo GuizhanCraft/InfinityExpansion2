@@ -2,6 +2,7 @@
 
 package net.guizhanss.infinityexpansion2.implementation.items.tools
 
+import com.jeff_media.morepersistentdatatypes.DataType
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
@@ -12,7 +13,6 @@ import io.github.thebusybiscuit.slimefun4.core.handlers.ItemUseHandler
 import io.github.thebusybiscuit.slimefun4.implementation.items.SimpleSlimefunItem
 import io.github.thebusybiscuit.slimefun4.libraries.dough.data.persistent.PersistentDataAPI
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
-import net.guizhanss.infinityexpansion2.core.persistent.UuidDataType
 import net.guizhanss.infinityexpansion2.implementation.tasks.InfinityMatrixTask
 import net.guizhanss.infinityexpansion2.utils.bukkitext.createKey
 import org.bukkit.ChatColor
@@ -34,8 +34,8 @@ class InfinityMatrix(
         val item = e.item
         val meta = item.itemMeta
 
-        if (PersistentDataAPI.has(meta, OWNER, UuidDataType.TYPE)) {
-            val owner = PersistentDataAPI.get(meta, OWNER, UuidDataType.TYPE)
+        if (PersistentDataAPI.has(meta, OWNER, DataType.UUID)) {
+            val owner = PersistentDataAPI.get(meta, OWNER, DataType.UUID)
             InfinityExpansion2.debug("owner of the matrix: $owner")
 
             // check if the player is the owner
@@ -57,7 +57,7 @@ class InfinityMatrix(
             if (p.isSneaking) return@ItemUseHandler
 
             // no owner, set owner
-            PersistentDataAPI.set(meta, OWNER, UuidDataType.TYPE, p.uniqueId)
+            PersistentDataAPI.set(meta, OWNER, DataType.UUID, p.uniqueId)
             setLore(meta, p.uniqueId)
             item.itemMeta = meta
         }

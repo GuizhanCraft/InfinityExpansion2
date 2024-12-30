@@ -6,6 +6,7 @@ import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
 import io.github.thebusybiscuit.slimefun4.utils.itemstack.ItemStackWrapper
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenuPreset
+import net.guizhanss.guizhanlib.slimefun.machines.MenuBlock
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.core.menu.MenuLayout
 import net.guizhanss.infinityexpansion2.core.recipes.MachineRecipe
@@ -17,16 +18,15 @@ import org.bukkit.inventory.ItemStack
 import java.util.logging.Level
 
 /**
- * A crafting machine runs and consumes energy when crafting.
+ * A crafting machine. The variant that uses energy is [AbstractEnergyCraftingMachine].
  */
 abstract class AbstractCraftingMachine(
     itemGroup: ItemGroup,
     itemStack: SlimefunItemStack,
     recipeType: RecipeType,
     recipe: Array<out ItemStack?>,
-    layout: MenuLayout,
-    energyPerUse: Int,
-) : AbstractActionMachine(itemGroup, itemStack, recipeType, recipe, layout, energyPerUse) {
+    protected val layout: MenuLayout,
+) : MenuBlock(itemGroup, itemStack, recipeType, recipe) {
 
     // the subclass can choose to override this property to provide pre-defined recipes instead of adding them one by one
     open val recipes: List<MachineRecipe>
@@ -34,48 +34,48 @@ abstract class AbstractCraftingMachine(
 
     private val _recipes = mutableListOf<MachineRecipe>()
 
-    open val craftSlot: Int = 23
-
-    open val craftButton: ItemStack = GuiItems.CRAFT
-
-    override fun setup(preset: BlockMenuPreset) {
-        super.setup(preset)
-
-        preset.addItem(craftSlot, craftButton)
-    }
-
-    override fun onNewInstance(menu: BlockMenu, b: Block) {
-        super.onNewInstance(menu, b)
-
-        menu.addMenuClickHandler(craftSlot) { p, _, _, _ ->
-            if (getCharge(menu.location) < getEnergyConsumptionPerAction()) {
-                menu.setStatus { GuiItems.NO_POWER }
-            } else if (craft(menu, p)) {
-                removeCharge(menu.location, getEnergyConsumptionPerAction())
-            }
-            false
-        }
-    }
-
     fun addRecipe(input: Array<ItemStack?>, output: ItemStack) {
         _recipes.add(MachineRecipe.of(input, output))
     }
 
-    private fun craft(menu: BlockMenu, p: Player): Boolean {
+    open val craftSlot: Int = 23
+
+    open val craftButton: ItemStack = GuiItems.CRAFT
+
+    open val strictIngredientCheck: Boolean = true
+
+    override fun setup(preset: BlockMenuPreset) {
+        layout.setupPreset(preset)
+
+        preset.drawBackground(craftButton, intArrayOf(craftSlot))
+    }
+
+    override fun onNewInstance(menu: BlockMenu, b: Block) {
+        menu.addMenuClickHandler(craftSlot) { p, _, _, _ ->
+            craft(menu, p)
+            false
+        }
+    }
+
+    override fun getInputSlots() = layout.inputSlots
+
+    override fun getOutputSlots() = layout.outputSlots
+
+    protected open fun craft(menu: BlockMenu, p: Player) {
         val input = Array(inputSlots.size) { index -> menu.getItemInSlot(inputSlots[index]) }
         InfinityExpansion2.debug("crafting start, input: ${input.toDebugMessage()}")
 
-        val recipe = getRecipe(input)
+        val recipe = getMatchingRecipe(input)
         if (recipe == null || !recipe.check(p)) {
             menu.setStatus { GuiItems.INVALID_INPUT }
             InfinityExpansion2.integrationService.sendMessage(p, "crafting.invalid-input")
-            return false
+            return
         }
 
         val output = recipe.output.clone()
         if (!menu.fits(output, *outputSlots)) {
             menu.setStatus { GuiItems.NO_ROOM }
-            return false
+            return
         }
 
         recipe.consume(input)
@@ -86,7 +86,7 @@ abstract class AbstractCraftingMachine(
         } catch (e: Exception) {
             InfinityExpansion2.log(Level.SEVERE, e, "An error occurred while processing a successful craft")
         }
-        return true
+        return
     }
 
     /**
@@ -101,15 +101,20 @@ abstract class AbstractCraftingMachine(
         )
     }
 
-    private fun getRecipe(input: Array<ItemStack?>): MachineRecipe? {
+    private fun getMatchingRecipe(input: Array<ItemStack?>): MachineRecipe? {
         val inputSnapshot = ItemStackWrapper.wrapArray(input)
         InfinityExpansion2.debug("recipe count: ${recipes.size}")
         recipes.forEach { recipe ->
-            if (recipe.check(inputSnapshot)) {
+            if (recipe.check(inputSnapshot, strictIngredientCheck)) {
                 return recipe
             }
         }
         return null
     }
 
+    protected fun BlockMenu.setStatus(itemStack: () -> ItemStack) {
+        if (hasViewer()) {
+            replaceExistingItem(layout.statusSlot, itemStack())
+        }
+    }
 }

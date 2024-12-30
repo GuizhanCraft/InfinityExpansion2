@@ -47,4 +47,15 @@ object IERecipeTypes {
             IERegistry.mobDataInfuserRecipes.add(MachineRecipe.of(recipe, output))
         }
     )
+
+    val STORAGE_FORGE = RecipeType(
+        "storage_forge".createKey(),
+        InfinityExpansion2.localization.getRecipeTypeItem(
+            Material.BEEHIVE.asMaterialType(),
+            "storage_forge"
+        ),
+        { recipe, output ->
+            IERegistry.storageForgeRecipes.add(MachineRecipe.of(recipe, output))
+        }
+    )
 }

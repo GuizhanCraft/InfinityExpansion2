@@ -55,6 +55,7 @@ import net.guizhanss.infinityexpansion2.implementation.items.sfextension.Chargin
 import net.guizhanss.infinityexpansion2.implementation.items.sfextension.GeoMiner
 import net.guizhanss.infinityexpansion2.implementation.items.sfextension.NetherStarReactor
 import net.guizhanss.infinityexpansion2.implementation.items.sfextension.Smeltery
+import net.guizhanss.infinityexpansion2.implementation.items.storage.StorageForge
 import net.guizhanss.infinityexpansion2.implementation.items.tools.InfinityMatrix
 import net.guizhanss.infinityexpansion2.implementation.items.tools.Oscillator
 import net.guizhanss.infinityexpansion2.implementation.items.tools.Strainer
@@ -2339,6 +2340,23 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             'S' means SlimefunItems.SYNTHETIC_SAPPHIRE
             'D' means SlimefunItems.SYNTHETIC_DIAMOND
             'E' means SlimefunItems.SYNTHETIC_EMERALD
+        }
+    }
+    //</editor-fold>
+
+    //<editor-fold desc="Storage" defaultstate="collapsed">
+    val STORAGE_FORGE by buildSlimefunItem<StorageForge> {
+        material = Material.BEEHIVE.asMaterialType()
+        itemGroup = IEItemGroups.STORAGE
+        recipeType = RecipeType.ENHANCED_CRAFTING_TABLE
+        recipe = buildRecipe {
+            +"MAM"
+            +"MTM"
+            +"MBM"
+            'M' means MAGSTEEL
+            'A' means Material.ANVIL
+            'T' means Material.CRAFTING_TABLE
+            'B' means Material.BARREL
         }
     }
     //</editor-fold>
