@@ -658,41 +658,27 @@ items:
   INFINITY_HELMET:
     name: "&b&l无尽头盔"
     lore:
-      - "&7夜视 I"
-      - "&7潮涌能量 I"
-      - "&7鞘翅动能免疫"
       - "&b灵魂绑定"
     lore-overrides:
-      4: "%sftrlore_soulbound%" #DO NOT translate this
+      1: "%sftrlore_soulbound%" #DO NOT translate this
   INFINITY_CHESTPLATE:
     name: "&b&l无尽胸甲"
     lore:
-      - "&7力量 II"
-      - "&7抗性提升 I"
-      - "&7抗火 I"
-      - "&7蜜蜂毒针保护"
       - "&b灵魂绑定"
     lore-overrides:
-      5: "%sftrlore_soulbound%" #DO NOT translate this
+      1: "%sftrlore_soulbound%" #DO NOT translate this
   INFINITY_LEGGINGS:
     name: "&b&l无尽护腿"
     lore:
-      - "&7急迫 III"
-      - "&7生命恢复 I"
-      - "&7饱和 I"
-      - "&7抗辐射"
       - "&b灵魂绑定"
     lore-overrides:
-      5: "%sftrlore_soulbound%" #DO NOT translate this
+      1: "%sftrlore_soulbound%" #DO NOT translate this
   INFINITY_BOOTS:
     name: "&b&l无尽靴子"
     lore:
-      - "&7速度 III"
-      - "&7海豚的恩惠 I"
-      - "&7摔落保护"
       - "&b灵魂绑定"
     lore-overrides:
-      3: "%sftrlore_soulbound%" #DO NOT translate this
+      1: "%sftrlore_soulbound%" #DO NOT translate this
   INFINITY_SHIELD:
     name: "&b&l宇宙神盾"
     lore:
