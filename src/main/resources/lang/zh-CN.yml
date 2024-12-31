@@ -83,6 +83,10 @@ items:
   _RECIPE_STORAGE_FORGE:
     conditions:
       force-load: true
+    name: "&6存储合成台"
+    lore:
+      - "&7合成并升级存储单元。"
+      - "&7升级时物品会保留。"
   #ui items
   _UI_GUIDE:
     conditions:
@@ -194,9 +198,11 @@ items:
   _UI_POTION_EFFECTS:
     conditions:
       force-load: true
+    name: "&e药水效果:"
   _UI_PROTECTION_TYPES:
     conditions:
       force-load: true
+    name: "&e保护类型："
   #ui = strainer specific
   _UI_ANY_STRAINER:
     conditions:
@@ -441,10 +447,16 @@ items:
   #items - slimefun expansion
   VOID_CAPACITOR:
     name: "&8虚空电容"
+    lore:
+      - ""
+      - "&8\u21E8 &e⚡ &716,000,000 J 可储存"
     lore-overrides:
       2: "%sftrlore_PowerCapacity_16000000%" #DO NOT translate this
   INFINITY_CAPACITOR:
     name: "&b无尽电容"
+    lore:
+      - ""
+      - "&8\u21E8 &e⚡ &72,000,000,000 J 可储存"
     lore-overrides:
       2: "%sftrlore_PowerCapacity_2000000000%" #DO NOT translate this
   ADVANCED_ENCHANTER:
@@ -545,10 +557,11 @@ items:
       - "&8\u21E8 &b必须被水包围"
       - "&8\u21E8 &b必须使用下界冰冷却剂工作"
       - ""
-      - ""
+      - "&8\u21E8 &e⚡ &790,000 J 可储存"
       - "&8\u21E8 &e⚡ &71,800 J/t"
     lore-overrides:
       6: "%sftrlore_PowerCapacity_90000%" #DO NOT translate this
+      7: "%sftrlore_PowerPerTick_1800%" #DO NOT translate this
   #items - food
   COSMIC_MEATBALLS:
     name: "&b寰宇肉丸"
@@ -1209,6 +1222,22 @@ items:
     name: "&8生物数据卡（空）"
   MOB_DATA_CARD:
     name: "&8生物数据卡"
+  #items - storage
+  STORAGE_FORGE:
+    name: "&6存储合成台"
+    lore:
+      - "&7合成并升级存储单元。"
+      - "&7升级时物品会保留。"
+  STORAGE_UNIT:
+    name: "&9基础&8存储单元"
+  STORAGE_UNIT_2:
+    name: "&c高级&8存储单元"
+  STORAGE_UNIT_3:
+    name: "&f强化&8存储单元"
+  STORAGE_UNIT_4:
+    name: "&7虚空&8存储单元"
+  STORAGE_UNIT_5:
+    name: "&b无尽&8存储单元"
   #items - hidden
   OSCILLATOR:
     name: "&6加速器"
