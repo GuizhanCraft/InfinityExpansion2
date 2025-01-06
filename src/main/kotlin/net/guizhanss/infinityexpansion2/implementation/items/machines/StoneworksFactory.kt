@@ -41,7 +41,7 @@ class StoneworksFactory(
     override fun onNewInstance(menu: BlockMenu, b: Block) {
         super.onNewInstance(menu, b)
 
-        if (b.hasData("choice0")) {
+        if (!b.hasData("choice0")) {
             // new block, init choices
             menu.setChoice(0, Choice.NONE)
             menu.setChoice(1, Choice.NONE)
