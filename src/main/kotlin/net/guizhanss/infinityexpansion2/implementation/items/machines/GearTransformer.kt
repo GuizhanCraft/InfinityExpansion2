@@ -14,7 +14,7 @@ import net.guizhanss.infinityexpansion2.core.menu.MenuLayout
 import net.guizhanss.infinityexpansion2.implementation.items.machines.abstracts.AbstractTickingActionMachine
 import net.guizhanss.infinityexpansion2.utils.bukkitext.toItem
 import net.guizhanss.infinityexpansion2.utils.items.GuiItems
-import net.guizhanss.infinityexpansion2.utils.items.isSlimefunItem
+import net.guizhanss.infinityexpansion2.utils.slimefunext.isSlimefunItem
 import net.guizhanss.infinityexpansion2.utils.tags.IETag
 import org.bukkit.Material
 import org.bukkit.block.Block

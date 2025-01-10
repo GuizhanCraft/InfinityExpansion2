@@ -12,7 +12,7 @@ import net.guizhanss.infinityexpansion2.core.menu.MenuLayout
 import net.guizhanss.infinityexpansion2.implementation.items.machines.abstracts.AbstractTickingActionMachine
 import net.guizhanss.infinityexpansion2.utils.bukkitext.withAmount
 import net.guizhanss.infinityexpansion2.utils.items.GuiItems
-import net.guizhanss.infinityexpansion2.utils.items.isSlimefunItem
+import net.guizhanss.infinityexpansion2.utils.slimefunext.isSlimefunItem
 import net.guizhanss.infinityexpansion2.utils.matches
 import org.bukkit.block.Block
 import org.bukkit.inventory.ItemStack

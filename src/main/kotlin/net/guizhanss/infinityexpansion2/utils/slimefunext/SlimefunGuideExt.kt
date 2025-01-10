@@ -13,7 +13,6 @@ import net.guizhanss.infinityexpansion2.implementation.items.materials.Singulari
 import net.guizhanss.infinityexpansion2.implementation.items.mobsim.MobDataCard
 import net.guizhanss.infinityexpansion2.implementation.recipes.IERecipeTypes
 import net.guizhanss.infinityexpansion2.utils.bukkitext.isAir
-import net.guizhanss.infinityexpansion2.utils.items.isSlimefunItem
 import net.guizhanss.infinityexpansion2.utils.toId
 import org.bukkit.inventory.ItemStack
 

@@ -1,7 +1,7 @@
 package net.guizhanss.infinityexpansion2.utils
 
-import net.guizhanss.infinityexpansion2.utils.items.getSlimefunItem
-import net.guizhanss.infinityexpansion2.utils.items.isSlimefunItem
+import net.guizhanss.infinityexpansion2.utils.slimefunext.getSlimefunItem
+import net.guizhanss.infinityexpansion2.utils.slimefunext.isSlimefunItem
 import org.bukkit.inventory.ItemStack
 
 fun Array<out ItemStack?>.toDebugMessage(): String {

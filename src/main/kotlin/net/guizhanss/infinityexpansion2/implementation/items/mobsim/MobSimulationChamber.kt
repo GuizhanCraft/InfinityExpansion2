@@ -19,7 +19,7 @@ import net.guizhanss.infinityexpansion2.utils.bukkitext.isAir
 import net.guizhanss.infinityexpansion2.utils.slimefunext.getBlockMenu
 import net.guizhanss.infinityexpansion2.utils.slimefunext.getInt
 import net.guizhanss.infinityexpansion2.utils.items.GuiItems
-import net.guizhanss.infinityexpansion2.utils.items.isSlimefunItem
+import net.guizhanss.infinityexpansion2.utils.slimefunext.isSlimefunItem
 import net.guizhanss.infinityexpansion2.utils.slimefunext.setInt
 import org.bukkit.Sound
 import org.bukkit.block.Block
@@ -177,7 +177,7 @@ class MobSimulationChamber(
         }
 
         fun getHudResponse(request: HudRequest): String {
-            val menu = request.location.getBlockMenu()
+            val menu = request.location.getBlockMenu() ?: return "Unknown"
             val chamber = request.slimefunItem as MobSimulationChamber
             val energyHud = " | " + HudBuilder.formatEnergyStored(chamber.getCharge(request.location), chamber.capacity)
             val (props, _) = menu.getDataCard(chamber.layout) ?: return "Empty$energyHud"

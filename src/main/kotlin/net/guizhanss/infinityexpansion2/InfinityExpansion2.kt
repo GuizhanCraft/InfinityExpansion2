@@ -56,7 +56,7 @@ class InfinityExpansion2 : AbstractAddon(
         instance = this
 
         // conflict check
-        // TODO: enable this when releasing
+        // TODO: display migration logs
 //        if (server.pluginManager.isPluginEnabled("InfinityExpansion")) {
 //            log(Level.SEVERE, "InfinityExpansion2 is not compatible with InfinityExpansion.")
 //            log(Level.SEVERE, "Please remove InfinityExpansion before enabling InfinityExpansion2.")

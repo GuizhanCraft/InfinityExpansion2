@@ -1,4 +1,4 @@
-package net.guizhanss.infinityexpansion2.utils.items
+package net.guizhanss.infinityexpansion2.utils.slimefunext
 
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem
 import org.bukkit.inventory.ItemStack

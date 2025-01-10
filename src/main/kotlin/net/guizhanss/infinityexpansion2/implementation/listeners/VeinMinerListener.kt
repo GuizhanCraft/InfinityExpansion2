@@ -8,8 +8,8 @@ import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.implementation.items.tools.VeinMinerRune
 import net.guizhanss.infinityexpansion2.utils.bukkitext.isAir
 import net.guizhanss.infinityexpansion2.utils.constant.Keys
-import net.guizhanss.infinityexpansion2.utils.items.getSlimefunItem
-import net.guizhanss.infinityexpansion2.utils.items.isSlimefunItem
+import net.guizhanss.infinityexpansion2.utils.slimefunext.getSlimefunItem
+import net.guizhanss.infinityexpansion2.utils.slimefunext.isSlimefunItem
 import net.guizhanss.infinityexpansion2.utils.tags.IETag
 import org.bukkit.Bukkit
 import org.bukkit.Location
