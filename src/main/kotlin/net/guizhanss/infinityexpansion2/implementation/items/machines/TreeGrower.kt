@@ -81,25 +81,21 @@ class TreeGrower(
             )
         )
 
-        if (MinecraftVersionUtil.isAtLeast(19)) {
-            addRecipe(
-                Material.MANGROVE_PROPAGULE.toItem(), arrayOf(
-                    Material.MANGROVE_LEAVES.toItem(8),
-                    Material.MANGROVE_LOG.toItem(6),
-                    Material.MANGROVE_ROOTS.toItem(4),
-                    Material.MUDDY_MANGROVE_ROOTS.toItem(2)
-                )
+        addRecipe(
+            Material.MANGROVE_PROPAGULE.toItem(), arrayOf(
+                Material.MANGROVE_LEAVES.toItem(8),
+                Material.MANGROVE_LOG.toItem(6),
+                Material.MANGROVE_ROOTS.toItem(4),
+                Material.MUDDY_MANGROVE_ROOTS.toItem(2)
             )
-        }
+        )
 
-        if (MinecraftVersionUtil.isAtLeast(20)) {
-            addRecipe(
-                Material.CHERRY_SAPLING.toItem(), arrayOf(
-                    Material.CHERRY_LEAVES.toItem(8),
-                    Material.CHERRY_LOG.toItem(6),
-                    Material.STICK.toItem()
-                )
+        addRecipe(
+            Material.CHERRY_SAPLING.toItem(), arrayOf(
+                Material.CHERRY_LEAVES.toItem(8),
+                Material.CHERRY_LOG.toItem(6),
+                Material.STICK.toItem()
             )
-        }
+        )
     }
 }

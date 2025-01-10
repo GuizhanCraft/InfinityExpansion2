@@ -187,11 +187,9 @@ class StoneworksFactory(
                 put(Material.COBBLESTONE, Material.ANDESITE)
                 put(Material.ANDESITE, Material.DIORITE)
                 put(Material.DIORITE, Material.GRANITE)
-
-                if (MinecraftVersionUtil.isAtLeast(20)) {
-                    put(Material.SAND, Material.SUSPICIOUS_SAND)
-                    put(Material.GRAVEL, Material.SUSPICIOUS_GRAVEL)
-                }
+                put(Material.STONE, Material.DEEPSLATE)
+                put(Material.SAND, Material.SUSPICIOUS_SAND)
+                put(Material.GRAVEL, Material.SUSPICIOUS_GRAVEL)
             }
         );
 

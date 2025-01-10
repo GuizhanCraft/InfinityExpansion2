@@ -19,28 +19,26 @@ class SmithingTemplateRandomizer(
 ) : RandomHopperMachine(itemGroup, itemStack, recipeType, recipe, energyPerTick) {
 
     init {
-        if (MinecraftVersionUtil.isAtLeast(20)) {
-            val templates = arrayOf(
-                Material.NETHERITE_UPGRADE_SMITHING_TEMPLATE.toItem(),
-                Material.SENTRY_ARMOR_TRIM_SMITHING_TEMPLATE.toItem(),
-                Material.VEX_ARMOR_TRIM_SMITHING_TEMPLATE.toItem(),
-                Material.WILD_ARMOR_TRIM_SMITHING_TEMPLATE.toItem(),
-                Material.COAST_ARMOR_TRIM_SMITHING_TEMPLATE.toItem(),
-                Material.DUNE_ARMOR_TRIM_SMITHING_TEMPLATE.toItem(),
-                Material.WAYFINDER_ARMOR_TRIM_SMITHING_TEMPLATE.toItem(),
-                Material.RAISER_ARMOR_TRIM_SMITHING_TEMPLATE.toItem(),
-                Material.SHAPER_ARMOR_TRIM_SMITHING_TEMPLATE.toItem(),
-                Material.HOST_ARMOR_TRIM_SMITHING_TEMPLATE.toItem(),
-                Material.WARD_ARMOR_TRIM_SMITHING_TEMPLATE.toItem(),
-                Material.SILENCE_ARMOR_TRIM_SMITHING_TEMPLATE.toItem(),
-                Material.TIDE_ARMOR_TRIM_SMITHING_TEMPLATE.toItem(),
-                Material.SNOUT_ARMOR_TRIM_SMITHING_TEMPLATE.toItem(),
-                Material.RIB_ARMOR_TRIM_SMITHING_TEMPLATE.toItem(),
-                Material.EYE_ARMOR_TRIM_SMITHING_TEMPLATE.toItem(),
-                Material.SPIRE_ARMOR_TRIM_SMITHING_TEMPLATE.toItem()
-            )
-            // TODO: 1.21 new templates
-            addRecipe(IEItems.UNKNOWN_SMITHING_TEMPLATE.withAmount(8), templates)
-        }
+        val templates = arrayOf(
+            Material.NETHERITE_UPGRADE_SMITHING_TEMPLATE.toItem(),
+            Material.SENTRY_ARMOR_TRIM_SMITHING_TEMPLATE.toItem(),
+            Material.VEX_ARMOR_TRIM_SMITHING_TEMPLATE.toItem(),
+            Material.WILD_ARMOR_TRIM_SMITHING_TEMPLATE.toItem(),
+            Material.COAST_ARMOR_TRIM_SMITHING_TEMPLATE.toItem(),
+            Material.DUNE_ARMOR_TRIM_SMITHING_TEMPLATE.toItem(),
+            Material.WAYFINDER_ARMOR_TRIM_SMITHING_TEMPLATE.toItem(),
+            Material.RAISER_ARMOR_TRIM_SMITHING_TEMPLATE.toItem(),
+            Material.SHAPER_ARMOR_TRIM_SMITHING_TEMPLATE.toItem(),
+            Material.HOST_ARMOR_TRIM_SMITHING_TEMPLATE.toItem(),
+            Material.WARD_ARMOR_TRIM_SMITHING_TEMPLATE.toItem(),
+            Material.SILENCE_ARMOR_TRIM_SMITHING_TEMPLATE.toItem(),
+            Material.TIDE_ARMOR_TRIM_SMITHING_TEMPLATE.toItem(),
+            Material.SNOUT_ARMOR_TRIM_SMITHING_TEMPLATE.toItem(),
+            Material.RIB_ARMOR_TRIM_SMITHING_TEMPLATE.toItem(),
+            Material.EYE_ARMOR_TRIM_SMITHING_TEMPLATE.toItem(),
+            Material.SPIRE_ARMOR_TRIM_SMITHING_TEMPLATE.toItem()
+        )
+        // TODO: 1.21 new templates
+        addRecipe(IEItems.UNKNOWN_SMITHING_TEMPLATE.withAmount(8), templates)
     }
 }
