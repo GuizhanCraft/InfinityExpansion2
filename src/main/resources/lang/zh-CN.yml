@@ -1,0 +1,1284 @@
+items:
+  #item groups
+  _IG_MAIN:
+    conditions:
+      force-load: true
+    name: "&k-&b无尽&4贪婪&a&l2&k-" #pay attention to the color codes when you translate this.
+  _IG_MATERIALS:
+    conditions:
+      force-load: true
+    name: "&k.&b无&4尽&a&l2&k. &a- &7材料"
+  _IG_SINGULARITIES:
+    conditions:
+      force-load: true
+    name: "&k.&b无&4尽&a&l2&k. &a- &a奇点"
+  _IG_SLIMEFUN_EXPANSION:
+    conditions:
+      force-load: true
+    name: "&k.&b无&4尽&a&l2&k. &a- &d粘液扩展"
+  _IG_FOOD:
+    conditions:
+      force-load: true
+    name: "&k.&b无&4尽&a&l2&k. &a- &e食物"
+  _IG_TOOLS:
+    conditions:
+      force-load: true
+    name: "&k.&b无&4尽&a&l2&k. &a- &6工具"
+  _IG_GEAR:
+    conditions:
+      force-load: true
+    name: "&k.&b无&4尽&a&l2&k. &a- &2装备"
+  _IG_MACHINES:
+    conditions:
+      force-load: true
+    name: "&k.&b无&4尽&a&l2&k. &a- &9机器"
+  _IG_GENERATORS:
+    conditions:
+      force-load: true
+    name: "&k.&b无&4尽&a&l2&k. &a- &c发电机"
+  _IG_MOB_SIMULATION:
+    conditions:
+      force-load: true
+    name: "&k.&b无&4尽&a&l2&k. &a- &b生物模拟"
+  _IG_STORAGE:
+    conditions:
+      force-load: true
+    name: "&k.&b无&4尽&a&l2&k. &a- &6存储"
+  _IG_HIDDEN:
+    conditions:
+      force-load: true
+    name: "&k.&b无&4尽&a&l2&k. &a- &4隐藏物品"
+  #recipe types
+  _RECIPE_VOID_HARVESTER:
+    conditions:
+      force-load: true
+    name: "&8虚空收集者"
+    lore:
+      - "&7从虚空中获取资源。"
+  _RECIPE_INFINITY_WORKBENCH:
+    conditions:
+      force-load: true
+    name: "&6无尽工作台"
+    lore:
+      - "&7你从 Slimefun 的搜索界面"
+      - "&7进入到本页面。"
+      - ""
+      - "&c此处展示的配方不正确且不完整。"
+      - "&c在无尽贪婪 2 指南中查看正确的配方，"
+      - "&c或使用指令 &e/ie2 guide&c查看正确配方。"
+  _RECIPE_SINGULARITY_CONSTRUCTOR:
+    conditions:
+      force-load: true
+    name: "&b奇点制造机"
+    lore:
+      - "&7浓缩了大量资源"
+      - "&7来创建奇点。"
+  _RECIPE_MOB_DATA_INFUSER:
+    conditions:
+      force-load: true
+    name: "&b生物芯片注入器"
+    lore:
+      - "&7使用生物相关物品"
+      - "&7注入到空的生物数据卡中。"
+  _RECIPE_STORAGE_FORGE:
+    conditions:
+      force-load: true
+    name: "&6存储合成台"
+    lore:
+      - "&7合成并升级存储单元。"
+      - "&7升级时物品会保留。"
+  #ui items
+  _UI_GUIDE:
+    conditions:
+      force-load: true
+    name: "&a游戏内指南"
+    lore:
+      - ""
+      - "&7\u21E8 &a点击打开"
+  _UI_WIKI:
+    conditions:
+      force-load: true
+    name: "&eWiki"
+    lore:
+      - ""
+      - "&7\u21E8 &a点击打开"
+  _UI_COLLECTING:
+    conditions:
+      force-load: true
+    name: "&a收集中..."
+  _UI_PRODUCING:
+    conditions:
+      force-load: true
+    name: "&a生产中..."
+  _UI_NO_ROOM:
+    conditions:
+      force-load: true
+    name: "&c空间不足"
+  _UI_NO_POWER:
+    conditions:
+      force-load: true
+    name: "&c电力不足"
+  _UI_INVALID_INPUT:
+    conditions:
+      force-load: true
+    name: "&c无效输入"
+  _UI_SUCCESS:
+    conditions:
+      force-load: true
+    name: "&a成功！"
+  _UI_PROGRESS:
+    conditions:
+      force-load: true
+    name: "&e进度："
+  _UI_CRAFT:
+    conditions:
+      force-load: true
+    name: "&e点击合成"
+  #ui - display recipe info
+  _UI_WORLD_NORMAL:
+    conditions:
+      force-load: true
+    name: "&2主世界"
+  _UI_WORLD_NETHER:
+    conditions:
+      force-load: true
+    name: "&4下界"
+  _UI_WORLD_THE_END:
+    conditions:
+      force-load: true
+    name: "&5末地"
+  _UI_PRODUCES:
+    conditions:
+      force-load: true
+    name: "&a生产："
+  _UI_RECIPES:
+    conditions:
+      force-load: true
+    name: "&e配方："
+  _UI_TICK_RATE:
+    conditions:
+      force-load: true
+    name: "&e粘液刻速率："
+  _UI_ENERGY_CONSUMPTION:
+    conditions:
+      force-load: true
+    name: "&e电力消耗："
+  _UI_ENERGY_PRODUCTION:
+    conditions:
+      force-load: true
+    name: "&e电力生产："
+  _UI_OUTPUT_INTERVAL:
+    conditions:
+      force-load: true
+    name: "&e输出间隔："
+  _UI_PROGRESS_TOTAL:
+    conditions:
+      force-load: true
+    name: "&e累计所需进度："
+  _UI_PROGRESS_INCREASE:
+    conditions:
+      force-load: true
+    name: "&e增加进度："
+  _UI_CHANCE:
+    conditions:
+      force-load: true
+    name: "&e几率："
+  _UI_SF_ITEM:
+    conditions:
+      force-load: true
+    name: "&e粘液科技物品："
+  _UI_EXPERIENCE:
+    conditions:
+      force-load: true
+    name: "&e经验："
+  _UI_OSCILLATOR_SLOT:
+    conditions:
+      force-load: true
+    name: "&e加速器栏位"
+  _UI_POTION_EFFECTS:
+    conditions:
+      force-load: true
+    name: "&e药水效果:"
+  _UI_PROTECTION_TYPES:
+    conditions:
+      force-load: true
+    name: "&e保护类型："
+  #ui = strainer specific
+  _UI_ANY_STRAINER:
+    conditions:
+      force-load: true
+    name: "&a任何滤网"
+  #ui - stoneworks factory specific
+  _UI_SW_CHANGE:
+    conditions:
+      force-load: true
+    name: "&e点击下方物品以更改操作"
+  _UI_SW_NONE:
+    conditions:
+      force-load: true
+    name: "&c没有操作"
+  _UI_SW_FURNACE:
+    conditions:
+      force-load: true
+    name: "&e冶炼"
+  _UI_SW_CRUSH:
+    conditions:
+      force-load: true
+    name: "&e粉碎"
+  _UI_SW_COMPACT:
+    conditions:
+      force-load: true
+    name: "&e压实"
+  _UI_SW_TRANSFORM:
+    conditions:
+      force-load: true
+    name: "&e转换"
+  #ui - gear transformer specific
+  _UI_GT_GEAR:
+    conditions:
+      force-load: true
+    name: "&9将装备放入此处"
+  _UI_GT_MATERIAL:
+    conditions:
+      force-load: true
+    name: "&9将材料放入此处"
+  _UI_GT_NO_SLIMEFUN:
+    conditions:
+      force-load: true
+    name: "&c不支持粘液科技物品"
+  #ui - advanced anvil specific
+  _UI_AA_MAX_ENCHANTMENT_LEVEL:
+    conditions:
+      force-load: true
+    name: "&e最高附魔等级:"
+  #infinity reactor specific
+  _UI_IR_BORDER_VOID:
+    conditions:
+      force-load: true
+    name: "&7将&8虚空&7锭放入此处"
+  _UI_IR_BORDER_INFINITY:
+    conditions:
+      force-load: true
+    name: "&7将&b无尽&7锭放入此处"
+  _UI_IR_NEED_VOID:
+    conditions:
+      force-load: true
+    name: "&7需要更多&8虚空&7锭"
+  _UI_IR_NEED_INFINITY:
+    conditions:
+      force-load: true
+    name: "&7需要更多&b无尽&7锭"
+  _UI_IR_DURATION_VOID:
+    conditions:
+      force-load: true
+    name: "&e虚空锭的持续时间（粘液刻）："
+  _UI_IR_DURATION_INFINITY:
+    conditions:
+      force-load: true
+    name: "&e无尽锭的持续时间（粘液刻）："
+  _UI_IR_INFO:
+    conditions:
+      force-load: true
+    name: "&a运行中..."
+    lore-overrides:
+      1: "&e无尽锭剩余时间（粘液刻）："
+      3: "&e虚空锭剩余时间（粘液刻）："
+  #infinity singularity reactor specific
+  _UI_ISR_BORDER:
+    conditions:
+      force-load: true
+    name: "&7将&b无尽奇点&7放入此处"
+  _UI_ISR_NEED:
+    conditions:
+      force-load: true
+    name: "&7需要更多&b无尽奇点"
+  _UI_ISR_DURATION:
+    conditions:
+      force-load: true
+    name: "&e无尽奇点的持续时间（粘液刻）："
+  _UI_ISR_INFO:
+    conditions:
+      force-load: true
+    name: "&a运行中..."
+    lore-overrides:
+      1: "&e无尽奇点剩余时间（粘液刻）："
+  #items - guide
+  _GUIDE_INTRO:
+    name: "&e介绍"
+  #items - singularities
+  IRON_SINGULARITY:
+    name: "&7铁奇点"
+  GOLD_SINGULARITY:
+    name: "&6金奇点"
+  LAPIS_SINGULARITY:
+    name: "&9青金石奇点"
+  REDSTONE_SINGULARITY:
+    name: "&c红石奇点"
+  QUARTZ_SINGULARITY:
+    name: "&f石英奇点"
+  COPPER_SINGULARITY:
+    name: "&6铜奇点"
+  TIN_SINGULARITY:
+    name: "&7锡奇点"
+  LEAD_SINGULARITY:
+    name: "&8铅奇点"
+  SILVER_SINGULARITY:
+    name: "&7银奇点"
+  ZINC_SINGULARITY:
+    name: "&7锌奇点"
+  ALUMINUM_SINGULARITY:
+    name: "&7铝奇点"
+  MAGNESIUM_SINGULARITY:
+    name: "&d镁奇点"
+  DIAMOND_SINGULARITY:
+    name: "&b钻石奇点"
+  EMERALD_SINGULARITY:
+    name: "&a绿宝石奇点"
+  NETHERITE_SINGULARITY:
+    name: "&4下界合金奇点"
+  COAL_SINGULARITY:
+    name: "&8煤炭奇点"
+  INFINITY_SINGULARITY:
+    name: "&b无尽奇点"
+  FORTUNE_SINGULARITY:
+    name: "&6财富奇点"
+  MAGIC_SINGULARITY:
+    name: "&5魔法奇点"
+  EARTH_SINGULARITY:
+    name: "&a地球奇点"
+  METAL_SINGULARITY:
+    name: "&8金属奇点"
+  #items - materials
+  ENDER_ESSENCE:
+    conditions:
+      match-lore: true
+    name: "&5末影精华"
+    lore:
+      - "&8&o来自末地的深渊..."
+  COMPRESSED_COBBLESTONE_1:
+    name: "&7一重压缩圆石"
+    lore:
+      - "&89 个圆石压缩而来。"
+  COMPRESSED_COBBLESTONE_2:
+    name: "&7二重压缩圆石"
+    lore:
+      - "&881 个圆石压缩而来。"
+  COMPRESSED_COBBLESTONE_3:
+    name: "&7三重压缩圆石"
+    lore:
+      - "&8729 个圆石压缩而来。"
+  COMPRESSED_COBBLESTONE_4:
+    name: "&7四重压缩圆石"
+    lore:
+      - "&86,561 个圆石压缩而来。"
+  COMPRESSED_COBBLESTONE_5:
+    name: "&7五重压缩圆石"
+    lore:
+      - "&859,049 个圆石压缩而来。"
+  MAGSTEEL:
+    name: "&4磁钢"
+  TITANIUM:
+    name: "&7钛"
+  MYTHRIL:
+    name: "&b秘银"
+  ADAMANTITE:
+    name: "&d精金"
+  MAGNONIUM:
+    name: "&5磁金"
+  VOID_BIT:
+    name: "&8虚空微粒"
+    lore:
+      - "&7&o感觉... 空荡荡的。"
+  VOID_DUST:
+    name: "&8虚空粉"
+    lore:
+      - "&7&o它开始成型了..."
+  VOID_INGOT:
+    name: "&8虚空锭"
+    lore:
+      - "&7&o宇宙的空虚"
+      - "&7&o掌握在你的手中。"
+  VOID_BLOCK:
+    name: "&8虚空块"
+    lore:
+      - "&7&o你无法承受的更多虚无。"
+      - ""
+      - "&d防凋灵"
+  INFINITY_INGOT:
+    name: "&b无尽锭"
+    lore:
+      - "&7&o宇宙的力量"
+      - "&7&o掌握在你的手中。"
+  MAGSTEEL_PLATE:
+    name: "&4磁钢板"
+    lore:
+      - "&7机器组件"
+  MACHINE_CIRCUIT:
+    name: "&6机器电路"
+    lore:
+      - "&7机器组件"
+  INFINITY_MACHINE_CIRCUIT:
+    name: "&b无尽&7机器电路"
+    lore:
+      - "&7机器组件"
+  MACHINE_CORE:
+    name: "&f机器核心"
+    lore:
+      - "&7机器组件"
+  INFINITY_MACHINE_CORE:
+    name: "&b无尽&f机器核心"
+    lore:
+      - "&7机器组件"
+  MACHINE_PLATE:
+    name: "&f机器板"
+    lore:
+      - "&7机器组件"
+  VOID_GLASS:
+    name: "&8虚空玻璃"
+    lore:
+      - "&d防凋灵"
+  OSCILLATOR_FRAME:
+    name: "&6加速器框架"
+  UNKNOWN_SMITHING_TEMPLATE:
+    name: "&8未知&7锻造模版"
+    lore:
+      - "&7这究竟是普通的模版"
+      - "&7还是护甲纹饰？"
+  #items - slimefun expansion
+  VOID_CAPACITOR:
+    name: "&8虚空电容"
+    lore:
+      - ""
+      - "&8\u21E8 &e⚡ &716,000,000 J 可储存"
+    lore-overrides:
+      2: "%sftrlore_PowerCapacity_16000000%" #DO NOT translate this
+  INFINITY_CAPACITOR:
+    name: "&b无尽电容"
+    lore:
+      - ""
+      - "&8\u21E8 &e⚡ &72,000,000,000 J 可储存"
+    lore-overrides:
+      2: "%sftrlore_PowerCapacity_2000000000%" #DO NOT translate this
+  ADVANCED_ENCHANTER:
+    name: "&c高级附魔机"
+    lore:
+      - ""
+      - "&8\u21E8 &e⚡ &7速度: &b5x"
+      - "&8\u21E8 &e⚡ &7180 J/t"
+    lore-overrides:
+      2: "%sftrlore_Speed_5%" #DO NOT translate this
+      3: "%sftrlore_PowerPerTick_180%" #DO NOT translate this
+  INFINITY_ENCHANTER:
+    name: "&b无尽附魔机"
+    lore:
+      - ""
+      - "&8\u21E8 &e⚡ &7速度: &b75x"
+      - "&8\u21E8 &e⚡ &712,000 J/t"
+    lore-overrides:
+      2: "%sftrlore_Speed_10%" #DO NOT translate this
+      3: "%sftrlore_PowerPerTick_12000%" #DO NOT translate this
+  ADVANCED_DISENCHANTER:
+    name: "&c高级祛魔机"
+    lore:
+      - ""
+      - "&8\u21E8 &e⚡ &7速度: &b5x"
+      - "&8\u21E8 &e⚡ &7180 J/t"
+    lore-overrides:
+      2: "%sftrlore_Speed_5%" #DO NOT translate this
+      3: "%sftrlore_PowerPerTick_180%" #DO NOT translate this
+  INFINITY_DISENCHANTER:
+    name: "&b无尽祛魔机"
+    lore:
+      - ""
+      - "&8\u21E8 &e⚡ &7速度: &b90x"
+      - "&8\u21E8 &e⚡ &712,000 J/t"
+    lore-overrides:
+      2: "%sftrlore_Speed_90%" #DO NOT translate this
+      3: "%sftrlore_PowerPerTick_12000%" #DO NOT translate this
+  ADVANCED_CHARGER:
+    name: "&c高级充电台"
+    lore:
+      - ""
+      - "&8\u21E8 &e⚡ &7速度: &b30x"
+      - "&8\u21E8 &e⚡ &7180 J/t"
+    lore-overrides:
+      2: "%sftrlore_Speed_30%" #DO NOT translate this
+      3: "%sftrlore_PowerPerTick_180%" #DO NOT translate this
+  INFINITY_CHARGER:
+    name: "&b无尽充电台"
+    lore:
+      - ""
+      - "&8\u21E8 &e⚡ &7速度: &b6000x"
+      - "&8\u21E8 &e⚡ &760,000 J/t"
+    lore-overrides:
+      2: "%sftrlore_Speed_6000%" #DO NOT translate this
+      3: "%sftrlore_PowerPerTick_60000%" #DO NOT translate this
+  ADVANCED_GEO_MINER:
+    name: "&c高级地理资源矿机"
+    lore:
+      - ""
+      - "&8\u21E8 &e⚡ &7速度: &b4x"
+      - "&8\u21E8 &e⚡ &7120 J/t"
+    lore-overrides:
+      2: "%sftrlore_Speed_4%" #DO NOT translate this
+      3: "%sftrlore_PowerPerTick_120%" #DO NOT translate this
+  INFINITY_GEO_MINER:
+    name: "&b无尽地理资源矿机"
+    lore:
+      - ""
+      - "&8\u21E8 &e⚡ &7速度: &b64x"
+      - "&8\u21E8 &e⚡ &712,000 J/t"
+    lore-overrides:
+      2: "%sftrlore_Speed_64%" #DO NOT translate this
+      3: "%sftrlore_PowerPerTick_12000%" #DO NOT translate this
+  ADVANCED_SMELTERY:
+    name: "&c高级冶炼炉"
+    lore:
+      - ""
+      - "&8\u21E8 &e⚡ &7速度: &b12x"
+      - "&8\u21E8 &e⚡ &7240 J/t"
+    lore-overrides:
+      2: "%sftrlore_Speed_12%" #DO NOT translate this
+      3: "%sftrlore_PowerPerTick_240%" #DO NOT translate this
+  VOID_SMELTERY:
+    name: "&8虚空冶炼炉"
+    lore:
+      - ""
+      - "&8\u21E8 &e⚡ &7速度: &b24x"
+      - "&8\u21E8 &e⚡ &71,200 J/t"
+    lore-overrides:
+      2: "%sftrlore_Speed_24%" #DO NOT translate this
+      3: "%sftrlore_PowerPerTick_1200%" #DO NOT translate this
+  ADVANCED_NETHER_STAR_REACTOR:
+    name: "&c高级&f下界之星反应堆"
+    lore:
+      - ""
+      - "&f使用下界之星工作"
+      - "&8\u21E8 &b必须被水包围"
+      - "&8\u21E8 &b必须使用下界冰冷却剂工作"
+      - ""
+      - "&8\u21E8 &e⚡ &790,000 J 可储存"
+      - "&8\u21E8 &e⚡ &71,800 J/t"
+    lore-overrides:
+      6: "%sftrlore_PowerCapacity_90000%" #DO NOT translate this
+      7: "%sftrlore_PowerPerTick_1800%" #DO NOT translate this
+  #items - food
+  COSMIC_MEATBALLS:
+    name: "&b寰宇肉丸"
+    lore:
+      - "&7提供 5 分钟的力量 II。"
+  ULTIMATE_STEW:
+    name: "&6超级煲"
+    lore:
+      - "&7提供 5 分钟的生命恢复 II。"
+  #items - tools
+  ENDER_FLAME:
+    name: "&c&l末影火焰"
+  VEIN_MINER_RUNE:
+    name: "&b矿脉矿工符文"
+    lore:
+      - "&7将该符文丢向一个物品，"
+      - "&7该物品会被注入符文之力。"
+  STRAINER_BASE:
+    name: "&d滤网底座"
+    lore:
+      - "&7放入滤网，"
+      - "&7并使底座成为含水方块"
+      - "&7开始从水中收集材料。"
+  POTATO_FISH:
+    conditions:
+      force-load: true
+    name: "&7:&6土豆鱼&7:"
+    lore:
+      - "&e运气不错"
+  STRAINER_1:
+    name: "&9基础滤网"
+    lore:
+      - "&7从水流中收集材料。"
+      - ""
+      - "&7耐久和经验修补附魔"
+      - "&7可以增强此物品的耐用性。"
+      - "&c无法破坏对此无效。"
+      - ""
+      - "&7几率：30%"
+  STRAINER_2:
+    name: "&c高级滤网"
+    lore:
+      - "&7从水流中收集材料。"
+      - ""
+      - "&7耐久和经验修补附魔"
+      - "&7可以增强此物品的耐用性。"
+      - "&c无法破坏对此无效。"
+      - ""
+      - "&7几率：60%"
+  STRAINER_3:
+    name: "&b强化合金滤网"
+    lore:
+      - "&7从水流中收集材料。"
+      - ""
+      - "&7耐久和经验修补附魔"
+      - "&7可以增强此物品的耐用性。"
+      - "&c无法破坏对此无效。"
+      - ""
+      - "&7几率：90%"
+  INFINITY_PICKAXE:
+    name: "&b&l世界崩解之镐"
+    lore:
+      - "&b灵魂绑定"
+    lore-overrides:
+      1: "%sftrlore_soulbound%" #DO NOT translate this
+  INFINITY_AXE:
+    name: "&b&l自然荒芜之斧"
+    lore:
+      - "&b灵魂绑定"
+    lore-overrides:
+      1: "%sftrlore_soulbound%" #DO NOT translate this
+  INFINITY_SHOVEL:
+    name: "&b&l星球吞噬之锹"
+    lore:
+      - "&b灵魂绑定"
+    lore-overrides:
+      1: "%sftrlore_soulbound%" #DO NOT translate this
+  INFINITY_HOE:
+    name: "&b&l行星播种之锄"
+    lore:
+      - "&b灵魂绑定"
+    lore-overrides:
+      1: "%sftrlore_soulbound%" #DO NOT translate this
+  INFINITY_FISHING_ROD:
+    name: "&b&l无尽钓竿"
+    lore:
+      - "&b灵魂绑定"
+    lore-overrides:
+      1: "%sftrlore_soulbound%" #DO NOT translate this
+  INFINITY_MATRIX:
+    options:
+      partial-override: true
+    name: "&f无尽飞行器"
+    lore:
+      - "&6给予你创造模式的飞行能力"
+      - ""
+      - "&7右键点击以启用/禁用并绑定"
+      - "&7Shift + 右键点击取消绑定"
+      - ""
+      - "&b灵魂绑定"
+      - ""
+    lore-overrides:
+      6: "%sftrlore_soulbound%" #DO NOT translate this
+    lore-replacements:
+      8:
+        original: "Owner: " #DO NOT translate this, translate the replaced value instead. Also keep in mind the duplicated entries.
+        replaced: "所有者: "
+  #items - gears
+  INFINITY_HELMET:
+    name: "&b&l无尽头盔"
+    lore:
+      - "&b灵魂绑定"
+    lore-overrides:
+      1: "%sftrlore_soulbound%" #DO NOT translate this
+  INFINITY_CHESTPLATE:
+    name: "&b&l无尽胸甲"
+    lore:
+      - "&b灵魂绑定"
+    lore-overrides:
+      1: "%sftrlore_soulbound%" #DO NOT translate this
+  INFINITY_LEGGINGS:
+    name: "&b&l无尽护腿"
+    lore:
+      - "&b灵魂绑定"
+    lore-overrides:
+      1: "%sftrlore_soulbound%" #DO NOT translate this
+  INFINITY_BOOTS:
+    name: "&b&l无尽靴子"
+    lore:
+      - "&b灵魂绑定"
+    lore-overrides:
+      1: "%sftrlore_soulbound%" #DO NOT translate this
+  INFINITY_SHIELD:
+    name: "&b&l宇宙神盾"
+    lore:
+      - "&b灵魂绑定"
+    lore-overrides:
+      1: "%sftrlore_soulbound%" #DO NOT translate this
+  INFINITY_SWORD:
+    name: "&b&l寰宇支配之剑"
+    lore:
+      - "&b灵魂绑定"
+    lore-overrides:
+      1: "%sftrlore_soulbound%" #DO NOT translate this
+  INFINITY_BOW:
+    name: "&b&l天堂陨落长弓"
+    lore:
+      - "&b灵魂绑定"
+    lore-overrides:
+      1: "%sftrlore_soulbound%" #DO NOT translate this
+  INFINITY_CROSSBOW:
+    name: "&b&l灭星连弩"
+    lore:
+      - "&b灵魂绑定"
+    lore-overrides:
+      1: "%sftrlore_soulbound%" #DO NOT translate this
+  #machines
+  COBBLESTONE_GENERATOR:
+    name: "&8圆石生成器"
+    lore:
+      - ""
+      - "&7生产圆石。"
+      - ""
+      - "&8\u21E8 &e⚡ &7速度: &b1x"
+    lore-overrides:
+      4: "%sftrlore_Speed_1%" #DO NOT translate this
+  COBBLESTONE_GENERATOR_2:
+    name: "&c高级&8圆石生成器"
+    lore:
+      - ""
+      - "&7生产圆石。"
+      - ""
+      - "&8\u21E8 &e⚡ &7速度: &b4x"
+    lore-overrides:
+      4: "%sftrlore_Speed_4%" #DO NOT translate this
+  COBBLESTONE_GENERATOR_3:
+    name: "&7虚空&8圆石生成器"
+    lore:
+      - ""
+      - "&7生产圆石。"
+      - ""
+      - "&8\u21E8 &e⚡ &7速度: &b16x"
+    lore-overrides:
+      4: "%sftrlore_Speed_16%" #DO NOT translate this
+  COBBLESTONE_GENERATOR_4:
+    name: "&7无尽&8圆石生成器"
+    lore:
+      - ""
+      - "&7生产圆石。"
+      - ""
+      - "&8\u21E8 &e⚡ &7速度: &b64x"
+    lore-overrides:
+      4: "%sftrlore_Speed_64%" #DO NOT translate this
+  VIRTUAL_FARM:
+    name: "&a自动农场"
+    lore:
+      - ""
+      - "&7自动种植、收割，"
+      - "&7和再种植作物。"
+  VIRTUAL_FARM_2:
+    name: "&c高级&a自动农场"
+    lore:
+      - ""
+      - "&7自动种植、收割，"
+      - "&7和再种植作物。"
+  VIRTUAL_FARM_3:
+    name: "&7虚空&a自动农场"
+    lore:
+      - ""
+      - "&7自动种植、收割，"
+      - "&7和再种植作物。"
+  VIRTUAL_FARM_4:
+    name: "&b无尽&a自动农场"
+    lore:
+      - ""
+      - "&7自动种植、收割，"
+      - "&7和再种植作物。"
+  TREE_GROWER:
+    name: "&2自动植树机"
+    lore:
+      - ""
+      - "&7自动种植、收割，"
+      - "&7和再种植树苗。"
+  TREE_GROWER_2:
+    name: "&c高级&2自动植树机"
+    lore:
+      - ""
+      - "&7自动种植、收割，"
+      - "&7和再种植树苗。"
+  TREE_GROWER_3:
+    name: "&7虚空&2自动植树机"
+    lore:
+      - ""
+      - "&7自动种植、收割，"
+      - "&7和再种植树苗。"
+  TREE_GROWER_4:
+    name: "&b无尽&2自动植树机"
+    lore:
+      - ""
+      - "&7自动种植、收割，"
+      - "&7和再种植树苗。"
+  FLOWER_GROWER:
+    name: "&d自动花卉机"
+    lore:
+      - ""
+      - "&7自动种植、收割，"
+      - "&7和再种植花卉。"
+  FLOWER_GROWER_2:
+    name: "&c高级&d自动花卉机"
+    lore:
+      - ""
+      - "&7自动种植、收割，"
+      - "&7和再种植花卉。"
+  FLOWER_GROWER_3:
+    name: "&7虚空&d自动花卉机"
+    lore:
+      - ""
+      - "&7自动种植、收割，"
+      - "&7和再种植花卉。"
+  FLOWER_GROWER_4:
+    name: "&b无尽&d自动花卉机"
+    lore:
+      - ""
+      - "&7自动种植、收割，"
+      - "&7和再种植花卉。"
+  VOID_HARVESTER:
+    name: "&8虚空收集者"
+    lore:
+      - ""
+      - "&7从虚空中获取资源。"
+      - ""
+      - "&8\u21E8 &e⚡ &7速度: &b1x"
+    lore-overrides:
+      4: "%sftrlore_Speed_1%" #DO NOT translate this
+  VOID_HARVESTER_2:
+    name: "&c高级&8虚空收集者"
+    lore:
+      - ""
+      - "&7从虚空中获取资源。"
+      - ""
+      - "&8\u21E8 &e⚡ &7速度: &b16x"
+    lore-overrides:
+      4: "%sftrlore_Speed_16%" #DO NOT translate this
+  VOID_HARVESTER_3:
+    name: "&b无尽&8虚空收集者"
+    lore:
+      - ""
+      - "&7从虚空中获取资源。"
+      - ""
+      - "&8\u21E8 &e⚡ &7速度: &b64x"
+    lore-overrides:
+      4: "%sftrlore_Speed_64%" #DO NOT translate this
+  STONEWORKS_FACTORY:
+    name: "&8石材厂"
+    lore:
+      - ""
+      - "&7生产圆石"
+      - "&7并将其加工成各种材料。"
+      - ""
+      - "&8\u21E8 &e⚡ &7速度: &b1x"
+    lore-overrides:
+      5: "%sftrlore_Speed_1%" #DO NOT translate this
+  STONEWORKS_FACTORY_2:
+    name: "&c高级&8石材厂"
+    lore:
+      - ""
+      - "&7生产圆石"
+      - "&7并将其加工成各种材料。"
+      - ""
+      - "&8\u21E8 &e⚡ &7速度: &b4x"
+    lore-overrides:
+      5: "%sftrlore_Speed_4%" #DO NOT translate this
+  STONEWORKS_FACTORY_3:
+    name: "&7虚空&8石材厂"
+    lore:
+      - ""
+      - "&7生产圆石"
+      - "&7并将其加工成各种材料。"
+      - ""
+      - "&8\u21E8 &e⚡ &7速度: &b16x"
+    lore-overrides:
+      5: "%sftrlore_Speed_16%" #DO NOT translate this
+  STONEWORKS_FACTORY_4:
+    name: "&b无尽&8石材厂"
+    lore:
+      - ""
+      - "&7生产圆石"
+      - "&7并将其加工成各种材料。"
+      - ""
+      - "&8\u21E8 &e⚡ &7速度: &b64x"
+    lore-overrides:
+      5: "%sftrlore_Speed_64%" #DO NOT translate this
+  SINGULARITY_CONSTRUCTOR:
+    name: "&f奇点构造机"
+    lore:
+      - ""
+      - "&7浓缩了大量资源"
+      - "&7来创建奇点。"
+      - ""
+      - "&8\u21E8 &e⚡ &7速度: &b1x"
+    lore-overrides:
+      5: "%sftrlore_Speed_1%" #DO NOT translate this
+  SINGULARITY_CONSTRUCTOR_2:
+    name: "&b无尽&f奇点构造机"
+    lore:
+      - ""
+      - "&7浓缩了大量资源"
+      - "&7来创建奇点。"
+      - ""
+      - "&8\u21E8 &e⚡ &7速度: &b64x"
+    lore-overrides:
+      5: "%sftrlore_Speed_64%" #DO NOT translate this
+  RESOURCE_SYNTHESIZER:
+    name: "&6资源合成机"
+    lore:
+      - ""
+      - "&7通过组合2个奇点"
+      - "&7来制造其它资源。"
+  OBSIDIAN_GENERATOR:
+    name: "&8黑曜石生成器"
+    lore:
+      - ""
+      - "&7生产黑曜石。"
+      - ""
+      - "&8\u21E8 &e⚡ &7速度: &b1x"
+    lore-overrides:
+      4: "%sftrlore_Speed_1%" #DO NOT translate this
+  EXTREME_FREEZER:
+    name: "&b极寒冰柜"
+    lore:
+      - ""
+      - "&7用于制造冷却剂。"
+      - ""
+      - "&8\u21E8 &e⚡ &7速度: &b1x"
+    lore-overrides:
+      4: "%sftrlore_Speed_1%" #DO NOT translate this
+  DUST_EXTRACTOR:
+    name: "&7磨粉机"
+    lore:
+      - ""
+      - "&7从各类石头中提取矿粉。"
+      - ""
+      - "&8\u21E8 &e⚡ &7速度: &b1x"
+    lore-overrides:
+      4: "%sftrlore_Speed_1%" #DO NOT translate this
+  DUST_EXTRACTOR_2:
+    name: "&c高级&7磨粉机"
+    lore:
+      - ""
+      - "&7从各类石头中提取矿粉。"
+      - ""
+      - "&8\u21E8 &e⚡ &7速度: &b2x"
+    lore-overrides:
+      4: "%sftrlore_Speed_2%" #DO NOT translate this
+  DUST_EXTRACTOR_3:
+    name: "&8虚空&7磨粉机"
+    lore:
+      - ""
+      - "&7从各类石头中提取矿粉。"
+      - ""
+      - "&8\u21E8 &e⚡ &7速度: &b2x"
+    lore-overrides:
+      4: "%sftrlore_Speed_8%" #DO NOT translate this
+  DUST_EXTRACTOR_4:
+    name: "&b无尽&7磨粉机"
+    lore:
+      - ""
+      - "&7从各类石头中提取矿粉。"
+      - ""
+      - "&8\u21E8 &e⚡ &7速度: &b16x"
+    lore-overrides:
+      4: "%sftrlore_Speed_16%" #DO NOT translate this
+  INGOT_FORMER:
+    name: "&7铸锭机"
+    lore:
+      - ""
+      - "&7将矿粉熔炼成锭。"
+      - ""
+      - "&8\u21E8 &e⚡ &7速度: &b1x"
+    lore-overrides:
+      4: "%sftrlore_Speed_1%" #DO NOT translate this
+  INGOT_FORMER_2:
+    name: "&c高级&7铸锭机"
+    lore:
+      - ""
+      - "&7将矿粉熔炼成锭。"
+      - ""
+      - "&8\u21E8 &e⚡ &7速度: &b2x"
+    lore-overrides:
+      4: "%sftrlore_Speed_2%" #DO NOT translate this
+  INGOT_FORMER_3:
+    name: "&8虚空&7铸锭机"
+    lore:
+      - ""
+      - "&7将矿粉熔炼成锭。"
+      - ""
+      - "&8\u21E8 &e⚡ &7速度: &b2x"
+    lore-overrides:
+      4: "%sftrlore_Speed_8%" #DO NOT translate this
+  INGOT_FORMER_4:
+    name: "&b无尽&7铸锭机"
+    lore:
+      - ""
+      - "&7将矿粉熔炼成锭。"
+      - ""
+      - "&8\u21E8 &e⚡ &7速度: &b16x"
+    lore-overrides:
+      4: "%sftrlore_Speed_16%" #DO NOT translate this
+  URANIUM_EXTRACTOR:
+    name: "&2铀提取机"
+    lore:
+      - ""
+      - "&7从各类石头中提取铀。"
+      - ""
+      - "&8\u21E8 &e⚡ &7速度: &b1x"
+    lore-overrides:
+      4: "%sftrlore_Speed_1%" #DO NOT translate this
+  URANIUM_INGOT_EXTRACTOR:
+    name: "&2铀锭提取机"
+    lore:
+      - ""
+      - "&7从各类石头中提取铀。"
+      - ""
+      - "&8\u21E8 &e⚡ &7速度: &b1x"
+    lore-overrides:
+      4: "%sftrlore_Speed_1%" #DO NOT translate this
+  COBBLE_PRESS:
+    name: "&8圆石压缩机"
+    lore:
+      - ""
+      - "&7压缩圆石"
+      - "&7效率更高。"
+      - ""
+      - "&8\u21E8 &e⚡ &7速度: &b1x"
+    lore-overrides:
+      5: "%sftrlore_Speed_1%" #DO NOT translate this
+  DECOMPRESSOR:
+    name: "&7解压机"
+    lore:
+      - ""
+      - "&7解压材料。"
+      - ""
+      - "&8\u21E8 &e⚡ &7速度: &b1x"
+    lore-overrides:
+      4: "%sftrlore_Speed_1%" #DO NOT translate this
+  QUARRY:
+    name: "&9基础矿机"
+    lore:
+      - ""
+      - "&7自动开采资源。"
+      - ""
+      - "&8\u21E8 &e⚡ &7速度: &b1x"
+    lore-overrides:
+      4: "%sftrlore_Speed_1%"
+  QUARRY_2:
+    name: "&c高级&9矿机" #DO NOT translate this
+    lore:
+      - ""
+      - "&7自动开采资源。"
+      - ""
+      - "&8\u21E8 &e⚡ &7速度: &b2x"
+    lore-overrides:
+      4: "%sftrlore_Speed_2%" #DO NOT translate this
+  QUARRY_3:
+    name: "&8虚空&9矿机"
+    lore:
+      - ""
+      - "&7自动开采资源。"
+      - ""
+      - "&8\u21E8 &e⚡ &7速度: &b4x"
+    lore-overrides:
+      4: "%sftrlore_Speed_4%" #DO NOT translate this
+  QUARRY_4:
+    name: "&b无尽&9矿机"
+    lore:
+      - ""
+      - "&7自动开采资源。"
+      - ""
+      - "&8\u21E8 &e⚡ &7速度: &b64x"
+    lore-overrides:
+      4: "%sftrlore_Speed_64%" #DO NOT translate this
+  GEO_QUARRY:
+    name: "&2地理资源矿机"
+    lore:
+      - ""
+      - "&7自动开采地理资源。"
+      - ""
+      - "&8\u21E8 &e⚡ &7速度: &b1x"
+    lore-overrides:
+      4: "%sftrlore_Speed_1%" #DO NOT translate this
+  GEO_QUARRY_2:
+    name: "&b无尽&2地理资源矿机"
+    lore:
+      - ""
+      - "&7自动开采地理资源。"
+      - ""
+      - "&8\u21E8 &e⚡ &7速度: &b4x"
+    lore-overrides:
+      4: "%sftrlore_Speed_4%" #DO NOT translate this
+  GEAR_TRANSFORMER:
+    name: "&9装备材质转换机"
+    lore:
+      - ""
+      - "&7改变工具和装备的材质。"
+      - ""
+  SMITHING_TEMPLATE_RANDOMIZER:
+    name: "&8锻造模版随机器"
+    lore:
+      - ""
+      - "&7随机获得一个盔甲纹饰"
+      - "&7使用&b未知锻造模版。"
+      - ""
+  ADVANCED_ANVIL:
+    name: "&c高级铁砧"
+    lore:
+      - ""
+      - "&7同铁砧一样融合附魔。"
+      - "&7不受原版附魔限制。"
+      - ""
+      - "&7支持粘液科技物品。"
+  INFINITY_WORKBENCH:
+    name: "&6无尽工作台"
+    lore:
+      - ""
+      - "&7用于制作无尽物品。"
+  #items - generators
+  HYDRO_GENERATOR:
+    name: "&9水力发电机"
+    lore:
+      - ""
+      - "&7利用水流发电。"
+      - ""
+      - "&f必须含水才能工作。"
+  HYDRO_GENERATOR_2:
+    name: "&c高级&9水力发电机"
+    lore:
+      - ""
+      - "&7利用水流发电。"
+      - ""
+      - "&f必须含水才能工作。"
+  GEOTHERMAL_GENERATOR:
+    name: "&c地热发电机"
+    lore:
+      - ""
+      - "&7利用地心的热量发电。"
+      - ""
+      - "&f在下界中发电量翻倍。"
+  GEOTHERMAL_GENERATOR_2:
+    name: "&c高级&6地热发电机"
+    lore:
+      - ""
+      - "&7利用地心的热量发电。"
+      - ""
+      - "&f在下界中发电量翻倍。"
+  SOLAR_PANEL:
+    name: "&6太阳能发电机"
+    lore:
+      - ""
+      - "&7利用太阳能发电。"
+      - ""
+  SOLAR_PANEL_2:
+    name: "&c高级&6太阳能发电机"
+    lore:
+      - ""
+      - "&7利用太阳能发电。"
+      - ""
+  SOLAR_PANEL_3:
+    name: "&e超级&6太阳能发电机"
+    lore:
+      - ""
+      - "&7利用太阳能发电。"
+      - ""
+  VOID_PANEL:
+    name: "&8虚空发电机"
+    lore:
+      - ""
+      - "&7利用黑暗能量发电。"
+      - ""
+  INFINITY_PANEL:
+    name: "&b无尽发电机"
+    lore:
+      - ""
+      - "&7利用宇宙的能量发电。"
+      - ""
+  INFINITY_REACTOR:
+    name: "&b无尽反应堆"
+    lore:
+      - ""
+      - "&7通过压缩&8虚空锭"
+      - "&7与&b无尽锭来发电。"
+      - ""
+  INFINITY_SINGULARITY_REACTOR:
+    name: "&b无尽奇点反应堆"
+    lore:
+      - ""
+      - "&7通过压缩"
+      - "&b无尽奇点&7来发电。"
+      - ""
+  #items - mob simulation
+  MOB_SIMULATION_CHAMBER:
+    name: "&8生物模拟仓"
+    lore:
+      - ""
+      - "&7通过生物数据卡模拟生物。"
+      - ""
+      - "&7产出生物掉落与经验。"
+      - ""
+  MOB_DATA_INFUSER:
+    name: "&b生物芯片注入器"
+    lore:
+      - ""
+      - "&7使用生物相关物品"
+      - "&7注入到空的生物数据卡中。"
+      - ""
+  MOB_DATA_CARD_EMPTY:
+    name: "&8生物数据卡（空）"
+  MOB_DATA_CARD:
+    name: "&8生物数据卡"
+  #items - storage
+  STORAGE_FORGE:
+    name: "&6存储合成台"
+    lore:
+      - "&7合成并升级存储单元。"
+      - "&7升级时物品会保留。"
+  STORAGE_UNIT:
+    name: "&9基础&8存储单元"
+  STORAGE_UNIT_2:
+    name: "&c高级&8存储单元"
+  STORAGE_UNIT_3:
+    name: "&f强化&8存储单元"
+  STORAGE_UNIT_4:
+    name: "&7虚空&8存储单元"
+  STORAGE_UNIT_5:
+    name: "&b无尽&8存储单元"
+  #items - hidden
+  OSCILLATOR:
+    name: "&6加速器"
+lores:
+  collect: "&7收集："
+  produce: "&7生产："
+  info: "&7信息："
+  soulbound: "&b灵魂绑定"
+  vein-miner: "&b矿脉矿工"
+messages:
+  commands:
+    no-permission: "&c你没有使用此命令的权限。"
+    player-only: "&c此命令只能由玩家使用。"
+    player-not-found: "&c无法找到目标玩家。"
+    invalid-item: "&c无效的物品。"
+    giverecipe:
+      description: "获取合成配方物品。"
+      to-sender: "&7你为 &b{1} &7提供了 &a{0} &7的配方物品。"
+      to-target: "&7你收到了 &a{0} &7的合成材料。"
+    guide:
+      description: "为指定物品或手持物品打开粘液科技指南书。"
+    printitem:
+      description: "打印手中的物品。"
+      no-item: "&c你必须手持一个物品！"
+  vein-miner:
+    applied: "&a矿脉矿工已应用于该物品。"
+    no-hunger: "&c你的饥饿度不足以进行该操作。"
+  no-room: "&c空间不足"
+  crafting:
+    invalid-input: "&c无效的输入。"
+    success: "&a成功合成&b{0}&a。"
+  advanced-anvil:
+    input1-not-enchantable: "&c第一个输入是不可附魔的粘液科技物品。"
+    input2-not-disenchantable: "&c第二个输入是不可祛魔的粘液科技物品。"
+    no-output: "&c无可用的升级。"
+  generators:
+    type: "&e类型：&b{0}"
+    working: "&e运行中：&f{0}"
+    tick-rate: "&e粘液刻速率：&f{0}"
+    production: "&e电力产出：&f{0} &7J/t（&f{1} &7J/s）"
+    expected-production: "&e预期电力产出：&f{0} &7J/t（&f{1} &7J/s）"
+  infinity-matrix:
+    not-owner: "&c你不是该飞行器的拥有者。"
+    ownership-removed: "&b你不再是该飞行器的拥有者。"
+    flight-enabled: "&a飞行已启用 ！"
+    flight-disabled: "&c飞行已禁用！"
