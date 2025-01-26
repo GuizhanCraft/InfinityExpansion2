@@ -193,23 +193,42 @@ internal object GuiItems {
 }
 
 /**
- * Get a copy of the original [ItemStack] with display item flag.
+ * Add the PDC flag to the [ItemStack] to indicate it is a display item.
+ *
+ * To get a copy, use [asDisplayItem] instead.
  */
-internal fun ItemStack.toDisplayItem(): ItemStack {
-    val item = clone()
-    val meta = item.itemMeta
-    PersistentDataAPI.setBoolean(meta!!, Keys.DISPLAY_ITEM, true)
-    item.itemMeta = meta
-    return item
+internal fun ItemStack.asDisplayItem(): ItemStack {
+    val meta = itemMeta!!
+    PersistentDataAPI.setBoolean(meta, Keys.DISPLAY_ITEM, true)
+    itemMeta = meta
+    return this
+}
+
+/**
+ * Get a copy of the original [ItemStack] with display item flag.
+ *
+ * To perform the operation on the original [ItemStack], use [asDisplayItem] instead.
+ */
+internal fun ItemStack.toDisplayItem() = clone().asDisplayItem()
+
+/**
+ * Remove the PDC flag from the [ItemStack] to indicate it is not a display item.
+ *
+ * To get a copy, use [removeDisplayItem] instead.
+ */
+internal fun ItemStack.asNotDisplayItem(): ItemStack {
+    val meta = itemMeta!!
+    PersistentDataAPI.remove(meta, Keys.DISPLAY_ITEM)
+    itemMeta = meta
+    return this
 }
 
 /**
  * Get a copy of the original [ItemStack] without display item flag.
+ *
+ * To perform the operation on the original [ItemStack], use [asNotDisplayItem] instead.
  */
-internal fun ItemStack.removeDisplayItem(): ItemStack {
-    val item = clone()
-    val meta = item.itemMeta
-    PersistentDataAPI.remove(meta!!, Keys.DISPLAY_ITEM)
-    item.itemMeta = meta
-    return item
-}
+internal fun ItemStack.removeDisplayItem() = clone().asNotDisplayItem()
+
+internal fun ItemStack.isDisplayItem() =
+    hasItemMeta() && PersistentDataAPI.hasBoolean(itemMeta!!, Keys.DISPLAY_ITEM)

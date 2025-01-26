@@ -14,7 +14,7 @@ features and improvements.
 
 ### Requirement
 
-- Java 21 or higher
+- Java 17 or higher
 - Minecraft 1.20 or higher
 - Paper or its forks
 - (Optional) SlimefunTranslation

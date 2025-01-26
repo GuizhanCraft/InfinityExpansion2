@@ -32,5 +32,5 @@ fun Location.setInt(key: String, value: Int) = setString(key, value.toString())
 fun Block.setInt(key: String, value: Int) = location.setInt(key, value)
 
 // inventory
-fun Location.getBlockMenu(): BlockMenu = BlockStorage.getInventory(this)
+fun Location.getBlockMenu(): BlockMenu? = BlockStorage.getInventory(this)
 fun Block.getBlockMenu() = location.getBlockMenu()

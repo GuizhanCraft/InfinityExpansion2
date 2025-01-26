@@ -4,7 +4,7 @@ import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem
 import org.bukkit.inventory.ItemStack
 
 /**
- * Soft check if two [ItemStack]s are similar.
+ * Simply check if two [ItemStack]s are similar. (not recommended in most cases)
  *
  * Returns `true` if two items are both null, or meet all the following conditions:
  * - Have the same type

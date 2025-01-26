@@ -4,6 +4,7 @@ import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
 import io.github.thebusybiscuit.slimefun4.utils.ChestMenuUtils
+import io.github.thebusybiscuit.slimefun4.utils.SlimefunUtils
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu
 import net.guizhanss.infinityexpansion2.core.IERegistry
 import net.guizhanss.infinityexpansion2.core.items.attributes.InformationalRecipeDisplayItem
@@ -11,10 +12,10 @@ import net.guizhanss.infinityexpansion2.core.menu.MenuLayout
 import net.guizhanss.infinityexpansion2.implementation.items.machines.abstracts.AbstractTickingMachine
 import net.guizhanss.infinityexpansion2.implementation.items.materials.Singularity
 import net.guizhanss.infinityexpansion2.utils.bukkitext.dropItem
-import net.guizhanss.infinityexpansion2.utils.slimefunext.getInt
-import net.guizhanss.infinityexpansion2.utils.slimefunext.getString
 import net.guizhanss.infinityexpansion2.utils.items.GuiItems
 import net.guizhanss.infinityexpansion2.utils.items.toDisplayItem
+import net.guizhanss.infinityexpansion2.utils.slimefunext.getInt
+import net.guizhanss.infinityexpansion2.utils.slimefunext.getString
 import net.guizhanss.infinityexpansion2.utils.slimefunext.setInt
 import net.guizhanss.infinityexpansion2.utils.slimefunext.setString
 import org.bukkit.block.Block
@@ -51,22 +52,13 @@ class SingularityConstructor(
             menu.setProgress(0)
         }
 
-        // set the target display item
-        val singularity = getSingularity(menu.getTarget())
-        if (singularity != null) {
-            menu.setTargetItem(singularity.item)
-        }
+        menu.updateProgressDisplay()
     }
 
     override fun process(b: Block, menu: BlockMenu): Boolean {
         val input = menu.getItemInSlot(inputSlots[0])
         val inputTemplate = input?.clone()?.apply { amount = 1 }
-        val target = menu.getTarget()
-
-        if (target == null || getSingularity(target) == null) {
-            // not valid target, probably new machine
-            return menu.checkNewSingularity(inputTemplate)
-        }
+        val singularity = getSingularity(menu.getTarget()) ?: return menu.checkNewSingularity(inputTemplate)
 
         // target is valid
         var progress = menu.getProgress()
@@ -76,7 +68,6 @@ class SingularityConstructor(
             return menu.checkNewSingularity(inputTemplate)
         }
 
-        val singularity = getSingularity(target)!!
         if (progress >= singularity.totalProgress) {
             // finish
             if (!menu.fits(singularity.item, *outputSlots)) {
@@ -88,41 +79,39 @@ class SingularityConstructor(
             menu.pushItem(singularity.item.clone(), *outputSlots)
         } else {
             // check input and add progress
-            if (singularity != getSingularity(inputTemplate)) {
+            if (singularity != getTargetSingularity(inputTemplate)) {
                 menu.setStatus { GuiItems.INVALID_INPUT }
                 return false
             }
 
             menu.consumeItem(inputSlots[0], speed)
-            progress += (singularity.ingredients[inputTemplate] ?: 0) * speed
+            progress += singularity.getIngredientProgress(inputTemplate) * speed
         }
 
         menu.setProgress(progress)
-        menu.setStatus { GuiItems.progressBar(progress, singularity.totalProgress) }
+        menu.updateProgressDisplay()
+        menu.setStatus { GuiItems.PRODUCING }
         return true
     }
 
     private fun BlockMenu.checkNewSingularity(input: ItemStack?): Boolean {
-        val singularity = getSingularity(input) ?: run {
+        val singularity = getTargetSingularity(input) ?: run {
             setStatus { GuiItems.INVALID_INPUT }
             return false
         }
 
         // set target and progress
-        val progress = singularity.ingredients[input] ?: 0
+        val progress = singularity.getIngredientProgress(input) * speed
+        consumeItem(inputSlots[0], speed)
         setTarget(singularity.id)
         setProgress(progress)
-        setTargetItem(singularity.item)
-        setStatus { GuiItems.progressBar(progress, singularity.totalProgress) }
+        updateProgressDisplay()
+        setStatus { GuiItems.PRODUCING }
 
         return true
     }
 
     private fun BlockMenu.getTarget() = location.getString(TARGET)
-
-    private fun BlockMenu.setTargetItem(item: ItemStack = ChestMenuUtils.getBackground()) = replaceExistingItem(
-        TARGET_ITEM_DISPLAY_SLOT, item.toDisplayItem()
-    )
 
     private fun BlockMenu.setTarget(target: String) = location.setString(TARGET, target)
 
@@ -130,9 +119,24 @@ class SingularityConstructor(
 
     private fun BlockMenu.setProgress(progress: Int) = location.setInt(PROGRESS, progress)
 
-    private fun getSingularity(item: ItemStack?): Singularity? {
+    private fun BlockMenu.updateProgressDisplay() {
+        if (!hasViewer()) return
+        val progress = getProgress()
+        val singularity = getSingularity(getTarget())
+        if (progress == 0 || singularity == null) {
+            replaceExistingItem(PROGRESS_SLOT, ChestMenuUtils.getBackground())
+            replaceExistingItem(TARGET_ITEM_DISPLAY_SLOT, ChestMenuUtils.getBackground())
+        } else {
+            replaceExistingItem(PROGRESS_SLOT, GuiItems.progressBar(progress, singularity.totalProgress))
+            replaceExistingItem(TARGET_ITEM_DISPLAY_SLOT, singularity.item.toDisplayItem())
+        }
+    }
+
+    private fun getTargetSingularity(item: ItemStack?): Singularity? {
         if (item == null) return null
-        return IERegistry.singularityIngredientMap[item]
+        return IERegistry.singularityIngredientMap.entries.firstOrNull { (ingredient, _) ->
+            SlimefunUtils.isItemSimilar(item, ingredient, false)
+        }?.value
     }
 
     private fun getSingularity(id: String?): Singularity? {
@@ -146,8 +150,12 @@ class SingularityConstructor(
 
     companion object {
 
+        // block storage keys
         private const val PROGRESS = "progress"
         private const val TARGET = "target"
+
+        // gui slots
+        private const val PROGRESS_SLOT = 3
         private const val TARGET_ITEM_DISPLAY_SLOT = 5
     }
 }
