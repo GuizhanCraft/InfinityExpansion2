@@ -32,7 +32,7 @@ dependencies {
     implementation("org.bstats:bstats-bukkit:3.1.0")
     implementation("it.unimi.dsi:fastutil:8.5.15")
     implementation("com.jeff-media:MorePersistentDataTypes:2.4.0")
-    implementation("io.github.seggan:sf4k:0.8.0") {
+    implementation("io.github.seggan:sf4k:0.8.2") {
         exclude(group = "org.jetbrains.kotlin")
         exclude(group = "com.github.Slimefun")
     }
