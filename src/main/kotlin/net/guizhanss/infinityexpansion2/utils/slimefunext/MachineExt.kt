@@ -29,7 +29,7 @@ fun BlockMenu.calculateItems(vararg slots: Int) = calculateItems(slots.map { get
 fun calculateItems(items: List<ItemStack?>): Map<ItemStack, Int> {
     val result = mutableMapOf<ItemStack, Int>()
     items.forEach {
-        if (it == null || it.isAir) return@forEach
+        if (it.isAir()) return@forEach
 
         val itemTemplate = it.clone().apply { amount = 1 }
 

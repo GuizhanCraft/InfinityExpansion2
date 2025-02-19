@@ -9,6 +9,8 @@ import net.guizhanss.infinityexpansion2.core.IERegistry
 import org.bukkit.Location
 import org.bukkit.Material
 import org.bukkit.inventory.ItemStack
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.contract
 
 /**
  * Parse the string to an [ItemStack]. The result is only calculated once and cached.
@@ -57,7 +59,13 @@ fun ItemStack.withLore(vararg lore: String): ItemStack = withLore(lore.toList())
 /**
  * A shortcut to check if an [ItemStack] is null or air.
  */
-val ItemStack?.isAir get() = this?.type?.isAir ?: true
+@OptIn(ExperimentalContracts::class)
+fun ItemStack?.isAir(): Boolean {
+    contract {
+        returns(false) implies (this@isAir != null)
+    }
+    return this?.type?.isAir ?: true
+}
 
 /**
  * Drop the [ItemStack] with the given amount at the [Location].

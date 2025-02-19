@@ -79,7 +79,7 @@ class Quarry(
 
         // should produce base product
         val baseProduct = pool.baseProduct.toItemStack().let {
-            if (it.isAir) Material.COBBLESTONE.toItem() else it
+            if (it.isAir()) Material.COBBLESTONE.toItem() else it
         }
         return baseProduct.clone().apply { amount = speed }
     }

@@ -165,7 +165,7 @@ class MobSimulationChamber(
          */
         private fun BlockMenu.getDataCard(layout: MenuLayout): Pair<MobDataCardProps, Int>? {
             val input = getItemInSlot(layout.inputSlots[0])
-            if (input.isAir || !input.isSlimefunItem<MobDataCard>()) {
+            if (input.isAir() || !input.isSlimefunItem<MobDataCard>()) {
                 return null
             }
 

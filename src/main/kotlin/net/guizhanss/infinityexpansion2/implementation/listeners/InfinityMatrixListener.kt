@@ -31,7 +31,7 @@ class InfinityMatrixListener(plugin: InfinityExpansion2) : Listener {
             return
         }
 
-        if (item.isAir || SlimefunItem.getByItem(item) !is InfinityMatrix) return
+        if (item.isAir() || SlimefunItem.getByItem(item) !is InfinityMatrix) return
 
         // check if there are any other matrix in the inventory
         var found = false

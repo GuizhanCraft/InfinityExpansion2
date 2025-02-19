@@ -28,7 +28,7 @@ class SlimefunRegistryListener(plugin: InfinityExpansion2) : Listener {
         InfinityExpansion2.configService.quarryOscillators.forEach { (id, chance) ->
             InfinityExpansion2.debug("Loading oscillator: $id")
             // id check
-            id.toItemStack().apply { if (isAir) return@forEach }
+            id.toItemStack().apply { if (isAir()) return@forEach }
 
             // chance check
             if (chance <= 0 || chance > 1) return@forEach

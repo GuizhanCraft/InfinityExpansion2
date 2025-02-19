@@ -122,7 +122,7 @@ internal object MobSimulationSetup {
         val mat = this["item"] as? String ?: return null
         val amount = this["amount"] as? Int ?: 1
 
-        val item = mat.toItemStack().let { if (it.isAir) return null else it }.clone()
+        val item = mat.toItemStack().let { if (it.isAir()) return null else it }.clone()
         item.amount = amount
         return item
     }

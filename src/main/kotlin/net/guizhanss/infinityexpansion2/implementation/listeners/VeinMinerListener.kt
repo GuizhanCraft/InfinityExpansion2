@@ -158,7 +158,7 @@ class VeinMinerListener(plugin: InfinityExpansion2) : Listener {
      * Check if an item is applied with vein miner.
      */
     private fun ItemStack?.hasVeinMiner() =
-        !this.isAir && this!!.hasItemMeta() && PersistentDataAPI.hasBoolean(itemMeta!!, Keys.VEIN_MINER)
+        !this.isAir() && this.hasItemMeta() && PersistentDataAPI.hasBoolean(itemMeta!!, Keys.VEIN_MINER)
 
     private fun applyVeinMiner(p: Player, item: ItemStack) {
         if (!item.hasItemMeta()) return

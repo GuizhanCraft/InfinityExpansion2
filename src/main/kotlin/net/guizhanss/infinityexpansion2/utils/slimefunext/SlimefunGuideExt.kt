@@ -35,8 +35,8 @@ fun displayItem(profile: PlayerProfile, sfItem: SlimefunItem, mode: SlimefunGuid
         var actualItem = sfItem
 
         // need to find the proper display item
-        if (!item.isAir && sfItem is MobDataCard) {
-            MobDataCard.getMobDataId(item!!)?.let { id ->
+        if (!item.isAir() && sfItem is MobDataCard) {
+            MobDataCard.getMobDataId(item)?.let { id ->
                 SlimefunItem.getById("${IEItems.MOB_DATA_CARD.itemId}_${id.toId()}")?.let { displayItem ->
                     actualItem = displayItem
                 }

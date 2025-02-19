@@ -23,7 +23,7 @@ class PrintItemCommand(parent: AbstractCommand) : AbstractSubCommand(
 
         val item = p.inventory.itemInMainHand
 
-        if (item.isAir) {
+        if (item.isAir()) {
             InfinityExpansion2.integrationService.sendMessage(p, "commands.commands.printitem.no-item")
             return
         }
