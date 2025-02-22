@@ -1,6 +1,7 @@
 package net.guizhanss.infinityexpansion2
 
 import io.github.thebusybiscuit.slimefun4.libraries.dough.updater.BlobBuildUpdater
+import io.papermc.lib.PaperLib
 import net.byteflux.libby.Library
 import net.guizhanss.guizhanlib.libraries.BukkitLibraryManager
 import net.guizhanss.guizhanlib.slimefun.addon.AbstractAddon
@@ -54,6 +55,12 @@ class InfinityExpansion2 : AbstractAddon(
 
     override fun enable() {
         instance = this
+
+        if (PaperLib.isSpigot() && !PaperLib.isPaper()) {
+            PaperLib.suggestPaper(this, Level.SEVERE)
+            server.pluginManager.disablePlugin(this)
+            return
+        }
 
         // conflict check
         // TODO: display migration logs
