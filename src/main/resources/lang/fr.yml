@@ -172,7 +172,7 @@ items:
   _UI_AA_MAX_ENCHANTMENT_LEVEL:
     conditions:
       force-load: true
-  #infinity reactor specific
+  #ui - infinity reactor specific
   _UI_IR_BORDER_VOID:
     conditions:
       force-load: true
@@ -194,7 +194,7 @@ items:
   _UI_IR_INFO:
     conditions:
       force-load: true
-  #infinity singularity reactor specific
+  #ui - infinity singularity reactor specific
   _UI_ISR_BORDER:
     conditions:
       force-load: true
@@ -205,6 +205,25 @@ items:
     conditions:
       force-load: true
   _UI_ISR_INFO:
+    conditions:
+      force-load: true
+  #ui - storage unit specific
+  _UI_STORAGE_ACTIONS_INV:
+    conditions:
+      force-load: true
+  _UI_STORAGE_NO_ITEM:
+    conditions:
+      force-load: true
+  _UI_STORAGE_CAPACITY:
+    conditions:
+      force-load: true
+  _UI_STORAGE_AMOUNT:
+    conditions:
+      force-load: true
+  _UI_STORAGE_VOID_EXCESS_ON:
+    conditions:
+      force-load: true
+  _UI_STORAGE_VOID_EXCESS_OFF:
     conditions:
       force-load: true
   #items - materials
