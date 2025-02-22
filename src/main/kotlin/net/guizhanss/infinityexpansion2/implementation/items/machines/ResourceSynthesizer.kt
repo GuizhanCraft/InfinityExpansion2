@@ -67,7 +67,7 @@ class ResourceSynthesizer(
 
         // process
         val output = recipe.value.clone()
-        if (menu.fits(output, *outputSlots)) {
+        if (!menu.fits(output, *outputSlots)) {
             menu.setStatus { GuiItems.NO_ROOM }
             return false
         }
