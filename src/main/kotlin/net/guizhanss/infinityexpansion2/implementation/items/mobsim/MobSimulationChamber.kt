@@ -11,6 +11,7 @@ import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.api.mobsim.MobDataCardProps
 import net.guizhanss.infinityexpansion2.core.IERegistry
+import net.guizhanss.infinityexpansion2.core.items.annotations.HudProvider
 import net.guizhanss.infinityexpansion2.core.items.attributes.EnergyTickingConsumer
 import net.guizhanss.infinityexpansion2.core.items.attributes.InformationalRecipeDisplayItem
 import net.guizhanss.infinityexpansion2.core.menu.MenuLayout
@@ -28,7 +29,7 @@ import java.util.logging.Level
 import kotlin.math.floor
 import kotlin.random.Random
 
-
+@HudProvider
 class MobSimulationChamber(
     itemGroup: ItemGroup,
     itemStack: SlimefunItemStack,
@@ -176,7 +177,8 @@ class MobSimulationChamber(
             return props to input.amount
         }
 
-        fun getHudResponse(request: HudRequest): String {
+        @Suppress("unused")
+        fun hudHandler(request: HudRequest): String {
             val menu = request.location.getBlockMenu() ?: return "Unknown"
             val chamber = request.slimefunItem as MobSimulationChamber
             val energyHud = " | " + HudBuilder.formatEnergyStored(chamber.getCharge(request.location), chamber.capacity)

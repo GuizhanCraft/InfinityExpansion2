@@ -2,6 +2,7 @@
 
 package net.guizhanss.infinityexpansion2.utils.slimefunext
 
+import io.github.thebusybiscuit.slimefun4.libraries.dough.blocks.BlockPosition
 import me.mrCookieSlime.Slimefun.api.BlockStorage
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu
 import org.bukkit.Location
@@ -34,3 +35,9 @@ fun Block.setInt(key: String, value: Int) = location.setInt(key, value)
 // inventory
 fun Location.getBlockMenu(): BlockMenu? = BlockStorage.getInventory(this)
 fun Block.getBlockMenu() = location.getBlockMenu()
+
+// BlockPosition
+val Location.blockPosition: BlockPosition
+    get() = BlockPosition(this)
+val Block.blockPosition: BlockPosition
+    get() = BlockPosition(this)

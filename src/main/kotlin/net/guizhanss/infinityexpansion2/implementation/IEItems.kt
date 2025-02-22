@@ -56,6 +56,7 @@ import net.guizhanss.infinityexpansion2.implementation.items.sfextension.GeoMine
 import net.guizhanss.infinityexpansion2.implementation.items.sfextension.NetherStarReactor
 import net.guizhanss.infinityexpansion2.implementation.items.sfextension.Smeltery
 import net.guizhanss.infinityexpansion2.implementation.items.storage.StorageForge
+import net.guizhanss.infinityexpansion2.implementation.items.storage.StorageUnit
 import net.guizhanss.infinityexpansion2.implementation.items.tools.InfinityMatrix
 import net.guizhanss.infinityexpansion2.implementation.items.tools.Oscillator
 import net.guizhanss.infinityexpansion2.implementation.items.tools.Strainer
@@ -2356,6 +2357,20 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             'M' means MAGSTEEL
             'A' means Material.ANVIL
             'T' means Material.CRAFTING_TABLE
+            'B' means Material.BARREL
+        }
+    }
+
+    val STORAGE_UNIT_1 by buildSlimefunItem<StorageUnit>(1024) {
+        material = Material.OAK_LOG.asMaterialType()
+        itemGroup = IEItemGroups.STORAGE
+        recipeType = IERecipeTypes.STORAGE_FORGE
+        recipe = buildRecipe {
+            +"LML"
+            +"LBL"
+            +"LML"
+            'L' means Material.OAK_LOG
+            'M' means MAGSTEEL
             'B' means Material.BARREL
         }
     }

@@ -47,6 +47,16 @@ class ConfigService(plugin: InfinityExpansion2) {
     var mobSimLegacyOutput = false
         private set
 
+    // storage options
+    var storageEnableSigns = false
+        private set
+    var storageSignUpdateInterval = 20
+        private set
+    var storageEnableHolograms = false
+        private set
+    var storageHologramUpdateInterval = 20
+        private set
+
     // quarry options
     var quarryInterval = 10
         private set
@@ -89,6 +99,10 @@ class ConfigService(plugin: InfinityExpansion2) {
         mobSimAllowStackedCard = config.getBoolean("mob-simulation.allow-stacked-card", false)
         mobSimExpMultiplier = config.getDouble("mob-simulation.exp-multiplier", 1.0).clamp(0.0, 1000.0)
         mobSimLegacyOutput = config.getBoolean("mob-simulation.legacy-output", false)
+        storageEnableSigns = config.getBoolean("storage.enable-signs", false)
+        storageSignUpdateInterval = config.getInt("storage.sign-update-interval", 20).clamp(1, 3600)
+        storageEnableHolograms = config.getBoolean("storage.enable-holograms", false)
+        storageHologramUpdateInterval = config.getInt("storage.hologram-update-interval", 20).clamp(1, 3600)
         quarryInterval = config.getInt("quarry.output-interval", 10).clamp(1, 3600)
         quarryOscillators = config.getConfigurationSection("quarry.oscillators").loadDoubleMap()
         quarryPools = config.getConfigurationSection("quarry.pools")

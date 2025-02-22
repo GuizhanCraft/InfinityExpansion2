@@ -87,6 +87,23 @@ mob-simulation:
   # V2 mode: Each drop has a chance to be dropped.
   legacy-output: false
 
+# Storage options
+storage:
+  # Whether the signs attached to the storage units will show the item and amount inside the storage?
+  # Enabling this will increase the server's load, enabling extra tickers on main thread.
+  enable-signs: false
+
+  # The interval of updating the signs in Slimefun ticks.
+  sign-update-interval: 20
+
+  # Whether the storage units will display the item and amount inside the storage in the hologram?
+  # The holograms require the external library
+  # Enabling this will increase the server's load, enabling extra tickers on main thread.
+  enable-holograms: false
+
+  # The interval of updating the holograms in Slimefun ticks.
+  hologram-update-interval: 20
+
 # Quarry options
 quarry:
   # The amount of runs required to output once (affected by tick rate)

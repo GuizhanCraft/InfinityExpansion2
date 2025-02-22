@@ -59,12 +59,12 @@ enum class IETag : Tag<Material> {
     GRASS,
 
     /**
-     * All the tools that can be upgraded in Gear Transformer
+     * All the tools that can be upgraded in Gear Transformer.
      */
     UPGRADABLE_TOOL,
 
     /**
-     * All the armors that can be upgraded in Gear Transformer
+     * All the armors that can be upgraded in Gear Transformer.
      */
     UPGRADABLE_ARMOR,
 
@@ -72,6 +72,11 @@ enum class IETag : Tag<Material> {
      * All the blocks that vein miner can break.
      */
     VEIN_MINER_BLOCKS,
+
+    /**
+     * All the bundles.
+     */
+    BUNDLE,
 
     ;
 

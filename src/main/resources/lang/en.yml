@@ -259,7 +259,7 @@ items:
       force-load: true
     name: "&eMax enchantment level:"
 
-  # infinity reactor specific
+  # ui - infinity reactor specific
   _UI_IR_BORDER_VOID:
     conditions:
       force-load: true
@@ -292,7 +292,7 @@ items:
       1: "&eRemaining sf ticks for Infinity Ingot:"
       3: "&eRemaining sf ticks for Void Ingot:"
 
-  # infinity singularity reactor specific
+  # ui - infinity singularity reactor specific
   _UI_ISR_BORDER:
     conditions:
       force-load: true
@@ -311,6 +311,45 @@ items:
     name: "&aRunning..."
     lore-overrides:
       1: "&eRemaining sf ticks for Infinity Singularity:"
+
+  # ui - storage unit specific
+  _UI_STORAGE_ACTIONS_INV:
+    conditions:
+      force-load: true
+    name: "&aInventory Actions"
+    lore:
+      - "&eLeft Click &7to deposit from your inventory"
+      - "&eRight Click &7to withdraw to your inventory"
+  _UI_STORAGE_NO_ITEM:
+    conditions:
+      force-load: true
+    name: "&cNo item"
+  _UI_STORAGE_CAPACITY:
+    conditions:
+      force-load: true
+    name: "&bItem capacity:"
+  _UI_STORAGE_AMOUNT:
+    conditions:
+      force-load: true
+    name: "&bItem amount:"
+  _UI_STORAGE_VOID_EXCESS_ON:
+    conditions:
+      force-load: true
+    name: "&aVoid Excess: &2ON"
+    lore:
+      - "&7Item input after storage"
+      - "&7is full will be voided"
+      - ""
+      - "&eClick &7to toggle"
+  _UI_STORAGE_VOID_EXCESS_OFF:
+    conditions:
+      force-load: true
+    name: "&aVoid Excess: &cOFF"
+    lore:
+      - "&7Item input after storage"
+      - "&7is full will &7&lnot &7be voided"
+      - ""
+      - "&eClick &7to toggle"
 
   # items - guide
   _GUIDE_INTRO:
@@ -1280,16 +1319,26 @@ items:
     lore:
       - "&7Craft and upgrade Storage Units."
       - "&7Items are kept when upgrading."
-  STORAGE_UNIT:
-    name: "&9Basic &8Storage Unit"
+  STORAGE_UNIT_1:
+    name: "&eStorage Unit &7(1)"
   STORAGE_UNIT_2:
-    name: "&cAdvanced &8Storage Unit"
+    name: "&eStorage Unit &7(2)"
   STORAGE_UNIT_3:
-    name: "&fReinforced &8Storage Unit"
+    name: "&eStorage Unit &7(3)"
   STORAGE_UNIT_4:
-    name: "&7Void &8Storage Unit"
+    name: "&eStorage Unit &7(4)"
   STORAGE_UNIT_5:
-    name: "&bInfinity &8Storage Unit"
+    name: "&eStorage Unit &7(5)"
+  STORAGE_UNIT_6:
+    name: "&eStorage Unit &7(6)"
+  STORAGE_UNIT_7:
+    name: "&eStorage Unit &7(7)"
+  STORAGE_UNIT_8:
+    name: "&eStorage Unit &7(8)"
+  STORAGE_UNIT_9:
+    name: "&eStorage Unit &7(9)"
+  STORAGE_UNIT_10:
+    name: "&eStorage Unit &7(10)"
 
   # items - hidden
   OSCILLATOR:
@@ -1300,6 +1349,10 @@ lores:
   info: "&7Information:"
   soulbound: "&bSoulbound"
   vein-miner: "&bVein Miner"
+  storage:
+    item: "&aStored item: &7{0}"
+    amount: "&bAmount: &7{0}"
+    void-excess: "&eVoid Excess: &7{0}"
 messages:
   commands:
     no-permission: "&cYou do not have permission to use this command."
@@ -1337,3 +1390,5 @@ messages:
     ownership-removed: "&bYou are no longer the owner of this matrix."
     flight-enabled: "&aFlight is enabled!"
     flight-disabled: "&cFlight is disabled!"
+  storage:
+    interaction-cd: "&cYou must wait before you can interact with this again."
