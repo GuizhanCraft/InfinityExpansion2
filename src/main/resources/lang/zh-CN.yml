@@ -251,7 +251,7 @@ items:
     conditions:
       force-load: true
     name: "&e最高附魔等级:"
-  #infinity reactor specific
+  #ui - infinity reactor specific
   _UI_IR_BORDER_VOID:
     conditions:
       force-load: true
@@ -283,7 +283,7 @@ items:
     lore-overrides:
       1: "&e无尽锭剩余时间（粘液刻）："
       3: "&e虚空锭剩余时间（粘液刻）："
-  #infinity singularity reactor specific
+  #ui - infinity singularity reactor specific
   _UI_ISR_BORDER:
     conditions:
       force-load: true
@@ -302,6 +302,25 @@ items:
     name: "&a运行中..."
     lore-overrides:
       1: "&e无尽奇点剩余时间（粘液刻）："
+  #ui - storage unit specific
+  _UI_STORAGE_ACTIONS_INV:
+    conditions:
+      force-load: true
+  _UI_STORAGE_NO_ITEM:
+    conditions:
+      force-load: true
+  _UI_STORAGE_CAPACITY:
+    conditions:
+      force-load: true
+  _UI_STORAGE_AMOUNT:
+    conditions:
+      force-load: true
+  _UI_STORAGE_VOID_EXCESS_ON:
+    conditions:
+      force-load: true
+  _UI_STORAGE_VOID_EXCESS_OFF:
+    conditions:
+      force-load: true
   #items - guide
   _GUIDE_INTRO:
     name: "&e介绍"
@@ -1226,16 +1245,6 @@ items:
     lore:
       - "&7合成并升级存储单元。"
       - "&7升级时物品会保留。"
-  STORAGE_UNIT:
-    name: "&9基础&8存储单元"
-  STORAGE_UNIT_2:
-    name: "&c高级&8存储单元"
-  STORAGE_UNIT_3:
-    name: "&f强化&8存储单元"
-  STORAGE_UNIT_4:
-    name: "&7虚空&8存储单元"
-  STORAGE_UNIT_5:
-    name: "&b无尽&8存储单元"
   #items - hidden
   OSCILLATOR:
     name: "&6加速器"
