@@ -1,8 +1,10 @@
 package net.guizhanss.infinityexpansion2.implementation.groups
 
+import io.github.seggan.sf4k.item.builder.MaterialType
 import io.github.seggan.sf4k.item.builder.asMaterialType
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.utils.bukkitext.createKey
+import net.guizhanss.infinityexpansion2.utils.items.toItem
 import org.bukkit.Material
 
 object IEItemGroups {
@@ -12,96 +14,20 @@ object IEItemGroups {
         InfinityExpansion2.localization.getItemGroupItem(
             Material.NETHER_STAR.asMaterialType(),
             "main"
-        )
+        ).toItem()
     )
 
-    val MATERIALS = SubGroup(
-        "materials".createKey(),
-        InfinityExpansion2.localization.getItemGroupItem(
-            Material.NETHER_STAR.asMaterialType(),
-            "materials"
-        )
-    )
-
-    val SINGULARITIES = SubGroup(
-        "singularities".createKey(),
-        InfinityExpansion2.localization.getItemGroupItem(
-            Material.NETHERITE_BLOCK.asMaterialType(),
-            "singularities"
-        )
-    )
-
-    val SLIMEFUN_EXPANSION = SubGroup(
-        "slimefun_expansion".createKey(),
-        InfinityExpansion2.localization.getItemGroupItem(
-            Material.SLIME_BLOCK.asMaterialType(),
-            "slimefun_expansion"
-        )
-    )
-
-    val FOOD = SubGroup(
-        "food".createKey(),
-        InfinityExpansion2.localization.getItemGroupItem(
-            Material.COOKED_BEEF.asMaterialType(),
-            "food"
-        )
-    )
-
-    val TOOLS = SubGroup(
-        "tools".createKey(),
-        InfinityExpansion2.localization.getItemGroupItem(
-            Material.DIAMOND_PICKAXE.asMaterialType(),
-            "tools"
-        )
-    )
-
-    val GEAR = SubGroup(
-        "gear".createKey(),
-        InfinityExpansion2.localization.getItemGroupItem(
-            Material.DIAMOND_CHESTPLATE.asMaterialType(),
-            "gear"
-        )
-    )
-
-    val MACHINES = SubGroup(
-        "machines".createKey(),
-        InfinityExpansion2.localization.getItemGroupItem(
-            Material.LOOM.asMaterialType(),
-            "machines"
-        )
-    )
-
-    val GENERATORS = SubGroup(
-        "generators".createKey(),
-        InfinityExpansion2.localization.getItemGroupItem(
-            Material.BLAST_FURNACE.asMaterialType(),
-            "generators"
-        )
-    )
-
-    val MOB_SIMULATION = SubGroup(
-        "mob_simulation".createKey(),
-        InfinityExpansion2.localization.getItemGroupItem(
-            Material.BEACON.asMaterialType(),
-            "mob_simulation"
-        )
-    )
-
-    val STORAGE = SubGroup(
-        "storage".createKey(),
-        InfinityExpansion2.localization.getItemGroupItem(
-            Material.BEEHIVE.asMaterialType(),
-            "storage"
-        )
-    )
-
-    val HIDDEN = SubGroup(
-        "hidden".createKey(),
-        InfinityExpansion2.localization.getItemGroupItem(
-            Material.BARRIER.asMaterialType(),
-            "hidden"
-        )
-    )
+    val MATERIALS = createSubGroup("materials", Material.NETHER_STAR.asMaterialType())
+    val SINGULARITIES = createSubGroup("singularities", Material.NETHERITE_BLOCK.asMaterialType())
+    val SLIMEFUN_EXPANSION = createSubGroup("slimefun_expansion", Material.SLIME_BLOCK.asMaterialType())
+    val FOOD = createSubGroup("food", Material.COOKED_BEEF.asMaterialType())
+    val TOOLS = createSubGroup("tools", Material.DIAMOND_PICKAXE.asMaterialType())
+    val GEAR = createSubGroup("gear", Material.DIAMOND_CHESTPLATE.asMaterialType())
+    val MACHINES = createSubGroup("machines", Material.LOOM.asMaterialType())
+    val GENERATORS = createSubGroup("generators", Material.BLAST_FURNACE.asMaterialType())
+    val MOB_SIMULATION = createSubGroup("mob_simulation", Material.BEACON.asMaterialType())
+    val STORAGE = createSubGroup("storage", Material.BEEHIVE.asMaterialType())
+    val HIDDEN = createSubGroup("hidden", Material.BARRIER.asMaterialType())
 
     init {
         // TODO: Guide group
@@ -120,4 +46,12 @@ object IEItemGroups {
         MOB_SIMULATION.isCrossAddonItemGroup = true
         MAIN.register(InfinityExpansion2.instance)
     }
+
+    private fun createSubGroup(key: String, material: MaterialType) = SubGroup(
+        key.createKey(),
+        InfinityExpansion2.localization.getItemGroupItem(
+            material,
+            key
+        ).toItem()
+    )
 }

@@ -8,6 +8,7 @@ import net.guizhanss.infinityexpansion2.implementation.IEItems
 import net.guizhanss.infinityexpansion2.implementation.listeners.TranslationsLoadListener
 import net.guizhanss.infinityexpansion2.integration.SlimeHUDIntegration
 import net.guizhanss.infinityexpansion2.utils.items.removePrefix
+import net.guizhanss.infinityexpansion2.utils.items.toItem
 import net.guizhanss.slimefuntranslation.api.SlimefunTranslationAPI
 import net.guizhanss.slimefuntranslation.api.config.TranslationConfiguration
 import net.guizhanss.slimefuntranslation.api.config.TranslationConfigurationDefaults
@@ -69,7 +70,7 @@ class IntegrationService(private val plugin: InfinityExpansion2) {
     fun getItemGroupName(p: Player, id: String): String {
         return if (slimefunTranslationEnabled) {
             val item = InfinityExpansion2.localization.getItemGroupItem(Material.BARRIER.asMaterialType(), id)
-            SlimefunTranslationAPI.translateItem(SlimefunTranslationAPI.getUser(p), item)
+            SlimefunTranslationAPI.translateItem(SlimefunTranslationAPI.getUser(p), item.toItem())
             item.displayName!!
         } else {
             InfinityExpansion2.localization.getItemGroupName(id)

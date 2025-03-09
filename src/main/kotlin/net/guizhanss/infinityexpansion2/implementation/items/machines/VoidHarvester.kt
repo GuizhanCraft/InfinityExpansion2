@@ -11,6 +11,7 @@ import net.guizhanss.infinityexpansion2.implementation.IEItems
 import net.guizhanss.infinityexpansion2.implementation.items.machines.abstracts.AbstractTickingMachine
 import net.guizhanss.infinityexpansion2.utils.slimefunext.getInt
 import net.guizhanss.infinityexpansion2.utils.items.GuiItems
+import net.guizhanss.infinityexpansion2.utils.items.toItem
 import net.guizhanss.infinityexpansion2.utils.slimefunext.setInt
 import org.bukkit.block.Block
 import org.bukkit.inventory.ItemStack
@@ -38,7 +39,7 @@ class VoidHarvester(
 
         // has reached the total progress
         if (progress >= totalProgress) {
-            val output = IEItems.VOID_BIT
+            val output = IEItems.VOID_BIT.toItem()
 
             if (!menu.fits(output, *layout.outputSlots)) {
                 menu.setStatus { GuiItems.NO_ROOM }
@@ -58,7 +59,7 @@ class VoidHarvester(
         setStatus { GuiItems.progressBar(progress, totalProgress) }
     }
 
-    override fun getDefaultDisplayRecipes() = listOf(IEItems.VOID_BIT)
+    override fun getDefaultDisplayRecipes() = listOf(IEItems.VOID_BIT.item())
 
     override fun getInformationalItems() = listOf(
         GuiItems.tickRate(getCustomTickRate()),

@@ -19,6 +19,7 @@ import net.guizhanss.infinityexpansion2.implementation.recipes.IERecipeTypes
 import net.guizhanss.infinityexpansion2.utils.bukkitext.toItem
 import net.guizhanss.infinityexpansion2.utils.constant.Keys
 import net.guizhanss.infinityexpansion2.utils.items.GuiItems
+import net.guizhanss.infinityexpansion2.utils.items.toItem
 import net.guizhanss.infinityexpansion2.utils.toId
 import org.bukkit.ChatColor
 import org.bukkit.Material
@@ -87,16 +88,12 @@ class MobDataCard(
             return item
         }
 
-        fun buildOutputItem(displayItem: SlimefunItemStack) = SlimefunItemStack(
-            IEItems.MOB_DATA_CARD.itemId, displayItem
-        )
-
-        fun buildOutputItem(id: String, name: String, texture: ItemStack) = if (id.isEmpty()) {
+        fun buildOutputItem(id: String, name: String, texture: ItemStack): ItemStack = if (id.isEmpty()) {
             Material.AIR.toItem()
         } else {
-            buildOutputItem(
-                buildDisplayItem(id, name, texture)
-            )
+            SlimefunItemStack(
+                IEItems.MOB_DATA_CARD.itemId, buildDisplayItem(id, name, texture).toItem()
+            ).toItem()
         }
 
         fun getMobDataId(item: ItemStack) =

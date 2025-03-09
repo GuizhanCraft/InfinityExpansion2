@@ -1,6 +1,7 @@
 package net.guizhanss.infinityexpansion2.utils.slimefunext
 
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
 import io.github.thebusybiscuit.slimefun4.api.player.PlayerProfile
 import io.github.thebusybiscuit.slimefun4.core.guide.SlimefunGuide
 import io.github.thebusybiscuit.slimefun4.core.guide.SlimefunGuideMode
@@ -22,6 +23,10 @@ fun displayItem(profile: PlayerProfile, item: ItemStack, mode: SlimefunGuideMode
     } else {
         SlimefunGuide.displayItem(profile, item, true)
     }
+}
+
+fun displayItem(profile: PlayerProfile, item: SlimefunItemStack, mode: SlimefunGuideMode) {
+    displayItem(profile, SlimefunItem.getByItem(item)!!, mode)
 }
 
 fun displayItem(profile: PlayerProfile, sfItem: SlimefunItem, mode: SlimefunGuideMode, item: ItemStack? = null) {

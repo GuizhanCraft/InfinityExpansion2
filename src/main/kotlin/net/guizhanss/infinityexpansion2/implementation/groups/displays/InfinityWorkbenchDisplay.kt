@@ -7,6 +7,7 @@ import io.github.thebusybiscuit.slimefun4.api.player.PlayerProfile
 import io.github.thebusybiscuit.slimefun4.core.guide.SlimefunGuideMode
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ChestMenu
 import net.guizhanss.infinityexpansion2.implementation.IEItems
+import net.guizhanss.infinityexpansion2.utils.items.toItem
 import org.bukkit.entity.Player
 
 /**
@@ -23,7 +24,7 @@ open class InfinityWorkbenchDisplay(sfItem: SlimefunItem) : InformationalDisplay
     override val outputSlot = OUTPUT_SLOT
     override val infoSlots = INFO_SLOTS
 
-    override fun getRecipeTypeItem(p: Player) = IEItems.INFINITY_WORKBENCH
+    override fun getRecipeTypeItem(p: Player) = IEItems.INFINITY_WORKBENCH.toItem()
 
     override fun displayRecipes(
         p: Player,

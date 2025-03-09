@@ -16,6 +16,7 @@ import net.guizhanss.infinityexpansion2.implementation.groups.IEItemGroups
 import net.guizhanss.infinityexpansion2.utils.bukkitext.toItemStack
 import net.guizhanss.infinityexpansion2.utils.constant.Keys
 import net.guizhanss.infinityexpansion2.utils.items.builder.recipes.buildRecipe
+import net.guizhanss.infinityexpansion2.utils.items.toItem
 import org.bukkit.ChatColor
 import org.bukkit.inventory.ItemStack
 import org.bukkit.inventory.meta.ItemMeta
@@ -83,8 +84,7 @@ class Oscillator(
          */
         fun register(target: String) {
             val targetItem = target.toItemStack()
-            val item = getItem(target)
-            // TODO: properly handle sf 1.21 changes here
+            val item = getItem(target).toItem()
             val sfItem = Oscillator(
                 IEItemGroups.TOOLS,
                 SlimefunItemStack("${IEItems.prefix}OSCILLATOR_$target", item),

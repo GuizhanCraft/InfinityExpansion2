@@ -24,8 +24,8 @@ repositories {
 dependencies {
     compileOnly(kotlin("stdlib")) // loaded through library loader
     compileOnly(kotlin("reflect")) // loaded through library loader
-    compileOnly("io.papermc.paper:paper-api:1.20.6-R0.1-SNAPSHOT")
-    compileOnly("com.github.Slimefun:Slimefun4:d12ae8580b")
+    compileOnly("io.papermc.paper:paper-api:1.21.3-R0.1-SNAPSHOT")
+    compileOnly("com.github.slimefun:Slimefun4:3ea21da4fe")
     compileOnly("net.guizhanss:SlimefunTranslation:e03b01a7b7")
     compileOnly("com.github.schntgaispock:SlimeHUD:1.3.0")
     implementation("net.guizhanss:guizhanlib-all:2.2.0")
@@ -100,13 +100,13 @@ tasks {
     runServer {
         downloadPlugins {
             // Slimefun
-            url("https://blob.build/dl/Slimefun4/Dev/latest")
+            url("https://blob.build/dl/Slimefun4/Experimental/latest")
             // SlimeHUD
             url("https://blob.build/dl/SlimeHUD/Dev/latest")
             // GuizhanCraft for testing convenient
-            url("https://builds.guizhanss.com/api/download/ybw0014/GuizhanCraft/master/latest")
+            // url("https://builds.guizhanss.com/api/download/ybw0014/GuizhanCraft/master/latest")
         }
         jvmArgs("-Dcom.mojang.eula.agree=true")
-        minecraftVersion("1.20.6")
+        minecraftVersion("1.21.3")
     }
 }

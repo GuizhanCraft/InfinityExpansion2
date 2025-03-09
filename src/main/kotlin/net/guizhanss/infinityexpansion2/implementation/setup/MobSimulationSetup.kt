@@ -10,6 +10,7 @@ import net.guizhanss.infinityexpansion2.implementation.IEItems
 import net.guizhanss.infinityexpansion2.utils.bukkitext.isAir
 import net.guizhanss.infinityexpansion2.utils.bukkitext.toItemStack
 import net.guizhanss.infinityexpansion2.utils.clamp
+import net.guizhanss.infinityexpansion2.utils.items.toItem
 import org.bukkit.ChatColor
 import org.bukkit.configuration.ConfigurationSection
 import org.bukkit.inventory.ItemStack
@@ -94,7 +95,7 @@ internal object MobSimulationSetup {
                     val index = i * 3 + j
                     if (char == ' ') continue
                     if (char == 'X') {
-                        recipe[index] = IEItems.MOB_DATA_CARD_EMPTY
+                        recipe[index] = IEItems.MOB_DATA_CARD_EMPTY.toItem()
                         continue
                     }
 

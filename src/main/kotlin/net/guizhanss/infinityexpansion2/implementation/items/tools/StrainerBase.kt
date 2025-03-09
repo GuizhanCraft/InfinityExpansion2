@@ -21,6 +21,7 @@ import net.guizhanss.infinityexpansion2.utils.bukkitext.isWaterLogged
 import net.guizhanss.infinityexpansion2.utils.bukkitext.toItem
 import net.guizhanss.infinityexpansion2.utils.bukkitext.withAmount
 import net.guizhanss.infinityexpansion2.utils.items.GuiItems
+import net.guizhanss.infinityexpansion2.utils.items.toItem
 import org.bukkit.Material
 import org.bukkit.block.Block
 import org.bukkit.enchantments.Enchantment
@@ -137,7 +138,7 @@ class StrainerBase(
 
         private val POTATO_FISH = InfinityExpansion2.localization.getItem(
             "POTATO_FISH",
-            Material.POTATO
-        )
+            Material.POTATO.asMaterialType()
+        ).toItem()
     }
 }

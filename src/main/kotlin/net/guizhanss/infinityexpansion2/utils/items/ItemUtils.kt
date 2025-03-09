@@ -1,7 +1,11 @@
 package net.guizhanss.infinityexpansion2.utils.items
 
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
 import org.bukkit.inventory.ItemStack
+
+fun SlimefunItemStack.toItem(): ItemStack = this.item()
+fun ItemStack.toItem(): ItemStack = this.clone()
 
 /**
  * Simply check if two [ItemStack]s are similar. (not recommended in most cases)
