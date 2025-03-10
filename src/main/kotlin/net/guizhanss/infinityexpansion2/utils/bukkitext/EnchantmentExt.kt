@@ -6,4 +6,5 @@ import org.bukkit.enchantments.Enchantment
 /**
  * Retrieve the [Enchantment] by the name.
  */
+@Suppress("deprecation")
 fun getEnchantment(name: String) = Registry.ENCHANTMENT.get(name.toMinecraftKey())

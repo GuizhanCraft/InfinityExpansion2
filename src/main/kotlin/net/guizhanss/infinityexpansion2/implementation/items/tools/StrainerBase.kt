@@ -19,7 +19,7 @@ import net.guizhanss.infinityexpansion2.core.items.attributes.InformationalRecip
 import net.guizhanss.infinityexpansion2.core.menu.MenuLayout
 import net.guizhanss.infinityexpansion2.utils.bukkitext.isWaterLogged
 import net.guizhanss.infinityexpansion2.utils.bukkitext.toItem
-import net.guizhanss.infinityexpansion2.utils.bukkitext.withAmount
+import net.guizhanss.infinityexpansion2.utils.items.withAmount
 import net.guizhanss.infinityexpansion2.utils.items.GuiItems
 import net.guizhanss.infinityexpansion2.utils.items.toItem
 import org.bukkit.Material

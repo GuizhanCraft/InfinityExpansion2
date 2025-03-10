@@ -6,7 +6,7 @@ import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
 import net.guizhanss.guizhanlib.minecraft.utils.MinecraftVersionUtil
 import net.guizhanss.infinityexpansion2.implementation.IEItems
 import net.guizhanss.infinityexpansion2.utils.bukkitext.toItem
-import net.guizhanss.infinityexpansion2.utils.bukkitext.withAmount
+import net.guizhanss.infinityexpansion2.utils.items.withAmount
 import org.bukkit.Material
 import org.bukkit.inventory.ItemStack
 
@@ -19,7 +19,7 @@ class SmithingTemplateRandomizer(
 ) : RandomHopperMachine(itemGroup, itemStack, recipeType, recipe, energyPerTick) {
 
     init {
-        val templates = arrayOf(
+        var templates = arrayOf(
             Material.NETHERITE_UPGRADE_SMITHING_TEMPLATE.toItem(),
             Material.SENTRY_ARMOR_TRIM_SMITHING_TEMPLATE.toItem(),
             Material.VEX_ARMOR_TRIM_SMITHING_TEMPLATE.toItem(),
@@ -38,7 +38,14 @@ class SmithingTemplateRandomizer(
             Material.EYE_ARMOR_TRIM_SMITHING_TEMPLATE.toItem(),
             Material.SPIRE_ARMOR_TRIM_SMITHING_TEMPLATE.toItem()
         )
-        // TODO: 1.21 new templates
+
+        if (MinecraftVersionUtil.isAtLeast(21)) {
+            templates += arrayOf(
+                Material.BOLT_ARMOR_TRIM_SMITHING_TEMPLATE.toItem(),
+                Material.FLOW_ARMOR_TRIM_SMITHING_TEMPLATE.toItem(),
+            )
+        }
+
         addRecipe(IEItems.UNKNOWN_SMITHING_TEMPLATE.withAmount(8), templates)
     }
 }
