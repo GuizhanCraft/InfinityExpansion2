@@ -18,6 +18,7 @@ import org.bukkit.inventory.meta.PotionMeta
 import org.bukkit.potion.PotionEffect
 import java.text.DecimalFormatSymbols
 import java.util.Locale
+import kotlin.random.Random
 
 /**
  * The helper object for GUI items.
@@ -199,7 +200,11 @@ internal object GuiItems {
  */
 internal fun ItemStack.asDisplayItem(): ItemStack {
     val meta = itemMeta!!
-    PersistentDataAPI.setBoolean(meta, Keys.DISPLAY_ITEM, true)
+    PersistentDataAPI.setByte(
+        meta,
+        Keys.DISPLAY_ITEM,
+        Random.nextInt(Byte.MIN_VALUE.toInt(), Byte.MAX_VALUE.toInt() + 1).toByte()
+    )
     itemMeta = meta
     return this
 }
@@ -231,4 +236,4 @@ internal fun ItemStack.asNotDisplayItem(): ItemStack {
 internal fun ItemStack.removeDisplayItem() = clone().asNotDisplayItem()
 
 internal fun ItemStack.isDisplayItem() =
-    hasItemMeta() && PersistentDataAPI.hasBoolean(itemMeta!!, Keys.DISPLAY_ITEM)
+    hasItemMeta() && PersistentDataAPI.hasByte(itemMeta!!, Keys.DISPLAY_ITEM)

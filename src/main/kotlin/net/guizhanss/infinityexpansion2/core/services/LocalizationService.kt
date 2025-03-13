@@ -3,10 +3,9 @@
 package net.guizhanss.infinityexpansion2.core.services
 
 import io.github.seggan.sf4k.item.builder.MaterialType
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
-import net.guizhanss.guizhanlib.minecraft.localization.MinecraftLocalization
 import net.guizhanss.guizhanlib.minecraft.utils.ChatUtil
 import net.guizhanss.guizhanlib.minecraft.utils.ItemUtil
+import net.guizhanss.guizhanlib.slimefun.addon.SlimefunLocalization
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.utils.items.toItem
 import net.guizhanss.infinityexpansion2.utils.listYmlFilesInJar
@@ -22,14 +21,11 @@ import java.text.MessageFormat
 class LocalizationService(
     private val plugin: InfinityExpansion2,
     private val jarFile: File
-) : MinecraftLocalization(plugin) {
+) : SlimefunLocalization(plugin) {
 
     init {
         extractTranslations()
     }
-
-    var idPrefix = ""
-        @JvmSynthetic internal set
 
     private fun extractTranslations() {
         val translationsFolder = File(plugin.dataFolder, FOLDER_NAME)
@@ -46,10 +42,6 @@ class LocalizationService(
     fun getString(key: String, vararg args: Any?): String = MessageFormat.format(getString(key), *args)
 
     // items
-    fun getItem(itemId: String, item: MaterialType) = getItem(itemId, item.convert())
-    fun getItem(itemId: String, item: ItemStack) =
-        SlimefunItemStack("${idPrefix}${itemId.toId()}", item, getItemName(itemId), *getItemLore(itemId).toTypedArray())
-
     fun getItemName(itemId: String, vararg args: Any?) = getString("items.${itemId.toId()}.name", *args)
     fun getItemLore(itemId: String): List<String> = getStringList("items.${itemId.toId()}.lore")
 
@@ -68,7 +60,7 @@ class LocalizationService(
 
     // gui items (special items with prefix _UI_)
     fun getGuiItem(item: MaterialType, id: String, vararg extraLore: String): ItemStack =
-        ItemUtil.appendLore(getItem("_UI_${id.toId()}", item.convert()).toItem(), *extraLore)
+        getItem("_UI_${id.toId()}", item.convert(), *extraLore).toItem()
 
     fun sendMessage(sender: CommandSender, key: String, vararg args: Any) {
         ChatUtil.send(sender, MessageFormat.format(getString("messages.$key"), *args))
