@@ -49,7 +49,7 @@ abstract class FlexGroup(
     override fun open(p: Player, profile: PlayerProfile, mode: SlimefunGuideMode) {
         val menu = ChestMenu(getGuideTitle(p))
 
-        menu.setEmptySlotsClickable(false)
+        menu.isEmptySlotsClickable = false
         menu.addMenuOpeningHandler { SoundEffect.GUIDE_BUTTON_CLICK_SOUND.playFor(it) }
 
         setupBorder(p, profile, mode, menu)
@@ -119,8 +119,8 @@ abstract class FlexGroup(
 
             if (item != null) {
                 menu.replaceExistingItem(slot, item.getItem(p, profile))
-                menu.addMenuClickHandler(slot) { _, _, _, _ ->
-                    item.onClick(p, profile, mode)
+                menu.addMenuClickHandler(slot) { _, _, _, action ->
+                    item.onClick(p, profile, mode, action)
                     false
                 }
             } else {

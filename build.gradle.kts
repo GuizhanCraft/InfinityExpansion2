@@ -102,6 +102,8 @@ tasks {
             url("https://blob.build/dl/Slimefun4/Dev/latest")
             // SlimeHUD
             url("https://blob.build/dl/SlimeHUD/Dev/latest")
+            // JustEnoughGuide
+            url("https://blob.build/dl/JustEnoughGuide/Dev/latest")
             // GuizhanCraft for testing convenient
             // url("https://builds.guizhanss.com/api/download/ybw0014/GuizhanCraft/master/latest")
         }

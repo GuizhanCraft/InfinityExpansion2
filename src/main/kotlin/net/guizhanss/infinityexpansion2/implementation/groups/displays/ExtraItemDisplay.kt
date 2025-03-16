@@ -25,7 +25,7 @@ class ExtraItemDisplay(val extraItem: ExtraItem) : FlexItemGroup("display".creat
 
         val menu = ChestMenu(InfinityExpansion2.integrationService.getTranslatedItemName(p, extraItem.output))
 
-        menu.setEmptySlotsClickable(false)
+        menu.isEmptySlotsClickable = false
         menu.addMenuOpeningHandler { SoundEffect.GUIDE_BUTTON_CLICK_SOUND.playFor(it) }
 
         setupMenu(p, profile, mode, menu)

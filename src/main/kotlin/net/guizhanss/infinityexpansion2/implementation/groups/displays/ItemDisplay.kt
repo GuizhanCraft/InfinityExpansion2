@@ -31,7 +31,7 @@ abstract class ItemDisplay(protected val sfItem: SlimefunItem) :
         }
         val menu = ChestMenu(itemName)
 
-        menu.setEmptySlotsClickable(false)
+        menu.isEmptySlotsClickable = false
         menu.addMenuOpeningHandler { pl -> SoundEffect.GUIDE_BUTTON_CLICK_SOUND.playFor(pl) }
 
         setupMenu(p, profile, mode, menu)

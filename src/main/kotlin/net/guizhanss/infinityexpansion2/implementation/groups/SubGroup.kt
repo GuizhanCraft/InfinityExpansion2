@@ -11,6 +11,8 @@ import org.bukkit.inventory.ItemStack
 
 /**
  * A [SubGroup] is an [ItemGroup] that is used to display Infinity Expansion's items.
+ *
+ * The displayed group is actually [FakeSubGroup].
  */
 open class SubGroup(
     key: NamespacedKey,

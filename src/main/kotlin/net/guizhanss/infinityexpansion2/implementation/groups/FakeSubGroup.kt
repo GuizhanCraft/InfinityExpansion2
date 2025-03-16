@@ -6,11 +6,13 @@ import io.github.thebusybiscuit.slimefun4.core.guide.SlimefunGuide
 import io.github.thebusybiscuit.slimefun4.core.guide.SlimefunGuideMode
 import io.github.thebusybiscuit.slimefun4.implementation.Slimefun
 import io.github.thebusybiscuit.slimefun4.utils.ChestMenuUtils
+import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ClickAction
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.core.menu.FlexGroup
 import net.guizhanss.infinityexpansion2.core.menu.MenuItem
 import net.guizhanss.infinityexpansion2.implementation.groups.displays.ExtraItemDisplay
 import net.guizhanss.infinityexpansion2.utils.bukkitext.toItem
+import net.guizhanss.infinityexpansion2.utils.bukkitext.withAmount
 import net.guizhanss.infinityexpansion2.utils.bukkitext.withLore
 import net.guizhanss.infinityexpansion2.utils.bukkitext.withName
 import net.guizhanss.infinityexpansion2.utils.slimefunext.displayItem
@@ -36,11 +38,17 @@ class FakeSubGroup(
                     }
                 }
 
-                override fun onClick(p: Player, profile: PlayerProfile, mode: SlimefunGuideMode) {
-                    if (sfItem.hasResearch() && !profile.hasUnlocked(sfItem.research)) {
+                override fun onClick(p: Player, profile: PlayerProfile, mode: SlimefunGuideMode, action: ClickAction) {
+                    val guide = Slimefun.getRegistry().getSlimefunGuide(mode)
+                    if (mode == SlimefunGuideMode.CHEAT_MODE) {
+                        // cheat mode
+                        val amount = if (action.isShiftClicked) sfItem.item.maxStackSize else 1
+                        p.inventory.addItem(sfItem.item.withAmount(amount))
+                    } else if (sfItem.hasResearch() && !profile.hasUnlocked(sfItem.research)) {
                         // needs unlock
-                        sfItem.research!!.unlockFromGuide(GUIDE, p, profile, sfItem, this@FakeSubGroup, 0)
+                        sfItem.research!!.unlockFromGuide(guide, p, profile, sfItem, this@FakeSubGroup, 0)
                     } else {
+                        // survival mode unlocked
                         displayItem(profile, sfItem, mode)
                     }
                 }
@@ -58,11 +66,12 @@ class FakeSubGroup(
                     }
                 }
 
-                override fun onClick(p: Player, profile: PlayerProfile, mode: SlimefunGuideMode) {
+                override fun onClick(p: Player, profile: PlayerProfile, mode: SlimefunGuideMode, action: ClickAction) {
                     val sfItem = SlimefunItem.getByItem(extraItem.output)
+                    val guide = Slimefun.getRegistry().getSlimefunGuide(mode)
                     if (sfItem != null && sfItem.hasResearch() && !profile.hasUnlocked(sfItem.research)) {
                         // needs unlock
-                        sfItem.research!!.unlockFromGuide(GUIDE, p, profile, sfItem, this@FakeSubGroup, 0)
+                        sfItem.research!!.unlockFromGuide(guide, p, profile, sfItem, this@FakeSubGroup, 0)
                     } else {
                         SlimefunGuide.openItemGroup(profile, ExtraItemDisplay(extraItem), mode, 1)
                     }
@@ -74,8 +83,6 @@ class FakeSubGroup(
     override fun getGuideTitle(p: Player) = itemGroup.getName()
 
     companion object {
-
-        private val GUIDE = Slimefun.getRegistry().getSlimefunGuide(SlimefunGuideMode.SURVIVAL_MODE)
 
         private fun getNotResearchedItem(p: Player, sfItem: SlimefunItem) =
             ChestMenuUtils.getNotResearchedItem()
