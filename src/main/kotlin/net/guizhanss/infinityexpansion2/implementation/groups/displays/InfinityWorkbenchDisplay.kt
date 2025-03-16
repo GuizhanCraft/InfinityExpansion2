@@ -7,7 +7,7 @@ import io.github.thebusybiscuit.slimefun4.api.player.PlayerProfile
 import io.github.thebusybiscuit.slimefun4.core.guide.SlimefunGuideMode
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ChestMenu
 import net.guizhanss.infinityexpansion2.implementation.IEItems
-import net.guizhanss.infinityexpansion2.utils.items.toItem
+import net.guizhanss.infinityexpansion2.utils.compatibility.toItem
 import org.bukkit.entity.Player
 
 /**

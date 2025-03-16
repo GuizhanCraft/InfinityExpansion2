@@ -3,10 +3,10 @@
 package net.guizhanss.infinityexpansion2.implementation.items.tools
 
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
 import io.github.thebusybiscuit.slimefun4.core.attributes.DistinctiveItem
+import io.github.thebusybiscuit.slimefun4.implementation.Slimefun
 import io.github.thebusybiscuit.slimefun4.implementation.items.blocks.UnplaceableBlock
 import io.github.thebusybiscuit.slimefun4.libraries.dough.data.persistent.PersistentDataAPI
 import io.github.thebusybiscuit.slimefun4.libraries.dough.items.ItemUtils
@@ -14,9 +14,9 @@ import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.implementation.IEItems
 import net.guizhanss.infinityexpansion2.implementation.groups.IEItemGroups
 import net.guizhanss.infinityexpansion2.utils.bukkitext.toItemStack
+import net.guizhanss.infinityexpansion2.utils.compatibility.toItem
 import net.guizhanss.infinityexpansion2.utils.constant.Keys
 import net.guizhanss.infinityexpansion2.utils.items.builder.recipes.buildRecipe
-import net.guizhanss.infinityexpansion2.utils.items.toItem
 import org.bukkit.ChatColor
 import org.bukkit.inventory.ItemStack
 import org.bukkit.inventory.meta.ItemMeta
@@ -41,7 +41,7 @@ class Oscillator(
          * Create an oscillator item with specified target.
          */
         fun getItem(target: String): SlimefunItemStack {
-            val item = IEItems.OSCILLATOR.clone() as SlimefunItemStack
+            val item = IEItems.OSCILLATOR.toItem()
             val targetItem = target.toItemStack()
             item.type = targetItem.type
             val meta = item.itemMeta
@@ -56,13 +56,19 @@ class Oscillator(
             )
 
             item.itemMeta = meta
-            return item
+
+            // construct a new oscillator SlimefunItemStack
+            val sfis = SlimefunItemStack(
+                Slimefun.getItemDataService().getItemData(item).get(),
+                item,
+            )
+            return sfis
         }
 
         /**
          * Check if an [ItemStack] is an oscillator.
          */
-        fun isOscillator(item: ItemStack) = SlimefunItem.getByItem(item) is Oscillator
+        fun isOscillator(item: ItemStack) = getByItem(item) is Oscillator
 
         /**
          * Get the chance of an oscillator.

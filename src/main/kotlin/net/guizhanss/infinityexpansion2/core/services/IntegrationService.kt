@@ -8,7 +8,7 @@ import net.guizhanss.infinityexpansion2.implementation.IEItems
 import net.guizhanss.infinityexpansion2.implementation.listeners.TranslationsLoadListener
 import net.guizhanss.infinityexpansion2.integration.SlimeHUDIntegration
 import net.guizhanss.infinityexpansion2.utils.items.removePrefix
-import net.guizhanss.infinityexpansion2.utils.items.toItem
+import net.guizhanss.infinityexpansion2.utils.compatibility.toItem
 import net.guizhanss.slimefuntranslation.api.SlimefunTranslationAPI
 import net.guizhanss.slimefuntranslation.api.config.TranslationConfiguration
 import net.guizhanss.slimefuntranslation.api.config.TranslationConfigurationDefaults
@@ -44,7 +44,7 @@ class IntegrationService(private val plugin: InfinityExpansion2) {
         val fields = TranslationConfigurationFields.builder().items("items").lore("lores").build()
         val defaults = TranslationConfigurationDefaults.builder().name("InfinityExpansion2")
             .prefix(IEItems.prefix).build()
-        val languages = FileUtils.listYamlFiles(File(plugin.dataFolder, "lang"))
+        val languages: List<String> = FileUtils.listYamlFiles(File(plugin.dataFolder, "lang"))
         for (langFile in languages) {
             val file = File(plugin.dataFolder, "lang" + File.separator + langFile)
             val lang = langFile.replace(".yml", "")

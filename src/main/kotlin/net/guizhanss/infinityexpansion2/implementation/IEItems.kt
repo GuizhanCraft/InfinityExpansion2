@@ -70,7 +70,7 @@ import net.guizhanss.infinityexpansion2.utils.items.builder.buildSlimefunItem
 import net.guizhanss.infinityexpansion2.utils.items.builder.recipes.buildRecipe
 import net.guizhanss.infinityexpansion2.utils.items.getInfinityGearPotionEffects
 import net.guizhanss.infinityexpansion2.utils.items.getInfinityGearProtectionTypes
-import net.guizhanss.infinityexpansion2.utils.items.toItem
+import net.guizhanss.infinityexpansion2.utils.compatibility.toItem
 import org.bukkit.Material
 import org.bukkit.enchantments.Enchantment
 

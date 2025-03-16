@@ -100,13 +100,13 @@ tasks {
     runServer {
         downloadPlugins {
             // Slimefun
-            url("https://blob.build/dl/Slimefun4/Experimental/latest")
+            url("https://blob.build/dl/Slimefun4/Dev/latest")
             // SlimeHUD
             url("https://blob.build/dl/SlimeHUD/Dev/latest")
             // GuizhanCraft for testing convenient
             // url("https://builds.guizhanss.com/api/download/ybw0014/GuizhanCraft/master/latest")
         }
         jvmArgs("-Dcom.mojang.eula.agree=true")
-        minecraftVersion("1.21.3")
+        minecraftVersion("1.20.6")
     }
 }

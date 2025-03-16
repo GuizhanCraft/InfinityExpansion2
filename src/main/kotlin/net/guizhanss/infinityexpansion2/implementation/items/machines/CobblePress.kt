@@ -5,7 +5,7 @@ import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
 import net.guizhanss.infinityexpansion2.implementation.IEItems
 import net.guizhanss.infinityexpansion2.utils.bukkitext.toItem
-import net.guizhanss.infinityexpansion2.utils.items.withAmount
+import net.guizhanss.infinityexpansion2.utils.compatibility.withAmount
 import org.bukkit.Material
 import org.bukkit.inventory.ItemStack
 
