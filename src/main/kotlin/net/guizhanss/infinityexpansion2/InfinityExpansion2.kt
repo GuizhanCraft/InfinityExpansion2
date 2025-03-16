@@ -49,6 +49,9 @@ class InfinityExpansion2 : AbstractAddon(
         manager.loadLibrary(
             Library.builder().groupId("org.jetbrains.kotlin").artifactId("kotlin-reflect").version("2.1.10").build()
         )
+        manager.loadLibrary(
+            Library.builder().groupId("it.unimi.dsi").artifactId("fastutil").version("8.5.15").build()
+        )
 
         logger.info("Loaded all required libraries.")
     }

@@ -18,24 +18,11 @@ features and improvements.
 - Minecraft 1.20 or higher
 - Paper or its forks
 - (Optional) SlimefunTranslation
+- (Optional) SlimeHUD
 
-## Configuration
+## Wiki
 
-`/plugins/InfinityExpansion2/config.yml` is the main configuration file for InfinityExpansion2.
-
-Some of the config options are in `/plugins/Slimefun/Items.yml` under the specific item's settings.
-
-### Terms
-
-Before you start editing the config, you will want to know some terms and the information associated with them:
-
-- **Tick rate**: The amount of Slimefun ticks a machine runs. All the machines have a default tick rate of 1. (Unit:
-  Slimefun ticks, Range: 1 ~ 3600)
-- **Energy per tick / per use**: This is very easy to understand, it is the amount of energy consumed per tick or per
-  use.
-- **Output interval**: The amount of machine runs required to produce output. (Range: 1 ~ 3600)
-
-For example, if a machine has a tick rate of 10 and an output interval of 20, the machine runs and consumes energy every 5 seconds (10 ticks), and produces output every 100 seconds (200 ticks).
+[Click to visit the wiki](https://docs.ybw0014.dev/infinity-expansion-2/)
 
 ## Credits
 
