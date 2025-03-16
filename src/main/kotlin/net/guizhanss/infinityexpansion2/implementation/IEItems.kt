@@ -932,8 +932,9 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             'B' means Material.BOOK
         }
 
-        itemModifier = {
+        editItem = {
             it.addUnsafeEnchantment(Enchantment.FIRE_ASPECT, 10)
+            it
         }
     }
 
@@ -1021,8 +1022,9 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             'V' means VOID_INGOT
             'I' means INFINITY_INGOT
         }
-        itemModifier = {
+        editItem = {
             applyInfinityGearEnchantment(it)
+            it
         }
     }
 
@@ -1040,8 +1042,9 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             'V' means VOID_INGOT
             'I' means INFINITY_INGOT
         }
-        itemModifier = {
+        editItem = {
             applyInfinityGearEnchantment(it)
+            it
         }
     }
 
@@ -1059,8 +1062,9 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             'V' means VOID_INGOT
             'I' means INFINITY_INGOT
         }
-        itemModifier = {
+        editItem = {
             applyInfinityGearEnchantment(it)
+            it
         }
     }
 
@@ -1078,8 +1082,9 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             'V' means VOID_INGOT
             'I' means INFINITY_INGOT
         }
-        itemModifier = {
+        editItem = {
             applyInfinityGearEnchantment(it)
+            it
         }
     }
 
@@ -1119,8 +1124,9 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             'V' means VOID_INGOT
             'I' means INFINITY_INGOT
         }
-        itemModifier = {
+        editItem = {
             applyInfinityGearEnchantment(it)
+            it
         }
     }
 
@@ -1141,8 +1147,9 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             'V' means VOID_INGOT
             'I' means INFINITY_INGOT
         }
-        itemModifier = {
+        editItem = {
             applyInfinityGearEnchantment(it)
+            it
         }
     }
 
@@ -1163,8 +1170,9 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             'V' means VOID_INGOT
             'I' means INFINITY_INGOT
         }
-        itemModifier = {
+        editItem = {
             applyInfinityGearEnchantment(it)
+            it
         }
     }
 
@@ -1185,8 +1193,9 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             'V' means VOID_INGOT
             'I' means INFINITY_INGOT
         }
-        itemModifier = {
+        editItem = {
             applyInfinityGearEnchantment(it)
+            it
         }
     }
 
@@ -1204,8 +1213,9 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             'V' means VOID_INGOT
             'I' means INFINITY_INGOT
         }
-        itemModifier = {
+        editItem = {
             applyInfinityGearEnchantment(it)
+            it
         }
     }
 
@@ -1223,8 +1233,9 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             'V' means VOID_INGOT
             'I' means INFINITY_INGOT
         }
-        itemModifier = {
+        editItem = {
             applyInfinityGearEnchantment(it)
+            it
         }
     }
 
@@ -1243,8 +1254,9 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             'I' means INFINITY_INGOT
             'E' means ENDER_FLAME
         }
-        itemModifier = {
+        editItem = {
             applyInfinityGearEnchantment(it)
+            it
         }
     }
 
@@ -1262,8 +1274,9 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
             'V' means VOID_INGOT
             'I' means INFINITY_INGOT
         }
-        itemModifier = {
+        editItem = {
             applyInfinityGearEnchantment(it)
+            it
         }
     }
     //</editor-fold>

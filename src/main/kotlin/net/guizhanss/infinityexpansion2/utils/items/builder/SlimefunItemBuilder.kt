@@ -1,6 +1,5 @@
 package net.guizhanss.infinityexpansion2.utils.items.builder
 
-import io.github.seggan.sf4k.item.builder.ItemProvider
 import io.github.seggan.sf4k.item.builder.ItemRegistry
 import io.github.seggan.sf4k.item.builder.MaterialType
 import io.github.seggan.sf4k.util.RequiredProperty
@@ -13,6 +12,7 @@ import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import org.bukkit.inventory.ItemStack
 import java.util.logging.Level
 import kotlin.properties.PropertyDelegateProvider
+import kotlin.properties.ReadOnlyProperty
 import kotlin.reflect.KClass
 import kotlin.reflect.full.valueParameters
 
@@ -31,10 +31,7 @@ class SlimefunItemBuilder(private val registry: ItemRegistry) {
     var recipeType: RecipeType by RequiredProperty()
     var recipe: Array<out ItemStack?> by RequiredProperty(arrayOfNulls<ItemStack>(9))
 
-    /**
-     * This function is called after the [SlimefunItemStack] is created.
-     */
-    var itemModifier: (SlimefunItemStack) -> Unit = {}
+    var editItem: (SlimefunItemStack) -> SlimefunItemStack = { it }
 
     private val extraLore = mutableListOf<String>()
 
@@ -42,7 +39,7 @@ class SlimefunItemBuilder(private val registry: ItemRegistry) {
         extraLore += ChatUtil.color(this)
     }
 
-    fun <T : SlimefunItem> build(clazz: KClass<T>, vararg otherArgs: Any?): Pair<SlimefunItemStack, T> {
+    fun <T : SlimefunItem> build(clazz: KClass<T>, vararg otherArgs: Any?): SlimefunItemStack {
         // SlimefunItemStack
         val name = InfinityExpansion2.localization.getItemName(id)
         val lore = InfinityExpansion2.localization.getItemLore(id).toMutableList() + extraLore
@@ -53,10 +50,9 @@ class SlimefunItemBuilder(private val registry: ItemRegistry) {
             *lore.toTypedArray()
         )
         sfis.amount = amount
-        itemModifier(sfis)
 
         // SlimefunItem
-        val args = arrayOf(itemGroup, sfis, recipeType, recipe, *otherArgs)
+        val args = arrayOf(itemGroup, editItem(sfis), recipeType, recipe, *otherArgs)
         // sf4k's reflection cant find the constructor, we use our own implementation
         val constructor = clazz.constructors.firstOrNull { constructor ->
             constructor.valueParameters.size == args.size && constructor.valueParameters.zip(args).all { (param, arg) ->
@@ -73,17 +69,17 @@ class SlimefunItemBuilder(private val registry: ItemRegistry) {
             throw e
         }
         item.register(InfinityExpansion2.instance)
-        return sfis to item
+        return sfis
     }
 }
 
 inline fun <reified I : SlimefunItem> ItemRegistry.buildSlimefunItem(
     vararg otherArgs: Any?,
     crossinline builder: SlimefunItemBuilder.() -> Unit
-) = PropertyDelegateProvider<Any?, ItemProvider<I>> { _, property ->
+) = PropertyDelegateProvider<Any?, ReadOnlyProperty<Any?, SlimefunItemStack>> { _, property ->
     val itemBuilder = SlimefunItemBuilder(this)
     itemBuilder.id = property.name.uppercase()
     itemBuilder.apply(builder)
     val item = itemBuilder.build(I::class, *otherArgs)
-    ItemProvider(item.first, item.second)
+    ReadOnlyProperty { _, _ -> item }
 }
