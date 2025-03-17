@@ -4,6 +4,7 @@ import io.github.schntgaispock.slimehud.util.HudBuilder
 import io.github.schntgaispock.slimehud.waila.HudRequest
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
+import io.github.thebusybiscuit.slimefun4.api.items.settings.IntRangeSetting
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
 import io.github.thebusybiscuit.slimefun4.libraries.dough.inventory.InvUtils
 import io.github.thebusybiscuit.slimefun4.utils.ChestMenuUtils
@@ -39,22 +40,28 @@ class MobSimulationChamber(
 ) : AbstractTickingMachine(itemGroup, itemStack, recipeType, recipe, MenuLayout.SINGLE_INPUT, energyPerTick),
     EnergyTickingConsumer, InformationalRecipeDisplayItem {
 
+    private val energyCapacitySetting = IntRangeSetting(this, "energy-capacity", 1, energyPerTick, 1_000_000_000)
+
+    init {
+        addItemSetting(energyCapacitySetting)
+    }
+
     override fun postRegister() {
         super.postRegister()
 
-        // check if consumption is too large (about 2.1b / 100)
-        if (getEnergyConsumptionPerTick() > 20_000_000) {
+        if (getEnergyConsumptionPerTick() > capacity) {
             InfinityExpansion2.log(Level.WARNING, "Invalid item settings for $id:")
             InfinityExpansion2.log(
                 Level.WARNING,
-                "The energy consumption is too large (cannot larger than 20_000_000)."
+                "The base energy consumption is larger than energy capacity."
             )
             InfinityExpansion2.log(Level.WARNING, "Using default value now, please update the config.")
             energyPerTickSetting.update(energyPerTickSetting.defaultValue)
+            energyCapacitySetting.update(energyCapacitySetting.defaultValue)
         }
     }
 
-    override fun getCapacity() = getEnergyConsumptionPerTick() * 100
+    override fun getCapacity() = energyCapacitySetting.value
 
     override fun onNewInstance(menu: BlockMenu, b: Block) {
         val l = b.location
@@ -83,7 +90,7 @@ class MobSimulationChamber(
 
         // handle stackable
         val amount = if (InfinityExpansion2.configService.mobSimAllowStackedCard) cardAmount else 1
-        val energy = getEnergyConsumptionPerTick() + props.energy
+        val energy = getEnergyConsumptionPerTick() + props.energy * amount
 
         if (getCharge(menu.location) < energy) {
             menu.setStatus { GuiItems.NO_POWER }

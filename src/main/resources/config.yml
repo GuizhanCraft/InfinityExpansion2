@@ -74,8 +74,9 @@ mob-simulation:
   output-interval: 20
 
   # Whether cards can be stackable.
-  # When enabled, the product will be multiplied by the amount of cards. The energy consumption remains same for 1x.
+  # When enabled, the product will be multiplied by the amount of cards. The energy consumption is also multiplied.
   # When disabled, multiple cards always produce 1x.
+  # Tip: when enabled, you can change the energy capacity of Mob Simulation Chamber accordingly.
   allow-stacked-card: false
 
   # The experience multiplier for mob simulation
