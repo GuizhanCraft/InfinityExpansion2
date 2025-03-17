@@ -1,8 +1,8 @@
 package net.guizhanss.infinityexpansion2.utils.bukkitext
 
+import net.guizhanss.guizhanlib.kt.common.extensions.flatten
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.core.config.SerializableSection
-import net.guizhanss.infinityexpansion2.utils.flatten
 import org.bukkit.configuration.ConfigurationSection
 import java.util.logging.Level
 import kotlin.reflect.full.companionObject

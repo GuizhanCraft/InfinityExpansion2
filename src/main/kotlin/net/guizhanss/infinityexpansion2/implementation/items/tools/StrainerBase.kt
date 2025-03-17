@@ -4,7 +4,6 @@ package net.guizhanss.infinityexpansion2.implementation.items.tools
 
 import io.github.seggan.sf4k.item.builder.asMaterialType
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
 import io.github.thebusybiscuit.slimefun4.api.items.settings.IntRangeSetting
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
@@ -13,15 +12,14 @@ import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenuPreset
 import me.mrCookieSlime.Slimefun.api.inventory.DirtyChestMenu
 import net.guizhanss.guizhanlib.common.utils.RandomUtil
+import net.guizhanss.guizhanlib.kt.minecraft.extensions.toItem
+import net.guizhanss.guizhanlib.kt.slimefun.items.toItem
 import net.guizhanss.guizhanlib.slimefun.machines.TickingMenuBlock
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.core.items.attributes.InformationalRecipeDisplayItem
 import net.guizhanss.infinityexpansion2.core.menu.MenuLayout
 import net.guizhanss.infinityexpansion2.utils.bukkitext.isWaterLogged
-import net.guizhanss.infinityexpansion2.utils.bukkitext.toItem
-import net.guizhanss.infinityexpansion2.utils.compatibility.withAmount
 import net.guizhanss.infinityexpansion2.utils.items.GuiItems
-import net.guizhanss.infinityexpansion2.utils.compatibility.toItem
 import org.bukkit.Material
 import org.bukkit.block.Block
 import org.bukkit.enchantments.Enchantment
@@ -124,16 +122,16 @@ class StrainerBase(
             Material.QUARTZ.toItem(),
             Material.REDSTONE.toItem(),
             Material.EMERALD.toItem(),
-            SlimefunItems.MAGNESIUM_DUST.withAmount(1),
-            SlimefunItems.COPPER_DUST.withAmount(1),
-            SlimefunItems.COPPER_DUST.withAmount(1),
-            SlimefunItems.SILVER_DUST.withAmount(1),
-            SlimefunItems.ALUMINUM_DUST.withAmount(1),
-            SlimefunItems.LEAD_DUST.withAmount(1),
-            SlimefunItems.IRON_DUST.withAmount(1),
-            SlimefunItems.GOLD_DUST.withAmount(1),
-            SlimefunItems.TIN_DUST.withAmount(1),
-            SlimefunItems.ZINC_DUST.withAmount(1),
+            SlimefunItems.MAGNESIUM_DUST.toItem(),
+            SlimefunItems.COPPER_DUST.toItem(),
+            SlimefunItems.COPPER_DUST.toItem(),
+            SlimefunItems.SILVER_DUST.toItem(),
+            SlimefunItems.ALUMINUM_DUST.toItem(),
+            SlimefunItems.LEAD_DUST.toItem(),
+            SlimefunItems.IRON_DUST.toItem(),
+            SlimefunItems.GOLD_DUST.toItem(),
+            SlimefunItems.TIN_DUST.toItem(),
+            SlimefunItems.ZINC_DUST.toItem(),
         )
 
         private val POTATO_FISH = InfinityExpansion2.localization.getItem(

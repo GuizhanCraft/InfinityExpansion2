@@ -3,8 +3,8 @@
 package net.guizhanss.infinityexpansion2.implementation.items.storage
 
 import io.github.thebusybiscuit.slimefun4.libraries.dough.items.ItemUtils
+import net.guizhanss.guizhanlib.kt.minecraft.extensions.isAir
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
-import net.guizhanss.infinityexpansion2.utils.bukkitext.isAir
 import org.bukkit.inventory.ItemStack
 import org.bukkit.inventory.meta.ItemMeta
 

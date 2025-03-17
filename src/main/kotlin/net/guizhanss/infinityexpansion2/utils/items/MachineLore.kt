@@ -9,7 +9,7 @@ object MachineLore {
     private const val POWER_PREFIX = "&8\u21E8 &e\u26A1 &7"
     private val numberFormatter get() = NumberFormat.getNumberInstance(Locale.getDefault())
 
-    fun format(value: Int) = numberFormatter.format(value)
+    fun format(value: Int): String = numberFormatter.format(value)
 
     fun power(power: Int, suffix: String) = "$POWER_PREFIX${format(power)} J$suffix"
 

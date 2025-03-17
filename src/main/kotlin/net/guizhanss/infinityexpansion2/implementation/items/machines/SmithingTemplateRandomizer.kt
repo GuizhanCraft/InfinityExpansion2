@@ -3,10 +3,10 @@ package net.guizhanss.infinityexpansion2.implementation.items.machines
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
+import net.guizhanss.guizhanlib.kt.minecraft.extensions.toItem
+import net.guizhanss.guizhanlib.kt.slimefun.items.edit
 import net.guizhanss.guizhanlib.minecraft.utils.MinecraftVersionUtil
 import net.guizhanss.infinityexpansion2.implementation.IEItems
-import net.guizhanss.infinityexpansion2.utils.bukkitext.toItem
-import net.guizhanss.infinityexpansion2.utils.compatibility.withAmount
 import org.bukkit.Material
 import org.bukkit.inventory.ItemStack
 
@@ -46,6 +46,6 @@ class SmithingTemplateRandomizer(
             )
         }
 
-        addRecipe(IEItems.UNKNOWN_SMITHING_TEMPLATE.withAmount(8), templates)
+        addRecipe(IEItems.UNKNOWN_SMITHING_TEMPLATE.edit { amount(8) }, templates)
     }
 }

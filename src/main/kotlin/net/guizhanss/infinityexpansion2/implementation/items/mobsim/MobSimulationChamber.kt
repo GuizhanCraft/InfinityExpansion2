@@ -8,6 +8,8 @@ import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
 import io.github.thebusybiscuit.slimefun4.libraries.dough.inventory.InvUtils
 import io.github.thebusybiscuit.slimefun4.utils.ChestMenuUtils
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu
+import net.guizhanss.guizhanlib.kt.minecraft.extensions.isAir
+import net.guizhanss.guizhanlib.kt.slimefun.extensions.isSlimefunItem
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.api.mobsim.MobDataCardProps
 import net.guizhanss.infinityexpansion2.core.IERegistry
@@ -16,11 +18,9 @@ import net.guizhanss.infinityexpansion2.core.items.attributes.EnergyTickingConsu
 import net.guizhanss.infinityexpansion2.core.items.attributes.InformationalRecipeDisplayItem
 import net.guizhanss.infinityexpansion2.core.menu.MenuLayout
 import net.guizhanss.infinityexpansion2.implementation.items.machines.abstracts.AbstractTickingMachine
-import net.guizhanss.infinityexpansion2.utils.bukkitext.isAir
 import net.guizhanss.infinityexpansion2.utils.slimefunext.getBlockMenu
 import net.guizhanss.infinityexpansion2.utils.slimefunext.getInt
 import net.guizhanss.infinityexpansion2.utils.items.GuiItems
-import net.guizhanss.infinityexpansion2.utils.slimefunext.isSlimefunItem
 import net.guizhanss.infinityexpansion2.utils.slimefunext.setInt
 import org.bukkit.Sound
 import org.bukkit.block.Block

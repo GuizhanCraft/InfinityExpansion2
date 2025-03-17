@@ -4,7 +4,7 @@ import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
 import io.github.thebusybiscuit.slimefun4.implementation.items.blocks.HardenedGlass
-import net.guizhanss.infinityexpansion2.utils.compatibility.withAmount
+import net.guizhanss.guizhanlib.kt.slimefun.items.edit
 import org.bukkit.inventory.ItemStack
 
 class VoidGlass(
@@ -13,4 +13,4 @@ class VoidGlass(
     recipeType: RecipeType,
     recipe: Array<out ItemStack?>,
     amount: Int,
-) : HardenedGlass(itemGroup, itemStack, recipeType, recipe, itemStack.withAmount(amount))
+) : HardenedGlass(itemGroup, itemStack, recipeType, recipe, itemStack.edit { amount(amount) })

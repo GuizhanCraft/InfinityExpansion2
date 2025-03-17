@@ -10,9 +10,3 @@ import java.util.Locale
  */
 internal fun String.createKey() =
     NamespacedKey(InfinityExpansion2.instance, StringUtil.dehumanize(this).lowercase(Locale.ENGLISH))
-
-/**
- * Create a Minecraft [NamespacedKey] from the string.
- */
-fun String.toMinecraftKey() =
-    NamespacedKey.minecraft(StringUtil.dehumanize(this).lowercase(Locale.ENGLISH))

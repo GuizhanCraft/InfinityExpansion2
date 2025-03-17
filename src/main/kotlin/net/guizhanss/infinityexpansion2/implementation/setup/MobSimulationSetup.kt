@@ -3,14 +3,13 @@
 package net.guizhanss.infinityexpansion2.implementation.setup
 
 import net.guizhanss.guizhanlib.common.utils.StringUtil
+import net.guizhanss.guizhanlib.kt.minecraft.extensions.isAir
+import net.guizhanss.guizhanlib.kt.slimefun.items.toItem
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.api.InfinityExpansion2API
 import net.guizhanss.infinityexpansion2.api.mobsim.MobDataCardProps
 import net.guizhanss.infinityexpansion2.implementation.IEItems
-import net.guizhanss.infinityexpansion2.utils.bukkitext.isAir
 import net.guizhanss.infinityexpansion2.utils.bukkitext.toItemStack
-import net.guizhanss.infinityexpansion2.utils.clamp
-import net.guizhanss.infinityexpansion2.utils.compatibility.toItem
 import org.bukkit.ChatColor
 import org.bukkit.configuration.ConfigurationSection
 import org.bukkit.inventory.ItemStack
@@ -38,8 +37,8 @@ internal object MobSimulationSetup {
             // load data
             val name = section.getString("name", "${ChatColor.BLUE}${StringUtil.humanize(key)}")!!
             val texture = section.getString("texture", "IRON_CHESTPLATE")!!.toItemStack()
-            val energy = section.getInt("energy", 75).clamp(0, 1_000_000)
-            val experience = section.getInt("experience").clamp(0, Int.MAX_VALUE)
+            val energy = section.getInt("energy", 75).coerceIn(0, 1_000_000)
+            val experience = section.getInt("experience").coerceIn(0, Int.MAX_VALUE)
 
             InfinityExpansion2.debug("name=$name, texture=$texture, energy=$energy, experience=$experience")
 

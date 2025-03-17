@@ -1,6 +1,7 @@
 package net.guizhanss.infinityexpansion2.implementation.items.storage
 
 import io.github.schntgaispock.slimehud.waila.HudRequest
+import io.github.seggan.sf4k.extensions.position
 import io.github.seggan.sf4k.item.builder.asMaterialType
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem
@@ -16,6 +17,10 @@ import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenuPreset
 import me.mrCookieSlime.Slimefun.api.inventory.DirtyChestMenu
 import net.guizhanss.guizhanlib.common.Cooldown
+import net.guizhanss.guizhanlib.kt.minecraft.extensions.isAir
+import net.guizhanss.guizhanlib.kt.minecraft.items.edit
+import net.guizhanss.guizhanlib.kt.slimefun.extensions.isSlimefunItem
+import net.guizhanss.guizhanlib.kt.slimefun.extensions.position
 import net.guizhanss.guizhanlib.slimefun.machines.MenuBlock
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.core.items.annotations.HudProvider
@@ -23,16 +28,12 @@ import net.guizhanss.infinityexpansion2.core.items.attributes.InformationalRecip
 import net.guizhanss.infinityexpansion2.core.menu.MenuLayout
 import net.guizhanss.infinityexpansion2.core.persistent.PersistentStorageCacheType
 import net.guizhanss.infinityexpansion2.utils.bukkitext.createKey
-import net.guizhanss.infinityexpansion2.utils.bukkitext.isAir
-import net.guizhanss.infinityexpansion2.utils.bukkitext.withAmount
 import net.guizhanss.infinityexpansion2.utils.items.isSimilar
 import net.guizhanss.infinityexpansion2.utils.items.removeDisplayItem
 import net.guizhanss.infinityexpansion2.utils.items.toDisplayItem
-import net.guizhanss.infinityexpansion2.utils.slimefunext.blockPosition
 import net.guizhanss.infinityexpansion2.utils.slimefunext.getBlockMenu
 import net.guizhanss.infinityexpansion2.utils.slimefunext.getBoolean
 import net.guizhanss.infinityexpansion2.utils.slimefunext.getInt
-import net.guizhanss.infinityexpansion2.utils.slimefunext.isSlimefunItem
 import net.guizhanss.infinityexpansion2.utils.slimefunext.setBoolean
 import net.guizhanss.infinityexpansion2.utils.slimefunext.setInt
 import net.guizhanss.infinityexpansion2.utils.tags.IETag
@@ -98,12 +99,12 @@ class StorageUnit(
             false
         }
 
-        val cache = _caches[menu.blockPosition] ?: addCache(menu)
+        val cache = _caches[menu.position] ?: addCache(menu)
         menu.updateDisplay(cache)
     }
 
     override fun getInputSlots(menu: DirtyChestMenu, item: ItemStack): IntArray {
-        val cache = _caches[(menu as BlockMenu).blockPosition]
+        val cache = _caches[(menu as BlockMenu).position]
         return if (cache != null &&
             ((cache.isEmpty() || cache.matches(item)) && isSimilar(item, menu.getItemInSlot(outputSlots[0])))
         ) {
@@ -115,11 +116,11 @@ class StorageUnit(
 
     private fun tick(b: Block) {
         val menu = b.getBlockMenu() ?: run {
-            _caches.remove(b.blockPosition)
+            _caches.remove(b.position)
             return
         }
 
-        val cache = _caches[menu.blockPosition] ?: return
+        val cache = _caches[menu.position] ?: return
 
         menu.updateDisplay(cache)
 
@@ -168,7 +169,7 @@ class StorageUnit(
         super.onBreak(e, menu)
 
         val loc = menu.location
-        val cache = _caches.remove(menu.blockPosition)
+        val cache = _caches.remove(menu.position)
         if (cache != null && cache.amount > 0 && cache.itemStack != null) {
             val itemToDrop = item.clone()
             val meta = itemToDrop.itemMeta
@@ -182,7 +183,7 @@ class StorageUnit(
     }
 
     private fun toggleVoid(menu: BlockMenu) {
-        val cache = _caches[menu.blockPosition] ?: return
+        val cache = _caches[menu.position] ?: return
         cache.voidExcess = !cache.voidExcess
         menu.updateDisplay(cache)
         menu.location.save(cache)
@@ -194,7 +195,7 @@ class StorageUnit(
      * Left click = deposit all
      */
     private fun interaction(menu: BlockMenu, p: Player, withdraw: Boolean = true) {
-        val cache = _caches[menu.blockPosition] ?: return
+        val cache = _caches[menu.position] ?: return
         val inv = p.inventory
 
         if (withdraw) {
@@ -230,7 +231,7 @@ class StorageUnit(
             // Then fill empty slots
             while (cache.amount > 0) {
                 val amount = maxStackSize.coerceAtMost(cache.amount)
-                val item = itemToGive.withAmount(amount)
+                val item = itemToGive.edit { amount(amount) }
                 val leftover = inv.addItem(item)
                 if (leftover.isEmpty()) {
                     cache.amount -= amount
@@ -248,7 +249,7 @@ class StorageUnit(
             // empty storage && no item in output
             if (cache.isEmpty() && outputItem.isAir()) return
 
-            cache.itemStack = outputItem.withAmount(1)
+            cache.itemStack = outputItem.edit { amount(1) }
 
             for (item in inv.storageContents) {
                 if (item.isAir() || item.isBlacklisted()) continue
@@ -277,7 +278,7 @@ class StorageUnit(
         val cache = createCache(item, menu, amount, voidExcess)
         InfinityExpansion2.debug("created cache at $loc: $cache")
 
-        _caches[menu.blockPosition] = cache
+        _caches[menu.position] = cache
         return cache
     }
 
@@ -374,7 +375,7 @@ class StorageUnit(
             InfinityExpansion2.debug("storage unit input attempt with item: $item, cache: $cache")
 
             if (cache.isEmpty()) {
-                cache.itemStack = item.withAmount(1)
+                cache.itemStack = item.edit { amount(1) }
                 val leftover = cache.increaseAmount(amount)
                 InfinityExpansion2.debug("empty cache, updated: $cache, leftover: $leftover")
                 location.save(cache)
@@ -409,7 +410,7 @@ class StorageUnit(
             if (cache.isEmpty()) return null
 
             val decreaseAmount = amount.coerceAtMost(cache.amount)
-            val item = cache.itemStack!!.withAmount(decreaseAmount)
+            val item = cache.itemStack!!.edit { amount(decreaseAmount) }
             cache.amount -= decreaseAmount
             location.save(cache)
             return item
@@ -449,7 +450,7 @@ class StorageUnit(
         fun hudHandler(request: HudRequest): String {
             val menu = request.location.getBlockMenu() ?: return "Unknown"
             val storage = request.slimefunItem as StorageUnit
-            val cache = storage.caches[menu.blockPosition] ?: return "Invalid Storage Unit"
+            val cache = storage.caches[menu.position] ?: return "Invalid Storage Unit"
 
             if (cache.isEmpty()) return "Empty"
 

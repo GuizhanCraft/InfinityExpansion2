@@ -3,9 +3,9 @@ package net.guizhanss.infinityexpansion2.core.recipes
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem
 import io.github.thebusybiscuit.slimefun4.libraries.dough.items.ItemUtils
 import io.github.thebusybiscuit.slimefun4.utils.itemstack.ItemStackWrapper
+import net.guizhanss.guizhanlib.kt.slimefun.debug.debugMessage
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.utils.items.isSimilar
-import net.guizhanss.infinityexpansion2.utils.toDebugMessage
 import org.bukkit.entity.Player
 import org.bukkit.inventory.ItemStack
 
@@ -21,7 +21,7 @@ class MachineRecipe private constructor(
     private val recipeValidItemCount = recipe.count { it != null }
 
     fun check(input: Array<out ItemStack?>, strict: Boolean = true): Boolean {
-        InfinityExpansion2.debug("Checking recipe: ${recipe.toDebugMessage()}")
+        InfinityExpansion2.debug("Checking recipe: ${recipe.debugMessage()}")
         InfinityExpansion2.debug("Output: $output")
         if (input.size != recipe.size || recipeValidItemCount != input.count { it != null }) {
             return false

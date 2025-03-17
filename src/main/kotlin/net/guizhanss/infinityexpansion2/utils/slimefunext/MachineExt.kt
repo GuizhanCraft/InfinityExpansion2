@@ -2,7 +2,7 @@ package net.guizhanss.infinityexpansion2.utils.slimefunext
 
 import io.github.thebusybiscuit.slimefun4.implementation.Slimefun
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu
-import net.guizhanss.infinityexpansion2.utils.bukkitext.isAir
+import net.guizhanss.guizhanlib.kt.minecraft.extensions.isAir
 import org.bukkit.inventory.ItemStack
 
 typealias RecipeInput = ItemStack

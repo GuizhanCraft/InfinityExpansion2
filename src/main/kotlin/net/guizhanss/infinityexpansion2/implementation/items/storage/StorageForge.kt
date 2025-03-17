@@ -8,7 +8,6 @@ import net.guizhanss.infinityexpansion2.core.items.attributes.InformationalRecip
 import net.guizhanss.infinityexpansion2.core.menu.MenuLayout
 import net.guizhanss.infinityexpansion2.core.recipes.MachineRecipe
 import net.guizhanss.infinityexpansion2.implementation.items.machines.abstracts.AbstractCraftingMachine
-import net.guizhanss.infinityexpansion2.utils.items.GuiItems
 import org.bukkit.inventory.ItemStack
 
 class StorageForge(
@@ -23,4 +22,6 @@ class StorageForge(
         get() = IERegistry.storageForgeRecipes
 
     override val strictIngredientCheck = false
+
+    // TODO: upgrade storage unit
 }

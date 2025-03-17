@@ -10,13 +10,13 @@ import io.github.thebusybiscuit.slimefun4.implementation.Slimefun
 import io.github.thebusybiscuit.slimefun4.implementation.items.blocks.UnplaceableBlock
 import io.github.thebusybiscuit.slimefun4.libraries.dough.data.persistent.PersistentDataAPI
 import io.github.thebusybiscuit.slimefun4.libraries.dough.items.ItemUtils
+import net.guizhanss.guizhanlib.kt.slimefun.items.builder.buildRecipe
+import net.guizhanss.guizhanlib.kt.slimefun.items.toItem
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.implementation.IEItems
 import net.guizhanss.infinityexpansion2.implementation.groups.IEItemGroups
 import net.guizhanss.infinityexpansion2.utils.bukkitext.toItemStack
-import net.guizhanss.infinityexpansion2.utils.compatibility.toItem
 import net.guizhanss.infinityexpansion2.utils.constant.Keys
-import net.guizhanss.infinityexpansion2.utils.items.builder.recipes.buildRecipe
 import org.bukkit.ChatColor
 import org.bukkit.inventory.ItemStack
 import org.bukkit.inventory.meta.ItemMeta

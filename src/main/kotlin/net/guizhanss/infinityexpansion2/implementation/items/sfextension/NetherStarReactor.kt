@@ -5,8 +5,8 @@ import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
 import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.abstractItems.MachineFuel
 import me.mrCookieSlime.Slimefun.api.BlockStorage
+import net.guizhanss.guizhanlib.kt.minecraft.extensions.toItem
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
-import net.guizhanss.infinityexpansion2.utils.bukkitext.toItem
 import org.bukkit.Location
 import org.bukkit.Material
 import org.bukkit.entity.LivingEntity

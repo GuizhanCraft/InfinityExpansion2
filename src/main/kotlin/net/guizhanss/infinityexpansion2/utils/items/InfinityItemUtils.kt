@@ -1,12 +1,12 @@
 package net.guizhanss.infinityexpansion2.utils.items
 
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
+import net.guizhanss.guizhanlib.kt.minecraft.extensions.getEnchantment
+import net.guizhanss.guizhanlib.kt.minecraft.extensions.getPotionEffectType
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.core.items.attributes.ProtectionType
 import net.guizhanss.infinityexpansion2.implementation.IEItems
 import net.guizhanss.infinityexpansion2.utils.bukkitext.createKey
-import net.guizhanss.infinityexpansion2.utils.bukkitext.getEnchantment
-import net.guizhanss.infinityexpansion2.utils.bukkitext.getPotionEffectType
 import org.bukkit.potion.PotionEffect
 import java.util.logging.Level
 

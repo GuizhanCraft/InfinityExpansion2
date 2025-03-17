@@ -4,8 +4,8 @@ import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems
-import net.guizhanss.infinityexpansion2.utils.bukkitext.toItem
-import net.guizhanss.infinityexpansion2.utils.compatibility.withAmount
+import net.guizhanss.guizhanlib.kt.minecraft.extensions.toItem
+import net.guizhanss.guizhanlib.kt.slimefun.items.edit
 import org.bukkit.Material
 import org.bukkit.inventory.ItemStack
 
@@ -21,40 +21,40 @@ class IngotFormer(
 
     init {
         addRecipe(
-            SlimefunItems.COPPER_DUST.withAmount(inputAmount),
-            SlimefunItems.COPPER_INGOT.withAmount(outputAmount)
+            SlimefunItems.COPPER_DUST.edit { amount(inputAmount) },
+            SlimefunItems.COPPER_INGOT.edit { amount(outputAmount) }
         )
         addRecipe(
-            SlimefunItems.ZINC_DUST.withAmount(inputAmount),
-            SlimefunItems.ZINC_INGOT.withAmount(outputAmount)
+            SlimefunItems.ZINC_DUST.edit { amount(inputAmount) },
+            SlimefunItems.ZINC_INGOT.edit { amount(outputAmount) }
         )
         addRecipe(
-            SlimefunItems.TIN_DUST.withAmount(inputAmount),
-            SlimefunItems.TIN_INGOT.withAmount(outputAmount)
+            SlimefunItems.TIN_DUST.edit { amount(inputAmount) },
+            SlimefunItems.TIN_INGOT.edit { amount(outputAmount) }
         )
         addRecipe(
-            SlimefunItems.ALUMINUM_DUST.withAmount(inputAmount),
-            SlimefunItems.ALUMINUM_INGOT.withAmount(outputAmount)
+            SlimefunItems.ALUMINUM_DUST.edit { amount(inputAmount) },
+            SlimefunItems.ALUMINUM_INGOT.edit { amount(outputAmount) }
         )
         addRecipe(
-            SlimefunItems.LEAD_DUST.withAmount(inputAmount),
-            SlimefunItems.LEAD_INGOT.withAmount(outputAmount)
+            SlimefunItems.LEAD_DUST.edit { amount(inputAmount) },
+            SlimefunItems.LEAD_INGOT.edit { amount(outputAmount) }
         )
         addRecipe(
-            SlimefunItems.SILVER_DUST.withAmount(inputAmount),
-            SlimefunItems.SILVER_INGOT.withAmount(outputAmount)
+            SlimefunItems.SILVER_DUST.edit { amount(inputAmount) },
+            SlimefunItems.SILVER_INGOT.edit { amount(outputAmount) }
         )
         addRecipe(
-            SlimefunItems.GOLD_DUST.withAmount(inputAmount),
-            SlimefunItems.GOLD_4K.withAmount(outputAmount)
+            SlimefunItems.GOLD_DUST.edit { amount(inputAmount) },
+            SlimefunItems.GOLD_4K.edit { amount(outputAmount) }
         )
         addRecipe(
-            SlimefunItems.IRON_DUST.withAmount(inputAmount),
+            SlimefunItems.IRON_DUST.edit { amount(inputAmount) },
             Material.IRON_INGOT.toItem(outputAmount)
         )
         addRecipe(
-            SlimefunItems.MAGNESIUM_DUST.withAmount(inputAmount),
-            SlimefunItems.MAGNESIUM_INGOT.withAmount(outputAmount)
+            SlimefunItems.MAGNESIUM_DUST.edit { amount(inputAmount) },
+            SlimefunItems.MAGNESIUM_INGOT.edit { amount(outputAmount) }
         )
     }
 }

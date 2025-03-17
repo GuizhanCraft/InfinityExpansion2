@@ -2,18 +2,17 @@ package net.guizhanss.infinityexpansion2.implementation.items.machines
 
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup
 import io.github.thebusybiscuit.slimefun4.api.items.ItemState
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu
+import net.guizhanss.guizhanlib.kt.common.extensions.matches
+import net.guizhanss.guizhanlib.kt.minecraft.items.edit
+import net.guizhanss.guizhanlib.kt.slimefun.extensions.isSlimefunItem
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.core.items.attributes.InformationalRecipeDisplayItem
 import net.guizhanss.infinityexpansion2.core.menu.MenuLayout
 import net.guizhanss.infinityexpansion2.implementation.items.machines.abstracts.AbstractTickingActionMachine
-import net.guizhanss.infinityexpansion2.utils.bukkitext.withAmount
 import net.guizhanss.infinityexpansion2.utils.items.GuiItems
-import net.guizhanss.infinityexpansion2.utils.slimefunext.isSlimefunItem
-import net.guizhanss.infinityexpansion2.utils.matches
 import org.bukkit.block.Block
 import org.bukkit.inventory.ItemStack
 
@@ -44,14 +43,14 @@ class ResourceSynthesizer(
             if (!recipe.output.first.isSlimefunItem()) return@forEach
 
             _recipes[recipe.inputs] =
-                SlimefunItem.getById(recipe.output.first)!!.item.withAmount(recipe.output.second)
+                getById(recipe.output.first)!!.item.edit { amount(recipe.output.second) }
         }
     }
 
     override fun process(b: Block, menu: BlockMenu): Boolean {
         // check input
-        val input1 = SlimefunItem.getByItem(menu.getItemInSlot(inputSlots[0]))
-        val input2 = SlimefunItem.getByItem(menu.getItemInSlot(inputSlots[1]))
+        val input1 = getByItem(menu.getItemInSlot(inputSlots[0]))
+        val input2 = getByItem(menu.getItemInSlot(inputSlots[1]))
 
         if (input1 == null || input2 == null) {
             menu.setStatus { GuiItems.INVALID_INPUT }
@@ -84,9 +83,9 @@ class ResourceSynthesizer(
         val result = mutableListOf<ItemStack?>()
         _recipes.forEach { (pair, output) ->
             val (input1, input2) = pair
-            result.add(SlimefunItem.getById(input1)?.item)
+            result.add(getById(input1)?.item)
             result.add(output)
-            result.add(SlimefunItem.getById(input2)?.item)
+            result.add(getById(input2)?.item)
             result.add(output)
         }
         return result

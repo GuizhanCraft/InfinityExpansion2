@@ -1,6 +1,6 @@
 package net.guizhanss.infinityexpansion2.core.config
 
-import net.guizhanss.infinityexpansion2.utils.bukkitext.loadIntMap
+import net.guizhanss.guizhanlib.kt.minecraft.extensions.loadIntMap
 import org.bukkit.configuration.ConfigurationSection
 
 /**
@@ -34,6 +34,7 @@ data class QuarryPool(
 
     companion object {
 
+        @Suppress("unused")
         fun deserialize(section: ConfigurationSection): QuarryPool {
             val baseProduct = section.getString("base-product")!!
             val products = section.getConfigurationSection("products").loadIntMap()

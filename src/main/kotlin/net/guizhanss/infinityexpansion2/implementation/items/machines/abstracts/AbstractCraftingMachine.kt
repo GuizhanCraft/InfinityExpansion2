@@ -6,12 +6,12 @@ import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
 import io.github.thebusybiscuit.slimefun4.utils.itemstack.ItemStackWrapper
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenuPreset
+import net.guizhanss.guizhanlib.kt.slimefun.debug.debugMessage
 import net.guizhanss.guizhanlib.slimefun.machines.MenuBlock
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.core.menu.MenuLayout
 import net.guizhanss.infinityexpansion2.core.recipes.MachineRecipe
 import net.guizhanss.infinityexpansion2.utils.items.GuiItems
-import net.guizhanss.infinityexpansion2.utils.toDebugMessage
 import org.bukkit.block.Block
 import org.bukkit.entity.Player
 import org.bukkit.inventory.ItemStack
@@ -63,7 +63,7 @@ abstract class AbstractCraftingMachine(
 
     protected open fun craft(menu: BlockMenu, p: Player) {
         val input = Array(inputSlots.size) { index -> menu.getItemInSlot(inputSlots[index]) }
-        InfinityExpansion2.debug("crafting start, input: ${input.toDebugMessage()}")
+        InfinityExpansion2.debug("crafting start, input: ${input.debugMessage()}")
 
         val recipe = getMatchingRecipe(input)
         if (recipe == null || !recipe.check(p)) {

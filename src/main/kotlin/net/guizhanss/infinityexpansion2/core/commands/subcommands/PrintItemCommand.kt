@@ -1,9 +1,9 @@
 package net.guizhanss.infinityexpansion2.core.commands.subcommands
 
+import net.guizhanss.guizhanlib.kt.minecraft.extensions.isAir
 import net.guizhanss.guizhanlib.minecraft.commands.AbstractCommand
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.core.commands.AbstractSubCommand
-import net.guizhanss.infinityexpansion2.utils.bukkitext.isAir
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
 

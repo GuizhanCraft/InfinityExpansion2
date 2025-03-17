@@ -22,8 +22,3 @@ fun Block.isWaterLogged(tickRate: Int = 64) =
     } else {
         location.getBoolean("water_logged")
     }
-
-/**
- * Check if the block has light from the sky.
- */
-fun Block.hasLightFromSky() = location.add(0.0, 1.0, 0.0).block.lightFromSky.toInt() == 15

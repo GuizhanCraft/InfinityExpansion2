@@ -3,12 +3,12 @@ package net.guizhanss.infinityexpansion2.core.services
 import io.github.seggan.sf4k.item.builder.asMaterialType
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem
 import io.github.thebusybiscuit.slimefun4.libraries.dough.items.ItemUtils
+import net.guizhanss.guizhanlib.kt.slimefun.items.toItem
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.implementation.IEItems
 import net.guizhanss.infinityexpansion2.implementation.listeners.TranslationsLoadListener
 import net.guizhanss.infinityexpansion2.integration.SlimeHUDIntegration
 import net.guizhanss.infinityexpansion2.utils.items.removePrefix
-import net.guizhanss.infinityexpansion2.utils.compatibility.toItem
 import net.guizhanss.slimefuntranslation.api.SlimefunTranslationAPI
 import net.guizhanss.slimefuntranslation.api.config.TranslationConfiguration
 import net.guizhanss.slimefuntranslation.api.config.TranslationConfigurationDefaults

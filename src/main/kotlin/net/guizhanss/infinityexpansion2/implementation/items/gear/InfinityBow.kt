@@ -10,10 +10,10 @@ import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
 import io.github.thebusybiscuit.slimefun4.core.attributes.NotPlaceable
 import io.github.thebusybiscuit.slimefun4.core.attributes.Soulbound
 import io.github.thebusybiscuit.slimefun4.core.services.sounds.SoundEffect
+import net.guizhanss.guizhanlib.kt.minecraft.extensions.buildPotionEffect
 import net.guizhanss.guizhanlib.minecraft.utils.compatibility.ParticleX
 import net.guizhanss.infinityexpansion2.core.items.attributes.BowItem
 import net.guizhanss.infinityexpansion2.core.items.handlers.BowShootHandler
-import net.guizhanss.infinityexpansion2.utils.bukkitext.buildPotionEffect
 import org.bukkit.Bukkit
 import org.bukkit.Effect
 import org.bukkit.Material

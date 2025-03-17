@@ -7,14 +7,12 @@ import io.github.thebusybiscuit.slimefun4.core.guide.SlimefunGuideMode
 import io.github.thebusybiscuit.slimefun4.implementation.Slimefun
 import io.github.thebusybiscuit.slimefun4.utils.ChestMenuUtils
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ClickAction
+import net.guizhanss.guizhanlib.kt.minecraft.extensions.toItem
+import net.guizhanss.guizhanlib.kt.minecraft.items.edit
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.core.menu.FlexGroup
 import net.guizhanss.infinityexpansion2.core.menu.MenuItem
 import net.guizhanss.infinityexpansion2.implementation.groups.displays.ExtraItemDisplay
-import net.guizhanss.infinityexpansion2.utils.bukkitext.toItem
-import net.guizhanss.infinityexpansion2.utils.bukkitext.withAmount
-import net.guizhanss.infinityexpansion2.utils.bukkitext.withLore
-import net.guizhanss.infinityexpansion2.utils.bukkitext.withName
 import net.guizhanss.infinityexpansion2.utils.slimefunext.displayItem
 import org.bukkit.Material
 import org.bukkit.entity.Player
@@ -43,7 +41,7 @@ class FakeSubGroup(
                     if (mode == SlimefunGuideMode.CHEAT_MODE) {
                         // cheat mode
                         val amount = if (action.isShiftClicked) sfItem.item.maxStackSize else 1
-                        p.inventory.addItem(sfItem.item.withAmount(amount))
+                        p.inventory.addItem(sfItem.item.edit { amount(amount) })
                     } else if (sfItem.hasResearch() && !profile.hasUnlocked(sfItem.research)) {
                         // needs unlock
                         sfItem.research!!.unlockFromGuide(guide, p, profile, sfItem, this@FakeSubGroup, 0)
@@ -85,9 +83,9 @@ class FakeSubGroup(
     companion object {
 
         private fun getNotResearchedItem(p: Player, sfItem: SlimefunItem) =
-            ChestMenuUtils.getNotResearchedItem()
-                .withName(InfinityExpansion2.integrationService.getItemName(p, sfItem.id))
-                .withLore(
+            ChestMenuUtils.getNotResearchedItem().edit {
+                name(InfinityExpansion2.integrationService.getItemName(p, sfItem.id))
+                lore(
                     // Slimefun does not have all localization for research
                     // keeping same format because im lazy to add more localization
                     "&4&l" + Slimefun.getLocalization().getMessage(p, "guide.locked"),
@@ -96,5 +94,6 @@ class FakeSubGroup(
                     "",
                     "&7Cost: &b" + sfItem.research!!.cost + " Level(s)"
                 )
+            }
     }
 }

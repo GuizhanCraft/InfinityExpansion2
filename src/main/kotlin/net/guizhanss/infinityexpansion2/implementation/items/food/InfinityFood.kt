@@ -5,7 +5,7 @@ import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
 import io.github.thebusybiscuit.slimefun4.core.handlers.ItemConsumptionHandler
 import io.github.thebusybiscuit.slimefun4.implementation.items.SimpleSlimefunItem
-import net.guizhanss.infinityexpansion2.utils.bukkitext.getPotionEffectType
+import net.guizhanss.guizhanlib.kt.minecraft.extensions.getPotionEffectType
 import org.bukkit.entity.Player
 import org.bukkit.inventory.ItemStack
 

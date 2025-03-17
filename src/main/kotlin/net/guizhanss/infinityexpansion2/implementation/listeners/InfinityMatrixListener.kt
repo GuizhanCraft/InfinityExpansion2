@@ -1,11 +1,11 @@
 package net.guizhanss.infinityexpansion2.implementation.listeners
 
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem
+import net.guizhanss.guizhanlib.kt.minecraft.extensions.isAir
+import net.guizhanss.guizhanlib.kt.slimefun.extensions.isSlimefunItem
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.implementation.items.tools.InfinityMatrix
 import net.guizhanss.infinityexpansion2.implementation.tasks.InfinityMatrixTask
-import net.guizhanss.infinityexpansion2.utils.bukkitext.isAir
-import net.guizhanss.infinityexpansion2.utils.slimefunext.isSlimefunItem
 import org.bukkit.GameMode
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener

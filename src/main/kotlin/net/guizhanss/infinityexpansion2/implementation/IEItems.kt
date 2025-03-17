@@ -7,6 +7,10 @@ import io.github.seggan.sf4k.item.builder.asMaterialType
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems
 import io.github.thebusybiscuit.slimefun4.utils.HeadTexture
+import net.guizhanss.guizhanlib.kt.minecraft.extensions.toItem
+import net.guizhanss.guizhanlib.kt.slimefun.items.builder.buildRecipe
+import net.guizhanss.guizhanlib.kt.slimefun.items.toItem
+import net.guizhanss.guizhanlib.kt.slimefun.sf4kext.asMaterialType
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.api.mobsim.MobDataCardProps
 import net.guizhanss.infinityexpansion2.implementation.groups.IEItemGroups
@@ -63,14 +67,10 @@ import net.guizhanss.infinityexpansion2.implementation.items.tools.Strainer
 import net.guizhanss.infinityexpansion2.implementation.items.tools.StrainerBase
 import net.guizhanss.infinityexpansion2.implementation.items.tools.VeinMinerRune
 import net.guizhanss.infinityexpansion2.implementation.recipes.IERecipeTypes
-import net.guizhanss.infinityexpansion2.utils.bukkitext.toItem
 import net.guizhanss.infinityexpansion2.utils.items.applyInfinityGearEnchantment
-import net.guizhanss.infinityexpansion2.utils.items.builder.asMaterialType
 import net.guizhanss.infinityexpansion2.utils.items.builder.buildSlimefunItem
-import net.guizhanss.infinityexpansion2.utils.items.builder.recipes.buildRecipe
 import net.guizhanss.infinityexpansion2.utils.items.getInfinityGearPotionEffects
 import net.guizhanss.infinityexpansion2.utils.items.getInfinityGearProtectionTypes
-import net.guizhanss.infinityexpansion2.utils.compatibility.toItem
 import org.bukkit.Material
 import org.bukkit.enchantments.Enchantment
 

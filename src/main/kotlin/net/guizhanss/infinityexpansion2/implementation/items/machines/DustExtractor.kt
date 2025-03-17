@@ -4,8 +4,8 @@ import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems
-import net.guizhanss.infinityexpansion2.utils.bukkitext.toItem
-import net.guizhanss.infinityexpansion2.utils.compatibility.withAmount
+import net.guizhanss.guizhanlib.kt.minecraft.extensions.toItem
+import net.guizhanss.guizhanlib.kt.slimefun.items.edit
 import org.bukkit.Material
 import org.bukkit.inventory.ItemStack
 
@@ -30,15 +30,15 @@ class DustExtractor(
     companion object {
 
         private fun getDusts(amount: Int) = arrayOf(
-            SlimefunItems.COPPER_DUST.withAmount(amount),
-            SlimefunItems.ZINC_DUST.withAmount(amount),
-            SlimefunItems.TIN_DUST.withAmount(amount),
-            SlimefunItems.ALUMINUM_DUST.withAmount(amount),
-            SlimefunItems.LEAD_DUST.withAmount(amount),
-            SlimefunItems.SILVER_DUST.withAmount(amount),
-            SlimefunItems.GOLD_DUST.withAmount(amount),
-            SlimefunItems.IRON_DUST.withAmount(amount),
-            SlimefunItems.MAGNESIUM_DUST.withAmount(amount)
+            SlimefunItems.COPPER_DUST.edit { amount(amount) },
+            SlimefunItems.ZINC_DUST.edit { amount(amount) },
+            SlimefunItems.TIN_DUST.edit { amount(amount) },
+            SlimefunItems.ALUMINUM_DUST.edit { amount(amount) },
+            SlimefunItems.LEAD_DUST.edit { amount(amount) },
+            SlimefunItems.SILVER_DUST.edit { amount(amount) },
+            SlimefunItems.GOLD_DUST.edit { amount(amount) },
+            SlimefunItems.IRON_DUST.edit { amount(amount) },
+            SlimefunItems.MAGNESIUM_DUST.edit { amount(amount) }
         )
     }
 }

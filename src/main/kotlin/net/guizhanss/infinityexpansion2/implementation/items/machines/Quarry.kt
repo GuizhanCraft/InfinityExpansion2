@@ -6,16 +6,15 @@ import io.github.thebusybiscuit.slimefun4.api.items.settings.DoubleRangeSetting
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenuPreset
+import net.guizhanss.guizhanlib.kt.minecraft.extensions.isAir
+import net.guizhanss.guizhanlib.kt.minecraft.extensions.toItem
+import net.guizhanss.guizhanlib.kt.minecraft.items.edit
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.core.items.attributes.InformationalRecipeDisplayItem
 import net.guizhanss.infinityexpansion2.core.menu.MenuLayout
 import net.guizhanss.infinityexpansion2.implementation.items.machines.abstracts.AbstractTickingMachine
 import net.guizhanss.infinityexpansion2.implementation.items.tools.Oscillator
-import net.guizhanss.infinityexpansion2.utils.bukkitext.isAir
-import net.guizhanss.infinityexpansion2.utils.bukkitext.toItem
 import net.guizhanss.infinityexpansion2.utils.bukkitext.toItemStack
-import net.guizhanss.infinityexpansion2.utils.bukkitext.withAmount
-import net.guizhanss.infinityexpansion2.utils.bukkitext.withName
 import net.guizhanss.infinityexpansion2.utils.items.GuiItems
 import org.bukkit.Material
 import org.bukkit.World
@@ -70,10 +69,10 @@ class Quarry(
                 || Random.nextDouble() > Oscillator.getChance(oscillatorItem)
             ) {
                 // normal product from pool
-                pool.getRandomProduct().toItemStack().withAmount(speed)
+                pool.getRandomProduct().toItemStack().edit { amount(speed) }
             } else {
                 // oscillator product
-                Oscillator.getTarget(oscillatorItem)!!.toItemStack().withAmount(speed)
+                Oscillator.getTarget(oscillatorItem)!!.toItemStack().edit { amount(speed) }
             }
         }
 
@@ -92,13 +91,13 @@ class Quarry(
                     World.Environment.NORMAL -> GuiItems.WORLD_NORMAL
                     World.Environment.NETHER -> GuiItems.WORLD_NETHER
                     World.Environment.THE_END -> GuiItems.WORLD_THE_END
-                    else -> Material.BARRIER.toItem().withName("&cUnknown")
+                    else -> Material.BARRIER.toItem().edit { name("&cUnknown") }
                 }
             )
-            result.add(pool.baseProduct.toItemStack().withAmount(speed))
+            result.add(pool.baseProduct.toItemStack().edit { amount(speed) })
             pool.products.forEach { (product, amount) ->
-                for (i in 1..amount) {
-                    result.add(product.toItemStack().withAmount(speed))
+                repeat(amount) {
+                    result.add(product.toItemStack().edit { amount(speed) })
                 }
             }
             if (pool.products.size % 2 != 0) {

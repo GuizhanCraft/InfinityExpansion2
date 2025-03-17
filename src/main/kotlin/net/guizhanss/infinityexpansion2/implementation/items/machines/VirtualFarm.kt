@@ -3,7 +3,7 @@ package net.guizhanss.infinityexpansion2.implementation.items.machines
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
-import net.guizhanss.infinityexpansion2.utils.bukkitext.toItem
+import net.guizhanss.guizhanlib.kt.minecraft.extensions.toItem
 import org.bukkit.Material
 import org.bukkit.inventory.ItemStack
 

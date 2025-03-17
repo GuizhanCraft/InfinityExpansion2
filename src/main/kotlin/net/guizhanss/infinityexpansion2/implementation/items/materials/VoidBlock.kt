@@ -4,10 +4,10 @@ import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
 import io.github.thebusybiscuit.slimefun4.implementation.items.blocks.WitherProofBlock
+import net.guizhanss.guizhanlib.kt.slimefun.items.builder.buildRecipe
+import net.guizhanss.guizhanlib.kt.slimefun.items.edit
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.implementation.IEItems
-import net.guizhanss.infinityexpansion2.utils.compatibility.withAmount
-import net.guizhanss.infinityexpansion2.utils.items.builder.recipes.buildRecipe
 import org.bukkit.inventory.ItemStack
 
 class VoidBlock(
@@ -28,7 +28,7 @@ class VoidBlock(
                     +"   "
                     'V' means IEItems.VOID_BLOCK
                 },
-                IEItems.VOID_INGOT.withAmount(9),
+                IEItems.VOID_INGOT.edit { amount(9) },
             )
         }
     }

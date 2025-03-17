@@ -4,18 +4,17 @@ import com.google.common.collect.MapDifference
 import com.google.common.collect.Maps
 import io.github.seggan.sf4k.item.builder.asMaterialType
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenuPreset
+import net.guizhanss.guizhanlib.kt.minecraft.extensions.toItem
+import net.guizhanss.guizhanlib.kt.minecraft.items.edit
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.core.items.attributes.InformationalRecipeDisplayItem
 import net.guizhanss.infinityexpansion2.core.menu.MenuLayout
 import net.guizhanss.infinityexpansion2.core.sound.IESound
 import net.guizhanss.infinityexpansion2.implementation.items.machines.abstracts.AbstractTickingActionMachine
-import net.guizhanss.infinityexpansion2.utils.bukkitext.toItem
-import net.guizhanss.infinityexpansion2.utils.bukkitext.withName
 import net.guizhanss.infinityexpansion2.utils.items.GuiItems
 import net.guizhanss.infinityexpansion2.utils.items.toDisplayItem
 import org.bukkit.Material
@@ -73,8 +72,8 @@ class AdvancedAnvil(
 
         val input1 = menu.getItemInSlot(inputSlots[0])
         val input2 = menu.getItemInSlot(inputSlots[1])
-        val item1 = SlimefunItem.getByItem(input1)
-        val item2 = SlimefunItem.getByItem(input2)
+        val item1 = getByItem(input1)
+        val item2 = getByItem(input2)
 
         if (input1 == null || input2 == null || (input2.type != Material.ENCHANTED_BOOK && input1.type != input2.type)) {
             IESound.ADVANCED_ANVIL_DENY.playFor(p)
@@ -209,7 +208,7 @@ class AdvancedAnvil(
 
     companion object {
 
-        private val ANVIL_BASE_ITEM = Material.BLACK_STAINED_GLASS_PANE.toItem().withName(" ")
+        private val ANVIL_BASE_ITEM = Material.BLACK_STAINED_GLASS_PANE.toItem().edit { name(" ") }
         private val ANVIL_BASE_SLOTS = intArrayOf(
             30, 31, 32, 39, 41, 47, 48, 49, 50, 51
         )

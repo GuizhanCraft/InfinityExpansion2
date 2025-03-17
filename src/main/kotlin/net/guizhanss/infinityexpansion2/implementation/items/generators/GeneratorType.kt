@@ -1,8 +1,8 @@
 package net.guizhanss.infinityexpansion2.implementation.items.generators
 
-import net.guizhanss.infinityexpansion2.utils.bukkitext.hasLightFromSky
-import net.guizhanss.infinityexpansion2.utils.bukkitext.isDay
-import net.guizhanss.infinityexpansion2.utils.bukkitext.isNight
+import net.guizhanss.guizhanlib.kt.minecraft.extensions.hasLightFromSky
+import net.guizhanss.guizhanlib.kt.minecraft.extensions.isDay
+import net.guizhanss.guizhanlib.kt.minecraft.extensions.isNight
 import net.guizhanss.infinityexpansion2.utils.bukkitext.isWaterLogged
 import org.bukkit.World
 import org.bukkit.World.Environment
