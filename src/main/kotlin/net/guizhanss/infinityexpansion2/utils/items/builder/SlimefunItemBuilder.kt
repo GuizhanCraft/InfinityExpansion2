@@ -1,12 +1,12 @@
 package net.guizhanss.infinityexpansion2.utils.items.builder
 
-import io.github.seggan.sf4k.item.builder.ItemRegistry
-import io.github.seggan.sf4k.item.builder.MaterialType
-import io.github.seggan.sf4k.util.RequiredProperty
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
+import net.guizhanss.guizhanlib.kt.common.utils.RequiredProperty
+import net.guizhanss.guizhanlib.kt.slimefun.items.builder.ItemRegistry
+import net.guizhanss.guizhanlib.kt.slimefun.items.builder.MaterialType
 import net.guizhanss.guizhanlib.minecraft.utils.ChatUtil
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import org.bukkit.inventory.ItemStack

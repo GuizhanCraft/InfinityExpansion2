@@ -2,7 +2,7 @@
 
 package net.guizhanss.infinityexpansion2.core.services
 
-import io.github.seggan.sf4k.item.builder.MaterialType
+import net.guizhanss.guizhanlib.kt.slimefun.items.builder.MaterialType
 import net.guizhanss.guizhanlib.kt.slimefun.items.toItem
 import net.guizhanss.guizhanlib.minecraft.utils.ChatUtil
 import net.guizhanss.guizhanlib.slimefun.addon.SlimefunLocalization

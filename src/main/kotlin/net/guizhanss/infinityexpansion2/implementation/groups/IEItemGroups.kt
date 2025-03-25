@@ -1,7 +1,7 @@
 package net.guizhanss.infinityexpansion2.implementation.groups
 
-import io.github.seggan.sf4k.item.builder.MaterialType
-import io.github.seggan.sf4k.item.builder.asMaterialType
+import net.guizhanss.guizhanlib.kt.slimefun.items.builder.MaterialType
+import net.guizhanss.guizhanlib.kt.slimefun.items.builder.asMaterialType
 import net.guizhanss.guizhanlib.kt.slimefun.items.toItem
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.utils.bukkitext.createKey

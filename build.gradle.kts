@@ -32,7 +32,9 @@ dependencies {
     implementation("net.guizhanss:guizhanlib-all:2.3.0-SNAPSHOT")
     implementation("org.bstats:bstats-bukkit:3.1.0")
     implementation("com.jeff-media:MorePersistentDataTypes:2.4.0")
-    implementation("net.guizhanss:guizhanlib-kt-slimefun:0.1.0-SNAPSHOT")
+    implementation("net.guizhanss:guizhanlib-kt-all:0.1.0-SNAPSHOT") {
+//        exclude(group = "org.jetbrains.kotlin")
+    }
 }
 
 java {
@@ -102,7 +104,7 @@ tasks {
             // JustEnoughGuide
             url("https://blob.build/dl/JustEnoughGuide/Dev/latest")
             // GuizhanCraft for testing convenient
-            // url("https://builds.guizhanss.com/api/download/ybw0014/GuizhanCraft/master/latest")
+            url("https://builds.guizhanss.com/api/download/ybw0014/GuizhanCraft/master/latest")
         }
         jvmArgs("-Dcom.mojang.eula.agree=true")
         minecraftVersion("1.20.6")

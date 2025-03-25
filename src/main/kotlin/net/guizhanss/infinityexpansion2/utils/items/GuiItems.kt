@@ -1,10 +1,9 @@
 package net.guizhanss.infinityexpansion2.utils.items
 
-import io.github.seggan.sf4k.item.builder.asMaterialType
 import io.github.thebusybiscuit.slimefun4.libraries.dough.data.persistent.PersistentDataAPI
 import io.github.thebusybiscuit.slimefun4.utils.ChestMenuUtils
 import net.guizhanss.guizhanlib.common.utils.StringUtil
-import net.guizhanss.guizhanlib.kt.slimefun.sf4kext.asMaterialType
+import net.guizhanss.guizhanlib.kt.slimefun.items.builder.asMaterialType
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.core.items.attributes.ProtectionType
 import net.guizhanss.infinityexpansion2.utils.constant.Keys

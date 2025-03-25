@@ -2,7 +2,6 @@ package net.guizhanss.infinityexpansion2.implementation.items.machines
 
 import com.google.common.collect.MapDifference
 import com.google.common.collect.Maps
-import io.github.seggan.sf4k.item.builder.asMaterialType
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
@@ -10,6 +9,7 @@ import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenuPreset
 import net.guizhanss.guizhanlib.kt.minecraft.extensions.toItem
 import net.guizhanss.guizhanlib.kt.minecraft.items.edit
+import net.guizhanss.guizhanlib.kt.slimefun.items.builder.asMaterialType
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.core.items.attributes.InformationalRecipeDisplayItem
 import net.guizhanss.infinityexpansion2.core.menu.MenuLayout

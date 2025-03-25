@@ -2,7 +2,6 @@
 
 package net.guizhanss.infinityexpansion2.implementation.items.tools
 
-import io.github.seggan.sf4k.item.builder.asMaterialType
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
 import io.github.thebusybiscuit.slimefun4.api.items.settings.IntRangeSetting
@@ -13,6 +12,7 @@ import me.mrCookieSlime.Slimefun.api.inventory.BlockMenuPreset
 import me.mrCookieSlime.Slimefun.api.inventory.DirtyChestMenu
 import net.guizhanss.guizhanlib.common.utils.RandomUtil
 import net.guizhanss.guizhanlib.kt.minecraft.extensions.toItem
+import net.guizhanss.guizhanlib.kt.slimefun.items.builder.asMaterialType
 import net.guizhanss.guizhanlib.kt.slimefun.items.toItem
 import net.guizhanss.guizhanlib.slimefun.machines.TickingMenuBlock
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
