@@ -19,9 +19,9 @@ import net.guizhanss.infinityexpansion2.core.items.attributes.EnergyTickingConsu
 import net.guizhanss.infinityexpansion2.core.items.attributes.InformationalRecipeDisplayItem
 import net.guizhanss.infinityexpansion2.core.menu.MenuLayout
 import net.guizhanss.infinityexpansion2.implementation.items.machines.abstracts.AbstractTickingMachine
+import net.guizhanss.infinityexpansion2.utils.items.GuiItems
 import net.guizhanss.infinityexpansion2.utils.slimefunext.getBlockMenu
 import net.guizhanss.infinityexpansion2.utils.slimefunext.getInt
-import net.guizhanss.infinityexpansion2.utils.items.GuiItems
 import net.guizhanss.infinityexpansion2.utils.slimefunext.setInt
 import org.bukkit.Sound
 import org.bukkit.block.Block
@@ -40,7 +40,8 @@ class MobSimulationChamber(
 ) : AbstractTickingMachine(itemGroup, itemStack, recipeType, recipe, MenuLayout.SINGLE_INPUT, energyPerTick),
     EnergyTickingConsumer, InformationalRecipeDisplayItem {
 
-    private val energyCapacitySetting = IntRangeSetting(this, "energy-capacity", 1, energyPerTick, 1_000_000_000)
+    private val energyCapacitySetting =
+        IntRangeSetting(this, "energy-capacity", 1, (energyPerTick * 1000).coerceAtMost(1_000_000_000), 1_000_000_000)
 
     init {
         addItemSetting(energyCapacitySetting)
