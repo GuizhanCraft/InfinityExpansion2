@@ -16,6 +16,10 @@ class EnderEssence(
     recipe: Array<out ItemStack?>
 ) : SimpleMaterial(itemGroup, itemStack, recipeType, recipe), GEOResource {
 
+    init {
+        register()
+    }
+
     override fun getKey() = itemStack.itemId.createKey()
 
     override fun getDefaultSupply(environment: World.Environment, biome: Biome) =
