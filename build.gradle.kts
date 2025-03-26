@@ -2,7 +2,7 @@ import net.minecrell.pluginyml.bukkit.BukkitPluginDescription
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
-    kotlin("jvm") version "2.1.10"
+    kotlin("jvm") version "2.1.20"
     id("com.gradleup.shadow") version "8.3.6"
     id("net.minecrell.plugin-yml.bukkit") version "0.6.0"
     id("xyz.jpenilla.run-paper") version "2.3.1"
@@ -24,7 +24,6 @@ repositories {
 dependencies {
     compileOnly(kotlin("stdlib")) // loaded through library loader
     compileOnly(kotlin("reflect")) // loaded through library loader
-    compileOnly("it.unimi.dsi:fastutil:8.5.15") // loaded through library loader
     compileOnly("io.papermc.paper:paper-api:1.21.3-R0.1-SNAPSHOT")
     compileOnly("com.github.slimefun:Slimefun4:3ea21da4fe")
     compileOnly("net.guizhanss:SlimefunTranslation:e03b01a7b7")
@@ -32,9 +31,7 @@ dependencies {
     implementation("net.guizhanss:guizhanlib-all:2.3.0-SNAPSHOT")
     implementation("org.bstats:bstats-bukkit:3.1.0")
     implementation("com.jeff-media:MorePersistentDataTypes:2.4.0")
-    implementation("net.guizhanss:guizhanlib-kt-all:0.1.0-SNAPSHOT") {
-//        exclude(group = "org.jetbrains.kotlin")
-    }
+    implementation("net.guizhanss:guizhanlib-kt-all:0.1.0-SNAPSHOT")
 }
 
 java {
