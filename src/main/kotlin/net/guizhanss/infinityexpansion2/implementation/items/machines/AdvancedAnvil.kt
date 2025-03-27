@@ -25,7 +25,6 @@ import org.bukkit.inventory.ItemStack
 import org.bukkit.inventory.meta.EnchantmentStorageMeta
 import org.bukkit.inventory.meta.ItemMeta
 
-
 class AdvancedAnvil(
     itemGroup: ItemGroup,
     itemStack: SlimefunItemStack,
@@ -116,6 +115,8 @@ class AdvancedAnvil(
     private fun getOutput(input1: ItemStack, input2: ItemStack): ItemStack? {
         val enchant1 = getEnchantments(input1.itemMeta)
         val enchant2 = getEnchantments(input2.itemMeta)
+        InfinityExpansion2.debug("Enchantments of item 1: $enchant1")
+        InfinityExpansion2.debug("Enchantments of item 2: $enchant2")
         if (enchant1.isEmpty() && enchant2.isEmpty()) return null
         return combineEnchantments(Maps.difference(enchant1, enchant2), input1, input2)
     }
@@ -193,9 +194,7 @@ class AdvancedAnvil(
 
     override fun getDefaultDisplayRecipes(): List<ItemStack?> {
         val result = mutableListOf<ItemStack?>()
-        InfinityExpansion2.configService.advancedAnvilMaxLevels.forEach { (enchantment, maxLevel) ->
-            if (maxLevel <= 0) return@forEach
-
+        MAX_LEVELS.forEach { (enchantment, maxLevel) ->
             val item = InfinityExpansion2.localization.getGuiItem(
                 Material.ENCHANTED_BOOK.asMaterialType(),
                 "aa_max_enchantment_level"
@@ -212,6 +211,6 @@ class AdvancedAnvil(
         private val ANVIL_BASE_SLOTS = intArrayOf(
             30, 31, 32, 39, 41, 47, 48, 49, 50, 51
         )
-        private val MAX_LEVELS = InfinityExpansion2.configService.advancedAnvilMaxLevels.filterValues { it > 0 }
+        private val MAX_LEVELS get() = InfinityExpansion2.configService.advancedAnvilMaxLevels.filterValues { it > 0 }
     }
 }

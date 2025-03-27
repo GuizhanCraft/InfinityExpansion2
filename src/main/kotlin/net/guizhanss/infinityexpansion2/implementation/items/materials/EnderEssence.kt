@@ -22,16 +22,12 @@ class EnderEssence(
 
     override fun getKey() = itemStack.itemId.createKey()
 
-    override fun getDefaultSupply(environment: World.Environment, biome: Biome) =
-        if (environment == World.Environment.THE_END) {
-            12
-        } else if (biome == Biome.THE_VOID) {
-            8
-        } else if (environment == World.Environment.NETHER) {
-            4
-        } else {
-            0
-        }
+    override fun getDefaultSupply(environment: World.Environment, biome: Biome) = when {
+        environment == World.Environment.THE_END -> 12
+        biome == Biome.THE_VOID -> 8
+        environment == World.Environment.NETHER -> 4
+        else -> 0
+    }
 
     override fun getMaxDeviation() = 4
 

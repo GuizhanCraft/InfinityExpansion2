@@ -72,6 +72,7 @@ import net.guizhanss.infinityexpansion2.utils.items.getInfinityGearPotionEffects
 import net.guizhanss.infinityexpansion2.utils.items.getInfinityGearProtectionTypes
 import org.bukkit.Material
 import org.bukkit.enchantments.Enchantment
+import org.bukkit.inventory.meta.EnchantmentStorageMeta
 
 /**
  * Stores almost all the items in Infinity Expansion 2, also responsible for registering them.
@@ -932,7 +933,9 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
         }
 
         editItem = {
-            it.addUnsafeEnchantment(Enchantment.FIRE_ASPECT, 10)
+            val meta = it.itemMeta as EnchantmentStorageMeta
+            meta.addStoredEnchant(Enchantment.FIRE_ASPECT, 10, true)
+            it.itemMeta = meta
             it
         }
     }
