@@ -306,21 +306,40 @@ items:
   _UI_STORAGE_ACTIONS_INV:
     conditions:
       force-load: true
+    name: "&a物品栏操作"
+    lore:
+      - "&e左键点击&7以从物品栏中存入"
+      - "&e右键点击&7以取出到背包"
   _UI_STORAGE_NO_ITEM:
     conditions:
       force-load: true
+    name: "&c没有物品"
   _UI_STORAGE_CAPACITY:
     conditions:
       force-load: true
+    name: "&b物品容量："
   _UI_STORAGE_AMOUNT:
     conditions:
       force-load: true
+    name: "&b物品数量："
   _UI_STORAGE_VOID_EXCESS_ON:
     conditions:
       force-load: true
+    name: "&a存满清空输入：&2开启"
+    lore:
+      - "&7存储满后的物品输入"
+      - "&7会被清空"
+      - ""
+      - "&e点击&7切换"
   _UI_STORAGE_VOID_EXCESS_OFF:
     conditions:
       force-load: true
+    name: "&a存满清空输入：&c关闭"
+    lore:
+      - "&7存储满后的物品输入"
+      - "&7&l不会&7被清空"
+      - ""
+      - "&e点击&7切换"
   #items - guide
   _GUIDE_INTRO:
     name: "&e介绍"
@@ -1245,6 +1264,26 @@ items:
     lore:
       - "&7合成并升级存储单元。"
       - "&7升级时物品会保留。"
+  STORAGE_UNIT_1:
+    name: "&e存储单元&7(1)"
+  STORAGE_UNIT_2:
+    name: "&e存储单元&7(2)"
+  STORAGE_UNIT_3:
+    name: "&e存储单元&7(3)"
+  STORAGE_UNIT_4:
+    name: "&e存储单元&7(4)"
+  STORAGE_UNIT_5:
+    name: "&e存储单元&7(5)"
+  STORAGE_UNIT_6:
+    name: "&e存储单元&7(6)"
+  STORAGE_UNIT_7:
+    name: "&e存储单元&7(7)"
+  STORAGE_UNIT_8:
+    name: "&e存储单元&7(8)"
+  STORAGE_UNIT_9:
+    name: "&e存储单元&7(9)"
+  STORAGE_UNIT_10:
+    name: "&e存储单元&7(10)"
   #items - hidden
   OSCILLATOR:
     name: "&6加速器"
@@ -1254,6 +1293,10 @@ lores:
   info: "&7信息："
   soulbound: "&b灵魂绑定"
   vein-miner: "&b矿脉矿工"
+  storage:
+    item: "&a存储的物品：&7{0}"
+    amount: "&b数量：&7{0}"
+    void-excess: "&e存满清空输入：&7{0}"
 messages:
   commands:
     no-permission: "&c你没有使用此命令的权限。"
@@ -1291,3 +1334,5 @@ messages:
     ownership-removed: "&b你不再是该飞行器的拥有者。"
     flight-enabled: "&a飞行已启用 ！"
     flight-disabled: "&c飞行已禁用！"
+  storage:
+    interaction-cd: "&c你需要等待一段时间后才能再次进行交互。"
