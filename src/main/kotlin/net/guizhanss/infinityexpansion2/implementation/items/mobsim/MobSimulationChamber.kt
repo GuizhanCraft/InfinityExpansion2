@@ -187,11 +187,19 @@ class MobSimulationChamber(
 
         @Suppress("unused")
         fun hudHandler(request: HudRequest): String {
-            val menu = request.location.getBlockMenu() ?: return "Unknown"
-            val chamber = request.slimefunItem as MobSimulationChamber
-            val energyHud = " | " + HudBuilder.formatEnergyStored(chamber.getCharge(request.location), chamber.capacity)
-            val (props, _) = menu.getDataCard(chamber.layout) ?: return "Empty$energyHud"
-            return props.name + energyHud
+            val loc = request.location
+            val menu = loc.getBlockMenu() ?: return ""
+            val machine = request.slimefunItem as MobSimulationChamber
+
+            val card = menu.getDataCard(machine.layout)
+            return buildString {
+                if (card != null) {
+                    append("&b${card.first.name}")
+                    append("&7 | ")
+                }
+
+                append(HudBuilder.formatEnergyStored(machine.getCharge(request.location), machine.capacity))
+            }
         }
     }
 }

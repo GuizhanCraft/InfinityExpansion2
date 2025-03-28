@@ -173,28 +173,29 @@ class SingularityConstructor(
             val progress = menu.getProgress()
 
             return buildString {
-                // default energy
-                append(HudBuilder.formatEnergyStored(machine.getCharge(loc), machine.capacity))
-
                 if (progress > 0) {
                     val singularity = getSingularityById(menu.getTarget()) ?: return@buildString
 
-                    append("&7 | ")
-
-                    // progress
-                    val progress = menu.getProgress()
-                    val totalProgress = singularity.totalProgress
-                    append("$progress / $totalProgress")
-
                     // target singularity
-                    append("&7 | ")
                     append(
                         InfinityExpansion2.integrationService.getTranslatedItemName(
                             request.player,
                             singularity.item
                         )
                     )
+                    append("&7 | ")
+
+                    // progress
+                    val totalProgress = singularity.totalProgress
+                    append("$progress / $totalProgress")
+                    append("&7 | ")
+
+                    // progress bar
+                    append(HudBuilder.getProgressBar(progress, totalProgress))
+                    append("&7 | ")
                 }
+
+                append(HudBuilder.formatEnergyStored(machine.getCharge(loc), machine.capacity))
             }
         }
     }
