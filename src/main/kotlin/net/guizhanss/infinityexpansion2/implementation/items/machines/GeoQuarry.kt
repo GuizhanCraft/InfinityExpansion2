@@ -6,6 +6,7 @@ import io.github.thebusybiscuit.slimefun4.api.items.settings.IntRangeSetting
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
 import io.github.thebusybiscuit.slimefun4.implementation.Slimefun
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu
+import net.guizhanss.guizhanlib.kt.minecraft.items.edit
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.core.items.attributes.InformationalRecipeDisplayItem
 import net.guizhanss.infinityexpansion2.core.menu.MenuLayout
@@ -38,7 +39,7 @@ class GeoQuarry(
         if (!shouldProduce()) return true
 
         produce(menu).let {
-            menu.pushItem(it.clone(), *outputSlots)
+            menu.pushItem(it.edit { amount(speed) }, *outputSlots)
         }
 
         return true
@@ -48,10 +49,14 @@ class GeoQuarry(
         InfinityExpansion2.sfTickCount() % (getCustomTickRate() * outputIntervalSetting.value) == 0
 
     private fun produce(menu: BlockMenu): ItemStack {
-        val env = menu.location.world.environment
         val biome = menu.location.block.biome
+        val env = menu.location.world.environment
 
-        return geoRecipes.getOrPut(Pair(biome, env)) {
+        return getProductPool(biome, env).random()
+    }
+
+    private fun getProductPool(biome: Biome, env: Environment): List<ItemStack> =
+        geoRecipes.getOrPut(Pair(biome, env)) {
             val pool = mutableListOf<ItemStack>()
             Slimefun.getRegistry().geoResources.values().filter { it.isObtainableFromGEOMiner }.forEach { resource ->
                 val supply = resource.getDefaultSupply(env, biome)
@@ -62,12 +67,11 @@ class GeoQuarry(
                 }
             }
             pool
-        }.random()
-    }
+        }
 
     override fun getDefaultDisplayRecipes() =
         Slimefun.getRegistry().geoResources.values().filter { it.isObtainableFromGEOMiner }
-            .map { it.item.clone().apply { amount = speed } }
+            .map { it.item.edit { amount(speed) } }
 
     override fun getInformationalItems() = listOf(
         GuiItems.tickRate(getCustomTickRate()),
