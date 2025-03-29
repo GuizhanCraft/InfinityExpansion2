@@ -63,7 +63,7 @@ class VoidHarvester(
         setStatus { GuiItems.progressBar(progress, totalProgress) }
     }
 
-    override fun getDefaultDisplayRecipes() = listOf(IEItems.VOID_BIT.item())
+    override fun getDefaultDisplayRecipes() = listOf(IEItems.VOID_BIT.toItem())
 
     override fun getInformationalItems() = listOf(
         GuiItems.tickRate(getCustomTickRate()),
