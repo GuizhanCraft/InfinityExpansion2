@@ -31,7 +31,7 @@ dependencies {
     implementation("net.guizhanss:guizhanlib-all:2.3.0-SNAPSHOT")
     implementation("org.bstats:bstats-bukkit:3.1.0")
     implementation("com.jeff-media:MorePersistentDataTypes:2.4.0")
-    implementation("net.guizhanss:guizhanlib-kt-all:0.1.0-SNAPSHOT")
+    implementation("net.guizhanss:guizhanlib-kt-all:0.1.0")
 }
 
 java {
