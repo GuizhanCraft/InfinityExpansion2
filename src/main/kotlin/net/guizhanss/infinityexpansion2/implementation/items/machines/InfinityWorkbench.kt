@@ -32,7 +32,7 @@ class InfinityWorkbench(
 
     override val craftSlot = 25
 
-    override fun getInformationalItems() = listOf(
+    override fun getInfoItems() = listOf(
         GuiItems.energyConsumptionPerUse(getEnergyConsumptionPerAction())
     )
 

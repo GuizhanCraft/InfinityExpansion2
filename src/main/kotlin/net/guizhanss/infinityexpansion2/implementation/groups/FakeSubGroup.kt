@@ -12,7 +12,7 @@ import net.guizhanss.guizhanlib.kt.minecraft.items.edit
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.core.menu.FlexGroup
 import net.guizhanss.infinityexpansion2.core.menu.MenuItem
-import net.guizhanss.infinityexpansion2.implementation.groups.displays.ExtraItemDisplay
+import net.guizhanss.infinityexpansion2.implementation.groups.items.ExtraItemDisplay
 import net.guizhanss.infinityexpansion2.utils.slimefunext.displayItem
 import org.bukkit.Material
 import org.bukkit.entity.Player

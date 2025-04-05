@@ -1,6 +1,6 @@
 @file:Suppress("deprecation")
 
-package net.guizhanss.infinityexpansion2.implementation.groups.displays
+package net.guizhanss.infinityexpansion2.implementation.groups.items
 
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem
 import io.github.thebusybiscuit.slimefun4.api.player.PlayerProfile

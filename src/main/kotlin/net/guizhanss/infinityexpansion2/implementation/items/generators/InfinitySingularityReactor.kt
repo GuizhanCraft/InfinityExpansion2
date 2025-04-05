@@ -91,7 +91,7 @@ class InfinitySingularityReactor(
         }
     }
 
-    override fun getInformationalItems() = listOf(
+    override fun getInfoItems() = listOf(
         GuiItems.tickRate(getCustomTickRate()),
         GuiItems.energyProductionPerTick(getEnergyProduction()),
         infoInfinitySing(infinitySingularityDurationSetting.value),

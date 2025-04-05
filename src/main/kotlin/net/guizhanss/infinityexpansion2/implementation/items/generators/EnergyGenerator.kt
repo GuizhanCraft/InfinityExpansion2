@@ -82,7 +82,7 @@ class EnergyGenerator(
         }
     }
 
-    override fun getInformationalItems() = listOf(
+    override fun getInfoItems() = listOf(
         GuiItems.tickRate(getCustomTickRate()),
         GuiItems.energyProductionPerTick(getEnergyProduction())
     )

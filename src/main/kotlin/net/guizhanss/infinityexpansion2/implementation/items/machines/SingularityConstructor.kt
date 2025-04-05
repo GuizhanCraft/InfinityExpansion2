@@ -132,7 +132,7 @@ class SingularityConstructor(
         }
     }
 
-    override fun getInformationalItems() = listOf(
+    override fun getInfoItems() = listOf(
         GuiItems.tickRate(getCustomTickRate()),
         GuiItems.energyConsumptionPerTick(getEnergyConsumptionPerTick()),
     )

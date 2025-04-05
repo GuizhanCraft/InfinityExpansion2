@@ -108,7 +108,7 @@ class Quarry(
         return result
     }
 
-    override fun getInformationalItems() = listOf(
+    override fun getInfoItems() = listOf(
         GuiItems.tickRate(getCustomTickRate()),
         GuiItems.energyConsumptionPerTick(getEnergyConsumptionPerTick()),
         GuiItems.chance(chanceSetting.value),

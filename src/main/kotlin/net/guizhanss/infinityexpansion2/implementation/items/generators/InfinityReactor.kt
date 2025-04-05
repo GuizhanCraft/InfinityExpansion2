@@ -131,7 +131,7 @@ class InfinityReactor(
         }
     }
 
-    override fun getInformationalItems() = listOf(
+    override fun getInfoItems() = listOf(
         GuiItems.tickRate(getCustomTickRate()),
         GuiItems.energyProductionPerTick(getEnergyProduction()),
         infoVoid(voidIngotDurationSetting.value),

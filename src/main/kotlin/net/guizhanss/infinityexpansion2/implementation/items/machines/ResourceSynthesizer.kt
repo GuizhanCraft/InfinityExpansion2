@@ -91,7 +91,7 @@ class ResourceSynthesizer(
         return result
     }
 
-    override fun getInformationalItems() = listOf(
+    override fun getInfoItems() = listOf(
         GuiItems.tickRate(getCustomTickRate()),
         GuiItems.energyConsumptionPerUse(getEnergyConsumptionPerAction()),
     )

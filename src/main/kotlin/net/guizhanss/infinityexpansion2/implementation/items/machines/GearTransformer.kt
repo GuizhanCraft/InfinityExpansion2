@@ -99,7 +99,7 @@ class GearTransformer(
         return true
     }
 
-    override fun getInformationalItems() = listOf(
+    override fun getInfoItems() = listOf(
         GuiItems.energyConsumptionPerUse(getEnergyConsumptionPerAction()),
         GuiItems.sfItem(InfinityExpansion2.configService.allowSfItemTransform)
     )

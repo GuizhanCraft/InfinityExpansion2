@@ -155,7 +155,7 @@ class MobSimulationChamber(
         }
     }
 
-    override fun getInformationalItems() = listOf(
+    override fun getInfoItems() = listOf(
         GuiItems.tickRate(getCustomTickRate()),
         GuiItems.energyConsumptionPerTick(getEnergyConsumptionPerTick()),
         GuiItems.outputInterval(InfinityExpansion2.configService.mobSimInterval),

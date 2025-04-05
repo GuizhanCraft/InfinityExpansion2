@@ -1,6 +1,6 @@
 @file:Suppress("deprecation")
 
-package net.guizhanss.infinityexpansion2.implementation.groups.displays
+package net.guizhanss.infinityexpansion2.implementation.groups.items
 
 import io.github.thebusybiscuit.slimefun4.api.items.groups.FlexItemGroup
 import io.github.thebusybiscuit.slimefun4.api.player.PlayerProfile
@@ -11,12 +11,12 @@ import io.github.thebusybiscuit.slimefun4.utils.ChestMenuUtils
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ChestMenu
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.core.items.ExtraItem
-import net.guizhanss.infinityexpansion2.utils.bukkitext.createKey
+import net.guizhanss.infinityexpansion2.utils.constant.Keys
 import net.guizhanss.infinityexpansion2.utils.slimefunext.displayItem
 import org.bukkit.ChatColor
 import org.bukkit.entity.Player
 
-class ExtraItemDisplay(val extraItem: ExtraItem) : FlexItemGroup("display".createKey(), extraItem.output) {
+class ExtraItemDisplay(val extraItem: ExtraItem) : FlexItemGroup(Keys.DISPLAY_ITEM, extraItem.output) {
 
     override fun isVisible(p: Player, profile: PlayerProfile, layout: SlimefunGuideMode) = false
 
@@ -66,13 +66,13 @@ class ExtraItemDisplay(val extraItem: ExtraItem) : FlexItemGroup("display".creat
 
     companion object {
 
-        private val BACK_SLOT = 0
-        private val RECIPE_TYPE_SLOT = 10
+        private const val BACK_SLOT = 0
+        private const val RECIPE_TYPE_SLOT = 10
         private val RECIPE_AREA = intArrayOf(
             3, 4, 5,
             12, 13, 14,
             21, 22, 23
         )
-        private val OUTPUT_SLOT = 16
+        private const val OUTPUT_SLOT = 16
     }
 }

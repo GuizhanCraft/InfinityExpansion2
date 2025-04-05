@@ -102,7 +102,7 @@ class StrainerBase(
         }
     }
 
-    override fun getInformationalItems() = listOf(GuiItems.tickRate(tickRateSetting.value))
+    override fun getInfoItems() = listOf(GuiItems.tickRate(tickRateSetting.value))
 
     override fun getDefaultDisplayRecipes() = OUTPUTS.flatMap { listOf(ANY_STRAINER_ITEM, it) }
 

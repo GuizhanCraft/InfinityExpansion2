@@ -49,7 +49,7 @@ class Singularity(
 
     override fun getRecipeSectionLabel(p: Player) = InfinityExpansion2.integrationService.getLore(p, "info")
 
-    override fun getInformationalItems() = listOf(null, GuiItems.totalProgress(totalProgress))
+    override fun getInfoItems() = listOf(null, GuiItems.totalProgress(totalProgress))
 
     override fun getDefaultDisplayRecipes(): List<ItemStack?> {
         val list = mutableListOf<ItemStack?>()

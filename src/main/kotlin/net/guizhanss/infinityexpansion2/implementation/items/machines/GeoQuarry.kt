@@ -73,7 +73,7 @@ class GeoQuarry(
         Slimefun.getRegistry().geoResources.values().filter { it.isObtainableFromGEOMiner }
             .map { it.item.edit { amount(speed) } }
 
-    override fun getInformationalItems() = listOf(
+    override fun getInfoItems() = listOf(
         GuiItems.tickRate(getCustomTickRate()),
         GuiItems.energyConsumptionPerTick(getEnergyConsumptionPerTick()),
         GuiItems.outputInterval(outputIntervalSetting.value)

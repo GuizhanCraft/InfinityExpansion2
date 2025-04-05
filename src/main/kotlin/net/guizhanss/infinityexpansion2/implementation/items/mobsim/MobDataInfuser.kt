@@ -23,7 +23,7 @@ class MobDataInfuser(
     override val recipes: List<MachineRecipe>
         get() = IERegistry.mobDataInfuserRecipes
 
-    override fun getInformationalItems() = listOf(
+    override fun getInfoItems() = listOf(
         GuiItems.energyConsumptionPerUse(getEnergyConsumptionPerAction())
     )
 }

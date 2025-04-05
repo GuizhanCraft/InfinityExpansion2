@@ -188,7 +188,7 @@ class AdvancedAnvil(
         }
     }
 
-    override fun getInformationalItems() = listOf(
+    override fun getInfoItems() = listOf(
         GuiItems.energyConsumptionPerUse(getEnergyConsumptionPerAction())
     )
 

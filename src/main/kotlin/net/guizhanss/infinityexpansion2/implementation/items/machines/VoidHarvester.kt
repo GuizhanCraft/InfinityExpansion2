@@ -65,7 +65,7 @@ class VoidHarvester(
 
     override fun getDefaultDisplayRecipes() = listOf(IEItems.VOID_BIT.toItem())
 
-    override fun getInformationalItems() = listOf(
+    override fun getInfoItems() = listOf(
         GuiItems.tickRate(getCustomTickRate()),
         GuiItems.energyConsumptionPerTick(getEnergyConsumptionPerTick()),
         GuiItems.increaseProgress(speed),

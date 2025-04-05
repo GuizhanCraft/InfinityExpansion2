@@ -299,7 +299,7 @@ class StorageUnit(
     override fun canStack(meta1: ItemMeta, meta2: ItemMeta) =
         meta1.persistentDataContainer == meta2.persistentDataContainer
 
-    override fun getInformationalItems() = listOf(
+    override fun getInfoItems() = listOf(
         capacityItem(capacity)
     )
 

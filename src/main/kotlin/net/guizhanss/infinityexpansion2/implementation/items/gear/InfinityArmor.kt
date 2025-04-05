@@ -30,7 +30,7 @@ open class InfinityArmor(
 
     override fun getArmorSetId() = Keys.INFINITY_ARMOR
 
-    override fun getInformationalItems() = listOf(
+    override fun getInfoItems() = listOf(
         GuiItems.potionEffects(effects.toList()),
         GuiItems.protectionTypes(protectionTypes.toList()),
     )
