@@ -7,7 +7,7 @@ import net.guizhanss.guizhanlib.kt.slimefun.items.toItem
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.core.IERegistry
 import net.guizhanss.infinityexpansion2.core.recipes.MachineRecipe
-import net.guizhanss.infinityexpansion2.utils.bukkitext.createKey
+import net.guizhanss.infinityexpansion2.utils.bukkitext.ie2Key
 import org.bukkit.Material
 import org.bukkit.inventory.ItemStack
 
@@ -42,7 +42,7 @@ object IERecipeTypes {
     private fun createRecipeType(
         key: String, material: MaterialType, callback: ((Array<out ItemStack>, ItemStack) -> Unit)? = null
     ) = RecipeType(
-        key.createKey(), InfinityExpansion2.localization.getRecipeTypeItem(
+        ie2Key(key), InfinityExpansion2.localization.getRecipeTypeItem(
             material, key
         ).toItem(), callback
     )

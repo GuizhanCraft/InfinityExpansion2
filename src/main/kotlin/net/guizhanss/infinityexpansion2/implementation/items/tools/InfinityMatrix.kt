@@ -14,7 +14,7 @@ import io.github.thebusybiscuit.slimefun4.implementation.items.SimpleSlimefunIte
 import io.github.thebusybiscuit.slimefun4.libraries.dough.data.persistent.PersistentDataAPI
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.implementation.tasks.InfinityMatrixTask
-import net.guizhanss.infinityexpansion2.utils.bukkitext.createKey
+import net.guizhanss.infinityexpansion2.utils.bukkitext.ie2Key
 import org.bukkit.ChatColor
 import org.bukkit.GameMode
 import org.bukkit.inventory.ItemStack
@@ -95,6 +95,6 @@ class InfinityMatrix(
 
     companion object {
 
-        private val OWNER = "owner".createKey()
+        private val OWNER = ie2Key("owner")
     }
 }

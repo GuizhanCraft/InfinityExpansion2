@@ -1,6 +1,6 @@
 package net.guizhanss.infinityexpansion2.core.items.attributes
 
-import net.guizhanss.infinityexpansion2.utils.bukkitext.createKey
+import net.guizhanss.infinityexpansion2.utils.bukkitext.ie2Key
 import org.bukkit.Keyed
 import org.bukkit.NamespacedKey
 import io.github.thebusybiscuit.slimefun4.core.attributes.ProtectionType as SfProtectionType
@@ -32,7 +32,7 @@ interface ProtectionType : Keyed {
         private fun create(name: String, sfProtectionType: SfProtectionType? = null): ProtectionType {
             val result = object : ProtectionType {
                 override fun asSlimefun() = sfProtectionType
-                override fun getKey() = name.createKey()
+                override fun getKey() = ie2Key("name")
             }
             values.add(result)
             return result

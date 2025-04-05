@@ -31,7 +31,7 @@ import net.guizhanss.infinityexpansion2.core.items.annotations.HudProvider
 import net.guizhanss.infinityexpansion2.core.items.attributes.InformationalRecipeDisplayItem
 import net.guizhanss.infinityexpansion2.core.menu.MenuLayout
 import net.guizhanss.infinityexpansion2.core.persistent.PersistentStorageCacheType
-import net.guizhanss.infinityexpansion2.utils.bukkitext.createKey
+import net.guizhanss.infinityexpansion2.utils.bukkitext.ie2Key
 import net.guizhanss.infinityexpansion2.utils.items.isSimilar
 import net.guizhanss.infinityexpansion2.utils.items.removeDisplayItem
 import net.guizhanss.infinityexpansion2.utils.items.toDisplayItem
@@ -319,7 +319,7 @@ class StorageUnit(
         const val BS_VOID = "void_excess"
 
         // PDC key
-        val STORAGE_KEY = "storage".createKey()
+        val STORAGE_KEY = ie2Key("storage")
 
         // gui items
         private val ACTIONS_INV_ITEM = InfinityExpansion2.localization.getGuiItem(

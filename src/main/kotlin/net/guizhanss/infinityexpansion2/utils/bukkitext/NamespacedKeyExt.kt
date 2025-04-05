@@ -8,5 +8,5 @@ import java.util.Locale
 /**
  * Create a InfinityExpansion2 [NamespacedKey] from the string.
  */
-internal fun String.createKey() =
-    NamespacedKey(InfinityExpansion2.instance, StringUtil.dehumanize(this).lowercase(Locale.ENGLISH))
+fun ie2Key(key: String) =
+    NamespacedKey(InfinityExpansion2.instance, StringUtil.dehumanize(key).lowercase(Locale.ENGLISH))

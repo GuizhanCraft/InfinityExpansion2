@@ -2,7 +2,7 @@ package net.guizhanss.infinityexpansion2.core.persistent
 
 import com.jeff_media.morepersistentdatatypes.DataType
 import net.guizhanss.infinityexpansion2.implementation.items.storage.StorageCache
-import net.guizhanss.infinityexpansion2.utils.bukkitext.createKey
+import net.guizhanss.infinityexpansion2.utils.bukkitext.ie2Key
 import org.bukkit.persistence.PersistentDataAdapterContext
 import org.bukkit.persistence.PersistentDataContainer
 import org.bukkit.persistence.PersistentDataType
@@ -41,10 +41,10 @@ class PersistentStorageCacheType : PersistentDataType<PersistentDataContainer, S
 
     companion object {
 
-        private val ITEM_KEY = "item".createKey()
-        private val AMOUNT_KEY = "amount".createKey()
-        private val MAX_AMOUNT_KEY = "max_amount".createKey()
-        private val VOID_EXCESS_KEY = "void_excess".createKey()
+        private val ITEM_KEY = ie2Key("item")
+        private val AMOUNT_KEY = ie2Key("amount")
+        private val MAX_AMOUNT_KEY = ie2Key("max_amount")
+        private val VOID_EXCESS_KEY = ie2Key("void_excess")
 
         @JvmStatic
         val TYPE = PersistentStorageCacheType()

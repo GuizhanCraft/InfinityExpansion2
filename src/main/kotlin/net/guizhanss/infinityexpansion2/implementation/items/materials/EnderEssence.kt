@@ -4,7 +4,7 @@ import io.github.thebusybiscuit.slimefun4.api.geo.GEOResource
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
-import net.guizhanss.infinityexpansion2.utils.bukkitext.createKey
+import net.guizhanss.infinityexpansion2.utils.bukkitext.ie2Key
 import org.bukkit.World
 import org.bukkit.block.Biome
 import org.bukkit.inventory.ItemStack
@@ -20,7 +20,7 @@ class EnderEssence(
         register()
     }
 
-    override fun getKey() = itemStack.itemId.createKey()
+    override fun getKey() = ie2Key(itemStack.itemId)
 
     override fun getDefaultSupply(environment: World.Environment, biome: Biome) = when {
         environment == World.Environment.THE_END -> 12

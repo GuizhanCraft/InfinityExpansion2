@@ -2,7 +2,7 @@ package net.guizhanss.infinityexpansion2.utils.tags
 
 import io.github.thebusybiscuit.slimefun4.api.exceptions.TagMisconfigurationException
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
-import net.guizhanss.infinityexpansion2.utils.bukkitext.createKey
+import net.guizhanss.infinityexpansion2.utils.bukkitext.ie2Key
 import org.bukkit.Material
 import org.bukkit.Tag
 import java.util.logging.Level
@@ -80,7 +80,7 @@ enum class IETag : Tag<Material> {
 
     ;
 
-    private val key = name.createKey()
+    private val key = ie2Key(name)
     private val materials = mutableSetOf<Material>()
     private val additionalTags = mutableSetOf<Tag<Material>>()
 

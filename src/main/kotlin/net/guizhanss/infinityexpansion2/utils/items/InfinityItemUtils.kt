@@ -6,7 +6,7 @@ import net.guizhanss.guizhanlib.kt.minecraft.extensions.getPotionEffectType
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.core.items.attributes.ProtectionType
 import net.guizhanss.infinityexpansion2.implementation.IEItems
-import net.guizhanss.infinityexpansion2.utils.bukkitext.createKey
+import net.guizhanss.infinityexpansion2.utils.bukkitext.ie2Key
 import org.bukkit.potion.PotionEffect
 import java.util.logging.Level
 
@@ -58,7 +58,7 @@ fun getInfinityGearProtectionTypes(key: String): Array<ProtectionType> {
         return arrayOf()
     }
     val types = section.getStringList("protections").toList()
-    return types.mapNotNull { ProtectionType.getByKey(it.createKey()) }.toTypedArray()
+    return types.mapNotNull { ProtectionType.getByKey(ie2Key(it)) }.toTypedArray()
 }
 
 fun applyInfinityGearEnchantment(sfItem: SlimefunItemStack) {
