@@ -9,6 +9,11 @@ import io.github.thebusybiscuit.slimefun4.utils.ChestMenuUtils
 import io.github.thebusybiscuit.slimefun4.utils.SlimefunUtils
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu
 import net.guizhanss.guizhanlib.kt.minecraft.extensions.dropItem
+import net.guizhanss.guizhanlib.kt.slimefun.utils.getBlockMenu
+import net.guizhanss.guizhanlib.kt.slimefun.utils.getInt
+import net.guizhanss.guizhanlib.kt.slimefun.utils.getString
+import net.guizhanss.guizhanlib.kt.slimefun.utils.setInt
+import net.guizhanss.guizhanlib.kt.slimefun.utils.setString
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.core.IERegistry
 import net.guizhanss.infinityexpansion2.core.items.annotations.HudProvider
@@ -18,11 +23,6 @@ import net.guizhanss.infinityexpansion2.implementation.items.machines.abstracts.
 import net.guizhanss.infinityexpansion2.implementation.items.materials.Singularity
 import net.guizhanss.infinityexpansion2.utils.items.GuiItems
 import net.guizhanss.infinityexpansion2.utils.items.toDisplayItem
-import net.guizhanss.infinityexpansion2.utils.slimefunext.getBlockMenu
-import net.guizhanss.infinityexpansion2.utils.slimefunext.getInt
-import net.guizhanss.infinityexpansion2.utils.slimefunext.getString
-import net.guizhanss.infinityexpansion2.utils.slimefunext.setInt
-import net.guizhanss.infinityexpansion2.utils.slimefunext.setString
 import org.bukkit.block.Block
 import org.bukkit.event.block.BlockBreakEvent
 import org.bukkit.inventory.ItemStack
@@ -167,7 +167,7 @@ class SingularityConstructor(
         @Suppress("unused")
         fun hudHandler(request: HudRequest): String {
             val loc = request.location
-            val menu = loc.getBlockMenu() ?: return ""
+            val menu = loc.getBlockMenu()
             val machine = request.slimefunItem as SingularityConstructor
 
             val progress = menu.getProgress()

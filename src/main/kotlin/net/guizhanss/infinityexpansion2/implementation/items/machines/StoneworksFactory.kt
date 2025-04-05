@@ -10,14 +10,14 @@ import me.mrCookieSlime.Slimefun.api.inventory.BlockMenuPreset
 import net.guizhanss.guizhanlib.kt.common.extensions.valueOfOrNull
 import net.guizhanss.guizhanlib.kt.minecraft.extensions.toItem
 import net.guizhanss.guizhanlib.kt.slimefun.items.builder.asMaterialType
+import net.guizhanss.guizhanlib.kt.slimefun.utils.getString
+import net.guizhanss.guizhanlib.kt.slimefun.utils.hasData
+import net.guizhanss.guizhanlib.kt.slimefun.utils.setString
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.core.items.attributes.InformationalRecipeDisplayItem
 import net.guizhanss.infinityexpansion2.core.menu.MenuLayout
 import net.guizhanss.infinityexpansion2.implementation.items.machines.abstracts.AbstractTickingMachine
 import net.guizhanss.infinityexpansion2.utils.items.GuiItems
-import net.guizhanss.infinityexpansion2.utils.slimefunext.getString
-import net.guizhanss.infinityexpansion2.utils.slimefunext.hasData
-import net.guizhanss.infinityexpansion2.utils.slimefunext.setString
 import org.bukkit.Material
 import org.bukkit.block.Block
 import org.bukkit.inventory.ItemStack

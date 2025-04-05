@@ -10,6 +10,7 @@ import net.guizhanss.guizhanlib.kt.slimefun.items.builder.MaterialType
 import net.guizhanss.guizhanlib.minecraft.utils.ChatUtil
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import org.bukkit.inventory.ItemStack
+import java.util.Locale
 import java.util.logging.Level
 import kotlin.properties.PropertyDelegateProvider
 import kotlin.properties.ReadOnlyProperty
@@ -23,7 +24,7 @@ import kotlin.reflect.full.valueParameters
  */
 class SlimefunItemBuilder(private val registry: ItemRegistry) {
 
-    var id: String by RequiredProperty(setter = { it.uppercase() })
+    var id: String by RequiredProperty(setter = { it.uppercase(Locale.ENGLISH) })
     var material: MaterialType by RequiredProperty()
     var amount: Int by RequiredProperty(1)
 

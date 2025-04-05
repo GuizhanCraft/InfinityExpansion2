@@ -20,6 +20,11 @@ import net.guizhanss.guizhanlib.kt.minecraft.items.edit
 import net.guizhanss.guizhanlib.kt.slimefun.extensions.isSlimefunItem
 import net.guizhanss.guizhanlib.kt.slimefun.extensions.position
 import net.guizhanss.guizhanlib.kt.slimefun.items.builder.asMaterialType
+import net.guizhanss.guizhanlib.kt.slimefun.utils.getBlockMenu
+import net.guizhanss.guizhanlib.kt.slimefun.utils.getBoolean
+import net.guizhanss.guizhanlib.kt.slimefun.utils.getInt
+import net.guizhanss.guizhanlib.kt.slimefun.utils.setBoolean
+import net.guizhanss.guizhanlib.kt.slimefun.utils.setInt
 import net.guizhanss.guizhanlib.slimefun.machines.MenuBlock
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.core.items.annotations.HudProvider
@@ -30,11 +35,6 @@ import net.guizhanss.infinityexpansion2.utils.bukkitext.createKey
 import net.guizhanss.infinityexpansion2.utils.items.isSimilar
 import net.guizhanss.infinityexpansion2.utils.items.removeDisplayItem
 import net.guizhanss.infinityexpansion2.utils.items.toDisplayItem
-import net.guizhanss.infinityexpansion2.utils.slimefunext.getBlockMenu
-import net.guizhanss.infinityexpansion2.utils.slimefunext.getBoolean
-import net.guizhanss.infinityexpansion2.utils.slimefunext.getInt
-import net.guizhanss.infinityexpansion2.utils.slimefunext.setBoolean
-import net.guizhanss.infinityexpansion2.utils.slimefunext.setInt
 import net.guizhanss.infinityexpansion2.utils.tags.IETag
 import org.bukkit.Location
 import org.bukkit.Material
@@ -447,7 +447,7 @@ class StorageUnit(
 
         @Suppress("unused")
         fun hudHandler(request: HudRequest): String {
-            val menu = request.location.getBlockMenu() ?: return "Unknown"
+            val menu = request.location.getBlockMenu()
             val storage = request.slimefunItem as StorageUnit
             val cache = storage.caches[menu.position] ?: return "Invalid Storage Unit"
 

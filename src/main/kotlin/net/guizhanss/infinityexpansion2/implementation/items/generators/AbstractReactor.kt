@@ -6,12 +6,12 @@ import io.github.thebusybiscuit.slimefun4.api.items.settings.IntRangeSetting
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
 import io.github.thebusybiscuit.slimefun4.core.attributes.EnergyNetProvider
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu
+import net.guizhanss.guizhanlib.kt.slimefun.utils.getInt
+import net.guizhanss.guizhanlib.kt.slimefun.utils.setInt
 import net.guizhanss.guizhanlib.slimefun.machines.MenuBlock
 import net.guizhanss.infinityexpansion2.core.items.attributes.CustomTickRateMachine
 import net.guizhanss.infinityexpansion2.core.items.attributes.EnergyProducer
 import net.guizhanss.infinityexpansion2.core.items.attributes.InformationalRecipeDisplayItem
-import net.guizhanss.infinityexpansion2.utils.slimefunext.getInt
-import net.guizhanss.infinityexpansion2.utils.slimefunext.setInt
 import org.bukkit.Location
 import org.bukkit.block.Block
 import org.bukkit.inventory.ItemStack
