@@ -55,6 +55,14 @@ internal object GuiItems {
         Material.RED_STAINED_GLASS_PANE.asMaterialType(),
         "invalid_input"
     )
+    val DISABLED = InfinityExpansion2.localization.getGuiItem(
+        Material.BARRIER.asMaterialType(),
+        "disabled"
+    )
+    val DISABLED_IN_WORLD = InfinityExpansion2.localization.getGuiItem(
+        Material.BARRIER.asMaterialType(),
+        "disabled_in_world"
+    )
     val SUCCESS = InfinityExpansion2.localization.getGuiItem(
         Material.LIME_STAINED_GLASS_PANE.asMaterialType(),
         "success"

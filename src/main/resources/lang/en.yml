@@ -124,6 +124,18 @@ items:
     conditions:
       force-load: true
     name: "&cInvalid input"
+  _UI_DISABLED:
+    conditions:
+      force-load: true
+    name: "&cDisabled"
+    lore:
+      - "&7This machine is disabled."
+  _UI_DISABLED_IN_WORLD:
+    conditions:
+      force-load: true
+    name: "&cDisabled"
+    lore:
+      - "&7This machine is disabled in this world."
   _UI_SUCCESS:
     conditions:
       force-load: true

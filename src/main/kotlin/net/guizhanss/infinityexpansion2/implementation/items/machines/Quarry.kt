@@ -1,6 +1,7 @@
 package net.guizhanss.infinityexpansion2.implementation.items.machines
 
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup
+import io.github.thebusybiscuit.slimefun4.api.items.ItemSetting
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
 import io.github.thebusybiscuit.slimefun4.api.items.settings.DoubleRangeSetting
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
@@ -34,9 +35,12 @@ class Quarry(
     InformationalRecipeDisplayItem {
 
     private val chanceSetting = DoubleRangeSetting(this, "chance", 0.0, chance, 1.0)
+    private val enabledInOverworldSetting = ItemSetting<Boolean>(this, "enabled-in.overworld", true)
+    private val enabledInNetherSetting = ItemSetting<Boolean>(this, "enabled-in.nether", true)
+    private val enabledInEndSetting = ItemSetting<Boolean>(this, "enabled-in.end", true)
 
     init {
-        addItemSetting(chanceSetting)
+        addItemSetting(chanceSetting, enabledInOverworldSetting, enabledInNetherSetting, enabledInEndSetting)
     }
 
     override fun setup(preset: BlockMenuPreset) {
@@ -45,6 +49,18 @@ class Quarry(
     }
 
     override fun process(b: Block, menu: BlockMenu): Boolean {
+        // check if the machine is enabled in the current world type
+        val isEnabled = when (menu.location.world.environment) {
+            World.Environment.NORMAL -> enabledInOverworldSetting.value
+            World.Environment.NETHER -> enabledInNetherSetting.value
+            World.Environment.THE_END -> enabledInEndSetting.value
+            else -> true
+        }
+        if (!isEnabled) {
+            menu.setStatus { GuiItems.DISABLED_IN_WORLD }
+            return false
+        }
+
         menu.setStatus { GuiItems.PRODUCING }
         if (!shouldProduce()) return true
 
@@ -96,9 +112,10 @@ class Quarry(
             )
             result.add(pool.baseProduct.toItemStack().edit { amount(speed) })
             pool.products.forEach { (product, amount) ->
-                repeat(amount) {
-                    result.add(product.toItemStack().edit { amount(speed) })
-                }
+                result.add(product.toItemStack().edit {
+                    amount(amount)
+                    lore("&7$amount")
+                })
             }
             if (pool.products.size % 2 != 0) {
                 result.add(null)
