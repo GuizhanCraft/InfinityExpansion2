@@ -74,6 +74,12 @@ items:
   _UI_INVALID_INPUT:
     conditions:
       force-load: true
+  _UI_DISABLED:
+    conditions:
+      force-load: true
+  _UI_DISABLED_IN_WORLD:
+    conditions:
+      force-load: true
   _UI_SUCCESS:
     conditions:
       force-load: true
