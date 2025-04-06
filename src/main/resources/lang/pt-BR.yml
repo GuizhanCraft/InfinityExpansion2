@@ -84,6 +84,9 @@ items:
     conditions:
       force-load: true
   #ui - display recipe info
+  _UI_DISPLAY_RECIPES:
+    conditions:
+      force-load: true
   _UI_WORLD_NORMAL:
     conditions:
       force-load: true
