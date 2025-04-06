@@ -355,7 +355,7 @@ items:
       - ""
       - "&eClick &7to toggle"
 
-  # items - guide
+  # in-game guide items
   _GUIDE_INTRO:
     name: "&eIntroduction"
     lore:

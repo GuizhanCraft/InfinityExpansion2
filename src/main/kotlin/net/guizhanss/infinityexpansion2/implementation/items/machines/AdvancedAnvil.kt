@@ -195,10 +195,7 @@ class AdvancedAnvil(
     override fun getDefaultDisplayRecipes(): List<ItemStack?> {
         val result = mutableListOf<ItemStack?>()
         MAX_LEVELS.forEach { (enchantment, maxLevel) ->
-            val item = InfinityExpansion2.localization.getGuiItem(
-                Material.ENCHANTED_BOOK.asMaterialType(),
-                "aa_max_enchantment_level"
-            )
+            val item = MAX_LEVEL_ITEM.clone()
             item.addUnsafeEnchantment(enchantment, maxLevel)
             result.add(item)
         }
@@ -212,5 +209,9 @@ class AdvancedAnvil(
             30, 31, 32, 39, 41, 47, 48, 49, 50, 51
         )
         private val MAX_LEVELS get() = InfinityExpansion2.configService.advancedAnvilMaxLevels.filterValues { it > 0 }
+        private val MAX_LEVEL_ITEM = InfinityExpansion2.localization.getGuiItem(
+            Material.ENCHANTED_BOOK.asMaterialType(),
+            "aa_max_enchantment_level"
+        )
     }
 }
