@@ -3,6 +3,7 @@
 package net.guizhanss.infinityexpansion2.implementation.items.mobsim
 
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
 import io.github.thebusybiscuit.slimefun4.core.attributes.DistinctiveItem
@@ -16,7 +17,7 @@ import net.guizhanss.infinityexpansion2.core.IERegistry
 import net.guizhanss.infinityexpansion2.core.items.attributes.EnergyTickingConsumer
 import net.guizhanss.infinityexpansion2.core.items.attributes.InformationalRecipeDisplayItem
 import net.guizhanss.infinityexpansion2.implementation.IEItems
-import net.guizhanss.infinityexpansion2.implementation.groups.IEItemGroups
+import net.guizhanss.infinityexpansion2.implementation.guide.IEItemGroups
 import net.guizhanss.infinityexpansion2.implementation.recipes.IERecipeTypes
 import net.guizhanss.infinityexpansion2.utils.constant.Keys
 import net.guizhanss.infinityexpansion2.utils.items.GuiItems
@@ -98,5 +99,8 @@ class MobDataCard(
 
         fun getMobDataId(item: ItemStack) =
             if (item.hasItemMeta()) PersistentDataAPI.getString(item.itemMeta, Keys.MOB_DATA_ID) else null
+
+        fun getMobDataCard(id: String?) =
+            getById("${IEItems.MOB_DATA_CARD.itemId}_${id?.toId()}") as? MobDataCard
     }
 }

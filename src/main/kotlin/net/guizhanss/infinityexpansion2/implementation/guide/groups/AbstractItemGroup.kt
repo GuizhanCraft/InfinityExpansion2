@@ -1,16 +1,14 @@
-@file:Suppress("deprecation")
+package net.guizhanss.infinityexpansion2.implementation.guide.groups
 
-package net.guizhanss.infinityexpansion2.core.menu
-
-import io.github.thebusybiscuit.slimefun4.api.items.groups.FlexItemGroup
 import io.github.thebusybiscuit.slimefun4.api.player.PlayerProfile
-import io.github.thebusybiscuit.slimefun4.core.guide.GuideHistory
 import io.github.thebusybiscuit.slimefun4.core.guide.SlimefunGuideMode
 import io.github.thebusybiscuit.slimefun4.core.services.sounds.SoundEffect
 import io.github.thebusybiscuit.slimefun4.implementation.Slimefun
 import io.github.thebusybiscuit.slimefun4.utils.ChestMenuUtils
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ChestMenu
-import org.bukkit.ChatColor
+import net.guizhanss.infinityexpansion2.core.menu.FlexMenu
+import net.guizhanss.infinityexpansion2.core.menu.MenuItem
+import net.guizhanss.infinityexpansion2.utils.slimefunext.getBackButton
 import org.bukkit.NamespacedKey
 import org.bukkit.entity.Player
 import org.bukkit.inventory.ItemStack
@@ -18,72 +16,30 @@ import kotlin.math.ceil
 import kotlin.math.min
 
 /**
- * A [FlexItemGroup] that displays [MenuItem]s.
+ * A [FlexMenu] that lists all [MenuItem]s.
  */
-abstract class FlexGroup(
+abstract class AbstractItemGroup(
     key: NamespacedKey, item: ItemStack
-) : FlexItemGroup(key, item) {
+) : FlexMenu(key, item) {
 
-    private val _menuItems: MutableList<MenuItem> = mutableListOf()
+    private val _menuItems = mutableListOf<MenuItem>()
 
     /**
-     * All the [MenuItem]s in this [FlexGroup].
+     * All the [MenuItem]s in this [AbstractItemGroup].
      */
     val menuItems: List<MenuItem> get() = _menuItems
 
     /**
-     * Adds [MenuItem]s to this [FlexGroup].
+     * Add [MenuItem]s to this [AbstractItemGroup].
      */
     fun addMenuItem(vararg items: MenuItem) {
         _menuItems.addAll(items)
     }
 
-    /**
-     * The title of this guide.
-     */
-    abstract fun getGuideTitle(p: Player): String
-
     override fun isVisible(p: Player, profile: PlayerProfile, mode: SlimefunGuideMode) =
         mode == SlimefunGuideMode.SURVIVAL_MODE
 
-    override fun open(p: Player, profile: PlayerProfile, mode: SlimefunGuideMode) {
-        val menu = ChestMenu(getGuideTitle(p))
-
-        menu.isEmptySlotsClickable = false
-        menu.addMenuOpeningHandler { SoundEffect.GUIDE_BUTTON_CLICK_SOUND.playFor(it) }
-
-        setupBorder(p, profile, mode, menu)
-        setupPage(p, profile, mode, menu, getLastPage(profile))
-
-        menu.open(p)
-    }
-
-    /**
-     * A very hacky way to get the last page from guide history, since flex group does not have a page field.
-     */
-    private fun getLastPage(profile: PlayerProfile): Int {
-        try {
-            val getEntryMethod = GuideHistory::class.java.getDeclaredMethod("getLastEntry", Boolean::class.java)
-            getEntryMethod.isAccessible = true
-            val entry = getEntryMethod.invoke(profile.guideHistory, false) ?: return 1
-
-            val entryClass = Class.forName("io.github.thebusybiscuit.slimefun4.core.guide.GuideEntry")
-            val entryGetObjMethod = entryClass.getDeclaredMethod("getIndexedObject")
-            entryGetObjMethod.isAccessible = true
-            val obj = entryGetObjMethod.invoke(entry)
-
-            if (obj is FlexGroup) {
-                val entryGetPageMethod = entryClass.getDeclaredMethod("getPage")
-                entryGetPageMethod.isAccessible = true
-                return entryGetPageMethod.invoke(entry) as? Int ?: 1
-            }
-        } catch (_: Exception) {
-            // ignored, fallback to 1
-        }
-        return 1
-    }
-
-    open fun setupBorder(p: Player, profile: PlayerProfile, mode: SlimefunGuideMode, menu: ChestMenu) {
+    override fun initPage(p: Player, profile: PlayerProfile, mode: SlimefunGuideMode, menu: ChestMenu) {
         val guide = Slimefun.getRegistry().getSlimefunGuide(mode)
 
         HEADER.forEach {
@@ -93,17 +49,17 @@ abstract class FlexGroup(
             menu.addItem(it, ChestMenuUtils.getBackground(), ChestMenuUtils.getEmptyClickHandler())
         }
 
-        menu.addItem(
-            GUIDE_BACK, ChestMenuUtils.getBackButton(
-                p, "", ChatColor.GRAY.toString() + Slimefun.getLocalization().getMessage(p, "guide.back.guide")
-            )
-        ) { _, _, _, _ ->
-            profile.guideHistory.goBack(guide)
+        menu.addItem(GUIDE_BACK, getBackButton(p)) { _, _, _, action ->
+            if (action.isShiftClicked) {
+                guide.openMainMenu(profile, profile.guideHistory.mainMenuPage)
+            } else {
+                profile.guideHistory.goBack(guide)
+            }
             false
         }
     }
 
-    open fun setupPage(
+    override fun drawPage(
         p: Player, profile: PlayerProfile, mode: SlimefunGuideMode, menu: ChestMenu, page: Int
     ) {
         profile.guideHistory.add(this, page)
@@ -130,28 +86,26 @@ abstract class FlexGroup(
         }
 
         // prev
+        menu.replaceExistingItem(PAGE_PREV, ChestMenuUtils.getPreviousButton(p, page, pages))
         if (page > 1) {
-            menu.replaceExistingItem(PAGE_PREV, ChestMenuUtils.getPreviousButton(p, page, pages))
             menu.addMenuClickHandler(PAGE_PREV) { _, _, _, _ ->
                 SoundEffect.GUIDE_BUTTON_CLICK_SOUND.playFor(p)
-                setupPage(p, profile, mode, menu, page - 1)
+                drawPage(p, profile, mode, menu, page - 1)
                 false
             }
         } else {
-            menu.replaceExistingItem(PAGE_PREV, ChestMenuUtils.getBackground())
             menu.addMenuClickHandler(PAGE_PREV, ChestMenuUtils.getEmptyClickHandler())
         }
 
         // next
+        menu.replaceExistingItem(PAGE_NEXT, ChestMenuUtils.getNextButton(p, page, pages))
         if (page < pages) {
-            menu.replaceExistingItem(PAGE_NEXT, ChestMenuUtils.getNextButton(p, page, pages))
             menu.addMenuClickHandler(PAGE_NEXT) { _, _, _, _ ->
                 SoundEffect.GUIDE_BUTTON_CLICK_SOUND.playFor(p)
-                setupPage(p, profile, mode, menu, page + 1)
+                drawPage(p, profile, mode, menu, page + 1)
                 false
             }
         } else {
-            menu.replaceExistingItem(PAGE_NEXT, ChestMenuUtils.getBackground())
             menu.addMenuClickHandler(PAGE_NEXT, ChestMenuUtils.getEmptyClickHandler())
         }
     }

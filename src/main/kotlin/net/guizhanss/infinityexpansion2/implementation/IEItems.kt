@@ -12,7 +12,7 @@ import net.guizhanss.guizhanlib.kt.slimefun.items.builder.buildRecipe
 import net.guizhanss.guizhanlib.kt.slimefun.items.toItem
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.api.mobsim.MobDataCardProps
-import net.guizhanss.infinityexpansion2.implementation.groups.IEItemGroups
+import net.guizhanss.infinityexpansion2.implementation.guide.IEItemGroups
 import net.guizhanss.infinityexpansion2.implementation.items.food.CosmicMeatballs
 import net.guizhanss.infinityexpansion2.implementation.items.food.UltimateStew
 import net.guizhanss.infinityexpansion2.implementation.items.gear.InfinityArmor

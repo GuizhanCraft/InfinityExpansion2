@@ -3,14 +3,12 @@ package net.guizhanss.infinityexpansion2.utils.items
 import io.github.thebusybiscuit.slimefun4.libraries.dough.data.persistent.PersistentDataAPI
 import io.github.thebusybiscuit.slimefun4.utils.ChestMenuUtils
 import net.guizhanss.guizhanlib.common.utils.StringUtil
+import net.guizhanss.guizhanlib.kt.minecraft.items.edit
 import net.guizhanss.guizhanlib.kt.slimefun.items.builder.asMaterialType
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.core.items.attributes.ProtectionType
 import net.guizhanss.infinityexpansion2.utils.constant.Keys
 import net.guizhanss.infinityexpansion2.utils.constant.Strings
-import net.kyori.adventure.text.Component
-import net.kyori.adventure.text.format.NamedTextColor
-import net.kyori.adventure.text.format.TextDecoration
 import org.bukkit.Material
 import org.bukkit.inventory.ItemStack
 import org.bukkit.inventory.meta.PotionMeta
@@ -28,6 +26,7 @@ internal object GuiItems {
     // not all the countries use dot(.) as decimal point
     private val decimalPoint = DecimalFormatSymbols.getInstance(Locale.getDefault()).decimalSeparator
 
+    // guide items
     val GUIDE = InfinityExpansion2.localization.getGuiItem(
         Material.ENCHANTED_BOOK.asMaterialType(),
         "guide"
@@ -60,18 +59,24 @@ internal object GuiItems {
         Material.LIME_STAINED_GLASS_PANE.asMaterialType(),
         "success"
     )
-    val PRODUCES = InfinityExpansion2.localization.getGuiItem(
+
+    fun progressBar(progress: Int, total: Int) = InfinityExpansion2.localization.getGuiItem(
         Material.LIME_STAINED_GLASS_PANE.asMaterialType(),
-        "produces"
+        "progress",
+        "&7$progress / $total",
+        ChestMenuUtils.getProgressBar(total - progress, total),
     )
-    val RECIPES = InfinityExpansion2.localization.getGuiItem(
-        Material.LIME_STAINED_GLASS_PANE.asMaterialType(),
-        "recipes"
-    )
+
     val CRAFT = InfinityExpansion2.localization.getGuiItem(
         // https://minecraft-heads.com/custom-heads/head/24180-crafting-table
         "2cdc0feb7001e2c10fd5066e501b87e3d64793092b85a50c856d962f8be92c78".asMaterialType(),
         "craft"
+    )
+
+    // display recipe specific
+    val DISPLAY_RECIPES = InfinityExpansion2.localization.getGuiItem(
+        Material.BOOK.asMaterialType(),
+        "display_recipes"
     )
     val WORLD_NORMAL = InfinityExpansion2.localization.getGuiItem(
         Material.GRASS_BLOCK.asMaterialType(),
@@ -85,15 +90,15 @@ internal object GuiItems {
         Material.END_STONE.asMaterialType(),
         "world_the_end"
     )
-
-    fun progressBar(progress: Int, total: Int) = InfinityExpansion2.localization.getGuiItem(
+    val PRODUCES = InfinityExpansion2.localization.getGuiItem(
         Material.LIME_STAINED_GLASS_PANE.asMaterialType(),
-        "progress",
-        "&7$progress / $total",
-        ChestMenuUtils.getProgressBar(total - progress, total),
+        "produces"
+    )
+    val RECIPES = InfinityExpansion2.localization.getGuiItem(
+        Material.LIME_STAINED_GLASS_PANE.asMaterialType(),
+        "recipes"
     )
 
-    // display recipe info
     fun tickRate(tickRate: Int) = InfinityExpansion2.localization.getGuiItem(
         Material.CLOCK.asMaterialType(),
         "tick_rate",
@@ -178,18 +183,13 @@ internal object GuiItems {
         return item
     }
 
-    fun protectionTypes(types: Collection<ProtectionType>): ItemStack {
-        val item = InfinityExpansion2.localization.getGuiItem(
+    fun protectionTypes(types: Collection<ProtectionType>) =
+        InfinityExpansion2.localization.getGuiItem(
             Material.SHIELD.asMaterialType(),
             "protection_types"
-        )
-        val meta = item.itemMeta
-        meta.lore(types.map { StringUtil.humanize(it.key.key) }
-            .map { Component.text(it, NamedTextColor.GRAY).decoration(TextDecoration.ITALIC, false) }
-        )
-        item.itemMeta = meta
-        return item
-    }
+        ).edit {
+            setLore(*types.map { "&7${StringUtil.humanize(it.key.key)}" }.toTypedArray())
+        }
 }
 
 /**

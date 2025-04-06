@@ -138,6 +138,10 @@ items:
     name: "&eClick to craft"
 
   # ui - display recipe info
+  _UI_DISPLAY_RECIPES:
+    conditions:
+      force-load: true
+    name: "&eClick to display recipes"
   _UI_WORLD_NORMAL:
     conditions:
       force-load: true
@@ -1343,7 +1347,12 @@ items:
   # items - hidden
   OSCILLATOR:
     name: "&6Oscillator"
+
 lores:
+  guide:
+    back:
+      previous: "&fClick&7: Go back to previous page"
+      main: "&fShift + Click&7: Go back to main page"
   collect: "&7Collects:"
   produce: "&7Produces:"
   info: "&7Information:"
@@ -1353,6 +1362,7 @@ lores:
     item: "&aStored item: &7{0}"
     amount: "&bAmount: &7{0}"
     void-excess: "&eVoid Excess: &7{0}"
+
 messages:
   commands:
     no-permission: "&cYou do not have permission to use this command."

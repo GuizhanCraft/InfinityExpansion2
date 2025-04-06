@@ -1,16 +1,18 @@
-package net.guizhanss.infinityexpansion2.implementation.groups
+package net.guizhanss.infinityexpansion2.implementation.guide
 
 import net.guizhanss.guizhanlib.kt.slimefun.items.builder.MaterialType
 import net.guizhanss.guizhanlib.kt.slimefun.items.builder.asMaterialType
 import net.guizhanss.guizhanlib.kt.slimefun.items.toItem
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
-import net.guizhanss.infinityexpansion2.utils.bukkitext.createKey
+import net.guizhanss.infinityexpansion2.implementation.guide.groups.MainGroup
+import net.guizhanss.infinityexpansion2.implementation.guide.groups.SubGroup
+import net.guizhanss.infinityexpansion2.utils.bukkitext.ie2Key
 import org.bukkit.Material
 
 object IEItemGroups {
 
     val MAIN = MainGroup(
-        "main".createKey(),
+        ie2Key("main"),
         InfinityExpansion2.localization.getItemGroupItem(
             Material.NETHER_STAR.asMaterialType(),
             "main"
@@ -48,7 +50,7 @@ object IEItemGroups {
     }
 
     private fun createSubGroup(key: String, material: MaterialType) = SubGroup(
-        key.createKey(),
+        ie2Key(key),
         InfinityExpansion2.localization.getItemGroupItem(
             material,
             key

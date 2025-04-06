@@ -11,7 +11,7 @@ import net.guizhanss.infinityexpansion2.core.services.ConfigService
 import net.guizhanss.infinityexpansion2.core.services.IntegrationService
 import net.guizhanss.infinityexpansion2.core.services.LocalizationService
 import net.guizhanss.infinityexpansion2.implementation.IEItems
-import net.guizhanss.infinityexpansion2.implementation.groups.IEItemGroups
+import net.guizhanss.infinityexpansion2.implementation.guide.IEItemGroups
 import net.guizhanss.infinityexpansion2.implementation.listeners.ArmorItemListener
 import net.guizhanss.infinityexpansion2.implementation.listeners.BowItemListener
 import net.guizhanss.infinityexpansion2.implementation.listeners.InfinityMatrixListener

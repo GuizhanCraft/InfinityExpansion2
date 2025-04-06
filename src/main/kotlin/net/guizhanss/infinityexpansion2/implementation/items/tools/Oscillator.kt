@@ -14,7 +14,7 @@ import net.guizhanss.guizhanlib.kt.slimefun.items.builder.buildRecipe
 import net.guizhanss.guizhanlib.kt.slimefun.items.toItem
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.implementation.IEItems
-import net.guizhanss.infinityexpansion2.implementation.groups.IEItemGroups
+import net.guizhanss.infinityexpansion2.implementation.guide.IEItemGroups
 import net.guizhanss.infinityexpansion2.utils.bukkitext.toItemStack
 import net.guizhanss.infinityexpansion2.utils.constant.Keys
 import org.bukkit.ChatColor
