@@ -52,7 +52,7 @@ abstract class FlexMenu(
             entryGetObjMethod.isAccessible = true
             val obj = entryGetObjMethod.invoke(entry)
 
-            if (obj is FlexMenu) {
+            if (obj == this) {
                 val entryGetPageMethod = entryClass.getDeclaredMethod("getPage")
                 entryGetPageMethod.isAccessible = true
                 return entryGetPageMethod.invoke(entry) as? Int ?: 1
