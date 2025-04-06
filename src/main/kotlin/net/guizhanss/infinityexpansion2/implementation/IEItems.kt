@@ -686,7 +686,7 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
         }
     }
 
-    val INFINITY_CAPACITOR by buildSlimefunItem<Capacitor>(64_000_000) {
+    val INFINITY_CAPACITOR by buildSlimefunItem<Capacitor>(128_000_000) {
         material = HeadTexture.CAPACITOR_25.asMaterialType()
         itemGroup = IEItemGroups.SLIMEFUN_EXPANSION
         recipeType = IERecipeTypes.INFINITY_WORKBENCH

@@ -547,9 +547,9 @@ items:
     name: "&bInfinity Capacitor"
     lore:
       - ""
-      - "&8\u21E8 &e⚡ &72,000,000,000 J Capacity"
+      - "&8\u21E8 &e⚡ &7128,000,000 J Capacity"
     lore-overrides:
-      2: "%sftrlore_PowerCapacity_2000000000%" # DO NOT translate this
+      2: "%sftrlore_PowerCapacity_128000000%" # DO NOT translate this
   ADVANCED_ENCHANTER:
     name: "&cAdvanced Enchanter"
     lore:
