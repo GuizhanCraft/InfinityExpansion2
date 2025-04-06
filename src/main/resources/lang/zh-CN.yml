@@ -122,6 +122,12 @@ items:
     conditions:
       force-load: true
     name: "&c无效输入"
+  _UI_DISABLED:
+    conditions:
+      force-load: true
+  _UI_DISABLED_IN_WORLD:
+    conditions:
+      force-load: true
   _UI_SUCCESS:
     conditions:
       force-load: true
@@ -343,7 +349,7 @@ items:
       - "&7&l不会&7被清空"
       - ""
       - "&e点击&7切换"
-  #items - guide
+  #in-game guide items
   _GUIDE_INTRO:
     name: "&e介绍"
   #items - singularities
