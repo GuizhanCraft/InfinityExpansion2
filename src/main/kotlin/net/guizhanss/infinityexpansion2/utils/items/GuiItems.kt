@@ -196,7 +196,7 @@ internal object GuiItems {
             Material.SHIELD.asMaterialType(),
             "protection_types"
         ).edit {
-            setLore(*types.map { "&7${StringUtil.humanize(it.key.key)}" }.toTypedArray())
+            setLore(types.map { "&7${StringUtil.humanize(it.key.key)}" })
         }
 }
 

@@ -8,7 +8,7 @@ import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
 import io.github.thebusybiscuit.slimefun4.utils.ChestMenuUtils
 import io.github.thebusybiscuit.slimefun4.utils.SlimefunUtils
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu
-import net.guizhanss.guizhanlib.kt.minecraft.extensions.dropItem
+import net.guizhanss.guizhanlib.kt.minecraft.extensions.drop
 import net.guizhanss.guizhanlib.kt.slimefun.utils.getBlockMenu
 import net.guizhanss.guizhanlib.kt.slimefun.utils.getInt
 import net.guizhanss.guizhanlib.kt.slimefun.utils.getString
@@ -47,7 +47,7 @@ class SingularityConstructor(
             val singularity = getSingularityById(target)
             if (singularity != null) {
                 val entry = singularity.ingredients.entries.first { it.value == 1 }
-                entry.key.dropItem(l, progress)
+                entry.key.drop(l, progress)
             }
         }
     }

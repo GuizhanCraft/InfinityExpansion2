@@ -28,10 +28,10 @@ dependencies {
     compileOnly("com.github.slimefun:Slimefun4:3ea21da4fe")
     compileOnly("net.guizhanss:SlimefunTranslation:e03b01a7b7")
     compileOnly("com.github.schntgaispock:SlimeHUD:1.3.0")
-    implementation("net.guizhanss:guizhanlib-all:2.3.0-SNAPSHOT")
+    implementation("net.guizhanss:guizhanlib-all:2.3.0")
+    implementation("net.guizhanss:guizhanlib-kt-all:0.2.0-SNAPSHOT")
     implementation("org.bstats:bstats-bukkit:3.1.0")
     implementation("com.jeff-media:MorePersistentDataTypes:2.4.0")
-    implementation("net.guizhanss:guizhanlib-kt-all:0.1.0-SNAPSHOT")
 }
 
 java {
