@@ -118,8 +118,8 @@ quarry:
   #
   # All the item IDs must be a valid Material, or a valid Slimefun item ID.
   #
-  # Due to how the config file is processed, you cannot remove existing fields.
-  # If you want to "remove" an item from the pool, set its weight to 0.
+  # Due to how the config file is processed, you cannot remove pre-defined fields.
+  # If you want to "remove" a pre-defined item from the pool, set its weight to 0.
   pools:
     normal:
       base-product: COBBLESTONE
@@ -145,7 +145,10 @@ quarry:
 
   # The chance (0 to 1) of an oscillator activating each time a material would be produced
   # The materials listed here will be registered as oscillators.
-  # The key must be a valid material ID, or a valid Slimefun item ID.
+  # You can add more oscillators. The key must be a valid material ID, or a valid Slimefun item ID.
+  #
+  # Due to how the config file is processed, you cannot remove pre-defined fields.
+  # If you want to "remove" a pre-defined oscillator, set its chance to 0.
   oscillators:
     LAPIS_LAZULI: .5
     DIAMOND: .5
@@ -158,9 +161,10 @@ quarry:
 # The maximum possible level of every enchantment in advanced anvil
 # all the keys are the key part of an Enchantment's NamespacedKey
 # Enchantment: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/enchantments/Enchantment.html
-# You can add any enchantments, but cannot remove.
-# If you want to "remove" an enchantment, set its level to 0, it will be read as not set, thus will have its vanilla limit.
 # Enchantments not defined here will have the vanilla level limit.
+#
+# Due to how the config file is processed, you cannot remove pre-defined fields.
+# If you want to "remove" a pre-defined enchantment, set its level to 0. It will be read as not set, thus will have its vanilla limit.
 #
 # after 1.20.5, bukkit renamed the naming of Enchantment enum, so the name is the same as the key part except case.
 # so, you only need to turn the Enchantment's name into lowercase.
@@ -183,21 +187,20 @@ advanced-anvil:
 #
 # `unbreakable` is a boolean value that determines whether the gear is unbreakable.
 #
-# You can add new enchantments, but cannot remove enchantment fields, due to the plugin autofill all missing fields.
-# To disable an existing enchantment, set its level to 0.
+# Due to how the config file is processed, you cannot remove pre-defined fields.
+# To disable a pre-defined enchantment, set its level to 0.
 # Enchantment: https://jd.papermc.io/paper/1.20.6/org/bukkit/enchantments/Enchantment.html
 #
 # Unbreakable and enchantments only affect new gears, not existing ones.
 #
-# You can add new potion effects, but cannot remove potion effect fields, due to the plugin autofill all missing fields.
 # The value represents the amplifier, which is the level of the potion effect - 1. (e.g. haste: 2 means Haste III in game)
-# To disable an existing potion effect, set its amplifier to a negative number (like -1).
+# To disable a pre-defined potion effect, set its amplifier to a negative number (like -1).
 # PotionEffectType: https://jd.papermc.io/paper/1.20.6/org/bukkit/potion/PotionEffectType.html
 #
 # Protections can be found here:
 # https://github.com/GuizhanCraft/InfinityExpansion2/blob/master/src/main/kotlin/net/guizhanss/infinityexpansion2/core/items/attributes/ProtectionType.kt
 #
-# Potion effects and protections affect both existing and new gears.
+# Potion effects and protections affect both pre-defined and new gears.
 infinity-gear:
   sword:
     unbreakable: true
