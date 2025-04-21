@@ -40,7 +40,7 @@ interface InformationalRecipeDisplayItem : RecipeDisplayItem {
         }
         val divider = getDividerItem()
         if (divider != null) {
-            result.addAll(arrayOf(divider))
+            result.addAll(arrayOf(divider, divider))
         }
         result.addAll(getDefaultDisplayRecipes())
         return result
