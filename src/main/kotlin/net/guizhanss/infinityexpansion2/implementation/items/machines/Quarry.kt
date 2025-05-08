@@ -72,11 +72,11 @@ class Quarry(
     }
 
     private fun shouldProduce() =
-        InfinityExpansion2.sfTickCount() % (getCustomTickRate() * InfinityExpansion2.configService.quarryInterval) == 0
+        InfinityExpansion2.sfTickCount() % (getCustomTickRate() * InfinityExpansion2.configService.quarryInterval.value) == 0
 
     private fun produce(menu: BlockMenu): ItemStack? {
         val env = menu.location.world.environment
-        val pool = InfinityExpansion2.configService.quarryPools[env] ?: return null
+        val pool = InfinityExpansion2.configService.quarryPools.value[env] ?: return null
         if (Random.nextDouble() <= chanceSetting.value) { // base chance
             val oscillatorItem = menu.getItemInSlot(inputSlots[0])
             // check if oscillator doesn't exist, not applicable to current pool, or it doesn't activate
@@ -101,7 +101,7 @@ class Quarry(
 
     override fun getDefaultDisplayRecipes(): List<ItemStack?> {
         val result = mutableListOf<ItemStack?>()
-        InfinityExpansion2.configService.quarryPools.forEach { (env, pool) ->
+        InfinityExpansion2.configService.quarryPools.value.forEach { (env, pool) ->
             result.add(
                 when (env) {
                     World.Environment.NORMAL -> GuiItems.WORLD_NORMAL
@@ -129,7 +129,7 @@ class Quarry(
         GuiItems.tickRate(getCustomTickRate()),
         GuiItems.energyConsumptionPerTick(getEnergyConsumptionPerTick()),
         GuiItems.chance(chanceSetting.value),
-        GuiItems.outputInterval(InfinityExpansion2.configService.quarryInterval),
+        GuiItems.outputInterval(InfinityExpansion2.configService.quarryInterval.value),
     )
 
     override fun getDividerItem() = GuiItems.RECIPES

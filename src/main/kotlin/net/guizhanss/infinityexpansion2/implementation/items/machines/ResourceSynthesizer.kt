@@ -36,7 +36,7 @@ class ResourceSynthesizer(
 
     private fun loadRecipes() {
         check(state == ItemState.UNREGISTERED) { "Cannot add recipes after the machine has been registered" }
-        val recipes = InfinityExpansion2.configService.resourceSynthesizerRecipes
+        val recipes = InfinityExpansion2.configService.resourceSynthesizerRecipes.value
         recipes.forEach { recipe ->
             if (!recipe.inputs.first.isSlimefunItem()) return@forEach
             if (!recipe.inputs.second.isSlimefunItem()) return@forEach

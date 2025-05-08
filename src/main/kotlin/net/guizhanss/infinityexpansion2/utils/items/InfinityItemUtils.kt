@@ -13,7 +13,7 @@ import java.util.logging.Level
 fun String.removePrefix() = this.replace(IEItems.prefix, "")
 
 fun getInfinityGearPotionEffects(key: String): Array<PotionEffect> {
-    val section = InfinityExpansion2.configService.infinityGear[key.lowercase()] ?: run {
+    val section = InfinityExpansion2.configService.infinityGear.value[key.lowercase()] ?: run {
         InfinityExpansion2.log(
             Level.WARNING, "Infinity gear \"$key\"'s config section is missing."
         )
@@ -51,7 +51,7 @@ fun getInfinityGearPotionEffects(key: String): Array<PotionEffect> {
 }
 
 fun getInfinityGearProtectionTypes(key: String): Array<ProtectionType> {
-    val section = InfinityExpansion2.configService.infinityGear[key.lowercase()] ?: run {
+    val section = InfinityExpansion2.configService.infinityGear.value[key.lowercase()] ?: run {
         InfinityExpansion2.log(
             Level.WARNING, "Infinity gear \"$key\"'s config section is missing."
         )
@@ -63,7 +63,7 @@ fun getInfinityGearProtectionTypes(key: String): Array<ProtectionType> {
 
 fun applyInfinityGearEnchantment(sfItem: SlimefunItemStack) {
     val key = sfItem.itemId.replace("${IEItems.prefix}INFINITY_", "").lowercase()
-    val section = InfinityExpansion2.configService.infinityGear[key] ?: run {
+    val section = InfinityExpansion2.configService.infinityGear.value[key] ?: run {
         InfinityExpansion2.log(
             Level.WARNING, "Infinity gear \"$key\"'s config section is missing."
         )

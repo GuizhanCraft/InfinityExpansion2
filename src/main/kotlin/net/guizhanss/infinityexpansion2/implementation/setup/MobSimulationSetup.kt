@@ -23,7 +23,7 @@ internal object MobSimulationSetup {
     init {
         val cfg = InfinityExpansion2.configService.mobSimConfig
         InfinityExpansion2.log(Level.INFO, "Loading mob simulation data cards...")
-        if (!InfinityExpansion2.configService.debug) {
+        if (!InfinityExpansion2.configService.debug.value) {
             InfinityExpansion2.log(Level.INFO, "If you encounter any issues, enabling debug mode may help.")
         }
         cfg.keys.forEach cfg@{ key ->
@@ -32,7 +32,8 @@ internal object MobSimulationSetup {
             // check for enabled
             if (!section.getBoolean("enabled", false)) return@cfg
 
-            InfinityExpansion2.debug("Loading: $key")
+            InfinityExpansion2.debug("====================")
+            InfinityExpansion2.debug("Loading mob data card: $key")
 
             // load data
             val name = section.getString("name", "${ChatColor.BLUE}${StringUtil.humanize(key)}")!!

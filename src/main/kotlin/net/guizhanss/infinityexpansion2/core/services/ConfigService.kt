@@ -5,7 +5,9 @@ import net.guizhanss.guizhanlib.kt.minecraft.extensions.loadDoubleMap
 import net.guizhanss.guizhanlib.kt.minecraft.extensions.loadEnchantmentKeyMap
 import net.guizhanss.guizhanlib.kt.minecraft.extensions.loadEnumKeyMap
 import net.guizhanss.guizhanlib.kt.minecraft.extensions.loadSectionMap
-import net.guizhanss.guizhanlib.slimefun.addon.AddonConfig
+import net.guizhanss.guizhanlib.kt.slimefun.config.ConfigField
+import net.guizhanss.guizhanlib.kt.slimefun.config.addonConfig
+import net.guizhanss.guizhanlib.kt.slimefun.config.migration.configMigrations
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.core.config.QuarryPool
 import net.guizhanss.infinityexpansion2.core.config.ResourceSynthesizerRecipe
@@ -17,63 +19,83 @@ import org.bukkit.enchantments.Enchantment
 
 class ConfigService(plugin: InfinityExpansion2) {
 
-    var autoUpdate = true
-        private set
-    var debug = false
-        private set
-    var lang = "en"
-        private set
+    lateinit var autoUpdate: ConfigField<Boolean>
+    lateinit var debug: ConfigField<Boolean>
+    lateinit var lang: ConfigField<String>
+    lateinit var enableResearches: ConfigField<Boolean>
 
-    // balance options
-    var singularityCostMultiplier = 1.0
-        private set
-    var allowSfItemTransform = false
-        private set
-    var enableResearches = false
-        private set
+    // singularity options
+    lateinit var singularityCostMultiplier: ConfigField<Double>
+
+    // gear transformer options
+    lateinit var gearTransformerAllowSfItems: ConfigField<Boolean>
 
     // resource synthesizer options
-    var resourceSynthesizerRecipes: List<ResourceSynthesizerRecipe> = listOf()
-        private set
+    lateinit var resourceSynthesizerRecipes: ConfigField<List<ResourceSynthesizerRecipe>>
 
     // mob simulation options
-    var mobSimInterval = 20
-        private set
-    var mobSimAllowStackedCard = false
-        private set
-    var mobSimExpMultiplier = 1.0
-        private set
-    var mobSimLegacyOutput = false
-        private set
+    lateinit var mobSimInterval: ConfigField<Int>
+    lateinit var mobSimAllowStackedCard: ConfigField<Boolean>
+    lateinit var mobSimExpMultiplier: ConfigField<Double>
+    lateinit var mobSimLegacyOutput: ConfigField<Boolean>
 
     // storage options
-    var storageEnableSigns = false
-        private set
-    var storageSignUpdateInterval = 20
-        private set
-    var storageEnableHolograms = false
-        private set
-    var storageHologramUpdateInterval = 20
-        private set
+    lateinit var storageEnableSigns: ConfigField<Boolean>
+    lateinit var storageSignUpdateInterval: ConfigField<Int>
+    lateinit var storageEnableHolograms: ConfigField<Boolean>
+    lateinit var storageHologramUpdateInterval: ConfigField<Int>
 
     // quarry options
-    var quarryInterval = 10
-        private set
-    var quarryPools: Map<Environment, QuarryPool> = emptyMap()
-        private set
-    var quarryOscillators: Map<String, Double> = emptyMap()
-        private set
+    lateinit var quarryInterval: ConfigField<Int>
+    lateinit var quarryPools: ConfigField<Map<Environment, QuarryPool>>
+    lateinit var quarryOscillators: ConfigField<Map<String, Double>>
 
     // advanced anvil options
-    var advancedAnvilMaxLevels: Map<Enchantment, Int> = emptyMap()
-        private set
+    lateinit var advancedAnvilMaxLevels: ConfigField<Map<Enchantment, Int>>
 
     // infinity gear section
-    var infinityGear: Map<String, ConfigurationSection> = emptyMap()
-        private set
+    lateinit var infinityGear: ConfigField<Map<String, ConfigurationSection>>
 
-    private val config = AddonConfig(plugin, "config.yml")
-    val mobSimConfig = Config(plugin, "mob-simulation.yml")
+    private val configMigrations = configMigrations {
+        add(1, 2) {
+            move("balance.enable-researches", "enable-researches")
+            move("balance.singularity-cost-multiplier", "singularity.cost-multiplier")
+            move("balance.allow-sf-item-transform", "gear-transformer.allow-sf-items")
+        }
+    }
+
+    private val config = addonConfig(plugin, "config.yml", configMigrations) {
+        autoUpdate = boolean("auto-update", true)
+        debug = boolean("debug", false)
+        lang = string("lang", InfinityExpansion2.DEFAULT_LANG)
+        enableResearches = boolean("enable-researches", false)
+        singularityCostMultiplier = double("singularity.cost-multiplier", 1.0, 0.0, 1000.0)
+        gearTransformerAllowSfItems = boolean("gear-transformer.allow-sf-items", false)
+        resourceSynthesizerRecipes =
+            custom { it.getMapList("resource-synthesizer.recipes").getAsSerializableList<ResourceSynthesizerRecipe>() }
+        mobSimInterval = int("mob-simulation.output-interval", 20, 1, 3600)
+        mobSimAllowStackedCard = boolean("mob-simulation.allow-stacked-card", false)
+        mobSimExpMultiplier = double("mob-simulation.exp-multiplier", 1.0, 0.0, 1000.0)
+        mobSimLegacyOutput = boolean("mob-simulation.legacy-output", false)
+        storageEnableSigns = boolean("storage.enable-signs", false)
+        storageSignUpdateInterval = int("storage.sign-update-interval", 20, 1, 3600)
+        storageEnableHolograms = boolean("storage.enable-holograms", false)
+        storageHologramUpdateInterval = int("storage.hologram-update-interval", 20, 1, 3600)
+        quarryInterval = int("quarry.output-interval", 10, 1, 3600)
+        quarryOscillators = custom { it.getConfigurationSection("quarry.oscillators").loadDoubleMap() }
+        quarryPools = custom {
+            it.getConfigurationSection("quarry.pools")
+                .loadEnumKeyMap<Environment, QuarryPool>({ obj -> (obj as ConfigurationSection).getAsSerializable() })
+        }
+        advancedAnvilMaxLevels = custom {
+            it.getConfigurationSection("advanced-anvil.max-levels").loadEnchantmentKeyMap()
+        }
+        infinityGear = custom {
+            it.getConfigurationSection("infinity-gear").loadSectionMap()
+        }
+    }
+
+    internal val mobSimConfig = Config(plugin, "mob-simulation.yml")
 
     init {
         if (!mobSimConfig.file.exists()) {
@@ -85,30 +107,5 @@ class ConfigService(plugin: InfinityExpansion2) {
     fun reload() {
         config.reload()
         mobSimConfig.reload()
-
-        autoUpdate = config.getBoolean("auto-update", true)
-        debug = config.getBoolean("debug", false)
-        lang = config.getString("lang") ?: "en"
-        singularityCostMultiplier = config.getDouble("balance.singularity-cost-multiplier", 1.0).coerceIn(0.0, 1000.0)
-        allowSfItemTransform = config.getBoolean("balance.allow-sf-item-transform", false)
-        enableResearches = config.getBoolean("balance.enable-researches", false)
-        resourceSynthesizerRecipes = config.getMapList("resource-synthesizer.recipes")
-            .getAsSerializableList<ResourceSynthesizerRecipe>()
-        mobSimInterval = config.getInt("mob-simulation.output-interval", 20).coerceIn(1, 3600)
-        mobSimAllowStackedCard = config.getBoolean("mob-simulation.allow-stacked-card", false)
-        mobSimExpMultiplier = config.getDouble("mob-simulation.exp-multiplier", 1.0).coerceIn(0.0, 1000.0)
-        mobSimLegacyOutput = config.getBoolean("mob-simulation.legacy-output", false)
-        storageEnableSigns = config.getBoolean("storage.enable-signs", false)
-        storageSignUpdateInterval = config.getInt("storage.sign-update-interval", 20).coerceIn(1, 3600)
-        storageEnableHolograms = config.getBoolean("storage.enable-holograms", false)
-        storageHologramUpdateInterval = config.getInt("storage.hologram-update-interval", 20).coerceIn(1, 3600)
-        quarryInterval = config.getInt("quarry.output-interval", 10).coerceIn(1, 3600)
-        quarryOscillators = config.getConfigurationSection("quarry.oscillators").loadDoubleMap()
-        quarryPools = config.getConfigurationSection("quarry.pools")
-            .loadEnumKeyMap<Environment, QuarryPool>({ obj -> (obj as ConfigurationSection).getAsSerializable() })
-        advancedAnvilMaxLevels = config.getConfigurationSection("advanced-anvil.max-levels").loadEnchantmentKeyMap()
-        infinityGear = config.getConfigurationSection("infinity-gear").loadSectionMap()
-
-        config.save()
     }
 }

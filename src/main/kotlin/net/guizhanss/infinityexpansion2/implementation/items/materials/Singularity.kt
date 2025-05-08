@@ -29,7 +29,7 @@ class Singularity(
     }
 
     val totalProgress
-        get() = ceil(defaultProgressSetting.value * InfinityExpansion2.configService.singularityCostMultiplier).toInt()
+        get() = ceil(defaultProgressSetting.value * InfinityExpansion2.configService.singularityCostMultiplier.value).toInt()
 
     fun getIngredientProgress(ingredient: ItemStack?): Int {
         if (ingredient == null) return 0

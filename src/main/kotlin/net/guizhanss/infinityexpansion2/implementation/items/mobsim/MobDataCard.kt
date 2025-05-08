@@ -62,7 +62,7 @@ class MobDataCard(
 
     override fun getInfoItems() = listOf(
         GuiItems.energyConsumptionPerTick(getEnergyConsumptionPerTick()),
-        GuiItems.experience(floor(props.experience * InfinityExpansion2.configService.mobSimExpMultiplier).toInt())
+        GuiItems.experience(floor(props.experience * InfinityExpansion2.configService.mobSimExpMultiplier.value).toInt())
     )
 
     override fun getDividerItem() = GuiItems.PRODUCES

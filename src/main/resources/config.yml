@@ -8,19 +8,21 @@ debug: false
 # SlimefunTranslation is supported.
 lang: en
 
-# Balance options
-balance:
+# Whether to enable researches in the plugin
+enable-researches: false
+
+# Singularity options
+singularity:
   # The cost multiplier for singularity crafting
-  # Range: 0.0 to 1000.0
-  singularity-cost-multiplier: 1.0
+  # Range: 0.0 to 1000.0, default: 1.0
+  cost-multiplier: 1.0
 
+# Gear transformer options
+gear-transformer:
   # Can Gear Transformer transform slimefun gear's material.
-  # Diamond tools can already be upgraded to netherite,
+  # Diamond tools can already be upgraded to netherite in smithing table.
   # but some addon developers do not want their gear to be transformable, so change this at your own risk.
-  allow-sf-item-transform: false
-
-  # Whether to enable researches
-  enable-researches: false
+  allow-sf-items: false
 
 # Resource synthesizer options
 resource-synthesizer:

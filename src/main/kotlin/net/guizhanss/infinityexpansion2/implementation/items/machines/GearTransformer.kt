@@ -52,7 +52,7 @@ class GearTransformer(
             return false
         }
 
-        if (!InfinityExpansion2.configService.allowSfItemTransform && gear.isSlimefunItem()) {
+        if (!InfinityExpansion2.configService.gearTransformerAllowSfItems.value && gear.isSlimefunItem()) {
             menu.setStatus { NO_SLIMEFUN_ITEM }
             return false
         }
@@ -101,7 +101,7 @@ class GearTransformer(
 
     override fun getInfoItems() = listOf(
         GuiItems.energyConsumptionPerUse(getEnergyConsumptionPerAction()),
-        GuiItems.sfItem(InfinityExpansion2.configService.allowSfItemTransform)
+        GuiItems.sfItem(InfinityExpansion2.configService.gearTransformerAllowSfItems.value)
     )
 
     override fun getDefaultDisplayRecipes(): List<ItemStack?> {

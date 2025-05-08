@@ -208,7 +208,7 @@ class AdvancedAnvil(
         private val ANVIL_BASE_SLOTS = intArrayOf(
             30, 31, 32, 39, 41, 47, 48, 49, 50, 51
         )
-        private val MAX_LEVELS get() = InfinityExpansion2.configService.advancedAnvilMaxLevels.filterValues { it > 0 }
+        private val MAX_LEVELS get() = InfinityExpansion2.configService.advancedAnvilMaxLevels.value.filterValues { it > 0 }
         private val MAX_LEVEL_ITEM = InfinityExpansion2.localization.getGuiItem(
             Material.ENCHANTED_BOOK.asMaterialType(),
             "aa_max_enchantment_level"

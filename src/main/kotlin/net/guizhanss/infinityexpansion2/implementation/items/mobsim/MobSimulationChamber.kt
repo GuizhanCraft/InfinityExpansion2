@@ -90,7 +90,7 @@ class MobSimulationChamber(
         }
 
         // handle stackable
-        val amount = if (InfinityExpansion2.configService.mobSimAllowStackedCard) cardAmount else 1
+        val amount = if (InfinityExpansion2.configService.mobSimAllowStackedCard.value) cardAmount else 1
         val energy = getEnergyConsumptionPerTick() + props.energy * amount
 
         if (getCharge(menu.location) < energy) {
@@ -104,11 +104,11 @@ class MobSimulationChamber(
         menu.setEnergyConsumption(energy)
         menu.replaceExistingItem(XP_SLOT, GuiItems.experience(currentXp))
 
-        if (InfinityExpansion2.sfTickCount() % (InfinityExpansion2.configService.mobSimInterval * getCustomTickRate()) == 0) {
-            val xp = floor(props.experience * InfinityExpansion2.configService.mobSimExpMultiplier).toInt()
+        if (InfinityExpansion2.sfTickCount() % (InfinityExpansion2.configService.mobSimInterval.value * getCustomTickRate()) == 0) {
+            val xp = floor(props.experience * InfinityExpansion2.configService.mobSimExpMultiplier.value).toInt()
             l.setInt(XP_KEY, currentXp + xp)
 
-            if (InfinityExpansion2.configService.mobSimLegacyOutput) {
+            if (InfinityExpansion2.configService.mobSimLegacyOutput.value) {
                 val output = props.getRandomDrop()
                 if (!menu.fits(output, *outputSlots)) {
                     menu.setStatus { GuiItems.NO_ROOM }
@@ -158,7 +158,7 @@ class MobSimulationChamber(
     override fun getInfoItems() = listOf(
         GuiItems.tickRate(getCustomTickRate()),
         GuiItems.energyConsumptionPerTick(getEnergyConsumptionPerTick()),
-        GuiItems.outputInterval(InfinityExpansion2.configService.mobSimInterval),
+        GuiItems.outputInterval(InfinityExpansion2.configService.mobSimInterval.value),
     )
 
     companion object {

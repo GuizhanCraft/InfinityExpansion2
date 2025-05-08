@@ -4,6 +4,7 @@ import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem
 import io.github.thebusybiscuit.slimefun4.api.player.PlayerProfile
 import io.github.thebusybiscuit.slimefun4.core.guide.SlimefunGuideMode
+import io.github.thebusybiscuit.slimefun4.implementation.Slimefun
 import net.guizhanss.infinityexpansion2.api.mobsim.MobDataCardProps
 import net.guizhanss.infinityexpansion2.implementation.items.mobsim.MobDataCard
 import net.guizhanss.infinityexpansion2.utils.slimefunext.displayItem
@@ -35,6 +36,11 @@ object InfinityExpansion2API {
         val displayItem = MobDataCard.buildDisplayItem(props.id, props.name, props.texture)
 
         // register item
-        MobDataCard.create(displayItem, props.recipe, props).register(addon)
+        val card = MobDataCard.create(displayItem, props.recipe, props)
+        card.register(addon)
+        // in case autoloading is not yet enabled but item is registered
+        if (!Slimefun.getRegistry().isAutoLoadingEnabled) {
+            card.load()
+        }
     }
 }
