@@ -11,7 +11,10 @@ plugins {
 group = "net.guizhanss"
 description = "InfinityExpansion2"
 
+val timestamp = System.currentTimeMillis()
 val mainPackage = "net.guizhanss.infinityexpansion2"
+
+version = "UNOFFICIAL-$timestamp"
 
 repositories {
     mavenCentral()
