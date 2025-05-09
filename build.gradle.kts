@@ -1,5 +1,8 @@
 import net.minecrell.pluginyml.bukkit.BukkitPluginDescription
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import java.time.Instant
+import java.time.ZoneOffset
+import java.time.format.DateTimeFormatter
 
 plugins {
     kotlin("jvm") version "2.1.20"
@@ -11,7 +14,7 @@ plugins {
 group = "net.guizhanss"
 description = "InfinityExpansion2"
 
-val timestamp = System.currentTimeMillis()
+val timestamp: String = DateTimeFormatter.ofPattern("yyMMddHHmm").withZone(ZoneOffset.UTC).format(Instant.now())
 val mainPackage = "net.guizhanss.infinityexpansion2"
 
 version = "UNOFFICIAL-$timestamp"
