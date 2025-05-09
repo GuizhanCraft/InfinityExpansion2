@@ -21,8 +21,8 @@ open class InfinityArmor(
     recipe: Array<out ItemStack?>,
     private val effects: Array<PotionEffect> = arrayOf(),
     private val protectionTypes: Array<ProtectionType> = arrayOf(),
-) : SlimefunArmorPiece(itemGroup, itemStack, recipeType, recipe, effects), ProtectiveArmorExtra, Soulbound, NotPlaceable,
-    InformationalRecipeDisplayItem {
+) : SlimefunArmorPiece(itemGroup, itemStack, recipeType, recipe, effects), ProtectiveArmorExtra, Soulbound,
+    NotPlaceable, InformationalRecipeDisplayItem {
 
     override fun getAllProtectionTypes() = protectionTypes
 

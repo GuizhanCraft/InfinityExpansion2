@@ -32,7 +32,7 @@ interface ProtectionType : Keyed {
         private fun create(name: String, sfProtectionType: SfProtectionType? = null): ProtectionType {
             val result = object : ProtectionType {
                 override fun asSlimefun() = sfProtectionType
-                override fun getKey() = ie2Key("name")
+                override fun getKey() = ie2Key(name)
             }
             values.add(result)
             return result
