@@ -156,7 +156,7 @@ class InfinityExpansion2 : AbstractAddon(
     private fun setupMetrics() {
         val metrics = Metrics(this, 23025)
 
-        metrics.addCustomChart(SimplePie("auto_update") { configService.autoUpdate.toString() })
+        metrics.addCustomChart(SimplePie("autoUpdate") { configService.autoUpdate.value.toString() })
     }
 
     companion object {
