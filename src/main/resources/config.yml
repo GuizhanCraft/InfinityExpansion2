@@ -187,22 +187,26 @@ advanced-anvil:
 
 # Infinity gear options
 #
-# `unbreakable` is a boolean value that determines whether the gear is unbreakable.
+# Each section represents a type of gear, and each section has the following sub-sections:
+# - `unbreakable`: Whether the gear is unbreakable.
+# - `enchantments`: A map of enchantments and their levels.
+# - `potion-effects`: (Only works on armor) A map of potion effects and their amplifiers.
+# - `protections`: (Only works on armor) A list of protection types.
 #
 # Due to how the config file is processed, you cannot remove pre-defined fields.
+#
+# Enchantment: https://jd.papermc.io/paper/1.20.6/org/bukkit/enchantments/Enchantment.html (change the version in url to match your server version)
 # To disable a pre-defined enchantment, set its level to 0.
-# Enchantment: https://jd.papermc.io/paper/1.20.6/org/bukkit/enchantments/Enchantment.html
 #
-# Unbreakable and enchantments only affect new gears, not existing ones.
-#
-# The value represents the amplifier, which is the level of the potion effect - 1. (e.g. haste: 2 means Haste III in game)
-# To disable a pre-defined potion effect, set its amplifier to a negative number (like -1).
 # PotionEffectType: https://jd.papermc.io/paper/1.20.6/org/bukkit/potion/PotionEffectType.html
+# The amplifier represents is how many levels added to the potion effect. (e.g. haste: 2 means Haste III in game)
+# To disable a pre-defined potion effect, set its amplifier to a negative number (like -1).
 #
-# Protections can be found here:
-# https://github.com/GuizhanCraft/InfinityExpansion2/blob/master/src/main/kotlin/net/guizhanss/infinityexpansion2/core/items/attributes/ProtectionType.kt
+# ProtectionType: https://github.com/GuizhanCraft/InfinityExpansion2/blob/master/src/main/kotlin/net/guizhanss/infinityexpansion2/core/items/attributes/ProtectionType.kt
 #
-# Potion effects and protections affect both pre-defined and new gears.
+# Changing `unbreakable` and `enchantments` will only affect new gears, not the already made gears.
+# Changing `potion-effects` and `protections` affect both pre-defined and new gears.
+#
 infinity-gear:
   sword:
     unbreakable: true

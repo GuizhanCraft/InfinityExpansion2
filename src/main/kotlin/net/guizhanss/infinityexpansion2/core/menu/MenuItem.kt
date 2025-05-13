@@ -13,5 +13,5 @@ interface MenuItem {
 
     fun getItem(p: Player, profile: PlayerProfile): ItemStack
 
-    fun onClick(p: Player, profile: PlayerProfile, mode: SlimefunGuideMode, clickAction: ClickAction)
+    fun onClick(p: Player, profile: PlayerProfile, mode: SlimefunGuideMode, action: ClickAction)
 }
