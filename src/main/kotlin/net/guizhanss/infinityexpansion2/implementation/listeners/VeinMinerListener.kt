@@ -8,6 +8,7 @@ import net.guizhanss.guizhanlib.kt.minecraft.extensions.isAir
 import net.guizhanss.guizhanlib.kt.slimefun.extensions.getSlimefunItem
 import net.guizhanss.guizhanlib.kt.slimefun.extensions.isSlimefunItem
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
+import net.guizhanss.infinityexpansion2.implementation.IEItems
 import net.guizhanss.infinityexpansion2.implementation.items.tools.VeinMinerRune
 import net.guizhanss.infinityexpansion2.utils.constant.Keys
 import net.guizhanss.infinityexpansion2.utils.tags.IETag
@@ -53,6 +54,9 @@ class VeinMinerListener(plugin: InfinityExpansion2) : Listener {
 
         val item = p.inventory.itemInMainHand
         if (!item.hasVeinMiner()) return
+
+        // check if vein miner rune is disabled
+        if (IEItems.VEIN_MINER_RUNE.item?.isDisabledIn(b.world) == true) return
 
         if (p.foodLevel < 1) {
             InfinityExpansion2.integrationService.sendMessage(p, "vein-miner.no-hunger")
