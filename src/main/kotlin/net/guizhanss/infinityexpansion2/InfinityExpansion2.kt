@@ -43,10 +43,10 @@ class InfinityExpansion2 : AbstractAddon(
         val manager = BukkitLibraryManager(this)
         manager.addRepository(centralRepo)
         manager.loadLibrary(
-            Library.builder().groupId("org.jetbrains.kotlin").artifactId("kotlin-stdlib").version("2.1.20").build()
+            Library.builder().groupId("org.jetbrains.kotlin").artifactId("kotlin-stdlib").version("2.1.21").build()
         )
         manager.loadLibrary(
-            Library.builder().groupId("org.jetbrains.kotlin").artifactId("kotlin-reflect").version("2.1.20").build()
+            Library.builder().groupId("org.jetbrains.kotlin").artifactId("kotlin-reflect").version("2.1.21").build()
         )
 
         logger.info("Loaded all required libraries.")
