@@ -1,19 +1,23 @@
-package net.guizhanss.infinityexpansion2.implementation.items.tools
+package net.guizhanss.infinityexpansion2.implementation.items.machines.generators
 
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
 import net.guizhanss.infinityexpansion2.core.items.attributes.CustomWikiItem
-import net.guizhanss.infinityexpansion2.implementation.items.materials.SimpleMaterial
+import org.bukkit.Material
 import org.bukkit.inventory.ItemStack
 
-class Strainer(
+class ObsidianGenerator(
     itemGroup: ItemGroup,
     itemStack: SlimefunItemStack,
     recipeType: RecipeType,
     recipe: Array<out ItemStack?>,
-    val chance: Int
-) : SimpleMaterial(itemGroup, itemStack, recipeType, recipe), CustomWikiItem {
+    material: Material,
+    speed: Int,
+    energyPerTick: Int,
+) : MaterialGenerator(
+    itemGroup, itemStack, recipeType, recipe, material, speed, energyPerTick
+), CustomWikiItem {
 
-    override val wikiUrl = "tools/strainer"
+    override val wikiUrl = "machines/obsidian-generator"
 }

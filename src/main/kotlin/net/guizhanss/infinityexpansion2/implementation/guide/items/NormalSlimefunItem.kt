@@ -9,6 +9,10 @@ import io.github.thebusybiscuit.slimefun4.implementation.Slimefun
 import io.github.thebusybiscuit.slimefun4.utils.ChatUtils
 import io.github.thebusybiscuit.slimefun4.utils.ChestMenuUtils
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ChestMenu
+import net.guizhanss.infinityexpansion2.core.items.attributes.CustomWikiItem
+import net.guizhanss.infinityexpansion2.utils.items.GuiItems
+import net.guizhanss.infinityexpansion2.utils.items.ie2WikiHandler
+import net.guizhanss.infinityexpansion2.utils.items.sfWikiHandler
 import net.guizhanss.infinityexpansion2.utils.slimefunext.displayItem
 import net.guizhanss.infinityexpansion2.utils.slimefunext.getBackButton
 import org.bukkit.entity.Player
@@ -88,11 +92,12 @@ open class NormalSlimefunItem(sfItem: SlimefunItem) : AbstractItem(sfItem) {
         // wiki
         val wikiPage = sfItem.wikipage.getOrNull()
         if (wikiPage != null) {
-            menu.addItem(wikiSlot, ChestMenuUtils.getWikiButton()) { p, _, _, _ ->
-                p.closeInventory()
-                ChatUtils.sendURL(p, wikiPage)
-                false
-            }
+            menu.addItem(wikiSlot, ChestMenuUtils.getWikiButton(), sfWikiHandler(sfItem))
+        }
+
+        // ie2 custom wiki
+        if (sfItem is CustomWikiItem) {
+            menu.addItem(wikiSlot, GuiItems.WIKI, ie2WikiHandler(sfItem))
         }
     }
 

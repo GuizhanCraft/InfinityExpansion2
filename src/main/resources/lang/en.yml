@@ -1395,6 +1395,9 @@ messages:
     printitem:
       description: "Print the item in hand."
       no-item: "&cYou must hold an item in your hand."
+    id:
+      description: "Get the Slimefun ID of the item in hand."
+      message: "&7The Slimefun item of the item in your hand is &f{0}&7, the id is: (Click on the ID below to copy)"
   vein-miner:
     applied: "&aVein Miner has been applied to the item."
     no-hunger: "&cYou do not have enough hunger level to do this."

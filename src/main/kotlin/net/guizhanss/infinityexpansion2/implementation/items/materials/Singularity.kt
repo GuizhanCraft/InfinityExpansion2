@@ -7,6 +7,7 @@ import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
 import io.github.thebusybiscuit.slimefun4.utils.SlimefunUtils
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.core.IERegistry
+import net.guizhanss.infinityexpansion2.core.items.attributes.CustomWikiItem
 import net.guizhanss.infinityexpansion2.core.items.attributes.InformationalRecipeDisplayItem
 import net.guizhanss.infinityexpansion2.utils.items.GuiItems
 import org.bukkit.entity.Player
@@ -20,7 +21,9 @@ class Singularity(
     recipe: Array<out ItemStack?>,
     defaultTotalProgress: Int,
     val ingredients: Map<ItemStack, Int>,
-) : SimpleMaterial(itemGroup, itemStack, recipeType, recipe), InformationalRecipeDisplayItem {
+) : SimpleMaterial(itemGroup, itemStack, recipeType, recipe), InformationalRecipeDisplayItem, CustomWikiItem {
+
+    override val wikiUrl = "singularities"
 
     private val defaultProgressSetting = IntRangeSetting(this, "default-progress", 1, defaultTotalProgress, 1_000_000)
 

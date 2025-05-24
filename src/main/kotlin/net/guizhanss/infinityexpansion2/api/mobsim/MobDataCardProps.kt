@@ -3,6 +3,7 @@ package net.guizhanss.infinityexpansion2.api.mobsim
 import io.github.thebusybiscuit.slimefun4.libraries.dough.collections.RandomizedSet
 import org.bukkit.Material
 import org.bukkit.inventory.ItemStack
+import java.util.Objects
 
 /**
  * This class is used in API call.
@@ -36,16 +37,7 @@ data class MobDataCardProps(
         )
     }
 
-    override fun hashCode(): Int {
-        var result = id.hashCode()
-        result = 31 * result + name.hashCode()
-        result = 31 * result + texture.hashCode()
-        result = 31 * result + energy
-        result = 31 * result + experience
-        result = 31 * result + drops.hashCode()
-        result = 31 * result + recipe.contentHashCode()
-        return result
-    }
+    override fun hashCode() = Objects.hash(id, name, texture, energy, experience, drops, recipe.contentHashCode())
 
     companion object {
 

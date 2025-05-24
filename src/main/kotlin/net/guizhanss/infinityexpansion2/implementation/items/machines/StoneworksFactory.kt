@@ -14,6 +14,7 @@ import net.guizhanss.guizhanlib.kt.slimefun.utils.getString
 import net.guizhanss.guizhanlib.kt.slimefun.utils.hasData
 import net.guizhanss.guizhanlib.kt.slimefun.utils.setString
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
+import net.guizhanss.infinityexpansion2.core.items.attributes.CustomWikiItem
 import net.guizhanss.infinityexpansion2.core.items.attributes.InformationalRecipeDisplayItem
 import net.guizhanss.infinityexpansion2.core.menu.MenuLayout
 import net.guizhanss.infinityexpansion2.implementation.items.machines.abstracts.AbstractTickingMachine
@@ -30,7 +31,9 @@ class StoneworksFactory(
     val speed: Int,
     energyPerTick: Int,
 ) : AbstractTickingMachine(itemGroup, itemStack, recipeType, recipe, MenuLayout.STONEWORKS_FACTORY, energyPerTick),
-    InformationalRecipeDisplayItem {
+    InformationalRecipeDisplayItem, CustomWikiItem {
+
+    override val wikiUrl = "machines/stoneworks-factory"
 
     override fun setup(preset: BlockMenuPreset) {
         super.setup(preset)

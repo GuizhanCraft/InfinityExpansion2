@@ -9,6 +9,7 @@ import net.guizhanss.guizhanlib.kt.common.extensions.matches
 import net.guizhanss.guizhanlib.kt.minecraft.items.edit
 import net.guizhanss.guizhanlib.kt.slimefun.extensions.isSlimefunItem
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
+import net.guizhanss.infinityexpansion2.core.items.attributes.CustomWikiItem
 import net.guizhanss.infinityexpansion2.core.items.attributes.InformationalRecipeDisplayItem
 import net.guizhanss.infinityexpansion2.core.menu.MenuLayout
 import net.guizhanss.infinityexpansion2.implementation.items.machines.abstracts.AbstractTickingActionMachine
@@ -24,7 +25,9 @@ class ResourceSynthesizer(
     energyPerUse: Int,
 ) : AbstractTickingActionMachine(
     itemGroup, itemStack, recipeType, recipe, MenuLayout.RESOURCE_SYNTHESIZER, energyPerUse
-), InformationalRecipeDisplayItem {
+), InformationalRecipeDisplayItem, CustomWikiItem {
+
+    override val wikiUrl = "machines/resource-synthesizer"
 
     private val _recipes = mutableMapOf<Pair<String, String>, ItemStack>()
 

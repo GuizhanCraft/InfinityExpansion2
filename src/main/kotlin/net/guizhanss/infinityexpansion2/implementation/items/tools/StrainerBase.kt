@@ -16,6 +16,7 @@ import net.guizhanss.guizhanlib.kt.slimefun.items.builder.asMaterialType
 import net.guizhanss.guizhanlib.kt.slimefun.items.toItem
 import net.guizhanss.guizhanlib.slimefun.machines.TickingMenuBlock
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
+import net.guizhanss.infinityexpansion2.core.items.attributes.CustomWikiItem
 import net.guizhanss.infinityexpansion2.core.items.attributes.InformationalRecipeDisplayItem
 import net.guizhanss.infinityexpansion2.core.menu.MenuLayout
 import net.guizhanss.infinityexpansion2.utils.bukkitext.isWaterLogged
@@ -32,7 +33,9 @@ class StrainerBase(
     itemStack: SlimefunItemStack,
     recipeType: RecipeType,
     recipe: Array<out ItemStack?>
-) : TickingMenuBlock(itemGroup, itemStack, recipeType, recipe), InformationalRecipeDisplayItem {
+) : TickingMenuBlock(itemGroup, itemStack, recipeType, recipe), InformationalRecipeDisplayItem, CustomWikiItem {
+
+    override val wikiUrl = "tools/strainer"
 
     private val tickRateSetting = IntRangeSetting(this, "tick-rate", 1, 10, 120)
 

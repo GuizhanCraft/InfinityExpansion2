@@ -5,6 +5,7 @@ import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
 import net.guizhanss.guizhanlib.kt.minecraft.extensions.toItem
 import net.guizhanss.guizhanlib.minecraft.utils.compatibility.MaterialX
+import net.guizhanss.infinityexpansion2.core.items.attributes.CustomWikiItem
 import org.bukkit.Material
 import org.bukkit.inventory.ItemStack
 
@@ -15,7 +16,9 @@ class FlowerGrower(
     recipe: Array<out ItemStack?>,
     energyPerTick: Int,
     outputInterval: Int,
-) : GrowingMachine(itemGroup, itemStack, recipeType, recipe, energyPerTick, outputInterval) {
+) : GrowingMachine(itemGroup, itemStack, recipeType, recipe, energyPerTick, outputInterval), CustomWikiItem {
+
+    override val wikiUrl = "machines/flower-grower"
 
     init {
         addRecipe(MaterialX.SHORT_GRASS.toItem(), MaterialX.SHORT_GRASS.toItem(4))

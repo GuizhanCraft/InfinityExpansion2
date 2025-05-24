@@ -4,6 +4,7 @@ import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
 import net.guizhanss.guizhanlib.kt.minecraft.extensions.toItem
+import net.guizhanss.infinityexpansion2.core.items.attributes.CustomWikiItem
 import org.bukkit.Material
 import org.bukkit.inventory.ItemStack
 
@@ -14,7 +15,9 @@ class VirtualFarm(
     recipe: Array<out ItemStack?>,
     energyPerTick: Int,
     outputInterval: Int,
-) : GrowingMachine(itemGroup, itemStack, recipeType, recipe, energyPerTick, outputInterval) {
+) : GrowingMachine(itemGroup, itemStack, recipeType, recipe, energyPerTick, outputInterval), CustomWikiItem {
+
+    override val wikiUrl = "machines/virtual-farm"
 
     init {
         addRecipe(Material.WHEAT_SEEDS.toItem(), Material.WHEAT.toItem(2))

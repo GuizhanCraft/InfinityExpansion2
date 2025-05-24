@@ -9,6 +9,9 @@ import net.guizhanss.infinityexpansion2.core.commands.AbstractSubCommand
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
 
+/**
+ * Open the guide page of a specific item.
+ */
 class GuideCommand(parent: AbstractCommand) : AbstractSubCommand(
     parent, "guide", "[ID]"
 ) {

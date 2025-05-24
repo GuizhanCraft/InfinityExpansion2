@@ -7,6 +7,7 @@ import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
 import io.github.thebusybiscuit.slimefun4.api.items.settings.IntRangeSetting
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu
+import net.guizhanss.guizhanlib.kt.minecraft.items.edit
 import net.guizhanss.guizhanlib.kt.slimefun.items.toItem
 import net.guizhanss.guizhanlib.kt.slimefun.utils.getInt
 import net.guizhanss.guizhanlib.kt.slimefun.utils.setInt
@@ -68,7 +69,7 @@ class VoidHarvester(
     override fun getInfoItems() = listOf(
         GuiItems.tickRate(getCustomTickRate()),
         GuiItems.energyConsumptionPerTick(getEnergyConsumptionPerTick()),
-        GuiItems.increaseProgress(speed),
+        GuiItems.increaseProgress(speed).edit { amount(speed) },
         GuiItems.totalProgress(totalProgress),
     )
 

@@ -1,4 +1,4 @@
-package net.guizhanss.infinityexpansion2.implementation.items.machines
+package net.guizhanss.infinityexpansion2.implementation.items.machines.generators
 
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
@@ -13,7 +13,7 @@ import org.bukkit.Material
 import org.bukkit.block.Block
 import org.bukkit.inventory.ItemStack
 
-class MaterialGenerator(
+open class MaterialGenerator(
     itemGroup: ItemGroup,
     itemStack: SlimefunItemStack,
     recipeType: RecipeType,
@@ -21,8 +21,9 @@ class MaterialGenerator(
     val material: Material,
     val speed: Int,
     energyPerTick: Int,
-) : AbstractTickingMachine(itemGroup, itemStack, recipeType, recipe, MenuLayout.OUTPUT_ONLY_ONE_ROW, energyPerTick),
-    InformationalRecipeDisplayItem {
+) : AbstractTickingMachine(
+    itemGroup, itemStack, recipeType, recipe, MenuLayout.Companion.OUTPUT_ONLY_ONE_ROW, energyPerTick
+), InformationalRecipeDisplayItem {
 
     override fun process(b: Block, menu: BlockMenu): Boolean {
         val output = material.toItem(speed)

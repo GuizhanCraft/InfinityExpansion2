@@ -94,6 +94,9 @@ bukkit {
         register("infinityexpansion2.command.printitem") {
             default = BukkitPluginDescription.Permission.Default.OP
         }
+        register("infinityexpansion2.command.id") {
+            default = BukkitPluginDescription.Permission.Default.OP
+        }
     }
 }
 

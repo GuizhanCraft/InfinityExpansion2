@@ -7,6 +7,9 @@ import net.guizhanss.infinityexpansion2.core.commands.AbstractSubCommand
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
 
+/**
+ * Same as `/paper dumpitem`.
+ */
 class PrintItemCommand(parent: AbstractCommand) : AbstractSubCommand(
     parent, "printitem", ""
 ) {

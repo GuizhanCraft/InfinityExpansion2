@@ -61,8 +61,8 @@ fun displayItem(profile: PlayerProfile, sfItem: SlimefunItem, mode: SlimefunGuid
             }
         }
 
-        shouldTakeOver(sfItem) -> {
-            // normal sf item that should be taken over
+        sfItem.addon == InfinityExpansion2.instance -> {
+            // all the other ie2 items should be taken over
             SlimefunGuide.openItemGroup(profile, NormalSlimefunItem(sfItem), mode, 1)
         }
 
@@ -72,11 +72,6 @@ fun displayItem(profile: PlayerProfile, sfItem: SlimefunItem, mode: SlimefunGuid
         }
     }
 }
-
-private fun shouldTakeOver(sfItem: SlimefunItem): Boolean {
-    return sfItem.recipeType == RecipeType.SMELTERY
-}
-
 
 /**
  * Get the back button for the guide.

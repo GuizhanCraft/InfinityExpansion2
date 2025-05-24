@@ -5,6 +5,7 @@ import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
 import io.github.thebusybiscuit.slimefun4.core.multiblocks.MultiBlockMachine
 import io.github.thebusybiscuit.slimefun4.implementation.Slimefun
 import net.guizhanss.guizhanlib.minecraft.commands.AbstractCommand
+import net.guizhanss.guizhanlib.minecraft.utils.InventoryUtil
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.core.commands.AbstractSubCommand
 import net.guizhanss.infinityexpansion2.implementation.recipes.IERecipeTypes
@@ -12,6 +13,9 @@ import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
 import java.util.Locale
 
+/**
+ * Give the recipe ingredients of a specific item to a given player.
+ */
 class GiveRecipeCommand(parent: AbstractCommand) : AbstractSubCommand(
     parent, "giverecipe", "<id> [player]"
 ) {
@@ -61,20 +65,21 @@ class GiveRecipeCommand(parent: AbstractCommand) : AbstractSubCommand(
             InfinityExpansion2.integrationService.getTranslatedItemName(target, sfItem.item)
         )
 
-        target.inventory.addItem(*sfItem.recipe.filterNotNull().toTypedArray())
+        InventoryUtil.push(target, *sfItem.recipe.filterNotNull().toTypedArray())
     }
 
     override fun onTab(sender: CommandSender, args: Array<String>): List<String>? {
-        return if (args.size == 1) {
-            // filter slimefun item id
-            Slimefun.getRegistry().enabledSlimefunItems
-                .map { it.id }
-                .filter { it.startsWith(args[0], true) }
-                .take(10)
-        } else if (args.size == 2) {
-            null
-        } else {
-            emptyList()
+        return when (args.size) {
+            1 -> {
+                // filter slimefun item id
+                Slimefun.getRegistry().enabledSlimefunItems
+                    .map { it.id }
+                    .filter { it.startsWith(args[0], true) }
+                    .take(10)
+            }
+
+            2 -> null
+            else -> emptyList()
         }
     }
 }

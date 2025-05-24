@@ -17,6 +17,7 @@ import net.guizhanss.guizhanlib.kt.slimefun.utils.setString
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.core.IERegistry
 import net.guizhanss.infinityexpansion2.core.items.annotations.HudProvider
+import net.guizhanss.infinityexpansion2.core.items.attributes.CustomWikiItem
 import net.guizhanss.infinityexpansion2.core.items.attributes.InformationalRecipeDisplayItem
 import net.guizhanss.infinityexpansion2.core.menu.MenuLayout
 import net.guizhanss.infinityexpansion2.implementation.items.machines.abstracts.AbstractTickingMachine
@@ -36,7 +37,9 @@ class SingularityConstructor(
     val speed: Int,
     energyPerTick: Int,
 ) : AbstractTickingMachine(itemGroup, itemStack, recipeType, recipe, MenuLayout.SINGLE_INPUT_OUTPUT, energyPerTick),
-    InformationalRecipeDisplayItem {
+    InformationalRecipeDisplayItem, CustomWikiItem {
+
+    override val wikiUrl = "machines/singularity-constructor"
 
     override fun onBreak(e: BlockBreakEvent, menu: BlockMenu) {
         super.onBreak(e, menu)

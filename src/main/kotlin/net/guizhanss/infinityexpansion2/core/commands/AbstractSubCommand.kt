@@ -5,6 +5,9 @@ import net.guizhanss.guizhanlib.minecraft.commands.SubCommand
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import org.bukkit.command.CommandSender
 
+/**
+ * Abstract class for subcommands.
+ */
 abstract class AbstractSubCommand(
     parent: AbstractCommand?,
     name: String,
