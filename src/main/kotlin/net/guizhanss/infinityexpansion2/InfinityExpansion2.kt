@@ -18,7 +18,6 @@ import net.guizhanss.infinityexpansion2.implementation.listeners.InfinityMatrixL
 import net.guizhanss.infinityexpansion2.implementation.listeners.SlimefunRegistryListener
 import net.guizhanss.infinityexpansion2.implementation.listeners.TranslationsLoadListener
 import net.guizhanss.infinityexpansion2.implementation.listeners.VeinMinerListener
-import net.guizhanss.infinityexpansion2.implementation.setup.MobSimulationSetup
 import net.guizhanss.infinityexpansion2.implementation.setup.ResearchSetup
 import net.guizhanss.infinityexpansion2.implementation.tasks.InfinityMatrixTask
 import net.guizhanss.infinityexpansion2.utils.tags.IETag
@@ -133,7 +132,7 @@ class InfinityExpansion2 : AbstractAddon(
                     String::class.java
                 )
                 updaterStart.invoke(null, this, file, githubUser, githubRepo, githubBranch)
-            } catch (ignored: Exception) {
+            } catch (_: Exception) {
                 // use updater in lib
                 GuizhanBuildsUpdater.start(this, file, githubUser, githubRepo, githubBranch)
             }

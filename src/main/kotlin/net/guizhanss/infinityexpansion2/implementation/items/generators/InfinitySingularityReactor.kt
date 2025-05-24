@@ -14,6 +14,7 @@ import me.mrCookieSlime.Slimefun.api.inventory.BlockMenuPreset
 import me.mrCookieSlime.Slimefun.api.inventory.DirtyChestMenu
 import net.guizhanss.guizhanlib.kt.slimefun.items.builder.asMaterialType
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
+import net.guizhanss.infinityexpansion2.core.items.attributes.CustomWikiItem
 import net.guizhanss.infinityexpansion2.implementation.IEItems
 import net.guizhanss.infinityexpansion2.utils.items.GuiItems
 import net.guizhanss.infinityexpansion2.utils.items.MachineLore
@@ -28,7 +29,9 @@ class InfinitySingularityReactor(
     recipeType: RecipeType,
     recipe: Array<out ItemStack?>,
     defaultProduction: Int,
-) : AbstractReactor(itemGroup, itemStack, recipeType, recipe, defaultProduction) {
+) : AbstractReactor(itemGroup, itemStack, recipeType, recipe, defaultProduction), CustomWikiItem {
+
+    override val wikiUrl = "generators/infinity-singularity-reactor"
 
     private val infinitySingularityDurationSetting =
         IntRangeSetting(this, "infinity-singularity-duration", 1, 5_184_000, Int.MAX_VALUE) // 30 days
@@ -83,7 +86,7 @@ class InfinitySingularityReactor(
     }
 
     private fun ItemStack.isInfinitySingularity() =
-        SlimefunItem.getByItem(this)?.id == IEItems.INFINITY_SINGULARITY.itemId
+        getByItem(this)?.id == IEItems.INFINITY_SINGULARITY.itemId
 
     private fun BlockMenu.setStatus(itemStack: () -> ItemStack) {
         if (hasViewer()) {

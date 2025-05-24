@@ -11,6 +11,7 @@ import net.guizhanss.guizhanlib.kt.minecraft.extensions.toItem
 import net.guizhanss.guizhanlib.kt.slimefun.extensions.isSlimefunItem
 import net.guizhanss.guizhanlib.kt.slimefun.items.builder.asMaterialType
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
+import net.guizhanss.infinityexpansion2.core.items.attributes.CustomWikiItem
 import net.guizhanss.infinityexpansion2.core.items.attributes.InformationalRecipeDisplayItem
 import net.guizhanss.infinityexpansion2.core.menu.MenuLayout
 import net.guizhanss.infinityexpansion2.implementation.items.machines.abstracts.AbstractTickingActionMachine
@@ -27,7 +28,9 @@ class GearTransformer(
     recipe: Array<out ItemStack?>,
     energyPerUse: Int,
 ) : AbstractTickingActionMachine(itemGroup, itemStack, recipeType, recipe, MenuLayout.GEAR_TRANSFORMER, energyPerUse),
-    InformationalRecipeDisplayItem {
+    InformationalRecipeDisplayItem, CustomWikiItem {
+
+    override val wikiUrl = "machines/gear-transformer"
 
     override fun setup(preset: BlockMenuPreset) {
         super.setup(preset)

@@ -159,9 +159,11 @@ internal object GuiItems {
 
     fun sfItem(allowed: Boolean) = InfinityExpansion2.localization.getGuiItem(
         if (allowed) {
-            Material.GREEN_STAINED_GLASS_PANE.asMaterialType()
+            // https://minecraft-heads.com/custom-heads/head/112527-slime
+            "6061f98aaff1e406e06f6f13ffe06005873f3d1eaddb1b59e19dda0ed9ffb270".asMaterialType()
         } else {
-            Material.RED_STAINED_GLASS_PANE.asMaterialType()
+            // https://minecraft-heads.com/custom-heads/head/104564-red-slime
+            "412c23cbc89259c497afef5e4e622cf208f621e0272918151b28f1a99f28d561".asMaterialType()
         },
         "sf_item",
         if (allowed) Strings.CHECK else Strings.CROSS

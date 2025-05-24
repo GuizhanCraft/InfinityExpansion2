@@ -3,7 +3,6 @@
 package net.guizhanss.infinityexpansion2.implementation.items.mobsim
 
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
 import io.github.thebusybiscuit.slimefun4.core.attributes.DistinctiveItem
@@ -14,6 +13,7 @@ import net.guizhanss.guizhanlib.kt.slimefun.items.toItem
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.api.mobsim.MobDataCardProps
 import net.guizhanss.infinityexpansion2.core.IERegistry
+import net.guizhanss.infinityexpansion2.core.items.attributes.CustomWikiItem
 import net.guizhanss.infinityexpansion2.core.items.attributes.EnergyTickingConsumer
 import net.guizhanss.infinityexpansion2.core.items.attributes.InformationalRecipeDisplayItem
 import net.guizhanss.infinityexpansion2.implementation.IEItems
@@ -39,7 +39,9 @@ class MobDataCard(
     recipe: Array<out ItemStack?>,
     private val props: MobDataCardProps,
 ) : UnplaceableBlock(itemGroup, itemStack, recipeType, recipe, buildOutputItem(props.id, props.name, props.texture)),
-    EnergyTickingConsumer, InformationalRecipeDisplayItem, DistinctiveItem {
+    EnergyTickingConsumer, InformationalRecipeDisplayItem, DistinctiveItem, CustomWikiItem {
+
+    override val wikiUrl = "mob-simulation/card"
 
     override fun postRegister() {
         super.postRegister()

@@ -18,6 +18,7 @@ import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.api.mobsim.MobDataCardProps
 import net.guizhanss.infinityexpansion2.core.IERegistry
 import net.guizhanss.infinityexpansion2.core.items.annotations.HudProvider
+import net.guizhanss.infinityexpansion2.core.items.attributes.CustomWikiItem
 import net.guizhanss.infinityexpansion2.core.items.attributes.EnergyTickingConsumer
 import net.guizhanss.infinityexpansion2.core.items.attributes.InformationalRecipeDisplayItem
 import net.guizhanss.infinityexpansion2.core.menu.MenuLayout
@@ -38,10 +39,12 @@ class MobSimulationChamber(
     recipe: Array<out ItemStack?>,
     energyPerTick: Int,
 ) : AbstractTickingMachine(itemGroup, itemStack, recipeType, recipe, MenuLayout.SINGLE_INPUT, energyPerTick),
-    EnergyTickingConsumer, InformationalRecipeDisplayItem {
+    EnergyTickingConsumer, InformationalRecipeDisplayItem, CustomWikiItem {
+
+    override val wikiUrl = "mob-simulation/chamber"
 
     private val energyCapacitySetting =
-        IntRangeSetting(this, "energy-capacity", 1, (energyPerTick * 1000).coerceAtMost(1_000_000_000), 1_000_000_000)
+        IntRangeSetting(this, "energy-capacity", 1, (energyPerTick * 1000).coerceAtMost(2_000_000_000), 2_000_000_000)
 
     init {
         addItemSetting(energyCapacitySetting)

@@ -1,4 +1,4 @@
-package net.guizhanss.infinityexpansion2.implementation.items.machines
+package net.guizhanss.infinityexpansion2.implementation.items.machines.abstracts
 
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack

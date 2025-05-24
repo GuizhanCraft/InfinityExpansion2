@@ -11,6 +11,7 @@ import net.guizhanss.guizhanlib.kt.minecraft.extensions.isAir
 import net.guizhanss.guizhanlib.kt.minecraft.extensions.toItem
 import net.guizhanss.guizhanlib.kt.minecraft.items.edit
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
+import net.guizhanss.infinityexpansion2.core.items.attributes.CustomWikiItem
 import net.guizhanss.infinityexpansion2.core.items.attributes.InformationalRecipeDisplayItem
 import net.guizhanss.infinityexpansion2.core.menu.MenuLayout
 import net.guizhanss.infinityexpansion2.implementation.items.machines.abstracts.AbstractTickingMachine
@@ -32,12 +33,14 @@ class Quarry(
     val speed: Int, // the amount of output
     chance: Double
 ) : AbstractTickingMachine(itemGroup, itemStack, recipeType, recipe, MenuLayout.SINGLE_INPUT, energyPerTick),
-    InformationalRecipeDisplayItem {
+    InformationalRecipeDisplayItem, CustomWikiItem {
+
+    override val wikiUrl = "machines/quarry"
 
     private val chanceSetting = DoubleRangeSetting(this, "chance", 0.0, chance, 1.0)
-    private val enabledInOverworldSetting = ItemSetting<Boolean>(this, "enabled-in.overworld", true)
-    private val enabledInNetherSetting = ItemSetting<Boolean>(this, "enabled-in.nether", true)
-    private val enabledInEndSetting = ItemSetting<Boolean>(this, "enabled-in.end", true)
+    private val enabledInOverworldSetting = ItemSetting(this, "enabled-in.overworld", true)
+    private val enabledInNetherSetting = ItemSetting(this, "enabled-in.nether", true)
+    private val enabledInEndSetting = ItemSetting(this, "enabled-in.end", true)
 
     init {
         addItemSetting(chanceSetting, enabledInOverworldSetting, enabledInNetherSetting, enabledInEndSetting)

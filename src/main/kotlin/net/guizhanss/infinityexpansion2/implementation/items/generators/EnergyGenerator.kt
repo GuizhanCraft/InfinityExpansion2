@@ -11,6 +11,7 @@ import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config
 import net.guizhanss.guizhanlib.common.utils.StringUtil
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.core.items.attributes.CustomTickRateMachine
+import net.guizhanss.infinityexpansion2.core.items.attributes.CustomWikiItem
 import net.guizhanss.infinityexpansion2.core.items.attributes.EnergyProducer
 import net.guizhanss.infinityexpansion2.core.items.attributes.InformationalRecipeDisplayItem
 import net.guizhanss.infinityexpansion2.utils.constant.Strings
@@ -27,7 +28,16 @@ class EnergyGenerator(
     private val type: GeneratorType,
     defaultProduction: Int,
 ) : SlimefunItem(itemGroup, itemStack, recipeType, recipe), EnergyNetProvider, CustomTickRateMachine, EnergyProducer,
-    InformationalRecipeDisplayItem {
+    InformationalRecipeDisplayItem, CustomWikiItem {
+
+    override val wikiUrl: String
+        get() = "generators/" + when (type) {
+            GeneratorType.HYDROELECTRIC -> "hydro"
+            GeneratorType.GEOTHERMAL -> "geothermal"
+            GeneratorType.SOLAR -> "solar"
+            GeneratorType.LUNAR -> "void"
+            GeneratorType.INFINITY -> "infinity"
+        }
 
     private val tickRateSetting = IntRangeSetting(this, "tick-rate", 1, 1, 3600)
     private val energyProductionSetting =

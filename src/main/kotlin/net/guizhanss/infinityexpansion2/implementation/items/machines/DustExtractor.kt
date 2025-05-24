@@ -6,6 +6,8 @@ import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems
 import net.guizhanss.guizhanlib.kt.minecraft.extensions.toItem
 import net.guizhanss.guizhanlib.kt.slimefun.items.edit
+import net.guizhanss.infinityexpansion2.core.items.attributes.CustomWikiItem
+import net.guizhanss.infinityexpansion2.implementation.items.machines.abstracts.RandomHopperMachine
 import org.bukkit.Material
 import org.bukkit.inventory.ItemStack
 
@@ -17,7 +19,9 @@ class DustExtractor(
     energyPerTick: Int,
     inputAmount: Int,
     outputAmount: Int,
-) : RandomHopperMachine(itemGroup, itemStack, recipeType, recipe, energyPerTick) {
+) : RandomHopperMachine(itemGroup, itemStack, recipeType, recipe, energyPerTick), CustomWikiItem {
+
+    override val wikiUrl = "machines/dust-extractor"
 
     init {
         addRecipe(Material.COBBLESTONE.toItem(inputAmount), getDusts(outputAmount))

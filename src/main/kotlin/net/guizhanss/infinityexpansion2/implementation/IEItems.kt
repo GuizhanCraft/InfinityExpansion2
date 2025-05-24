@@ -32,7 +32,6 @@ import net.guizhanss.infinityexpansion2.implementation.items.machines.GearTransf
 import net.guizhanss.infinityexpansion2.implementation.items.machines.GeoQuarry
 import net.guizhanss.infinityexpansion2.implementation.items.machines.InfinityWorkbench
 import net.guizhanss.infinityexpansion2.implementation.items.machines.IngotFormer
-import net.guizhanss.infinityexpansion2.implementation.items.machines.generators.MaterialGenerator
 import net.guizhanss.infinityexpansion2.implementation.items.machines.Quarry
 import net.guizhanss.infinityexpansion2.implementation.items.machines.ResourceSynthesizer
 import net.guizhanss.infinityexpansion2.implementation.items.machines.SingularityConstructor
@@ -43,8 +42,8 @@ import net.guizhanss.infinityexpansion2.implementation.items.machines.UraniumExt
 import net.guizhanss.infinityexpansion2.implementation.items.machines.UraniumIngotExtractor
 import net.guizhanss.infinityexpansion2.implementation.items.machines.VirtualFarm
 import net.guizhanss.infinityexpansion2.implementation.items.machines.VoidHarvester
-import net.guizhanss.infinityexpansion2.implementation.items.machines.generators.CobblestoneGenerator
-import net.guizhanss.infinityexpansion2.implementation.items.machines.generators.ObsidianGenerator
+import net.guizhanss.infinityexpansion2.implementation.items.machines.CobblestoneGenerator
+import net.guizhanss.infinityexpansion2.implementation.items.machines.ObsidianGenerator
 import net.guizhanss.infinityexpansion2.implementation.items.materials.EnderEssence
 import net.guizhanss.infinityexpansion2.implementation.items.materials.SimpleMaterial
 import net.guizhanss.infinityexpansion2.implementation.items.materials.Singularity
@@ -2276,7 +2275,7 @@ object IEItems : ItemRegistry(InfinityExpansion2.instance, InfinityExpansion2.lo
         }
     }
 
-    val INFINITY_SINGULARITY_REACTOR by buildSlimefunItem<InfinitySingularityReactor>(180_000) {
+    val INFINITY_SINGULARITY_REACTOR by buildSlimefunItem<InfinitySingularityReactor>(300_000) {
         material = Material.BEACON.asMaterialType()
         itemGroup = IEItemGroups.GENERATORS
         recipeType = IERecipeTypes.INFINITY_WORKBENCH

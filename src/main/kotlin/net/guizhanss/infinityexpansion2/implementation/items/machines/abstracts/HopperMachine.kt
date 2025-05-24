@@ -1,4 +1,4 @@
-package net.guizhanss.infinityexpansion2.implementation.items.machines
+package net.guizhanss.infinityexpansion2.implementation.items.machines.abstracts
 
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup
 import io.github.thebusybiscuit.slimefun4.api.items.ItemState
@@ -9,12 +9,11 @@ import io.github.thebusybiscuit.slimefun4.utils.SlimefunUtils
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu
 import net.guizhanss.infinityexpansion2.core.items.attributes.InformationalRecipeDisplayItem
 import net.guizhanss.infinityexpansion2.core.menu.MenuLayout
-import net.guizhanss.infinityexpansion2.implementation.items.machines.abstracts.AbstractTickingMachine
+import net.guizhanss.infinityexpansion2.utils.items.GuiItems
 import net.guizhanss.infinityexpansion2.utils.slimefunext.MutableRecipes
 import net.guizhanss.infinityexpansion2.utils.slimefunext.RecipeInput
 import net.guizhanss.infinityexpansion2.utils.slimefunext.RecipeOutput
 import net.guizhanss.infinityexpansion2.utils.slimefunext.Recipes
-import net.guizhanss.infinityexpansion2.utils.items.GuiItems
 import net.guizhanss.infinityexpansion2.utils.slimefunext.toDisplayRecipe
 import org.bukkit.block.Block
 import org.bukkit.inventory.ItemStack
@@ -28,7 +27,7 @@ open class HopperMachine(
     recipeType: RecipeType,
     recipe: Array<out ItemStack?>,
     energyPerTick: Int,
-) : AbstractTickingMachine(itemGroup, itemStack, recipeType, recipe, MenuLayout.HOPPER, energyPerTick),
+) : AbstractTickingMachine(itemGroup, itemStack, recipeType, recipe, MenuLayout.Companion.HOPPER, energyPerTick),
     InformationalRecipeDisplayItem {
 
     private val _recipes: MutableRecipes = mutableMapOf()
