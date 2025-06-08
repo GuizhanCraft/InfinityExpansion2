@@ -37,7 +37,7 @@ class Singularity(
     fun getIngredientProgress(ingredient: ItemStack?): Int {
         if (ingredient == null) return 0
         return ingredients.entries.firstOrNull {
-            SlimefunUtils.isItemSimilar(ingredient, it.key, false)
+            SlimefunUtils.isItemSimilar(ingredient, it.key, false, false)
         }?.value ?: 0
     }
 

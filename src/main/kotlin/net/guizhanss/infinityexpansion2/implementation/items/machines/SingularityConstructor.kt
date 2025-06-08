@@ -9,6 +9,7 @@ import io.github.thebusybiscuit.slimefun4.utils.ChestMenuUtils
 import io.github.thebusybiscuit.slimefun4.utils.SlimefunUtils
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu
 import net.guizhanss.guizhanlib.kt.minecraft.extensions.drop
+import net.guizhanss.guizhanlib.kt.minecraft.extensions.isAir
 import net.guizhanss.guizhanlib.kt.slimefun.utils.getBlockMenu
 import net.guizhanss.guizhanlib.kt.slimefun.utils.getInt
 import net.guizhanss.guizhanlib.kt.slimefun.utils.getString
@@ -66,17 +67,22 @@ class SingularityConstructor(
 
     override fun process(b: Block, menu: BlockMenu): Boolean {
         val input = menu.getItemInSlot(inputSlots[0])
-        val inputTemplate = input?.clone()?.apply { amount = 1 }
-        val singularity = getSingularityById(menu.getTarget()) ?: return menu.checkNewSingularity(inputTemplate)
+        if (input.isAir()) {
+            menu.updateProgressDisplay()
+            return false
+        }
+
+        val singularity = getSingularityById(menu.getTarget()) ?: return menu.checkNewSingularity(input)
 
         // target is valid
         var progress = menu.getProgress()
 
         // allow user to change singularity type
         if (progress == 0) {
-            return menu.checkNewSingularity(inputTemplate)
+            return menu.checkNewSingularity(input)
         }
 
+        // in progress of making a singularity
         if (progress >= singularity.totalProgress) {
             // finish
             if (!menu.fits(singularity.item, *outputSlots)) {
@@ -88,15 +94,16 @@ class SingularityConstructor(
             menu.pushItem(singularity.item.clone(), *outputSlots)
         } else {
             // check input and add progress
-            if (singularity != getSingularityByIngredient(inputTemplate)) {
+            if (singularity != getSingularityByIngredient(input)) {
                 menu.setStatus { GuiItems.INVALID_INPUT }
                 return false
             }
 
             // calculate the amount of items to consume
             val amount = input.amount.coerceAtMost(speed)
+            val ingredientProgress = singularity.getIngredientProgress(input) * amount
             menu.consumeItem(inputSlots[0], amount)
-            progress += singularity.getIngredientProgress(inputTemplate) * amount
+            progress += ingredientProgress
         }
 
         menu.setProgress(progress)
@@ -105,15 +112,16 @@ class SingularityConstructor(
         return true
     }
 
-    private fun BlockMenu.checkNewSingularity(input: ItemStack?): Boolean {
+    private fun BlockMenu.checkNewSingularity(input: ItemStack): Boolean {
         val singularity = getSingularityByIngredient(input) ?: run {
             setStatus { GuiItems.INVALID_INPUT }
             return false
         }
 
         // set target and progress
-        val progress = singularity.getIngredientProgress(input) * speed
-        consumeItem(inputSlots[0], speed)
+        val amount = input.amount.coerceAtMost(speed)
+        val progress = singularity.getIngredientProgress(input) * amount
+        consumeItem(inputSlots[0], amount)
         setTarget(singularity.id)
         setProgress(progress)
         updateProgressDisplay()
@@ -143,23 +151,23 @@ class SingularityConstructor(
     companion object {
 
         // block storage keys
-        private const val PROGRESS = "progress"
-        private const val TARGET = "target"
+        private const val BS_PROGRESS = "progress"
+        private const val BS_TARGET = "target"
 
         // gui slots
         private const val PROGRESS_SLOT = 3
         private const val TARGET_ITEM_DISPLAY_SLOT = 5
 
-        private fun BlockMenu.getTarget() = location.getString(TARGET)
-        private fun BlockMenu.setTarget(target: String) = location.setString(TARGET, target)
+        private fun BlockMenu.getTarget() = location.getString(BS_TARGET)
+        private fun BlockMenu.setTarget(target: String) = location.setString(BS_TARGET, target)
 
-        private fun BlockMenu.getProgress() = location.getInt(PROGRESS)
-        private fun BlockMenu.setProgress(progress: Int) = location.setInt(PROGRESS, progress)
+        private fun BlockMenu.getProgress() = location.getInt(BS_PROGRESS)
+        private fun BlockMenu.setProgress(progress: Int) = location.setInt(BS_PROGRESS, progress)
 
         private fun getSingularityByIngredient(item: ItemStack?): Singularity? {
             if (item == null) return null
             return IERegistry.singularityIngredientMap.entries.firstOrNull { (ingredient, _) ->
-                SlimefunUtils.isItemSimilar(item, ingredient, false)
+                SlimefunUtils.isItemSimilar(item, ingredient, false, false)
             }?.value
         }
 

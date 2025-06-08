@@ -69,7 +69,7 @@ internal object GuiItems {
     )
 
     fun progressBar(progress: Int, total: Int) = InfinityExpansion2.localization.getGuiItem(
-        Material.LIME_STAINED_GLASS_PANE.asMaterialType(),
+        Material.YELLOW_STAINED_GLASS_PANE.asMaterialType(),
         "progress",
         "&7$progress / $total",
         ChestMenuUtils.getProgressBar(total - progress, total),
