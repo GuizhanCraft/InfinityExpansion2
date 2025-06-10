@@ -125,9 +125,15 @@ items:
   _UI_DISABLED:
     conditions:
       force-load: true
+    name: "&c已禁用"
+    lore:
+      - "&7此机器已禁用。"
   _UI_DISABLED_IN_WORLD:
     conditions:
       force-load: true
+    name: "&c已禁用"
+    lore:
+      - "&7此机器在这个世界中被禁用。"
   _UI_SUCCESS:
     conditions:
       force-load: true
@@ -144,6 +150,7 @@ items:
   _UI_DISPLAY_RECIPES:
     conditions:
       force-load: true
+    name: "&e点击以显示配方"
   _UI_WORLD_NORMAL:
     conditions:
       force-load: true
