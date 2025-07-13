@@ -30,10 +30,10 @@ abstract class AbstractTickingMachine(
 ) : TickingMenuBlock(itemGroup, itemStack, recipeType, recipe), EnergyNetComponent, EnergyTickingConsumer,
     CustomTickRateMachine {
 
-    // should avoid accessing this directly
+    // should avoid accessing this directly, use getCustomTickRate() instead
     protected val tickRateSetting = IntRangeSetting(this, "tick-rate", 1, tickRate, 3600)
 
-    // should avoid accessing this directly
+    // should avoid accessing this directly, use getEnergyConsumptionPerTick() instead
     protected val energyPerTickSetting = IntRangeSetting(this, "energy-per-tick", 1, energyPerTick, 1_000_000_000)
 
     init {
