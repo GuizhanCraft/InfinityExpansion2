@@ -421,26 +421,53 @@ items:
   MAGSTEEL_PLATE:
     name: "&4MagSteel Deska"
     lore:
-      - "&7Strojová součást"
+      - "&7Strojní součást"
   MACHINE_CIRCUIT:
     name: "&6Strojní obvod"
     lore:
       - "&7Strojní součást"
   INFINITY_MACHINE_CIRCUIT:
+    name: "&bInfinity &7Strojní obvod"
     lore:
-      - "&7Strojová součást"
+      - "&7Strojní součást"
   MACHINE_CORE:
+    name: "&fJádro stroje"
     lore:
-      - "&7Strojová součást"
+      - "&7Strojní součást"
   INFINITY_MACHINE_CORE:
+    name: "&bInfinity &fJádro stroje"
     lore:
-      - "&7Strojová součást"
+      - "&7Strojní součást"
   MACHINE_PLATE:
+    name: "&fStrojní deska"
     lore:
-      - "&7Strojová součást"
+      - "&7Strojní součást"
   VOID_GLASS:
+    name: "&8Void sklo"
     lore:
       - "&dProti witherovi"
+  OSCILLATOR_FRAME:
+    name: "&6Rám Oscilátoru"
+  UNKNOWN_SMITHING_TEMPLATE:
+    name: "&8Neznámá &7Kovářská předloha"
+    lore:
+      - "&7Je to normální předloha,"
+      - "&7nebo jenom ornament?"
+  #items - slimefun expansion
+  VOID_CAPACITOR:
+    name: "&8Void Kondenzátor"
+    lore:
+      - ""
+      - "&8\u21E8 &e⚡ &716,000,000 J Kapacity"
+    lore-overrides:
+      2: "%sftrlore_PowerCapacity_16000000%" #DO NOT translate this
+  INFINITY_CAPACITOR:
+    name: "&bInfinity Kondenzátor"
+    lore:
+      - ""
+      - "&8\u21E8 &e⚡ &7128,000,000 J Kapacity"
+    lore-overrides:
+      2: "%sftrlore_PowerCapacity_128000000%" #DO NOT translate this
   POTATO_FISH:
     conditions:
       force-load: true
