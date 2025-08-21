@@ -170,42 +170,55 @@ items:
   _UI_RECIPES:
     conditions:
       force-load: true
+    name: "&eRecepty:"
   _UI_TICK_RATE:
     conditions:
       force-load: true
+    name: "&eTick rate:"
   _UI_ENERGY_CONSUMPTION:
     conditions:
       force-load: true
+    name: "&eSpotřeba energie:"
   _UI_ENERGY_PRODUCTION:
     conditions:
       force-load: true
+    name: "&eVýroba energie:"
   _UI_OUTPUT_INTERVAL:
     conditions:
       force-load: true
+    name: "&eVýstupní interval:"
   _UI_PROGRESS_TOTAL:
     conditions:
       force-load: true
+    name: "&eCelkový vyžadovaný postup:"
   _UI_PROGRESS_INCREASE:
     conditions:
       force-load: true
+    name: "&eRychlost postupu:"
   _UI_CHANCE:
     conditions:
       force-load: true
+    name: "&eÚspěšnost:"
   _UI_SF_ITEM:
     conditions:
       force-load: true
+    name: "&eSlimefun předměty:"
   _UI_EXPERIENCE:
     conditions:
       force-load: true
+    name: "&eZkušenosti:"
   _UI_OSCILLATOR_SLOT:
     conditions:
       force-load: true
+    name: "&eMísto pro Oscilátor"
   _UI_POTION_EFFECTS:
     conditions:
       force-load: true
+    name: "&eEfekty lektvaru:"
   _UI_PROTECTION_TYPES:
     conditions:
       force-load: true
+    name: "&eTypy ochrany:"
   #ui = strainer specific
   _UI_ANY_STRAINER:
     conditions:
@@ -214,35 +227,45 @@ items:
   _UI_SW_CHANGE:
     conditions:
       force-load: true
+    name: "&eKlikni na předmět níže pro změnu činnosti"
   _UI_SW_NONE:
     conditions:
       force-load: true
+    name: "&cŽádná akce"
   _UI_SW_FURNACE:
     conditions:
       force-load: true
+    name: "&eVypálení"
   _UI_SW_CRUSH:
     conditions:
       force-load: true
+    name: "&eDrcení"
   _UI_SW_COMPACT:
     conditions:
       force-load: true
+    name: "&eZhutnění"
   _UI_SW_TRANSFORM:
     conditions:
       force-load: true
+    name: "&eTransformování"
   #ui - gear transformer specific
   _UI_GT_GEAR:
     conditions:
       force-load: true
+    name: "&9Zde umístěte vybavení"
   _UI_GT_MATERIAL:
     conditions:
       force-load: true
+    name: "&9Zde vložte materiál"
   _UI_GT_NO_SLIMEFUN:
     conditions:
       force-load: true
+    name: "&cSlimefun předměty nejsou povoleny"
   #ui - advanced anvil specific
   _UI_AA_MAX_ENCHANTMENT_LEVEL:
     conditions:
       force-load: true
+    name: "&eMax úroveň enchantu:"
   #ui - infinity reactor specific
   _UI_IR_BORDER_VOID:
     conditions:
@@ -265,6 +288,7 @@ items:
   _UI_IR_INFO:
     conditions:
       force-load: true
+    name: "&aBěží..."
   #ui - infinity singularity reactor specific
   _UI_ISR_BORDER:
     conditions:
@@ -278,29 +302,145 @@ items:
   _UI_ISR_INFO:
     conditions:
       force-load: true
+    name: "&aBěží..."
   #ui - storage unit specific
   _UI_STORAGE_ACTIONS_INV:
     conditions:
       force-load: true
+    name: "&aVlastnosti inventáře"
+    lore:
+      - "&eKlikni levým &7pro vložení z tvého inventáře"
+      - "&eKlikni pravým &7pro vložení do tvého inventáře"
   _UI_STORAGE_NO_ITEM:
     conditions:
       force-load: true
+    name: "&cŽádný předmět"
   _UI_STORAGE_CAPACITY:
     conditions:
       force-load: true
+    name: "&bKapacita:"
   _UI_STORAGE_AMOUNT:
     conditions:
       force-load: true
+    name: "&bPočet předmětů:"
   _UI_STORAGE_VOID_EXCESS_ON:
     conditions:
       force-load: true
+    name: "&aČerná díra: &2Zapnuta"
+    lore:
+      - "&7Předměty po naplnění kapacity"
+      - "&7budou filtrovány do voidu"
+      - ""
+      - "&eKlikni &7pro přepnutí"
   _UI_STORAGE_VOID_EXCESS_OFF:
     conditions:
       force-load: true
+    name: "&aČerná díra: &cVypnuta"
+    lore:
+      - "&7Předměty po naplnění kapacity"
+      - ""
+      - ""
+      - "&eKlikni &7pro přepnutí"
+  MAGNESIUM_SINGULARITY:
+    name: "&dSingularita Hořčíku"
+  DIAMOND_SINGULARITY:
+    name: "&dSingularita Diamantu"
+  EMERALD_SINGULARITY:
+    name: "&aSingularita Smaragdu"
+  NETHERITE_SINGULARITY:
+    name: "&4Singularita Netheritu"
+  COAL_SINGULARITY:
+    name: "&8Singularita Úhelná"
+  INFINITY_SINGULARITY:
+    name: "&bSingularita Infinity"
+  FORTUNE_SINGULARITY:
+    name: "&6Singularita Štěstí"
+  MAGIC_SINGULARITY:
+    name: "&5Singularita Magie"
+  EARTH_SINGULARITY:
+    name: "&aSingularita Země"
+  METAL_SINGULARITY:
+    name: "&8Singularita Kovu"
   #items - materials
   ENDER_ESSENCE:
     conditions:
       match-lore: true
+    name: "&5Endová Esence"
+    lore:
+      - "&8&oZ nejhlubších míst v Endu..."
+  COMPRESSED_COBBLESTONE_1:
+    name: "&7Jednou stlačený Kámen"
+    lore:
+      - "&89 kombinovaných kamenů."
+  COMPRESSED_COBBLESTONE_2:
+    name: "&7Dvakrát stlačený Kámen"
+    lore:
+      - "&881 kombinovaných kamenů."
+  COMPRESSED_COBBLESTONE_3:
+    name: "&7Třikrát stlačený Kámen"
+    lore:
+      - "&8729 kombinovaných kamenů."
+  COMPRESSED_COBBLESTONE_4:
+    name: "&7Čtyřikrát stlačený Kámen"
+    lore:
+      - "&86,561 kombinovaných kamenů."
+  COMPRESSED_COBBLESTONE_5:
+    name: "&7Pětkrát stlačený Kámen"
+    lore:
+      - "&859,049 kombinovaných kamenů."
+  TITANIUM:
+    name: "&7Titan"
+  MYTHRIL:
+    name: "&bMithril"
+  ADAMANTITE:
+    name: "&dAdamantium"
+  VOID_BIT:
+    name: "&8Jednotka Voidu"
+    lore:
+      - "&7&oCítí se... prázdný."
+  VOID_DUST:
+    name: "&8Prach Voidu"
+    lore:
+      - "&7&oZačíná se to formovat..."
+  VOID_INGOT:
+    name: "&8Void Ingot"
+    lore:
+      - "&7&oPrázdnota vesmíru"
+      - "&7&na dlani tvé ruky."
+  VOID_BLOCK:
+    name: "&8Block Voidu"
+    lore:
+      - "&7&oVíce prázdnoty, než je možné ovládat."
+      - ""
+      - "&dProti witherovi"
+  INFINITY_INGOT:
+    name: "&bInfinity Ingot"
+    lore:
+      - "&7&oDěsivost vesmír"
+      - "&7&na dlani tvé ruky."
+  MAGSTEEL_PLATE:
+    name: "&4MagSteel Deska"
+    lore:
+      - "&7Strojová součást"
+  MACHINE_CIRCUIT:
+    name: "&6Strojní obvod"
+    lore:
+      - "&7Strojní součást"
+  INFINITY_MACHINE_CIRCUIT:
+    lore:
+      - "&7Strojová součást"
+  MACHINE_CORE:
+    lore:
+      - "&7Strojová součást"
+  INFINITY_MACHINE_CORE:
+    lore:
+      - "&7Strojová součást"
+  MACHINE_PLATE:
+    lore:
+      - "&7Strojová součást"
+  VOID_GLASS:
+    lore:
+      - "&dProti witherovi"
   POTATO_FISH:
     conditions:
       force-load: true
