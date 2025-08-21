@@ -3,108 +3,170 @@ items:
   _IG_MAIN:
     conditions:
       force-load: true
+    name: "&k-&bInfinity&4Expansion&a&l2&k-" #pay attention to the color codes when you translate this.
   _IG_MATERIALS:
     conditions:
       force-load: true
+    name: "&k.&bI&4E&a&l2&k. &a- &7Materiály"
   _IG_SINGULARITIES:
     conditions:
       force-load: true
+    name: "&k.&bI&4E&a&l2&k. &a- &aSingularity"
   _IG_SLIMEFUN_EXPANSION:
     conditions:
       force-load: true
+    name: "&k.&bI&4E&a&l2&k. &a- &dSlimefun rozšíření"
   _IG_FOOD:
     conditions:
       force-load: true
+    name: "&k.&bI&4E&a&l2&k. &a- &eJídlo"
   _IG_TOOLS:
     conditions:
       force-load: true
+    name: "&k.&bI&4E&a&l2&k. &a- &6Nástoje"
   _IG_GEAR:
     conditions:
       force-load: true
+    name: "&k.&bI&4E&a&l2&k. &a- &2Vybavení"
   _IG_MACHINES:
     conditions:
       force-load: true
+    name: "&k.&bI&4E&a&l2&k. &a- &9Stroje"
   _IG_GENERATORS:
     conditions:
       force-load: true
+    name: "&k.&bI&4E&a&l2&k. &a- &cGenerátory"
   _IG_MOB_SIMULATION:
     conditions:
       force-load: true
+    name: "&k.&bI&4E&a&l2&k. &a- &bSimulace Monster"
   _IG_STORAGE:
     conditions:
       force-load: true
+    name: "&k.&bI&4E&a&l2&k. &a- &6Uložiště"
   _IG_HIDDEN:
     conditions:
       force-load: true
+    name: "&k.&bI&4E&a&l2&k. &a- &4Skryté předměty"
   #recipe types
   _RECIPE_VOID_HARVESTER:
     conditions:
       force-load: true
+    name: "&8Sklízeč Prázdnoty"
+    lore:
+      - "&7Sklízí jednotky z prázdnoty."
   _RECIPE_INFINITY_WORKBENCH:
     conditions:
       force-load: true
+    name: "&6Infinity Pracovní stůl"
+    lore:
+      - "&7Jsi zde, jelikož jsi vstoupil na tuto stránku"
+      - "&7z výsledků hledání ve Slimefunu."
+      - ""
+      - "&cZobrazený recept je nesprávný a neúplný."
+      - "&cZkontroluj správný recept v InfinityExpansion 2 průvodci,"
+      - "&cnebo dej předmět do ruky a použij příkaz &e/ie2 guide&c."
   _RECIPE_SINGULARITY_CONSTRUCTOR:
     conditions:
       force-load: true
+    name: "&bKonstruktor Singularit"
+    lore:
+      - "&7Konzumuje mnoho surovin"
+      - "&7pro výrobu singularit."
   _RECIPE_MOB_DATA_INFUSER:
     conditions:
       force-load: true
+    name: "&bMob Data Infuzér"
+    lore:
+      - "&7Infikuje prázdnou data kartu"
+      - "&7pomocí předmětů z monster."
   _RECIPE_STORAGE_FORGE:
     conditions:
       force-load: true
+    name: "&6Skladovací Kovárna"
+    lore:
+      - "&7Vyrob a vylepši Skladové jednotky."
+      - "&7Předměty zůstávají při vylepšení."
   #ui items
   _UI_GUIDE:
     conditions:
       force-load: true
+    name: "&aPrůvodce hry"
+    lore:
+      - ""
+      - "&7\u21E8 &aKlikni pro otevření"
   _UI_WIKI:
     conditions:
       force-load: true
+    name: "&eWiki"
+    lore:
+      - ""
+      - "&7\u21E8 &aKlikni pro otevření"
   _UI_COLLECTING:
     conditions:
       force-load: true
+    name: "&aSbírám..."
   _UI_PRODUCING:
     conditions:
       force-load: true
+    name: "&aProdukuji..."
   _UI_NO_ROOM:
     conditions:
       force-load: true
+    name: "&cNedostatek místa"
   _UI_NO_POWER:
     conditions:
       force-load: true
+    name: "Nedostatečné množství energie"
   _UI_INVALID_INPUT:
     conditions:
       force-load: true
+    name: "&cNeplatný vstup"
   _UI_DISABLED:
     conditions:
       force-load: true
+    name: "&cZakázáno"
+    lore:
+      - "&7Tento stroj je zakázán."
   _UI_DISABLED_IN_WORLD:
     conditions:
       force-load: true
+    name: "&cZakázáno"
+    lore:
+      - "&7Stroj je v tomto světě zakázán."
   _UI_SUCCESS:
     conditions:
       force-load: true
+    name: "&aHotovo!"
   _UI_PROGRESS:
     conditions:
       force-load: true
+    name: "&ePostup:"
   _UI_CRAFT:
     conditions:
       force-load: true
+    name: "&eKlikni pro výrobu"
   #ui - display recipe info
   _UI_DISPLAY_RECIPES:
     conditions:
       force-load: true
+    name: "&eKlikni pro zobrazení receptů"
   _UI_WORLD_NORMAL:
     conditions:
       force-load: true
+    name: "&2Normální svět"
   _UI_WORLD_NETHER:
     conditions:
       force-load: true
+    name: "&4Nether"
   _UI_WORLD_THE_END:
     conditions:
       force-load: true
+    name: "&5End"
   _UI_PRODUCES:
     conditions:
       force-load: true
+    name: "&aProdukuji:"
   _UI_RECIPES:
     conditions:
       force-load: true
@@ -245,3 +307,53 @@ items:
   INFINITY_MATRIX:
     options:
       partial-override: true
+  VOID_HARVESTER:
+    name: "&8Sklízeč Prázdnoty"
+    lore:
+      - ""
+      - "&7Sklízí jednotky z prázdnoty."
+      - ""
+      - ""
+  VOID_HARVESTER_2:
+    lore:
+      - ""
+      - "&7Sklízí jednotky z prázdnoty."
+      - ""
+      - ""
+  VOID_HARVESTER_3:
+    lore:
+      - ""
+      - "&7Sklízí jednotky z prázdnoty."
+      - ""
+      - ""
+  SINGULARITY_CONSTRUCTOR:
+    lore:
+      - ""
+      - "&7Konzumuje mnoho surovin"
+      - "&7pro výrobu singularit."
+      - ""
+      - ""
+  SINGULARITY_CONSTRUCTOR_2:
+    lore:
+      - ""
+      - "&7Konzumuje mnoho surovin"
+      - "&7pro výrobu singularit."
+      - ""
+      - ""
+  INFINITY_WORKBENCH:
+    name: "&6Infinity Pracovní stůl"
+  MOB_DATA_INFUSER:
+    name: "&bMob Data Infuzér"
+    lore:
+      - ""
+      - "&7Infikuje prázdnou data kartu"
+      - "&7pomocí předmětů z monster."
+      - ""
+  #items - storage
+  STORAGE_FORGE:
+    name: "&6Skladovací Kovárna"
+    lore:
+      - "&7Vyrob a vylepši Skladové jednotky."
+      - "&7Předměty zůstávají při vylepšení."
+messages:
+  no-room: "&cNedostatek místa"
