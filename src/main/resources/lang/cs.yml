@@ -275,6 +275,7 @@ items:
   _UI_IR_BORDER_INFINITY:
     conditions:
       force-load: true
+    name: "&7Umísti &bInfinity &7Ingot zde"
   _UI_IR_NEED_VOID:
     conditions:
       force-load: true
@@ -282,6 +283,7 @@ items:
   _UI_IR_NEED_INFINITY:
     conditions:
       force-load: true
+    name: "&7Potřebuješ více &bInfinity &7Ingotů"
   _UI_IR_DURATION_VOID:
     conditions:
       force-load: true
@@ -292,13 +294,18 @@ items:
     conditions:
       force-load: true
     name: "&aBěží..."
+    lore-overrides:
+      1: "&eZbývající sf ticky pro Infinity Ingot:"
+      3: "&eZbývající sf ticky pro Void Ingot:"
   #ui - infinity singularity reactor specific
   _UI_ISR_BORDER:
     conditions:
       force-load: true
+    name: "&7Zde vlož &bInfinity Singularitu"
   _UI_ISR_NEED:
     conditions:
       force-load: true
+    name: "&7Potřebuješ více &bInfinity Singularit"
   _UI_ISR_DURATION:
     conditions:
       force-load: true
@@ -471,47 +478,296 @@ items:
       - "&8\u21E8 &e⚡ &7128,000,000 J Kapacity"
     lore-overrides:
       2: "%sftrlore_PowerCapacity_128000000%" #DO NOT translate this
+  INFINITY_GEO_MINER:
+    lore:
+      - ""
+      - "&8\u21E8 &e⚡ &7Rychlost: &b64x"
+      - ""
+    lore-overrides:
+      2: "%sftrlore_Speed_64%" #DO NOT translate this
+  VOID_SMELTERY:
+    name: "&8Void Tavírna"
+    lore:
+      - ""
+      - "&8\u21E8 &e⚡ &7Rychlost: &b24x"
+      - "&8\u21E8 &e⚡ &71,200 J/t"
+    lore-overrides:
+      2: "%sftrlore_Speed_24%" #DO NOT translate this
+      3: "%sftrlore_PowerPerTick_1200%" #DO NOT translate this
   POTATO_FISH:
     conditions:
       force-load: true
   INFINITY_MATRIX:
     options:
       partial-override: true
+  #machines
+  COBBLESTONE_GENERATOR:
+    lore:
+      - ""
+      - ""
+      - ""
+      - "&8\u21E8 &e⚡ &7Rychlost: &b1x"
+    lore-overrides:
+      4: "%sftrlore_Speed_1%" #DO NOT translate this
+  COBBLESTONE_GENERATOR_3:
+    name: "&7Void &8Cobblestone Generátor"
+    lore:
+      - ""
+      - ""
+      - ""
+      - "&8\u21E8 &e⚡ &7Rychlost: &b16x"
+    lore-overrides:
+      4: "%sftrlore_Speed_16%" #DO NOT translate this
+  COBBLESTONE_GENERATOR_4:
+    lore:
+      - ""
+      - ""
+      - ""
+      - "&8\u21E8 &e⚡ &7Rychlost: &b64x"
+    lore-overrides:
+      4: "%sftrlore_Speed_64%" #DO NOT translate this
+  VIRTUAL_FARM_3:
+    name: "&7Void &aVirtuální Farma"
+  TREE_GROWER_3:
+    name: "&7Void &2Pěstitel stromů"
+  FLOWER_GROWER_3:
+    name: "&7Void &dPěstitel květin"
   VOID_HARVESTER:
-    name: "&8Sklízeč Prázdnoty"
+    name: "&8Sklízeč Voidu"
     lore:
       - ""
       - "&7Sklízí jednotky z prázdnoty."
       - ""
-      - ""
+      - "&8\u21E8 &e⚡ &7Rychlost: &b1x"
+    lore-overrides:
+      4: "%sftrlore_Speed_1%" #DO NOT translate this
   VOID_HARVESTER_2:
+    name: "&cPokročilý &8Sklízeč Voidu"
     lore:
       - ""
       - "&7Sklízí jednotky z prázdnoty."
       - ""
-      - ""
+      - "&8\u21E8 &e⚡ &7Rychlost: &b16x"
+    lore-overrides:
+      4: "%sftrlore_Speed_16%" #DO NOT translate this
   VOID_HARVESTER_3:
+    name: "&bInfinity &8Sklízeč Voidu"
     lore:
       - ""
       - "&7Sklízí jednotky z prázdnoty."
       - ""
+      - "&8\u21E8 &e⚡ &7Rychlost: &b64x"
+    lore-overrides:
+      4: "%sftrlore_Speed_64%" #DO NOT translate this
+  STONEWORKS_FACTORY:
+    lore:
       - ""
+      - ""
+      - ""
+      - ""
+      - "&8\u21E8 &e⚡ &7Rychlost: &b1x"
+    lore-overrides:
+      5: "%sftrlore_Speed_1%" #DO NOT translate this
+  STONEWORKS_FACTORY_3:
+    name: "&7Void &8Kamenická továrna"
+    lore:
+      - ""
+      - ""
+      - ""
+      - ""
+      - "&8\u21E8 &e⚡ &7Rychlost: &b16x"
+    lore-overrides:
+      5: "%sftrlore_Speed_16%" #DO NOT translate this
+  STONEWORKS_FACTORY_4:
+    lore:
+      - ""
+      - ""
+      - ""
+      - ""
+      - "&8\u21E8 &e⚡ &7Rychlost: &b64x"
+    lore-overrides:
+      5: "%sftrlore_Speed_64%" #DO NOT translate this
   SINGULARITY_CONSTRUCTOR:
     lore:
       - ""
       - "&7Konzumuje mnoho surovin"
       - "&7pro výrobu singularit."
       - ""
-      - ""
+      - "&8\u21E8 &e⚡ &7Rychlost: &b1x"
+    lore-overrides:
+      5: "%sftrlore_Speed_1%" #DO NOT translate this
   SINGULARITY_CONSTRUCTOR_2:
     lore:
       - ""
       - "&7Konzumuje mnoho surovin"
       - "&7pro výrobu singularit."
       - ""
+      - "&8\u21E8 &e⚡ &7Rychlost: &b64x"
+    lore-overrides:
+      5: "%sftrlore_Speed_64%" #DO NOT translate this
+  OBSIDIAN_GENERATOR:
+    lore:
       - ""
+      - ""
+      - ""
+      - "&8\u21E8 &e⚡ &7Rychlost: &b1x"
+    lore-overrides:
+      4: "%sftrlore_Speed_1%" #DO NOT translate this
+  EXTREME_FREEZER:
+    lore:
+      - ""
+      - ""
+      - ""
+      - "&8\u21E8 &e⚡ &7Rychlost: &b1x"
+    lore-overrides:
+      4: "%sftrlore_Speed_1%" #DO NOT translate this
+  DUST_EXTRACTOR:
+    name: "&7Dust Extractor"
+    lore:
+      - ""
+      - "&7Extrahuje prach z různých kamenů."
+      - ""
+      - "&8\u21E8 &e⚡ &7Rychlost: &b1x"
+    lore-overrides:
+      4: "%sftrlore_Speed_1%" #DO NOT translate this
+  DUST_EXTRACTOR_2:
+    name: "&cPokročilý &7Extraktor prachu"
+    lore:
+      - ""
+      - "&7Extrahuje prach z různých kamenů."
+      - ""
+      - "&8\u21E8 &e⚡ &7Rychlost: &b2x"
+    lore-overrides:
+      4: "%sftrlore_Speed_2%" #DO NOT translate this
+  DUST_EXTRACTOR_3:
+    name: "&8Void &7Extraktor prachu"
+    lore:
+      - ""
+      - "&7Extrahuje prach z různých kamenů."
+      - ""
+      - "&8\u21E8 &e⚡ &7Rychlost: &b8x"
+    lore-overrides:
+      4: "%sftrlore_Speed_8%" #DO NOT translate this
+  DUST_EXTRACTOR_4:
+    name: "&bInfinity &7Extraktor prachu"
+    lore:
+      - ""
+      - "&7Extrahuje prach z různých kamenů."
+      - ""
+      - "&8\u21E8 &e⚡ &7Rychlost: &b16x"
+    lore-overrides:
+      4: "%sftrlore_Speed_16%" #DO NOT translate this
+  INGOT_FORMER:
+    lore:
+      - ""
+      - ""
+      - ""
+      - "&8\u21E8 &e⚡ &7Rychlost: &b1x"
+    lore-overrides:
+      4: "%sftrlore_Speed_1%" #DO NOT translate this
+  INGOT_FORMER_2:
+    lore:
+      - ""
+      - ""
+      - ""
+      - "&8\u21E8 &e⚡ &7Rychlost: &b2x"
+    lore-overrides:
+      4: "%sftrlore_Speed_2%" #DO NOT translate this
+  INGOT_FORMER_3:
+    lore:
+      - ""
+      - ""
+      - ""
+      - "&8\u21E8 &e⚡ &7Rychlost: &b8x"
+    lore-overrides:
+      4: "%sftrlore_Speed_8%" #DO NOT translate this
+  INGOT_FORMER_4:
+    lore:
+      - ""
+      - ""
+      - ""
+      - "&8\u21E8 &e⚡ &7Rychlost: &b16x"
+    lore-overrides:
+      4: "%sftrlore_Speed_16%" #DO NOT translate this
+  URANIUM_EXTRACTOR:
+    lore:
+      - ""
+      - ""
+      - ""
+      - "&8\u21E8 &e⚡ &7Rychlost: &b1x"
+    lore-overrides:
+      4: "%sftrlore_Speed_1%" #DO NOT translate this
+  URANIUM_INGOT_EXTRACTOR:
+    lore:
+      - ""
+      - ""
+      - ""
+      - "&8\u21E8 &e⚡ &7Rychlost: &b1x"
+    lore-overrides:
+      4: "%sftrlore_Speed_1%" #DO NOT translate this
+  COBBLE_PRESS:
+    lore:
+      - ""
+      - ""
+      - ""
+      - ""
+      - "&8\u21E8 &e⚡ &7Rychlost: &b1x"
+    lore-overrides:
+      5: "%sftrlore_Speed_1%" #DO NOT translate this
+  DECOMPRESSOR:
+    lore:
+      - ""
+      - ""
+      - ""
+      - "&8\u21E8 &e⚡ &7Rychlost: &b1x"
+    lore-overrides:
+      4: "%sftrlore_Speed_1%" #DO NOT translate this
+  QUARRY:
+    lore:
+      - ""
+      - ""
+      - ""
+      - "&8\u21E8 &e⚡ &7Rychlost: &b1x"
+    lore-overrides:
+      4: "%sftrlore_Speed_1%"
+  QUARRY_2:
+    lore:
+      - ""
+      - ""
+      - ""
+      - "&8\u21E8 &e⚡ &7Rychlost: &b2x"
+    lore-overrides:
+      4: "%sftrlore_Speed_2%" #DO NOT translate this
+  QUARRY_4:
+    lore:
+      - ""
+      - ""
+      - ""
+      - "&8\u21E8 &e⚡ &7Rychlost: &b64x"
+    lore-overrides:
+      4: "%sftrlore_Speed_64%" #DO NOT translate this
+  GEO_QUARRY:
+    lore:
+      - ""
+      - ""
+      - ""
+      - "&8\u21E8 &e⚡ &7Rychlost: &b1x"
+    lore-overrides:
+      4: "%sftrlore_Speed_1%" #DO NOT translate this
   INFINITY_WORKBENCH:
     name: "&6Infinity Pracovní stůl"
+  INFINITY_REACTOR:
+    lore:
+      - ""
+      - "&7Generuje energii skrze kompresi"
+      - ""
+      - ""
+  INFINITY_SINGULARITY_REACTOR:
+    lore:
+      - ""
+      - "&7Generuje energii skrze kompresi"
+      - "&bInfinity Singularit&7."
+      - ""
   MOB_DATA_INFUSER:
     name: "&bMob Data Infuzér"
     lore:
