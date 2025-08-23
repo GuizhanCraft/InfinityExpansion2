@@ -223,6 +223,7 @@ items:
   _UI_ANY_STRAINER:
     conditions:
       force-load: true
+    name: "&aJakýkoliv filtr"
   #ui - stoneworks factory specific
   _UI_SW_CHANGE:
     conditions:
@@ -270,12 +271,14 @@ items:
   _UI_IR_BORDER_VOID:
     conditions:
       force-load: true
+    name: "&7Umísti &8Void &7Ingot zde"
   _UI_IR_BORDER_INFINITY:
     conditions:
       force-load: true
   _UI_IR_NEED_VOID:
     conditions:
       force-load: true
+    name: "&7Potřebuješ více &8Void &7Ingotů"
   _UI_IR_NEED_INFINITY:
     conditions:
       force-load: true
