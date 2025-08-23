@@ -313,6 +313,8 @@ items:
     conditions:
       force-load: true
     name: "&aBěží..."
+    lore-overrides:
+      1: "&eZbývající sf ticky pro Infinity Singularitu:"
   #ui - storage unit specific
   _UI_STORAGE_ACTIONS_INV:
     conditions:
@@ -351,6 +353,29 @@ items:
       - ""
       - ""
       - "&eKlikni &7pro přepnutí"
+  #items - singularities
+  IRON_SINGULARITY:
+    name: "&7Singularita Železa"
+  GOLD_SINGULARITY:
+    name: "&6Singularita Zlata"
+  LAPIS_SINGULARITY:
+    name: "&9Singularita Lazuritu"
+  REDSTONE_SINGULARITY:
+    name: "&cSingularita Ruditu"
+  QUARTZ_SINGULARITY:
+    name: "&fSingularita Křemene"
+  COPPER_SINGULARITY:
+    name: "&6Singularita Mědi"
+  TIN_SINGULARITY:
+    name: "&7Singularita Cínu"
+  LEAD_SINGULARITY:
+    name: "&8Singularita Olova"
+  SILVER_SINGULARITY:
+    name: "&7Singularita Stříbra"
+  ZINC_SINGULARITY:
+    name: "&7Singularita Zinku"
+  ALUMINUM_SINGULARITY:
+    name: "&7Singularita Hliníku"
   MAGNESIUM_SINGULARITY:
     name: "&dSingularita Hořčíku"
   DIAMOND_SINGULARITY:
@@ -588,6 +613,7 @@ items:
     lore-overrides:
       5: "%sftrlore_Speed_64%" #DO NOT translate this
   SINGULARITY_CONSTRUCTOR:
+    name: "&bKonstruktor Singularit"
     lore:
       - ""
       - "&7Konzumuje mnoho surovin"
@@ -597,6 +623,7 @@ items:
     lore-overrides:
       5: "%sftrlore_Speed_1%" #DO NOT translate this
   SINGULARITY_CONSTRUCTOR_2:
+    name: "&bInfinity &fKonstruktor Singularit"
     lore:
       - ""
       - "&7Konzumuje mnoho surovin"
@@ -605,6 +632,11 @@ items:
       - "&8\u21E8 &e⚡ &7Rychlost: &b64x"
     lore-overrides:
       5: "%sftrlore_Speed_64%" #DO NOT translate this
+  RESOURCE_SYNTHESIZER:
+    lore:
+      - ""
+      - "&7Kombinuje 2 singularity"
+      - ""
   OBSIDIAN_GENERATOR:
     lore:
       - ""
