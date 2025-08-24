@@ -52,9 +52,9 @@ items:
   _RECIPE_VOID_HARVESTER:
     conditions:
       force-load: true
-    name: "&8Sklízeč Prázdnoty"
+    name: "&8Sklízeč Voidu"
     lore:
-      - "&7Sklízí jednotky z prázdnoty."
+      - "&7Sklízí jednotky z voidu."
   _RECIPE_INFINITY_WORKBENCH:
     conditions:
       force-load: true
@@ -76,14 +76,14 @@ items:
   _RECIPE_MOB_DATA_INFUSER:
     conditions:
       force-load: true
-    name: "&bMob Data Infuzér"
+    name: "&bMob data Infuzér"
     lore:
       - "&7Infikuje prázdnou data kartu"
       - "&7pomocí předmětů z monster."
   _RECIPE_STORAGE_FORGE:
     conditions:
       force-load: true
-    name: "&6Skladovací Kovárna"
+    name: "&6Skladovací kovárna"
     lore:
       - "&7Vyrob a vylepši Skladové jednotky."
       - "&7Předměty zůstávají při vylepšení."
@@ -287,9 +287,11 @@ items:
   _UI_IR_DURATION_VOID:
     conditions:
       force-load: true
+    name: "&eVýdrž Void Ingotu (sf ticky):"
   _UI_IR_DURATION_INFINITY:
     conditions:
       force-load: true
+    name: "&eVýdrž Infinity Ingotu (sf ticky):"
   _UI_IR_INFO:
     conditions:
       force-load: true
@@ -309,6 +311,7 @@ items:
   _UI_ISR_DURATION:
     conditions:
       force-load: true
+    name: "&eVýdrž Infinity Singularity (sf ticky):"
   _UI_ISR_INFO:
     conditions:
       force-load: true
@@ -350,7 +353,7 @@ items:
     name: "&aČerná díra: &cVypnuta"
     lore:
       - "&7Předměty po naplnění kapacity"
-      - ""
+      - "&7&lnebudou &7filtrovány do voidu"
       - ""
       - "&eKlikni &7pro přepnutí"
   #in-game guide items
@@ -441,31 +444,35 @@ items:
     lore:
       - "&8&oZ nejhlubších míst v Endu..."
   COMPRESSED_COBBLESTONE_1:
-    name: "&7Jednou stlačený Kámen"
+    name: "&7Jednou stlačený kámen"
     lore:
       - "&89 kombinovaných kamenů."
   COMPRESSED_COBBLESTONE_2:
-    name: "&7Dvakrát stlačený Kámen"
+    name: "&7Dvakrát stlačený kámen"
     lore:
       - "&881 kombinovaných kamenů."
   COMPRESSED_COBBLESTONE_3:
-    name: "&7Třikrát stlačený Kámen"
+    name: "&7Třikrát stlačený kámen"
     lore:
       - "&8729 kombinovaných kamenů."
   COMPRESSED_COBBLESTONE_4:
-    name: "&7Čtyřikrát stlačený Kámen"
+    name: "&7Čtyřikrát stlačený kámen"
     lore:
       - "&86,561 kombinovaných kamenů."
   COMPRESSED_COBBLESTONE_5:
-    name: "&7Pětkrát stlačený Kámen"
+    name: "&7Pětkrát stlačený kámen"
     lore:
       - "&859,049 kombinovaných kamenů."
+  MAGSTEEL:
+    name: "&4MagSteel"
   TITANIUM:
     name: "&7Titan"
   MYTHRIL:
     name: "&bMithril"
   ADAMANTITE:
     name: "&dAdamantium"
+  MAGNONIUM:
+    name: "&5Magnonium"
   VOID_BIT:
     name: "&8Jednotka Voidu"
     lore:
@@ -488,7 +495,7 @@ items:
   INFINITY_INGOT:
     name: "&bInfinity Ingot"
     lore:
-      - "&7&oDěsivost vesmír"
+      - "&7&oDěsivost vesmíru"
       - "&7&na dlani tvé ruky."
   MAGSTEEL_PLATE:
     name: "&4MagSteel Deska"
@@ -541,6 +548,7 @@ items:
     lore-overrides:
       2: "%sftrlore_PowerCapacity_128000000%" #DO NOT translate this
   ADVANCED_ENCHANTER:
+    name: "&cPokročilý Očarovač"
     lore:
       - ""
       - "&8\u21E8 &e⚡ &7Rychlost: &b5x"
@@ -549,6 +557,7 @@ items:
       2: "%sftrlore_Speed_5%" #DO NOT translate this
       3: "%sftrlore_PowerPerTick_180%" #DO NOT translate this
   INFINITY_ENCHANTER:
+    name: "&bInfinity Očarovač"
     lore:
       - ""
       - "&8\u21E8 &e⚡ &7Rychlost: &b75x"
@@ -557,6 +566,7 @@ items:
       2: "%sftrlore_Speed_10%" #DO NOT translate this
       3: "%sftrlore_PowerPerTick_12000%" #DO NOT translate this
   ADVANCED_DISENCHANTER:
+    name: "&cPokročilý Odčarovač"
     lore:
       - ""
       - "&8\u21E8 &e⚡ &7Rychlost: &b5x"
@@ -565,6 +575,7 @@ items:
       2: "%sftrlore_Speed_5%" #DO NOT translate this
       3: "%sftrlore_PowerPerTick_180%" #DO NOT translate this
   INFINITY_DISENCHANTER:
+    name: "&bInfinity Odčarovač"
     lore:
       - ""
       - "&8\u21E8 &e⚡ &7Rychlost: &b90x"
@@ -573,20 +584,34 @@ items:
       2: "%sftrlore_Speed_90%" #DO NOT translate this
       3: "%sftrlore_PowerPerTick_12000%" #DO NOT translate this
   ADVANCED_CHARGER:
+    name: "&cPokročilá Nabíječka"
     lore:
       - ""
-      - ""
+      - "&8\u21E8 &e⚡ &7Rychlost: &b30x"
       - "&8\u21E8 &e⚡ &7180 J/t"
     lore-overrides:
+      2: "%sftrlore_Speed_30%" #DO NOT translate this
       3: "%sftrlore_PowerPerTick_180%" #DO NOT translate this
+  INFINITY_CHARGER:
+    name: "&bInfinity Nabíječka"
+    lore:
+      - ""
+      - "&8\u21E8 &e⚡ &7Rychlost: &b6000x"
+      - "&8\u21E8 &e⚡ &760,000 J/t"
+    lore-overrides:
+      2: "%sftrlore_Speed_6000%" #DO NOT translate this
+      3: "%sftrlore_PowerPerTick_60000%" #DO NOT translate this
   ADVANCED_GEO_MINER:
+    name: "&cPokročilý Geo horník"
     lore:
       - ""
       - "&8\u21E8 &e⚡ &7Rychlost: &b4x"
-      - ""
+      - "&8\u21E8 &e⚡ &7120 J/t"
     lore-overrides:
       2: "%sftrlore_Speed_4%" #DO NOT translate this
+      3: "%sftrlore_PowerPerTick_120%" #DO NOT translate this
   INFINITY_GEO_MINER:
+    name: "&bInfinity Geo horník"
     lore:
       - ""
       - "&8\u21E8 &e⚡ &7Rychlost: &b64x"
@@ -594,6 +619,15 @@ items:
     lore-overrides:
       2: "%sftrlore_Speed_64%" #DO NOT translate this
       3: "%sftrlore_PowerPerTick_12000%" #DO NOT translate this
+  ADVANCED_SMELTERY:
+    name: "&cAdvanced Tavírna"
+    lore:
+      - ""
+      - "&8\u21E8 &e⚡ &7Rychlost: &b12x"
+      - "&8\u21E8 &e⚡ &7240 J/t"
+    lore-overrides:
+      2: "%sftrlore_Speed_12%" #DO NOT translate this
+      3: "%sftrlore_PowerPerTick_240%" #DO NOT translate this
   VOID_SMELTERY:
     name: "&8Void Tavírna"
     lore:
@@ -603,6 +637,36 @@ items:
     lore-overrides:
       2: "%sftrlore_Speed_24%" #DO NOT translate this
       3: "%sftrlore_PowerPerTick_1200%" #DO NOT translate this
+  ADVANCED_NETHER_STAR_REACTOR:
+    name: "&cPokročilý &fReaktor na Netherové Hvězdy"
+    lore:
+      - ""
+      - "&fBěží na Netherové Hvězdy"
+      - "&8\u21E8 &bMusí být obklopen vodou"
+      - "&8\u21E8 &bMusí být zásobován s buňkami Netherovou chladící kapalinou"
+      - ""
+      - "&8\u21E8 &e⚡ &790,000 J Kapacity"
+      - "&8\u21E8 &e⚡ &71,800 J/t"
+    lore-overrides:
+      6: "%sftrlore_PowerCapacity_90000%" #DO NOT translate this
+      7: "%sftrlore_PowerPerTick_1800%" #DO NOT translate this
+  #items - food
+  COSMIC_MEATBALLS:
+    name: "&bKosmické masové koule"
+    lore:
+      - "&7Poskytuje na 5 minut Sílu II."
+  ULTIMATE_STEW:
+    name: "&6Ultimátní guláš"
+    lore:
+      - "&7Poskytuje na 5 minut Regeneraci II."
+  #items - tools
+  ENDER_FLAME:
+    name: "&c&lEnder plamen"
+  VEIN_MINER_RUNE:
+    name: "&bRuna Horníkovi žíly"
+    lore:
+      - "Hoď tuto runu na vyhozený nástroj."
+      - "Získá tak moc runy."
   STRAINER_BASE:
     name: "&dZákladna síta"
     lore:
@@ -646,6 +710,7 @@ items:
       - ""
       - "&7Šance: 90%"
   INFINITY_PICKAXE:
+    name: "&b&lNičitel Světa"
     lore:
       - "&bSoulbound"
     lore-overrides:
@@ -779,23 +844,25 @@ items:
     lore-overrides:
       4: "%sftrlore_Speed_64%" #DO NOT translate this
   VIRTUAL_FARM:
+    name: "&aVirtuální farma"
     lore:
       - ""
       - "&7Automaticky pěstuje, sklízí"
       - "&7a znovu zasazuje plodiny."
   VIRTUAL_FARM_2:
+    name: "&cAdvanced &aVirtuální farma"
     lore:
       - ""
       - "&7Automaticky pěstuje, sklízí"
       - "&7a znovu zasazuje plodiny."
   VIRTUAL_FARM_3:
-    name: "&7Void &aVirtuální Farma"
+    name: "&7Void &aVirtuální farma"
     lore:
       - ""
       - "&7Automaticky pěstuje, sklízí"
       - "&7a znovu zasazuje plodiny."
   VIRTUAL_FARM_4:
-    name: "&bInfinity &aVirtuální Farma"
+    name: "&bInfinity &aVirtuální farma"
     lore:
       - ""
       - "&7Automaticky pěstuje, sklízí"
@@ -825,6 +892,7 @@ items:
       - "&7Automaticky pěstuje, sklízí"
       - "&7a znovu zasazuje stromy."
   FLOWER_GROWER:
+    name: "&dKvětový pěstitel"
     lore:
       - ""
       - "&7Automaticky pěstuje, sklízí"
@@ -851,7 +919,7 @@ items:
     name: "&8Sklízeč Voidu"
     lore:
       - ""
-      - "&7Sklízí jednotky z prázdnoty."
+      - "&7Sklízí jednotky z voidu."
       - ""
       - "&8\u21E8 &e⚡ &7Rychlost: &b1x"
     lore-overrides:
@@ -860,7 +928,7 @@ items:
     name: "&cPokročilý &8Sklízeč Voidu"
     lore:
       - ""
-      - "&7Sklízí jednotky z prázdnoty."
+      - "&7Sklízí jednotky z voidu."
       - ""
       - "&8\u21E8 &e⚡ &7Rychlost: &b16x"
     lore-overrides:
@@ -869,7 +937,7 @@ items:
     name: "&bInfinity &8Sklízeč Voidu"
     lore:
       - ""
-      - "&7Sklízí jednotky z prázdnoty."
+      - "&7Sklízí jednotky z voidu."
       - ""
       - "&8\u21E8 &e⚡ &7Rychlost: &b64x"
     lore-overrides:
@@ -1059,6 +1127,7 @@ items:
     lore-overrides:
       5: "%sftrlore_Speed_1%" #DO NOT translate this
   DECOMPRESSOR:
+    name: "&7Dekompresor"
     lore:
       - ""
       - "&7Rozdrcuje bloky na materiály."
@@ -1213,21 +1282,35 @@ items:
       - "&7 &8Void &7a &bInfinity &7Ingotů."
       - ""
   INFINITY_SINGULARITY_REACTOR:
+    name: "&bInfinity Singularitní Reaktor"
     lore:
       - ""
       - "&7Generuje energii skrze kompresi"
       - "&bInfinity Singularit&7."
       - ""
+  #items - mob simulation
+  MOB_SIMULATION_CHAMBER:
+    name: "&8Mob simulační komora"
+    lore:
+      - ""
+      - "&7Simuluje moby pomocí mob data karty."
+      - ""
+      - "&7Generuje věci z mobů a zkušenosti."
+      - ""
   MOB_DATA_INFUSER:
-    name: "&bMob Data Infuzér"
+    name: "&bMob data Infuzér"
     lore:
       - ""
       - "&7Infikuje prázdnou data kartu"
       - "&7pomocí předmětů z monster."
       - ""
+  MOB_DATA_CARD_EMPTY:
+    name: "&8Mob data karta (Prázdná)"
+  MOB_DATA_CARD:
+    name: "&8Mob data karta"
   #items - storage
   STORAGE_FORGE:
-    name: "&6Skladovací Kovárna"
+    name: "&6Skladovací kovárna"
     lore:
       - "&7Vyrob a vylepši Skladové jednotky."
       - "&7Předměty zůstávají při vylepšení."
@@ -1270,9 +1353,46 @@ lores:
     void-excess: "&eČerná díra: &7{0}"
 researches:
   harvesting_void: "Sklízí z voidu"
+  infinity_gear: "Infinity výstroj"
+  singularities: "Vytváření Singularit"
 messages:
+  commands:
+    no-permission: "&cNa tento příkaz nemáš opravnění."
+    player-only: "&cTento příkaz mohou použít pouze hráči."
+    player-not-found: "&cCílový hráč nebyl nalezen."
+    invalid-item: "&cNeplatný předmět."
+    giverecipe:
+      description: "Získej ingredience receptu."
+      to-sender: "&7Nabídl jsi ingredience &a{0} &7až &b{1}&7."
+      to-target: "&7Obdržel jsi suroviny &a{0}&7."
+    guide:
+      description: "Otevři průvodce pro specifický předmět, nebo podrž Slimefun předmět."
+    printitem:
+      description: "Napiš předmět v ruce."
+      no-item: "&cMusíš předmět držet v ruce."
+    id:
+      description: "Získej Slimefun ID předmětu v ruce."
+      message: "&7Slimefun předmět v ruce je &f{0}&7, id je: (Klikni na ID níže pro kopírování)"
+  vein-miner:
+    applied: "&aHorníkova žíla byla aplikována na předmět."
+    no-hunger: "&cNemáš dostatek hladu, aby se schopnost použila."
   no-room: "&cNedostatek místa"
+  crafting:
+    invalid-input: "&cNeplatný vstup."
+    success: "&aÚspěšně jsi vyrobil &b{0}&a."
+  advanced-anvil:
+    input1-not-enchantable: "&cPrvní slot je Slimefun předmět, který není možné očarovat."
+    input2-not-disenchantable: "&cDruhý slot je Slimefun předmět, který není neočarovaný."
+    no-output: "&cNejsou k dispozici žádné vylepšení."
+  generators:
+    type: "&eTyp: &b{0}"
+    working: "&eGeneruje: &f{0}"
+    tick-rate: "&eTick rate: &f{0} &7tick(y)"
+    production: "&eVýroba energie: &f{0} &7J/t (&f{1} &7J/s)"
+    expected-production: "&eOčekávaná výroba energie: &f{0} &7J/t (&f{1} &7J/s)"
   infinity-matrix:
+    not-owner: "&cNejsi vlastníkem tohoto matrixu."
+    ownership-removed: "&bJiž nejste vlastníkem tohoto matrixu."
     flight-enabled: "&cLétání je zapnuté!"
     flight-disabled: "&cLétání je vypnuté!"
   storage:
