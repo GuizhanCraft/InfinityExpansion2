@@ -935,22 +935,25 @@ items:
     lore-overrides:
       5: "%sftrlore_Speed_64%" #DO NOT translate this
   RESOURCE_SYNTHESIZER:
+    name: "&6Syntetizátor"
     lore:
       - ""
       - "&7Kombinuje 2 singularity"
-      - ""
+      - "&7pro tvorbu materiálů."
   OBSIDIAN_GENERATOR:
+    name: "&8Generátor obsidiánu"
     lore:
       - ""
-      - ""
+      - "&7Vyrábí obsidián."
       - ""
       - "&8\u21E8 &e⚡ &7Rychlost: &b1x"
     lore-overrides:
       4: "%sftrlore_Speed_1%" #DO NOT translate this
   EXTREME_FREEZER:
+    name: "&bExtremní mrazák"
     lore:
       - ""
-      - ""
+      - "&7Slouží pro tvorbu chladících kapalin."
       - ""
       - "&8\u21E8 &e⚡ &7Rychlost: &b1x"
     lore-overrides:
@@ -992,58 +995,65 @@ items:
     lore-overrides:
       4: "%sftrlore_Speed_16%" #DO NOT translate this
   INGOT_FORMER:
+    name: "&7Slévač ingotů"
     lore:
       - ""
-      - ""
+      - "&7Slévá ingoty z prachu."
       - ""
       - "&8\u21E8 &e⚡ &7Rychlost: &b1x"
     lore-overrides:
       4: "%sftrlore_Speed_1%" #DO NOT translate this
   INGOT_FORMER_2:
+    name: "&cPokročilý &7Slévač ingotů"
     lore:
       - ""
-      - ""
+      - "&7Slévá ingoty z prachu."
       - ""
       - "&8\u21E8 &e⚡ &7Rychlost: &b2x"
     lore-overrides:
       4: "%sftrlore_Speed_2%" #DO NOT translate this
   INGOT_FORMER_3:
+    name: "&8Void &7Slévač ingotů"
     lore:
       - ""
-      - ""
+      - "&7Slévá ingoty z prachu."
       - ""
       - "&8\u21E8 &e⚡ &7Rychlost: &b8x"
     lore-overrides:
       4: "%sftrlore_Speed_8%" #DO NOT translate this
   INGOT_FORMER_4:
+    name: "&bInfinity &7Slévač ingotů"
     lore:
       - ""
-      - ""
+      - "&7Slévá ingoty z prachu."
       - ""
       - "&8\u21E8 &e⚡ &7Rychlost: &b16x"
     lore-overrides:
       4: "%sftrlore_Speed_16%" #DO NOT translate this
   URANIUM_EXTRACTOR:
+    name: "&2Extraktor uranu"
     lore:
       - ""
-      - ""
+      - "&7Extrahuje uran z různých kamenů."
       - ""
       - "&8\u21E8 &e⚡ &7Rychlost: &b1x"
     lore-overrides:
       4: "%sftrlore_Speed_1%" #DO NOT translate this
   URANIUM_INGOT_EXTRACTOR:
+    name: "&2Extraktor uran ingotů"
     lore:
       - ""
-      - ""
+      - "&7Extrahuje uranové ingoty z různých kamenů."
       - ""
       - "&8\u21E8 &e⚡ &7Rychlost: &b1x"
     lore-overrides:
       4: "%sftrlore_Speed_1%" #DO NOT translate this
   COBBLE_PRESS:
+    name: "&8Dlažební lis"
     lore:
       - ""
       - "&7Stlačuje kámen"
-      - ""
+      - "&7častěji."
       - ""
       - "&8\u21E8 &e⚡ &7Rychlost: &b1x"
     lore-overrides:
@@ -1051,66 +1061,156 @@ items:
   DECOMPRESSOR:
     lore:
       - ""
-      - ""
+      - "&7Rozdrcuje bloky na materiály."
       - ""
       - "&8\u21E8 &e⚡ &7Rychlost: &b1x"
     lore-overrides:
       4: "%sftrlore_Speed_1%" #DO NOT translate this
   QUARRY:
+    name: "&9Základní lom"
     lore:
       - ""
-      - ""
+      - "&7Automaticky těží suroviny."
       - ""
       - "&8\u21E8 &e⚡ &7Rychlost: &b1x"
     lore-overrides:
       4: "%sftrlore_Speed_1%"
   QUARRY_2:
+    name: "&cPokročilý &9lom" #DO NOT translate this
     lore:
       - ""
-      - ""
+      - "&7Automaticky těží suroviny."
       - ""
       - "&8\u21E8 &e⚡ &7Rychlost: &b2x"
     lore-overrides:
       4: "%sftrlore_Speed_2%" #DO NOT translate this
   QUARRY_3:
+    name: "&8Void &9lom"
     lore:
       - ""
-      - ""
+      - "&7Automaticky těží suroviny."
       - ""
       - "&8\u21E8 &e⚡ &7Rychlost: &b4x"
     lore-overrides:
       4: "%sftrlore_Speed_4%" #DO NOT translate this
   QUARRY_4:
+    name: "&bInfinity &9lom"
     lore:
       - ""
-      - ""
+      - "&7Automaticky těží suroviny."
       - ""
       - "&8\u21E8 &e⚡ &7Rychlost: &b64x"
     lore-overrides:
       4: "%sftrlore_Speed_64%" #DO NOT translate this
   GEO_QUARRY:
+    name: "&2Geo lom"
     lore:
       - ""
-      - ""
+      - "&7Automaticky těží GEO suroviny."
       - ""
       - "&8\u21E8 &e⚡ &7Rychlost: &b1x"
     lore-overrides:
       4: "%sftrlore_Speed_1%" #DO NOT translate this
   GEO_QUARRY_2:
+    name: "&bInfinity &2Geo lom"
     lore:
       - ""
-      - ""
+      - "&7Automaticky těží GEO suroviny."
       - ""
       - "&8\u21E8 &e⚡ &7Rychlost: &b4x"
     lore-overrides:
       4: "%sftrlore_Speed_4%" #DO NOT translate this
+  GEAR_TRANSFORMER:
+    name: "&9Převodník vybavení"
+    lore:
+      - ""
+      - "&7Změní materiál nástrojů a vybavení."
+      - ""
+  SMITHING_TEMPLATE_RANDOMIZER:
+    name: "&8Randomizér kovářských předloh"
+    lore:
+      - ""
+      - "&7Náhodně vyrobí kovářské předlohy"
+      - "&7z &bNeznámých kovářských předloh."
+      - ""
+  ADVANCED_ANVIL:
+    name: "&cPokročilá kovadlina"
+    lore:
+      - ""
+      - "&7Kombinuje enchanty jako kovadlina."
+      - "&7Ignoruje limity vanilla enchantů."
+      - ""
+      - "&7Funguje se Slimefun předměty."
   INFINITY_WORKBENCH:
     name: "&6Infinity Pracovní stůl"
+    lore:
+      - ""
+      - "&7Slouží pro tvorbu Infinity předmětů."
+  #items - generators
+  HYDRO_GENERATOR:
+    name: "&9Vodní generátor"
+    lore:
+      - ""
+      - "&7Generuje energii z pohybu vody."
+      - ""
+      - "&fMusí být zaplavený vodou, aby fungoval."
+  HYDRO_GENERATOR_2:
+    name: "&cPokročilý &9Vodní generátor"
+    lore:
+      - ""
+      - "&7Generuje energii z pohybu vody."
+      - ""
+      - "&fMusí být zaplavený vodou, aby fungoval."
+  GEOTHERMAL_GENERATOR:
+    name: "&cGeotermální generátor"
+    lore:
+      - ""
+      - "&7Generuje energii z tepla světa."
+      - ""
+      - "&fProdukce energie se zdvojnásobí v Netheru."
+  GEOTHERMAL_GENERATOR_2:
+    name: "&cPokročilý &6Geotermální generátor"
+    lore:
+      - ""
+      - "&7Generuje energii z tepla světa."
+      - ""
+      - "&fProdukce energie se zdvojnásobí v Netheru."
+  SOLAR_PANEL:
+    name: "&6Solární panel"
+    lore:
+      - ""
+      - "&7Generuje energii ze slunce."
+      - ""
+  SOLAR_PANEL_2:
+    name: "&cPokročilý &6Solární panel"
+    lore:
+      - ""
+      - "&7Generuje energii ze slunce."
+      - ""
+  SOLAR_PANEL_3:
+    name: "&eNebeský &6Solární panel"
+    lore:
+      - ""
+      - "&7Generuje energii ze slunce."
+      - ""
+  VOID_PANEL:
+    name: "&8Void panel"
+    lore:
+      - ""
+      - "&7Generuje energii z temnoty."
+      - ""
+  INFINITY_PANEL:
+    name: "&bInfinity panel"
+    lore:
+      - ""
+      - "&7Generuje energii z kosmu."
+      - ""
   INFINITY_REACTOR:
+    name: "&bInfinity Reaktor"
     lore:
       - ""
       - "&7Generuje energii skrze kompresi"
-      - ""
+      - "&7 &8Void &7a &bInfinity &7Ingotů."
       - ""
   INFINITY_SINGULARITY_REACTOR:
     lore:
@@ -1131,7 +1231,49 @@ items:
     lore:
       - "&7Vyrob a vylepši Skladové jednotky."
       - "&7Předměty zůstávají při vylepšení."
+  STORAGE_UNIT_1:
+    name: "&eUložiště &7(1)"
+  STORAGE_UNIT_2:
+    name: "&eUložiště &7(2)"
+  STORAGE_UNIT_3:
+    name: "&eUložiště &7(3)"
+  STORAGE_UNIT_4:
+    name: "&eUložiště &7(4)"
+  STORAGE_UNIT_5:
+    name: "&eUložiště &7(5)"
+  STORAGE_UNIT_6:
+    name: "&eUložiště &7(6)"
+  STORAGE_UNIT_7:
+    name: "&eUložiště &7(7)"
+  STORAGE_UNIT_8:
+    name: "&eUložiště &7(8)"
+  STORAGE_UNIT_9:
+    name: "&eUložiště &7(9)"
+  STORAGE_UNIT_10:
+    name: "&eUložiště &7(10)"
+  #items - hidden
+  OSCILLATOR:
+    name: "&6Oscilátor"
 lores:
+  guide:
+    back:
+      previous: "&fKlikni&7: Vrátíš se na předchozí stranu"
+      main: "&fShift + Klikni&7: Vratíš se zpět na hlavní stránku"
+  collect: "&7Sbírá:"
+  produce: "&7Produkuje:"
+  info: "&7Informace:"
   soulbound: "&bSoulbound"
+  vein-miner: "&bRuna Horníkovi žíly"
+  storage:
+    item: "&aUložený předmět: &7{0}"
+    amount: "&bMnožství: &7{0}"
+    void-excess: "&eČerná díra: &7{0}"
+researches:
+  harvesting_void: "Sklízí z voidu"
 messages:
   no-room: "&cNedostatek místa"
+  infinity-matrix:
+    flight-enabled: "&cLétání je zapnuté!"
+    flight-disabled: "&cLétání je vypnuté!"
+  storage:
+    interaction-cd: "&cMusíš chvíli počkat, než to budeš moci znovu použít."
