@@ -223,7 +223,7 @@ items:
   _UI_ANY_STRAINER:
     conditions:
       force-load: true
-    name: "&aJakýkoliv filtr"
+    name: "&aJakékoliv sítko"
   #ui - stoneworks factory specific
   _UI_SW_CHANGE:
     conditions:
@@ -353,6 +353,43 @@ items:
       - ""
       - ""
       - "&eKlikni &7pro přepnutí"
+  #in-game guide items
+  _GUIDE_INTRO:
+    name: "&eÚvod"
+    lore:
+      - "&7Vítej v Infinity Expansion 2 (IE2)!"
+      - "&7Tento průvodce ti pomůže"
+      - "&7se seznamit s průvodcem IE2"
+      - "a samozřejmě obsah tohoto addonu."
+      - ""
+      - "&7Pokud jsi hrál Infinity Expansion dříve,"
+      - "&7stačí ti přečíst pouze část \"informace\"."
+  _GUIDE_INFO:
+    name: "&eInformace"
+    lore:
+      - "&7IE2 je více přizpůsobitelný."
+      - "&7Majitel serveru může změnit"
+      - "&7spoustu atribut předmětů,"
+      - "&7včetně tick ratu, spotřeby energie."
+      - ""
+      - "&7Tyto informace se už nezobrazují"
+      - "&7v popisku předmětu, ale"
+      - "&7v menu průvodce předmětu."
+      - ""
+      - "&7Další předmět průvodce zobrazuje pole, které"
+      - "&7lze zobrazit v menu průvodce předmětu."
+  _GUIDE_INFO_FIELDS:
+    name: "&eInformační pole"
+    lore:
+      - "&eTick rate &7(Slimefun tick)"
+      - "&7Určuje, jak často stroj poběží."
+      - "&7tj. Stroj běží každých X tick(ů)."
+      - ""
+      - "&eSpotřeba energie"
+      - "&7Množství energie, kterou stroj spotřebuje"
+      - "&7za tick, za sekundu, nebo za použití."
+      - ""
+      - "&eVýroba energie"
   #items - singularities
   IRON_SINGULARITY:
     name: "&7Singularita Železa"
@@ -503,13 +540,60 @@ items:
       - "&8\u21E8 &e⚡ &7128,000,000 J Kapacity"
     lore-overrides:
       2: "%sftrlore_PowerCapacity_128000000%" #DO NOT translate this
+  ADVANCED_ENCHANTER:
+    lore:
+      - ""
+      - "&8\u21E8 &e⚡ &7Rychlost: &b5x"
+      - "&8\u21E8 &e⚡ &7180 J/t"
+    lore-overrides:
+      2: "%sftrlore_Speed_5%" #DO NOT translate this
+      3: "%sftrlore_PowerPerTick_180%" #DO NOT translate this
+  INFINITY_ENCHANTER:
+    lore:
+      - ""
+      - "&8\u21E8 &e⚡ &7Rychlost: &b75x"
+      - "&8\u21E8 &e⚡ &712,000 J/t"
+    lore-overrides:
+      2: "%sftrlore_Speed_10%" #DO NOT translate this
+      3: "%sftrlore_PowerPerTick_12000%" #DO NOT translate this
+  ADVANCED_DISENCHANTER:
+    lore:
+      - ""
+      - "&8\u21E8 &e⚡ &7Rychlost: &b5x"
+      - "&8\u21E8 &e⚡ &7180 J/t"
+    lore-overrides:
+      2: "%sftrlore_Speed_5%" #DO NOT translate this
+      3: "%sftrlore_PowerPerTick_180%" #DO NOT translate this
+  INFINITY_DISENCHANTER:
+    lore:
+      - ""
+      - "&8\u21E8 &e⚡ &7Rychlost: &b90x"
+      - "&8\u21E8 &e⚡ &712,000 J/t"
+    lore-overrides:
+      2: "%sftrlore_Speed_90%" #DO NOT translate this
+      3: "%sftrlore_PowerPerTick_12000%" #DO NOT translate this
+  ADVANCED_CHARGER:
+    lore:
+      - ""
+      - ""
+      - "&8\u21E8 &e⚡ &7180 J/t"
+    lore-overrides:
+      3: "%sftrlore_PowerPerTick_180%" #DO NOT translate this
+  ADVANCED_GEO_MINER:
+    lore:
+      - ""
+      - "&8\u21E8 &e⚡ &7Rychlost: &b4x"
+      - ""
+    lore-overrides:
+      2: "%sftrlore_Speed_4%" #DO NOT translate this
   INFINITY_GEO_MINER:
     lore:
       - ""
       - "&8\u21E8 &e⚡ &7Rychlost: &b64x"
-      - ""
+      - "&8\u21E8 &e⚡ &712,000 J/t"
     lore-overrides:
       2: "%sftrlore_Speed_64%" #DO NOT translate this
+      3: "%sftrlore_PowerPerTick_12000%" #DO NOT translate this
   VOID_SMELTERY:
     name: "&8Void Tavírna"
     lore:
@@ -519,44 +603,250 @@ items:
     lore-overrides:
       2: "%sftrlore_Speed_24%" #DO NOT translate this
       3: "%sftrlore_PowerPerTick_1200%" #DO NOT translate this
+  STRAINER_BASE:
+    name: "&dZákladna síta"
+    lore:
+      - "&7Vlož sítko dovnitř,"
+      - "&7a zplav základ vodou,"
+      - "&7abys začal sbírat materiály z vody."
   POTATO_FISH:
     conditions:
       force-load: true
+    name: "&7:&6Bramborová ryba&7:"
+    lore:
+      - "&eŠtěstí"
+  STRAINER_1:
+    name: "&9Základní sítko"
+    lore:
+      - "&7Sbírá materiály z tekoucí vody."
+      - ""
+      - "&7Enchanty Nerozbitnost a Oprava"
+      - "&7mohou zvýšit durabilitu tohoto předmětu."
+      - "&cUnbreakable nefunguje."
+      - ""
+      - "&7Šance: 30%"
+  STRAINER_2:
+    name: "&cPokročilé sítko"
+    lore:
+      - "&7Sbírá materiály z tekoucí vody."
+      - ""
+      - "&7Enchanty Nerozbitnost a Oprava"
+      - "&7mohou zvýšit durabilitu tohoto předmětu."
+      - "&cUnbreakable nefunguje."
+      - ""
+      - "&7Šance: 60%"
+  STRAINER_3:
+    name: "&bVyztužené sítko"
+    lore:
+      - "&7Sbírá materiály z tekoucí vody."
+      - ""
+      - "&7Enchanty Nerozbitnost a Oprava"
+      - "&7mohou zvýšit durabilitu tohoto předmětu."
+      - "&cUnbreakable nefunguje."
+      - ""
+      - "&7Šance: 90%"
+  INFINITY_PICKAXE:
+    lore:
+      - "&bSoulbound"
+    lore-overrides:
+      1: "%sftrlore_soulbound%" #DO NOT translate this
+  INFINITY_AXE:
+    name: "&b&lPřírodní zkáza"
+    lore:
+      - "&bSoulbound"
+    lore-overrides:
+      1: "%sftrlore_soulbound%" #DO NOT translate this
+  INFINITY_SHOVEL:
+    name: "&b&lPožírač Hor"
+    lore:
+      - "&bSoulbound"
+    lore-overrides:
+      1: "%sftrlore_soulbound%" #DO NOT translate this
+  INFINITY_HOE:
+    name: "&b&lMotyka Zelené Země"
+    lore:
+      - "&bSoulbound"
+    lore-overrides:
+      1: "%sftrlore_soulbound%" #DO NOT translate this
+  INFINITY_FISHING_ROD:
+    name: "&b&lInfinity Udice"
+    lore:
+      - "&bSoulbound"
+    lore-overrides:
+      1: "%sftrlore_soulbound%" #DO NOT translate this
   INFINITY_MATRIX:
     options:
       partial-override: true
+    name: "&fInfinity Matrix"
+    lore:
+      - "&6Poskytuje létání"
+      - ""
+      - "&7Pravé kliknutí pro povolení/zakázání účinku"
+      - "&7Zkrčení a Pravý klik pro odebrání vlastnictví"
+      - ""
+      - "&bSoulbound"
+      - ""
+    lore-overrides:
+      6: "%sftrlore_soulbound%" #DO NOT translate this
+    lore-replacements:
+      8:
+        original: "Majitel: " #DO NOT translate this, translate the replaced value instead. Also keep in mind the duplicated entries.
+        replaced: "Majitel: "
+  #items - gears
+  INFINITY_HELMET:
+    name: "&b&lnfinity Koruna"
+    lore:
+      - "&bSoulbound"
+    lore-overrides:
+      1: "%sftrlore_soulbound%" #DO NOT translate this
+  INFINITY_CHESTPLATE:
+    name: "&b&lInfinity Brnění"
+    lore:
+      - "&bSoulbound"
+    lore-overrides:
+      1: "%sftrlore_soulbound%" #DO NOT translate this
+  INFINITY_LEGGINGS:
+    name: "&b&lInfinity Kalhoty"
+    lore:
+      - "&bSoulbound"
+    lore-overrides:
+      1: "%sftrlore_soulbound%" #DO NOT translate this
+  INFINITY_BOOTS:
+    name: "&b&lnfinity Boty"
+    lore:
+      - "&bSoulbound"
+    lore-overrides:
+      1: "%sftrlore_soulbound%" #DO NOT translate this
+  INFINITY_SHIELD:
+    name: "&b&lKosmický Štít"
+    lore:
+      - "&bSoulbound"
+    lore-overrides:
+      1: "%sftrlore_soulbound%" #DO NOT translate this
+  INFINITY_SWORD:
+    name: "&b&lČepel Kosmu"
+    lore:
+      - "&bSoulbound"
+    lore-overrides:
+      1: "%sftrlore_soulbound%" #DO NOT translate this
+  INFINITY_BOW:
+    name: "&b&lPrůrazce nebe"
+    lore:
+      - "&bSoulbound"
+    lore-overrides:
+      1: "%sftrlore_soulbound%" #DO NOT translate this
+  INFINITY_CROSSBOW:
+    name: "&b&lStřelec Hvězd"
+    lore:
+      - "&bSoulbound"
+    lore-overrides:
+      1: "%sftrlore_soulbound%" #DO NOT translate this
   #machines
   COBBLESTONE_GENERATOR:
+    name: "&8Generátor kamene"
     lore:
       - ""
-      - ""
+      - "&7Produkuje kámen."
       - ""
       - "&8\u21E8 &e⚡ &7Rychlost: &b1x"
     lore-overrides:
       4: "%sftrlore_Speed_1%" #DO NOT translate this
-  COBBLESTONE_GENERATOR_3:
-    name: "&7Void &8Cobblestone Generátor"
+  COBBLESTONE_GENERATOR_2:
+    name: "&cPokročilý &8Generátor kamene"
     lore:
       - ""
+      - "&7Produkuje kámen."
       - ""
+      - "&8\u21E8 &e⚡ &7Rychlost: &b4x"
+    lore-overrides:
+      4: "%sftrlore_Speed_4%" #DO NOT translate this
+  COBBLESTONE_GENERATOR_3:
+    name: "&7Void &8Generátor kamene"
+    lore:
+      - ""
+      - "&7Produkuje kámen."
       - ""
       - "&8\u21E8 &e⚡ &7Rychlost: &b16x"
     lore-overrides:
       4: "%sftrlore_Speed_16%" #DO NOT translate this
   COBBLESTONE_GENERATOR_4:
+    name: "&bInfinity &8Generátor kamene"
     lore:
       - ""
-      - ""
+      - "&7Produkuje kámen."
       - ""
       - "&8\u21E8 &e⚡ &7Rychlost: &b64x"
     lore-overrides:
       4: "%sftrlore_Speed_64%" #DO NOT translate this
+  VIRTUAL_FARM:
+    lore:
+      - ""
+      - "&7Automaticky pěstuje, sklízí"
+      - "&7a znovu zasazuje plodiny."
+  VIRTUAL_FARM_2:
+    lore:
+      - ""
+      - "&7Automaticky pěstuje, sklízí"
+      - "&7a znovu zasazuje plodiny."
   VIRTUAL_FARM_3:
     name: "&7Void &aVirtuální Farma"
+    lore:
+      - ""
+      - "&7Automaticky pěstuje, sklízí"
+      - "&7a znovu zasazuje plodiny."
+  VIRTUAL_FARM_4:
+    name: "&bInfinity &aVirtuální Farma"
+    lore:
+      - ""
+      - "&7Automaticky pěstuje, sklízí"
+      - "&7a znovu zasazuje plodiny."
+  TREE_GROWER:
+    name: "&2Pěstitel stromů"
+    lore:
+      - ""
+      - "&7Automaticky pěstuje, sklízí"
+      - "&7a znovu zasazuje stromy."
+  TREE_GROWER_2:
+    name: "&cPokročilý &2Pěstitel stromů"
+    lore:
+      - ""
+      - "&7Automaticky pěstuje, sklízí"
+      - "&7a znovu zasazuje stromy."
   TREE_GROWER_3:
     name: "&7Void &2Pěstitel stromů"
+    lore:
+      - ""
+      - "&7Automaticky pěstuje, sklízí"
+      - "&7a znovu zasazuje stromy."
+  TREE_GROWER_4:
+    name: "&bInfinity &2Pěstitel stromů"
+    lore:
+      - ""
+      - "&7Automaticky pěstuje, sklízí"
+      - "&7a znovu zasazuje stromy."
+  FLOWER_GROWER:
+    lore:
+      - ""
+      - "&7Automaticky pěstuje, sklízí"
+      - "&7a znovu zasazuje květiny."
+  FLOWER_GROWER_2:
+    name: "&cPokročilý &dPěstitel květin"
+    lore:
+      - ""
+      - "&7Automaticky pěstuje, sklízí"
+      - "&7a znovu zasazuje květiny."
   FLOWER_GROWER_3:
     name: "&7Void &dPěstitel květin"
+    lore:
+      - ""
+      - "&7Automaticky pěstuje, sklízí"
+      - "&7a znovu zasazuje květiny."
+  FLOWER_GROWER_4:
+    name: "&bInfinity &dPěstitel květin"
+    lore:
+      - ""
+      - "&7Automaticky pěstuje, sklízí"
+      - "&7a znovu zasazuje květiny."
   VOID_HARVESTER:
     name: "&8Sklízeč Voidu"
     lore:
@@ -585,29 +875,41 @@ items:
     lore-overrides:
       4: "%sftrlore_Speed_64%" #DO NOT translate this
   STONEWORKS_FACTORY:
+    name: "&8Kamenická továrna"
     lore:
       - ""
-      - ""
-      - ""
+      - "&7Generuje kamení a"
+      - "&7zpracovává ho do různých variant."
       - ""
       - "&8\u21E8 &e⚡ &7Rychlost: &b1x"
     lore-overrides:
       5: "%sftrlore_Speed_1%" #DO NOT translate this
+  STONEWORKS_FACTORY_2:
+    name: "&cPokročiná &8Kamenická továrna"
+    lore:
+      - ""
+      - "&7Generuje kamení a"
+      - "&7zpracovává ho do různých variant."
+      - ""
+      - "&8\u21E8 &e⚡ &7Rychlost: &b4x"
+    lore-overrides:
+      5: "%sftrlore_Speed_4%" #DO NOT translate this
   STONEWORKS_FACTORY_3:
     name: "&7Void &8Kamenická továrna"
     lore:
       - ""
-      - ""
-      - ""
+      - "&7Generuje kamení a"
+      - "&7zpracovává ho do různých variant."
       - ""
       - "&8\u21E8 &e⚡ &7Rychlost: &b16x"
     lore-overrides:
       5: "%sftrlore_Speed_16%" #DO NOT translate this
   STONEWORKS_FACTORY_4:
+    name: "&bInfinity &8Kamenická továrna"
     lore:
       - ""
-      - ""
-      - ""
+      - "&7Generuje kamení a"
+      - "&7zpracovává ho do různých variant."
       - ""
       - "&8\u21E8 &e⚡ &7Rychlost: &b64x"
     lore-overrides:
@@ -740,7 +1042,7 @@ items:
   COBBLE_PRESS:
     lore:
       - ""
-      - ""
+      - "&7Stlačuje kámen"
       - ""
       - ""
       - "&8\u21E8 &e⚡ &7Rychlost: &b1x"
@@ -770,6 +1072,14 @@ items:
       - "&8\u21E8 &e⚡ &7Rychlost: &b2x"
     lore-overrides:
       4: "%sftrlore_Speed_2%" #DO NOT translate this
+  QUARRY_3:
+    lore:
+      - ""
+      - ""
+      - ""
+      - "&8\u21E8 &e⚡ &7Rychlost: &b4x"
+    lore-overrides:
+      4: "%sftrlore_Speed_4%" #DO NOT translate this
   QUARRY_4:
     lore:
       - ""
@@ -786,6 +1096,14 @@ items:
       - "&8\u21E8 &e⚡ &7Rychlost: &b1x"
     lore-overrides:
       4: "%sftrlore_Speed_1%" #DO NOT translate this
+  GEO_QUARRY_2:
+    lore:
+      - ""
+      - ""
+      - ""
+      - "&8\u21E8 &e⚡ &7Rychlost: &b4x"
+    lore-overrides:
+      4: "%sftrlore_Speed_4%" #DO NOT translate this
   INFINITY_WORKBENCH:
     name: "&6Infinity Pracovní stůl"
   INFINITY_REACTOR:
@@ -813,5 +1131,7 @@ items:
     lore:
       - "&7Vyrob a vylepši Skladové jednotky."
       - "&7Předměty zůstávají při vylepšení."
+lores:
+  soulbound: "&bSoulbound"
 messages:
   no-room: "&cNedostatek místa"
