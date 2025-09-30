@@ -329,13 +329,6 @@ items:
       1: "&eRemaining sf ticks for Infinity Singularity:"
 
   # ui - storage unit specific
-  _UI_STORAGE_ACTIONS_INV:
-    conditions:
-      force-load: true
-    name: "&aInventory Actions"
-    lore:
-      - "&eLeft Click &7to deposit from your inventory"
-      - "&eRight Click &7to withdraw to your inventory"
   _UI_STORAGE_NO_ITEM:
     conditions:
       force-load: true
@@ -366,6 +359,28 @@ items:
       - "&7is full will &7&lnot &7be voided"
       - ""
       - "&eClick &7to toggle"
+  _UI_STORAGE_DEPOSIT:
+    conditions:
+      force-load: true
+    name: "&bDeposit all"
+    lore:
+      - "&eClick &7to deposit all matching"
+      - "&eitems from your inventory"
+      - "&cOnly works if an item is"
+      - "&cassigned to this storage unit."
+  _UI_STORAGE_WITHDRAW_SINGLE:
+    conditions:
+      force-load: true
+    name: "&bWithdraw single"
+    lore:
+      - "&eClick &7to withdraw a single item."
+  _UI_STORAGE_WITHDRAW_ALL:
+    conditions:
+      force-load: true
+    name: "&bWithdraw all"
+    lore:
+      - "&eClick &7to withdraw items"
+      - "&eand fill your inventory."
 
   # in-game guide items
   _GUIDE_INTRO:

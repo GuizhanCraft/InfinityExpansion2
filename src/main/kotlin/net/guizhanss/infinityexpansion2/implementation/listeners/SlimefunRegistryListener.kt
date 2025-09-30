@@ -9,7 +9,7 @@ import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.core.items.attributes.DelayedTaskItem
 import net.guizhanss.infinityexpansion2.implementation.items.tools.Oscillator
 import net.guizhanss.infinityexpansion2.implementation.setup.MobSimulationSetup
-import net.guizhanss.infinityexpansion2.utils.bukkitext.toItemStack
+import net.guizhanss.infinityexpansion2.utils.items.toItemStack
 import org.bukkit.event.EventHandler
 import org.bukkit.event.EventPriority
 import org.bukkit.event.Listener

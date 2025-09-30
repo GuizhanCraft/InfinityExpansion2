@@ -237,9 +237,10 @@ data class MenuLayout(
 
         val STORAGE_UNIT = MenuLayout(
             background = intArrayOf(
-                3, 5,
+                3, 4, 5,
                 12, 14,
-                21, 23,
+                21, 22, 23,
+                27, 28, 29, 30, 31, 32, 33, 34, 35,
             ),
             inputSlots = intArrayOf(10),
             inputBorder = intArrayOf(
@@ -253,7 +254,7 @@ data class MenuLayout(
                 15, 17,
                 24, 25, 26,
             ),
-            statusSlot = 4,
+            statusSlot = 22,
         )
     }
 }

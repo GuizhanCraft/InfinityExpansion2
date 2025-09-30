@@ -1,7 +1,27 @@
 package net.guizhanss.infinityexpansion2.utils.items
 
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem
+import net.guizhanss.guizhanlib.kt.minecraft.extensions.toItem
+import net.guizhanss.infinityexpansion2.core.IERegistry
+import net.guizhanss.infinityexpansion2.utils.constant.Patterns
+import org.bukkit.Material
 import org.bukkit.inventory.ItemStack
+
+/**
+ * Parse the string to an [ItemStack]. The result is only calculated once and cached.
+ *
+ * - If the string is in minecraft NamespacedKey format (e.g., "minecraft:item"), returns the matching material within ItemStack.
+ * - If the string is a valid Slimefun item ID, returns the template item.
+ * - If the string is a vanilla material name, returns an ItemStack with the material.
+ * - Otherwise, returns air.
+ */
+fun String.toItemStack(): ItemStack = IERegistry.itemMapping.getOrPut(this) {
+    if (Patterns.MINECRAFT_NAMESPACEDKEY.matcher(this).matches()) {
+        return Material.getMaterial(this)?.toItem() ?: Material.AIR.toItem()
+    }
+
+    return SlimefunItem.getById(this)?.item ?: Material.getMaterial(this)?.toItem() ?: Material.AIR.toItem()
+}
 
 /**
  * Simply check if two [ItemStack]s are similar. (not recommended in most cases)

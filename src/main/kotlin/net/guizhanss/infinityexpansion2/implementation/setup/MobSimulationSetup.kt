@@ -9,7 +9,7 @@ import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.api.InfinityExpansion2API
 import net.guizhanss.infinityexpansion2.api.mobsim.MobDataCardProps
 import net.guizhanss.infinityexpansion2.implementation.IEItems
-import net.guizhanss.infinityexpansion2.utils.bukkitext.toItemStack
+import net.guizhanss.infinityexpansion2.utils.items.toItemStack
 import org.bukkit.ChatColor
 import org.bukkit.configuration.ConfigurationSection
 import org.bukkit.inventory.ItemStack

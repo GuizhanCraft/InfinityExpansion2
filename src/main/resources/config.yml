@@ -1,3 +1,6 @@
+## InfinityExpansion2 main configuration file
+## Visit wiki for more details: https://docs.ybw0014.dev/infinity-expansion-2/config/main
+
 # You should enable this to get bug fixes and receive support
 auto-update: true
 
@@ -13,8 +16,8 @@ enable-researches: false
 
 # Singularity options
 singularity:
-  # The cost multiplier for singularity crafting
-  # Range: 0.0 to 1000.0, default: 1.0
+  # The global cost multiplier for singularity crafting
+  # range: 0.0 to 1000.0, default: 1.0
   cost-multiplier: 1.0
 
 # Gear transformer options
@@ -78,11 +81,12 @@ mob-simulation:
   # Whether cards can be stackable.
   # When enabled, the product will be multiplied by the amount of cards. The energy consumption is also multiplied.
   # When disabled, multiple cards always produce 1x.
-  # Tip: when enabled, you can change the energy capacity of Mob Simulation Chamber accordingly.
+  # Tip: when enabled, you may have to change the energy capacity of Mob Simulation Chamber accordingly,
+  #   since stacked cards may exceed the energy capacity and the chamber will always complain about not enough energy.
   allow-stacked-card: false
 
-  # The experience multiplier for mob simulation
-  # Range: 0.0 to 1000.0
+  # The multiplier for the experience given by mob simulation.
+  # range: 0.0 to 1000.0, default: 1.0
   exp-multiplier: 1.0
 
   # Whether to use the legacy output mode in InfinityExpansion.
@@ -106,6 +110,12 @@ storage:
 
   # The interval of updating the holograms in Slimefun ticks.
   hologram-update-interval: 20
+
+  # The list of additional items that cannot be stored into storage units.
+  # This will not affect the items that are already stored, but new items cannot be stored.
+  # Bundles, shulker boxes, and IE2 Storage Units are hardcoded blocked and cannot be changed.
+  #
+  blocked-items: []
 
 # Quarry options
 quarry:

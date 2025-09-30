@@ -16,8 +16,8 @@ import net.guizhanss.infinityexpansion2.core.items.attributes.InformationalRecip
 import net.guizhanss.infinityexpansion2.core.menu.MenuLayout
 import net.guizhanss.infinityexpansion2.implementation.items.machines.abstracts.AbstractTickingMachine
 import net.guizhanss.infinityexpansion2.implementation.items.tools.Oscillator
-import net.guizhanss.infinityexpansion2.utils.bukkitext.toItemStack
 import net.guizhanss.infinityexpansion2.utils.items.GuiItems
+import net.guizhanss.infinityexpansion2.utils.items.toItemStack
 import org.bukkit.Material
 import org.bukkit.World
 import org.bukkit.block.Block
