@@ -319,13 +319,6 @@ items:
     lore-overrides:
       1: "&eZbývající sf ticky pro Infinity Singularitu:"
   #ui - storage unit specific
-  _UI_STORAGE_ACTIONS_INV:
-    conditions:
-      force-load: true
-    name: "&aVlastnosti inventáře"
-    lore:
-      - "&eKlikni levým &7pro vložení z tvého inventáře"
-      - "&eKlikni pravým &7pro vložení do tvého inventáře"
   _UI_STORAGE_NO_ITEM:
     conditions:
       force-load: true
@@ -356,6 +349,15 @@ items:
       - "&7&lnebudou &7filtrovány do voidu"
       - ""
       - "&eKlikni &7pro přepnutí"
+  _UI_STORAGE_DEPOSIT:
+    conditions:
+      force-load: true
+  _UI_STORAGE_WITHDRAW_SINGLE:
+    conditions:
+      force-load: true
+  _UI_STORAGE_WITHDRAW_ALL:
+    conditions:
+      force-load: true
   #in-game guide items
   _GUIDE_INTRO:
     name: "&eÚvod"
