@@ -217,9 +217,6 @@ items:
     conditions:
       force-load: true
   #ui - storage unit specific
-  _UI_STORAGE_ACTIONS_INV:
-    conditions:
-      force-load: true
   _UI_STORAGE_NO_ITEM:
     conditions:
       force-load: true
@@ -233,6 +230,15 @@ items:
     conditions:
       force-load: true
   _UI_STORAGE_VOID_EXCESS_OFF:
+    conditions:
+      force-load: true
+  _UI_STORAGE_DEPOSIT:
+    conditions:
+      force-load: true
+  _UI_STORAGE_WITHDRAW_SINGLE:
+    conditions:
+      force-load: true
+  _UI_STORAGE_WITHDRAW_ALL:
     conditions:
       force-load: true
   #items - materials
