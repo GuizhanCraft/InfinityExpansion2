@@ -7,7 +7,7 @@ import java.time.format.DateTimeFormatter
 plugins {
     kotlin("jvm") version "2.1.21"
     id("com.gradleup.shadow") version "9.2.2"
-    id("de.eldoria.plugin-yml.bukkit") version "0.7.1"
+    id("de.eldoria.plugin-yml.bukkit") version "0.8.0"
     id("xyz.jpenilla.run-paper") version "2.3.1"
 }
 
