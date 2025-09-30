@@ -16,11 +16,7 @@ debug:
   # Whether to enable debug logs
   enabled: false
 
-  # Debug cases that are enabled at startup
-  # Available debug cases: INFINITY_MATRIX, QUARRY, MOB_SIMULATION, STORAGE, SINGULARITY,
-  #                        GEAR_TRANSFORMER, RESOURCE_SYNTHESIZER, ADVANCED_ANVIL, NETWORK, TICK
-  # You can also toggle these in-game using /ie debug <enable|disable|toggle> <case>
-  # Case names are case-insensitive
+  # Debug cases to enable on server startup. Case-insensitive.
   cases: []
 
 # Singularity options

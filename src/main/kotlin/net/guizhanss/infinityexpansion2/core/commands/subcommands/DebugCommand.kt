@@ -6,6 +6,7 @@ import net.guizhanss.infinityexpansion2.core.commands.AbstractSubCommand
 import net.guizhanss.infinityexpansion2.core.debug.DebugCase
 import net.guizhanss.infinityexpansion2.utils.constant.Strings
 import org.bukkit.command.CommandSender
+import java.util.*
 
 /**
  * Debug control command
@@ -119,12 +120,19 @@ class DebugCommand(parent: AbstractCommand) : AbstractSubCommand(
 
     override fun onTab(sender: CommandSender, args: Array<String>): List<String> {
         return when (args.size) {
-            1 -> listOf("enable", "disable", "toggle", "list").filter { it.startsWith(args[0].lowercase()) }
+            1 -> listOf(
+                "enable",
+                "disable",
+                "toggle",
+                "list"
+            ).filter { it.startsWith(args[0].lowercase(Locale.ENGLISH)) }
+
             2 -> {
                 val action = args[0].lowercase()
                 if (action in listOf("enable", "disable", "toggle")) {
                     DebugCase.entries.map { it.name }
-                        .filter { it.lowercase().startsWith(args[1].lowercase()) }
+                        .filter { it.lowercase(Locale.ENGLISH).startsWith(args[1].lowercase(Locale.ENGLISH)) }
+                        .map { it.lowercase(Locale.ENGLISH) }
                 } else {
                     emptyList()
                 }

@@ -5,6 +5,7 @@ package net.guizhanss.infinityexpansion2.implementation.items.storage
 import io.github.thebusybiscuit.slimefun4.libraries.dough.items.ItemUtils
 import net.guizhanss.guizhanlib.kt.minecraft.extensions.isAir
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
+import net.guizhanss.infinityexpansion2.utils.constant.Strings
 import org.bukkit.inventory.ItemStack
 import org.bukkit.inventory.meta.ItemMeta
 
@@ -51,7 +52,7 @@ class StorageCache(
      * Increase the amount of the storage unit by the given amount.
      * Returns leftover amount.
      */
-    internal fun increaseAmount(amount: Int): Int {
+    fun increaseAmount(amount: Int): Int {
         val newAmount: Long = this.amount.toLong() + amount.toLong()
         if (newAmount > limit) {
             this.amount = limit
@@ -74,7 +75,12 @@ class StorageCache(
         lore.add("")
         lore.add(InfinityExpansion2.localization.getLore("storage.item", ItemUtils.getItemName(itemStack)))
         lore.add(InfinityExpansion2.localization.getLore("storage.amount", "$amount / $limit"))
-        lore.add(InfinityExpansion2.localization.getLore("storage.void-excess", voidExcess))
+        lore.add(
+            InfinityExpansion2.localization.getLore(
+                "storage.void-excess",
+                if (voidExcess) Strings.CHECK else Strings.CROSS
+            )
+        )
 
         meta.lore = lore
     }

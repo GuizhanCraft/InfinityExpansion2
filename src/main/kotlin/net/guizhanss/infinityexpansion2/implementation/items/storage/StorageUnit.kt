@@ -27,10 +27,12 @@ import net.guizhanss.guizhanlib.kt.slimefun.utils.setBoolean
 import net.guizhanss.guizhanlib.kt.slimefun.utils.setInt
 import net.guizhanss.guizhanlib.slimefun.machines.MenuBlock
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
+import net.guizhanss.infinityexpansion2.core.debug.DebugCase
 import net.guizhanss.infinityexpansion2.core.items.annotations.HudProvider
 import net.guizhanss.infinityexpansion2.core.items.attributes.InformationalRecipeDisplayItem
 import net.guizhanss.infinityexpansion2.core.menu.MenuLayout
 import net.guizhanss.infinityexpansion2.core.persistent.PersistentStorageCacheType
+import net.guizhanss.infinityexpansion2.utils.Debug
 import net.guizhanss.infinityexpansion2.utils.bukkitext.ie2Key
 import net.guizhanss.infinityexpansion2.utils.items.isSimilar
 import net.guizhanss.infinityexpansion2.utils.items.removeDisplayItem
@@ -69,7 +71,9 @@ class StorageUnit(
     override fun setup(preset: BlockMenuPreset) {
         LAYOUT.setupPreset(preset)
 
-        preset.drawBackground(ACTIONS_INV_ITEM, intArrayOf(INTERACTION_SLOT))
+        preset.drawBackground(ACTION_DEPOSIT_ITEM, intArrayOf(ACTION_DEPOSIT_SLOT))
+        preset.drawBackground(ACTION_WITHDRAW_SINGLE_ITEM, intArrayOf(ACTION_WITHDRAW_SINGLE_SLOT))
+        preset.drawBackground(ACTION_WITHDRAW_ALL_ITEM, intArrayOf(ACTION_WITHDRAW_ALL_SLOT))
         preset.addMenuClickHandler(AMOUNT_SLOT, ChestMenuUtils.getEmptyClickHandler())
         preset.addMenuClickHandler(ITEM_SLOT, ChestMenuUtils.getEmptyClickHandler())
     }
@@ -84,17 +88,22 @@ class StorageUnit(
     private val _caches = mutableMapOf<BlockPosition, StorageCache>()
 
     override fun onNewInstance(menu: BlockMenu, b: Block) {
-        menu.addMenuClickHandler(INTERACTION_SLOT) { p, _, _, action ->
-            if (!INTERACTION_COOLDOWN.check(p.uniqueId)) {
-                InfinityExpansion2.integrationService.sendMessage(p, "storage.interaction-cd")
-            } else {
-                INTERACTION_COOLDOWN.set(p.uniqueId, INTERACTION_CD)
-                interaction(menu, p, action.isRightClicked)
-            }
+        menu.addMenuClickHandler(ACTION_VOID_SLOT) { _, _, _, _ ->
+            toggleVoid(menu)
             false
         }
-        menu.addMenuClickHandler(VOID_SLOT) { _, _, _, _ ->
-            toggleVoid(menu)
+
+        // inv interactions
+        menu.addMenuClickHandler(ACTION_DEPOSIT_SLOT) { p, _, _, _ ->
+            interaction(menu, p, InteractionMode.DEPOSIT)
+            false
+        }
+        menu.addMenuClickHandler(ACTION_WITHDRAW_SINGLE_SLOT) { p, _, _, _ ->
+            interaction(menu, p, InteractionMode.WITHDRAW_SINGLE)
+            false
+        }
+        menu.addMenuClickHandler(ACTION_WITHDRAW_ALL_SLOT) { p, _, _, _ ->
+            interaction(menu, p, InteractionMode.WITHDRAW_ALL)
             false
         }
 
@@ -146,7 +155,7 @@ class StorageUnit(
         }
 
         if (!fetched.isAir()) {
-            InfinityExpansion2.debug("output item: $fetched")
+            Debug.log(DebugCase.STORAGE_UNIT, "output item: $fetched")
             menu.pushItem(fetched, *outputSlots)
             menu.markDirty()
             menu.updateDisplay(cache)
@@ -165,13 +174,33 @@ class StorageUnit(
     }
 
     override fun onBreak(e: BlockBreakEvent, menu: BlockMenu) {
-        super.onBreak(e, menu)
-
         val loc = menu.location
+        val dropLocation = loc.clone().add(0.5, 0.5, 0.5)
+
+        menu.dropItems(loc, *inputSlots)
+
         val cache = _caches.remove(menu.position)
         if (cache != null && cache.amount > 0 && cache.itemStack != null) {
             val itemToDrop = item.clone()
             val meta = itemToDrop.itemMeta
+
+            // attempt to add item into storage from output slot
+            val outputItem = menu.getItemInSlot(outputSlots[0])
+            Debug.log(DebugCase.STORAGE_UNIT, "Checking dropped storage's output slot")
+            if (!outputItem.isAir()) {
+                Debug.log(DebugCase.STORAGE_UNIT, "Output slot has item: $outputItem")
+                if (!cache.matches(outputItem)) {
+                    Debug.log(DebugCase.STORAGE_UNIT, "Output item not match, drop as is")
+                    loc.world.dropItem(dropLocation, outputItem)
+                } else {
+                    Debug.log(DebugCase.STORAGE_UNIT, "Output item match, try to add into storage")
+                    val leftover = cache.increaseAmount(outputItem.amount)
+                    if (leftover > 0) {
+                        val item = outputItem.edit { amount(leftover) }
+                        loc.world.dropItem(dropLocation, item)
+                    }
+                }
+            }
 
             PersistentDataAPI.set(meta, STORAGE_KEY, PersistentStorageCacheType.TYPE, cache)
             cache.addLore(meta)
@@ -190,77 +219,100 @@ class StorageUnit(
 
     /**
      * Handle interaction.
-     * Right click = withdraw all
-     * Left click = deposit all
      */
-    private fun interaction(menu: BlockMenu, p: Player, withdraw: Boolean = true) {
+    private fun interaction(menu: BlockMenu, p: Player, mode: InteractionMode) {
         val cache = _caches[menu.position] ?: return
-        val inv = p.inventory
+        val pInv = p.inventory
 
-        if (withdraw) {
-            if (cache.isEmpty()) return
-
-            val itemToGive = cache.itemStack!!.clone()
-            val maxStackSize = itemToGive.maxStackSize
-
-            val emptySlots = inv.storageContents.count { it.isAir() }
-            val partialSlots = inv.storageContents.filter {
-                !it.isAir() &&
-                    it.amount < it.maxStackSize &&
-                    cache.matches(it)
-            }.sumOf { it!!.maxStackSize - it.amount }
-
-            val possibleAmount = (emptySlots * maxStackSize + partialSlots)
-                .coerceAtMost(cache.amount)
-
-            if (possibleAmount <= 0) return
-
-            // First fill existing stacks
-            for (slot in 0 until inv.size) {
-                val invItem = inv.getItem(slot) ?: continue
-                if (!invItem.isAir() && cache.matches(invItem) && invItem.amount < invItem.maxStackSize) {
-                    val canAdd = invItem.maxStackSize - invItem.amount
-                    val toAdd = canAdd.coerceAtMost(cache.amount)
-                    invItem.amount += toAdd
-                    cache.amount -= toAdd
-                    if (cache.amount <= 0) break
-                }
-            }
-
-            // Then fill empty slots
-            while (cache.amount > 0) {
-                val amount = maxStackSize.coerceAtMost(cache.amount)
-                val item = itemToGive.edit { amount(amount) }
-                val leftover = inv.addItem(item)
-                if (leftover.isEmpty()) {
-                    cache.amount -= amount
-                } else {
-                    // Inventory is full
-                    break
-                }
-            }
-
-            menu.updateDisplay(cache)
-            menu.location.save(cache)
+        if (!INTERACTION_COOLDOWN.check(p.uniqueId)) {
+            InfinityExpansion2.integrationService.sendMessage(p, "storage.interaction-cd")
         } else {
-            val outputItem = menu.getItemInSlot(outputSlots[0])
+            INTERACTION_COOLDOWN.set(p.uniqueId, INTERACTION_CD)
+        }
 
-            // empty storage && no item in output
-            if (cache.isEmpty() && outputItem.isAir()) return
+        when (mode) {
+            InteractionMode.DEPOSIT -> {
+                val outputItem = menu.getItemInSlot(outputSlots[0])
 
-            cache.itemStack = outputItem.edit { amount(1) }
+                // empty storage && no item in output
+                if (cache.isEmpty() && outputItem.isAir()) return
 
-            for (item in inv.storageContents) {
-                if (item.isAir() || item.isBlacklisted()) continue
+                cache.itemStack = outputItem.edit { amount(1) }
 
-                if (cache.matches(item)) {
-                    val consumed = menu.inputItem(cache, item)
-                    if (consumed > 0) {
-                        item.amount -= consumed
-                        menu.updateDisplay(cache)
-                        menu.location.save(cache)
+                for (item in pInv.storageContents) {
+                    if (item.isAir() || item.isBlacklisted()) continue
+
+                    if (cache.matches(item)) {
+                        val consumed = menu.inputItem(cache, item)
+                        if (consumed > 0) {
+                            item.amount -= consumed
+                            menu.updateDisplay(cache)
+                            menu.location.save(cache)
+                        }
                     }
                 }
+            }
+
+            InteractionMode.WITHDRAW_SINGLE -> {
+                if (cache.isEmpty()) return
+
+                val itemToGive = cache.itemStack!!.clone()
+                val amount = itemToGive.maxStackSize.coerceAtMost(cache.amount)
+                val item = itemToGive.edit { amount(amount) }
+                val leftover = pInv.addItem(item)
+
+                if (leftover.isEmpty()) {
+                    cache.amount -= amount
+                    menu.updateDisplay(cache)
+                    menu.location.save(cache)
+                }
+            }
+
+            InteractionMode.WITHDRAW_ALL -> {
+                if (cache.isEmpty()) return
+
+                val itemToGive = cache.itemStack!!.clone()
+                val maxStackSize = itemToGive.maxStackSize
+
+                val emptySlots = pInv.storageContents.count { it.isAir() }
+                val partialSlots = pInv.storageContents.filter {
+                    !it.isAir() &&
+                        it.amount < it.maxStackSize &&
+                        cache.matches(it)
+                }.sumOf { it!!.maxStackSize - it.amount }
+
+                val possibleAmount = (emptySlots * maxStackSize + partialSlots)
+                    .coerceAtMost(cache.amount)
+
+                if (possibleAmount <= 0) return
+
+                // First fill existing stacks
+                for (slot in 0 until pInv.size) {
+                    val invItem = pInv.getItem(slot) ?: continue
+                    if (!invItem.isAir() && cache.matches(invItem) && invItem.amount < invItem.maxStackSize) {
+                        val canAdd = invItem.maxStackSize - invItem.amount
+                        val toAdd = canAdd.coerceAtMost(cache.amount)
+                        invItem.amount += toAdd
+                        cache.amount -= toAdd
+                        if (cache.amount <= 0) break
+                    }
+                }
+
+                // Then fill empty slots
+                while (cache.amount > 0) {
+                    val amount = maxStackSize.coerceAtMost(cache.amount)
+                    val item = itemToGive.edit { amount(amount) }
+                    val leftover = pInv.addItem(item)
+                    if (leftover.isEmpty()) {
+                        cache.amount -= amount
+                    } else {
+                        // Inventory is full
+                        break
+                    }
+                }
+
+                menu.updateDisplay(cache)
+                menu.location.save(cache)
             }
         }
     }
@@ -275,7 +327,7 @@ class StorageUnit(
         val item: ItemStack? = menu.getItemInSlot(ITEM_SLOT)
 
         val cache = createCache(item, menu, amount, voidExcess)
-        InfinityExpansion2.debug("created cache at $loc: $cache")
+        Debug.log(DebugCase.STORAGE_UNIT, "created cache at $loc: $cache")
 
         _caches[menu.position] = cache
         return cache
@@ -310,32 +362,55 @@ class StorageUnit(
 
         // slots
         const val AMOUNT_SLOT = 4
-        const val VOID_SLOT = 12
         const val ITEM_SLOT = 13
-        const val INTERACTION_SLOT = 22
+        const val ACTION_VOID_SLOT = 27
+        const val ACTION_DEPOSIT_SLOT = 28
+        const val ACTION_WITHDRAW_SINGLE_SLOT = 34
+        const val ACTION_WITHDRAW_ALL_SLOT = 35
 
         // block storage keys
         const val BS_AMOUNT = "stored_amount"
         const val BS_VOID = "void_excess"
 
+        // inv interaction modes
+        enum class InteractionMode {
+
+            DEPOSIT,
+            WITHDRAW_SINGLE,
+            WITHDRAW_ALL
+        }
+
         // PDC key
         val STORAGE_KEY = ie2Key("storage")
 
         // gui items
-        private val ACTIONS_INV_ITEM = InfinityExpansion2.localization.getGuiItem(
-            Material.LIME_STAINED_GLASS_PANE.asMaterialType(),
-            "storage_actions_inv"
+        private val ACTION_DEPOSIT_ITEM = InfinityExpansion2.localization.getGuiItem(
+            // https://minecraft-heads.com/custom-heads/head/106284-elevator-arrow-button-down-green
+            "5815b66ce57add6abc82082cf81debed843d9ff36d920f1a482a038bf3cf1b6d".asMaterialType(),
+            "storage_deposit"
+        )
+        private val ACTION_WITHDRAW_SINGLE_ITEM = InfinityExpansion2.localization.getGuiItem(
+            // https://minecraft-heads.com/custom-heads/head/106285-elevator-arrow-button-up-red
+            "a979cca43315030d76fa4112e0e6b809a4f463872cc1787c86659917fd94e8a0".asMaterialType(),
+            "storage_withdraw_single"
+        )
+        private val ACTION_WITHDRAW_ALL_ITEM = InfinityExpansion2.localization.getGuiItem(
+            // https://minecraft-heads.com/custom-heads/head/106283-elevator-arrow-button-up-green
+            "5fa1c6c7ead75a04585395f63135dc96fa078fb920484699ef8e564e142d64cb".asMaterialType(),
+            "storage_withdraw_all"
         )
         private val NO_ITEM = InfinityExpansion2.localization.getGuiItem(
             Material.BARRIER.asMaterialType(),
             "storage_no_item"
         ).toDisplayItem()
         private val VOID_ON_ITEM = InfinityExpansion2.localization.getGuiItem(
-            Material.GREEN_STAINED_GLASS_PANE.asMaterialType(),
+            // https://minecraft-heads.com/custom-heads/head/587-void-charge
+            "32697929465950ccd3a4923a5e6eb15b4fe2ba2b28715f4a7996785d706158".asMaterialType(),
             "storage_void_excess_on"
         ).toDisplayItem()
         private val VOID_OFF_ITEM = InfinityExpansion2.localization.getGuiItem(
-            Material.RED_STAINED_GLASS_PANE.asMaterialType(),
+            // https://minecraft-heads.com/custom-heads/head/51667-storage-component
+            "3dbbf5ef39cfe42775915a2494e1814ca123966c2b74bf5debc07195bc213795".asMaterialType(),
             "storage_void_excess_off"
         ).toDisplayItem()
 
@@ -371,22 +446,22 @@ class StorageUnit(
          */
         fun BlockMenu.inputItem(cache: StorageCache, item: ItemStack, amount: Int = item.amount): Int {
             if (item.isBlacklisted()) return 0
-            InfinityExpansion2.debug("storage unit input attempt with item: $item, cache: $cache")
+            Debug.log(DebugCase.STORAGE_UNIT, "storage unit input attempt with item: $item, cache: $cache")
 
             if (cache.isEmpty()) {
                 cache.itemStack = item.edit { amount(1) }
                 val leftover = cache.increaseAmount(amount)
-                InfinityExpansion2.debug("empty cache, updated: $cache, leftover: $leftover")
+                Debug.log(DebugCase.STORAGE_UNIT, "empty cache, updated: $cache, leftover: $leftover")
                 location.save(cache)
                 return item.amount - leftover
             } else if (cache.matches(item)) {
                 val leftover = cache.increaseAmount(amount)
-                InfinityExpansion2.debug("item matches, updated cache: $cache, leftover: $leftover")
+                Debug.log(DebugCase.STORAGE_UNIT, "item matches, updated cache: $cache, leftover: $leftover")
                 location.save(cache)
                 return item.amount - leftover
             }
 
-            InfinityExpansion2.debug("cache not empty and item not match")
+            Debug.log(DebugCase.STORAGE_UNIT, "cache not empty and item not match")
             return 0
         }
 
@@ -434,7 +509,7 @@ class StorageUnit(
             replaceExistingItem(AMOUNT_SLOT, amountItem(cache.amount, cache.limit))
 
             // void slot
-            replaceExistingItem(VOID_SLOT, if (cache.voidExcess) VOID_ON_ITEM else VOID_OFF_ITEM)
+            replaceExistingItem(ACTION_VOID_SLOT, if (cache.voidExcess) VOID_ON_ITEM else VOID_OFF_ITEM)
         }
 
         /**
