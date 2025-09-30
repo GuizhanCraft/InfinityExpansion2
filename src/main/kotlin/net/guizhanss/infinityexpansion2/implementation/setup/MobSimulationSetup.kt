@@ -8,7 +8,9 @@ import net.guizhanss.guizhanlib.kt.slimefun.items.toItem
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.api.InfinityExpansion2API
 import net.guizhanss.infinityexpansion2.api.mobsim.MobDataCardProps
+import net.guizhanss.infinityexpansion2.core.debug.DebugCase
 import net.guizhanss.infinityexpansion2.implementation.IEItems
+import net.guizhanss.infinityexpansion2.utils.Debug
 import net.guizhanss.infinityexpansion2.utils.items.toItemStack
 import org.bukkit.ChatColor
 import org.bukkit.configuration.ConfigurationSection
@@ -23,7 +25,7 @@ internal object MobSimulationSetup {
     init {
         val cfg = InfinityExpansion2.configService.mobSimConfig
         InfinityExpansion2.log(Level.INFO, "Loading mob simulation data cards...")
-        if (!InfinityExpansion2.configService.debug.value) {
+        if (!InfinityExpansion2.debugService.isEnabled(DebugCase.MOB_SIMULATION)) {
             InfinityExpansion2.log(Level.INFO, "If you encounter any issues, enabling debug mode may help.")
         }
         cfg.keys.forEach cfg@{ key ->
@@ -32,8 +34,8 @@ internal object MobSimulationSetup {
             // check for enabled
             if (!section.getBoolean("enabled", false)) return@cfg
 
-            InfinityExpansion2.debug("====================")
-            InfinityExpansion2.debug("Loading mob data card: $key")
+            Debug.log(DebugCase.MOB_SIMULATION, "====================")
+            Debug.log(DebugCase.MOB_SIMULATION, "Loading mob data card: $key")
 
             // load data
             val name = section.getString("name", "${ChatColor.BLUE}${StringUtil.humanize(key)}")!!
@@ -41,11 +43,11 @@ internal object MobSimulationSetup {
             val energy = section.getInt("energy", 75).coerceIn(0, 1_000_000)
             val experience = section.getInt("experience").coerceIn(0, Int.MAX_VALUE)
 
-            InfinityExpansion2.debug("name=$name, texture=$texture, energy=$energy, experience=$experience")
+            Debug.log(DebugCase.MOB_SIMULATION, "name=$name, texture=$texture, energy=$energy, experience=$experience")
 
             // drops
             val drops = section.getMapList("drops").mapNotNull { it.getAsItemWithChance() }
-            InfinityExpansion2.debug("drops=$drops")
+            Debug.log(DebugCase.MOB_SIMULATION, "drops=$drops")
 
             // recipe
             val recipePattern = section.getStringList("recipe.pattern")
@@ -86,7 +88,7 @@ internal object MobSimulationSetup {
                 }
                 ingredients[ingredient[0]] = item
             }
-            InfinityExpansion2.debug("pattern=$recipePattern, ingredients=$ingredients")
+            Debug.log(DebugCase.MOB_SIMULATION, "pattern=$recipePattern, ingredients=$ingredients")
 
             val recipe = arrayOfNulls<ItemStack?>(9)
             for (i in recipePattern.indices) {

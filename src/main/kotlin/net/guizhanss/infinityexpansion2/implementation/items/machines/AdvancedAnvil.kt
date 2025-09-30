@@ -11,11 +11,13 @@ import net.guizhanss.guizhanlib.kt.minecraft.extensions.toItem
 import net.guizhanss.guizhanlib.kt.minecraft.items.edit
 import net.guizhanss.guizhanlib.kt.slimefun.items.builder.asMaterialType
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
+import net.guizhanss.infinityexpansion2.core.debug.DebugCase
 import net.guizhanss.infinityexpansion2.core.items.attributes.CustomWikiItem
 import net.guizhanss.infinityexpansion2.core.items.attributes.InformationalRecipeDisplayItem
 import net.guizhanss.infinityexpansion2.core.menu.MenuLayout
 import net.guizhanss.infinityexpansion2.core.sound.IESound
 import net.guizhanss.infinityexpansion2.implementation.items.machines.abstracts.AbstractTickingActionMachine
+import net.guizhanss.infinityexpansion2.utils.Debug
 import net.guizhanss.infinityexpansion2.utils.items.GuiItems
 import net.guizhanss.infinityexpansion2.utils.items.toDisplayItem
 import org.bukkit.Material
@@ -118,8 +120,8 @@ class AdvancedAnvil(
     private fun getOutput(input1: ItemStack, input2: ItemStack): ItemStack? {
         val enchant1 = getEnchantments(input1.itemMeta)
         val enchant2 = getEnchantments(input2.itemMeta)
-        InfinityExpansion2.debug("Enchantments of item 1: $enchant1")
-        InfinityExpansion2.debug("Enchantments of item 2: $enchant2")
+        Debug.log(DebugCase.ADVANCED_ANVIL, "Enchantments of item 1: $enchant1")
+        Debug.log(DebugCase.ADVANCED_ANVIL, "Enchantments of item 2: $enchant2")
         if (enchant1.isEmpty() && enchant2.isEmpty()) return null
         return combineEnchantments(Maps.difference(enchant1, enchant2), input1, input2)
     }

@@ -4,15 +4,24 @@
 # You should enable this to get bug fixes and receive support
 auto-update: true
 
-# Whether to enable the debug logs
-debug: false
-
 # The default language of the plugin
 # SlimefunTranslation is supported.
 lang: en
 
 # Whether to enable researches in the plugin
 enable-researches: false
+
+# Debug options
+debug:
+  # Whether to enable debug logs
+  enabled: false
+
+  # Debug cases that are enabled at startup
+  # Available debug cases: INFINITY_MATRIX, QUARRY, MOB_SIMULATION, STORAGE, SINGULARITY,
+  #                        GEAR_TRANSFORMER, RESOURCE_SYNTHESIZER, ADVANCED_ANVIL, NETWORK, TICK
+  # You can also toggle these in-game using /ie debug <enable|disable|toggle> <case>
+  # Case names are case-insensitive
+  cases: []
 
 # Singularity options
 singularity:

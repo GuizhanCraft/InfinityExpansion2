@@ -1413,6 +1413,20 @@ messages:
     id:
       description: "Get the Slimefun ID of the item in hand."
       message: "&7The Slimefun item of the item in your hand is &f{0}&7, the id is: (Click on the ID below to copy)"
+    debug:
+      description: "Manage debug cases for the plugin."
+      invalid-action: "&cInvalid action: &f{0}"
+      list:
+        general: "&6&eGeneral debug: {0}"
+        header: "&7Debug cases:"
+        item: "&7  - &f{0}: {1}"
+      general:
+        enabled: "&aEnabled general debug."
+        disabled: "&cDisabled general debug."
+      case:
+        invalid: "&cInvalid debug case: &f{0}"
+        enabled: "&aEnabled debug case: &f{0}"
+        disabled: "&cDisabled debug case: &f{0}"
   vein-miner:
     applied: "&aVein Miner has been applied to the item."
     no-hunger: "&cYou do not have enough hunger level to do this."

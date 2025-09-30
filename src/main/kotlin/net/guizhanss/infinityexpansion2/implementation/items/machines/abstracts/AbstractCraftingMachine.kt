@@ -63,7 +63,6 @@ abstract class AbstractCraftingMachine(
 
     protected open fun craft(menu: BlockMenu, p: Player) {
         val input = Array(inputSlots.size) { index -> menu.getItemInSlot(inputSlots[index]) }
-        InfinityExpansion2.debug("crafting start, input: ${input.debugMessage()}")
 
         val recipe = getMatchingRecipe(input)
         if (recipe == null || !recipe.check(p)) {
@@ -103,7 +102,6 @@ abstract class AbstractCraftingMachine(
 
     private fun getMatchingRecipe(input: Array<ItemStack?>): MachineRecipe? {
         val inputSnapshot = ItemStackWrapper.wrapArray(input)
-        InfinityExpansion2.debug("recipe count: ${recipes.size}")
         recipes.forEach { recipe ->
             if (recipe.check(inputSnapshot, strictIngredientCheck)) {
                 return recipe

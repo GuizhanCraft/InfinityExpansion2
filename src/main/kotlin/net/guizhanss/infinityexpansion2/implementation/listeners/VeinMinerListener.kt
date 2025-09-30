@@ -8,8 +8,10 @@ import net.guizhanss.guizhanlib.kt.minecraft.extensions.isAir
 import net.guizhanss.guizhanlib.kt.slimefun.extensions.getSlimefunItem
 import net.guizhanss.guizhanlib.kt.slimefun.extensions.isSlimefunItem
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
+import net.guizhanss.infinityexpansion2.core.debug.DebugCase
 import net.guizhanss.infinityexpansion2.implementation.IEItems
 import net.guizhanss.infinityexpansion2.implementation.items.tools.VeinMinerRune
+import net.guizhanss.infinityexpansion2.utils.Debug
 import net.guizhanss.infinityexpansion2.utils.constant.Keys
 import net.guizhanss.infinityexpansion2.utils.tags.IETag
 import org.bukkit.Bukkit
@@ -119,22 +121,22 @@ class VeinMinerListener(plugin: InfinityExpansion2) : Listener {
      * Try to use the rune. Find the target item and apply vein miner to it.
      */
     private fun useRune(p: Player, rune: Item) {
-        InfinityExpansion2.debug("Vein miner rune activating")
+        Debug.log(DebugCase.VEIN_MINER, "Vein miner rune activating")
         if (!rune.isValid) return
         if (rune.itemStack.amount != 1) return
-        InfinityExpansion2.debug("Rune is valid")
+        Debug.log(DebugCase.VEIN_MINER, "Rune is valid")
 
         val loc = rune.location
         if (!loc.isWorldLoaded) return
         val world = loc.world!!
-        InfinityExpansion2.debug("World is loaded")
+        Debug.log(DebugCase.VEIN_MINER, "World is loaded")
 
         val range = VeinMinerRune.ACTIVATE_RANGE
         val targetItem = world.getNearbyEntities(loc, range, range, range) {
             it is Item && it.itemStack.isValidItem() && !it.itemStack.hasVeinMiner() && !it.itemStack.isRune(p)
         }.firstOrNull() ?: return
         targetItem as Item
-        InfinityExpansion2.debug("Found a nearby item")
+        Debug.log(DebugCase.VEIN_MINER, "Found a nearby item")
 
         world.strikeLightningEffect(loc)
 

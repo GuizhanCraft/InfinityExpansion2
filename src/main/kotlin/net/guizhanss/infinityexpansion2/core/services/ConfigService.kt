@@ -20,9 +20,12 @@ import org.bukkit.enchantments.Enchantment
 class ConfigService(plugin: InfinityExpansion2) {
 
     lateinit var autoUpdate: ConfigField<Boolean>
-    lateinit var debug: ConfigField<Boolean>
     lateinit var lang: ConfigField<String>
     lateinit var enableResearches: ConfigField<Boolean>
+
+    // debug options
+    lateinit var debugEnabled: ConfigField<Boolean>
+    lateinit var debugCases: ConfigField<List<String>>
 
     // singularity options
     lateinit var singularityCostMultiplier: ConfigField<Double>
@@ -62,13 +65,17 @@ class ConfigService(plugin: InfinityExpansion2) {
             move("balance.singularity-cost-multiplier", "singularity.cost-multiplier")
             move("balance.allow-sf-item-transform", "gear-transformer.allow-sf-items")
         }
+        add(2, 3) {
+            move("debug", "debug.enabled")
+        }
     }
 
     private val config = addonConfig(plugin, "config.yml", configMigrations) {
         autoUpdate = boolean("auto-update", true)
-        debug = boolean("debug", false)
         lang = string("lang", InfinityExpansion2.DEFAULT_LANG)
         enableResearches = boolean("enable-researches", false)
+        debugEnabled = boolean("debug.enabled", false)
+        debugCases = custom { it.getStringList("debug.cases") }
         singularityCostMultiplier = double("singularity.cost-multiplier", 1.0, 0.0, 1000.0)
         gearTransformerAllowSfItems = boolean("gear-transformer.allow-sf-items", false)
         resourceSynthesizerRecipes =

@@ -4,8 +4,10 @@ import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
 import net.guizhanss.guizhanlib.kt.minecraft.extensions.getEnchantment
 import net.guizhanss.guizhanlib.kt.minecraft.extensions.getPotionEffectType
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
+import net.guizhanss.infinityexpansion2.core.debug.DebugCase
 import net.guizhanss.infinityexpansion2.core.items.attributes.ProtectionType
 import net.guizhanss.infinityexpansion2.implementation.IEItems
+import net.guizhanss.infinityexpansion2.utils.Debug
 import net.guizhanss.infinityexpansion2.utils.bukkitext.ie2Key
 import org.bukkit.potion.PotionEffect
 import java.util.logging.Level
@@ -20,7 +22,7 @@ fun getInfinityGearPotionEffects(key: String): Array<PotionEffect> {
         return arrayOf()
     }
 
-    InfinityExpansion2.debug("getting potion effects for $key")
+    Debug.log(DebugCase.INFINITY_GEAR_CONFIG, "getting potion effects for $key")
     val potionEffectSection = section.getConfigurationSection("potion-effects") ?: run {
         InfinityExpansion2.log(
             Level.WARNING, "Infinity gear \"$key\"'s potion effects section is missing."
@@ -32,7 +34,7 @@ fun getInfinityGearPotionEffects(key: String): Array<PotionEffect> {
 
     potionEffectSection.getKeys(false).forEach { effectType ->
         val amplifier = potionEffectSection.getInt(effectType)
-        InfinityExpansion2.debug("effect: $effectType, amplifier: $amplifier")
+        Debug.log(DebugCase.INFINITY_GEAR_CONFIG, "effect: $effectType, amplifier: $amplifier")
         if (amplifier < 0) return@forEach
 
         val type = getPotionEffectType(effectType) ?: run {
@@ -42,7 +44,7 @@ fun getInfinityGearPotionEffects(key: String): Array<PotionEffect> {
             )
             return@forEach
         }
-        InfinityExpansion2.debug("effect type is valid")
+        Debug.log(DebugCase.INFINITY_GEAR_CONFIG, "effect type is valid")
 
         effects.add(PotionEffect(type, 600, amplifier, false, false, false))
     }
@@ -70,7 +72,7 @@ fun applyInfinityGearEnchantment(sfItem: SlimefunItemStack) {
         return
     }
 
-    InfinityExpansion2.debug("applying config for $key")
+    Debug.log(DebugCase.INFINITY_GEAR_CONFIG, "applying config for $key")
     val meta = sfItem.itemMeta
     meta.isUnbreakable = section.getBoolean("unbreakable")
     val enchantSection = section.getConfigurationSection("enchantments") ?: run {
@@ -79,12 +81,12 @@ fun applyInfinityGearEnchantment(sfItem: SlimefunItemStack) {
         )
         return
     }
-    InfinityExpansion2.debug("begin enchantments")
+    Debug.log(DebugCase.INFINITY_GEAR_CONFIG, "begin enchantments")
     enchantSection.getKeys(false).forEach { enchant ->
 
         // lv 0 means disabled enchantment
         val level = enchantSection.getInt(enchant)
-        InfinityExpansion2.debug("enchantment: $enchant, level: $level")
+        Debug.log(DebugCase.INFINITY_GEAR_CONFIG, "enchantment: $enchant, level: $level")
         if (level <= 0) return@forEach
 
         val enchantment = getEnchantment(enchant) ?: run {
@@ -97,6 +99,6 @@ fun applyInfinityGearEnchantment(sfItem: SlimefunItemStack) {
 
         meta.addEnchant(enchantment, level, true)
     }
-    InfinityExpansion2.debug("end enchantments")
+    Debug.log(DebugCase.INFINITY_GEAR_CONFIG, "end enchantments")
     sfItem.itemMeta = meta
 }

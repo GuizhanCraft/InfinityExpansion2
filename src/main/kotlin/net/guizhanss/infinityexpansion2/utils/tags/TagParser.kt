@@ -6,6 +6,8 @@ import io.github.thebusybiscuit.slimefun4.api.exceptions.TagMisconfigurationExce
 import io.github.thebusybiscuit.slimefun4.libraries.dough.common.CommonPatterns
 import io.github.thebusybiscuit.slimefun4.utils.tags.SlimefunTag
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
+import net.guizhanss.infinityexpansion2.core.debug.DebugCase
+import net.guizhanss.infinityexpansion2.utils.Debug
 import net.guizhanss.infinityexpansion2.utils.constant.Patterns
 import org.bukkit.Bukkit
 import org.bukkit.Keyed
@@ -44,7 +46,7 @@ internal class TagParser(private val tag: IETag) : Keyed {
                 ?: error("Tag file not found within jar: $path")
             val reader = JsonReader(InputStreamReader(stream, StandardCharsets.UTF_8))
             val root = JsonParser.parseReader(reader).asJsonObject
-            InfinityExpansion2.debug("Parsing tag: $tag")
+            Debug.log(DebugCase.TAG, "Parsing tag: $tag")
             root["values"].apply {
                 if (!isJsonArray) error("No values array found in tag file")
             }.asJsonArray.forEach {
@@ -54,7 +56,7 @@ internal class TagParser(private val tag: IETag) : Keyed {
                     error("Unexpected value format: ${it.javaClass.simpleName} - $it")
                 }
             }
-            InfinityExpansion2.debug("The parsed tag has the following values: $materials, $tags")
+            Debug.log(DebugCase.TAG, "The parsed tag has the following values: $materials, $tags")
 
             callback(materials, tags)
         } catch (ex: Exception) {

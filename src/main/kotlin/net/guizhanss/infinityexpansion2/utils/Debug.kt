@@ -1,16 +1,17 @@
 package net.guizhanss.infinityexpansion2.utils
 
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
-import java.util.logging.Level
+import net.guizhanss.infinityexpansion2.core.debug.DebugCase
 
+/**
+ * Utility object for convenient debug logging
+ */
 object Debug {
 
-    fun info(case: DebugCase, message: String) {
-        InfinityExpansion2.instance.logger.log(Level.INFO, "[DEBUG] $case: $message")
-    }
-
-    enum class DebugCase {
-        NONE,
-        TAG,
+    /**
+     * Log a debug message for a specific debug case
+     */
+    fun log(debugCase: DebugCase, message: String) {
+        InfinityExpansion2.debugService.log(debugCase, message)
     }
 }

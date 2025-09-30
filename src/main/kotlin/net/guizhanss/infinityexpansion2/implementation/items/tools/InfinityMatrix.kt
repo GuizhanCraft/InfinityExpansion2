@@ -36,7 +36,6 @@ class InfinityMatrix(
 
         if (PersistentDataAPI.has(meta, OWNER, DataType.UUID)) {
             val owner = PersistentDataAPI.get(meta, OWNER, DataType.UUID)
-            InfinityExpansion2.debug("owner of the matrix: $owner")
 
             // check if the player is the owner
             if (owner != p.uniqueId) {

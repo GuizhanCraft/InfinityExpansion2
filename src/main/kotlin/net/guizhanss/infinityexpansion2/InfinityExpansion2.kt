@@ -8,6 +8,7 @@ import net.guizhanss.guizhanlib.slimefun.addon.AbstractAddon
 import net.guizhanss.guizhanlib.updater.GuizhanBuildsUpdater
 import net.guizhanss.infinityexpansion2.core.commands.MainCommand
 import net.guizhanss.infinityexpansion2.core.services.ConfigService
+import net.guizhanss.infinityexpansion2.core.services.DebugService
 import net.guizhanss.infinityexpansion2.core.services.IntegrationService
 import net.guizhanss.infinityexpansion2.core.services.LocalizationService
 import net.guizhanss.infinityexpansion2.implementation.IEItems
@@ -70,8 +71,9 @@ class InfinityExpansion2 : AbstractAddon(
 //            return
 //        }
 
-        // config
+        // config & debug
         configService = ConfigService(this)
+        debugService = DebugService(this)
 
         // tags
         IETag.reloadAll()
@@ -170,6 +172,8 @@ class InfinityExpansion2 : AbstractAddon(
             private set
         lateinit var configService: ConfigService
             private set
+        lateinit var debugService: DebugService
+            private set
         lateinit var localization: LocalizationService
             private set
         lateinit var integrationService: IntegrationService
@@ -185,13 +189,6 @@ class InfinityExpansion2 : AbstractAddon(
 
         fun log(level: Level, ex: Throwable, message: String) {
             instance.logger.log(level, ex) { message }
-        }
-
-        fun debug(message: String) {
-            if (!Companion::configService.isInitialized || !configService.debug.value) {
-                return
-            }
-            log(Level.INFO, "[DEBUG] $message")
         }
     }
 }
