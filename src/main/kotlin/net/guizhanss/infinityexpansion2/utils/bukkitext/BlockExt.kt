@@ -11,7 +11,7 @@ private const val WATERLOGGED_KEY = "water_logged"
 /**
  * Check if a block is waterlogged (result is cached and is updated every [tickRate] sf ticks).
  */
-fun Block.isWaterLogged(tickRate: Int = 64) =
+fun Block.isWaterLogged(tickRate: Int = 60) =
     if (InfinityExpansion2.sfTickCount() % tickRate == 0) {
         val blockData = blockData
 

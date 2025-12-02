@@ -37,6 +37,9 @@ class StrainerBase(
 
     override val wikiUrl = "tools/strainer"
 
+    private var sfTickCount: Int = 0
+        private set
+
     private val tickRateSetting = IntRangeSetting(this, "tick-rate", 1, 10, 120)
 
     init {
@@ -59,7 +62,7 @@ class StrainerBase(
     override fun tick(b: Block, menu: BlockMenu) {
         if (isDisabledIn(b.world)) return
         if (!b.isWaterLogged()) return
-        if (InfinityExpansion2.sfTickCount() % tickRateSetting.value != 0) return
+        if (sfTickCount % tickRateSetting.value != 0) return
 
         val strainerItem = menu.getItemInSlot(inputSlots[0])
         val strainer = getByItem(strainerItem) as? Strainer
@@ -103,6 +106,10 @@ class StrainerBase(
                 menu.replaceExistingItem(inputSlots[0], strainerItem)
             }
         }
+    }
+
+    override fun uniqueTick() {
+        sfTickCount++
     }
 
     override fun getInfoItems() = listOf(GuiItems.tickRate(tickRateSetting.value))

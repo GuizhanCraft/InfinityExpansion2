@@ -1,14 +1,18 @@
 package net.guizhanss.infinityexpansion2.implementation.items.sfextension
 
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
+import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config as CSCoreLibConfig
 import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.abstractItems.MachineFuel
+import me.mrCookieSlime.Slimefun.Objects.handlers.BlockTicker
 import me.mrCookieSlime.Slimefun.api.BlockStorage
 import net.guizhanss.guizhanlib.kt.minecraft.extensions.toItem
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import org.bukkit.Location
 import org.bukkit.Material
+import org.bukkit.block.Block
 import org.bukkit.entity.LivingEntity
 import org.bukkit.inventory.ItemStack
 import org.bukkit.potion.PotionEffect
@@ -24,6 +28,8 @@ class NetherStarReactor(
     private val capacity: Int,
 ) : SlimefunNetherStarReactor(itemGroup, itemStack, recipeType, recipe) {
 
+    private var sfTickCount: Int = 0
+
     override fun getEnergyProduction() = energyPerTick
 
     override fun getCapacity() = capacity
@@ -32,8 +38,22 @@ class NetherStarReactor(
         registerFuel(MachineFuel(600, Material.NETHER_STAR.toItem()))
     }
 
+    override fun preRegister() {
+        addItemHandler(object : BlockTicker() {
+            override fun isSynchronized() = false
+
+            override fun tick(b: Block, sfItem: SlimefunItem, config: CSCoreLibConfig) {
+                // nothing to do here
+            }
+
+            override fun uniqueTick() {
+                sfTickCount++
+            }
+        })
+    }
+
     override fun extraTick(l: Location) {
-        if (InfinityExpansion2.sfTickCount() % 4 != 0) {
+        if (sfTickCount % 4 != 0) {
             return
         }
 

@@ -75,7 +75,7 @@ class Quarry(
     }
 
     private fun shouldProduce() =
-        InfinityExpansion2.sfTickCount() % (getCustomTickRate() * InfinityExpansion2.configService.quarryInterval.value) == 0
+        sfTickCount % (getCustomTickRate() * InfinityExpansion2.configService.quarryInterval.value) == 0
 
     private fun produce(menu: BlockMenu): ItemStack? {
         val env = menu.location.world.environment

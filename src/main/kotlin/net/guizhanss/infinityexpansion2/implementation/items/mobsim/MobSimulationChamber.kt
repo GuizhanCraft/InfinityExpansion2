@@ -107,7 +107,7 @@ class MobSimulationChamber(
         menu.setEnergyConsumption(energy)
         menu.replaceExistingItem(XP_SLOT, GuiItems.experience(currentXp))
 
-        if (InfinityExpansion2.sfTickCount() % (InfinityExpansion2.configService.mobSimInterval.value * getCustomTickRate()) == 0) {
+        if (sfTickCount % (InfinityExpansion2.configService.mobSimInterval.value * getCustomTickRate()) == 0) {
             val xp = floor(props.experience * InfinityExpansion2.configService.mobSimExpMultiplier.value).toInt()
             l.setInt(XP_KEY, currentXp + xp)
 
