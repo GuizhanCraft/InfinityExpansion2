@@ -4,7 +4,6 @@ import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
-import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config as CSCoreLibConfig
 import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.abstractItems.MachineFuel
 import me.mrCookieSlime.Slimefun.Objects.handlers.BlockTicker
 import me.mrCookieSlime.Slimefun.api.BlockStorage
@@ -18,6 +17,7 @@ import org.bukkit.inventory.ItemStack
 import org.bukkit.potion.PotionEffect
 import org.bukkit.potion.PotionEffectType
 import io.github.thebusybiscuit.slimefun4.implementation.items.electric.reactors.NetherStarReactor as SlimefunNetherStarReactor
+import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config as CSCoreLibConfig
 
 class NetherStarReactor(
     itemGroup: ItemGroup,

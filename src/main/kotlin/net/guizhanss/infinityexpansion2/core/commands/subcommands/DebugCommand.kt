@@ -6,7 +6,7 @@ import net.guizhanss.infinityexpansion2.core.commands.AbstractSubCommand
 import net.guizhanss.infinityexpansion2.core.debug.DebugCase
 import net.guizhanss.infinityexpansion2.utils.constant.Strings
 import org.bukkit.command.CommandSender
-import java.util.*
+import java.util.Locale
 
 /**
  * Debug control command

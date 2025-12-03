@@ -1,11 +1,11 @@
 package net.guizhanss.infinityexpansion2.implementation.setup
 
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
 import io.github.thebusybiscuit.slimefun4.api.researches.Research
+import net.guizhanss.guizhanlib.kt.slimefun.items.toItem
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.implementation.IEItems
 import net.guizhanss.infinityexpansion2.utils.bukkitext.ie2Key
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
-import net.guizhanss.guizhanlib.kt.slimefun.items.toItem
 
 internal object ResearchSetup {
 

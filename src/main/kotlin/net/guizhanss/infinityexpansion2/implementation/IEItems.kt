@@ -24,6 +24,7 @@ import net.guizhanss.infinityexpansion2.implementation.items.generators.Infinity
 import net.guizhanss.infinityexpansion2.implementation.items.generators.InfinitySingularityReactor
 import net.guizhanss.infinityexpansion2.implementation.items.machines.AdvancedAnvil
 import net.guizhanss.infinityexpansion2.implementation.items.machines.CobblePress
+import net.guizhanss.infinityexpansion2.implementation.items.machines.CobblestoneGenerator
 import net.guizhanss.infinityexpansion2.implementation.items.machines.Decompressor
 import net.guizhanss.infinityexpansion2.implementation.items.machines.DustExtractor
 import net.guizhanss.infinityexpansion2.implementation.items.machines.ExtremeFreezer
@@ -32,6 +33,7 @@ import net.guizhanss.infinityexpansion2.implementation.items.machines.GearTransf
 import net.guizhanss.infinityexpansion2.implementation.items.machines.GeoQuarry
 import net.guizhanss.infinityexpansion2.implementation.items.machines.InfinityWorkbench
 import net.guizhanss.infinityexpansion2.implementation.items.machines.IngotFormer
+import net.guizhanss.infinityexpansion2.implementation.items.machines.ObsidianGenerator
 import net.guizhanss.infinityexpansion2.implementation.items.machines.Quarry
 import net.guizhanss.infinityexpansion2.implementation.items.machines.ResourceSynthesizer
 import net.guizhanss.infinityexpansion2.implementation.items.machines.SingularityConstructor
@@ -42,8 +44,6 @@ import net.guizhanss.infinityexpansion2.implementation.items.machines.UraniumExt
 import net.guizhanss.infinityexpansion2.implementation.items.machines.UraniumIngotExtractor
 import net.guizhanss.infinityexpansion2.implementation.items.machines.VirtualFarm
 import net.guizhanss.infinityexpansion2.implementation.items.machines.VoidHarvester
-import net.guizhanss.infinityexpansion2.implementation.items.machines.CobblestoneGenerator
-import net.guizhanss.infinityexpansion2.implementation.items.machines.ObsidianGenerator
 import net.guizhanss.infinityexpansion2.implementation.items.materials.EnderEssence
 import net.guizhanss.infinityexpansion2.implementation.items.materials.SimpleMaterial
 import net.guizhanss.infinityexpansion2.implementation.items.materials.Singularity

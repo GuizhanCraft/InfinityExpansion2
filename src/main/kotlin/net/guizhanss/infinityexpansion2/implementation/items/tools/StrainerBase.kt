@@ -38,7 +38,6 @@ class StrainerBase(
     override val wikiUrl = "tools/strainer"
 
     private var sfTickCount: Int = 0
-        private set
 
     private val tickRateSetting = IntRangeSetting(this, "tick-rate", 1, 10, 120)
 

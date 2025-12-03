@@ -4,7 +4,6 @@ import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem
 import io.github.thebusybiscuit.slimefun4.libraries.dough.items.ItemUtils
 import io.github.thebusybiscuit.slimefun4.utils.itemstack.ItemStackWrapper
 import net.guizhanss.guizhanlib.kt.slimefun.debug.debugMessage
-import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.core.debug.DebugCase
 import net.guizhanss.infinityexpansion2.utils.Debug
 import net.guizhanss.infinityexpansion2.utils.items.isSimilar

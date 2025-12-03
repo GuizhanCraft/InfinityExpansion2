@@ -7,7 +7,6 @@ import io.github.schntgaispock.slimehud.waila.HudRequest
 import io.github.thebusybiscuit.slimefun4.implementation.Slimefun
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
 import net.guizhanss.infinityexpansion2.core.items.annotations.HudProvider
-import java.util.function.Function
 import java.util.logging.Level
 import kotlin.reflect.full.companionObject
 import kotlin.reflect.full.companionObjectInstance

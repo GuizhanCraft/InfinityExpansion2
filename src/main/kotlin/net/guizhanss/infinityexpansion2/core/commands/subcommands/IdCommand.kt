@@ -1,10 +1,8 @@
 package net.guizhanss.infinityexpansion2.core.commands.subcommands
 
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem
-import io.github.thebusybiscuit.slimefun4.implementation.Slimefun
 import net.guizhanss.guizhanlib.minecraft.commands.AbstractCommand
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
-import net.guizhanss.infinityexpansion2.api.InfinityExpansion2API
 import net.guizhanss.infinityexpansion2.core.commands.AbstractSubCommand
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
