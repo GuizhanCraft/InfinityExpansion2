@@ -69,7 +69,7 @@ class StoneworksFactory(
     override fun process(b: Block, menu: BlockMenu): Boolean {
         menu.setStatus { GuiItems.PRODUCING }
 
-        val tick = sfTickCount / getCustomTickRate() % (CHOICE_SLOTS.size + 1)
+        val tick = tickCount / getCustomTickRate() % (CHOICE_SLOTS.size + 1)
         if (tick == CHOICE_SLOTS.size) {
             menu.pushItem(Material.COBBLESTONE.toItem(speed), ITEM_SLOTS[0])
         } else {

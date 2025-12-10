@@ -45,7 +45,7 @@ class GeoQuarry(
     }
 
     private fun shouldProduce() =
-        sfTickCount % (getCustomTickRate() * outputIntervalSetting.value) == 0
+        tickCount % (getCustomTickRate() * outputIntervalSetting.value) == 0
 
     private fun produce(menu: BlockMenu): ItemStack {
         val biome = menu.location.block.biome

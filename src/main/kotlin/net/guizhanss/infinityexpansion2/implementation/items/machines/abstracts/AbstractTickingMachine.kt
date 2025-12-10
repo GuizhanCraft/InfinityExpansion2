@@ -36,9 +36,6 @@ abstract class AbstractTickingMachine(
     // should avoid accessing this directly, use getEnergyConsumptionPerTick() instead
     protected val energyPerTickSetting = IntRangeSetting(this, "energy-per-tick", 1, energyPerTick, 1_000_000_000)
 
-    protected var sfTickCount: Int = 0
-        private set
-
     init {
         addItemSetting(tickRateSetting, energyPerTickSetting)
     }
@@ -62,13 +59,9 @@ abstract class AbstractTickingMachine(
     override fun tick(b: Block, menu: BlockMenu) {
         if (getCharge(menu.location) < getEnergyConsumptionPerTick()) {
             menu.setStatus { GuiItems.NO_POWER }
-        } else if (sfTickCount % getCustomTickRate() == 0 && process(b, menu)) {
+        } else if (tickCount % getCustomTickRate() == 0 && process(b, menu)) {
             removeCharge(menu.location, getEnergyConsumptionPerTick())
         }
-    }
-
-    override fun uniqueTick() {
-        sfTickCount++
     }
 
     protected abstract fun process(b: Block, menu: BlockMenu): Boolean

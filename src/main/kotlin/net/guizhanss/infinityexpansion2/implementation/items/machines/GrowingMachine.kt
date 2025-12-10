@@ -75,7 +75,7 @@ open class GrowingMachine(
     }
 
     private fun shouldProduce() =
-        sfTickCount % (getCustomTickRate() * outputIntervalSetting.value) == 0
+        tickCount % (getCustomTickRate() * outputIntervalSetting.value) == 0
 
     override fun getDefaultDisplayRecipes() = _recipes.flatMap { it.toPair().toDisplayRecipe() }
 
