@@ -8,16 +8,21 @@ import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
 import io.github.thebusybiscuit.slimefun4.core.attributes.EnergyNetProvider
 import io.github.thebusybiscuit.slimefun4.core.handlers.BlockUseHandler
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config
+import me.mrCookieSlime.Slimefun.Objects.handlers.BlockTicker
 import net.guizhanss.guizhanlib.common.utils.StringUtil
+import net.guizhanss.guizhanlib.kt.slimefun.utils.getSfItem
 import net.guizhanss.infinityexpansion2.InfinityExpansion2
+import net.guizhanss.infinityexpansion2.core.debug.DebugCase
 import net.guizhanss.infinityexpansion2.core.items.attributes.CustomTickRateMachine
 import net.guizhanss.infinityexpansion2.core.items.attributes.CustomWikiItem
 import net.guizhanss.infinityexpansion2.core.items.attributes.EnergyProducer
 import net.guizhanss.infinityexpansion2.core.items.attributes.InformationalRecipeDisplayItem
+import net.guizhanss.infinityexpansion2.utils.Debug
 import net.guizhanss.infinityexpansion2.utils.constant.Strings
 import net.guizhanss.infinityexpansion2.utils.items.GuiItems
 import net.guizhanss.infinityexpansion2.utils.slimefunext.powerPerTickToSecond
 import org.bukkit.Location
+import org.bukkit.block.Block
 import org.bukkit.inventory.ItemStack
 
 class EnergyGenerator(
@@ -43,9 +48,12 @@ class EnergyGenerator(
     private val energyProductionSetting =
         IntRangeSetting(this, "energy-production", 1, defaultProduction, 16_777_215) // 2 ^ 24 - 1
 
+    var tickCount: Int = 0
+        private set
+
     init {
         addItemSetting(tickRateSetting, energyProductionSetting)
-        addItemHandler(onBlockClick())
+        addItemHandler(onBlockClick(), onBlockTick())
     }
 
     override fun getCapacity() = energyProductionSetting.value * 128
@@ -54,8 +62,27 @@ class EnergyGenerator(
 
     override fun getCustomTickRate() = tickRateSetting.value
 
-    override fun getGeneratedOutput(l: Location, data: Config) =
-        type.generate(l.world!!, l.block, getEnergyProduction())
+    override fun getGeneratedOutput(l: Location, data: Config): Int {
+        val sfItem = l.getSfItem()
+        if (sfItem !is EnergyGenerator) {
+            Debug.log(DebugCase.ENERGY_GENERATOR, "Generator instance is invalid at: $l")
+            return 0
+        }
+        if (sfItem.tickCount % getCustomTickRate() != 0) return 0
+        return type.generate(l.world!!, l.block, sfItem, getEnergyProduction())
+    }
+
+    private fun onBlockTick() = object : BlockTicker() {
+        override fun tick(b: Block, item: SlimefunItem, config: Config) {
+            // nothing to do here
+        }
+
+        override fun uniqueTick() {
+            tickCount++
+        }
+
+        override fun isSynchronized() = false
+    }
 
     private fun onBlockClick() = BlockUseHandler { e ->
         if (e.clickedBlock.isEmpty) return@BlockUseHandler
@@ -69,7 +96,7 @@ class EnergyGenerator(
         integration.sendMessage(p, "generators.type", StringUtil.humanize(type.name))
         integration.sendMessage(p, "generators.tick-rate", getCustomTickRate())
 
-        val generation = type.generate(block.world, block, getEnergyProduction())
+        val generation = type.generate(block.world, block, sfItem, getEnergyProduction())
         integration.sendMessage(
             p,
             "generators.working",

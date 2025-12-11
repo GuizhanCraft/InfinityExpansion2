@@ -58,7 +58,7 @@ class StrainerBase(
 
     override fun tick(b: Block, menu: BlockMenu) {
         if (isDisabledIn(b.world)) return
-        if (!b.isWaterLogged()) return
+        if (!b.isWaterLogged(tickCount)) return
         if (tickCount % tickRateSetting.value != 0) return
 
         val strainerItem = menu.getItemInSlot(inputSlots[0])

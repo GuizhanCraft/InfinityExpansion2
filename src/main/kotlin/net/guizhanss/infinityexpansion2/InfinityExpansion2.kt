@@ -181,8 +181,6 @@ class InfinityExpansion2 : AbstractAddon(
 
         fun scheduler() = getScheduler()
 
-        fun sfTickCount() = getSlimefunTickCount()
-
         fun log(level: Level, message: String) {
             instance.logger.log(level, message)
         }

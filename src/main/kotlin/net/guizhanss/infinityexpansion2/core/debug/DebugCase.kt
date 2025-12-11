@@ -7,6 +7,7 @@ enum class DebugCase {
     TAG,
     INFINITY_GEAR_CONFIG,
     MACHINE_RECIPE,
+    ENERGY_GENERATOR,
     OSCILLATOR,
     VEIN_MINER,
     ADVANCED_ANVIL,
