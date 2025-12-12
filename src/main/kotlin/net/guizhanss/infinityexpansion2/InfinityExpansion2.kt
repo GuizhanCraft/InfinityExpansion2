@@ -34,7 +34,8 @@ class InfinityExpansion2 : AbstractAddon(
 
     override fun load() {
         // check if there is central repo prop defined
-        val centralRepo = System.getProperty("centralRepository") ?: "https://repo1.maven.org/maven2/"
+        val centralRepo =
+            System.getProperty("centralRepository") ?: "https://maven-central.storage-download.googleapis.com/maven2/"
 
         logger.info("Loading libraries, please wait...")
         logger.info("If you stuck here for a long time, try to specify a mirror repository.")
@@ -44,10 +45,10 @@ class InfinityExpansion2 : AbstractAddon(
         val manager = BukkitLibraryManager(this)
         manager.addRepository(centralRepo)
         manager.loadLibrary(
-            Library.builder().groupId("org.jetbrains.kotlin").artifactId("kotlin-stdlib").version("2.2.20").build()
+            Library.builder().groupId("org.jetbrains.kotlin").artifactId("kotlin-stdlib").version("2.2.21").build()
         )
         manager.loadLibrary(
-            Library.builder().groupId("org.jetbrains.kotlin").artifactId("kotlin-reflect").version("2.2.20").build()
+            Library.builder().groupId("org.jetbrains.kotlin").artifactId("kotlin-reflect").version("2.2.21").build()
         )
 
         logger.info("Loaded all required libraries.")
