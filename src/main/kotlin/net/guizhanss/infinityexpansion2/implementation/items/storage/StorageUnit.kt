@@ -237,7 +237,10 @@ class StorageUnit(
                 // empty storage && no item in output
                 if (cache.isEmpty() && outputItem.isAir()) return
 
-                cache.itemStack = outputItem.edit { amount(1) }
+                // Fix: only set the item type if storage is actually empty
+                if (cache.isEmpty()) {
+                    cache.itemStack = outputItem.edit { amount(1) }
+                }
 
                 for (item in pInv.storageContents) {
                     if (item.isAir() || item.isBlacklisted()) continue
