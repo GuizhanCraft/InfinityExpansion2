@@ -98,8 +98,18 @@ class StoneworksFactory(
         val nextSlot = ITEM_SLOTS.getOrElse(tick + 1) { layout.outputSlots[0] }
         val nextItem = menu.getItemInSlot(nextSlot)
         val choice = menu.getChoice(tick)
-        val targetItem = (choice.map[currentItem.type] ?: currentItem.type).toItem(speed)
-        // check if the item in the next slot isn't empty and isn't the target item
+        
+        val mappedType = choice.map[currentItem.type]
+
+        val targetItem = if (mappedType != null) {
+            // Recipe exists: Create the new transformed item
+            mappedType.toItem(speed)
+        } else {
+            // No recipe (Choice.NONE): Clone the original item to preserve NBT/Slimefun data
+            currentItem.clone().also { it.amount = speed }
+        }
+
+        // Ensure the next slot is either empty or holds a matching item
         if (nextItem != null && !SlimefunUtils.isItemSimilar(nextItem, targetItem, false)) return
 
         if (nextItem == null) {
