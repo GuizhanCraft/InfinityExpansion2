@@ -8,7 +8,10 @@ import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ClickAction
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenuPreset
 import net.guizhanss.guizhanlib.kt.common.extensions.valueOfOrNull
+import net.guizhanss.guizhanlib.kt.minecraft.extensions.isAir
 import net.guizhanss.guizhanlib.kt.minecraft.extensions.toItem
+import net.guizhanss.guizhanlib.kt.minecraft.items.edit
+import net.guizhanss.guizhanlib.kt.slimefun.extensions.isSlimefunItem
 import net.guizhanss.guizhanlib.kt.slimefun.items.builder.asMaterialType
 import net.guizhanss.guizhanlib.kt.slimefun.utils.getString
 import net.guizhanss.guizhanlib.kt.slimefun.utils.hasData
@@ -92,27 +95,32 @@ class StoneworksFactory(
     private fun process(menu: BlockMenu, tick: Int) {
         val slot = ITEM_SLOTS[tick]
         val currentItem = menu.getItemInSlot(slot)
-        // no need to move item if item's amount is less than speed
-        if (currentItem == null || currentItem.amount < speed) return
+        // nothing to do if current item is empty
+        if (currentItem.isAir()) return
+        val processedAmount = currentItem.amount.coerceAtMost(speed)
 
         val nextSlot = ITEM_SLOTS.getOrElse(tick + 1) { layout.outputSlots[0] }
         val nextItem = menu.getItemInSlot(nextSlot)
-        val choice = menu.getChoice(tick)
-        val targetItem = (choice.map[currentItem.type] ?: currentItem.type).toItem(speed)
-        // check if the item in the next slot isn't empty and isn't the target item
-        if (nextItem != null && !SlimefunUtils.isItemSimilar(nextItem, targetItem, false)) return
 
-        if (nextItem == null) {
-            // no item in the next slot, just move the item
-            menu.consumeItem(slot, speed)
-            menu.pushItem(targetItem, nextSlot)
+        val processedItem = if (currentItem.isSlimefunItem()) {
+            // slimefun items are only moved
+            currentItem.clone().edit { amount(processedAmount) }
         } else {
+            // non-slimefun items are processed
+            val choice = menu.getChoice(tick)
+            (choice.map[currentItem.type] ?: currentItem.type).toItem(processedAmount)
+        }
+
+        if (nextItem.isAir()) {
+            // no item in the next slot, just move the item
+            menu.consumeItem(slot, processedAmount)
+            menu.pushItem(processedItem, nextSlot)
+        } else {
+            // check if the item in the next slot is the processed item
+            if (!SlimefunUtils.isItemSimilar(nextItem, processedItem, false, false)) return
+
             // similar item, calculate the amount to move
-            val amount = if (nextItem.amount + speed <= targetItem.maxStackSize) {
-                speed
-            } else {
-                targetItem.maxStackSize - nextItem.amount
-            }
+            val amount = processedAmount.coerceAtMost(processedItem.maxStackSize - nextItem.amount)
 
             // item has maxed amount, no more room
             if (amount == 0) return
