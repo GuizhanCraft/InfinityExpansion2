@@ -54,7 +54,7 @@ open class SingularityItem(private val singularity: Singularity) : NormalSlimefu
                 GuiItems.increaseProgress(progress).edit {
                     amount(progress)
                     meta {
-                        if (MinecraftVersionUtil.isAtLeast(20, 5)) {
+                        if (MinecraftVersionUtil.isAtLeast(1, 20, 5)) {
                             setMaxStackSize(progress.coerceAtMost(99))
                         }
                     }

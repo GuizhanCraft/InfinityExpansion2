@@ -43,7 +43,7 @@ class SmithingTemplateRandomizer(
             Material.SPIRE_ARMOR_TRIM_SMITHING_TEMPLATE.toItem()
         )
 
-        if (MinecraftVersionUtil.isAtLeast(21)) {
+        if (MinecraftVersionUtil.isAtLeast(1, 21)) {
             templates += arrayOf(
                 Material.BOLT_ARMOR_TRIM_SMITHING_TEMPLATE.toItem(),
                 Material.FLOW_ARMOR_TRIM_SMITHING_TEMPLATE.toItem(),
