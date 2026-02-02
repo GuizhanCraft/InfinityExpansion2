@@ -1,0 +1,73 @@
+name: Deploy to Guizhan Resources
+
+on:
+  workflow_run:
+    workflows: ["CI"]
+    types:
+      - completed
+    branches:
+      - master
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v3
+
+      - name: Build with Gradle
+        run: ./gradlew clean shadowJar
+
+      - name: Get Version and Filename
+        id: version
+        run: |
+          # Find the built jar
+          JAR_PATH=$(ls build/libs/InfinityExpansion2-*.jar | head -n 1)
+          FILENAME=$(basename "$JAR_PATH")
+
+          # Extract version from filename
+          # Filename format: InfinityExpansion2-<version>.jar
+          VERSION=${FILENAME#InfinityExpansion2-}
+          VERSION=${VERSION%.jar}
+
+          echo "jar_path=$JAR_PATH" >> $GITHUB_OUTPUT
+          echo "filename=$FILENAME" >> $GITHUB_OUTPUT
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+
+          echo "Found jar: $JAR_PATH"
+          echo "Version: $VERSION"
+
+      - name: Create JSON Payload
+        id: payload
+        run: |
+          cat <<EOF > payload.json
+          {
+            "version": "${{ steps.version.outputs.version }}",
+            "name": "v${{ steps.version.outputs.version }}",
+            "channel": "preview",
+            "changelog": "Automated build from GitHub Actions",
+            "files": ["${{ steps.version.outputs.filename }}"]
+          }
+          EOF
+
+      - name: Upload to Guizhan Resources
+        run: |
+          curl -X POST "${{ vars.GUIZHAN_RESOURCES_BASE_URL }}/api/projects/${{ vars.GUIZHAN_RESOURCES_PROJECT_ID }}/versions" \
+            -H "Authorization: Bearer ${{ secrets.GUIZHAN_RESOURCES_TOKEN }}" \
+            -F "data=$(cat payload.json)" \
+            -F "${{ steps.version.outputs.filename }}=@${{ steps.version.outputs.jar_path }}"
+        env:
+          GUIZHAN_RESOURCES_TOKEN: ${{ secrets.GUIZHAN_RESOURCES_TOKEN }}

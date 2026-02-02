@@ -7,6 +7,7 @@ import io.github.thebusybiscuit.slimefun4.core.guide.SlimefunGuideMode
 import io.github.thebusybiscuit.slimefun4.implementation.Slimefun
 import net.guizhanss.infinityexpansion2.api.mobsim.MobDataCardProps
 import net.guizhanss.infinityexpansion2.implementation.items.mobsim.MobDataCard
+import net.guizhanss.infinityexpansion2.utils.SlimefunReflection
 import net.guizhanss.infinityexpansion2.utils.slimefunext.displayItem
 import org.bukkit.entity.Player
 import org.bukkit.inventory.ItemStack
@@ -39,7 +40,7 @@ object InfinityExpansion2API {
         val card = MobDataCard.create(displayItem, props.recipe, props)
         card.register(addon)
         // in case autoloading is not yet enabled but item is registered
-        if (!Slimefun.getRegistry().isAutoLoadingEnabled) {
+        if (!SlimefunReflection.isAutoLoadingEnabled()) {
             card.load()
         }
     }
