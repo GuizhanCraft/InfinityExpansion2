@@ -125,9 +125,15 @@ items:
   _UI_DISABLED:
     conditions:
       force-load: true
+    name: "&c已禁用"
+    lore:
+      - "&7此机器已禁用。"
   _UI_DISABLED_IN_WORLD:
     conditions:
       force-load: true
+    name: "&c已禁用"
+    lore:
+      - "&7此机器在这个世界中被禁用。"
   _UI_SUCCESS:
     conditions:
       force-load: true
@@ -144,6 +150,7 @@ items:
   _UI_DISPLAY_RECIPES:
     conditions:
       force-load: true
+    name: "&e点击以显示配方"
   _UI_WORLD_NORMAL:
     conditions:
       force-load: true
@@ -312,13 +319,6 @@ items:
     lore-overrides:
       1: "&e无尽奇点剩余时间（粘液刻）："
   #ui - storage unit specific
-  _UI_STORAGE_ACTIONS_INV:
-    conditions:
-      force-load: true
-    name: "&a物品栏操作"
-    lore:
-      - "&e左键点击&7以从物品栏中存入"
-      - "&e右键点击&7以取出到背包"
   _UI_STORAGE_NO_ITEM:
     conditions:
       force-load: true
@@ -349,6 +349,15 @@ items:
       - "&7&l不会&7被清空"
       - ""
       - "&e点击&7切换"
+  _UI_STORAGE_DEPOSIT:
+    conditions:
+      force-load: true
+  _UI_STORAGE_WITHDRAW_SINGLE:
+    conditions:
+      force-load: true
+  _UI_STORAGE_WITHDRAW_ALL:
+    conditions:
+      force-load: true
   #in-game guide items
   _GUIDE_INTRO:
     name: "&e介绍"

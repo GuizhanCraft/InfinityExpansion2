@@ -1,0 +1,253 @@
+items:
+  #item groups
+  _IG_MAIN:
+    conditions:
+      force-load: true
+  _IG_MATERIALS:
+    conditions:
+      force-load: true
+  _IG_SINGULARITIES:
+    conditions:
+      force-load: true
+  _IG_SLIMEFUN_EXPANSION:
+    conditions:
+      force-load: true
+  _IG_FOOD:
+    conditions:
+      force-load: true
+  _IG_TOOLS:
+    conditions:
+      force-load: true
+  _IG_GEAR:
+    conditions:
+      force-load: true
+  _IG_MACHINES:
+    conditions:
+      force-load: true
+  _IG_GENERATORS:
+    conditions:
+      force-load: true
+  _IG_MOB_SIMULATION:
+    conditions:
+      force-load: true
+  _IG_STORAGE:
+    conditions:
+      force-load: true
+  _IG_HIDDEN:
+    conditions:
+      force-load: true
+  #recipe types
+  _RECIPE_VOID_HARVESTER:
+    conditions:
+      force-load: true
+  _RECIPE_INFINITY_WORKBENCH:
+    conditions:
+      force-load: true
+  _RECIPE_SINGULARITY_CONSTRUCTOR:
+    conditions:
+      force-load: true
+  _RECIPE_MOB_DATA_INFUSER:
+    conditions:
+      force-load: true
+  _RECIPE_STORAGE_FORGE:
+    conditions:
+      force-load: true
+  #ui items
+  _UI_GUIDE:
+    conditions:
+      force-load: true
+  _UI_WIKI:
+    conditions:
+      force-load: true
+  _UI_COLLECTING:
+    conditions:
+      force-load: true
+  _UI_PRODUCING:
+    conditions:
+      force-load: true
+  _UI_NO_ROOM:
+    conditions:
+      force-load: true
+  _UI_NO_POWER:
+    conditions:
+      force-load: true
+  _UI_INVALID_INPUT:
+    conditions:
+      force-load: true
+  _UI_DISABLED:
+    conditions:
+      force-load: true
+  _UI_DISABLED_IN_WORLD:
+    conditions:
+      force-load: true
+  _UI_SUCCESS:
+    conditions:
+      force-load: true
+  _UI_PROGRESS:
+    conditions:
+      force-load: true
+  _UI_CRAFT:
+    conditions:
+      force-load: true
+  #ui - display recipe info
+  _UI_DISPLAY_RECIPES:
+    conditions:
+      force-load: true
+  _UI_WORLD_NORMAL:
+    conditions:
+      force-load: true
+  _UI_WORLD_NETHER:
+    conditions:
+      force-load: true
+  _UI_WORLD_THE_END:
+    conditions:
+      force-load: true
+  _UI_PRODUCES:
+    conditions:
+      force-load: true
+  _UI_RECIPES:
+    conditions:
+      force-load: true
+  _UI_TICK_RATE:
+    conditions:
+      force-load: true
+  _UI_ENERGY_CONSUMPTION:
+    conditions:
+      force-load: true
+  _UI_ENERGY_PRODUCTION:
+    conditions:
+      force-load: true
+  _UI_OUTPUT_INTERVAL:
+    conditions:
+      force-load: true
+  _UI_PROGRESS_TOTAL:
+    conditions:
+      force-load: true
+  _UI_PROGRESS_INCREASE:
+    conditions:
+      force-load: true
+  _UI_CHANCE:
+    conditions:
+      force-load: true
+  _UI_SF_ITEM:
+    conditions:
+      force-load: true
+  _UI_EXPERIENCE:
+    conditions:
+      force-load: true
+  _UI_OSCILLATOR_SLOT:
+    conditions:
+      force-load: true
+  _UI_POTION_EFFECTS:
+    conditions:
+      force-load: true
+  _UI_PROTECTION_TYPES:
+    conditions:
+      force-load: true
+  #ui = strainer specific
+  _UI_ANY_STRAINER:
+    conditions:
+      force-load: true
+  #ui - stoneworks factory specific
+  _UI_SW_CHANGE:
+    conditions:
+      force-load: true
+  _UI_SW_NONE:
+    conditions:
+      force-load: true
+  _UI_SW_FURNACE:
+    conditions:
+      force-load: true
+  _UI_SW_CRUSH:
+    conditions:
+      force-load: true
+  _UI_SW_COMPACT:
+    conditions:
+      force-load: true
+  _UI_SW_TRANSFORM:
+    conditions:
+      force-load: true
+  #ui - gear transformer specific
+  _UI_GT_GEAR:
+    conditions:
+      force-load: true
+  _UI_GT_MATERIAL:
+    conditions:
+      force-load: true
+  _UI_GT_NO_SLIMEFUN:
+    conditions:
+      force-load: true
+  #ui - advanced anvil specific
+  _UI_AA_MAX_ENCHANTMENT_LEVEL:
+    conditions:
+      force-load: true
+  #ui - infinity reactor specific
+  _UI_IR_BORDER_VOID:
+    conditions:
+      force-load: true
+  _UI_IR_BORDER_INFINITY:
+    conditions:
+      force-load: true
+  _UI_IR_NEED_VOID:
+    conditions:
+      force-load: true
+  _UI_IR_NEED_INFINITY:
+    conditions:
+      force-load: true
+  _UI_IR_DURATION_VOID:
+    conditions:
+      force-load: true
+  _UI_IR_DURATION_INFINITY:
+    conditions:
+      force-load: true
+  _UI_IR_INFO:
+    conditions:
+      force-load: true
+  #ui - infinity singularity reactor specific
+  _UI_ISR_BORDER:
+    conditions:
+      force-load: true
+  _UI_ISR_NEED:
+    conditions:
+      force-load: true
+  _UI_ISR_DURATION:
+    conditions:
+      force-load: true
+  _UI_ISR_INFO:
+    conditions:
+      force-load: true
+  #ui - storage unit specific
+  _UI_STORAGE_NO_ITEM:
+    conditions:
+      force-load: true
+  _UI_STORAGE_CAPACITY:
+    conditions:
+      force-load: true
+  _UI_STORAGE_AMOUNT:
+    conditions:
+      force-load: true
+  _UI_STORAGE_VOID_EXCESS_ON:
+    conditions:
+      force-load: true
+  _UI_STORAGE_VOID_EXCESS_OFF:
+    conditions:
+      force-load: true
+  _UI_STORAGE_DEPOSIT:
+    conditions:
+      force-load: true
+  _UI_STORAGE_WITHDRAW_SINGLE:
+    conditions:
+      force-load: true
+  _UI_STORAGE_WITHDRAW_ALL:
+    conditions:
+      force-load: true
+  #items - materials
+  ENDER_ESSENCE:
+    conditions:
+      match-lore: true
+  POTATO_FISH:
+    conditions:
+      force-load: true
+  INFINITY_MATRIX:
+    options:
+      partial-override: true
