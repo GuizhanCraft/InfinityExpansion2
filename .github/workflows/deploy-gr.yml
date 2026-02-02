@@ -68,6 +68,6 @@ jobs:
           curl -X POST "${{ vars.GUIZHAN_RESOURCES_BASE_URL }}/api/projects/${{ vars.GUIZHAN_RESOURCES_PROJECT_ID }}/versions" \
             -H "Authorization: Bearer ${{ secrets.GUIZHAN_RESOURCES_TOKEN }}" \
             -F "data=$(cat payload.json)" \
-            -F "${{ steps.version.outputs.filename }}=@${{ steps.version.outputs.jar_path }}"
+            -F "${{ steps.version.outputs.filename }}=@${{ steps.version.outputs.jar_path }};type=application/java-archive"
         env:
           GUIZHAN_RESOURCES_TOKEN: ${{ secrets.GUIZHAN_RESOURCES_TOKEN }}
