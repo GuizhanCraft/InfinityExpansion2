@@ -36,7 +36,7 @@ dependencies {
     compileOnly("com.github.schntgaispock:SlimeHUD:1.3.0")
     implementation("net.guizhanss:guizhanlib-all:2.5.0")
     implementation("net.guizhanss:guizhanlib-kt-all:0.2.0")
-    implementation("org.bstats:bstats-bukkit:3.1.0")
+    implementation("org.bstats:bstats-bukkit:3.2.1")
     implementation("com.jeff-media:MorePersistentDataTypes:2.4.0")
 }
 
