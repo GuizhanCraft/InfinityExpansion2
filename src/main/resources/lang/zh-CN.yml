@@ -190,6 +190,22 @@ items:
       &7&l不会&7被清空
 
       &e点击&7切换
+  _UI_STORAGE_DEPOSIT:
+    name: "&b全部存入"
+    lore: |-
+      &e点击&7将背包中所有
+      &e匹配的物品存入
+      &c仅在该存储单元已
+      &c存入物品时可用。
+  _UI_STORAGE_WITHDRAW_SINGLE:
+    name: "&b单次取出"
+    lore: |-
+      &e点击&7取出一个物品。
+  _UI_STORAGE_WITHDRAW_ALL:
+    name: "&b全部取出"
+    lore: |-
+      &e点击&7取出物品并
+      &e尽量填满你的物品栏。
   _GUIDE_INTRO:
     name: "&e介绍"
   _GUIDE_INFO:
@@ -1016,6 +1032,20 @@ messages:
     id:
       description: "获取手上物品的 Slimefun ID。"
       message: "&7您手中的物品的 Slimefun 项目是 &f{0}&7, ID为：(点击下面的 ID 复制)"
+    debug:
+      description: "管理插件的调试案例。"
+      invalid-action: "&c无效的操作: &f{0}"
+      list:
+        general: "&6&e通用调试: {0}"
+        header: "&7调试案例:"
+        item: "&7  - &f{0}: {1}"
+      general:
+        enabled: "&a开启通用调试。"
+        disabled: "&c关闭通用调试。"
+      case:
+        invalid: "&c无效的调试案例: &f{0}"
+        enabled: "&a开启调试案例: &f{0}"
+        disabled: "&c关闭调试案例: &f{0}"
   vein-miner:
     applied: "&a矿脉矿工已应用于该物品。"
     no-hunger: "&c你的饥饿度不足以进行该操作。"
