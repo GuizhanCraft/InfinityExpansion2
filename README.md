@@ -17,21 +17,22 @@ features and improvements.
 > remaining content may still undergo significant changes. There may also be breaking updates, although we will try to
 > minimize/avoid these.
 
-Preview builds: [Click here to download](https://staging.resources.guizhanss.com/plugin/InfinityExpansion2/versions)
+Preview builds: [Click here to download](https://resources.guizhanss.com/plugin/InfinityExpansion2/versions)
 
 ### Requirement
 
 - Java 17 or higher
 - Minecraft 1.20 or higher
 - Paper or its forks
-- Slimefun [official](https://github.com/Slimefun/Slimefun4) / [Chinese fork](https://github.com/SlimefunGuguProject/Slimefun4)
+- Slimefun [official](https://github.com/Slimefun/Slimefun4) / [Gugu fork](https://github.com/SlimefunGuguProject/Slimefun4)
 - (Optional) SlimefunTranslation
 - (Optional) SlimeHUD
 
 > [!WARNING]
-> We do not provide direct support for [Slimefun United](https://github.com/Slimefun-United/Slimefun-United). While its
-> code is based on Chinese fork, we believe that InfinityExpansion2 can run on Slimefun United. However, we do not
-> guarantee compatibility.
+> We do not provide direct support for any other Slimefun forks.
+> Since Slimefun was announced to be discontinued, numerous forks have emerged. They may be based on different upstream branches (such as the official `master` branch, the official `experimental` branch, or the Gugu fork), target different Minecraft versions, and include significant breaking changes.
+> 
+> Supporting every fork is not realistic. Please consult the owner of the fork you are using regarding its compatibility with and support for addons.
 
 ## Wiki
 
