@@ -5,6 +5,7 @@ import java.time.ZoneOffset
 import java.time.format.DateTimeFormatter
 
 plugins {
+    `maven-publish`
     kotlin("jvm") version "2.2.21"
     id("com.gradleup.shadow") version "9.3.0"
     id("de.eldoria.plugin-yml.bukkit") version "0.8.0"
@@ -100,19 +101,56 @@ bukkit {
     }
 }
 
-tasks {
-    runServer {
-        downloadPlugins {
-            // Slimefun
-            url("https://blob.build/dl/Slimefun4/Dev/latest")
-            // SlimeHUD
-            url("https://blob.build/dl/SlimeHUD/Dev/latest")
-            // JustEnoughGuide
-//            url("https://blob.build/dl/JustEnoughGuide/Dev/latest")
-            // GuizhanCraft for testing convenient
-            url("https://builds.guizhanss.com/api/download/ybw0014/GuizhanCraft/master/latest")
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            from(components["shadow"])
+
+            groupId = rootProject.group as String
+            artifactId = project.name
+            version = rootProject.version as String
+
+            pom {
+                name = artifactId
+                description = "More Slimefun content"
+                url = "https://github.com/ybw0014/InfinityExpansion2"
+
+                licenses {
+                    license {
+                        name = "GPL-3.0 license"
+                        url = "https://github.com/ybw0014/InfinityExpansion2/blob/master/LICENSE"
+                        distribution = "repo"
+                    }
+                }
+
+                developers {
+                    developer {
+                        name = "ybw0014"
+                        url = "https://ybw0014.dev/"
+                    }
+                }
+
+                scm {
+                    connection = "scm:git:git://github.com/ybw0014/InfinityExpansion2.git"
+                    developerConnection = "scm:git:ssh://github.com:ybw0014/InfinityExpansion2.git"
+                    url = "https://github.com/ybw0014/InfinityExpansion2/tree/master"
+                }
+            }
         }
-        jvmArgs("-Dcom.mojang.eula.agree=true")
-        minecraftVersion("1.20.6")
     }
+}
+
+tasks.runServer {
+    downloadPlugins {
+        // Slimefun
+        url("https://blob.build/dl/Slimefun4/Dev/latest")
+        // SlimeHUD
+        url("https://blob.build/dl/SlimeHUD/Dev/latest")
+        // JustEnoughGuide
+//            url("https://blob.build/dl/JustEnoughGuide/Dev/latest")
+        // GuizhanCraft for testing convenient
+        url("https://builds.guizhanss.com/api/download/ybw0014/GuizhanCraft/master/latest")
+    }
+    jvmArgs("-Dcom.mojang.eula.agree=true")
+    minecraftVersion("1.20.6")
 }
