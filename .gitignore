@@ -118,3 +118,7 @@ run/
 !gradle-wrapper.jar
 
 .kotlin/
+
+.cortexkit/
+.codegraph/
+.slim/
