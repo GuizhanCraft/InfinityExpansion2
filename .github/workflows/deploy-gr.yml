@@ -59,3 +59,4 @@ jobs:
           name: v${{ steps.version.outputs.version }}
           changelog: Automated build from GitHub Actions
           files: build/libs/InfinityExpansion2-*.jar
+          auto-detect-platform: false
