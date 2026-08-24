@@ -31,7 +31,7 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew clean shadowJar
 
-      - name: Get Version and Filename
+      - name: Get Version
         id: version
         run: |
           # Find the built jar
@@ -43,31 +43,19 @@ jobs:
           VERSION=${FILENAME#InfinityExpansion2-}
           VERSION=${VERSION%.jar}
 
-          echo "jar_path=$JAR_PATH" >> $GITHUB_OUTPUT
-          echo "filename=$FILENAME" >> $GITHUB_OUTPUT
           echo "version=$VERSION" >> $GITHUB_OUTPUT
 
           echo "Found jar: $JAR_PATH"
           echo "Version: $VERSION"
 
-      - name: Create JSON Payload
-        id: payload
-        run: |
-          cat <<EOF > payload.json
-          {
-            "version": "${{ steps.version.outputs.version }}",
-            "name": "v${{ steps.version.outputs.version }}",
-            "channel": "preview",
-            "changelog": "Automated build from GitHub Actions",
-            "files": ["${{ steps.version.outputs.filename }}"]
-          }
-          EOF
-
       - name: Upload to Guizhan Resources
-        run: |
-          curl -X POST "${{ vars.GUIZHAN_RESOURCES_BASE_URL }}/api/projects/${{ vars.GUIZHAN_RESOURCES_PROJECT_ID }}/versions" \
-            -H "Authorization: Bearer ${{ secrets.GUIZHAN_RESOURCES_TOKEN }}" \
-            -F "data=$(cat payload.json)" \
-            -F "${{ steps.version.outputs.filename }}=@${{ steps.version.outputs.jar_path }};type=application/java-archive"
-        env:
-          GUIZHAN_RESOURCES_TOKEN: ${{ secrets.GUIZHAN_RESOURCES_TOKEN }}
+        uses: ybw0014/guizhan-resources-action@v0
+        with:
+          domain: ${{ vars.GUIZHAN_RESOURCES_BASE_URL }}
+          token: ${{ secrets.GUIZHAN_RESOURCES_TOKEN }}
+          project: ${{ vars.GUIZHAN_RESOURCES_PROJECT_ID }}
+          channel: preview
+          version: ${{ steps.version.outputs.version }}
+          name: v${{ steps.version.outputs.version }}
+          changelog: Automated build from GitHub Actions
+          files: build/libs/InfinityExpansion2-*.jar
