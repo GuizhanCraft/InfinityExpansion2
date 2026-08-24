@@ -52,13 +52,16 @@ abstract class AbstractTickingMachine(
 
     override fun getOutputSlots() = layout.outputSlots
 
-    override fun getCapacity() = getEnergyConsumptionPerTick() * 2
+    override fun getCapacity() =
+        (getEnergyConsumptionPerTick().toLong() * 2).coerceAtMost(Int.MAX_VALUE.toLong()).toInt()
 
     override fun getEnergyComponentType() = EnergyNetComponentType.CONSUMER
 
     override fun tick(b: Block, menu: BlockMenu) {
         if (getCharge(menu.location) < getEnergyConsumptionPerTick()) {
-            menu.setStatus { GuiItems.NO_POWER }
+            menu.setStatus {
+                GuiItems.noPower(getEnergyConsumptionPerTick(), getCharge(menu.location), capacity)
+            }
         } else if (tickCount % getCustomTickRate() == 0 && process(b, menu)) {
             removeCharge(menu.location, getEnergyConsumptionPerTick())
         }

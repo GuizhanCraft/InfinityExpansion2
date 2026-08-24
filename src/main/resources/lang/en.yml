@@ -1389,6 +1389,10 @@ lores:
     item: "&aStored item: &7{0}"
     amount: "&bAmount: &7{0}"
     void-excess: "&eVoid Excess: &7{0}"
+  no-power:
+    required: "&7Required: &c{0} &7J"
+    stored: "&7Stored: &e{0} &7J"
+    capacity: "&7Capacity: &b{0} &7J"
 
 researches:
   harvesting_void: "Harvesting the Void"

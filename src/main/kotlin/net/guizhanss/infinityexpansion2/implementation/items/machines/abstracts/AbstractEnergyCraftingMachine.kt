@@ -41,7 +41,9 @@ abstract class AbstractEnergyCraftingMachine(
 
     override fun craft(menu: BlockMenu, p: Player) {
         if (getCharge(menu.location) < getEnergyConsumptionPerAction()) {
-            menu.setStatus { GuiItems.NO_POWER }
+            menu.setStatus {
+                GuiItems.noPower(getEnergyConsumptionPerAction(), getCharge(menu.location), capacity)
+            }
         } else {
             super.craft(menu, p)
         }

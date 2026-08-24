@@ -56,7 +56,8 @@ class EnergyGenerator(
         addItemHandler(onBlockClick(), onBlockTick())
     }
 
-    override fun getCapacity() = energyProductionSetting.value * 128
+    override fun getCapacity() =
+        (energyProductionSetting.value.toLong() * 128).coerceAtMost(Int.MAX_VALUE.toLong()).toInt()
 
     override fun getEnergyProduction() = energyProductionSetting.value
 

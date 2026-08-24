@@ -51,6 +51,15 @@ internal object GuiItems {
         Material.RED_STAINED_GLASS_PANE.asMaterialType(),
         "no_power"
     )
+
+    fun noPower(required: Int, stored: Int, capacity: Int) = InfinityExpansion2.localization.getGuiItem(
+        Material.RED_STAINED_GLASS_PANE.asMaterialType(),
+        "no_power",
+        InfinityExpansion2.localization.getLore("no-power.required", MachineLore.format(required)),
+        InfinityExpansion2.localization.getLore("no-power.stored", MachineLore.format(stored)),
+        InfinityExpansion2.localization.getLore("no-power.capacity", MachineLore.format(capacity)),
+    )
+
     val INVALID_INPUT = InfinityExpansion2.localization.getGuiItem(
         Material.RED_STAINED_GLASS_PANE.asMaterialType(),
         "invalid_input"

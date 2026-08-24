@@ -44,7 +44,13 @@ class MobSimulationChamber(
     override val wikiUrl = "mob-simulation/chamber"
 
     private val energyCapacitySetting =
-        IntRangeSetting(this, "energy-capacity", 1, (energyPerTick * 1000).coerceAtMost(2_000_000_000), 2_000_000_000)
+        IntRangeSetting(
+            this,
+            "energy-capacity",
+            1,
+            (energyPerTick.toLong() * 1000).coerceAtMost(2_000_000_000L).toInt(),
+            2_000_000_000
+        )
 
     init {
         addItemSetting(energyCapacitySetting)
@@ -94,10 +100,19 @@ class MobSimulationChamber(
 
         // handle stackable
         val amount = if (InfinityExpansion2.configService.mobSimAllowStackedCard.value) cardAmount else 1
-        val energy = getEnergyConsumptionPerTick() + props.energy * amount
+        if (props.energy < 0 || amount <= 0) {
+            menu.setStatus { GuiItems.NO_POWER }
+            menu.setEnergyConsumption(0)
+            return false
+        }
+
+        // Energy consumption is non-negative here; only the upper bound needs clamping.
+        val energy = (getEnergyConsumptionPerTick().toLong() + props.energy.toLong() * amount)
+            .coerceAtMost(Int.MAX_VALUE.toLong())
+            .toInt()
 
         if (getCharge(menu.location) < energy) {
-            menu.setStatus { GuiItems.NO_POWER }
+            menu.setStatus { GuiItems.noPower(energy, getCharge(menu.location), capacity) }
             menu.setEnergyConsumption(0)
             return false
         }
@@ -109,7 +124,6 @@ class MobSimulationChamber(
 
         if (tickCount % (InfinityExpansion2.configService.mobSimInterval.value * getCustomTickRate()) == 0) {
             val xp = floor(props.experience * InfinityExpansion2.configService.mobSimExpMultiplier.value).toInt()
-            l.setInt(XP_KEY, currentXp + xp)
 
             if (InfinityExpansion2.configService.mobSimLegacyOutput.value) {
                 val output = props.getRandomDrop()
@@ -119,18 +133,42 @@ class MobSimulationChamber(
                 }
                 menu.pushItem(output.clone(), *outputSlots)
             } else {
-                val drops = mutableListOf<ItemStack>()
+                val selectedDrops = mutableListOf<Pair<ItemStack, Long>>()
+                var outputStackCount = 0L
+
                 props.drops.forEach { (item, chance) ->
                     if (Random.nextDouble() <= chance) {
-                        val totalAmt = item.amount * amount
-                        val stacks = floor(totalAmt * 1.0 / item.maxStackSize).toInt()
+                        val totalAmt = item.amount.toLong() * amount
+                        if (totalAmt <= 0 || item.maxStackSize < 1) {
+                            return@forEach
+                        }
+
+                        val fullStacks = totalAmt / item.maxStackSize
                         val remaining = totalAmt % item.maxStackSize
-                        repeat(stacks) {
-                            drops.add(item.clone().apply { setAmount(maxStackSize) })
+                        val requiredStacks = fullStacks + if (remaining > 0) 1 else 0
+
+                        if (requiredStacks > MAX_OUTPUT_STACKS.toLong() ||
+                            outputStackCount > MAX_OUTPUT_STACKS - requiredStacks
+                        ) {
+                            menu.setStatus { GuiItems.NO_ROOM }
+                            return false
                         }
-                        if (remaining > 0) {
-                            drops.add(item.clone().apply { setAmount(remaining) })
-                        }
+
+                        outputStackCount += requiredStacks
+                        selectedDrops.add(item to totalAmt)
+                    }
+                }
+
+                val drops = mutableListOf<ItemStack>()
+                selectedDrops.forEach { (item, totalAmt) ->
+                    // totalAmt is positive and its required stack count was bounded above.
+                    val stacks = (totalAmt / item.maxStackSize).toInt()
+                    val remaining = (totalAmt % item.maxStackSize).toInt()
+                    repeat(stacks) {
+                        drops.add(item.clone().apply { setAmount(maxStackSize) })
+                    }
+                    if (remaining > 0) {
+                        drops.add(item.clone().apply { setAmount(remaining) })
                     }
                 }
 
@@ -140,6 +178,10 @@ class MobSimulationChamber(
                 }
                 drops.forEach { menu.pushItem(it, *outputSlots) }
             }
+
+            val newXp = (currentXp.toLong() + xp).coerceAtMost(Int.MAX_VALUE.toLong()).toInt()
+            l.setInt(XP_KEY, newXp)
+            menu.replaceExistingItem(XP_SLOT, GuiItems.experience(newXp))
         }
 
         removeCharge(l, energy)
@@ -169,6 +211,7 @@ class MobSimulationChamber(
         private const val ENERGY_CONSUMPTION_SLOT = 5
         private const val XP_SLOT = 8
         private const val XP_KEY = "xp"
+        private const val MAX_OUTPUT_STACKS = 4096
 
         /**
          * Get the data card from the menu input slot (the layout must be [MenuLayout.SINGLE_INPUT]).
