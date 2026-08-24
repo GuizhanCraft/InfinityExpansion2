@@ -2,7 +2,7 @@
 
 ## Project
 
-InfinityExpansion2 — Kotlin rewrite of the Slimefun addon InfinityExpansion. Paper plugin (MC 1.20+, Java 17), single Gradle module (Kotlin DSL, wrapper 8.14.3, Kotlin 2.2.21). There are **no tests**; verification is build + manual in-game testing.
+InfinityExpansion2 — Kotlin rewrite of the Slimefun addon InfinityExpansion. Paper plugin (MC 1.20+, Java 17), single Gradle module (Kotlin DSL, wrapper 9.1.0, Kotlin 2.2.21). There are **no tests**; verification is build + manual in-game testing.
 
 ## Commands
 
